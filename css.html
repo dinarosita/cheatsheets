@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Cheatsheet</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2>CSS Cheatsheet</h2>
+
+        <h3>Syntax</h3>
+        <ul>
+            <li><strong>selector {property: value;}</strong></li>
+            <li>div {color: blue;}</li>
+        </ul>
+
+        <h3>Selectors</h3>
+        <ul>
+            <li>Universal selector: * {...}</li>
+            <li>Type/element selector: div {...}</li>
+            <li>Class selector: .classname {...}</li>
+            <li>ID selector: #idname {...}</li>
+            <li>Grouping selector: selector1, selector2 {...}</li>
+            <li>Chaining selector: .class1.class2 {...}</li>
+        </ul>
+
+        <h3>Combinators</h3>
+        <ul>
+            <li>Descendant combinator: selector1 selector2 {...}</li>
+            <li>Child combinator: selector1 &gt selector2 {...}</li>
+            <li>Adjacent sibling combinator: selector1 + selector2 {...}</li>
+            <li>General sibling combinator: selector1 ~ selector2 {...}</li>
+        </ul>
+
+        <h3>Properties</h3>
+        <ul>
+            <li>color: blue;</li>
+            <li>background-color: #1100ff80;</li>
+            <li>font-family: "Times New Roman", sans-serif;</li>
+            <li>font-size: 22px;</li>
+            <li>font-weight: bold;</li>
+            <li>text-align: center;</li>
+            <li>img {height: auto; width: 500px;}</li>
+        </ul>
+
+        <h3>Specificity</h3>
+        <p>A CSS declaration that is more specific will take precedence over ones that are less specific.</p>
+
+        <p>The order from the higher:</p>
+        <ul>
+            <li>Inline styles</li>
+            <li>ID selectors</li>
+            <li>Class selectors</li>
+            <li>Type selectors</li>
+            <li>Anything less specific</li>
+            <li>text-align: center;</li>
+            <li>img {height: auto; width: 500px;}</li>
+        </ul>
+
+        <p>When the level is the same, more selectors, counted from higher level, has higher specificity.</p>
+        <ul>
+            <li>More class selectors is more specific than less class selectors
+                <ul>
+                    <li>.subsection {color: blue;} //1 class selector</li>
+                    <li>.main .list {color: red;} //2 class selectors</li>
+                    <li>Red wins</li>
+                </ul>
+            </li>
+            <li>Less ID selectors is still more specific than more class selectors
+                <ul>
+                    <li>#subsection {color: blue;} //1, but ID selector</li>
+                    <li>.main .list {color: red;} //2 class selectors</li>
+                    <li>Blue wins</li>
+                </ul>
+            </li>
+            <li>Have same number of ID selector, more class selectors is more specific than less class selectors!
+                <ul>
+                    <li>#subsection .list {color: blue; background-color: yellow;}</li>
+                    <li>#subsection .main .list {color: red;}</li>
+                    <li>Red wins, with yellow as the background-color</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>Universal selector (*) and combinators (+, ~, &gt, a-space) do not add specificity.</p>
+        <ul>
+            <li>Below have the same specificity level
+                <ul>
+                    <li>.class1.class2 {color: blue;} //Chaining selector (no space)</li>
+                    <li>.class1 .class2 {color: red;} //Decendant combinator (empty space)</li>
+                    <li>.class1 &gt .class2 {color: yellow;} //Child combinator (&gt)</li>
+                </ul>
+            </li>
+            <li>Universal selector (*) has no specificity value
+                <ul>
+                    <li>* {color: blue;}</li>
+                    <li>h1 {color: red;}</li>
+                    <li>Red wins</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p><a href="./index.html">Back to main page</a></p>
+    </body>
+</html>
