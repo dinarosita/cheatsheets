@@ -9,9 +9,9 @@
 
         <h3>Syntax</h3>
         <ul>
-            <li><strong>selector {</br>
-                &nbsp&nbsp&nbsp&nbspproperty1: value1;</br>
-                &nbsp&nbsp&nbsp&nbspproperty2: value2;</br>
+            <li><strong>selector {<br>
+                &nbsp&nbsp&nbsp&nbsp property1: value1;<br>
+                &nbsp&nbsp&nbsp&nbsp property2: value2;<br>
                 }</strong></li>
             <li>div {color: blue;}</li>
         </ul>
@@ -69,21 +69,21 @@
         <ul>
             <li>More class selectors is more specific than less class selectors
                 <ul>
-                    <li>.subsection {color: blue;} //1 class selector</br>
+                    <li>.subsection {color: blue;} //1 class selector<br>
                     .main .list {color: red;} //2 class selectors</li>
                     <li>Red wins</li>
                 </ul>
             </li>
             <li>Less ID selectors is still more specific than more class selectors
                 <ul>
-                    <li>#subsection {color: blue;} //1, but ID selector</br>
+                    <li>#subsection {color: blue;} //1, but ID selector<br>
                     .main .list {color: red;} //2 class selectors</li>
                     <li>Blue wins</li>
                 </ul>
             </li>
             <li>Have same number of ID selector, more class selectors is more specific than less class selectors!
                 <ul>
-                    <li>#subsection .list {color: blue; background-color: yellow;}</br>
+                    <li>#subsection .list {color: blue; background-color: yellow;}<br>
                     #subsection .main .list {color: red;}</li>
                     <li>Red wins, with yellow as the background-color</li>
                 </ul>
@@ -94,14 +94,14 @@
         <ul>
             <li>Below have the same specificity level
                 <ul>
-                    <li>.class1.class2 {color: blue;} //Chaining selector (no space)</br>
-                    .class1 .class2 {color: red;} //Decendant combinator (empty space)</br>
+                    <li>.class1.class2 {color: blue;} //Chaining selector (no space)<br>
+                    .class1 .class2 {color: red;} //Decendant combinator (empty space)<br>
                     .class1 &gt .class2 {color: yellow;} //Child combinator (&gt)</li>
                 </ul>
             </li>
             <li>Universal selector (*) has no specificity value
                 <ul>
-                    <li>* {color: blue;}</br>
+                    <li>* {color: blue;}<br>
                     h1 {color: red;}</li>
                     <li>Red wins</li>
                 </ul>
@@ -112,16 +112,13 @@
         <p>Certain CSS properties can be inherited by element descendant. Typography based properties like color and font are usually inherited, most others are not. Directly targeted properties will be applied instead of the inheritance though, even if the inheritance has higher specificity.</p>
 
         <ul>
-            <li>index.html
-                <p>&ltdiv id="parent"&gt</br>
-                &nbsp&nbsp&nbsp&nbsp&ltdiv class="child"&gt&lt/div&gt</br>
-                &lt/div&gt</p>
-            </li>
-        </ul>
-
-        <ul>
-            <li>style.css
-                <p>#parent {color: red;}</br>
+            <li>&lt!--index.html --&gt<br><br>
+                &ltdiv id="parent"&gt<br>
+                &nbsp&nbsp&nbsp&nbsp &ltdiv class="child"&gt&lt/div&gt<br>
+                &lt/div&gt
+            </li><br>
+            <li>/* style.css */<br><br>
+                #parent {color: red;}<br>
                 .child {color: blue;}</p>
             </li>
             <li>The color will be blue because it is directly targeting while red is only inherited, even though an id selector has a higher specificity over a class selector.</li>
@@ -131,12 +128,64 @@
         <p>If all factors have been taken into account and it's still a tie, rule that was last defined is the winner.</p>
 
         <ul>
-            <li>style.css
-                <p>.alert {color: yellow;}</br>
-                .warning {color: red;}</p>
+            <li>.alert {color: yellow;}<br>
+                .warning {color: red;}
             </li>
             <li>Class warning is the last defined, so it takes priority over alert. The color will be red.</li>
         </ul>
+
+        <h3>Adding CSS to HTML</h3>
+        <ul>
+            <li>External CSS
+                <ul>
+                    <li>&lt!--index.html --&gt<br><br>
+                        &lthead&gt<br>
+                        &nbsp&nbsp&nbsp&nbsp &ltlink rel="stylesheet" href="style.css"><br>
+                        &lthead&gt
+                    </li><br>
+                    <li>/* style.css */<br><br>
+                        div {<br>
+                        &nbsp&nbsp&nbsp&nbsp color: white;<br>
+                        &nbsp&nbsp&nbsp&nbsp background-color: black;<br>
+                        }<br><br>
+                        p {<br>
+                        &nbsp&nbsp&nbsp&nbsp color: red;<br>
+                        }
+                    </li><br>
+                </ul>
+            </li>
+            <li>Internal/embedded CSS
+                <ul>
+                    <li>&lt!--index.html --&gt<br><br>
+                        &lthead&gt<br>
+                        &nbsp&nbsp&nbsp&nbsp &ltstyle&gt<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp div {<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp color: white;<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp background-color: black;<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }<br><br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp p {<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp color: red;<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }<br>
+                        &nbsp&nbsp&nbsp&nbsp &lt/style&gt<br>
+                        &lt/head&gt<br>
+
+                    </li><br>
+                </ul>
+
+            </li>
+            <li>Inline CSS</li>
+            <ul>
+                <li>&lt!--index.html --&gt<br><br>
+                    &ltbody&gt<br>
+                    &nbsp&nbsp&nbsp&nbsp &ltdiv style="color: white; background-color: black;"&gt...&lt/div&gt<br>
+                    &lt/body&gt<br>
+
+                </li><br>
+            </ul>
+        </ul>
+
+        <p>Priority: inline &gt internal &gt external</p>
+
 
         <p><a href="./index.html">Back to main page</a></p>
     </body>
