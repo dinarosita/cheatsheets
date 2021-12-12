@@ -9,7 +9,10 @@
 
         <h3>Syntax</h3>
         <ul>
-            <li><strong>selector {property: value;}</strong></li>
+            <li><strong>selector {</br>
+                &nbsp&nbsp&nbsp&nbspproperty1: value1;</br>
+                &nbsp&nbsp&nbsp&nbspproperty2: value2;</br>
+                }</strong></li>
             <li>div {color: blue;}</li>
         </ul>
 
@@ -104,7 +107,26 @@
                 </ul>
             </li>
         </ul>
-        
+
+        <h3>Inheritence</h3>
+        <p>Certain CSS properties can be inherited by element descendant. Typography based properties like color and font are usually inherited, most others are not. Directly targeted properties will be applied instead of the inheritance though, even if the inheritance has higher specificity.</p>
+
+        <ul>
+            <li>index.html
+                <p>&ltdiv id="parent"&gt</br>
+                &nbsp&nbsp&nbsp&nbsp&ltdiv class="child"&gt&lt/div&gt</br>
+                &lt/div&gt</p>
+            </li>
+        </ul>
+
+        <ul>
+            <li>style.css
+                <p>#parent {color: red;}</br>
+                .child {color: blue;}</p>
+            </li>
+            <li>The color will be blue because it is directly targeting while red is only inherited, even though an id selector has a higher specificity over a class selector.</li>
+        </ul>
+
         <p><a href="./index.html">Back to main page</a></p>
     </body>
 </html>
