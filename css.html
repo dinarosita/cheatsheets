@@ -69,22 +69,22 @@
         <ul>
             <li>More class selectors is more specific than less class selectors
                 <ul>
-                    <li>.subsection {color: blue;} //1 class selector</li>
-                    <li>.main .list {color: red;} //2 class selectors</li>
+                    <li>.subsection {color: blue;} //1 class selector</br>
+                    .main .list {color: red;} //2 class selectors</li>
                     <li>Red wins</li>
                 </ul>
             </li>
             <li>Less ID selectors is still more specific than more class selectors
                 <ul>
-                    <li>#subsection {color: blue;} //1, but ID selector</li>
-                    <li>.main .list {color: red;} //2 class selectors</li>
+                    <li>#subsection {color: blue;} //1, but ID selector</br>
+                    .main .list {color: red;} //2 class selectors</li>
                     <li>Blue wins</li>
                 </ul>
             </li>
             <li>Have same number of ID selector, more class selectors is more specific than less class selectors!
                 <ul>
-                    <li>#subsection .list {color: blue; background-color: yellow;}</li>
-                    <li>#subsection .main .list {color: red;}</li>
+                    <li>#subsection .list {color: blue; background-color: yellow;}</br>
+                    #subsection .main .list {color: red;}</li>
                     <li>Red wins, with yellow as the background-color</li>
                 </ul>
             </li>
@@ -94,15 +94,15 @@
         <ul>
             <li>Below have the same specificity level
                 <ul>
-                    <li>.class1.class2 {color: blue;} //Chaining selector (no space)</li>
-                    <li>.class1 .class2 {color: red;} //Decendant combinator (empty space)</li>
-                    <li>.class1 &gt .class2 {color: yellow;} //Child combinator (&gt)</li>
+                    <li>.class1.class2 {color: blue;} //Chaining selector (no space)</br>
+                    .class1 .class2 {color: red;} //Decendant combinator (empty space)</br>
+                    .class1 &gt .class2 {color: yellow;} //Child combinator (&gt)</li>
                 </ul>
             </li>
             <li>Universal selector (*) has no specificity value
                 <ul>
-                    <li>* {color: blue;}</li>
-                    <li>h1 {color: red;}</li>
+                    <li>* {color: blue;}</br>
+                    h1 {color: red;}</li>
                     <li>Red wins</li>
                 </ul>
             </li>
@@ -125,6 +125,17 @@
                 .child {color: blue;}</p>
             </li>
             <li>The color will be blue because it is directly targeting while red is only inherited, even though an id selector has a higher specificity over a class selector.</li>
+        </ul>
+
+        <h3>Rule Order</h3>
+        <p>If all factors have been taken into account and it's still a tie, rule that was last defined is the winner.</p>
+
+        <ul>
+            <li>style.css
+                <p>.alert {color: yellow;}</br>
+                .warning {color: red;}</p>
+            </li>
+            <li>Class warning is the last defined, so it takes priority over alert. The color will be red.</li>
         </ul>
 
         <p><a href="./index.html">Back to main page</a></p>
