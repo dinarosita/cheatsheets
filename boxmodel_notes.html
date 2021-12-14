@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BoxModel Notes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+        <h1>CSS Box Model Notes</h1>   
+        
+        <p>Box model basic:</p>
+        <ul>
+            <li>Padding: space around the text</li>
+            <li>Border: the box's outline</li>
+            <li>Margin: space outside the border, overlap with surrounding margins</li>
+        </ul>
+
+        <p>Useful notes:</p>
+        <ul>
+            <li>height and weight <br>
+                <div class="tab">to define the text box size.</div>
+            </li>
+            <li>box-sizing: border-box;<br>
+                <div class="tab">To make height and width applied to box border (outer) size.</div>
+            </li>
+            <li>display: inline-block;
+                <div class="tab">To make the box wrap the text instead of the whole length of line</div>
+            </li>
+        
+        <div class="codebox">
+            .classname {<br>
+            <div class="tab">
+                padding: 10px;<br>
+                border: 2px solid pink;<br>
+                margin: 20px;<br><br>
+                height: 100px;<br>
+                width: 200px;<br>
+                box-sizing: border-box; <br>
+                display: inline-block;
+            </div>
+            }
+        </div>
+
+        <p class="back"><a href="./index.html">Back to main page</a></p>
+    </body>
+</html>
