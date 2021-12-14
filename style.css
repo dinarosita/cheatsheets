@@ -1,0 +1,65 @@
+/* style.css */
+
+body {
+    font-size: 16px;
+    font-family:'Times New Roman', Times, serif;
+}
+    
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: cadetblue; 
+    font-weight:bold;
+}
+
+h1 {
+    background-color: pink;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+.mainbox,
+.codebox {
+    padding: 1em;
+    border: 1px solid pink;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.mainbox {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.codebox {
+    font-family: monospace, Verdana, Geneva, Tahoma, sans-serif;
+    display: inline-block;
+}
+
+.back {
+    font-weight: bold;
+    text-align: center;
+}
+
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 300px;
+}
+
+
+
+.tab {
+    margin-left: 1.5em;
+}
+
+
