@@ -48,6 +48,9 @@
         <ul>
             <li>display: flex;<br>
                 Outer display type is block, but  inner display type is changed to flex</li>
+            <li>display: inline-block;<br>
+                >To make the box wrap the text instead of the whole length of line
+                </li>
             <li>display: grid;</li>
             <li>display: inline-flex;</li>
             <li>display: inline;</li>
@@ -61,23 +64,12 @@
         <p>CSS block box is a nesting box system:</p>
 
         <ul>
-            <li>content box (<strong>height</strong>, <strong>width</strong>): the text.<br>
-            Without declaration, it will follow the text size</li>
+            <li>content box (<strong>height</strong>, <strong>width</strong>): the text.</li>
             <li><strong>padding</strong> box: white space around the text</li>
             <li><strong>border</strong> box: the box's outline</li>
             <li><strong>margin</strong> box: white space outside the border, overlap with surrounding margins</li>
         </ul>
 
-        <h3>Handy declarations:</h3>
-        <ul>
-            <li>box-sizing: border-box;<br>
-                <div class="tab">To make height and width applied to box border size (content, padding, and border)</div>
-            </li>
-            <li>display: inline-block;
-                <div class="tab">To make the box wrap the text instead of the whole length of line</div>
-            </li>
-        </ul>
-        
         <div class="codebox">
             .classname {<br>
             <div class="tab">
@@ -94,7 +86,21 @@
             }
         </div>
 
-
+        <h3>Box-sizing:</h3>
+        <ul>
+            <li>By default, height and width are applied to the text (content box). For more useful application, height and width can be used for the actual box size (including the padding and border):</li>
+            <li>Box-sizing: border-box;</li>
+            <li>To automate this for the whole document: <br>
+                <div class="codebox">
+                    html {
+                        <div class="tab">box-sizing: border-box;</div>
+                      }<br>
+                      *, *::before, *::after {
+                        <div class="tab">box-sizing: inherit;</div>
+                      }
+                </div>
+            </li>
+        </ul>
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
     </body>
