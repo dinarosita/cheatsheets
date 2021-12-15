@@ -7,22 +7,67 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <h1>CSS Box Model Notes</h1>   
-        
-        <p>Box model basic:</p>
+        <h1>CSS Box Model Notes</h1>
+
+        <h2>Introduction</h2>
+
+        <h3>Boxes types:</h3>
         <ul>
-            <li>Padding: space around the text</li>
-            <li>Border: the box's outline</li>
-            <li>Margin: space outside the border, overlap with surrounding margins</li>
+            <li><strong>Block</strong>: &lth1&gt, &ltp&gt, etc
+                <ul>
+                    <li>New line</li>
+                    <li>Extending in the inline direction, filling available space in its container.</li>
+                    <li>Height and width properties applied</li>
+                    <li>Padding, margin, and border will cause other elements to be pushed away from the box.</li>
+                </ul>
+            </li>
+            <li><strong>Inline</strong>: &lta&gt, &ltspan&gt, &ltem&gt, &ltstrong&gt, etc
+                <ul>
+                    <li>Inline</li>
+                    <li>Height and width properties not applied</li>
+                    <li>Padding, margin, and border will apply, but:
+                        <ul>
+                            <li>Only the horizontal ones will cause other inline boxes to move away from the box.</li>
+                            <li>The vertical ones will not.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
 
-        <p>Useful notes:</p>
+        <p>Block and inline layout makes the normal flow. The default way things on the web behave.</p>
+        
+        <h3>Display types:</h3>
         <ul>
-            <li>height and weight <br>
-                <div class="tab">to define the text box size.</div>
-            </li>
+            <li><strong>Outer</strong>: defining the box type for itself as a box</li>
+            <li><strong>Inner</strong>: defining the arrangement of boxes inside it</li>
+        </ul>
+
+        <h3>Inner display type and display property</h3>
+        <p>By default, inner boxes within a box are laid out in normal flow. This inner display can be changed by defining display value.</p>
+        <ul>
+            <li>display: flex;<br>
+                Outer display type is block, but  inner display type is changed to flex</li>
+            <li>display: grid;</li>
+            <li>display: inline-flex;</li>
+            <li>display: inline;</li>
+            <li>display: block;</li>
+        </ul>
+        
+        <h2>CSS Box Model</h2>
+        
+        <p>CSS block box is a nesting box system:</p>
+        <ul>
+            <li>content box (<strong>height</strong>, <strong>width</strong>): the text</li>
+            <li><strong>padding</strong> box: white space around the text</li>
+            <li><strong>border</strong> box: the box's outline</li>
+            <li><strong>margin</strong> box: white space outside the border, overlap with surrounding margins</li>
+        </ul>
+
+        <h3>Handy declarations:</h3>
+        <ul>
             <li>box-sizing: border-box;<br>
-                <div class="tab">To make height and width applied to box border (outer) size.</div>
+                <div class="tab">To make height and width applied to box border size (content, padding, and border)</div>
             </li>
             <li>display: inline-block;
                 <div class="tab">To make the box wrap the text instead of the whole length of line</div>
@@ -43,7 +88,7 @@
             }
         </div>
 
-        <p>Some HTML elements, such as &lta&gt, &ltspan&gt, &ltam&gt, and &ltstrong&gt use inline as their outer display type by default.</p>
+
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
     </body>
