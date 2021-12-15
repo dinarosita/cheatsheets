@@ -49,7 +49,7 @@
             <li>display: flex;<br>
                 Outer display type is block, but  inner display type is changed to flex</li>
             <li>display: inline-block;<br>
-                >To make the box wrap the text instead of the whole length of line
+                To make the box wrap the text instead of the whole length of line
                 </li>
             <li>display: grid;</li>
             <li>display: inline-flex;</li>
@@ -67,7 +67,7 @@
             <li>content box (<strong>height</strong>, <strong>width</strong>): the text.</li>
             <li><strong>padding</strong> box: white space around the text</li>
             <li><strong>border</strong> box: the box's outline</li>
-            <li><strong>margin</strong> box: white space outside the border, overlap with surrounding margins</li>
+            <li><strong>margin</strong> box: white space outside the border, pushing away surrounding boxes. When margin value is negative, it's overlap instead.</li>
         </ul>
 
         <div class="codebox">
@@ -99,6 +99,23 @@
                         <div class="tab">box-sizing: inherit;</div>
                       }
                 </div>
+            </li>
+        </ul>
+
+        <h3>Margin collapsing</h3>
+        
+        <p>When 2 elements have their margins touch, the margins will combined into one margin value as follow:</p>
+        <ul>
+            <li>When both margins are positive, combined margin is the larger value.</li>
+            <li>When both margin are negative, combined margin is the lower value (the more negative one).</li>
+            <li>When the margins are a positive and a negative value, add them like a math operation.</li>
+            <li>Examples: 
+                <ul>
+                    <li>50px and 30px: 50px</li>
+                    <li>-50px and -30px: -50px</li>
+                    <li>50px and -30px: 20px</li>
+                    <li>-50px and 30px: -20px</li>
+                </ul>
             </li>
         </ul>
 
