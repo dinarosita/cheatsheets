@@ -56,9 +56,13 @@
         
         <h2>CSS Box Model</h2>
         
+        <img src="css_box_model.png" alt="CSS box model" style="width 400px; height: auto;">
+
         <p>CSS block box is a nesting box system:</p>
+
         <ul>
-            <li>content box (<strong>height</strong>, <strong>width</strong>): the text</li>
+            <li>content box (<strong>height</strong>, <strong>width</strong>): the text.<br>
+            Without declaration, it will follow the text size</li>
             <li><strong>padding</strong> box: white space around the text</li>
             <li><strong>border</strong> box: the box's outline</li>
             <li><strong>margin</strong> box: white space outside the border, overlap with surrounding margins</li>
@@ -77,13 +81,15 @@
         <div class="codebox">
             .classname {<br>
             <div class="tab">
-                padding: 10px;<br>
-                border: 2px solid pink;<br>
-                margin: 20px;<br><br>
-                height: 100px;<br>
-                width: 200px;<br>
+                width: 350px;<br>
+                height: 150px;<br><br>
+
+                padding: 25px;<br>
+                border: 5px solid black;<br>
+                margin: 10px;<br><br>
+
                 box-sizing: border-box; <br>
-                display: inline-block;
+                display: inline-block; <br>
             </div>
             }
         </div>
