@@ -25,6 +25,10 @@ h1 {
     text-align: center;
 }
 
+.centering {
+    margin: auto;
+}
+
 .codebox {
     font-family: monospace;
     display: inline-block;
@@ -47,10 +51,10 @@ h1 {
 
 .img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     height: auto;
-    width: 300px;
+    width: 400px;
+
 }
 
 .tab {
@@ -76,8 +80,7 @@ h1 {
 .codebox {
     padding: 1em;
     border: 1px solid pink;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: 1em auto;
 }
 
 .incode.title {

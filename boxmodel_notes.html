@@ -9,7 +9,7 @@
     <body>
         <h1>CSS Box Model Notes</h1>
 
-        <img src="css_box_model.png" alt="CSS box model" style="width 400px; height: auto;">
+        <img src="css_box_model.png" alt="CSS box model" class="img">
 
         <h3>CSS block box:</h3>
 
@@ -55,10 +55,20 @@
                 margin: 10px;<br><br>
 
                 box-sizing: border-box; <br>
-                display: inline-block; <br>
+                display: inline-block;<br> 
             </div>
             }
         </div>
+
+        <h3>Top, right, bottom, left</h3>
+        <p>The thickness of each side can be declared together or separately. Declaring together: </p>
+
+        <ul>
+            <li>1 value: all sides</li>
+            <li>2 values: (top-bottom) (right-left)</li>
+            <li>3 values: top (right-left) bottom</li>
+            <li>4 values: top right bottom left</li>
+        </ul>
 
         <h3>Boxes types:</h3>
         <ul>
@@ -86,8 +96,8 @@
 
         <h3 class="incode title">box-sizing: border-box;</h3>
         <ul>
-            <li>By default, height and width are applied to the content box.</li>
-            <li>It's more useful to define the border box size (including the padding and border)</li>
+            <li>By default, height and width are applied to the content box. This is also called standard box model.</li>
+            <li>It's more useful to define the border box size (including the padding and border). This is called alternative box model.</li>
             <li>Declaration: <span class="incode">box-sizing: border-box;</span></li>
             <li>To automate this for the whole document: <br>
                 <div class="codebox">
@@ -100,6 +110,9 @@
                 </div>
             </li>
         </ul>
+
+        <h3>Horizontal centering using <span class="incode">margin: auto;</span></h3>
+
 
         <h3>Margin collapsing</h3>
         
