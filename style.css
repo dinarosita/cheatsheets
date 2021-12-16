@@ -22,20 +22,12 @@ h6 {
 
 h1 {
     background-color: pink;
-    font-size: 2.5em;
     text-align: center;
 }
 
-h2 {
-    font-size: 1.8em;
-}
-
-.mainbox,
 .codebox {
-    padding: 1em;
-    border: 1px solid pink;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    font-family: monospace;
+    display: inline-block;
 }
 
 .mainbox {
@@ -43,9 +35,9 @@ h2 {
     font-weight: bold;
 }
 
-.codebox {
-    font-family: monospace, Verdana, Geneva, Tahoma, sans-serif;
-    display: inline-block;
+.incode {
+    color: cadetblue;
+    font-weight: bold;
 }
 
 .back {
@@ -63,6 +55,29 @@ h2 {
 
 .tab {
     margin-left: 1.5em;
+}
+
+.links-list a {
+    background-color: lightyellow;
+    text-decoration: none;
+    padding: 1em 2em;    
+    display: inline-block;
+}
+    
+.links-list a:hover {
+    background-color: lavenderblush;
+}
+
+.mainbox,
+.codebox {
+    padding: 1em;
+    border: 1px solid pink;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.incode.title {
+    text-decoration: underline;
 }
 
 
