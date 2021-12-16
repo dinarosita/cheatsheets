@@ -57,6 +57,10 @@ h1 {
     margin-left: 1.5em;
 }
 
+.alert {
+    color: olive;
+}
+
 .links-list a {
     background-color: lightyellow;
     text-decoration: none;
