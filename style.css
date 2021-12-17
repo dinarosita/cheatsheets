@@ -53,14 +53,15 @@ code,
 code,
 .incode, 
 .codebox {
-    font-family: 'IBM Plex Mono', monospace;   
+    font-family: 'Fira Mono', monospace;   
+    font-size: 0.9em;
     margin: 0 0.3em;
 }
 
 .mainbox,
 .codebox {
     padding: 1em;
-    border: 1px solid pink;
+    border: 5px solid pink;
     margin: 1em auto;
     display: inline-block;
 }
