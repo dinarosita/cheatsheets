@@ -2,7 +2,7 @@
 
 html {
     font-size: 16px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Barlow', Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
 }
 
@@ -25,23 +25,67 @@ h1 {
     text-align: center;
 }
 
-.centering {
-    margin: auto;
-}
-
-.codebox {
-    font-family: monospace;
-    display: inline-block;
-}
-
 .mainbox {
     font-size: 1.4em;
     font-weight: bold;
 }
 
+
+.img {
+    display: block;
+    margin: auto;
+    height: auto;
+    width: 400px;
+}
+
+.tab {
+    margin-left: 1.5em;
+}
+
+/* Coding font, inline code, and code box */ 
+
+code,
 .incode {
-    color: cadetblue;
+    color: steelblue;
     font-weight: bold;
+}
+
+code,
+.incode, 
+.codebox {
+    font-family: 'IBM Plex Mono', monospace;   
+    margin: 0 0.3em;
+}
+
+.mainbox,
+.codebox {
+    padding: 1em;
+    border: 1px solid pink;
+    margin: 1em auto;
+    display: inline-block;
+}
+
+code.title {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Horizontal Listing */
+
+.listbar {    
+    padding: 0;
+    margin: 10px 0 20px;
+}
+
+.listbar li {
+    display: inline-block;
+    width: 8em;
+}
+
+/* Others */    
+
+.alert {
+    color: olive;
 }
 
 .back {
@@ -49,21 +93,7 @@ h1 {
     text-align: center;
 }
 
-.img {
-    display: block;
-    margin: auto;
-    height: auto;
-    width: 400px;
-
-}
-
-.tab {
-    margin-left: 1.5em;
-}
-
-.alert {
-    color: olive;
-}
+/* Navigation bar, still not working properly */
 
 .links-list a {
     background-color: lightyellow;
@@ -75,16 +105,3 @@ h1 {
 .links-list a:hover {
     background-color: lavenderblush;
 }
-
-.mainbox,
-.codebox {
-    padding: 1em;
-    border: 1px solid pink;
-    margin: 1em auto;
-}
-
-.incode.title {
-    text-decoration: underline;
-}
-
-
