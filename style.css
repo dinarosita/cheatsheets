@@ -34,22 +34,32 @@ h1 {
 /* Coding font */ 
 
 code,
+.titlecode,
+.incode {
+    font-weight: 500;
+}
+
+code,
 .incode {
     color:steelblue;
-    font-weight: 500;
+}
+
+code,
+.incode,
+.titlecode,
+.codebox {
+    font-family: 'Fira Mono', monospace;   
 }
 
 code,
 .incode,
 .codebox {
-    font-family: 'Fira Mono', monospace;   
     font-size: 0.9em;
 }
 
 .titlecode {
-    background-color: whitesmoke;
     display: inline-block;
-    font-family: 'Fira Mono', monospace;   
+    background-color: whitesmoke;    
     padding: 0 0.4em;
     border: 1px lightgrey solid;
     border-radius: 3px;
