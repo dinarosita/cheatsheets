@@ -1,9 +1,12 @@
 /* style.css */
 
 html {
-    font-size: 18px;
-    font-family: 'Barlow', Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 940px;
+    margin: auto;
     box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Barlow', 'Roboto', sans-serif; 
+    line-height: 1.4;
 }
 
 *, *::before, *::after {
@@ -16,59 +19,64 @@ h3,
 h4,
 h5,
 h6 {
-    color:steelblue; 
+    color:cadetblue; 
     font-weight:bold;
 }
 
 h1 {
-    background-color: pink;
+    border: 8px double pink;
+    border-radius: 20px;
+    padding: 3px;
     text-align: center;
+
 }
 
-.mainbox {
-    font-size: 1.4em;
-    font-weight: bold;
+/* Coding font */ 
+
+code,
+.incode {
+    color:steelblue;
+    font-weight: 500;
 }
 
+code,
+.incode,
+.codebox {
+    font-family: 'Fira Mono', monospace;   
+    font-size: 0.9em;
+}
+
+.titlecode {
+    background-color: whitesmoke;
+    display: inline-block;
+    font-family: 'Fira Mono', monospace;   
+    padding: 0 0.4em;
+    border: 1px lightgrey solid;
+    border-radius: 3px;
+}
+
+
+/* Boxes */
+
+.codebox {
+    padding: 1em;
+    border: 2px solid pink;
+    border-radius: 5px;
+    margin: 1em auto;
+    max-width: 800px;
+}
 
 .img {
     display: block;
-    margin: auto;
+    margin: 40px auto;
     height: auto;
     width: 400px;
 }
 
+/* Text indentation */
+
 .tab {
     margin-left: 1.5em;
-}
-
-/* Coding font, inline code, and code box */ 
-
-code,
-.incode {
-    color:cadetblue;
-    font-weight: bold;
-}
-
-code,
-.incode, 
-.codebox {
-    font-family: 'Fira Mono', monospace;   
-    font-size: 0.9em;
-    margin: 0 0.3em;
-}
-
-.mainbox,
-.codebox {
-    padding: 1em;
-    border: 5px solid pink;
-    border-radius: 5px;
-    margin: 1em auto;
-    display: inline-block;  
-}
-
-code.title {
-    font-weight: bold;
 }
 
 /* Horizontal Listing */

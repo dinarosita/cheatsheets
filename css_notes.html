@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="./style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fira+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h2>CSS Notes</h2>
+        <h1>CSS Notes</h1>
 
-        <h3>Syntax</h3>
+        <h2>Syntax</h2>
         <ul>
             <li><strong>selector {<br>
                 &nbsp&nbsp&nbsp&nbsp property1: value1;<br>
@@ -21,7 +21,7 @@
             <li>div {color: blue;}</li>
         </ul>
 
-        <h3>Selectors</h3>
+        <h2>Selectors</h2>
         <ul>
             <li>Universal selector: * {...}</li>
             <li>Type/element selector: div {...}</li>
@@ -31,7 +31,7 @@
             <li>Chaining selector: .class1.class2 {...}</li>
         </ul>
 
-        <h3>Combinators</h3>
+        <h2>Combinators</h2>
         <ul>
             <li>Descendant combinator: selector1 selector2 {...}</li>
             <li>Child combinator: selector1 &gt selector2 {...}</li>
@@ -39,7 +39,7 @@
             <li>General sibling combinator: selector1 ~ selector2 {...}</li>
         </ul>
 
-        <h3>Properties</h3>
+        <h2>Properties</h2>
         <ul>
             <li>color: blue;</li>
             <li>background-color: #1100ff80;</li>
@@ -87,7 +87,7 @@
                 </ul>
         </ul>
 
-        <h3>Specificity</h3>
+        <h2>Specificity</h2>
         <p>A CSS declaration that is more specific will take precedence over ones that are less specific.</p>
 
         <p>The order from the higher:</p>
@@ -144,7 +144,7 @@
             </li>
         </ul>
 
-        <h3>Inheritence</h3>
+        <h2>Inheritence</h2>
         <p>Certain CSS properties can be inherited by element descendant. Typography based properties like color and font are usually inherited, most others are not. Directly targeted properties will be applied instead of the inheritance though, even if the inheritance has higher specificity.</p>
 
         <ul>
@@ -160,7 +160,7 @@
             <li>The color will be blue because it is directly targeting while red is only inherited, even though an id selector has a higher specificity over a class selector.</li>
         </ul>
 
-        <h3>Rule Order</h3>
+        <h2>Rule Order</h2>
         <p>If all factors have been taken into account and it's still a tie, rule that was last defined is the winner.</p>
 
         <ul>
@@ -170,7 +170,7 @@
             <li>Class warning is the last defined, so it takes priority over alert. The color will be red.</li>
         </ul>
 
-        <h3>Adding CSS to HTML</h3>
+        <h2>Adding CSS to HTML</h2>
         <ul>
             <li>External CSS
                 <ul>
