@@ -14,14 +14,14 @@
 
         <h2>Flex containers and flex items</h2>
 
-        <code>display: flex;</code>
+        <code>display: flex</code>
         <ul>
             <li>Apply this property to the container</li>
             <li>Will make a container displays its items horizontally instead of vertically by standard</li>
             <li>Combination of mutiple nesting horizontal (flex) and vertical (standard) arrangements can create a complex layout</li>
         </ul>
 
-        <code>flex: 1;</code>
+        <code>flex: 1</code>
         <ul>
             <li>Apply this property to the flex items</li>
             <li>will make each item box stretches so together they will fill the horizontal space. Without this, each box will wrap around its content only.</li>
@@ -64,13 +64,13 @@
             <div>Dina</div>
         </div>  
 
-        <p>Without <code>display: flex;</code></p>
+        <p>Without <code>display: flex</code></p>
         <div class="container">
             <div style="flex: 1;">Ryan</div>
             <div style="flex: 1;">Dina</div>
         </div>  
 
-        <p>Without <code>flex: 1;</code></p>
+        <p>Without <code>flex: 1</code></p>
         <div class="container" style="display: flex;">
             <div>Ryan</div>
             <div>Dina</div>
@@ -117,7 +117,7 @@
         <div class="container">
             <div><h2 style="text-align: center;">CSS Flexbox</h2></div>
             <div class="flex-container">
-                <div style="flex: 0 auto;">
+                <div style="flex: 0;">
                     <h3>Navigation</h3>
                     <div>Option 1</div>
                     <div>Option 2</div>
@@ -147,8 +147,10 @@
                     .flex-container div {<br>
                         <span class="tab">flex: 1;</span><br>
                     }<br>
+
+                  
                     <h3>Note</h3>
-                    Style the navigation box with <code>"flex: 0 auto;"</code>
+                    Style the navigation box with <code>"flex: 0;"</code>
 
                 </div>
             </div>
@@ -159,6 +161,38 @@
                 </h4>
             </div>
         </div>
+
+        <h2>Growing and shrinking</h2>
+
+        <p><code>flex</code> is actually a shorthand for <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code>.<br>
+        The standard value is <code>flex: 0 1 0%</code>.<br>
+        When declared only with 1 value, it's referring to the <code>flex-grow</code>:<br>
+        <code class="tab">flex: 1</code><br>
+        Meaning: grow each child box equally and it is actually <code>flex: 1 1 0%</code>.<br></p>
+
+        <h3 class="titlecode">flex-grow</h3>
+        <ul>
+            <li>The value is the growth factor. It is a single number.</li>
+            <li>Default value is 0. That's why without declaration, flex item border will wrap arpund the content.</li>
+            <li><code>flex: 1</code> to each flex item div: they will grow equally, to the exact same size</li>
+            <li><code>flex: 2</code> to 1 item div and <code>flex: 1</code> to the rest: that box will grow twice wider than each of the rest. </li>
+        </ul>
+        
+        <h3 class="titlecode">flex-shrink</h3>
+        <ul>
+            <li>Similar to flex-grow, but for shrinking.</li>
+            <li>Only applied when all flex items size is larger than the container.</li>
+            <li>Default value is 1. Meaning every flex item will be shrinking evenly further declaration.</li>
+            <li>Specify <code>flex-shrink: 0</code> when you don't want a flex item to shrink</li>            
+        </ul>
+        
+        <h3 class="titlecode">flex-basis</h3>
+        <ul>
+            <li>Sets the initial size of a flex item. Growing and shrinking start from this baseline.</li>
+            <li>Default value is <code>auto</code>, which mean will acknowledge width declaration of the flex item.</li>
+            <li>Remember <code>flex: 1</code> means <code>flex: 1 1 0</code>, meaning we set it to 0, meaning we ignore the declared width. Meaning flex items will be growing or shrinking evenly according to the growth/shrink factor.</li>
+            <li><code>flex: 1 1 auto</code> will take declared width into consideration.</li>
+        </ul>
 
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
