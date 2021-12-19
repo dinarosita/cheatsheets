@@ -196,12 +196,18 @@
 
         <h2>Axes</h2>
 
-        <p>Note: for sites that the language is not left-to-right base, this could be different.</p>
+        <p>In our regular English language, website orientation will be left to right just like our writing. This might not be the case for some other languages. Which one is the main axis will depend and the direction will depend on this. We limit this note to normal English use.
 
+        <p>Axis:</p>
+        <ul>
+            <li>Main axis: horizontal axis: row</li>
+            <li>Cross axis: vertical axis: column</li>
+        </ul>
+     
         <h3 class="titlecode">flex-direction: column</h3>
 
         <ul>
-            <li>Default direction for a flex container is horizontal (<code>row</code>).<br>
+            <li>Default direction for a flex container depends on the main axis. For regular English sites, it is horizontal (<code>row</code>).<br>
                 <code class="tab">flex-direction: row</code></li>
             <li>To change it into vertical (<code>column</code>):<br>
                 <code class="tab">flex-direction: column</code>
@@ -222,8 +228,120 @@
             </li>
             <li>Define flex container's <code>height</code> and the usual shorthand <code>flex: 1</code> can be used because now the container doesn't collapse vertically.</li>
         </ul> 
-            
-        
+                
+        <h2>Alignment</h2>
+
+        <p>Shorthand <code>flex:1</code> is indeed handy. </p>
+
+        <div class="h160-container">
+            <div style="flex: 1;">
+                <code>width: 130px;<br>
+                height: 80px;<br>
+                flex: 1;</code>
+            </div>
+            <div style="flex: 1;">
+                <code>width: 130px;<br>
+                height: 80px;<br>
+                flex: 1;</code>
+            </div>
+            <div style="flex: 1;">
+                <code>width: 130px;<br>
+                height: 80px;<br>
+                flex: 1;</code>
+            </div>
+        </div>
+
+        <p>Note: in example above, cointainer's height is set to 100px and items height are not set. It is automatically fill in the vertical space. It's a standard behaviour. Even without <code>flex:1</code>, the items will fill in the vertical space too.</p>
+
+        <p>But how if we want to retain the declared size (width/height) of the flex-items? Here are some flex-container properties we can use:</p>
+        <ul>
+            <li><code>justify-content</code> for aligning items across the main axis (horizontal)
+                <ul>
+                    <li>
+                        <code>justify-content: space-between</code><br>
+                        The flex-items will be distributed evently horixontally by stretching equal size spaces in between.<br>
+                        In the next 3 examples, the container's height is declared to be 140px to illustrate the vertical allignment.<br><code>height: 140px</code>.
+                    
+                        <div class="h160-container" style="justify-content: space-between;">
+                            <div>
+                                <code>width: 130px;<br>
+                                    height: 80px;<br>
+                                <span style="text-decoration: line-through;">flex: 1;</span></code>
+                            </div>   
+                            <div>
+                                <code>width: 130px;<br>
+                                    height: 80px;<br>
+                                <span style="text-decoration: line-through;">flex: 1;</span></code>
+                            </div>
+                            <div>
+                                <code>width: 130px;<br>
+                                    height: 80px;<br>
+                                <span style="text-decoration: line-through;">flex: 1;</span></code>
+                            </div> 
+                        </div>
+
+                    </li>
+                    <li>
+                        <code>justify-content: center</code><br>
+                        <code>gap: 8px</code><br>
+                        The flex-items will be centered horizontally with defined gap. If gap is not defined, the will stick to each other (if the items don't have declared margin either).
+
+
+
+                        <div class="h160-container" style="justify-content: center; gap: 8px;">
+                            <div>
+                                <code>width: 130px;<br>
+                                    height: 80px;<br>
+                                <span style="text-decoration: line-through;">flex: 1;</span></code>
+                            </div>   
+                            <div>
+                                <code>width: 130px;<br>
+                                    height: 80px;<br>
+                                <span style="text-decoration: line-through;">flex: 1;</span></code>
+                            </div>
+                            <div>
+                                <code>width: 130px;<br>
+                                    height: 80px;<br>
+                                <span style="text-decoration: line-through;">flex: 1;</span></code>
+                            </div> 
+                        </div>
+                    </li>
+                </ul>                
+            </li>
+            <li><code>align-items</code> for aligning items across the cross axis (vertical)</li>
+            <ul>
+                <li>
+                    <code>align-items: center</code><br>
+                    The flex-items will be centered vertically.
+
+                    <div class="h160-container" style="justify-content: center; gap: 8px; align-items: center;">
+                        <div>
+                            <code>width: 130px;<br>
+                                height: 80px;<br>
+                            <span style="text-decoration: line-through;">flex: 1;</span></code>
+                        </div>   
+                        <div>
+                            <code>width: 130px;<br>
+                                height: 80px;<br>
+                            <span style="text-decoration: line-through;">flex: 1;</span></code>
+                        </div>
+                        <div>
+                            <code>width: 130px;<br>
+                                height: 80px;<br>
+                            <span style="text-decoration: line-through;">flex: 1;</span></code>
+                        </div> 
+                    </div>
+                </li>
+            </ul>
+        </ul>
+
+        <code>justify-content: space-between;</code>
+
+
+        <p>To the flex-items: define <code>width</code> and don't use <code>flex: 1</code><br>
+        To the flex-container:</p>
+
+
 
               
 

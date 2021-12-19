@@ -115,18 +115,21 @@ code,
 /* Flexbox */
 
 .container,
-.flex-container {
+.flex-container,
+.h160-container {
     padding: 3px;
     border: 3px solid rosybrown;
     margin: 20px;
 }
 
-.flex-container {
+.flex-container,
+.h160-container {
     display: flex;
 }
 
 .container div,
-.flex-container div {
+.flex-container div,
+.h160-container div {
     padding: 5px;
     border: 3px solid cadetblue;
     margin: 5px;
@@ -136,6 +139,16 @@ code,
     flex: 1;
 }
 
+/* Flexbox for learning allignment */
+
+.h160-container {
+    height: 160px;
+}
+
+.h160-container div {
+    width: 130px;
+    height: 80px;
+}
 /* Navigation bar, still not working properly */
 
 .links-list a {
