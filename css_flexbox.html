@@ -14,14 +14,14 @@
 
         <h2>Flex containers and flex items</h2>
 
-        <code>display: flex</code>
+        <h3 class="titlecode">display: flex</h3>
         <ul>
             <li>Apply this property to the container</li>
             <li>Will make a container displays its items horizontally instead of vertically by standard</li>
             <li>Combination of mutiple nesting horizontal (flex) and vertical (standard) arrangements can create a complex layout</li>
         </ul>
 
-        <code>flex: 1</code>
+        <h3 class="titlecode">flex: 1</h3>
         <ul>
             <li>Apply this property to the flex items</li>
             <li>will make each item box stretches so together they will fill the horizontal space. Without this, each box will wrap around its content only.</li>
@@ -194,6 +194,38 @@
             <li><code>flex: 1 1 auto</code> will take declared width into consideration.</li>
         </ul>
 
+        <h2>Axes</h2>
+
+        <p>Note: for sites that the language is not left-to-right base, this could be different.</p>
+
+        <h3 class="titlecode">flex-direction: column</h3>
+
+        <ul>
+            <li>Default direction for a flex container is horizontal (<code>row</code>).<br>
+                <code class="tab">flex-direction: row</code></li>
+            <li>To change it into vertical (<code>column</code>):<br>
+                <code class="tab">flex-direction: column</code>
+            </li>
+            <li>When the flex-direction is vertical, the flex-basis referred to height instead of width.</li>
+        </ul>
+
+        <h4>The consequence:</h4>
+        <p>In vertical flexbox, it can be more complicated to define the flex values. An empty box (either flex-container or flex-item) doesn't have height by itself. It collapses. While the standard for the width, it fills the whole horizontal space. So in the vertical box, to avoid collapsing boxes, height need to be defined, and pay attention when using the <code>flex: 1</code> shorthand because it is changing the flex-basis value from auto (acknowledging the height/width) into 0 (ignoring, resulting in the collapse of the empty boxes.)</p>
+            
+        Some good options:
+        <ul>
+            <li>Define flex item's <code>height</code> and:
+                <ul>
+                    <li>use <code>flex: 1 1 auto</code>.</li>
+                    <li>use <code>flex-grow: 1</code> because it left standard flex-basis at auto</li>
+                </ul>
+            </li>
+            <li>Define flex container's <code>height</code> and the usual shorthand <code>flex: 1</code> can be used because now the container doesn't collapse vertically.</li>
+        </ul> 
+            
+        
+
+              
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
     </body>
