@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Flexbox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>CSS Flexbox</h1>   
+
+        <h2>Flex containers and flex items</h2>
+
+        <code>display: flex;</code>
+        <ul>
+            <li>Apply this property to the container</li>
+            <li>Will make a container displays its items horizontally instead of vertically by standard</li>
+            <li>Combination of mutiple nesting horizontal (flex) and vertical (standard) arrangements can create a complex layout</li>
+        </ul>
+
+        <code>flex: 1;</code>
+        <ul>
+            <li>Apply this property to the flex items</li>
+            <li>will make each item box stretches so together they will fill the horizontal space. Without this, each box will wrap around its content only.</li>
+        </ul>
+
+        <h3>Simple example</h3>
+
+        <div class="codebox">
+            &lt!--index.html--&gt<br>
+            <br>
+            &ltdiv class="flex-container"&gt<br>
+                <span class="tab">&ltdiv&gtRyan&lt/div&gt</span><br>
+                <span class="tab">&ltdiv&gtDina&lt/div&gt</span><br>
+            &lt/div&gt    
+
+        </div>
+
+        <div class="codebox">
+            /* style.css */<br>
+            <br>
+            .flex-container {<br>
+                <span class="tab">display: flex;</span><br>
+                <span class="tab">padding: 3px;</span><br>
+                <span class="tab">border: 3px solid rosybrown;</span><br>
+                <span class="tab">margin: 20px;</span><br>
+            }<br>
+            <br>
+            .flex-container div {<br>
+                <span class="tab">flex: 1;</span><br>
+                <span class="tab">padding: 5px;</span><br>
+                <span class="tab">border: 3px solid cadetblue;</span><br>
+                <span class="tab">margin: 5px;</span><br>
+            }
+        </div>
+
+
+        <p>Result:</p>
+        <div class="flex-container">
+            <div>Ryan</div>
+            <div>Dina</div>
+        </div>  
+
+        <p>Without <code>display: flex;</code></p>
+        <div class="container">
+            <div style="flex: 1;">Ryan</div>
+            <div style="flex: 1;">Dina</div>
+        </div>  
+
+        <p>Without <code>flex: 1;</code></p>
+        <div class="container" style="display: flex;">
+            <div>Ryan</div>
+            <div>Dina</div>
+        </div>  
+
+
+
+        <h3>Complex nesting multiple box</h3>
+
+        <p>Just with css declarations above, we can create a complex box layout.</p>
+
+        <div class="codebox">
+            &lt!--index.html--&gt<br>
+            <br>
+            &ltdiv class="flex-container"&gt<br>
+                <span class="tab">&ltdiv&gtRyan&lt/div&gt</span><br>
+                <span class="tab">&ltdiv class="flex-container"&gt</span><br>
+                <span class="tab"><span class="tab">&ltdiv&gtHarrison&lt/div&gt</span></span><br>
+                <span class="tab"><span class="tab">&ltdiv&gt</span></span><br>
+                <span class="tab"><span class="tab"><span class="tab">&ltdiv&gtOlivia&lt/div&gt</span></span></span><br>
+                <span class="tab"><span class="tab"><span class="tab">&ltdiv&gtKitten&lt/div&gt</span></span></span><br>
+                <span class="tab"><span class="tab">&lt/div&gt</span></span><br>
+                <span class="tab">&lt/div&gt</span><br>
+                <span class="tab">&ltdiv&gtDina&lt/div&gt</span><br>
+            &lt/div&gt    
+
+        </div>
+
+        <p>Result:</p>
+        <div class="flex-container">
+            <div>Ryan</div>
+            <div class="flex-container">
+                <div>Harrison</div>
+                <div>
+                    <div>Olivia</div>
+                    <div>Kitten</div>
+                </div>
+            </div>
+            <div>Dina</div>
+        </div>            
+
+        <p>With a little modification, we can make something like this:</p>
+
+        <div class="container">
+            <div><h2 style="text-align: center;">CSS Flexbox</h2></div>
+            <div class="flex-container">
+                <div style="flex: 0 auto;">
+                    <h3>Navigation</h3>
+                    <div>Option 1</div>
+                    <div>Option 2</div>
+                    <div>Option 3</div>
+                </div>
+                <div class="codebox">
+                    <h3>/* style.css */</h3>
+                    
+                    .container,<br>
+                    .flex-container {<br>
+                        <span class="tab">padding: 3px;</span><br>
+                        <span class="tab">border: 3px solid rosybrown;</span><br>
+                        <span class="tab">margin: 20px;</span><br>
+                    }<br>
+                    <br>
+                    .flex-container {<br>
+                        <span class="tab">display: flex;</span><br>
+                    }<br>
+                    <br>
+                    .container div,<br>
+                    .flex-container div {<br>
+                        <span class="tab">padding: 5px;</span><br>
+                        <span class="tab">border: 3px solid cadetblue;</span><br>
+                        <span class="tab">margin: 5px;</span><br>
+                    }<br>
+                    <br>
+                    .flex-container div {<br>
+                        <span class="tab">flex: 1;</span><br>
+                    }<br>
+                    <h3>Note</h3>
+                    Style the navigation box with <code>"flex: 0 auto;"</code>
+
+                </div>
+            </div>
+            <div>
+                <h4 style="text-align: center;">
+                    Olivia writes:<br>
+                    FOX FOX FOX FOX, TO, JKUYG
+                </h4>
+            </div>
+        </div>
+
+
+        <p class="back"><a href="./index.html">Back to main page</a></p>
+    </body>
+</html>

@@ -112,6 +112,30 @@ code,
     text-align: center;
 }
 
+/* Flexbox */
+
+.container,
+.flex-container {
+    padding: 3px;
+    border: 3px solid rosybrown;
+    margin: 20px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.container div,
+.flex-container div {
+    padding: 5px;
+    border: 3px solid cadetblue;
+    margin: 5px;
+}
+
+.flex-container div {
+    flex: 1;
+}
+
 /* Navigation bar, still not working properly */
 
 .links-list a {
