@@ -35,6 +35,13 @@ h1 {
 
 }
 
+.giant {
+    color: cadetblue;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* Coding font */ 
 
 code,
@@ -139,6 +146,10 @@ code {
 .h160-container div {
     padding: 5px;
     border: 3px solid cadetblue;
+}
+
+.container div,
+.flex-container div {
     margin: 5px;
 }
 
@@ -154,7 +165,7 @@ code {
 
 .h160-container div {
     width: 130px;
-    height: 80px;
+    height: 60px;
 }
 /* Navigation bar, still not working properly */
 

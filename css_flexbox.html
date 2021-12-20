@@ -15,29 +15,9 @@
         <h2>Regular div container:</h2>
 
         <div class="container">
-            <div class="codebox">
-                &lt!--index.html--&gt<br>
-                <br>
-                &ltdiv class="container"&gt<br>
-                    <span class="tab">&ltdiv&gtItem 1&lt/div&gt</span><br>
-                    <span class="tab">&ltdiv&gtItem 2&lt/div&gt</span><br>
-                &lt/div&gt   
-            </div>
-            <div class="codebox">
-                /* style.css */<br>
-                <br>
-                .container {<br>
-                    <span class="tab">padding: 3px;</span><br>
-                    <span class="tab">border: 3px solid rosybrown;</span><br>
-                    <span class="tab">margin: 20px;</span><br>
-                }<br>
-                <br>
-                .container div {<br>
-                    <span class="tab">padding: 5px;</span><br>
-                    <span class="tab">border: 3px solid cadetblue;</span><br>
-                    <span class="tab">margin: 5px;</span><br>
-                }
-            </div>
+            <div class="giant">A</div>
+            <div class="giant">B</div>
+            <div class="giant">C</div>
         </div>
 
         <h2>Flex Containers</h2>
@@ -61,30 +41,9 @@
         </ul>
       
         <div class="container" style="display: flex;">
-            <div class="codebox">
-                &lt!--index.html--&gt<br>
-                <br>
-                &ltdiv class="container"&gt<br>
-                    <span class="tab">&ltdiv&gtItem 1&lt/div&gt</span><br>
-                    <span class="tab">&ltdiv&gtItem 2&lt/div&gt</span><br>
-                &lt/div&gt   
-            </div>
-            <div class="codebox">
-                /* style.css */<br>
-                <br>
-                .container {<br>
-                    <span class="tab"><strong>display: flex;</strong></span><br>
-                    <span class="tab">padding: 3px;</span><br>
-                    <span class="tab">border: 3px solid rosybrown;</span><br>
-                    <span class="tab">margin: 20px;</span><br>
-                }<br>
-                <br>
-                .container div {<br>
-                    <span class="tab">padding: 5px;</span><br>
-                    <span class="tab">border: 3px solid cadetblue;</span><br>
-                    <span class="tab">margin: 5px;</span><br>
-                }
-            </div>
+            <div class="giant">A</div>
+            <div class="giant">B</div>
+            <div class="giant">C</div>
         </div>
 
         <h2>Flex Items</h2>
@@ -94,47 +53,23 @@
         <h3>On the items: <span class="titlecode">flex: 1</span></h3>
         
         <div class="flex-container">
-            <div class="codebox">
-                &lt!--index.html--&gt<br>
-                <br>
-                &ltdiv class="container"&gt<br>
-                    <span class="tab">&ltdiv&gtItem 1&lt/div&gt</span><br>
-                    <span class="tab">&ltdiv&gtItem 2&lt/div&gt</span><br>
-                &lt/div&gt   
-            </div>
-            <div class="codebox">
-                /* style.css */<br>
-                <br>
-                .container {<br>
-                    <span class="tab"><strong>display: flex;</strong></span><br>
-                    <span class="tab">padding: 3px;</span><br>
-                    <span class="tab">border: 3px solid rosybrown;</span><br>
-                    <span class="tab">margin: 20px;</span><br>
-                }<br>
-                <br>
-                .container div {<br>
-                    <span class="tab"><strong>flex: 1;</strong></span><br>
-                    <span class="tab">padding: 5px;</span><br>
-                    <span class="tab">border: 3px solid cadetblue;</span><br>
-                    <span class="tab">margin: 5px;</span><br>
-                }
-            </div>
-        </div>  
+            <div class="giant">A</div>
+            <div class="giant">B</div>
+            <div class="giant">C</div>
+        </div> 
 
         <h3>Complex nesting multiple box</h3>
 
-        With just <code>display: flex</code> and <code>flex: 0</code>, we can create:
-
-
+        <p> With just those simple declarations, we can create a complex nesting multiple flexbox.</p>   
 
         <div class="container">
             <div><h2 style="text-align: center;">CSS Flexbox</h2></div>
             <div class="flex-container">
                 <div style="flex: 0;">
                     <h3>Navigation</h3>
-                    <div>Option 1</div>
-                    <div>Option 2</div>
-                    <div>Option 3</div>
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
                 </div>
                 <div class="codebox">
                     <h3>/* style.css */</h3>
@@ -220,14 +155,51 @@
         <h3 class="titlecode">flex-direction: column</h3>
 
         <ul>
-            <li>Default direction for a flex container depends on the main axis. For regular English sites, it is horizontal (<code>row</code>).<br>
-                <code class="tab">flex-direction: row</code><br>
-                <code class="tab">flex-direction: row-reverse</code></li>
-            <li>To change it into vertical (<code>column</code>):<br>
-                <code class="tab">flex-direction: column</code><br>
-                <code class="tab">flex-direction: column-reverse</code>
+            <li>Default direction for a flex container depends on the main axis. For regular English sites, it is horizontal (<code>row</code>).
+                <ul>
+                    <li><code class="tab">flex-direction: row</code>
+
+                        <div class="container" style="display: flex; flex-direction: row;">
+                            <div class="giant">A</div>
+                            <div class="giant">B</div>
+                            <div class="giant">C</div>
+                        </div>
+
+                    </li>
+                    <li><code class="tab">flex-direction: row-reverse</code>
+
+                        <div class="container" style="display: flex; flex-direction: row-reverse;">
+                            <div class="giant">A</div>
+                            <div class="giant">B</div>
+                            <div class="giant">C</div>
+                        </div>
+
+                    </li>
+                </ul>
+                </li>
+            <li>To change it into vertical (<code>column</code>):
+                <ul>
+                    <li><code class="tab">flex-direction: column</code>
+
+                        <div class="container" style="display: flex; flex-direction: column;">
+                            <div class="giant">A</div>
+                            <div class="giant">B</div>
+                            <div class="giant">C</div>
+                        </div>
+
+                    </li>
+                    <li><code class="tab">flex-direction: column-reverse</code>
+
+                        <div class="container" style="display: flex; flex-direction: column-reverse;">
+                            <div class="giant">A</div>
+                            <div class="giant">B</div>
+                            <div class="giant">C</div>
+                        </div>
+
+                    </li>
+                    <li>When the flex-direction is vertical, the flex-basis referred to height instead of width.</li>
+                </ul>       
             </li>
-            <li>When the flex-direction is vertical, the flex-basis referred to height instead of width.</li>
         </ul>
 
         <h4>The consequence:</h4>
@@ -246,109 +218,73 @@
                 
         <h2>Alignment</h2>
 
+        <p>Note: in all examples in alignment section, items are given value <code>width: 130px</code> and <code>height: 60px</code>,and the container is given value <code>height: 160px</code>. Let's see the behaviours when following declarations are applied.</p> 
+
         <p>Shorthand <code>flex:1</code> is indeed handy. </p>
 
         <div class="h160-container">
-            <div style="flex: 1;">
-                <code>width: 130px;<br>
-                height: 80px;<br>
-                flex: 1;</code>
-            </div>
-            <div style="flex: 1;">
-                <code>width: 130px;<br>
-                height: 80px;<br>
-                flex: 1;</code>
-            </div>
-            <div style="flex: 1;">
-                <code>width: 130px;<br>
-                height: 80px;<br>
-                flex: 1;</code>
-            </div>
+            <div class="giant" style="flex: 1;">A</div>
+            <div class="giant" style="flex: 1;">B</div>
+            <div class="giant" style="flex: 1;">C</div>
         </div>
-
-        <p>Note: in example above, cointainer's height is set to 100px and items height are not set. It is automatically fill in the vertical space. It's a standard behaviour. Even without <code>flex:1</code>, the items will fill in the vertical space too.</p>
 
         <p>But how if we want to retain the declared size (width/height) of the flex-items? Here are some flex-container properties we can use:</p>
         <ul>
-            <li><code>justify-content</code> for aligning items across the main axis (horizontal)
+            <li><code>justify-content</code> for main axis alignment (horizontal)
                 <ul>
-                    <li>
-                        <code>justify-content: space-between</code><br>
-                        The flex-items will be distributed evently horixontally by stretching equal size spaces in between.<br>
-                        In the next 3 examples, the container's height is declared to be 140px to illustrate the vertical allignment.<br><code>height: 140px</code>.
+                    <li><code>justify-content: space-between</code>
                     
                         <div class="h160-container" style="justify-content: space-between;">
-                            <div>
-                                <code>width: 130px;<br>
-                                    height: 80px;<br>
-                                <span style="text-decoration: line-through;">flex: 1;</span></code>
-                            </div>   
-                            <div>
-                                <code>width: 130px;<br>
-                                    height: 80px;<br>
-                                <span style="text-decoration: line-through;">flex: 1;</span></code>
-                            </div>
-                            <div>
-                                <code>width: 130px;<br>
-                                    height: 80px;<br>
-                                <span style="text-decoration: line-through;">flex: 1;</span></code>
-                            </div> 
+                            <div class="giant">A</div>
+                            <div class="giant">B</div>
+                            <div class="giant">C</div>
                         </div>
 
                     </li>
+                    <li><code>justify-content: center</code>
+
+                        <div class="h160-container" style="justify-content: center;">
+                            <div class="giant">A</div>
+                            <div class="giant">B</div>
+                            <div class="giant">C</div>
+                        </div>
                     <li>
+                        Look's a little bit funny without a gap in between items, so let's add the gap:<br>
                         <code>justify-content: center</code><br>
-                        <code>gap: 8px</code><br>
-                        The flex-items will be centered horizontally with defined gap. If gap is not defined, the will stick to each other (if the items don't have declared margin either).
-
-
+                        <code>gap: 8px</code>
 
                         <div class="h160-container" style="justify-content: center; gap: 8px;">
-                            <div>
-                                <code>width: 130px;<br>
-                                    height: 80px;<br>
-                                <span style="text-decoration: line-through;">flex: 1;</span></code>
-                            </div>   
-                            <div>
-                                <code>width: 130px;<br>
-                                    height: 80px;<br>
-                                <span style="text-decoration: line-through;">flex: 1;</span></code>
-                            </div>
-                            <div>
-                                <code>width: 130px;<br>
-                                    height: 80px;<br>
-                                <span style="text-decoration: line-through;">flex: 1;</span></code>
-                            </div> 
+                            <div class="giant">A</div>
+                            <div class="giant">B</div>
+                            <div class="giant">C</div>
                         </div>
                     </li>
                 </ul>                
             </li>
-            <li><code>align-items</code> for aligning items across the cross axis (vertical)</li>
+            <li><code>align-items</code> for cross axis alignment (vertical)</li>
             <ul>
                 <li>
                     <code>align-items: center</code><br>
                     The flex-items will be centered vertically.
 
                     <div class="h160-container" style="justify-content: center; gap: 8px; align-items: center;"> 
-                        <div>
-                            <code>width: 130px;<br>
-                                height: 80px;<br>
-                            <span style="text-decoration: line-through;">flex: 1;</span></code>
-                        </div>   
-                        <div>
-                            <code>width: 130px;<br>
-                                height: 80px;<br>
-                            <span style="text-decoration: line-through;">flex: 1;</span></code>
-                        </div>
-                        <div>
-                            <code>width: 130px;<br>
-                                height: 80px;<br>
-                            <span style="text-decoration: line-through;">flex: 1;</span></code>
-                        </div> 
+                        <div class="giant">A</div>
+                        <div class="giant">B</div>
+                        <div class="giant">C</div>
                     </div>
                 </li>
             </ul>
         </ul>
+
+        <h2 class="titlecode">flex-wrap: wrap</h2>
+
+        <p>By default, items will be shrinking when there's no enough horizontal space in the container. If we want the items size to be respected and goes to the next line, use <code>flex-wrap: wrap</code>. Below is an example. Shrink and stretch the window horizontally to see the effect.</p>
+
+        <div class="container" style="display: flex; flex-wrap: wrap;">
+            <div class="giant" style="width:250px">A</div>
+            <div class="giant" style="width:250px">B</div>
+            <div class="giant" style="width:250px">C</div>
+        </div>
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
     </body>
