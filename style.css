@@ -23,6 +23,10 @@ h6 {
     font-weight:bold;
 }
 
+strong {
+    color:firebrick;
+}
+
 h1 {
     border: 8px double pink;
     border-radius: 20px;
@@ -65,6 +69,9 @@ code,
     border-radius: 3px;
 }
 
+code {
+    padding: 0 0.2px;
+}
 
 /* Boxes */
 

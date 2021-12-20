@@ -12,107 +12,120 @@
     <body>
         <h1>CSS Flexbox</h1>   
 
-        <h2>Flex containers and flex items</h2>
+        <h2>Regular div container:</h2>
 
-        <h3 class="titlecode">display: flex</h3>
-        <ul>
-            <li>Apply this property to the container</li>
-            <li>Will make a container displays its items horizontally instead of vertically by standard</li>
-            <li>Combination of mutiple nesting horizontal (flex) and vertical (standard) arrangements can create a complex layout</li>
-        </ul>
-
-        <h3 class="titlecode">flex: 1</h3>
-        <ul>
-            <li>Apply this property to the flex items</li>
-            <li>will make each item box stretches so together they will fill the horizontal space. Without this, each box will wrap around its content only.</li>
-        </ul>
-
-        <h3>Simple example</h3>
-
-        <div class="codebox">
-            &lt!--index.html--&gt<br>
-            <br>
-            &ltdiv class="flex-container"&gt<br>
-                <span class="tab">&ltdiv&gtRyan&lt/div&gt</span><br>
-                <span class="tab">&ltdiv&gtDina&lt/div&gt</span><br>
-            &lt/div&gt    
-
-        </div>
-
-        <div class="codebox">
-            /* style.css */<br>
-            <br>
-            .flex-container {<br>
-                <span class="tab">display: flex;</span><br>
-                <span class="tab">padding: 3px;</span><br>
-                <span class="tab">border: 3px solid rosybrown;</span><br>
-                <span class="tab">margin: 20px;</span><br>
-            }<br>
-            <br>
-            .flex-container div {<br>
-                <span class="tab">flex: 1;</span><br>
-                <span class="tab">padding: 5px;</span><br>
-                <span class="tab">border: 3px solid cadetblue;</span><br>
-                <span class="tab">margin: 5px;</span><br>
-            }
-        </div>
-
-
-        <p>Result:</p>
-        <div class="flex-container">
-            <div>Ryan</div>
-            <div>Dina</div>
-        </div>  
-
-        <p>Without <code>display: flex</code></p>
         <div class="container">
-            <div style="flex: 1;">Ryan</div>
-            <div style="flex: 1;">Dina</div>
-        </div>  
+            <div class="codebox">
+                &lt!--index.html--&gt<br>
+                <br>
+                &ltdiv class="container"&gt<br>
+                    <span class="tab">&ltdiv&gtItem 1&lt/div&gt</span><br>
+                    <span class="tab">&ltdiv&gtItem 2&lt/div&gt</span><br>
+                &lt/div&gt   
+            </div>
+            <div class="codebox">
+                /* style.css */<br>
+                <br>
+                .container {<br>
+                    <span class="tab">padding: 3px;</span><br>
+                    <span class="tab">border: 3px solid rosybrown;</span><br>
+                    <span class="tab">margin: 20px;</span><br>
+                }<br>
+                <br>
+                .container div {<br>
+                    <span class="tab">padding: 5px;</span><br>
+                    <span class="tab">border: 3px solid cadetblue;</span><br>
+                    <span class="tab">margin: 5px;</span><br>
+                }
+            </div>
+        </div>
 
-        <p>Without <code>flex: 1</code></p>
+        <h2>Flex Containers</h2>
+
+        <h3>On the container: <span class="titlecode">display: flex</span> or <span class="titlecode">display: inline-flex</span></h3>
+        
+        <h3>Default properties on the container:</h3>
+        <ul>
+            <li><code>flex-direction: row</code></li>
+            <li>The items start from the start edge of the main axis.</li>
+            <li>All direct children will be flex items</li>
+        </ul>
+
+        <h3>Default properties of the flex items:</h3>
+        <ul>
+            <li><code>flex-grow: 0</code></li>
+            <li><code>flex-shrink: 1</code></li>
+            <li>The items will stretch to fill the size of the cross axis.</li>
+            <li><code>flex-basis: auto</code></li>
+            <li><code>flex-wrap: nowrap</code></li>
+        </ul>
+      
         <div class="container" style="display: flex;">
-            <div>Ryan</div>
-            <div>Dina</div>
+            <div class="codebox">
+                &lt!--index.html--&gt<br>
+                <br>
+                &ltdiv class="container"&gt<br>
+                    <span class="tab">&ltdiv&gtItem 1&lt/div&gt</span><br>
+                    <span class="tab">&ltdiv&gtItem 2&lt/div&gt</span><br>
+                &lt/div&gt   
+            </div>
+            <div class="codebox">
+                /* style.css */<br>
+                <br>
+                .container {<br>
+                    <span class="tab"><strong>display: flex;</strong></span><br>
+                    <span class="tab">padding: 3px;</span><br>
+                    <span class="tab">border: 3px solid rosybrown;</span><br>
+                    <span class="tab">margin: 20px;</span><br>
+                }<br>
+                <br>
+                .container div {<br>
+                    <span class="tab">padding: 5px;</span><br>
+                    <span class="tab">border: 3px solid cadetblue;</span><br>
+                    <span class="tab">margin: 5px;</span><br>
+                }
+            </div>
+        </div>
+
+        <h2>Flex Items</h2>
+
+        <p>Easiest way to make the flex items stretches evenly:</p>
+
+        <h3>On the items: <span class="titlecode">flex: 1</span></h3>
+        
+        <div class="flex-container">
+            <div class="codebox">
+                &lt!--index.html--&gt<br>
+                <br>
+                &ltdiv class="container"&gt<br>
+                    <span class="tab">&ltdiv&gtItem 1&lt/div&gt</span><br>
+                    <span class="tab">&ltdiv&gtItem 2&lt/div&gt</span><br>
+                &lt/div&gt   
+            </div>
+            <div class="codebox">
+                /* style.css */<br>
+                <br>
+                .container {<br>
+                    <span class="tab"><strong>display: flex;</strong></span><br>
+                    <span class="tab">padding: 3px;</span><br>
+                    <span class="tab">border: 3px solid rosybrown;</span><br>
+                    <span class="tab">margin: 20px;</span><br>
+                }<br>
+                <br>
+                .container div {<br>
+                    <span class="tab"><strong>flex: 1;</strong></span><br>
+                    <span class="tab">padding: 5px;</span><br>
+                    <span class="tab">border: 3px solid cadetblue;</span><br>
+                    <span class="tab">margin: 5px;</span><br>
+                }
+            </div>
         </div>  
-
-
 
         <h3>Complex nesting multiple box</h3>
 
-        <p>Just with css declarations above, we can create a complex box layout.</p>
+        With just <code>display: flex</code> and <code>flex: 0</code>, we can create:
 
-        <div class="codebox">
-            &lt!--index.html--&gt<br>
-            <br>
-            &ltdiv class="flex-container"&gt<br>
-                <span class="tab">&ltdiv&gtRyan&lt/div&gt</span><br>
-                <span class="tab">&ltdiv class="flex-container"&gt</span><br>
-                <span class="tab"><span class="tab">&ltdiv&gtHarrison&lt/div&gt</span></span><br>
-                <span class="tab"><span class="tab">&ltdiv&gt</span></span><br>
-                <span class="tab"><span class="tab"><span class="tab">&ltdiv&gtOlivia&lt/div&gt</span></span></span><br>
-                <span class="tab"><span class="tab"><span class="tab">&ltdiv&gtKitten&lt/div&gt</span></span></span><br>
-                <span class="tab"><span class="tab">&lt/div&gt</span></span><br>
-                <span class="tab">&lt/div&gt</span><br>
-                <span class="tab">&ltdiv&gtDina&lt/div&gt</span><br>
-            &lt/div&gt    
 
-        </div>
-
-        <p>Result:</p>
-        <div class="flex-container">
-            <div>Ryan</div>
-            <div class="flex-container">
-                <div>Harrison</div>
-                <div>
-                    <div>Olivia</div>
-                    <div>Kitten</div>
-                </div>
-            </div>
-            <div>Dina</div>
-        </div>            
-
-        <p>With a little modification, we can make something like this:</p>
 
         <div class="container">
             <div><h2 style="text-align: center;">CSS Flexbox</h2></div>
@@ -134,7 +147,7 @@
                     }<br>
                     <br>
                     .flex-container {<br>
-                        <span class="tab">display: flex;</span><br>
+                        <span class="tab"><strong>display: flex;</strong></span><br>
                     }<br>
                     <br>
                     .container div,<br>
@@ -145,12 +158,12 @@
                     }<br>
                     <br>
                     .flex-container div {<br>
-                        <span class="tab">flex: 1;</span><br>
+                        <span class="tab"><strong>flex: 1;</strong></span><br>
                     }<br>
 
                   
                     <h3>Note</h3>
-                    Style the navigation box with <code>"flex: 0;"</code>
+                    Style the navigation box with <strong>flex: 0;</strong>
 
                 </div>
             </div>
@@ -208,9 +221,11 @@
 
         <ul>
             <li>Default direction for a flex container depends on the main axis. For regular English sites, it is horizontal (<code>row</code>).<br>
-                <code class="tab">flex-direction: row</code></li>
+                <code class="tab">flex-direction: row</code><br>
+                <code class="tab">flex-direction: row-reverse</code></li>
             <li>To change it into vertical (<code>column</code>):<br>
-                <code class="tab">flex-direction: column</code>
+                <code class="tab">flex-direction: column</code><br>
+                <code class="tab">flex-direction: column-reverse</code>
             </li>
             <li>When the flex-direction is vertical, the flex-basis referred to height instead of width.</li>
         </ul>
@@ -314,7 +329,7 @@
                     <code>align-items: center</code><br>
                     The flex-items will be centered vertically.
 
-                    <div class="h160-container" style="justify-content: center; gap: 8px; align-items: center;">
+                    <div class="h160-container" style="justify-content: center; gap: 8px; align-items: center;"> 
                         <div>
                             <code>width: 130px;<br>
                                 height: 80px;<br>
