@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Flexbox Allignment</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>CSS Flexbox: Alignment</h1>
+
+        <p>Adding shorthand <code>flex:1</code> to each items is indeed handy. </p>
+
+        <div class="h160-container">
+            <div class="giant" style="flex: 1;">A</div>
+            <div class="giant" style="flex: 1;">B</div>
+            <div class="giant" style="flex: 1;">C</div>
+        </div>
+
+        <p>But what it does is only to ignore all predeclared width, and distribute the space evenly between each items. It also doesn't say anything about vertical alignment. Here is how to have more control over alignments of the flexbox.</p>
+
+        <h2>Properties to control alignments</h2>
+
+        <ul>
+            <li><code>justify-content</code>: controls alignment of all items on the main axis.</li>
+            <li><code>align-items</code>: controls alignment of all items on the cross axis.</li>
+            <li><code>align-self</code>: controls an individual flex item on the cross axis.</li>
+            <li><code>align-content</code>: controls space between flex lines on the cross axis. See packing flex lines.</li>
+            <li><code>gap</code>, <code>column-gap</code>, and <code>row-gap</code>: creates gaps between flex items.</li>
+        </ul>
+
+        <hr>
+        <h2 class="titlecode">justify-content</h2>
+        <p>Controls alignment of all items on the main axis</p>
+
+        <ul>
+            <li>
+                <code>justify-content: flex-start</code><br>
+                <div class="container" style="display: flex; justify-content: flex-start;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+            <li>
+                <code>justify-content: flex-end</code><br>
+                <div class="container" style="display: flex; justify-content: flex-end;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+            <li>
+                <code>justify-content: center</code><br>
+                <div class="container" style="display: flex; justify-content: center;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+            <li>
+                <code>justify-content: space-between</code><br>
+                <div class="container" style="display: flex; justify-content: space-between;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+            <li>
+                <code>justify-content: space-around</code><br>
+                <div class="container" style="display: flex; justify-content: space-around;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+            <li>
+                <code>justify-content: space-evenly</code><br>
+                <div class="container" style="display: flex; justify-content: space-evenly;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+        </ul>
+
+        <hr>
+        <h2 class="titlecode">align-items</h2>
+        <p>Controls alignment of all items on the cross axis.</p>
+        <ul>
+            <li>
+                <code>align-items: stretch</code><br>
+                This is the initial value. Items height are stretched to the container's height by default, except if it has a defined height. Without declaration, container's height follows the tallest item.<br>
+                Container's height undefined:
+                <div class="container" style="display: flex;align-items: stretch;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+                Container's height = 180px (as the rest in this align-items subsection)
+                <div class="container" style="display: flex;align-items: stretch; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+            </li>
+            <li>
+                <code>align-items: flex-start</code><br>
+                Align at the start (in our case, top)
+                <div class="container" style="display: flex;align-items: flex-start; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="giant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height<br>undefined</div>
+                    <div class="giant">ABC</div>
+                </div> 
+            </li>
+            <li>
+                <code>align-items: baseline</code><br>
+                Align at the baseline (the bottom of the first line) of the content. Might look identical with <code>flex-start</code>, being on the top, when the font are all the same.
+                <div class="container" style="display: flex;align-items: baseline; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="giant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height<br>undefined</div>
+                    <div class="giant">ABC</div>
+                </div> 
+            </li>
+            <li>
+                <code>align-items: flex-end</code><br>
+                Align at the end (in our case, bottom)
+                <div class="container" style="display: flex; align-items: flex-end; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+            </li>
+            <li>
+                <code>align-items: center</code><br>
+                Align at the center
+                <div class="container" style="display: flex;align-items: center; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+            </li>
+        </ul>
+
+        <hr>
+        <h2 class="titlecode">align-self</h2>
+        <p>Controls an individual flex item on the cross axis.</p>
+        <p>You can set <code>align-items</code> property on container that works for each items, or do it at individual item with <code>align-self</code> property. The values are the same, plus <code>align-self: auto</code> which reset the value to what is defined at the flex container.</p>
+        <p>Note on <code>align-self: baseline</code>: Items with baseline value will base-align among themselves. So if there's only 1 with such value, it will just go to the top instead.</p>
+        <p>Container below is set with <code>align-items: center</code></p>
+
+        <div class="container" style="display: flex; align-items: center; height: 180px;">
+            <div class="giant" style="align-self: stretch">stretch</div>
+            <div class="giant" style="align-self: baseline;">baseline</div>
+            <div style="align-self: flex-start;"><strong>flex-start</strong></div>
+            <div style="align-self: baseline;"><strong>baseline</strong></div>
+            <div style="align-self: flex-end;"><strong>flex-end</strong></div>
+            <div style="align-self: center;"><strong>center</strong></div>
+            <div style="align-self: auto;"><strong>auto</strong></div>
+            <div><strong>undefined</strong></div>
+        </div> 
+
+
+        <p class="back"><a href="./index.html">Back to main page</a></p>
+    </body>
+</html>

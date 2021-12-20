@@ -23,16 +23,21 @@ h6 {
     font-weight:bold;
 }
 
-strong {
-    color:firebrick;
-}
-
 h1 {
     border: 8px double pink;
     border-radius: 20px;
     padding: 3px;
     text-align: center;
+}
 
+
+hr {
+    border: 3px solid pink;
+    margin: 3em 0 1em;
+}
+
+strong {
+    color:firebrick;
 }
 
 .giant,
