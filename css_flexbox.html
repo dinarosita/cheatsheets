@@ -36,7 +36,8 @@
             <li><code>flex-grow: 0</code></li>
             <li><code>flex-shrink: 1</code></li>
             <li>The items will stretch to fill the size of the cross axis.</li>
-            <li><code>flex-basis: auto</code></li>
+            <li><code>flex-basis: auto</code><br>
+                Browser will look if the items have a size. For example: <code>width: 100px</code>. Then it will be used as the flex-basis. If the don't, the content size will be used.</li>
             <li><code>flex-wrap: nowrap</code></li>
         </ul>
       
@@ -118,28 +119,80 @@
         <code class="tab">flex: 1</code><br>
         Meaning: grow each child box equally and it is actually <code>flex: 1 1 0%</code>.<br></p>
 
-        <h3 class="titlecode">flex-grow</h3>
         <ul>
-            <li>The value is the growth factor. It is a single number.</li>
-            <li>Default value is 0. That's why without declaration, flex item border will wrap arpund the content.</li>
-            <li><code>flex: 1</code> to each flex item div: they will grow equally, to the exact same size</li>
-            <li><code>flex: 2</code> to 1 item div and <code>flex: 1</code> to the rest: that box will grow twice wider than each of the rest. </li>
+            <li>
+                <h3 class="titlecode">flex-grow</h3>
+                <ul>
+                    <li>The value is the growth factor. It is a single number.</li>
+                    <li>Default value is 0. That's why without declaration, flex item border will wrap arpund the content.</li>
+                    <li><code>flex: 1</code> to each flex item div: they will grow equally, to the exact same size</li>
+                    <li><code>flex: 2</code> to 1 item div and <code>flex: 1</code> to the rest: that box will grow twice wider than each of the rest. </li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="titlecode">flex-shrink</h3>
+                <ul>
+                    <li>Similar to flex-grow, but for shrinking.</li>
+                    <li>Only applied when all flex items size is larger than the container.</li>
+                    <li>Default value is 1. Meaning every flex item will be shrinking evenly further declaration.</li>
+                    <li>Specify <code>flex-shrink: 0</code> when you don't want a flex item to shrink</li>            
+                </ul>
+            </li>
+            <li>
+                <h3 class="titlecode">flex-basis</h3>
+                <ul>
+                    <li>Sets the initial size of a flex item. Growing and shrinking start from this baseline.</li>
+                    <li>Default value is <code>auto</code>, which mean will acknowledge width declaration of the flex item.</li>
+                    <li>Remember <code>flex: 1</code> means <code>flex: 1 1 0</code>, meaning we set it to 0, meaning we ignore the declared width. Meaning flex items will be growing or shrinking evenly according to the growth/shrink factor.</li>
+                    <li><code>flex: 1 1 auto</code> will take declared width into consideration.</li>
+                    <li>Can actually be set in px too.</li>
+                </ul>
+            </li>
         </ul>
-        
-        <h3 class="titlecode">flex-shrink</h3>
+
+        <h2>Predefined flex shorthand values</h2>
         <ul>
-            <li>Similar to flex-grow, but for shrinking.</li>
-            <li>Only applied when all flex items size is larger than the container.</li>
-            <li>Default value is 1. Meaning every flex item will be shrinking evenly further declaration.</li>
-            <li>Specify <code>flex-shrink: 0</code> when you don't want a flex item to shrink</li>            
-        </ul>
-        
-        <h3 class="titlecode">flex-basis</h3>
-        <ul>
-            <li>Sets the initial size of a flex item. Growing and shrinking start from this baseline.</li>
-            <li>Default value is <code>auto</code>, which mean will acknowledge width declaration of the flex item.</li>
-            <li>Remember <code>flex: 1</code> means <code>flex: 1 1 0</code>, meaning we set it to 0, meaning we ignore the declared width. Meaning flex items will be growing or shrinking evenly according to the growth/shrink factor.</li>
-            <li><code>flex: 1 1 auto</code> will take declared width into consideration.</li>
+            <li>
+                <h3 class="titlecode">flex: initial</h3><br>
+                Equals to <code>flex: 0 1 auto</code>, the initial value.<br>
+                Can only shrink from the existing base values can grow.
+                <div class="container" style="display: flex;">
+                    <div class="giant" style="width: 100px; flex: initial;">A</div>
+                    <div class="giant" style="width: 200px; flex: initial;">B</div>
+                    <div class="giant" style="width: 300px; flex: initial;">C</div>
+                </div>
+            </li>
+            <li>
+                <h3 class="titlecode">flex: auto</h3><br>
+                Equals to <code>flex: 0 1 auto</code>.<br>
+                Like <code>flex: initial</code>, but can grow too.
+                <div class="container" style="display: flex;">
+                    <div class="giant" style="width: 100px; flex: auto;">A</div>
+                    <div class="giant" style="width: 200px; flex: auto;">B</div>
+                    <div class="giant" style="width: 300px; flex: auto;">C</div>
+                </div>
+            </li>
+            <li>
+                <h3 class="titlecode">flex: none</h3><br>
+                Equals to <code>flex: 0 0 auto</code>.<br>
+                Following the existing base values, can't shrink or grow.
+                <div class="container" style="display: flex;">
+                    <div class="giant" style="width: 100px; flex: none;">A</div>
+                    <div class="giant" style="width: 200px; flex: none;">B</div>
+                    <div class="giant" style="width: 300px; flex: none;">C</div>
+                </div>
+
+            </li>
+            <li>
+                <h3 class="titlecode">flex: <em>num+</em></h3> with <em>num+</em> is any positive number<br>
+                Equals to <code>flex: <em>num+</em> <em>num+</em> 0</code>.<br>
+                Disregard existing base value, use <em>num+</em> as growing and shrinking factor.
+            </li>
+            <div class="container" style="display: flex;">
+                <div class="giant" style="width: 100px; flex: 1;">A</div>
+                <div class="giant" style="width: 200px; flex: 1;">B</div>
+                <div class="giant" style="width: 300px; flex: 2;">C</div>
+            </div>
         </ul>
 
         <h2>Axes</h2>
@@ -230,7 +283,7 @@
 
         <p>But how if we want to retain the declared size (width/height) of the flex-items? Here are some flex-container properties we can use:</p>
         <ul>
-            <li><code>justify-content</code> for main axis alignment (horizontal)
+            <li><h3 class="titlecode">justify-content</h3> for main axis alignment (horizontal)
                 <ul>
                     <li><code>justify-content: space-between</code>
                     
@@ -261,7 +314,7 @@
                     </li>
                 </ul>                
             </li>
-            <li><code>align-items</code> for cross axis alignment (vertical)</li>
+            <li><h3 class="titlecode">align-items</h3> for cross axis alignment (vertical)</li>
             <ul>
                 <li>
                     <code>align-items: center</code><br>
@@ -287,6 +340,20 @@
             <div class="giant" style="width:150px">B</div>
             <div class="giant" style="width:150px">C</div>
         </div>
+
+        <div class="container" style="display: flex; flex-wrap: wrap;">
+            <div>By default, items will be shrinking</div>
+            <div>when there's no enough horizontal space</div>
+            <div>Flex-wrap</div>
+        </div>
+        
+        <h3>Exercise box</h3>
+        <div class="flex-container" style="flex-wrap: wrap;">
+            <div class="giant" style="width: 100px; flex: none;">A</div>
+            <div class="giant" style="width: 200px; flex: none;">B</div>
+            <div class="giant" style="width: 300px; flex: none;">C</div>
+        </div>
+
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
     </body>
