@@ -115,7 +115,7 @@
             </li>
         </ul>
 
-        <h2><span class="titlecode">margin-left: auto</span> or <span class="titlecode">margin-right: auto</span></h2>
+        <h2 class="titlecode">margin: auto</h2>
 
         <p>There are no justify-items or justify-self properties. How to part the first few items to the left and the rest to the right? Using <code>margin-left: auto</code> on the first item pushed to the right or <code>margin-right: auto</code> on the previous item.</p>
 
@@ -384,6 +384,84 @@
                 </div>
             </li>
         </ul>
+
+        <hr>
+        <h2 class="titlecode">gap</h2>
+
+        <p>The flex container below is set to:</p>
+        
+        <ul>
+            <li>
+                <code>flex-wrap: wrap;<br>
+                justify-content: center;<br>
+                align-content: center;</code>
+            </li>
+        </ul>
+        <div class="gap-container">
+            <div class="giant">A</div>
+            <div class="giant">B</div>
+            <div class="giant">C</div>
+            <div class="giant">D</div>
+            <div class="giant">E</div>
+            <div class="giant">F</div>
+            <div class="giant">G</div>
+            <div class="giant">H</div>
+            <div class="giant">I</div>
+            <div class="giant">J</div>
+        </div> 
+
+        <p>To create gap between flex items:</p>
+        <ul>
+            <li>
+                <code>column-gap</code><br>
+                Creates gaps between items on the main axis.
+                <div class="gap-container" style="column-gap: 12px;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                    <div class="giant">D</div>
+                    <div class="giant">E</div>
+                    <div class="giant">F</div>
+                    <div class="giant">G</div>
+                    <div class="giant">H</div>
+                    <div class="giant">I</div>
+                    <div class="giant">J</div>
+                </div> 
+            </li>
+            <li>
+                <code>row-gap</code><br>
+                Creates gaps between flex lines when using <code>flex-wrap: wrap</code>.
+                <div class="gap-container" style="row-gap: 12px;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                    <div class="giant">D</div>
+                    <div class="giant">E</div>
+                    <div class="giant">F</div>
+                    <div class="giant">G</div>
+                    <div class="giant">H</div>
+                    <div class="giant">I</div>
+                    <div class="giant">J</div>
+                </div> 
+            </li>
+            <li>
+                <code>gap</code><br>
+                Shorthand of <code>column-gap</code> and <code>row-gap</code>.
+                <div class="gap-container" style="gap: 12px;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                    <div class="giant">D</div>
+                    <div class="giant">E</div>
+                    <div class="giant">F</div>
+                    <div class="giant">G</div>
+                    <div class="giant">H</div>
+                    <div class="giant">I</div>
+                    <div class="giant">J</div>
+                </div> 
+            </li>
+        </ul>
+
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
     </body>

@@ -40,20 +40,7 @@ strong {
     color:firebrick;
 }
 
-.giant,
-.semigiant {
-    color: cadetblue;
-    font-weight: bold;
-    text-align: center;
-}
 
-.giant {
-    font-size: 2em;
-}
-
-.semigiant {
-    font-size: 1.3em;
-}
 
 /* Coding font */ 
 
@@ -139,26 +126,36 @@ code {
     text-align: center;
 }
 
-/* Flexbox */
+/* Flexboxes used in CSS notes */
 
 .container,
 .flex-container,
-.h160-container {
+.h160-container, 
+.gap-container {
     padding: 3px;
     border: 3px solid rosybrown;
     margin: 20px;
 }
 
 .flex-container,
-.h160-container {
+.h160-container,
+.gap-container {
     display: flex;
+}
+
+.gap-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
 }
 
 .container div,
 .flex-container div,
-.h160-container div {
+.h160-container div,
+.gap-container div {
     padding: 5px;
     border: 3px solid cadetblue;
+    background-color: cornsilk;
 }
 
 .container div,
@@ -170,16 +167,32 @@ code {
     flex: 1;
 }
 
-/* Flexbox for learning allignment */
-
 .h160-container {
     height: 160px;
 }
 
-.h160-container div {
+.h160-container div,
+.gap-container div {
     width: 130px;
     height: 60px;
 }
+
+/* Font used inside flexbox in CSS notes */
+.giant,
+.semigiant {
+    color: cadetblue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.giant {
+    font-size: 2em;
+}
+
+.semigiant {
+    font-size: 1.3em;
+}
+
 /* Navigation bar, still not working properly */
 
 .links-list a {
