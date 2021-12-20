@@ -165,6 +165,160 @@
             <div><strong>undefined</strong></div>
         </div> 
 
+        <h3>Let's play with <span class="titlecode">flex-direction</span> on above container</h3>
+       
+        <code>flex-direction: row-reverse</code>
+        <div class="container" style="display: flex; flex-direction: row-reverse; align-items: center; height: 180px;">
+            <div class="giant" style="align-self: stretch">stretch</div>
+            <div class="giant" style="align-self: baseline;">baseline</div>
+            <div style="align-self: flex-start;"><strong>flex-start</strong></div>
+            <div style="align-self: baseline;"><strong>baseline</strong></div>
+            <div style="align-self: flex-end;"><strong>flex-end</strong></div>
+            <div style="align-self: center;"><strong>center</strong></div>
+            <div style="align-self: auto;"><strong>auto</strong></div>
+            <div><strong>undefined</strong></div>
+        </div> 
+
+        <p>For the vertical flexbox, predefined container's height is removed.</p>
+
+        <code>flex-direction: column</code>
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="giant" style="align-self: stretch">stretch</div>
+            <div class="giant" style="align-self: baseline;">baseline</div>
+            <div style="align-self: flex-start;"><strong>flex-start</strong></div>
+            <div style="align-self: baseline;"><strong>baseline</strong></div>
+            <div style="align-self: flex-end;"><strong>flex-end</strong></div>
+            <div style="align-self: center;"><strong>center</strong></div>
+            <div style="align-self: auto;"><strong>auto</strong></div>
+            <div><strong>undefined</strong></div>
+        </div> 
+
+        <code>flex-direction: column-reverse</code>
+        <div class="container" style="display: flex; flex-direction: column-reverse; align-items: center;">
+            <div class="giant" style="align-self: stretch">stretch</div>
+            <div class="giant" style="align-self: baseline;">baseline</div>
+            <div style="align-self: flex-start;"><strong>flex-start</strong></div>
+            <div style="align-self: baseline;"><strong>baseline</strong></div>
+            <div style="align-self: flex-end;"><strong>flex-end</strong></div>
+            <div style="align-self: center;"><strong>center</strong></div>
+            <div style="align-self: auto;"><strong>auto</strong></div>
+            <div><strong>undefined</strong></div>
+        </div> 
+
+        <p>It seems like the baseline value doesn't take effect here. I have tried adding padding or margin as well to one of the item with baseline value, but it only send that box away from the left container border, but doesn't affect the other one.</p>
+
+        <hr>
+        <h2 class="titlecode">align-content</h2>
+        <p>Controls the distribution of space between rows in wrapped multiplt-line flex container. See packing flex lines.</p>
+       
+        <p>Without <code>align-content</code> declaration:</p>
+        
+        <div class="container" style="display: flex; flex-wrap: wrap;height: 300px;">
+            <div class="giant">align-content:</div>
+            <div class="semigiant">flex-start</div>
+            <div class="semigiant">flex-end</div>
+            <div class="semigiant">center</div>
+            <div class="semigiant">space-between</div>
+            <div class="semigiant">space-around</div>
+            <div class="semigiant">stretch</div>
+            <div class="semigiant">space-evenly</div>            
+        </div>
+
+        <ul>
+            <li>
+                <code>align-content: stretch</code>
+                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: stretch;">
+                    <div class="giant">align-content:</div>
+                    <div class="semigiant">flex-start</div>
+                    <div class="semigiant">flex-end</div>
+                    <div class="semigiant">center</div>
+                    <div class="semigiant">space-between</div>
+                    <div class="semigiant">space-around</div>
+                    <div class="semigiant" style="background-color:mistyrose;">stretch</div>
+                    <div class="semigiant">space-evenly</div>            
+                </div>
+            </li>
+            <li>
+                <code>align-content: flex-start</code>
+                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: flex-start;">
+                    <div class="giant">align-content:</div>
+                    <div class="semigiant" style="background-color:mistyrose;">flex-start</div>
+                    <div class="semigiant">flex-end</div>
+                    <div class="semigiant">center</div>
+                    <div class="semigiant">space-between</div>
+                    <div class="semigiant">space-around</div>
+                    <div class="semigiant">stretch</div>
+                    <div class="semigiant">space-evenly</div>            
+                </div>
+            </li>
+            <li>
+                <code>align-content: flex-end</code>
+                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: flex-end;">
+                    <div class="giant">align-content:</div>
+                    <div class="semigiant">flex-start</div>
+                    <div class="semigiant" style="background-color:mistyrose;">flex-end</div>
+                    <div class="semigiant">center</div>
+                    <div class="semigiant">space-between</div>
+                    <div class="semigiant">space-around</div>
+                    <div class="semigiant">stretch</div>
+                    <div class="semigiant">space-evenly</div>            
+                </div>
+            </li>
+            <li>
+                <code>align-content: center</code>
+                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: center;">
+                    <div class="giant">align-content:</div>
+                    <div class="semigiant">flex-start</div>
+                    <div class="semigiant">flex-end</div>
+                    <div class="semigiant" style="background-color:mistyrose;">center</div>
+                    <div class="semigiant">space-between</div>
+                    <div class="semigiant">space-around</div>
+                    <div class="semigiant">stretch</div>
+                    <div class="semigiant">space-evenly</div>            
+                </div>
+            </li>
+            <li>
+                <code>align-content: space-between</code>
+                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-between;">
+                    <div class="giant">align-content:</div>
+                    <div class="semigiant">flex-start</div>
+                    <div class="semigiant">flex-end</div>
+                    <div class="semigiant">center</div>
+                    <div class="semigiant" style="background-color:mistyrose;">space-between</div>
+                    <div class="semigiant">space-around</div>
+                    <div class="semigiant">stretch</div>
+                    <div class="semigiant">space-evenly</div>            
+                </div>
+            </li>
+            <li>
+                <code>align-content: space-around</code>
+                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-around;">
+                    <div class="giant">align-content:</div>
+                    <div class="semigiant">flex-start</div>
+                    <div class="semigiant">flex-end</div>
+                    <div class="semigiant">center</div>
+                    <div class="semigiant">space-between</div>
+                    <div class="semigiant" style="background-color:mistyrose;">space-around</div>
+                    <div class="semigiant">stretch</div>
+                    <div class="semigiant">space-evenly</div>            
+                </div>
+            </li>
+
+            <li>
+                <code>align-content: space-evenly</code>
+                <p>Since this is new, it's not well supported yet, maybe avoid using</p>
+                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-evenly;">
+                    <div class="giant">align-content:</div>
+                    <div class="semigiant">flex-start</div>
+                    <div class="semigiant">flex-end</div>
+                    <div class="semigiant">center</div>
+                    <div class="semigiant">space-between</div>
+                    <div class="semigiant">space-around</div>
+                    <div class="semigiant">stretch</div>
+                    <div class="semigiant" style="background-color:mistyrose;">space-evenly</div>            
+                </div>
+            </li>
+        </ul>
 
         <p class="back"><a href="./index.html">Back to main page</a></p>
     </body>
