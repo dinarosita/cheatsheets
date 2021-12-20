@@ -79,6 +79,7 @@
             </li>
             <li>
                 <code>justify-content: space-evenly</code><br>
+                Since this is new, it's not well supported yet, maybe avoid using.
                 <div class="container" style="display: flex; justify-content: space-evenly;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
@@ -87,6 +88,70 @@
             </li>
         </ul>
 
+        <p>If direction is reversed, of course the start and end are also flipped</p>
+        <ul>
+            <li>
+                <code>flex-direction: row-reverse;<br>
+                justify-content: flex-start</code>
+                <div class="container" style="display: flex; flex-direction: row-reverse; justify-content: flex-start;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+        </ul>
+
+        <p>If the axis is changed, justify content is applied to the vertical space.</p>
+        <ul>
+            <li>
+                <code>flex-direction: column-reverse;<br>
+                height: 300px;<br>
+                justify-content: flex-start;</code>
+                <div class="container" style="display: flex; flex-direction: column-reverse; height: 300px; justify-content: flex-start;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant">C</div>
+                </div> 
+            </li>
+        </ul>
+
+        <h2><span class="titlecode">margin-left: auto</span> or <span class="titlecode">margin-right: auto</span></h2>
+
+        <p>There are no justify-items or justify-self properties. How to part the first few items to the left and the rest to the right? Using <code>margin-left: auto</code> on the first item pushed to the right or <code>margin-right: auto</code> on the previous item.</p>
+
+        <ul>
+            <li>
+                <code>margin-left: auto</code> on box C
+                <div class="container" style="display: flex;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant" style="margin-left: auto;">C</div>
+                    <div class="giant">D</div>
+                    <div class="giant">E</div>
+                </div>
+            </li>
+            <li>
+                <code>margin-right: auto</code> on box C
+                <div class="container" style="display: flex;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant" style="margin-right: auto;">C</div>
+                    <div class="giant">D</div>
+                    <div class="giant">E</div>
+                </div>
+            </li>
+            <li>
+                <code>margin: auto</code> on box C
+                <div class="container" style="display: flex;">
+                    <div class="giant">A</div>
+                    <div class="giant">B</div>
+                    <div class="giant" style="margin: auto;">C</div>
+                    <div class="giant">D</div>
+                    <div class="giant">E</div>
+                </div>
+            </li>
+        </ul>
+       
         <hr>
         <h2 class="titlecode">align-items</h2>
         <p>Controls alignment of all items on the cross axis.</p>
@@ -306,7 +371,7 @@
 
             <li>
                 <code>align-content: space-evenly</code>
-                <p>Since this is new, it's not well supported yet, maybe avoid using</p>
+                Since this is new, it's not well supported yet, maybe avoid using.
                 <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-evenly;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant">flex-start</div>
