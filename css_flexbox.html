@@ -195,80 +195,73 @@
             </div>
         </ul>
 
-        <h2>Axis</h2>
+        <h2>Axis and Directions</h2>
 
-        <p>In our regular English language, website orientation will be left to right just like our writing. This might not be the case for some other languages. Which one is the main axis will depend and the direction will depend on this. We limit this note to normal English use.
-
-        <p>Axis:</p>
-        <ul>
-            <li>Main axis: horizontal axis: row</li>
-            <li>Cross axis: vertical axis: column</li>
-        </ul>
-     
-        <h3 class="titlecode">flex-direction: column</h3>
+        <p>There are 2 axis in the flexbox system: main axis (row) and cross axis (column), and each axis can have 2 directions: regular and reverse.</p>
 
         <ul>
-            <li>Default direction for a flex container depends on the main axis. For regular English sites, it is horizontal (<code>row</code>).
+            <li><h3>Main axis: Row</h3>
+                Main axis, the row, depends on the writing direction of the language.<br>
+                In English sites: horizontal.
                 <ul>
-                    <li><code class="tab">flex-direction: row</code>
-
+                    <li><h3 class="titlecode">flex-direction: row</h3><br>
+                        This is the default.
+        
                         <div class="container" style="display: flex; flex-direction: row;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
                         </div>
-
+        
                     </li>
-                    <li><code class="tab">flex-direction: row-reverse</code>
-
+                    <li><h3 class="titlecode">flex-direction: row-reverse</h3>
+        
                         <div class="container" style="display: flex; flex-direction: row-reverse;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
                         </div>
-
+        
                     </li>
                 </ul>
-                </li>
-            <li>To change it into vertical (<code>column</code>):
-                <ul>
-                    <li><code class="tab">flex-direction: column</code>
 
+            <li><h3>Cross axis: Column</h3>
+                Perpendicular to main axis, we have cross axis, the column.<br>
+                In English sites: vertical.<br>
+                Note: When the axis is vertical, the flex-basis referred to height instead of width.
+                <ul>
+                    <li><h3 class="titlecode">flex-direction: column</h3>
+        
                         <div class="container" style="display: flex; flex-direction: column;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
                         </div>
-
+        
                     </li>
-                    <li><code class="tab">flex-direction: column-reverse</code>
-
+                    <li><h3 class="titlecode">flex-direction: column-reverse</h3>
+        
                         <div class="container" style="display: flex; flex-direction: column-reverse;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
                         </div>
-
+        
                     </li>
-                    <li>When the flex-direction is vertical, the flex-basis referred to height instead of width.</li>
-                </ul>       
+                </ul>  
             </li>
         </ul>
 
-        <h4>The consequence:</h4>
-        <p>In vertical flexbox, it can be more complicated to define the flex values. An empty box (either flex-container or flex-item) doesn't have height by itself. It collapses. While the standard for the width, it fills the whole horizontal space. So in the vertical box, to avoid collapsing boxes, height need to be defined, and pay attention when using the <code>flex: 1</code> shorthand because it is changing the flex-basis value from auto (acknowledging the height/width) into 0 (ignoring, resulting in the collapse of the empty boxes.)</p>
-            
-        Some good options:
+        <h4>Note on <code>height</code> of a vertical flexbox</h4>
+        <p>For vertical flexbox, pay attention to the <code>height</code> and <code>flex</code> declaration. When working with horizontal flexbox, shorthand <code>flex: 1</code> in items is enough to make a smooth flexbox. This code will collapse empty item box in vertical flexbox because it sets the flex-basis at 0, which means it will ignore the predefined height. If the container doesn't have defined <code>height</code> either, and all the item boxes are empty, the container will collapse. This doesn't happen in horizontal box, just in vertical box, because a box by standard stretches horizontally to available space, the whole width, while it stretches vertically only onto the extend of content or predefined height.
+        
+        <p>So, pay attention to:</p>
         <ul>
-            <li>Define flex item's <code>height</code> and:
-                <ul>
-                    <li>use <code>flex: 1 1 auto</code>.</li>
-                    <li>use <code>flex-grow: 1</code> because it left standard flex-basis at auto</li>
-                </ul>
-            </li>
-            <li>Define flex container's <code>height</code> and the usual shorthand <code>flex: 1</code> can be used because now the container doesn't collapse vertically.</li>
-        </ul> 
-                
+            <li>Container's <code>height</code></li>
+            <li>Items' <code>height</code></li>
+            <li><code>flex</code> shorthand: consider declare <code>flex-basis</code> separately</li>
+        </ul>
+                    
         <h2>Alignment</h2>
 
         <p>Note: in all examples in alignment section, items are given value <code>width: 130px</code> and <code>height: 60px</code>,and the container is given value <code>height: 160px</code>. Let's see the behaviours when following declarations are applied.</p> 
@@ -352,10 +345,23 @@
                 Align at the start (in our case, top)
                 <div class="container" style="display: flex;align-items: flex-start; height: 180px;">
                     <div class="semigiant" style="height: 60px;">height: 60px</div>
-                    <div class="semigiant" style="height: 120px;">height: 120px</div>
-                    <div class="semigiant">height undefined</div>
+                    <div class="giant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height<br>undefined</div>
+                    <div class="giant">ABC</div>
                 </div> 
             </li>
+            <li>
+                <code>align-items: baseline</code><br>
+                Align at the baseline (the bottom of the first line) of the content. Might look identical with <code>flex-start</code>, being on the top, when the font are all the same.
+                <div class="container" style="display: flex;align-items: baseline; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="giant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height<br>undefined</div>
+                    <div class="giant">ABC</div>
+                </div> 
+            </li>
+        
+
             <li>
                 <code>align-items: flex-end</code><br>
                 Align at the end (in our case, bottom)
