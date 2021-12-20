@@ -35,11 +35,19 @@ h1 {
 
 }
 
-.giant {
+.giant,
+.semigiant {
     color: cadetblue;
-    font-size: 2em;
     font-weight: bold;
     text-align: center;
+}
+
+.giant {
+    font-size: 2em;
+}
+
+.semigiant {
+    font-size: 1.3em;
 }
 
 /* Coding font */ 

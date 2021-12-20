@@ -195,7 +195,7 @@
             </div>
         </ul>
 
-        <h2>Axes</h2>
+        <h2>Axis</h2>
 
         <p>In our regular English language, website orientation will be left to right just like our writing. This might not be the case for some other languages. Which one is the main axis will depend and the direction will depend on this. We limit this note to normal English use.
 
@@ -315,7 +315,7 @@
                 </ul>                
             </li>
             <li><h3 class="titlecode">align-items</h3> for cross axis alignment (vertical)</li>
-            <ul>
+            <ul>               
                 <li>
                     <code>align-items: center</code><br>
                     The flex-items will be centered vertically.
@@ -327,6 +327,53 @@
                     </div>
                 </li>
             </ul>
+        </ul>
+
+        <h2>Other <span class="titlecode">align-items</span> values</h2>
+        <ul>
+            <li>
+                <code>align-items: stretch</code><br>
+                This is the initial value. Items height are stretched to the container's height by default, except if it has a defined height. Without declaration, container's height follows the tallest item.<br>
+                Container's height undefined:
+                <div class="container" style="display: flex;align-items: stretch;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+                Container's height = 180px (as the rest in this align-items subsection)
+                <div class="container" style="display: flex;align-items: stretch; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+            </li>
+            <li>
+                <code>align-items: flex-start</code><br>
+                Align at the start (in our case, top)
+                <div class="container" style="display: flex;align-items: flex-start; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+            </li>
+            <li>
+                <code>align-items: flex-end</code><br>
+                Align at the end (in our case, bottom)
+                <div class="container" style="display: flex; align-items: flex-end; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+            </li>
+            <li>
+                <code>align-items: center</code><br>
+                Align at the center
+                <div class="container" style="display: flex;align-items: center; height: 180px;">
+                    <div class="semigiant" style="height: 60px;">height: 60px</div>
+                    <div class="semigiant" style="height: 120px;">height: 120px</div>
+                    <div class="semigiant">height undefined</div>
+                </div> 
+            </li>
         </ul>
 
         <h2 class="titlecode">flex-wrap: wrap</h2>
@@ -342,9 +389,9 @@
         </div>
 
         <div class="container" style="display: flex; flex-wrap: wrap;">
-            <div>By default, items will be shrinking</div>
-            <div>when there's no enough horizontal space</div>
-            <div>Flex-wrap</div>
+            <div class="semigiant">By default, items will be shrinking</div>
+            <div class=" semigiant">when there's no enough horizontal space</div>
+            <div class="semigiant">Flex-wrap:<br>wrap</div>
         </div>
         
         <h3>Exercise box</h3>
