@@ -51,6 +51,28 @@ strong {
     color:firebrick;
 }
 
+/* Button */
+
+.linkbutton:link, 
+.linkbutton:visited {
+    color: cadetblue;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border: 5px solid pink;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+  
+.linkbutton:hover, 
+.linkbutton:active {
+    background-color: mistyrose;
+    color: cadetblue;
+}
+
 /* indlex = inbox's flexbox */
 
 .indlex {
