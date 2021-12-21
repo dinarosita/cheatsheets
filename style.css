@@ -18,18 +18,29 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.indlex-title {
     color:cadetblue; 
     font-weight:bold;
 }
 
-h1 {
+h1,
+.indlex > div {
     border: 8px double pink;
     border-radius: 20px;
     padding: 3px;
+}
+
+h1 {
     text-align: center;
 }
 
+h6 {
+    font-size: 1em;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
 
 hr {
     border: 3px solid pink;
@@ -40,7 +51,34 @@ strong {
     color:firebrick;
 }
 
+/* indlex = inbox's flexbox */
 
+.indlex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.indlex > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1.5em;
+}
+
+.indlex-title {
+    font-size: 1.5em;
+}
+
+.indlex-content {
+    flex: 1;
+    padding-bottom: 2em;
+}
+
+.indlex-footer {
+}
 
 /* Coding font */ 
 
@@ -102,6 +140,8 @@ code {
 .tab {
     margin-left: 1.5em;
 }
+
+
 
 /* Horizontal Listing */
 
