@@ -1,5 +1,19 @@
 /* style.css */
 
+:root {
+    --pink:rgb(243, 196, 205);      /* border */
+    --teal: cadetblue;              /* title */
+    --blue: steelblue;              /* code */
+    --shadow: whitesmoke;           /* code background */
+    --gray: lightgrey;              /* code border */
+    --brown: sienna;                /* link */
+    --white: white;                 /* link hover */
+    --tan: rosybrown;               /* flexbox border */
+    --yellow: cornsilk;             /* flexbox background */
+    --orange: rgb(236, 144, 113);   /* strong */
+    --green: olive;                 /* warning */    
+}
+
 html {
     max-width: 940px;
     margin: auto;
@@ -20,13 +34,13 @@ h4,
 h5,
 h6,
 .indlex-title {
-    color:cadetblue; 
+    color:var(--teal); 
     font-weight:bold;
 }
 
 h1,
 .indlex > div {
-    border: 8px double rgb(243, 196, 205);
+    border: 8px double var(--pink);
     border-radius: 20px;
     padding: 3px;
 }
@@ -37,32 +51,32 @@ h1 {
 
 h6 {
     font-size: 1em;
-    padding: 0;
+    padding: 1em 0 0;
     border: 0;
     margin: 0;
 }
 
 hr {
-    border: 3px solid rgb(243, 196, 205);
+    border: 3px solid var(--pink);
     margin: 3em 0 1em;
 }
 
 strong {
-    color:firebrick;
+    color: var(--orange);
 }
 
 a {
-    color:sienna;
+    color:var(--brown);
 }
 
 /* Button */
 
 .linkbutton:link, 
 .linkbutton:visited {
-    color: cadetblue;
+    color: var(--teal);
     font-weight: bold;
     padding: 0.2em 0.7em;
-    border: 3px solid cadetblue;
+    border: 3px solid var(--teal);
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
@@ -73,8 +87,8 @@ a {
   
 .linkbutton:hover, 
 .linkbutton:active {
-    background-color: cadetblue;
-    color: white;
+    background-color: var(--teal);
+    color: var(--white);
 }
 
 /* indlex = inbox's flexbox */
@@ -101,7 +115,6 @@ a {
 
 .indlex-content {
     flex: 1;
-    padding-bottom: 2em;
 }
 
 .indlex-footer {
@@ -117,7 +130,7 @@ code,
 
 code,
 .incode {
-    color:steelblue;
+    color:var(--blue);
 }
 
 code,
@@ -135,9 +148,9 @@ code,
 
 .titlecode {
     display: inline-block;
-    background-color: whitesmoke;    
+    background-color: var(--shadow);    
     padding: 0 0.4em;
-    border: 1px lightgrey solid;
+    border: 1px var(--gray) solid;
     border-radius: 3px;
 }
 
@@ -149,7 +162,7 @@ code {
 
 .codebox {
     padding: 1em;
-    border: 2px solid pink;
+    border: 2px solid var(--pink);
     border-radius: 5px;
     margin: 1em auto;
     max-width: 800px;
@@ -185,7 +198,7 @@ code {
 /* Others */    
 
 .alert {
-    color: olive;
+    color: var(--green);
 }
 
 .back {
@@ -200,7 +213,7 @@ code {
 .h160-container, 
 .gap-container {
     padding: 3px;
-    border: 3px solid rosybrown;
+    border: 3px solid var(--tan);
     margin: 20px;
 }
 
@@ -221,8 +234,8 @@ code {
 .h160-container div,
 .gap-container div {
     padding: 5px;
-    border: 3px solid cadetblue;
-    background-color: cornsilk;
+    border: 3px solid var(--teal);
+    background-color: var(--yellow);
 }
 
 .container div,
@@ -248,7 +261,7 @@ code {
 
 .giant,
 .semigiant {
-    color: cadetblue;
+    color: var(--teal);
     font-weight: bold;
     text-align: center;
 }
@@ -264,12 +277,12 @@ code {
 /* Navigation bar, still not working properly */
 
 .links-list a {
-    background-color: lightyellow;
+    background-color: var(--yellow);
     text-decoration: none;
     padding: 1em 2em;    
     display: inline-block;
 }
     
 .links-list a:hover {
-    background-color: lavenderblush;
+    background-color: var(--pink);
 }
