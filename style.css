@@ -51,14 +51,18 @@ strong {
     color:firebrick;
 }
 
+a {
+    color:sienna;
+}
+
 /* Button */
 
 .linkbutton:link, 
 .linkbutton:visited {
     color: cadetblue;
     font-weight: bold;
-    padding: 0.5em 1em;
-    border: 5px solid pink;
+    padding: 0.2em 0.7em;
+    border: 3px solid cadetblue;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
@@ -69,8 +73,8 @@ strong {
   
 .linkbutton:hover, 
 .linkbutton:active {
-    background-color: mistyrose;
-    color: cadetblue;
+    background-color: cadetblue;
+    color: white;
 }
 
 /* indlex = inbox's flexbox */
