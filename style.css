@@ -70,53 +70,49 @@ a {
     color:var(--brown);
 }
 
-/* Button */
+/* Navigation */
 
-.linkbutton:link, 
-.linkbutton:visited,
-.nav-option:link, 
-.nav-option:visited {
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 5px 0;
+}
+
+.nav-button:link, 
+.nav-button:visited,
+.nav-button-rev:link,
+.nav-button-rev:visited {
     font-weight: bold;
     padding: 0.2em 0.7em;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
     width: fit-content;
-}
-
-.linkbutton:link, 
-.linkbutton:visited {
-    display: block;
-    margin: auto;
-    border: 3px solid var(--teal);
-}
-
-.linkbutton:link, 
-.linkbutton:visited {
-    color: var(--teal);
-}
-  
-.linkbutton:hover, 
-.linkbutton:active {
-    background-color: var(--teal);
-    color: var(--white);
-}
-
-.nav-option:link, 
-.nav-option:visited
- {
-    background-color: var(--pink);
-    color: var(--white);
     border: 3px solid var(--pink);
 }
 
-.nav-option:hover,
-.nav-option:active {
-    color: var(--pink);
-    background-color: var(--white);
+.nav-button:link, 
+.nav-button:visited {
+    background-color: var(--pink);
+    color: var(--white);
 }
 
-/* .indlex - inbox's flexbox */
+.nav-button:hover,
+.nav-button:active,
+.nav-button-rev:link,
+.nav-button-rev:visited {
+    background-color: var(--white);
+    color: var(--pink);
+}
+
+.nav-button-rev:hover,
+.nav-button-rev:active {
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+/* Index Flexbox */
 
 .indlex {
     display: flex;
@@ -124,6 +120,7 @@ a {
     gap: 1em;
     justify-content: center;
     align-content: flex-start;
+    margin: 1em 0;
 }
 
 .indlex > div {
@@ -141,22 +138,9 @@ a {
     flex: 1;
 }
 
-.indlex-footer {
-}
+.indlex-footer {}
 
-/* .nav-bar - navigation bar */
-
-.nav-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-}
-
-.nav-option {
-
-}
-
-/* Coding font */ 
+/* Coding Font */ 
 
 code,
 .titlecode,
@@ -216,8 +200,6 @@ code {
 .tab {
     margin-left: 1.5em;
 }
-
-
 
 /* Horizontal Listing */
 
