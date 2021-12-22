@@ -47,6 +47,7 @@ h1,
 
 h1 {
     text-align: center;
+    margin-top: 5px;
 }
 
 h6 {
@@ -72,17 +73,27 @@ a {
 /* Button */
 
 .linkbutton:link, 
-.linkbutton:visited {
-    color: var(--teal);
+.linkbutton:visited,
+.nav-option:link, 
+.nav-option:visited {
     font-weight: bold;
     padding: 0.2em 0.7em;
-    border: 3px solid var(--teal);
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
-    display: block;
     width: fit-content;
+}
+
+.linkbutton:link, 
+.linkbutton:visited {
+    display: block;
     margin: auto;
+    border: 3px solid var(--teal);
+}
+
+.linkbutton:link, 
+.linkbutton:visited {
+    color: var(--teal);
 }
   
 .linkbutton:hover, 
@@ -91,7 +102,21 @@ a {
     color: var(--white);
 }
 
-/* indlex = inbox's flexbox */
+.nav-option:link, 
+.nav-option:visited
+ {
+    background-color: var(--pink);
+    color: var(--white);
+    border: 3px solid var(--pink);
+}
+
+.nav-option:hover,
+.nav-option:active {
+    color: var(--pink);
+    background-color: var(--white);
+}
+
+/* .indlex - inbox's flexbox */
 
 .indlex {
     display: flex;
@@ -117,6 +142,18 @@ a {
 }
 
 .indlex-footer {
+}
+
+/* .nav-bar - navigation bar */
+
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.nav-option {
+
 }
 
 /* Coding font */ 
