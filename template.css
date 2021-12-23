@@ -1,0 +1,139 @@
+/* style.css */
+
+:root {
+    --border:rgb(243, 196, 205);
+    --title: cadetblue;
+    --code: steelblue;
+    --shadow: whitesmoke;
+    --gray: lightgrey;
+    --link: sienna;
+    --white: white;
+
+}
+
+html {
+    max-width: 960px;
+    margin: auto;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Barlow', 'Roboto', sans-serif; 
+    line-height: 1.4;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+    
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6,
+.indlex-title {
+    color:var(--title); 
+    font-weight:bold;
+}
+
+h1,
+.indlex > div {
+    border: 8px double var(--border);
+    border-radius: 20px;
+    padding: 3px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5px;
+}
+
+h6 {
+    font-size: 1em;
+    padding: 1em 0 0;
+    border: 0;
+    margin: 0;
+}
+
+hr {
+    border: 3px solid var(--border);
+    margin: 3em 0 1em;
+}
+
+strong {
+    color: var(--orange);
+}
+
+a {
+    color:var(--link);
+}
+
+/* Navigation */
+
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 5px 0;
+}
+
+.nav-button:link, 
+.nav-button:visited,
+.nav-button-rev:link,
+.nav-button-rev:visited {
+    font-weight: bold;
+    padding: 0.2em 0.7em;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: fit-content;
+    border: 3px solid var(--border);
+}
+
+.nav-button:link, 
+.nav-button:visited {
+    background-color: var(--border);
+    color: var(--white);
+}
+
+.nav-button:hover,
+.nav-button:active,
+.nav-button-rev:link,
+.nav-button-rev:visited {
+    background-color: var(--white);
+    color: var(--border);
+}
+
+.nav-button-rev:hover,
+.nav-button-rev:active {
+    background-color: var(--border);
+    color: var(--white);
+}
+
+/* Index Flexbox */
+
+.indlex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    align-content: flex-start;
+    margin: 1em 0;
+}
+
+.indlex > div {
+    flex: 1 0 270px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1.5em;
+}
+
+.indlex-title {
+    font-size: 1.5em;
+}
+
+.indlex-content {
+    flex: 1;
+}
+
+.indlex-footer {}
+
