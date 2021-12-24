@@ -1,17 +1,20 @@
 /* style.css */
 
 :root {
-    --pink:rgb(243, 196, 205);      /* border */
-    --teal: cadetblue;              /* title */
-    --blue: steelblue;              /* code */
-    --shadow: whitesmoke;           /* code background */
-    --gray: lightgrey;              /* code border */
-    --brown: sienna;                /* link */
-    --white: white;                 /* link hover */
-    --tan: rosybrown;               /* flexbox border */
-    --yellow: cornsilk;             /* flexbox background */
-    --orange: rgb(236, 144, 113);   /* strong */
-    --green: olive;                 /* warning */    
+    --border:rgb(243, 196, 205);
+    --title: cadetblue;
+    --code: steelblue;
+    --codebackground: whitesmoke;
+    --codeborder: lightgrey;
+    --link: sienna;
+    --linkhover: white;
+    --flexborder: rosybrown;
+    --flexbackground: cornsilk;
+    --strong: rgb(236, 144, 113);
+    --extranote: olive;
+    --gap: 15px;
+    --smallgap: 8px;
+    --biggap: 30px;
 }
 
 html {
@@ -19,55 +22,112 @@ html {
     margin: auto;
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Barlow', 'Roboto', sans-serif; 
+    font-family: 'Barlow', sans-serif; 
     line-height: 1.4;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
 }
-    
+
+/* Text padding, margin, and alignment */    
+
+/* Fonts | h1: page title, h2-h6: content title */
+
 h1, 
 h2,
 h3,
 h4,
 h5,
-h6,
-.indlex-title {
-    color:var(--teal); 
-    font-weight:bold;
+h6 {
+    color: var(--title); 
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
 h1,
-.indlex > div {
-    border: 8px double var(--pink);
-    border-radius: 20px;
-    padding: 3px;
-}
-
-h1 {
+.index-card h2 {
     text-align: center;
-    margin-top: 5px;
-}
-
-h6 {
-    font-size: 1em;
-    padding: 1em 0 0;
-    border: 0;
-    margin: 0;
-}
-
-hr {
-    border: 3px solid var(--pink);
-    margin: 3em 0 1em;
-}
-
-strong {
-    color: var(--orange);
 }
 
 a {
-    color:var(--brown);
+    color: var(--link);
+}
+
+strong {
+    color: var(--strong);
+}
+
+.card-footer {
+    color: var(--border);
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* Borders and Lines */
+
+h1,
+.index-card {
+    border: 8px double var(--border);
+    border-radius: 20px;
+}
+
+h1 {
+    padding: var(--smallgap);
+}
+
+.index-card {
+    padding: var(--gap);
+}
+
+hr {
+    border: 3px solid var(--border);
+    margin: var(--biggap) 0 var(--gap);
+}
+
+/* Index Card Flexbox */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.index-card {
+    flex: 1 0 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    flex: 1;
+}
+
+/* Card margins */
+
+.card-container,
+.content-main,
+.content-additional {
+    margin: var(--gap) 0;
+}
+
+.card-header,
+.card-footer {
+    margin: var(--gap) auto 0;
+}
+
+/* List */
+
+.content-main ul {
+    margin: 0;
+    padding-left: var(--biggap);
+}
+
+.content-additional > ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 /* Navigation */
@@ -89,56 +149,49 @@ a {
     text-align: center;
     text-decoration: none;
     width: fit-content;
-    border: 3px solid var(--pink);
+    border: 3px solid var(--border);
 }
 
 .nav-button:link, 
 .nav-button:visited {
-    background-color: var(--pink);
-    color: var(--white);
+    background-color: var(--border);
+    color: var(--linkhover);
 }
 
 .nav-button:hover,
 .nav-button:active,
 .nav-button-rev:link,
 .nav-button-rev:visited {
-    background-color: var(--white);
-    color: var(--pink);
+    background-color: var(--linkhover);
+    color: var(--border);
 }
 
 .nav-button-rev:hover,
 .nav-button-rev:active {
-    background-color: var(--pink);
-    color: var(--white);
+    background-color: var(--border);
+    color: var(--linkhover);
 }
 
-/* Index Flexbox */
 
-.indlex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: center;
-    align-content: flex-start;
-    margin: 1em 0;
-}
 
-.indlex > div {
-    flex: 1 0 270px;
-    display: flex;
-    flex-direction: column;
-    padding: 1em 1.5em;
-}
 
-.indlex-title {
-    font-size: 1.5em;
-}
 
-.indlex-content {
-    flex: 1;
-}
 
-.indlex-footer {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Coding Font */ 
 
@@ -150,7 +203,7 @@ code,
 
 code,
 .incode {
-    color:var(--blue);
+    color:var(--code);
 }
 
 code,
@@ -168,9 +221,9 @@ code,
 
 .titlecode {
     display: inline-block;
-    background-color: var(--shadow);    
+    background-color: var(--codebackground);    
     padding: 0 0.4em;
-    border: 1px var(--gray) solid;
+    border: 1px var(--codeborder) solid;
     border-radius: 3px;
 }
 
@@ -182,7 +235,7 @@ code {
 
 .codebox {
     padding: 1em;
-    border: 2px solid var(--pink);
+    border: 2px solid var(--border);
     border-radius: 5px;
     margin: 1em auto;
     max-width: 800px;
@@ -216,7 +269,7 @@ code {
 /* Others */    
 
 .alert {
-    color: var(--green);
+    color: var(--extranote);
 }
 
 .back {
@@ -231,7 +284,7 @@ code {
 .h160-container, 
 .gap-container {
     padding: 3px;
-    border: 3px solid var(--tan);
+    border: 3px solid var(--flexborder);
     margin: 20px;
 }
 
@@ -252,8 +305,8 @@ code {
 .h160-container div,
 .gap-container div {
     padding: 5px;
-    border: 3px solid var(--teal);
-    background-color: var(--yellow);
+    border: 3px solid var(--title);
+    background-color: var(--flexbackground);
 }
 
 .container div,
@@ -279,7 +332,7 @@ code {
 
 .giant,
 .semigiant {
-    color: var(--teal);
+    color: var(--title);
     font-weight: bold;
     text-align: center;
 }
@@ -295,12 +348,13 @@ code {
 /* Navigation bar, still not working properly */
 
 .links-list a {
-    background-color: var(--yellow);
+    background-color: var(--flexbackground);
     text-decoration: none;
     padding: 1em 2em;    
     display: inline-block;
 }
     
 .links-list a:hover {
-    background-color: var(--pink);
+    background-color: var(--border);
 }
+

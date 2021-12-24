@@ -8,82 +8,136 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
-    <body>     
+    <body>
         
+        <!--Navigation Bar-->
         <div class="nav-bar">
             <a href="./index.html" class="nav-button" style="margin-right: auto">Home</a>
             <a href="./html_intro.html" class="nav-button">HTML</a>
             <a href="./css_intro.html" class="nav-button">CSS</a>
             <a href="./git_intro.html" class="nav-button">Git</a>
-        </div>     
+        </div> 
         
+        <!--Page Title-->
         <h1>Coding Notes</h1>
 
-        <div class="indlex">
-            <div>
-                <div class="indlex-title">HTML and CSS</div>
-                <div class="indlex-content">
-                    <ul>
-                        <li><a href="./html_intro.html">HTML Introduction</a></li>
-                        <li><a href="./css_intro.html">CSS Introduction</a></li>
-                        <li><a href="./css_boxmodel.html">CSS Box Model</a></li>
-                        <li><a href="./css_flexbox.html">CSS Flexbox Introduction</a>
-                            <ul>
-                                <li><a href="./css_flexbox_alignment.html">CSS Flexbox Alignment</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./devtools_intro.html">DevTools Introduction (F12)</a></li>
-                    </ul>
-                </div>
-                <div class="indlex-footer">
+        <!--Index Cards Container-->
+        <div class="card-container">
 
-                    <h6>Tools:</h6>
-                    <a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insight</a><br>
-                    <a href="https://www.photopea.com/" target="_blank">PhotoPea</a><br>
-                    <a href="https://codepen.io/" target="_blank">Codepen</a><br>
-                    <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a><br>
-                    <a href="https://fonts.google.com/" target="blank">Google Fonts</a>
-
-                    <h6>Bookmarks:</h6>
-                    <a href="https://moderncss.dev/" target="_blank">Modern CSS Solutions for Old CSS Problems</a><br>
-                    <a href="https://piccalil.li/blog/a-modern-css-reset/" target="_blank">Modern CSS reset by Piccalilli</a><br>
-                    <a href="https://www.w3schools.com/css/css3_variables.asp" target="_blank">CSS Variables</a><br>
-                    <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">Color names</a>
-                </div>
+            <!--HTML and CSS-->
+            <div class="index-card">
+                <h2>HTML and CSS</h2>
+                <div class="card-content">
+                    <div class="content-main">
+                        <h3>Notes:</h3>
+                        <ul>
+                            <li><a href="./html_intro.html">HTML Introduction</a></li>
+                            <li><a href="./css_intro.html">CSS Introduction</a></li>
+                            <li><a href="./css_boxmodel.html">CSS Box Model</a></li>
+                            <li><a href="./css_flexbox.html">CSS Flexbox Introduction</a>
+                                <ul>
+                                    <li><a href="./css_flexbox_alignment.html">CSS Flexbox Alignment</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./devtools_intro.html">DevTools Introduction (F12)</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-additional">
+                        <h3>Tools:</h3>
+                        <ul>
+                            <li><a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insight</a></li>
+                            <li><a href="https://www.photopea.com/" target="_blank">PhotoPea</a></li>
+                            <li><a href="https://codepen.io/" target="_blank">Codepen</a></li>
+                            <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>
+                            <li><a href="https://fonts.google.com/" target="blank">Google Fonts</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-additional">
+                        <h3>Bookmarks:</h3>
+                        <ul>
+                            <li><a href="https://moderncss.dev/" target="_blank">Modern CSS Solutions for Old CSS Problems</a></li>
+                            <li><a href="https://piccalil.li/blog/a-modern-css-reset/" target="_blank">Modern CSS reset by Piccalilli</a></li>
+                            <li><a href="https://www.w3schools.com/css/css3_variables.asp" target="_blank">CSS Variables</a></li>
+                            <li><a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">Color names</a></li>
+                        </ul>
+                    </div>
+                </div>               
+                <div class="card-footer">Updated: 24 December 2021</div>
             </div>
 
-            <div>
-                <div class="indlex-title">Git and GitHub</div>
-                <div class="indlex-content">
-                    <ul>
-                        <li><a href="./git_intro.html">Git Intro</a></li>
-                    </ul>
-                </div>
-                <div class="indlex-footer">
-                    <h6>Bookmarks:</h6>
-                    <a href="https://copilot.github.com/" target="_blank">Github Copilot</a>
-                </div>
+            <!--Git and GitHub-->
+            <div class="index-card">
+                <h2>Git and GitHub</h2>
+                <div class="card-content">
+                    <div class="content-main">
+                        <h3>Notes:</h3>
+                        <ul>
+                            <li><a href="./git_intro.html">Git Intro</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-additional">
+                        <h3>Bookmarks:</h3>
+                        <ul>
+                            <li><a href="https://copilot.github.com/" target="_blank">Github Copilot</a></li>
+                        </ul>
+                    </div>
+                </div>                
+                <div class="card-footer">Updated: 24 December 2021</div>
             </div>
 
-            <div>
-                <div class="indlex-title">Coding Courses</div>
-                <div class="indlex-content">
-                    <ul>
-                        <li><a href="https://www.theodinproject.com/paths/foundations/courses/foundations" target="blank">The Odin Project</a></li>
-                        <li><a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#es6" target="blank">FreeCodeCamp</a></li>
-                        <li><a href="https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home" target="blank">CS50</a></li>
-                    </ul>
+            <!--Coding Courses-->
+            <div class="index-card">
+                <h2>Coding Courses</h2>
+                <div class="card-content">
+                    <div class="content-main">
+                        <h3>Main courses:</h3>
+                        <ul>
+                            <li><a href="https://www.theodinproject.com/paths/foundations/courses/foundations" target="blank">The Odin Project</a></li>
+                            <li><a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#es6" target="blank">FreeCodeCamp</a></li>
+                            <li><a href="https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home" target="blank">CS50</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-main">
+                        <h3>To do:</h3>
+                        <ul>
+                            <li>Green Speckles: drop-down alphabetical menu.</li>
+                            <li>Coding Notes: tidy up css. Index html done.</li>
+                        </ul>
+                    </div>
+                    <div class="content-main">
+                        <h3>Check out:</h3>
+                        <ul>
+                            <li>&ltinput&gt</li>
+                            <li>CSS Grid</li>
+                            <li>&ltfooter&gt</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="indlex-footer">
-                    <h6>To Do:</h6>
-                    &ltinput&gt<br>
-                    CSS Grid<br>
-                    Green Speckles: JS display particular order class
-                </div>
-            </div>
-
+                <div class="card-footer">Updated: 24 December 2021</div>
+            </div>            
         </div>
 
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>
+
+<!--_____
+<div class="index-card">
+    <h2>_____</h2>
+    <div class="card-content">
+        <div class="content-main">
+            <h3>Notes:</h3>
+            <ul>
+                <li><a href="_____">_____</a></li>
+            </ul>
+        </div>
+        <div class="content-additional">
+            <h3>Bookmarks:</h3>
+            <ul>
+                <li><a href="_____" target="_blank">_____</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-footer">Updated: _____</div>
+</div>
+-->
