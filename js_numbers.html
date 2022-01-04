@@ -15,55 +15,170 @@
         
         <h2>JavaScript Numbers</h2>
 
-        <h3>Data type: number</h3>
-        <p>There's 2 <code>typeof</code> number in JavaScript: <code>number</code> and <code>BigInt</code>. For normal use, <code>number</code> will be used most of the case. Unless specfed, it will be <code>number</code>.</p>
+        <!--Number-->
+        <h3>Number</h3>
+        <p>There's 2 data types number in JavaScript: <code>number</code> and <code>BigInt</code>. For normal use, <code>number</code> will be used most of the case. Unless specfed, it will be <code>number</code>.</p>
         <p>Declaration of variables in JavaScript doesn't need to specify the type. In the case of numbers, just don't put quotation mark that will mark it as a <code>string</code>.</p>
         <p>And even when variable's type is a string (quoted), but if it's consist solely of number, then mathematical operation is possible, given the operation is non ambiguosly a number operation. Keep n mind that addition operation <code>+</code> is not just a number operation, but also a string operation (concatenation), and concatenation of strings is prioritized. </p>
 
-        <code>
-            <p><span class="tabtablesmall">5 + 3 ; </span>// 8</p>
-            <p><span class="tabtablesmall">5 + "3" ; </span>// "53"</p>
-            <p><span class="tabtablesmall">5 - 3 ; </span>// 2</p>
-            <p><span class="tabtablesmall">5 - "3" ; </span>// 2</p>
-            <p><span class="tabtablesmall">"5" - "3" ; </span>// 2</p>
-        </code>
+        <table class="incode">
+            <tr>
+                <td>5 + 3 ;</td>
+                <td>// 8</td>
+            </tr>
+            <tr>
+                <td>5 + "3" ;</td>
+                <td>// "53"</td>
+            </tr>
+            <tr>
+                <td>5 - 3 ;</td>
+                <td>// 2</td>
+            </tr>
+            <tr>
+                <td>5 - "3" ;</td>
+                <td>// 2</td>
+            </tr>
+            <tr>
+                <td>"5" - "3" ;</td>
+                <td>// 2</td>
+            </tr>
+        </table>
 
         <p><code>NaN</code> is a number value of "Not a Number". When mathematical operation is conducted to a non number (eg. string that can't be changed nto a number), the result will be <code>NaN</code>.</p>
 
-        <code>
-            <p><span class="tabtablesmall">5 + "squid" ; </span>// "5squid"</p>
-            <p><span class="tabtablesmall">5 - "squid" ; </span>// NaN</p>
-            <p><span class="tabtablesmall">5 + squid ; </span>// error, squid is not a defined variable.</p>
-        </code>
+        <table class="incode">
+            <tr>
+                <td>5 + "squid" ;</td>
+                <td>// "5squid"</td>
+            </tr>
+            <tr>
+                <td>5 - "squid" ;</td>
+                <td>// NaN</td>
+            </tr>
+            <tr>
+                <td>5 + squid ;</td>
+                <td>// error, squid is not a defined variable.</td>
+            </tr>
+        </table>
  
         <a href="#top"><hr></a>
-        <h3>Number(num)</h3>
-        <p>Converting to <code>number</code> data types: <code>Number(num)</code>.</p>
+        
+        <!--Number (var)-->
+        <h3>Number (var)</h3>
+        <p>Converting to <code>number</code> data types: <code>Number (var)</code></p>
+        <p>Checking data types: <code>typeof var</code></p>
 
-        <code>
-            <p>num = "555";</p>
-            <p><span class="tabtablesmall">num + 3; </span>// 5553</p>
-            <p><span class="tabtablesmall">Number(num) + 3; </span>// 558</p>
-        </code>
+        <table class="incode">
+            <tr>
+                <td>num = "555";</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>num + 3;</td>
+                <td>// "5553"</td>
+            </tr>
+            <tr>
+                <td>Number(num) + 3;</td>
+                <td>// 558</td>
+            </tr>
+        </table>
 
         <p>Remember if the variable type actually want to be changed, it needs to be put in equation and override the original string value.</p>
 
-        <code>
-            <p>
-                num = "555";<br>
-                <span class="tabtablesmall">typeof num; </span>// "string"
-            </p>
-            <p>
-                Number(num);<br>
-                <span class="tabtablesmall">typeof num; </span>// "string"<br>
-                <span class="tabtablesmall">typeof Number(num); </span>// "number"
-            </p>
-            <p>
-                num = Number(num);<br>
-                <span class="tabtablesmall">typeof num; </span>// "number"
-            </p>
-        </code>
+        <table class="incode">
+            <tr>
+                <td>num = "555";</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>typeof num;</td>
+                <td>// "string"</td>
+            </tr>
+        </table>
+
+        <table class="incode">
+            <tr>
+                <td>Number(num);</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>typeof num;</td>
+                <td>// "string"</td>
+            </tr>
+            <tr>
+                <td>typeof Number(num);</td>
+                <td>// "number"</td>
+            </tr>
+        </table>
+
+        <table class="incode">
+            <tr>
+                <td>num = Number(num);</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>typeof num;</td>
+                <td>// "number"</td>
+            </tr>
+        </table>
+
         
+        <a href="#top"><hr></a>
+        
+        <!--Arithmatic Operators-->
+        <h3>Arithmatic Operators</h3>
+        
+        <table>
+            <tr>
+                <th>Operator:</th>
+                <th>Name:</th>
+            </tr>
+            <tr>
+                <td class="incode center">+</td>
+                <td>Addition</td>
+            </tr>
+            <tr>
+                <td class="incode center">-</td>
+                <td>Subtraction</td>
+            </tr>
+            <tr>
+                <td class="incode center">*</td>
+                <td>Multiplication</td>
+            </tr>
+            <tr>
+                <td class="incode center">/</td>
+                <td>Division</td>
+            </tr>
+            <tr>
+                <td class="incode center">%</td>
+                <td>Remainder</td>
+            </tr>
+            <tr>
+                <td class="incode center">**</td>
+                <td>Exponent</td>
+            </tr>
+        </table>
+
+        <p>Operands: the numbers being operated</p>
+
+        <p>Exponent <code>**</code> has the same function as <code>Math.pow()</code>.</p>
+
+        <p>Example with base = 7 and exponent = 3:</p>
+            
+        <table class="incode">
+            <tr>
+                <td>7**3;</td>
+                <td>// 343</td>
+            </tr>
+            <tr>
+                <td>Math.pow(7, 3);</td>
+                <td>// 343</td>
+            </tr>
+            <tr>
+                <td>7*7*7</td>
+                <td>// 343</td>
+            </tr>
+        </table>
 
     </body>
 </html>

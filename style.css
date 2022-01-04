@@ -12,10 +12,9 @@
     --flexbackground: cornsilk;
     --strong: rgb(236, 144, 113);
     --extranote: olive;
-    --gap: 15px;
-    --smallgap: 3px;
-    --biggap: 30px;
-    --smalltab: 12em;
+    --gap: 1em;
+    --smallgap: 0.25em;
+    --biggap: 2em;
 }
 
 html {
@@ -187,9 +186,6 @@ hr {
     color: var(--linkhover);
 }
 
-
-
-
 /* Coding Font */ 
 
 code,
@@ -245,15 +241,35 @@ code {
     width: 400px;
 }
 
-/* Text indentation */
+/* Tabs and borderless tables */
 
 .tab {
     margin-left: 1.5em;
 }
 
-.tabtablesmall {
-    display: inline-block;
-    width: var(--smalltab);
+table {
+    margin: var(--gap) 0;
+    border-spacing: var(--gap) var(--smallgap);
+}
+
+th {
+    color: var(--title);
+    text-align: left;
+}
+
+td {
+    font-weight: 500;
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.plainlist {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 /* Horizontal Listing */
