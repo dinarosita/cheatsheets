@@ -10,18 +10,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
     <body>
 
-        <div class="nav-bar">
-            <a href="./index.html" class="nav-button" style="margin-right: auto">Home</a>
-            <a href="./html_intro.html" class="nav-button">HTML</a>
-            <a href="./css_intro.html" class="nav-button">CSS</a>
-            <a href="./git_intro.html" class="nav-button">Git</a>
-        </div> 
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>
         
-        <h1>CSS Box Model</h1>
+        <h2>CSS Box Model</h2>
 
         <img src="img/css_box_model.png" alt="CSS box model" class="img">
 
-        <h2>CSS block box</h2>
+        <h3>CSS block box</h3>
 
         <ul>
             <li>
@@ -70,7 +66,7 @@
             }
         </div>
 
-        <h2>4 sides</h2>
+        <h3>4 sides</h3>
         <p>The thickness of each side can be declared together or separately. Declaring together: </p>
 
         <ul>
@@ -80,11 +76,11 @@
             <li>4 values: top right bottom left</li>
         </ul>
 
-        <h2>Boxes types</h2>
+        <h3>Boxes types</h3>
 
         <ul>
             <li>
-                <h3>Block</h3>
+                <h4>Block</h4>
                 <ul>
                     <li>New line</li>
                     <li>Extending in the inline direction, filling available space in its container.</li>
@@ -125,7 +121,7 @@
             </li>
 
             <li>
-                <h3>Inline</h3>
+                <h4>Inline</h4>
                 <ul>
                     <li>Inline</li>
                     <li>Height and width properties not applied</li>
@@ -173,7 +169,7 @@
             </li>
         </ul>      
 
-        <h2 class="titlecode">box-sizing: border-box</h2>
+        <h3 class="titlecode">box-sizing: border-box</h3>
         <ul>
             <li>By default, height and width are applied to the content box. This is also called standard box model.</li>
             <li>It's more useful to define the border box size (including the padding and border). This is called alternative box model.</li>
@@ -190,10 +186,10 @@
             </li>
         </ul>
 
-        <h2>Horizontal centering using <span class="titlecode">margin: auto</span></h2>
+        <h3>Horizontal centering using <span class="titlecode">margin: auto</span></h3>
 
 
-        <h2>Margin collapsing</h2>
+        <h3>Margin collapsing</h3>
         
         <p>When 2 elements have their margins touch, the margins will combined into one margin value as follow:</p>
         <ul>
@@ -211,7 +207,7 @@
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing">Mastering margin collapsing</a></li>
         </ul>
       
-        <h2>Display types</h2>
+        <h3>Display types</h3>
 
         <p>Block and inline layout makes the normal flow. The default way things on the web behave.</p>
 
@@ -220,7 +216,7 @@
             <li><strong>Inner</strong>: defining the arrangement of boxes inside it</li>
         </ul>
 
-        <h2>Inner display type and display property</h2>
+        <h3>Inner display type and display property</h3>
         <p>By default, inner boxes within a box are laid out in normal flow. This inner display can be changed by defining display value.</p>
         <ul>
             <li>display: flex<br>
@@ -234,7 +230,7 @@
             <li>display: block</li>
         </ul>
 
-        <h2 class="titlecode">display: inline-block</h2>
+        <h3 class="titlecode">display: inline-block</h3>
         <p>Inline-block is a very useful display value.</p>
         <ul>
             <li>For a block box: The border will wrap around the content instead of the whole horizontal length.</li>
@@ -288,7 +284,7 @@
             </li>
         </ul>
 
-        <h2>Resources</h2>
+        <h3>Resources</h3>
         <ul>
             <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model">The Box Model</a></li>
         </ul>

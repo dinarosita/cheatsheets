@@ -10,14 +10,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
     <body>
 
-        <div class="nav-bar">
-            <a href="./index.html" class="nav-button" style="margin-right: auto">Home</a>
-            <a href="./html_intro.html" class="nav-button">HTML</a>
-            <a href="./css_intro.html" class="nav-button">CSS</a>
-            <a href="./git_intro.html" class="nav-button">Git</a>
-        </div> 
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>
         
-        <h1>CSS Introduction</h1>
+        <h2>CSS Introduction</h2>
 
         <div class="codebox">
             <code>
@@ -28,7 +24,7 @@
             </code>
         </div>
 
-        <h2>Selectors</h2>
+        <h3>Selectors</h3>
         <ul>
             <li>Universal selector: * {...}</li>
             <li>Type/element selector: div {...}</li>
@@ -38,7 +34,7 @@
             <li>Chaining selector: .class1.class2 {...}</li>
         </ul>
 
-        <h2>Combinators</h2>
+        <h3>Combinators</h3>
         <ul>
             <li>Descendant combinator: selector1 selector2 {...}</li>
             <li>Child combinator: selector1 &gt selector2 {...}</li>
@@ -46,7 +42,7 @@
             <li>General sibling combinator: selector1 ~ selector2 {...}</li>
         </ul>
 
-        <h2>Properties</h2>
+        <h3>Properties</h3>
         <ul>
             <li>color: blue;</li>
             <li>background-color: #1100ff80;</li>
@@ -73,16 +69,16 @@
             <li>pixels/16=em</li>
             <li>Some typical values:
                 <ul>
-                    <li>h1 = 40px = 2.5em</li>
-                    <li>h2 = 30px = 1.875em</li>
+                    <li>h2 = 40px = 2.5em</li>
+                    <li>h3 = 30px = 1.875em</li>
                     <li>p = 14px = 0.875em</li>
                 </ul>
             </li>
             <li>Good formulation that works in all browser:</li>
                 <ul>
                     <li>body {font-size: 100%;}</li>
-                    <li>h1 {font-size: 2.5em;}</li>
-                    <li>h2 {font-size: 1.875em;}</li>
+                    <li>h2 {font-size: 2.5em;}</li>
+                    <li>h3 {font-size: 1.875em;}</li>
                     <li>p {font-size: 0.875em;}</li>
                 </ul>
             </li>
@@ -90,11 +86,11 @@
                 <ul>
                     <li>1vw = 1% of viewport width</li>
                     <li>example: viewport = 50cm wide, 1vw = 0.5cm</li>
-                    <li>value example: h1 = 10vw </li>
+                    <li>value example: h2 = 10vw </li>
                 </ul>
         </ul>
 
-        <h2>Specificity</h2>
+        <h3>Specificity</h3>
         <p>A CSS declaration that is more specific will take precedence over ones that are less specific.</p>
 
         <p>The order from the higher:</p>
@@ -145,13 +141,13 @@
             <li>Universal selector (*) has no specificity value
                 <ul>
                     <li>* {color: blue;}<br>
-                    h1 {color: red;}</li>
+                    h2 {color: red;}</li>
                     <li>Red wins</li>
                 </ul>
             </li>
         </ul>
 
-        <h2>Inheritence</h2>
+        <h3>Inheritence</h3>
         <p>Certain CSS properties can be inherited by element descendant. Typography based properties like color and font are usually inherited, most others are not. Directly targeted properties will be applied instead of the inheritance though, even if the inheritance has higher specificity.</p>
 
         <ul>
@@ -167,7 +163,7 @@
             <li>The color will be blue because it is directly targeting while red is only inherited, even though an id selector has a higher specificity over a class selector.</li>
         </ul>
 
-        <h2>Rule Order</h2>
+        <h3>Rule Order</h3>
         <p>If all factors have been taken into account and it's still a tie, rule that was last defined is the winner.</p>
 
         <ul>
@@ -177,7 +173,7 @@
             <li>Class warning is the last defined, so it takes priority over alert. The color will be red.</li>
         </ul>
 
-        <h2>Adding CSS to HTML</h2>
+        <h3>Adding CSS to HTML</h3>
         <ul>
             <li>External CSS
                 <ul>

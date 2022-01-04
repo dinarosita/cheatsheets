@@ -11,14 +11,10 @@
     </head>
     <body>
 
-        <div class="nav-bar">
-            <a href="./index.html" class="nav-button" style="margin-right: auto">Home</a>
-            <a href="./html_intro.html" class="nav-button">HTML</a>
-            <a href="./css_intro.html" class="nav-button">CSS</a>
-            <a href="./git_intro.html" class="nav-button">Git</a>
-        </div>   
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>
         
-        <h1>CSS Flexbox: Alignment</h1>
+        <h2>CSS Flexbox: Alignment</h2>
 
         <p>Adding shorthand <code>flex:1</code> to each items is indeed handy. </p>
 
@@ -30,7 +26,7 @@
 
         <p>But what it does is only to ignore all predeclared width, and distribute the space evenly between each items. It also doesn't say anything about vertical alignment. Here is how to have more control over alignments of the flexbox.</p>
 
-        <h2>Properties to control alignments</h2>
+        <h3>Properties to control alignments</h3>
 
         <ul>
             <li><code>justify-content</code>: controls alignment of all items on the main axis.</li>
@@ -41,7 +37,7 @@
         </ul>
 
         <hr>
-        <h2 class="titlecode">justify-content</h2>
+        <h3 class="titlecode">justify-content</h3>
         <p>Controls alignment of all items on the main axis</p>
 
         <ul>
@@ -123,7 +119,7 @@
             </li>
         </ul>
 
-        <h2 class="titlecode">margin: auto</h2>
+        <h3 class="titlecode">margin: auto</h3>
 
         <p>There are no justify-items or justify-self properties. How to part the first few items to the left and the rest to the right? Using <code>margin-left: auto</code> on the first item pushed to the right or <code>margin-right: auto</code> on the previous item.</p>
 
@@ -161,7 +157,7 @@
         </ul>
        
         <hr>
-        <h2 class="titlecode">align-items</h2>
+        <h3 class="titlecode">align-items</h3>
         <p>Controls alignment of all items on the cross axis.</p>
         <ul>
             <li>
@@ -221,7 +217,7 @@
         </ul>
 
         <hr>
-        <h2 class="titlecode">align-self</h2>
+        <h3 class="titlecode">align-self</h3>
         <p>Controls an individual flex item on the cross axis.</p>
         <p>You can set <code>align-items</code> property on container that works for each items, or do it at individual item with <code>align-self</code> property. The values are the same, plus <code>align-self: auto</code> which reset the value to what is defined at the flex container.</p>
         <p>Note on <code>align-self: baseline</code>: Items with baseline value will base-align among themselves. So if there's only 1 with such value, it will just go to the top instead.</p>
@@ -238,7 +234,7 @@
             <div><strong>undefined</strong></div>
         </div> 
 
-        <h3>Let's play with <span class="titlecode">flex-direction</span> on above container</h3>
+        <h4>Let's play with <span class="titlecode">flex-direction</span> on above container</h4>
        
         <code>flex-direction: row-reverse</code>
         <div class="container" style="display: flex; flex-direction: row-reverse; align-items: center; height: 180px;">
@@ -281,7 +277,7 @@
         <p>It seems like the baseline value doesn't take effect here. I have tried adding padding or margin as well to one of the item with baseline value, but it only send that box away from the left container border, but doesn't affect the other one.</p>
 
         <hr>
-        <h2 class="titlecode">align-content</h2>
+        <h3 class="titlecode">align-content</h3>
         <p>Controls the distribution of space between rows in wrapped multiplt-line flex container. See packing flex lines.</p>
        
         <p>Without <code>align-content</code> declaration:</p>
@@ -394,7 +390,7 @@
         </ul>
 
         <hr>
-        <h2 class="titlecode">gap</h2>
+        <h3 class="titlecode">gap</h3>
 
         <p>The flex container below is set to:</p>
         
