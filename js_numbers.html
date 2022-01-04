@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript Numbers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>
+        
+        <h2>JavaScript Numbers</h2>
+
+        <h3>Data type: number</h3>
+        <p>There's 2 <code>typeof</code> number in JavaScript: <code>number</code> and <code>BigInt</code>. For normal use, <code>number</code> will be used most of the case. Unless specfed, it will be <code>number</code>.</p>
+        <p>Declaration of variables in JavaScript doesn't need to specify the type. In the case of numbers, just don't put quotation mark that will mark it as a <code>string</code>.</p>
+        <p>And even when variable's type is a string (quoted), but if it's consist solely of number, then mathematical operation is possible, given the operation is non ambiguosly a number operation. Keep n mind that addition operation <code>+</code> is not just a number operation, but also a string operation (concatenation), and concatenation of strings is prioritized. </p>
+
+        <code>
+            <p><span class="tabtablesmall">5 + 3 ; </span>// 8</p>
+            <p><span class="tabtablesmall">5 + "3" ; </span>// "53"</p>
+            <p><span class="tabtablesmall">5 - 3 ; </span>// 2</p>
+            <p><span class="tabtablesmall">5 - "3" ; </span>// 2</p>
+            <p><span class="tabtablesmall">"5" - "3" ; </span>// 2</p>
+        </code>
+
+        <p><code>NaN</code> is a number value of "Not a Number". When mathematical operation is conducted to a non number (eg. string that can't be changed nto a number), the result will be <code>NaN</code>.</p>
+
+        <code>
+            <p><span class="tabtablesmall">5 + "squid" ; </span>// "5squid"</p>
+            <p><span class="tabtablesmall">5 - "squid" ; </span>// NaN</p>
+            <p><span class="tabtablesmall">5 + squid ; </span>// error, squid is not a defined variable.</p>
+        </code>
+ 
+        <a href="#top"><hr></a>
+        <h3>Number(num)</h3>
+        <p>Converting to <code>number</code> data types: <code>Number(num)</code>.</p>
+
+        <code>
+            <p>num = "555";</p>
+            <p><span class="tabtablesmall">num + 3; </span>// 5553</p>
+            <p><span class="tabtablesmall">Number(num) + 3; </span>// 558</p>
+        </code>
+
+        <p>Remember if the variable type actually want to be changed, it needs to be put in equation and override the original string value.</p>
+
+        <code>
+            <p>
+                num = "555";<br>
+                <span class="tabtablesmall">typeof num; </span>// "string"
+            </p>
+            <p>
+                Number(num);<br>
+                <span class="tabtablesmall">typeof num; </span>// "string"<br>
+                <span class="tabtablesmall">typeof Number(num); </span>// "number"
+            </p>
+            <p>
+                num = Number(num);<br>
+                <span class="tabtablesmall">typeof num; </span>// "number"
+            </p>
+        </code>
+        
+
+    </body>
+</html>
+

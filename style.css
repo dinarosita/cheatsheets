@@ -15,6 +15,7 @@
     --gap: 15px;
     --smallgap: 3px;
     --biggap: 30px;
+    --smalltab: 12em;
 }
 
 html {
@@ -84,6 +85,10 @@ h1 {
 
 h2 {
     padding: var(--biggap);
+    text-decoration: underline;
+}
+
+h3 {
     text-decoration: underline;
 }
 
@@ -185,24 +190,6 @@ hr {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Coding Font */ 
 
 code,
@@ -238,7 +225,7 @@ code,
 }
 
 code {
-    padding: 0 0.2px;
+    padding: 0 0.3em;
 }
 
 /* Boxes */
@@ -262,6 +249,11 @@ code {
 
 .tab {
     margin-left: 1.5em;
+}
+
+.tabtablesmall {
+    display: inline-block;
+    width: var(--smalltab);
 }
 
 /* Horizontal Listing */
