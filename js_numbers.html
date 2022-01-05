@@ -21,7 +21,7 @@
         <p>Declaration of variables in JavaScript doesn't need to specify the type. In the case of numbers, just don't put quotation mark that will mark it as a <code>string</code>.</p>
         <p>And even when variable's type is a string (quoted), but if it's consist solely of number, then mathematical operation is possible, given the operation is non ambiguosly a number operation. Keep n mind that addition operation <code>+</code> is not just a number operation, but also a string operation (concatenation), and concatenation of strings is prioritized. </p>
 
-        <table class="incode">
+        <table class="js-table">
             <tr>
                 <td>5 + 3 ;</td>
                 <td>// 8</td>
@@ -46,7 +46,7 @@
 
         <p><code>NaN</code> is a number value of "Not a Number". When mathematical operation is conducted to a non number (eg. string that can't be changed nto a number), the result will be <code>NaN</code>.</p>
 
-        <table class="incode">
+        <table class="js-table">
             <tr>
                 <td>5 + "squid" ;</td>
                 <td>// "5squid"</td>
@@ -68,7 +68,7 @@
         <p>Converting to <code>number</code> data types: <code>Number (var)</code></p>
         <p>Checking data types: <code>typeof var</code></p>
 
-        <table class="incode">
+        <table class="js-table">
             <tr>
                 <td>num = "555";</td>
                 <td></td>
@@ -85,7 +85,7 @@
 
         <p>Remember if the variable type actually want to be changed, it needs to be put in equation and override the original string value.</p>
 
-        <table class="incode">
+        <table class="js-table">
             <tr>
                 <td>num = "555";</td>
                 <td></td>
@@ -96,7 +96,7 @@
             </tr>
         </table>
 
-        <table class="incode">
+        <table class="js-table">
             <tr>
                 <td>Number(num);</td>
                 <td></td>
@@ -111,7 +111,7 @@
             </tr>
         </table>
 
-        <table class="incode">
+        <table class="js-table">
             <tr>
                 <td>num = Number(num);</td>
                 <td></td>
@@ -125,13 +125,13 @@
         
         <a href="#top"><hr></a>
         
-        <!--Arithmatic Operators-->
-        <h3>Arithmatic Operators</h3>
+        <!--Arithmetic Operators-->
+        <h3>Arithmetic Operators</h3>
         
         <table>
             <tr>
-                <th>Operator:</th>
-                <th>Name:</th>
+                <th>Operator</th>
+                <th>Description</th>
             </tr>
             <tr>
                 <td class="incode center">+</td>
@@ -146,40 +146,80 @@
                 <td>Multiplication</td>
             </tr>
             <tr>
+                <td class="incode center">**</td>
+                <td>Exponentiation</td>
+            </tr>
+            <tr>
                 <td class="incode center">/</td>
                 <td>Division</td>
             </tr>
             <tr>
                 <td class="incode center">%</td>
-                <td>Remainder</td>
+                <td>Modulus/Remainder</td>
             </tr>
             <tr>
-                <td class="incode center">**</td>
-                <td>Exponent</td>
+                <td class="incode center">++</td>
+                <td>Increment</td>
+            </tr>
+            <tr>
+                <td class="incode center">--</td>
+                <td>Decrement</td>
             </tr>
         </table>
 
-        <p>Operands: the numbers being operated</p>
+        <p>Arithmetic <strong>operators</strong> perform arithmetic on numbers (literals or variables).</p>
 
-        <p>Exponent <code>**</code> has the same function as <code>Math.pow()</code>.</p>
+        <p><strong>Operands</strong>: the numbers being operated in an arithmetic operation.</p>
+
+        <p>The <strong>division</strong> of 2 integers produces a <strong>quotien</strong> and a <strong>remainder</strong>. The result of <strong>modulo</strong> operation is the <strong>remainder</strong>.</p>
+
+        <p>Exponent <code>x**y</code> has the same function as <code>Math.pow(x,y)</code>.</p>
 
         <p>Example with base = 7 and exponent = 3:</p>
             
-        <table class="incode">
+        <table class="js-table">
             <tr>
-                <td>7**3;</td>
-                <td>// 343</td>
+                <td>5**3;</td>
+                <td>// 125</td>
             </tr>
             <tr>
-                <td>Math.pow(7, 3);</td>
-                <td>// 343</td>
+                <td>Math.pow(5,3);</td>
+                <td>// 125</td>
             </tr>
             <tr>
-                <td>7*7*7</td>
-                <td>// 343</td>
+                <td>5*5*5</td>
+                <td>// 125</td>
             </tr>
         </table>
 
+        <a href="#top"><hr></a>
+        
+        <!--Operator Precedence-->
+        <h3>Operator Precedence</h3>
+
+        <ul>
+            <li>Multiplication and division have higher precedence than additino and subtraction. </li>
+            <li>When operations have the same precedence, they are computed from left to right.</li>
+            <li>Use parentheses to make an operation takes the higher precedence.</li>
+        </ul>
+
+        <table class="js-table">
+            <tr>
+                <td>200+300 / 2+3 ;</td>
+                <td>// = 200 + 150 + 3</td>
+            </tr>
+            <tr>
+                <td>(200+300) / (2+3) ;</td>
+                <td>// = 500 / 5</td>
+            </tr>
+        </table>
+
+        <p>More read:</p>
+        <a href="https://www.w3schools.com/js/js_arithmetic.asp#:~:text=JavaScript%20Operator%20Precedence%20Values" target="_blank">w3schools: JavaScript Operator Precedence Values</a>
+
+        <a href="#top"><hr></a>
+
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>
 
