@@ -18,7 +18,26 @@
         <!--Number-->
         <h3>Number</h3>
         <p>There's 2 data types number in JavaScript: <code>number</code> and <code>BigInt</code>. For normal use, <code>number</code> will be used most of the case. Unless specfed, it will be <code>number</code>.</p>
+
+        <p>JavaScript numbers are stored as <strong>double precision floating point</strong> numbers.</p> 
+        
+        <p>
+            Numbers are stored in <strong>64 bits</strong>:
+            <ul>
+                <li>The value (the fraction/mantissa) in bits 0 to 51</li>
+                <li>The exponent in bits 52 to 62</li>
+                <li>The sign in bit 63</li>
+            </ul>
+        </p>
+
+        <h4>Precision</h4>
+
+        <p><strong>Integers</strong> (numbers without a period or exponent notation) are <a href="https://www.w3schools.com/js/js_numbers.asp#:~:text=1%20bit%20(63)-,Integer%20Precision,-Integers%20(numbers%20without" target="_blank">accurate up to 15 digits</a>. The maximum number of decimals is 17. Check out previous link for <strong>floating precision</strong> too.</p>
+
+        <h4>Declaration</h4>
+
         <p>Declaration of variables in JavaScript doesn't need to specify the type. In the case of numbers, just don't put quotation mark that will mark it as a <code>string</code>.</p>
+
         <p>And even when variable's type is a string (quoted), but if it's consist solely of number, then mathematical operation is possible, given the operation is non ambiguosly a number operation. Keep n mind that addition operation <code>+</code> is not just a number operation, but also a string operation (concatenation), and concatenation of strings is prioritized. </p>
 
         <table class="js-table">
@@ -44,7 +63,11 @@
             </tr>
         </table>
 
+        <h4>NaN and Infinity</h4>
+
         <p><code>NaN</code> is a number value of "Not a Number". When mathematical operation is conducted to a non number (eg. string that can't be changed nto a number), the result will be <code>NaN</code>.</p>
+        
+        <p>Function <code>isNaN()</code> can be used to find out if a value is a not a number.</p>
 
         <table class="js-table">
             <tr>
@@ -60,7 +83,37 @@
                 <td>// error, squid is not a defined variable.</td>
             </tr>
         </table>
- 
+
+        <p><code>Infinity</code> (or <code>-Infinity</code>): the value that will return if you calculate a number outside the largest possible number.</p>
+
+
+        <table class="js-table">
+            <tr><td>let num = 2;</td></tr>
+            <tr>
+                <td>
+                    while (num != Infinity) {
+                </td>
+                <td>// Execute while num is still not infinite</td>
+            </tr>
+            <tr><td><span class="tab"></span>num = num * num;</td></tr>
+            <tr><td><span class="tab"></span>console.log(num);</td></tr>
+            <tr><td>}</td></tr>
+        </table>
+
+        <p>Console log:</p>
+        <div class="js-box">
+            4<br>
+            16<br>
+            256<br>
+            65536<br>
+            4294967296<br>
+            18446744073709552000<br>
+            3.402823669209385e+38<br>
+            1.157920892373162e+77<br>
+            1.3407807929942597e+154<br>
+            Infinity
+        </div>
+        
         <a href="#top"><hr></a>
         
         <!--Number (var)-->
@@ -213,9 +266,6 @@
                 <td>// = 500 / 5</td>
             </tr>
         </table>
-
-        <p>More read:</p>
-        <a href="https://www.w3schools.com/js/js_arithmetic.asp#:~:text=JavaScript%20Operator%20Precedence%20Values" target="_blank">w3schools: JavaScript Operator Precedence Values</a>
 
         <a href="#top"><hr></a>
 
