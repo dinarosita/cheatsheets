@@ -18,7 +18,7 @@
 
         <h4>Regular div container:</h4>
 
-        <div class="container">
+        <div class="css-container">
             <div class="giant">A</div>
             <div class="giant">B</div>
             <div class="giant">C</div>
@@ -46,7 +46,7 @@
             <li><code>flex-wrap: nowrap</code></li>
         </ul>
       
-        <div class="container" style="display: flex;">
+        <div class="css-container" style="display: flex;">
             <div class="giant">A</div>
             <div class="giant">B</div>
             <div class="giant">C</div>
@@ -59,7 +59,7 @@
 
         <h4>On the items: <span class="titlecode">flex: 1</span></h4>
         
-        <div class="flex-container">
+        <div class="css-flex-container">
             <div class="giant">A</div>
             <div class="giant">B</div>
             <div class="giant">C</div>
@@ -69,9 +69,9 @@
 
         <p> With just those simple declarations, we can create a complex nesting multiple flexbox.</p>   
 
-        <div class="container">
+        <div class="css-container">
             <div><h4 style="text-align: center;">CSS Flexbox</h4></div>
-            <div class="flex-container">
+            <div class="css-flex-container">
                 <div style="flex: 0;">
                     <h4>Navigation</h4>
                     <div class="giant">A</div>
@@ -81,25 +81,25 @@
                 <div class="codebox">
                     <h4>/* style.css */</h4>
                     
-                    .container,<br>
-                    .flex-container {<br>
+                    .css-container,<br>
+                    .css-flex-container {<br>
                         <span class="tab">padding: 3px;</span><br>
                         <span class="tab">border: 3px solid rosybrown;</span><br>
                         <span class="tab">margin: 20px;</span><br>
                     }<br>
                     <br>
-                    .flex-container {<br>
+                    .css-flex-container {<br>
                         <span class="tab"><strong>display: flex;</strong></span><br>
                     }<br>
                     <br>
-                    .container div,<br>
-                    .flex-container div {<br>
+                    .css-container div,<br>
+                    .css-flex-container div {<br>
                         <span class="tab">padding: 5px;</span><br>
                         <span class="tab">border: 3px solid cadetblue;</span><br>
                         <span class="tab">margin: 5px;</span><br>
                     }<br>
                     <br>
-                    .flex-container div {<br>
+                    .css-flex-container div {<br>
                         <span class="tab"><strong>flex: 1;</strong></span><br>
                     }<br>
 
@@ -164,7 +164,7 @@
                 <h4 class="titlecode">flex: initial</h4><br>
                 Equals to <code>flex: 0 1 auto</code>, the initial value.<br>
                 Can only shrink from the existing base values can grow.
-                <div class="container" style="display: flex;">
+                <div class="css-container" style="display: flex;">
                     <div class="giant" style="width: 100px; flex: initial;">A</div>
                     <div class="giant" style="width: 200px; flex: initial;">B</div>
                     <div class="giant" style="width: 300px; flex: initial;">C</div>
@@ -174,7 +174,7 @@
                 <h4 class="titlecode">flex: auto</h4><br>
                 Equals to <code>flex: 0 1 auto</code>.<br>
                 Like <code>flex: initial</code>, but can grow too.
-                <div class="container" style="display: flex;">
+                <div class="css-container" style="display: flex;">
                     <div class="giant" style="width: 100px; flex: auto;">A</div>
                     <div class="giant" style="width: 200px; flex: auto;">B</div>
                     <div class="giant" style="width: 300px; flex: auto;">C</div>
@@ -184,7 +184,7 @@
                 <h4 class="titlecode">flex: none</h4><br>
                 Equals to <code>flex: 0 0 auto</code>.<br>
                 Following the existing base values, can't shrink or grow.
-                <div class="container" style="display: flex;">
+                <div class="css-container" style="display: flex;">
                     <div class="giant" style="width: 100px; flex: none;">A</div>
                     <div class="giant" style="width: 200px; flex: none;">B</div>
                     <div class="giant" style="width: 300px; flex: none;">C</div>
@@ -196,7 +196,7 @@
                 Equals to <code>flex: <em>num+</em> <em>num+</em> 0</code>.<br>
                 Disregard existing base value, use <em>num+</em> as growing and shrinking factor.
             </li>
-            <div class="container" style="display: flex;">
+            <div class="css-container" style="display: flex;">
                 <div class="giant" style="width: 100px; flex: 1;">A</div>
                 <div class="giant" style="width: 200px; flex: 1;">B</div>
                 <div class="giant" style="width: 300px; flex: 2;">C</div>
@@ -216,7 +216,7 @@
                     <li><h4 class="titlecode">flex-direction: row</h4><br>
                         This is the default.
         
-                        <div class="container" style="display: flex; flex-direction: row;">
+                        <div class="css-container" style="display: flex; flex-direction: row;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
@@ -225,7 +225,7 @@
                     </li>
                     <li><h4 class="titlecode">flex-direction: row-reverse</h4>
         
-                        <div class="container" style="display: flex; flex-direction: row-reverse;">
+                        <div class="css-container" style="display: flex; flex-direction: row-reverse;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
@@ -241,7 +241,7 @@
                 <ul>
                     <li><h4 class="titlecode">flex-direction: column</h4>
         
-                        <div class="container" style="display: flex; flex-direction: column;">
+                        <div class="css-container" style="display: flex; flex-direction: column;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
@@ -250,7 +250,7 @@
                     </li>
                     <li><h4 class="titlecode">flex-direction: column-reverse</h4>
         
-                        <div class="container" style="display: flex; flex-direction: column-reverse;">
+                        <div class="css-container" style="display: flex; flex-direction: column-reverse;">
                             <div class="giant">A</div>
                             <div class="giant">B</div>
                             <div class="giant">C</div>
@@ -278,13 +278,13 @@
 
         <p>The default value is <code>flex-wrap: nowrap</code> btw, in which items will be shrinking instead. The problem is, overflow can happen if items are not able to shrink or can't shrink small enough to fit.</p>
 
-        <div class="container" style="display: flex; flex-wrap: wrap;">
+        <div class="css-container" style="display: flex; flex-wrap: wrap;">
             <div class="giant" style="width:150px">A</div>
             <div class="giant" style="width:150px">B</div>
             <div class="giant" style="width:150px">C</div>
         </div>
 
-        <div class="container" style="display: flex; flex-wrap: wrap;">
+        <div class="css-container" style="display: flex; flex-wrap: wrap;">
             <div class="semigiant">By default, items will be shrinking</div>
             <div class=" semigiant">when there's no enough horizontal space</div>
             <div class="semigiant">Flex-wrap:<br>wrap</div>
@@ -292,7 +292,7 @@
 
         <a href="#top"><hr></a>
         <h3>Exercise box</h3>
-        <div class="flex-container" style="flex-wrap: wrap;">
+        <div class="css-flex-container" style="flex-wrap: wrap;">
             <div class="giant" style="width: 100px; flex: none;">A</div>
             <div class="giant" style="width: 200px; flex: none;">B</div>
             <div class="giant" style="width: 300px; flex: none;">C</div>

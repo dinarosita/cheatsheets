@@ -18,7 +18,7 @@
 
         <p>Adding shorthand <code>flex:1</code> to each items is indeed handy. </p>
 
-        <div class="h160-container">
+        <div class="css-h160-container">
             <div class="giant" style="flex: 1;">A</div>
             <div class="giant" style="flex: 1;">B</div>
             <div class="giant" style="flex: 1;">C</div>
@@ -43,7 +43,7 @@
         <ul>
             <li>
                 <code>justify-content: flex-start</code><br>
-                <div class="container" style="display: flex; justify-content: flex-start;">
+                <div class="css-container" style="display: flex; justify-content: flex-start;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -51,7 +51,7 @@
             </li>
             <li>
                 <code>justify-content: flex-end</code><br>
-                <div class="container" style="display: flex; justify-content: flex-end;">
+                <div class="css-container" style="display: flex; justify-content: flex-end;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -59,7 +59,7 @@
             </li>
             <li>
                 <code>justify-content: center</code><br>
-                <div class="container" style="display: flex; justify-content: center;">
+                <div class="css-container" style="display: flex; justify-content: center;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -67,7 +67,7 @@
             </li>
             <li>
                 <code>justify-content: space-between</code><br>
-                <div class="container" style="display: flex; justify-content: space-between;">
+                <div class="css-container" style="display: flex; justify-content: space-between;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -75,7 +75,7 @@
             </li>
             <li>
                 <code>justify-content: space-around</code><br>
-                <div class="container" style="display: flex; justify-content: space-around;">
+                <div class="css-container" style="display: flex; justify-content: space-around;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -84,7 +84,7 @@
             <li>
                 <code>justify-content: space-evenly</code><br>
                 Since this is new, it's not well supported yet, maybe avoid using.
-                <div class="container" style="display: flex; justify-content: space-evenly;">
+                <div class="css-container" style="display: flex; justify-content: space-evenly;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -97,7 +97,7 @@
             <li>
                 <code>flex-direction: row-reverse;<br>
                 justify-content: flex-start</code>
-                <div class="container" style="display: flex; flex-direction: row-reverse; justify-content: flex-start;">
+                <div class="css-container" style="display: flex; flex-direction: row-reverse; justify-content: flex-start;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -111,7 +111,7 @@
                 <code>flex-direction: column-reverse;<br>
                 height: 300px;<br>
                 justify-content: flex-start;</code>
-                <div class="container" style="display: flex; flex-direction: column-reverse; height: 300px; justify-content: flex-start;">
+                <div class="css-container" style="display: flex; flex-direction: column-reverse; height: 300px; justify-content: flex-start;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -126,7 +126,7 @@
         <ul>
             <li>
                 <code>margin-left: auto</code> on box C
-                <div class="container" style="display: flex;">
+                <div class="css-container" style="display: flex;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant" style="margin-left: auto;">C</div>
@@ -136,7 +136,7 @@
             </li>
             <li>
                 <code>margin-right: auto</code> on box C
-                <div class="container" style="display: flex;">
+                <div class="css-container" style="display: flex;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant" style="margin-right: auto;">C</div>
@@ -146,7 +146,7 @@
             </li>
             <li>
                 <code>margin: auto</code> on box C
-                <div class="container" style="display: flex;">
+                <div class="css-container" style="display: flex;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant" style="margin: auto;">C</div>
@@ -164,13 +164,13 @@
                 <code>align-items: stretch</code><br>
                 This is the initial value. Items height are stretched to the container's height by default, except if it has a defined height. Without declaration, container's height follows the tallest item.<br>
                 Container's height undefined:
-                <div class="container" style="display: flex;align-items: stretch;">
+                <div class="css-container" style="display: flex;align-items: stretch;">
                     <div class="semigiant" style="height: 60px;">height: 60px</div>
                     <div class="semigiant" style="height: 120px;">height: 120px</div>
                     <div class="semigiant">height undefined</div>
                 </div> 
                 Container's height = 180px (as the rest in this align-items subsection)
-                <div class="container" style="display: flex;align-items: stretch; height: 180px;">
+                <div class="css-container" style="display: flex;align-items: stretch; height: 180px;">
                     <div class="semigiant" style="height: 60px;">height: 60px</div>
                     <div class="semigiant" style="height: 120px;">height: 120px</div>
                     <div class="semigiant">height undefined</div>
@@ -179,7 +179,7 @@
             <li>
                 <code>align-items: flex-start</code><br>
                 Align at the start (in our case, top)
-                <div class="container" style="display: flex;align-items: flex-start; height: 180px;">
+                <div class="css-container" style="display: flex;align-items: flex-start; height: 180px;">
                     <div class="semigiant" style="height: 60px;">height: 60px</div>
                     <div class="giant" style="height: 120px;">height: 120px</div>
                     <div class="semigiant">height<br>undefined</div>
@@ -189,7 +189,7 @@
             <li>
                 <code>align-items: baseline</code><br>
                 Align at the baseline (the bottom of the first line) of the content. Might look identical with <code>flex-start</code>, being on the top, when the font are all the same.
-                <div class="container" style="display: flex;align-items: baseline; height: 180px;">
+                <div class="css-container" style="display: flex;align-items: baseline; height: 180px;">
                     <div class="semigiant" style="height: 60px;">height: 60px</div>
                     <div class="giant" style="height: 120px;">height: 120px</div>
                     <div class="semigiant">height<br>undefined</div>
@@ -199,7 +199,7 @@
             <li>
                 <code>align-items: flex-end</code><br>
                 Align at the end (in our case, bottom)
-                <div class="container" style="display: flex; align-items: flex-end; height: 180px;">
+                <div class="css-container" style="display: flex; align-items: flex-end; height: 180px;">
                     <div class="semigiant" style="height: 60px;">height: 60px</div>
                     <div class="semigiant" style="height: 120px;">height: 120px</div>
                     <div class="semigiant">height undefined</div>
@@ -208,7 +208,7 @@
             <li>
                 <code>align-items: center</code><br>
                 Align at the center
-                <div class="container" style="display: flex;align-items: center; height: 180px;">
+                <div class="css-container" style="display: flex;align-items: center; height: 180px;">
                     <div class="semigiant" style="height: 60px;">height: 60px</div>
                     <div class="semigiant" style="height: 120px;">height: 120px</div>
                     <div class="semigiant">height undefined</div>
@@ -223,7 +223,7 @@
         <p>Note on <code>align-self: baseline</code>: Items with baseline value will base-align among themselves. So if there's only 1 with such value, it will just go to the top instead.</p>
         <p>Container below is set with <code>align-items: center</code></p>
 
-        <div class="container" style="display: flex; align-items: center; height: 180px;">
+        <div class="css-container" style="display: flex; align-items: center; height: 180px;">
             <div class="giant" style="align-self: stretch">stretch</div>
             <div class="giant" style="align-self: baseline;">baseline</div>
             <div style="align-self: flex-start;"><strong>flex-start</strong></div>
@@ -237,7 +237,7 @@
         <h4>Let's play with <span class="titlecode">flex-direction</span> on above container</h4>
        
         <code>flex-direction: row-reverse</code>
-        <div class="container" style="display: flex; flex-direction: row-reverse; align-items: center; height: 180px;">
+        <div class="css-container" style="display: flex; flex-direction: row-reverse; align-items: center; height: 180px;">
             <div class="giant" style="align-self: stretch">stretch</div>
             <div class="giant" style="align-self: baseline;">baseline</div>
             <div style="align-self: flex-start;"><strong>flex-start</strong></div>
@@ -251,7 +251,7 @@
         <p>For the vertical flexbox, predefined container's height is removed.</p>
 
         <code>flex-direction: column</code>
-        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="css-container" style="display: flex; flex-direction: column; align-items: center;">
             <div class="giant" style="align-self: stretch">stretch</div>
             <div class="giant" style="align-self: baseline;">baseline</div>
             <div style="align-self: flex-start;"><strong>flex-start</strong></div>
@@ -263,7 +263,7 @@
         </div> 
 
         <code>flex-direction: column-reverse</code>
-        <div class="container" style="display: flex; flex-direction: column-reverse; align-items: center;">
+        <div class="css-container" style="display: flex; flex-direction: column-reverse; align-items: center;">
             <div class="giant" style="align-self: stretch">stretch</div>
             <div class="giant" style="align-self: baseline;">baseline</div>
             <div style="align-self: flex-start;"><strong>flex-start</strong></div>
@@ -282,7 +282,7 @@
        
         <p>Without <code>align-content</code> declaration:</p>
         
-        <div class="container" style="display: flex; flex-wrap: wrap;height: 300px;">
+        <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px;">
             <div class="giant">align-content:</div>
             <div class="semigiant">flex-start</div>
             <div class="semigiant">flex-end</div>
@@ -296,7 +296,7 @@
         <ul>
             <li>
                 <code>align-content: stretch</code>
-                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: stretch;">
+                <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: stretch;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant">flex-start</div>
                     <div class="semigiant">flex-end</div>
@@ -309,7 +309,7 @@
             </li>
             <li>
                 <code>align-content: flex-start</code>
-                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: flex-start;">
+                <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: flex-start;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant" style="background-color:mistyrose;">flex-start</div>
                     <div class="semigiant">flex-end</div>
@@ -322,7 +322,7 @@
             </li>
             <li>
                 <code>align-content: flex-end</code>
-                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: flex-end;">
+                <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: flex-end;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant">flex-start</div>
                     <div class="semigiant" style="background-color:mistyrose;">flex-end</div>
@@ -335,7 +335,7 @@
             </li>
             <li>
                 <code>align-content: center</code>
-                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: center;">
+                <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: center;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant">flex-start</div>
                     <div class="semigiant">flex-end</div>
@@ -348,7 +348,7 @@
             </li>
             <li>
                 <code>align-content: space-between</code>
-                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-between;">
+                <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-between;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant">flex-start</div>
                     <div class="semigiant">flex-end</div>
@@ -361,7 +361,7 @@
             </li>
             <li>
                 <code>align-content: space-around</code>
-                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-around;">
+                <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-around;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant">flex-start</div>
                     <div class="semigiant">flex-end</div>
@@ -376,7 +376,7 @@
             <li>
                 <code>align-content: space-evenly</code>
                 Since this is new, it's not well supported yet, maybe avoid using.
-                <div class="container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-evenly;">
+                <div class="css-container" style="display: flex; flex-wrap: wrap;height: 300px; align-content: space-evenly;">
                     <div class="giant">align-content:</div>
                     <div class="semigiant">flex-start</div>
                     <div class="semigiant">flex-end</div>
@@ -401,7 +401,7 @@
                 align-content: center;</code>
             </li>
         </ul>
-        <div class="gap-container">
+        <div class="css-gap-container">
             <div class="giant">A</div>
             <div class="giant">B</div>
             <div class="giant">C</div>
@@ -419,7 +419,7 @@
             <li>
                 <code>column-gap</code><br>
                 Creates gaps between items on the main axis.
-                <div class="gap-container" style="column-gap: 12px;">
+                <div class="css-gap-container" style="column-gap: 12px;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -435,7 +435,7 @@
             <li>
                 <code>row-gap</code><br>
                 Creates gaps between flex lines when using <code>flex-wrap: wrap</code>.
-                <div class="gap-container" style="row-gap: 12px;">
+                <div class="css-gap-container" style="row-gap: 12px;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>
@@ -451,7 +451,7 @@
             <li>
                 <code>gap</code><br>
                 Shorthand of <code>column-gap</code> and <code>row-gap</code>.
-                <div class="gap-container" style="gap: 12px;">
+                <div class="css-gap-container" style="gap: 12px;">
                     <div class="giant">A</div>
                     <div class="giant">B</div>
                     <div class="giant">C</div>

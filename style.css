@@ -1,5 +1,18 @@
 /* style.css */
 
+/* Resets */
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+a  {
+    text-decoration: none;
+}
+
+/* General */
+
 :root {
     --border:rgb(243, 196, 205);
     --title: cadetblue;
@@ -12,6 +25,7 @@
     --flexbackground: cornsilk;
     --strong: rgb(108, 133, 119);
     --extranote: olive;
+    --js-border: rgb(219, 234, 247);
     --gap: 1em;
     --smallgap: 0.25em;
     --biggap: 2em;
@@ -30,61 +44,24 @@ html {
   box-sizing: inherit;
 }
 
-/* Text padding, margin, and alignment */    
+/* Fonts and alignings */
 
-/* Fonts | h1: page title, h2-h6: content title */
-
-h1, 
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--title); 
     font-weight: bold;
-    margin: 0;
-    padding: 0;
-}
-
-h1, 
-h2,
-.index-card h3 {
-    text-align: center;
-}
-
-a {
-    color: var(--link);
-}
-
-a  {
-    text-decoration: none;
-}
-
-strong {
-    color: var(--strong);
-}
-
-.card-footer {
-    color: var(--border);
-    font-size: 0.9em;
-    font-style: italic;
-}
-
-/* Borders and Lines */
-
-h1,
-.index-card {
-    border: 8px double var(--border);
-    border-radius: 20px;
 }
 
 h1 {
     padding: var(--smallgap);
+    border: 8px double var(--border);
+    border-radius: 20px;
+    text-align: center;
 }
 
 h2 {
     padding: var(--gap);
     text-decoration: underline;
+    text-align: center;
 }
 
 h3,
@@ -92,8 +69,16 @@ h4 {
     text-decoration: underline;
 }
 
-.index-card {
-    padding: var(--gap);
+a {
+    color: var(--link);
+}
+
+strong {
+    color: var(--strong);
+}
+
+.alert {
+    color: var(--extranote);
 }
 
 hr {
@@ -101,83 +86,46 @@ hr {
     margin: var(--biggap) 0 var(--gap);
 }
 
-/* Index Card Flexbox */
+/* Index Flexbox */
 
-.card-container {
+.index-container {
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap);
+    margin: var(--gap) 0;
 }
 
 .index-card {
     flex: 1 0 300px;
     display: flex;
     flex-direction: column;
+    padding: var(--gap);
+    border: 8px double var(--border);
+    border-radius: 20px;
 }
 
 .index-card-body {
     flex: 1;
 }
 
-/* Card margins */
-
-.card-container,
 .index-card-section {
     margin: var(--gap) 0;
 }
 
-.card-header,
-.card-footer {
+.index-card-footer {
     margin: var(--gap) auto 0;
+    color: var(--border);
+    font-size: 0.9em;
+    font-style: italic;
 }
 
-/* List */
+.index-card h3 {
+    text-align: center;
+}
 
 .index-card ul {
     margin: 0;
     padding-left: var(--biggap);
-}
-
-/* Navigation */
-
-.nav-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    margin: 5px 0;
-}
-
-.nav-button:link, 
-.nav-button:visited,
-.nav-button-rev:link,
-.nav-button-rev:visited {
-    font-weight: bold;
-    padding: 0.2em 0.7em;
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    width: fit-content;
-    border: 3px solid var(--border);
-}
-
-.nav-button:link, 
-.nav-button:visited {
-    background-color: var(--border);
-    color: var(--linkhover);
-}
-
-.nav-button:hover,
-.nav-button:active,
-.nav-button-rev:link,
-.nav-button-rev:visited {
-    background-color: var(--linkhover);
-    color: var(--border);
-}
-
-.nav-button-rev:hover,
-.nav-button-rev:active {
-    background-color: var(--border);
-    color: var(--linkhover);
 }
 
 /* Coding Font */ 
@@ -185,8 +133,7 @@ hr {
 code,
 .titlecode,
 .incode,
-.js-table,
-.js-box {
+.js-table {
     font-weight: 500;
 }
 
@@ -240,6 +187,11 @@ code {
     padding: 0 1em;
 }
 
+.js-box,
+.js-table {
+    border-left: solid 2px var(--js-border);
+}
+
 .img {
     display: block;
     margin: 40px auto;
@@ -247,16 +199,32 @@ code {
     width: 400px;
 }
 
-/* Tabs and borderless tables */
+/* Tabs */
 
 .tab {
     margin-left: 1.5em;
 }
 
+/* Tables */
+
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
 table,
 .js-table {
     margin: var(--gap) 0;
-    border-spacing: var(--gap) var(--smallgap);
+    border-spacing: var(--biggap) var(--smallgap);
 }
 
 .js-table tbody tr :nth-child(2) {
@@ -266,17 +234,21 @@ table,
 
 th {
     color: var(--title);
-    text-align: left;
 }
 
+/*
 td {
     font-weight: 500;
     text-align: left;
 }
 
-.center {
+.center,
+.center-c1 tbody tr :nth-child(1),
+.center-c2 tbody tr :nth-child(2),
+.center-c3 tbody tr :nth-child(3),
+.center-c4 tbody tr :nth-child(4) {
     text-align: center;
-}
+}*/
 
 .plainlist {
     padding: 0;
@@ -296,69 +268,100 @@ td {
     width: 8em;
 }
 
-/* Others */    
+/* Navigation */
 
-.alert {
-    color: var(--extranote);
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 5px 0;
 }
 
-.back {
+.nav-button:link, 
+.nav-button:visited,
+.nav-button-rev:link,
+.nav-button-rev:visited {
     font-weight: bold;
+    padding: 0.2em 0.7em;
+    border-radius: 10px;
     text-align: center;
+    text-decoration: none;
+    width: fit-content;
+    border: 3px solid var(--border);
 }
 
-/* Flexboxes used in CSS notes */
+.nav-button:link, 
+.nav-button:visited {
+    background-color: var(--border);
+    color: var(--linkhover);
+}
 
-.container,
-.flex-container,
-.h160-container, 
-.gap-container {
+.nav-button:hover,
+.nav-button:active,
+.nav-button-rev:link,
+.nav-button-rev:visited {
+    background-color: var(--linkhover);
+    color: var(--border);
+}
+
+.nav-button-rev:hover,
+.nav-button-rev:active {
+    background-color: var(--border);
+    color: var(--linkhover);
+}
+
+/* CSS Notes: Flexboxes */
+
+.css-container,
+.css-flex-container,
+.css-h160-container, 
+.css-gap-container {
     padding: 3px;
     border: 3px solid var(--flexborder);
     margin: 20px;
 }
 
-.flex-container,
-.h160-container,
-.gap-container {
+.css-flex-container {
     display: flex;
 }
 
-.gap-container {
+.css-h160-container {
+    display: flex;
+    height: 160px;
+}
+
+.css-gap-container {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
 }
 
-.container div,
-.flex-container div,
-.h160-container div,
-.gap-container div {
+.css-container div,
+.css-flex-container div,
+.css-h160-container div,
+.css-gap-container div {
     padding: 5px;
     border: 3px solid var(--title);
     background-color: var(--flexbackground);
 }
 
-.container div,
-.flex-container div {
+.css-container div {
     margin: 5px;
 }
 
-.flex-container div {
+.css-flex-container div {
     flex: 1;
+    margin: 5px;
 }
 
-.h160-container {
-    height: 160px;
-}
-
-.h160-container div,
-.gap-container div {
+.css-h160-container div,
+.css-gap-container div {
     width: 130px;
     height: 60px;
 }
 
-/* Font used inside flexbox in CSS notes */
+/* CSS Notes: Font used inside flexboxes */
 
 .giant,
 .semigiant {
@@ -375,7 +378,7 @@ td {
     font-size: 1.3em;
 }
 
-/* Navigation bar, still not working properly */
+/* CSS Notes: Navigation bar, still not working properly */
 
 .links-list a {
     background-color: var(--flexbackground);
