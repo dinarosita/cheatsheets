@@ -40,10 +40,9 @@
 
         <p>And even when variable's type is a string (quoted), but if it's consist solely of number, then mathematical operation is possible, given the operation is non ambiguosly a number operation. Keep n mind that addition operation<code> + </code>is not just a number operation, but also a string operation (concatenation), and concatenation of strings is prioritized. </p>
 
-
-        <pre class="js-codebox">
+<pre class="js-codebox">
 5 + 3 ;         // 8
-5 + "3" ;       // "53"
+5 + "3" ;       // '53'
 5 - 3 ;         // 2
 5 - "3" ;       // 2
 "5" - "3" ;     // 2</pre>
@@ -54,14 +53,14 @@
         
         <p>Function<code> isNaN() </code>can be used to find out if a value is a not a number.</p>
 
-        <pre class="js-codebox">
-5 + "squid" ;   // "5squid"
+<pre class="js-codebox">
+5 + "squid" ;   // '5squid'
 5 - "squid" ;   // NaN
 5 + squid ;     // error, squid is not a defined variable.</pre>
 
         <p><code>Infinity </code>(or<code> -Infinity</code>): the value that will return if you calculate a number outside the largest possible number.</p>
 
-        <pre class="js-codebox">
+<pre class="js-codebox">
 let num = 2;
 while (num != Infinity) { 
     num = num * num;
@@ -81,113 +80,47 @@ Console log:
 1.3407807929942597e+154
 Infinity</pre>
         
+        <!--Number()-->
         <a href="#top"><hr></a>
-        
-        <!--Number (var)-->
-        <h3>Number (var)</h3>
-        <p>Converting to<code> number </code>data types:<code> Number (var)</code></p>
+        <h3><code>Number()</code></h3>
+
+        <p>Converting to<code> number </code>data types:<code> Number()</code></p>
         <p>Checking data types:<code> typeof var</code></p>
 
-        <pre class="js-codebox">
+<pre class="js-codebox">
 num = "555";	
-num + 3;            // "5553"
+num + 3;            // '5553'
 Number(num) + 3;    // 558</pre>
 
         <p>Remember if the variable type actually want to be changed, it needs to be put in equation and override the original string value.</p>
 
-        <pre class="js-codebox">
+<pre class="js-codebox">
 num = "555";	
-typeof num;         // "string"
+typeof num;         // 'string'
 
 Number(num);	
-typeof num;         // "string"
-typeof Number(num); // "number"
+typeof num;         // 'string'
+typeof Number(num); // 'number'
 
 num = Number(num);	
-typeof num;         // "number"</pre>
-        
+typeof num;         // 'number'</pre>
+
+        <!--toFixed()-->
         <a href="#top"><hr></a>
+        <h3><code>toFixed()</code></h3>
+
+        <p>To round a number to a fixed number of decimal places. Type is string. Use<code> Number() </code>to further change the type into number.</p>
+
+<pre class="js-codebox">
+let numLong = 1.766584958675746364;
+let numShort = numLong.toFixed(2);
+
+numLong;            // 1.7665849586757463
+numShort;           // '1.77'
+Number(numShort);   // 1.77</pre>
         
-        <!--Arithmetic Operators-->
-        <h3>Arithmetic Operators</h3>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Operator</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="incode center">+</td>
-                    <td>Addition</td>
-                </tr>
-                <tr>
-                    <td class="incode center">-</td>
-                    <td>Subtraction</td>
-                </tr>
-                <tr>
-                    <td class="incode center">*</td>
-                    <td>Multiplication</td>
-                </tr>
-                <tr>
-                    <td class="incode center">**</td>
-                    <td>Exponentiation</td>
-                </tr>
-                <tr>
-                    <td class="incode center">/</td>
-                    <td>Division</td>
-                </tr>
-                <tr>
-                    <td class="incode center">%</td>
-                    <td>Modulus/Remainder</td>
-                </tr>
-                <tr>
-                    <td class="incode center">++</td>
-                    <td>Increment</td>
-                </tr>
-                <tr>
-                    <td class="incode center">--</td>
-                    <td>Decrement</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>Arithmetic <strong>operators</strong> perform arithmetic on numbers (literals or variables).</p>
-
-        <p><strong>Operands</strong>: the numbers being operated in an arithmetic operation.</p>
-
-        <p>The <strong>division</strong> of 2 integers produces a <strong>quotien</strong> and a <strong>remainder</strong>. The result of <strong>modulo</strong> operation is the <strong>remainder</strong>.</p>
-
-        <p>Exponent<code> x**y </code>has the same function as<code> Math.pow(x,y)</code>.</p>
-
-        <p>Example with base = 7 and exponent = 3:</p>
-            
-        <pre class="js-codebox">
-5**3;           // 125
-Math.pow(5,3);  // 125
-5*5*5           // 125</pre>
-
-        <a href="#top"><hr></a>
-        
-        <!--Operator Precedence-->
-        <h3>Operator Precedence</h3>
-
-        <ul>
-            <li>Multiplication and division have higher precedence than additino and subtraction. </li>
-            <li>When operations have the same precedence, they are computed from left to right.</li>
-            <li>Use parentheses to make an operation takes the higher precedence.</li>
-        </ul>
-
-        <pre class="js-codebox">
-200+300 / 2+3 ;     // = 200 + 150 + 3
-(200+300) / (2+3) ; // = 500 / 5</pre>
-
-
-        <a href="#top"><hr></a>
-
         <!--Base-->
+        <a href="#top"><hr></a>
         <h3>Base</h3>
 
         <table class="js-table-code-column-3 js-table-code-column-4">
@@ -203,8 +136,8 @@ Math.pow(5,3);  // 125
                 <tr>
                     <td>2</td>
                     <td>Binary</td>
-                    <td></td>
-                    <td></td>
+                    <td>0b or 0B</td>
+                    <td>let x= 0b10101</td>
                 </tr>
                 <tr>
                     <td>8</td>
@@ -215,7 +148,7 @@ Math.pow(5,3);  // 125
                 <tr>
                     <td>16</td>
                     <td>Hexadecimal</td>
-                    <td>0x</td>
+                    <td>0x or 0X</td>
                     <td>let x= 0xFF;</td>
                 </tr>
             </tbody>
@@ -223,7 +156,7 @@ Math.pow(5,3);  // 125
 
         <p>JavaScript number is displayed as base 10 decimals. To output numbers from base 2 to 36, use<code> toString(base) </code>. The output type willl be string.</p>
 
-        <pre class="js-codebox">
+<pre class="js-codebox">
 let num = 32;
 num.toString(2);    // 100000
 num.toString(8);    // 40
@@ -232,28 +165,279 @@ num.toString(16);   // 20
 num.toString(32);   // 10
 </pre>
 
+        <!--Arithmetic Operators-->
+        <a href="#top"><hr></a>    
+        <h3>Arithmetic Operators</h3>
+        
+        <table class="js-table-code-column-1">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>+</td>
+                    <td>Addition</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Subtraction</td>
+                </tr>
+                <tr>
+                    <td>*</td>
+                    <td>Multiplication</td>
+                </tr>
+                <tr>
+                    <td>**</td>
+                    <td>Exponentiation</td>
+                </tr>
+                <tr>
+                    <td>/</td>
+                    <td>Division</td>
+                </tr>
+                <tr>
+                    <td>%</td>
+                    <td>Modulus/Remainder</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Arithmetic <strong>operators</strong> perform arithmetic on numbers (literals or variables).</p>
+
+        <p><strong>Operands</strong>: the numbers being operated in an arithmetic operation.</p>
+
+        <p>The <strong>division</strong> of 2 integers produces a <strong>quotien</strong> and a <strong>remainder</strong>. The result of <strong>modulo</strong> operation is the <strong>remainder</strong>.</p>
+
+        <p>Exponent<code> x**y </code>has the same function as<code> Math.pow(x,y)</code>.</p>
+
+        <p>Example with base = 7 and exponent = 3:</p>
+            
+<pre class="js-codebox">
+5**3;           // 125
+Math.pow(5,3);  // 125
+5*5*5           // 125</pre>
+
+        <!--Operator Precedence-->
+        <a href="#top"><hr></a>    
+        <h3>Operator Precedence</h3>
+
+        <ul>
+            <li>Multiplication and division have higher precedence than additino and subtraction. </li>
+            <li>When operations have the same precedence, they are computed from left to right.</li>
+            <li>Use parentheses to make an operation takes the higher precedence.</li>
+        </ul>
+
+<pre class="js-codebox">
+200+300 / 2+3 ;     // = 200 + 150 + 3
+(200+300) / (2+3) ; // = 500 / 5</pre>
+                
+        <!--Increment and Decrement Operators-->
+        <a href="#top"><hr></a> 
+        <h3>Increment and Decrement Operators</h3>
+
+        <table class="js-table-code-column-1 js-table-code-column-3 js-table-code-column-4">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Example</th>
+                    <th>Shortcut for</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>++</td>
+                    <td>Increment</td>
+                    <td>num++;<br>++num;</td>
+                    <td>num = num + 1;</td>
+                </tr>
+                <tr>
+                    <td>--</td>
+                    <td>Decrement</td>
+                    <td>num--;<br>--num;</td>
+                    <td>num = num - 1;</td>
+                </tr>
+            </tbody>
+        </table>
+       
+        <p>For<code> num++ </code>and<code> num--</code>, the browser will first return the number, then doing the increment/decrement.</p>
+
+        <p>For<code> num++ </code>and<code> num--</code>, the browser will do the increment/decrement first, then returning the number.</p>
+
+<pre class="js-codebox">
+let num = 50;   // 50
+num++;          // 50
+num;            // 51
+
+let num = 50;   // 50
+++num;          // 51
+num;            // 51</pre>
+
+        <p>Operation works the same for numbers in string type. It's considered as number, will not get contatenated.</p>
+
+<pre class="js-codebox">
+let num = '50'; // '50'
+num++;          // 50
+num;            // 51</pre>
+        
+        <!--Assignment Operators:-->
+        <a href="#top"><hr></a> 
+        <h3>Assignment Operators:</h3>
+
+        <p>The most plain asignment operator is the equal sign:<code> = </code></p>
+        <p>Note: Don't confuse that with <code> == </code>and<code> === </code> that are comparison operators.</p>
+
+        <p>Some basic assignment operators:</p>
+
+        <table class="js-table-code-column-1 js-table-code-column-3 js-table-code-column-4">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Example</th>
+                    <th>Shortcut for</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>+=</td>
+                    <td>Addition assignment</td>
+                    <td>num += 3;</td>
+                    <td>num = num + 3;</td>
+                </tr>
+                <tr>
+                    <td>-=</td>
+                    <td>Subtraction assignment</td>
+                    <td>num -= 3;</td>
+                    <td>num = num - 3;</td>
+                </tr>
+                <tr>
+                    <td>*=</td>
+                    <td>Multiplication assignment</td>
+                    <td>num *= 3;</td>
+                    <td>num = num * 3;</td>
+                </tr>
+                <tr>
+                    <td>/=</td>
+                    <td>Division assignment</td>
+                    <td>num /= 3;</td>
+                    <td>num = num / 3;</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Be careful with<code> += </code>addition operator in numbers in string format. It will concatenate instead just like regular<code> + </code>addition. Use<code> Number() </code>to change the type first into number.
+
+<pre class="js-codebox">
+let num = '50';     // '50'
+num += 3;           // '503'
+num += 3;           // '5033'
+
+let num = '50';     // '50'
+num = Number(num);  // 50
+num += 3;           // 53
+num += 3;           // 56
+
+let num = '50';     // '50'
+num -= 3;           // 47
+num -= 3;           // 44</pre>
+
+
+        <!--Comparison Operators-->
+        <a href="#top"><hr></a> 
+        <h3>Comparison Operators</h3>
+
+        <table class="js-table-code-column-1 js-table-code-column-3 js-table-code-column-4">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Example</th>
+                    <th>Boolean</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>==</td>
+                    <td>Equality</td>
+                    <td>5 == 2+3<br>5 == 2+4</td>
+                    <td>true<br>false</td>
+                </tr>
+                <tr>
+                    <td>!=</td>
+                    <td>Non-equality</td>
+                    <td>5 != 2+4<br>5 != 2+3</td>
+                    <td>true<br>false</td>
+                </tr>
+                <tr>
+                    <td>===</td>
+                    <td>Strict equality</td>
+                    <td>5 == '5'<br>5 === '5'</td>
+                    <td>true<br>false</td>
+                </tr>
+                <tr>
+                    <td>!==</td>
+                    <td>Strict non-equality</td>
+                    <td>5 != '5'<br>5 !== '5'</td>
+                    <td>false<br>true</td>
+                </tr>
+                <tr>
+                    <td>&lt</td>
+                    <td>Less than</td>
+                    <td>5 &lt 10<br>5 &lt 5</td>
+                    <td>true<br>false</td>
+                </tr>
+                <tr>
+                    <td>&gt</td>
+                    <td>Greater than</td>
+                    <td>10 &gt 5<br>10 &gt 10</td>
+                    <td>true<br>false</td>
+                </tr>
+                <tr>
+                    <td>&lt=</td>
+                    <td>Less than or equal to</td>
+                    <td>5 &lt= 10<br>5 &lt= 5</td>
+                    <td>true<br>true</td>
+                </tr>
+                <tr>
+                    <td>&gt=</td>
+                    <td>Greater than or equal to</td>
+                    <td>10 &gt= 5<br>10 &gt= 10</td>
+                    <td>true<br>true</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Strict or not</h4>
+        <p>In strict equality<code> === </code>and non-equality<code> !==</code>, data type must be the same too. In formar version regular equality and non-equality, data type can be different. Use strict ones.</p>
+
+        <!--Numbers as Objects-->
         <a href="#top"><hr></a>
+        <h3>Numbers as Objects</h3>
 
-        <!--Numbers as objects-->
-        <h3>Numbers as objects</h3>
+        <p>Numbers can be defined as an object with<code> new Number() </code>method. Remember method<code> Number() </code>is to make a string type number into number type. In general, stick with real number, not object number.</p>
 
-        <p>Numbers can be defined as an object with<code> new Number(123)</code>. In general, stick with real number, not object number.</p>
-
-        <pre class="js-codebox">
+<pre class="js-codebox">
 let x = 123;            // 123, type: number
 let y = new Number(123) // Number {123}, type: object
 let z = new Number(123) // Number {123}, type: object</pre>
 
         <p>Some behaviours:</p>
 
-        <pre class="js-codebox">
+<pre class="js-codebox">
 x==y    // true
 x===y   // false
 y==z    // false
 y===z   // false</pre>
 
         <p>Comparing two JavaScript objects always returns false.</p>
-     
+
+
+
+        <a href="#top"><hr></a>
+
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>

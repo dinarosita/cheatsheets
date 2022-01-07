@@ -116,8 +116,16 @@ th, td {
     color: var(--extranote);
 }
 
+h3 code, h4 code, h5 code, h6 code {
+    color: inherit;
+}
+
 p code {
     font-weight: 500;
+}
+
+.unstyle-color {
+    color: inherit;
 }
 
 /* Coding Font */ 
@@ -126,7 +134,6 @@ code,
 .incode,
 .js-codebox {
     color:var(--code);
-
 }
 
 code,
