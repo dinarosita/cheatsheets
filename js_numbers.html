@@ -321,8 +321,8 @@ Math.pow(5,3);  // 125
                 </tr>
                 <tr>
                     <td>15</td>
-                    <td>Multipication<br>Division</td>
-                    <td>*<br>/</td>
+                    <td>Multipication<br>Division<br>Remainder</td>
+                    <td>*<br>/<br>%</td>
                 </tr>
                 <tr>
                     <td>13</td>
@@ -336,8 +336,8 @@ Math.pow(5,3);  // 125
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Assignment</td>
-                    <td>=</td>
+                    <td>Assignment<br>Other assignments</td>
+                    <td>=<br>+=, -=, *=, etc</td>
                 </tr>
                 <tr>
                     <td>...</td>
@@ -346,6 +346,8 @@ Math.pow(5,3);  // 125
                 </tr>
             </tbody>
         </table>
+
+        <p>More: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#:~:text=Copy%20to%20Clipboard-,Table,-The%20following%20table" target="_blank">Operator Precedence Table</a></p>
                 
         <!--Increment and Decrement Operators-->
         <a href="#top"><hr></a> 
@@ -389,21 +391,65 @@ let num = 50;   // 50
 ++num;          // 51
 num;            // 51</pre>
 
-        <p>Operation works the same for numbers in string type. It's considered as number, will not get contatenated.</p>
+        <p>We can even isolate this effect.</p>
+
+<pre class="js-codebox">
+let counter = 50;
+let freeze = counter++;
+freeze;     // 50
+counter;    // 51
+
+let counter = 50;
+let freeze = ++counter;
+freeze;     // 51
+counter;    // 51
+
+let counter = 1;
+alert( 2 * ++counter ); // 4
+
+let counter = 1;
+alert( 2 * counter++ ); // 2</pre>
+
+        <p>Operation works the same for numbers in string type. It's considered as number, will not get concatenated.</p>
 
 <pre class="js-codebox">
 let num = '50'; // '50'
 num++;          // 50
 num;            // 51</pre>
+
+        <p>Increment and decrement can only be appied to variables, not on the number directly</p>
         
-        <!--Assignment Operators:-->
+        <!--Assignment Operators-->
         <a href="#top"><hr></a> 
-        <h3>Assignment Operators:</h3>
+        <h3>Assignment Operators</h3>
 
         <p>The most plain asignment operator is the equal sign: <code>=</code> </p>
-        <p>Note: Don't confuse that with  <code>==</code> and <code>===</code>  that are comparison operators.</p>
+        
+        <p>Assignment operators <strong>returns</strong> a value.</p>
+        <p>Note: Don't confuse that with <code>==</code> and <code>===</code> that are comparison operators.</p>
 
-        <p>Some basic assignment operators:</p>
+        <h4>Chaining assignments</h4>
+
+        <p>There can be multiple <code>=</code> in one line. It's called chained assignment and it's evaluated from right to left.</p>
+
+<pre class="js-codebox">
+let a, b, c;
+a = b = c = 2 + 2;
+a;  // 4
+b;  // 4
+c;  // 4</pre>
+
+        <p>It's the same as:</p>
+
+<pre class="js-codebox">
+let a, b, c;
+c = 2 + 2;  // 4
+b = c;      // 4
+a = b;      // 4</pre>
+
+        <p>Let's use the second one because it's clearer for everybody to read.</p>
+
+        <h4>Some basic assignment operators:</h4>
 
         <table class="js-table-code-column-1 js-table-code-column-3 js-table-code-column-4">
             <thead>
@@ -457,6 +503,15 @@ num += 3;           // 56
 let num = '50';     // '50'
 num -= 3;           // 47
 num -= 3;           // 44</pre>
+    
+        <p>These various assignment operators have same precedence as the plain <code>=</code> assignment operator. Which means they are executed nearly the end.</p>
+
+<pre class="js-codebox">
+let n = 2;
+n *= 3 + 5; // 16</pre>
+
+        <p>Even though multiplication has  higher precedence than addition, the multiplication is conducted as assignment. therefore it has the lower precedence.</p>
+
 
 
         <!--Comparison Operators-->
@@ -549,6 +604,67 @@ y===z   // false</pre>
         <p>Comparing two JavaScript objects always returns false.</p>
 
 
+        <!--Bitwise operators-->
+        <a href="#top"><hr></a>
+        <h3>Bitwise operators</h3>
+        
+        <p>Bitwise operators treat arguments as 32-bit integer numbers and work on the level of their binary representation. <a herf="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators" target="_blank">Read more...</a></p>
+        
+        <table class="js-table-code-column2">
+            <tbody>
+                <tr>
+                    <td>AND</td>
+                    <td>&</td>
+                </tr>
+                <tr>
+                    <td>OR</td>
+                    <td>|</td>
+                </tr>
+                <tr>
+                    <td>XOR</td>
+                    <td>^</td>
+                </tr>
+                <tr>
+                    <td>NOT</td>
+                    <td>~</td>
+                </tr>
+                <tr>
+                    <td>LEFT SHIFT</td>
+                    <td>&lt&lt</td>
+                </tr>
+                <tr>
+                    <td>RIGHT SHIFT</td>
+                    <td>&gt&gt</td>
+                </tr>
+                <tr>
+                    <td>ZERO-FILL RIGHT SHIFT</td>
+                    <td>&gt&gt&gt</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--Comma operators-->
+        <a href="#top"><hr></a>
+        <h3>Comma operators</h3>
+
+        <p>Comma operator <code>,</code> is very rare and has very low precedence, even lower than <code>=</code>.</p>
+
+<pre class="js-codebox">
+let a = (1 + 2, 3 + 4);
+a;      // 7</pre>
+
+        <p>1 + 2 is evaluated and the result is thrown away. Then 3 + 4 is evaluated and returned as the result.</p>
+
+<pre class="js-codebox">
+let a = 1 + 2, 3 + 4;
+a;      // 3</pre>
+
+        <p>First the <code>+</code> will be evaluated, resulting in <code>a = 3, 7</code>. Then assignment operator, assigns <code>a = 3</code>, and the rest is ignored. In other word, it's treated like <code>(a = 1 + 2), 3 + 4</code>.</p>
+
+        <p>Example usage:</p>
+
+<pre class="js-codebox">
+for (a = 1, b = 3, c = a * b; a < 10; a++) {...}</pre>
 
         <a href="#top"><hr></a>
 
