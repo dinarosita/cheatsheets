@@ -116,18 +116,21 @@ th, td {
     color: var(--extranote);
 }
 
+p code {
+    font-weight: 500;
+}
+
 /* Coding Font */ 
 
 code,
 .incode,
-.js-table-codebox,
 .js-codebox {
     color:var(--code);
+
 }
 
 code,
 .incode,
-.js-table-codebox,
 .js-codebox,
 .titlecode,
 .css-codebox {
@@ -136,7 +139,6 @@ code,
 
 code,
 .incode,
-.js-table-codebox,
 .js-codebox,
 .css-codebox {
     font-size: 0.9em;
@@ -152,23 +154,11 @@ code,
 
 /* JavaScript Notes */
 
-.js-codebox,
-.js-table-codebox {
+.js-codebox {
     margin: var(--bumper);
     border-left: solid 3px var(--js-border);
-}
-
-.js-codebox {    
-    padding: 0 var(--bumper)
-}
-
-.js-table-codebox {
-    border-spacing: var(--bumper) var(--bumper-quarter);
-    text-align: left;
-}
-
-.js-table-codebox tbody tr :nth-child(2) {
-    color: var(--title);
+    padding: 0 var(--bumper);
+    word-wrap: break-word:
 }
 
 .js-table-code-column-1 tbody tr :nth-child(1), 
@@ -180,7 +170,6 @@ code,
     font-family: 'Fira Mono', monospace;   
     font-size: 0.9em;
 }
-
 
 /* Listing */
 

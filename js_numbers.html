@@ -187,6 +187,9 @@ Math.pow(5,3);  // 125
 
         <a href="#top"><hr></a>
 
+        <!--Base-->
+        <h3>Base</h3>
+
         <table class="js-table-code-column-3 js-table-code-column-4">
             <thead>
                 <tr>
@@ -197,6 +200,12 @@ Math.pow(5,3);  // 125
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>Binary</td>
+                    <td></td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td>8</td>
                     <td>Octal</td>
@@ -210,11 +219,41 @@ Math.pow(5,3);  // 125
                     <td>let x= 0xFF;</td>
                 </tr>
             </tbody>
-
         </table>
-        
 
+        <p>JavaScript number is displayed as base 10 decimals. To output numbers from base 2 to 36, use<code> toString(base) </code>. The output type willl be string.</p>
 
+        <pre class="js-codebox">
+let num = 32;
+num.toString(2);    // 100000
+num.toString(8);    // 40
+num.toString(10);   // 32  
+num.toString(16);   // 20 
+num.toString(32);   // 10
+</pre>
+
+        <a href="#top"><hr></a>
+
+        <!--Numbers as objects-->
+        <h3>Numbers as objects</h3>
+
+        <p>Numbers can be defined as an object with<code> new Number(123)</code>. In general, stick with real number, not object number.</p>
+
+        <pre class="js-codebox">
+let x = 123;            // 123, type: number
+let y = new Number(123) // Number {123}, type: object
+let z = new Number(123) // Number {123}, type: object</pre>
+
+        <p>Some behaviours:</p>
+
+        <pre class="js-codebox">
+x==y    // true
+x===y   // false
+y==z    // false
+y===z   // false</pre>
+
+        <p>Comparing two JavaScript objects always returns false.</p>
+     
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>
