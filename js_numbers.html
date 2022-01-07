@@ -40,28 +40,13 @@
 
         <p>And even when variable's type is a string (quoted), but if it's consist solely of number, then mathematical operation is possible, given the operation is non ambiguosly a number operation. Keep n mind that addition operation<code> + </code>is not just a number operation, but also a string operation (concatenation), and concatenation of strings is prioritized. </p>
 
-        <table class="js-table">
-            <tr>
-                <td>5 + 3 ;</td>
-                <td>// 8</td>
-            </tr>
-            <tr>
-                <td>5 + "3" ;</td>
-                <td>// "53"</td>
-            </tr>
-            <tr>
-                <td>5 - 3 ;</td>
-                <td>// 2</td>
-            </tr>
-            <tr>
-                <td>5 - "3" ;</td>
-                <td>// 2</td>
-            </tr>
-            <tr>
-                <td>"5" - "3" ;</td>
-                <td>// 2</td>
-            </tr>
-        </table>
+
+        <pre class="js-codebox">
+5 + 3 ;         // 8
+5 + "3" ;       // "53"
+5 - 3 ;         // 2
+5 - "3" ;       // 2
+"5" - "3" ;     // 2</pre>
 
         <h4>NaN and Infinity</h4>
 
@@ -69,50 +54,32 @@
         
         <p>Function<code> isNaN() </code>can be used to find out if a value is a not a number.</p>
 
-        <table class="js-table">
-            <tr>
-                <td>5 + "squid" ;</td>
-                <td>// "5squid"</td>
-            </tr>
-            <tr>
-                <td>5 - "squid" ;</td>
-                <td>// NaN</td>
-            </tr>
-            <tr>
-                <td>5 + squid ;</td>
-                <td>// error, squid is not a defined variable.</td>
-            </tr>
-        </table>
+        <pre class="js-codebox">
+5 + "squid" ;   // "5squid"
+5 - "squid" ;   // NaN
+5 + squid ;     // error, squid is not a defined variable.</pre>
 
         <p><code>Infinity </code>(or<code> -Infinity</code>): the value that will return if you calculate a number outside the largest possible number.</p>
 
+        <pre class="js-codebox">
+let num = 2;
+while (num != Infinity) { 
+    num = num * num;
+    console.log(num);
+}
 
-        <table class="js-table">
-            <tr><td>let num = 2;</td></tr>
-            <tr>
-                <td>
-                    while (num != Infinity) {
-                </td>
-                <td>// Execute while num is still not infinite</td>
-            </tr>
-            <tr><td><span class="tab"></span>num = num * num;</td></tr>
-            <tr><td><span class="tab"></span>console.log(num);</td></tr>
-            <tr><td>}</td></tr>
-        </table>
-
-        <p>Console log:</p>
-        <div class="js-box">
-            4<br>
-            16<br>
-            256<br>
-            65536<br>
-            4294967296<br>
-            18446744073709552000<br>
-            3.402823669209385e+38<br>
-            1.157920892373162e+77<br>
-            1.3407807929942597e+154<br>
-            Infinity
-        </div>
+------------
+Console log:
+4
+16
+256
+65536
+4294967296
+18446744073709552000
+3.402823669209385e+38
+1.157920892373162e+77
+1.3407807929942597e+154
+Infinity</pre>
         
         <a href="#top"><hr></a>
         
@@ -121,60 +88,23 @@
         <p>Converting to<code> number </code>data types:<code> Number (var)</code></p>
         <p>Checking data types:<code> typeof var</code></p>
 
-        <table class="js-table">
-            <tr>
-                <td>num = "555";</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>num + 3;</td>
-                <td>// "5553"</td>
-            </tr>
-            <tr>
-                <td>Number(num) + 3;</td>
-                <td>// 558</td>
-            </tr>
-        </table>
+        <pre class="js-codebox">
+num = "555";	
+num + 3;            // "5553"
+Number(num) + 3;    // 558</pre>
 
         <p>Remember if the variable type actually want to be changed, it needs to be put in equation and override the original string value.</p>
 
-        <table class="js-table">
-            <tr>
-                <td>num = "555";</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>typeof num;</td>
-                <td>// "string"</td>
-            </tr>
-        </table>
+        <pre class="js-codebox">
+num = "555";	
+typeof num;         // "string"
 
-        <table class="js-table">
-            <tr>
-                <td>Number(num);</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>typeof num;</td>
-                <td>// "string"</td>
-            </tr>
-            <tr>
-                <td>typeof Number(num);</td>
-                <td>// "number"</td>
-            </tr>
-        </table>
+Number(num);	
+typeof num;         // "string"
+typeof Number(num); // "number"
 
-        <table class="js-table">
-            <tr>
-                <td>num = Number(num);</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>typeof num;</td>
-                <td>// "number"</td>
-            </tr>
-        </table>
-
+num = Number(num);	
+typeof num;         // "number"</pre>
         
         <a href="#top"><hr></a>
         
@@ -182,42 +112,46 @@
         <h3>Arithmetic Operators</h3>
         
         <table>
-            <tr>
-                <th>Operator</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td class="incode center">+</td>
-                <td>Addition</td>
-            </tr>
-            <tr>
-                <td class="incode center">-</td>
-                <td>Subtraction</td>
-            </tr>
-            <tr>
-                <td class="incode center">*</td>
-                <td>Multiplication</td>
-            </tr>
-            <tr>
-                <td class="incode center">**</td>
-                <td>Exponentiation</td>
-            </tr>
-            <tr>
-                <td class="incode center">/</td>
-                <td>Division</td>
-            </tr>
-            <tr>
-                <td class="incode center">%</td>
-                <td>Modulus/Remainder</td>
-            </tr>
-            <tr>
-                <td class="incode center">++</td>
-                <td>Increment</td>
-            </tr>
-            <tr>
-                <td class="incode center">--</td>
-                <td>Decrement</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="incode center">+</td>
+                    <td>Addition</td>
+                </tr>
+                <tr>
+                    <td class="incode center">-</td>
+                    <td>Subtraction</td>
+                </tr>
+                <tr>
+                    <td class="incode center">*</td>
+                    <td>Multiplication</td>
+                </tr>
+                <tr>
+                    <td class="incode center">**</td>
+                    <td>Exponentiation</td>
+                </tr>
+                <tr>
+                    <td class="incode center">/</td>
+                    <td>Division</td>
+                </tr>
+                <tr>
+                    <td class="incode center">%</td>
+                    <td>Modulus/Remainder</td>
+                </tr>
+                <tr>
+                    <td class="incode center">++</td>
+                    <td>Increment</td>
+                </tr>
+                <tr>
+                    <td class="incode center">--</td>
+                    <td>Decrement</td>
+                </tr>
+            </tbody>
         </table>
 
         <p>Arithmetic <strong>operators</strong> perform arithmetic on numbers (literals or variables).</p>
@@ -230,20 +164,10 @@
 
         <p>Example with base = 7 and exponent = 3:</p>
             
-        <table class="js-table">
-            <tr>
-                <td>5**3;</td>
-                <td>// 125</td>
-            </tr>
-            <tr>
-                <td>Math.pow(5,3);</td>
-                <td>// 125</td>
-            </tr>
-            <tr>
-                <td>5*5*5</td>
-                <td>// 125</td>
-            </tr>
-        </table>
+        <pre class="js-codebox">
+5**3;           // 125
+Math.pow(5,3);  // 125
+5*5*5           // 125</pre>
 
         <a href="#top"><hr></a>
         
@@ -256,39 +180,40 @@
             <li>Use parentheses to make an operation takes the higher precedence.</li>
         </ul>
 
-        <table class="js-table">
-            <tr>
-                <td>200+300 / 2+3 ;</td>
-                <td>// = 200 + 150 + 3</td>
-            </tr>
-            <tr>
-                <td>(200+300) / (2+3) ;</td>
-                <td>// = 500 / 5</td>
-            </tr>
-        </table>
+        <pre class="js-codebox">
+200+300 / 2+3 ;     // = 200 + 150 + 3
+(200+300) / (2+3) ; // = 500 / 5</pre>
+
 
         <a href="#top"><hr></a>
 
-        <table class="center-c1 center-c2 center-c3">
-            <tr>
-                <th>Base</th>
-                <th>Name</th>
-                <th>Identifier</th>
-                <th>Example</th>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Octal</td>
-                <td>0</td>
-                <td><code>let x= 020; // 25</code></td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>Hexadecimal</td>
-                <td>0x</td>
-                <td><code>let x= 0xFF;</code></th>
-            </tr>
+        <table class="js-table-code-column-3 js-table-code-column-4">
+            <thead>
+                <tr>
+                    <th>Base</th>
+                    <th>Name</th>
+                    <th>Sign</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8</td>
+                    <td>Octal</td>
+                    <td>0</td>
+                    <td>let x= 020; // 25</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Hexadecimal</td>
+                    <td>0x</td>
+                    <td>let x= 0xFF;</td>
+                </tr>
+            </tbody>
+
         </table>
+        
+
 
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
