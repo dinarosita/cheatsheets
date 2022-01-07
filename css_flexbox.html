@@ -55,9 +55,7 @@
         <a href="#top"><hr></a>
         <h3>Flex Items</h3>
 
-        <p>Easiest way to make the flex items stretches evenly:</p>
-
-        <h4>On the items: <span class="titlecode">flex: 1</span></h4>
+        <p>Easiest way to make the flex items stretches evenly: <code>flex: 1</code>. Apply it on each item.</p>
         
         <div class="css-flex-container">
             <div class="giant">A</div>
@@ -128,7 +126,7 @@
 
         <ul>
             <li>
-                <h4 class="titlecode">flex-grow</h4>
+                <code>flex-grow</code>
                 <ul>
                     <li>The value is the growth factor. It is a single number.</li>
                     <li>Default value is 0. That's why without declaration, flex item border will wrap arpund the content.</li>
@@ -137,7 +135,7 @@
                 </ul>
             </li>
             <li>
-                <h4 class="titlecode">flex-shrink</h4>
+                <code>flex-shrink</code>
                 <ul>
                     <li>Similar to flex-grow, but for shrinking.</li>
                     <li>Only applied when all flex items size is larger than the container.</li>
@@ -146,7 +144,7 @@
                 </ul>
             </li>
             <li>
-                <h4 class="titlecode">flex-basis</h4>
+                <code>flex-basis</code>
                 <ul>
                     <li>Sets the initial size of a flex item. Growing and shrinking start from this baseline.</li>
                     <li>Default value is <code>auto</code>, which mean will acknowledge width declaration of the flex item.</li>
@@ -161,7 +159,7 @@
         <h3>Predefined flex shorthand values</h3>
         <ul>
             <li>
-                <h4 class="titlecode">flex: initial</h4><br>
+                <code>flex: initial</code><br>
                 Equals to <code>flex: 0 1 auto</code>, the initial value.<br>
                 Can only shrink from the existing base values can grow.
                 <div class="css-container" style="display: flex;">
@@ -171,7 +169,7 @@
                 </div>
             </li>
             <li>
-                <h4 class="titlecode">flex: auto</h4><br>
+                <code>flex: auto</code><br>
                 Equals to <code>flex: 0 1 auto</code>.<br>
                 Like <code>flex: initial</code>, but can grow too.
                 <div class="css-container" style="display: flex;">
@@ -181,7 +179,7 @@
                 </div>
             </li>
             <li>
-                <h4 class="titlecode">flex: none</h4><br>
+                <code>flex: none</code><br>
                 Equals to <code>flex: 0 0 auto</code>.<br>
                 Following the existing base values, can't shrink or grow.
                 <div class="css-container" style="display: flex;">
@@ -192,7 +190,7 @@
 
             </li>
             <li>
-                <h4 class="titlecode">flex: <em>num+</em></h4> with <em>num+</em> is any positive number<br>
+                <code>flex: <em>num+</em></code> with <em>num+</em> is any positive number<br>
                 Equals to <code>flex: <em>num+</em> <em>num+</em> 0</code>.<br>
                 Disregard existing base value, use <em>num+</em> as growing and shrinking factor.
             </li>
@@ -213,7 +211,7 @@
                 Main axis, the row, depends on the writing direction of the language.<br>
                 In English sites: horizontal.
                 <ul>
-                    <li><h4 class="titlecode">flex-direction: row</h4><br>
+                    <li><code>flex-direction: row</code><br>
                         This is the default.
         
                         <div class="css-container" style="display: flex; flex-direction: row;">
@@ -223,7 +221,7 @@
                         </div>
         
                     </li>
-                    <li><h4 class="titlecode">flex-direction: row-reverse</h4>
+                    <li><code>flex-direction: row-reverse</code>
         
                         <div class="css-container" style="display: flex; flex-direction: row-reverse;">
                             <div class="giant">A</div>
@@ -239,7 +237,7 @@
                 In English sites: vertical.<br>
                 Note: When the axis is vertical, the flex-basis referred to height instead of width.
                 <ul>
-                    <li><h4 class="titlecode">flex-direction: column</h4>
+                    <li><code>flex-direction: column</code>
         
                         <div class="css-container" style="display: flex; flex-direction: column;">
                             <div class="giant">A</div>
@@ -248,7 +246,7 @@
                         </div>
         
                     </li>
-                    <li><h4 class="titlecode">flex-direction: column-reverse</h4>
+                    <li><code>flex-direction: column-reverse</code>
         
                         <div class="css-container" style="display: flex; flex-direction: column-reverse;">
                             <div class="giant">A</div>
@@ -272,7 +270,7 @@
         </ul>                 
         
         <a href="#top"><hr></a>
-        <h3 class="titlecode">flex-wrap: wrap</h3>
+        <h3 class="reset-text-decor"><code>flex-wrap: wrap</code></h3>
 
         <p>By default, items will be shrinking when there's no enough horizontal space in the container. If we want the items size to be respected and goes to the next line, use <code>flex-wrap: wrap</code>. Below is an example. Shrink and stretch the window horizontally to see the effect.</p>
 

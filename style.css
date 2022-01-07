@@ -117,46 +117,38 @@ th, td {
 }
 
 h3 code, h4 code, h5 code, h6 code {
-    color: inherit;
+    text-decoration: none;
+    color: var(--title);
+    padding: var(--bumper-quarter) var(--bumper-quarter) 1px;
+    border: 1px solid var(--title);
+    border-radius: var(--bumper-quarter);
 }
 
 p code {
     font-weight: 500;
 }
 
-.unstyle-color {
-    color: inherit;
+.reset-text-decor {
+    text-decoration: none;
 }
 
 /* Coding Font */ 
 
 code,
-.incode,
 .js-codebox {
     color:var(--code);
 }
 
 code,
-.incode,
 .js-codebox,
-.titlecode,
 .css-codebox {
     font-family: 'Fira Mono', monospace;   
 }
 
 code,
-.incode,
 .js-codebox,
 .css-codebox {
     font-size: 0.9em;
-}
-
-.titlecode {
-    display: inline-block;
-    background-color: var(--codebackground);    
-    padding: 0 0.4em;
-    border: 1px var(--codeborder) solid;
-    border-radius: 3px;
 }
 
 /* JavaScript Notes */
