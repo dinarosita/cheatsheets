@@ -126,6 +126,7 @@ h3 code, h4 code, h5 code, h6 code {
 
 p code {
     font-weight: 500;
+    padding: 0 var(--bumper-quarter);
 }
 
 .reset-text-decor {
