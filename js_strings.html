@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Strings</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <script>
+            const button = document.querySelector('button');
+    
+            function greet() {
+            const name = prompt('What is your name?');
+            alert(`Hello ${name}, nice to see you!`);
+            }
+    
+            button.addEventListener('click', greet);
+        </script>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>
+        
+        <h2>JavaScript Strings</h2>
+
+        <h3>Escaping Characters</h3>
+
+        <p>Backslash <code>\</code> is used to escape characters.</p>
+
+<pre class="js-codebox">
+let sentence = 'I\'m Kitten.';  // "I'm Kitten."
+</pre>
+
+        <p>Read more: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_sequences" target="_blank">Escape sequence</a></p>
+
+        <h3>Concatenations and Template Literal</h3>
+
+        <p>Concatenations using <code>+</code> can be used to chain strings together. However usng <strong>template literals</strong> is a better way to do it.
+            
+        <p>In template literals, instead of single <code>''</code> or double <code>""</code> quotes, backticks <code>``</code> are used. Then, expresssions can be embedded within as substitutions using <code>${...}</code>.</p>
+
+<pre class="js-codebox">
+const greeting = "Hello";
+const name = "Kitten";
+console.log(greeting + ", " + name + "!"); // "Hello, Kitten"
+
+const greeting = "Hello";
+const name = "Kitten";
+console.log(`${greeting}, ${name}!`); // "Hello, Kitten"
+</pre>
+
+<p>Concatenating or embedding number with/in strings works fine. Concatenation takes priority over additions. Number data type will be considered as string without further process</p>
+
+<pre class="js-codebox">
+const roomNum = 123;
+console.log(`Room number is ${roomNum}.`);      // Room number is 123.
+console.log("Room number is " + roomNum + "."); // Room number is 123.
+</pre>
+
+        <p>To change a number into a string, use <code>toString()</code></p>
+
+        <h3>Expressions in strings</h3>
+
+<pre class="js-codebox">
+const song = 'Fight the Youth';
+const score = 9;
+const highestScore = 10;
+const output = `I like the song ${song}. I gave it a score of ${score/highestScore * 100}%.`;
+console.log(output);  
+
+// "I like the song Fight the Youth. I gave it a score of 90%."
+</pre>
+
+        <h3>Multiline strings</h3>
+
+        <p>Template literals respects line breaks n the source code. Using regular single or double quotes, we have to use line break characters <code>\n</code> in the string.</p>
+
+<pre class="js-codebox">
+const output = `I like the song.
+I gave it a score of 90%.`;
+console.log(output);  
+// I like the song.
+// I gave it a score of 90%.
+
+const output = 'I like the song.\nI gave it a score of 90%.';
+console.log(output);
+// I like the song".
+// I gave it a score of 90%.
+
+</pre>
+
+        <p>Read more: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">MDN: Tempalte Literals</a></p>
+
+        <a href="#top"><hr></a>
+
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+
