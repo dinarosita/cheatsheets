@@ -20,6 +20,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 
+sup {
+    font-weight: inherit;
+    color: revert;
+}
 /* General */
 
 :root {
@@ -39,6 +43,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --bumper-half: 8px;
     --bumper: 16px;
     --bumper-double: 32px;
+    --remove-bumper-quarter: -4px;
+    --remove-bumper-half: -8px;
+    --remove-bumper: -16px;
+    --remove-bumper-double: -32px;
 }
 
 html {
@@ -85,6 +93,7 @@ a {
 
 strong {
     color: var(--strong);
+    font-weight: bold;
 }
 
 hr {
@@ -125,7 +134,9 @@ h3 code, h4 code, h5 code, h6 code {
     border-radius: var(--bumper-quarter);
 }
 
-p code {
+p code,
+li code,
+table code {
     font-weight: 500;
     padding: 0 var(--bumper-quarter);
 }
@@ -153,6 +164,16 @@ code,
     font-size: 0.9em;
 }
 
+h3 + ul,
+h4 + ul {
+    margin-top: 0;
+}
+
+p + ul {
+    margin-top: var(--remove-bumper);
+}
+
+
 /* JavaScript Notes */
 
 .js-codebox {
@@ -170,6 +191,10 @@ code,
     color: var(--code);
     font-family: 'Fira Mono', monospace;   
     font-size: 0.9em;
+}
+
+.js-table-bold-column-1 tbody tr :nth-child(1){
+    font-weight: 500;
 }
 
 /* Listing */
