@@ -22,57 +22,48 @@
                 <tr>
                     <th>Type</th>
                     <th>Description</th>
-                    <th>Remark</th>
-                    <th>Values/Examples</th>
+                    <th>Values</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Number</td>
                     <td>Regular numbers</td>
-                    <td>__</td>
-                    <td><code>578</code></td>
+                    <td>e.g. <code>578</code></td>
                 </tr>
                 <tr>
                     <td>BigInt</td>
                     <td>Beyond "numbers"</td>
-                    <td>__n</td>
-                    <td><code>1234567890123456789012345678901234567890n</code></td>
+                    <td>e.g. <code>1234567890123456789012345678901234567890n</code></td>
                 </tr>
                 <tr>
                     <td>String</td>
                     <td>Any strings type</td>
-                    <td>"__"</td>
-                    <td><code>"kitten"</code>, <code>'123'</code></td>
+                    <td>e.g. <code>"kitten"</code>, <code>'123'</code></td>
                 </tr>
                 <tr>
                     <td>Boolean</td>
                     <td>Logical type</td>
-                    <td>2 values</td>
-                    <td><code>true</code>, <code>false</code></td>
+                    <td><code>true</code> and <code>false</code></td>
                 </tr>
                 <tr>
                     <td>Null</td>
                     <td>Unknown values</td>
-                    <td>1 value</td>
                     <td><code>null</code></td>
                 </tr>
                 <tr>
                     <td>Undefined</td>
                     <td>Unassigned values</td>
-                    <td>1 value</td>
                     <td><code>undefined</code></td>
                 </tr>
                 <tr>
                     <td>Object</td>
                     <td>Complex data structures</td>
                     <td></td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>Symbol</td>
                     <td>Unique identifiers</td>
-                    <td></td>
                     <td></td>
                 </tr>
             </tbody>
@@ -82,13 +73,13 @@
 
         <!--Number-->
         <a href="#top"><hr></a>
-        <h3>Number</h3>
+        <h3>Data Type: Number</h3>
 
         <p><a href="./js_numbers.html">Read here</a></p>
 
         <!--BigInt-->
         <a href="#top"><hr></a>
-        <h3>BigInt</h3>
+        <h3>Data Type: BigInt</h3>
 
         <p>Number is limited within <code>-(2<sup>53</sup>-1)</code>  to <code>(2<sup>53</sup>-1)</code>. Outside this, we can use <code>BigInt</code>.</p>
 
@@ -108,7 +99,7 @@ typeof (1n + 2n)    // 'bigint'
 
         <!--String-->
         <a href="#top"><hr></a>
-        <h3>String</h3>
+        <h3>Data Type: String</h3>
         
         <p>Variables with string data type is created by using quotes. Type of quotes in JS:</p>
 
@@ -135,7 +126,8 @@ let name="Kitten";
 alert(`Hello, ${name}!`);       // Alert: Hello, Kitten!
 alert("Hello, " + name + "!");  // Alert: Hello, Kitten!
 
-alert(`The result is ${1 + 2}`);</pre>
+alert(`The result is ${1 + 2}`);
+</pre>
 
         <p>There is no "char" type for a single chaacter string like in C and Java. A string can be empty, 1 character, or many.</p>
 
@@ -143,9 +135,9 @@ alert(`The result is ${1 + 2}`);</pre>
 
         <!--Boolean-->
         <a href="#top"><hr></a>
-        <h3>Boolean (logical type)</h3>
+        <h3>Data Type: Boolean</h3>
 
-        <p>The boolean type only has 2 values:</p>
+        <p>The boolean logical type only has 2 values:</p>
         <ul>
             <li><code>true</code> (1)</li>
             <li><code>false</code> (0)</li>
@@ -192,11 +184,90 @@ Number(false);  // 0
 BigInt(true);   // 1
 BigInt(false);  // 0
 String(true);   // "true"
-String(false);  // "false"</pre>
+String(false);  // "false"
+</pre>
 
-
-
+        <!--Null-->
         <a href="#top"><hr></a>
+        <h3>Data Type: Null</h3>
+
+        <p>The special value <code>null</code> belongs to its own type: <code>null</code>.</p>
+
+        <p>And vice versa, the special type <code>null</code> only has 1 possible value: <code>null</code>.</p>
+
+        <p>Value <code>null</code> in JavaScript represents "nothing", "empty", or "value unknown". It's not a "reference to a non-existing object" or a "null pointer" like in some other language.</p>
+
+<pre class="js-codebox">
+let name = null;    // The code states that name is unknown
+name;               // null
+typeof name;        // "object"
+</pre>
+
+<p><code>typeof(null)</code> returns <code>"object"</code>. This is an error in the language. The actual type is null, not object.</p>
+
+        <!--Undefined-->
+        <a href="#top"><hr></a>
+        <h3>Data Type: Undefined</h3>
+
+        <p>The special value <code>undefined</code> belongs to its own type: <code>undefined</code>.</p>
+
+        <p>And vice versa, the special type <code>undefined</code> only has 1 possible value: <code>undefined</code>.</p>
+
+        <p>When a variable has <code>undefined</code> type?</p>
+        <ul>
+            <li>When a variable is declared but not assigned</li>
+            <li>When value <code>undefined</code> is assigned to a variable</li>
+        </ul>
+
+<pre class="js-codebox">
+let name;
+name;               // undefined
+name = "Kitty"
+name;               // "Kitty"
+name = undefined;
+name;               // undefined
+</pre>
+
+<p>For good practise, use <code>null</code> to assign an empty or unknown value to a variable. Reserve <code>undefined</code> as a default initial value fo unassigned things.</p>
+
+        <!--Objects-->
+        <a href="#top"><hr></a>
+        <h3>Data Type: Object</h3>
+
+        <p>Any other types of data are called <strong>primitive</strong> because their values can contain only a single thing. In contrast, <code>object</code> is used to store collections of data and more complex entities.</p>
+
+        <p>Read more: <a hrerf="https://javascript.info/object" target="_blank">JavaScript.Info: Object</a></p>
+
+        <!--Symbol-->
+        <a href="#top"><hr></a>
+        <h3>Data Type: Symbol</h3>
+
+        <p>Data type <code>symbol</code> is used to create unique identifiers for objects</p>
+
+        <!--typeof-->
+        <a href="#top"><hr></a>
+        <h3>The typeof Operator</h3>
+
+        <p>For checking the data type of a variable, use <code>typeof</code> operator. The result of <code>typeof</code> is a string containing the data type name as the value.</p>
+
+<pre class="js-codebox">
+typeof undefined    // "undefined"
+typeof 0            // "number"
+typeof 10n          // "bigint"
+typeof true         // "boolean"
+typeof "foo"        // "string"
+typeof Symbol("id") // "symbol"
+typeof Math         // "object"  (Math is an built-in object)
+typeof null         // "object"  (It's actually null)
+typeof alert        // "function"  (there is no special function data type, it belongs to object data type)
+</pre>
+
+        <p>Since <code>typeof</code> is an operator, instead of a function, no parentheses then <code>()</code> is needed. When <code>typeof()</code> syntax is used, the <code>()</code> is mathematical grouping of what we want to check. If it's only consist of 1 argument, then <code>()</code> is not needed.</p>
+
+<pre class="js-codebox">
+typeof ("a" + 2)    // 'string'
+typeof ("a" - 2)    // 'number'
+</pre>
 
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>

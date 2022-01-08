@@ -20,10 +20,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 
-sup {
-    font-weight: inherit;
-    color: revert;
-}
+
 /* General */
 
 :root {
@@ -141,7 +138,7 @@ table code {
     padding: 0 var(--bumper-quarter);
 }
 
-.reset-text-decor {
+.text-decoration-none {
     text-decoration: none;
 }
 

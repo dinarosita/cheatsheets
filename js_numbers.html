@@ -45,7 +45,8 @@
 5 + "3" ;       // '53'
 5 - 3 ;         // 2
 5 - "3" ;       // 2
-"5" - "3" ;     // 2</pre>
+"5" - "3" ;     // 2
+</pre>
 
         <h4>NaN and Infinity</h4>
 
@@ -56,7 +57,8 @@
 <pre class="js-codebox">
 5 + "squid" ;   // '5squid'
 5 - "squid" ;   // NaN
-5 + squid ;     // error, squid is not a defined variable.</pre>
+5 + squid ;     // error, squid is not a defined variable.
+</pre>
 
         <p><code>Infinity</code> (or <code>-Infinity</code>): the value that will return if you calculate a number outside the largest possible number.</p>
 
@@ -78,11 +80,12 @@ Console log:
 3.402823669209385e+38
 1.157920892373162e+77
 1.3407807929942597e+154
-Infinity</pre>
+Infinity
+</pre>
         
         <!--Number()-->
         <a href="#top"><hr></a>
-        <h3 class="reset-text-decor"><code>Number()</code></h3>
+        <h3 class="text-decoration-none"><code>Number()</code></h3>
 
         <p>Converting to <code>number</code> data types: <code>Number()</code></p>
         <p>Checking data types: <code>typeof myVar</code></p>
@@ -90,7 +93,8 @@ Infinity</pre>
 <pre class="js-codebox">
 num = "555";	
 num + 3;            // '5553'
-Number(num) + 3;    // 558</pre>
+Number(num) + 3;    // 558
+</pre>
 
         <p>Remember if the variable type actually want to be changed, it needs to be put in equation and override the original string value.</p>
 
@@ -103,11 +107,12 @@ typeof num;         // 'string'
 typeof Number(num); // 'number'
 
 num = Number(num);	
-typeof num;         // 'number'</pre>
+typeof num;         // 'number'
+</pre>
 
         <!--toFixed()-->
         <a href="#top"><hr></a>
-        <h3 class="reset-text-decor"><code>toFixed()</code></h3>
+        <h3 class="text-decoration-none"><code>toFixed()</code></h3>
 
         <p>To round a number to a fixed number of decimal places. Type is string. Use <code>Number()</code> to further change the type into number.</p>
 
@@ -117,7 +122,8 @@ let numShort = numLong.toFixed(2);
 
 numLong;            // 1.7665849586757463
 numShort;           // '1.77'
-Number(numShort);   // 1.77</pre>
+Number(numShort);   // 1.77
+</pre>
         
         <!--Base-->
         <a href="#top"><hr></a>
@@ -220,7 +226,8 @@ x = -x;     // - here is an unary operator
 
 let x = 50;
 let y = 20;
-x = x - y;  // - here is a binary operator</pre>
+x = x - y;  // - here is a binary operator
+</pre>
 
         <h4>Unary +</h4>
 
@@ -234,7 +241,8 @@ x = x - y;  // - here is a binary operator</pre>
 +true;      // 1
 +false;     // 0
 +'hello';   // isNaN
-+hello;     // error, hello is not defined</pre>
++hello;     // error, hello is not defined
+</pre>
 
         <p>It's the same with method <code>Number()</code>.</p>
 
@@ -245,7 +253,8 @@ Number(' ');        // 0
 Number(true);       // 1
 Number(false);      // 0
 Number('hello');    // NaN
-Number(hello);      // error, hello is not defined</pre>
+Number(hello);      // error, hello is not defined
+</pre>
 
         <p>Since the unary is shorter, often it's handier when writting code.</p>
 
@@ -254,7 +263,8 @@ let lions = '50';
 let tigers = '30';
 let bigcat = lions + tigers;        // '5030'
 let Number(lions) + Number(tigers); // 80
-let +lions + +tigers;               //80</pre>
+let +lions + +tigers;               //80
+</pre>
 
         <h4>Divider and Remainder</h4>
 
@@ -262,7 +272,8 @@ let +lions + +tigers;               //80</pre>
 
 <pre class="js-codebox">
 let x = 20 / 7;     // 2.857142857142857
-let x = 20 % 7;     // 6</pre>
+let x = 20 % 7;     // 6
+</pre>
 
         <h4>Exponentiation</h4>
 
@@ -276,7 +287,8 @@ Math.pow(5,3);  // 125
 5*5*5           // 125
 
 64**(1/2);      // 8 (power of 1/2 or square root)
-125**(1/3);     // 5 (power of 1/3 or cubic root)</pre>
+125**(1/3);     // 5 (power of 1/3 or cubic root)
+</pre>
 
 
 
@@ -293,7 +305,8 @@ Math.pow(5,3);  // 125
 
 <pre class="js-codebox">
 200+300 / 2+3 ;     // = 200 + 150 + 3
-(200+300) / (2+3) ; // = 500 / 5</pre>
+(200+300) / (2+3) ; // = 500 / 5
+</pre>
         
         <table class="js-table-code-column-3">
             <thead>
@@ -389,7 +402,8 @@ num;            // 51
 
 let num = 50;   // 50
 ++num;          // 51
-num;            // 51</pre>
+num;            // 51
+</pre>
 
         <p>We can even isolate this effect.</p>
 
@@ -408,14 +422,16 @@ let counter = 1;
 alert( 2 * ++counter ); // 4
 
 let counter = 1;
-alert( 2 * counter++ ); // 2</pre>
+alert( 2 * counter++ ); // 2
+</pre>
 
         <p>Operation works the same for numbers in string type. It's considered as number, will not get concatenated.</p>
 
 <pre class="js-codebox">
 let num = '50'; // '50'
 num++;          // 50
-num;            // 51</pre>
+num;            // 51
+</pre>
 
         <p>Increment and decrement can only be appied to variables, not on the number directly</p>
         
@@ -437,7 +453,8 @@ let a, b, c;
 a = b = c = 2 + 2;
 a;  // 4
 b;  // 4
-c;  // 4</pre>
+c;  // 4
+</pre>
 
         <p>It's the same as:</p>
 
@@ -445,7 +462,8 @@ c;  // 4</pre>
 let a, b, c;
 c = 2 + 2;  // 4
 b = c;      // 4
-a = b;      // 4</pre>
+a = b;      // 4
+</pre>
 
         <p>Let's use the second one because it's clearer for everybody to read.</p>
 
@@ -502,13 +520,15 @@ num += 3;           // 56
 
 let num = '50';     // '50'
 num -= 3;           // 47
-num -= 3;           // 44</pre>
+num -= 3;           // 44
+</pre>
     
         <p>These various assignment operators have same precedence as the plain <code>=</code> assignment operator. Which means they are executed nearly the end.</p>
 
 <pre class="js-codebox">
 let n = 2;
-n *= 3 + 5; // 16</pre>
+n *= 3 + 5; // 16
+</pre>
 
         <p>Even though multiplication has  higher precedence than addition, the multiplication is conducted as assignment. therefore it has the lower precedence.</p>
 
@@ -591,7 +611,8 @@ n *= 3 + 5; // 16</pre>
 <pre class="js-codebox">
 let x = 123;            // 123, type: number
 let y = new Number(123) // Number {123}, type: object
-let z = new Number(123) // Number {123}, type: object</pre>
+let z = new Number(123) // Number {123}, type: object
+</pre>
 
         <p>Some behaviours:</p>
 
@@ -599,7 +620,8 @@ let z = new Number(123) // Number {123}, type: object</pre>
 x==y    // true
 x===y   // false
 y==z    // false
-y===z   // false</pre>
+y===z   // false
+</pre>
 
         <p>Comparing two JavaScript objects always returns false.</p>
 
@@ -651,20 +673,23 @@ y===z   // false</pre>
 
 <pre class="js-codebox">
 let a = (1 + 2, 3 + 4);
-a;      // 7</pre>
+a;      // 7
+</pre>
 
         <p>1 + 2 is evaluated and the result is thrown away. Then 3 + 4 is evaluated and returned as the result.</p>
 
 <pre class="js-codebox">
 let a = 1 + 2, 3 + 4;
-a;      // 3</pre>
+a;      // 3
+</pre>
 
         <p>First the <code>+</code> will be evaluated, resulting in <code>a = 3, 7</code>. Then assignment operator, assigns <code>a = 3</code>, and the rest is ignored. In other word, it's treated like <code>(a = 1 + 2), 3 + 4</code>.</p>
 
         <p>Example usage:</p>
 
 <pre class="js-codebox">
-for (a = 1, b = 3, c = a * b; a < 10; a++) {...}</pre>
+for (a = 1, b = 3, c = a * b; a < 10; a++) {...}
+</pre>
 
         <a href="#top"><hr></a>
 
