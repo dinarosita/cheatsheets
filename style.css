@@ -27,14 +27,13 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --border:rgb(243, 196, 205);
     --title: cadetblue;
     --code: steelblue;
-    --codebackground: whitesmoke;
-    --codeborder: lightgrey;
     --link: sienna;
     --linkhover: white;
     --flexborder: rosybrown;
     --flexbackground: cornsilk;
     --strong: cadetblue;
-    --extranote: olive;
+    --othercolor1: olive;
+    --othercolor2: rgb(206, 131, 131);
     --js-border: rgb(190, 215, 216);
     --bumper-quarter: 4px;
     --bumper-half: 8px;
@@ -79,8 +78,15 @@ h2 {
     text-align: center;
 }
 
-h3,
-h4 {
+h3 {font-size: 1.3em;}
+
+h4 {font-size: 1.2em;}
+
+h5 {font-size: 1.1em;}
+
+h6 {font-size: 1em;}
+
+h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
@@ -120,7 +126,7 @@ th, td {
 }
 
 .alert {
-    color: var(--extranote);
+    color: var(--othercolor1);
 }
 
 h3 code, h4 code, h5 code, h6 code {
@@ -129,6 +135,26 @@ h3 code, h4 code, h5 code, h6 code {
     padding: var(--bumper-quarter) var(--bumper-quarter) 1px;
     border: 1px solid var(--title);
     border-radius: var(--bumper-quarter);
+}
+
+.formula {
+    display: inline-block;
+    color: var(--title);
+    padding: var(--bumper-quarter) var(--bumper);
+    border: 3px solid var(--border);
+    border-radius: var(--bumper-half);
+    margin: var(--bumper) 0 0 var(--bumper);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.formula code {
+    color: inherit;
+}
+
+.formula .changeable {
+    color: var(--othercolor2);
+    font-weight: normal;
 }
 
 p code,

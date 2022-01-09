@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS String Methods</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <script>
+            console.log(`String name: str`);
+            let str = "Kitten sings a song.";
+            console.log(`str: "${str}"`);
+            console.log(`Length: ${str.length} characters`);
+        </script>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>        
+        <h2>JavaScript String Methods and Properties</h2>
+
+        <!--String Length-->
+        <h3>String Length</h3>
+
+        <div class="formula"><code><span class="changeable">str</span>.length</code></div>
+
+        <p>The <code>length</code> property returns the length of a string.</p>
+
+<pre class="js-codebox">
+let str = "Kitten sings a song.";
+let length = str.length;                // 20
+</pre>
+
+        <!--Extracting String Parts-->
+        <a href="#top"><hr></a>
+        <h3>Extracting String Parts</h3>
+
+        <p>Javascript counts position from <code>0</code>. Then, last position will be <code>str.length-1</code>.</p>
+
+        <p>There are 3 methods to extract parts of a string:</p>
+        <ul>
+            <li><code>slice(start, end)</code></li>
+            <li><code>substring(start, end)</code></li>
+            <li><code>substr(start, length)</code></li>
+        </ul>
+
+        <h4>Slice</h4>
+
+        <div class="formula"><code>slice(<span class="changeable">start</span>, <span class="changeable">end</span>)</code></div>
+
+
+        <!--Footer - don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+

@@ -12,14 +12,11 @@
 
     <body>
         <script>
-            const button = document.querySelector('button');
-    
-            function greet() {
-            const name = prompt('What is your name?');
-            alert(`Hello ${name}, nice to see you!`);
-            }
-    
-            button.addEventListener('click', greet);
+            const greeting = "Hello";
+            const name = "Kitten";
+            console.log(greeting + ", " + name + "!\nThis message is created using concatenations.");
+            console.log(`${greeting}, ${name}!
+This message is created using backticks.`);
         </script>
 
         <!--Clickable Page Title-->
@@ -46,11 +43,11 @@ let sentence = 'I\'m Kitten.';  // "I'm Kitten."
 <pre class="js-codebox">
 const greeting = "Hello";
 const name = "Kitten";
-console.log(greeting + ", " + name + "!"); // "Hello, Kitten"
+console.log(greeting + ", " + name + "!"); // "Hello, Kitten!"
 
 const greeting = "Hello";
 const name = "Kitten";
-console.log(`${greeting}, ${name}!`); // "Hello, Kitten"
+console.log(`${greeting}, ${name}!`); // "Hello, Kitten!"
 </pre>
 
 <p>Concatenating or embedding number with/in strings works fine. Concatenation takes priority over additions. Number data type will be considered as string without further process</p>
