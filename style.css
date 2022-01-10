@@ -153,7 +153,7 @@ h3 code, h4 code, h5 code, h6 code {
 }
 
 .formula .variable {
-    color: var(--othercolor1);
+    color: var(--othercolor2);
     font-weight: normal;
 }
 

@@ -144,6 +144,45 @@ part = text.substr(-13, 0);  // ""
 part = text.substr(-13, -1); // ""
 </pre>
 
+        <!--Checking for Values inside Content-->
+        <a href="#top"><hr></a>
+        <h3>Checking for Values inside Content</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.includes(<span class="parameter">"value"</span>)</code></div>
+
+        <p>Returns <code>true</code> if a string contains the specified value.</p>
+
+<pre class="js-codebox">
+let animal = "Kitten and Doggie are best friends."
+animal.includes("friends");     // true
+animal.includes("kitten");      // false
+animal.includes("g c");         // true
+</pre>
+
+        <div class="formula"><code><span class="variable">text</span>.startsWith(<span class="parameter">"value"</span>)</code></div>
+
+        <p>Returns <code>true</code> if a string starts with the specified value.</p>
+
+<pre class="js-codebox">
+let animal = "Kitten and Doggie are best friends."
+animal.startsWith("Dog");       // false
+animal.startsWith("kitten");    // false
+animal.startsWith("K");         // true
+</pre>
+
+        <div class="formula"><code><span class="variable">text</span>.endsWith(<span class="parameter">"value"</span>)</code></div>
+
+        <p>Returns <code>true</code> if a string ends with the specified value.</p>
+
+<pre class="js-codebox">
+let animal = "Kitten and Doggie are best friends."
+animal.endsWith("friends");     // false
+animal.endsWith(".");           // true
+animal.endsWith("ds.");         // true
+</pre>
+
+        <p>For <code>includes()</code>, <code>startsWith()</code>, and <code>endsWith()</code>, the content searched must be a string <code>"__"</code>, can't be a regular expression <code>/__/</code>.</p>
+
         <!--Replacing String Content-->
         <a href="#top"><hr></a>
         <h3>Replacing String Content</h3>
@@ -402,10 +441,124 @@ Word count: 69
 Sentence count: 4
 </pre>
 
+        <!--Searches with Index Returns-->
         <a href="#top"><hr></a>
+        <h3>Searches with Index Returns</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.indexOf(<span class="parameter">"value"</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.lastIndexOf(<span class="parameter">"value"</span>)</code></div>
+
+        <p>Returns the index (position) of the first occurrence of a value in a string.</p>
+
+        <p>Returns the index (position) of the last occurrence of a value in a string. The method searches the value from the end of the string to the beginning.</p> 
         
-        <h3>Read more</h3>
-        <p><a href="https://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">w3schools - JavaScript String Reference</a></p>
+        <p>Both <code>indexOf()</code> and <code>lastIndexOf() </code> are case sensitive. Value must be in string format <code>"__"</code>. When using regular expression sign <code>/__/</code>, instead of giving an error message, it will return <code>-1</code> just like not found.</p>
+
+<pre class="js-codebox">
+let text = "Mr. Brown's hair is brown."
+text.indexOf("brown");      // 20
+text.indexOf(/brown/);      // -1
+text.lastIndexOf("brown");  // 20
+text.lastIndexOf(/brown/);  // -1
+text.lastIndexOf("own");    // 22
+text.indexOf("own");        // 6
+</pre>
+
+        <h4>Using Regular Expressions</h4>
+
+        <div class="formula"><code><span class="variable">text</span>.search(<span class="parameter">"value"</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.search(<span class="parameter">/value/</span>)</code></div>
+
+        <p><code>search()</code> searches a string for a regular expression, and returns the index (position) of the first match. If the searched valule is a string, it is cnverted t a regular expression. It's case sensitive, and it can be made  case insensitive with flag <code>/i</code>. It will return <code>-1</code> if there is no match.</p>
+
+<pre class="js-codebox">
+let text = "Mr. Brown's hair is brown."
+text.search("brown");   // 20
+text.search(/brown/i);  // 4
+text.search(/mr/);      // -1
+</pre>
+
+
+<tr>
+    <td>match()</td>
+    <td>Searches a string for a value, or a regular expression, and returns the matches</td>
+</tr>
+
+        <!--Other String Methods-->
+        <a href="#top"><hr></a>
+        <h3>Other String Methods</h3>
+
+        <table class="js-table-code-column-1">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>fromCharCode()</td>
+                    <td>Returns Unicode values as characters</td>
+                </tr>
+
+
+                <tr>
+                    <td>localeCompare()</td>
+                    <td>Compares two strings in the current locale</td>
+                </tr>
+                <tr>
+                    <td>match()</td>
+                    <td>Searches a string for a value, or a regular expression, and returns the matches</td>
+                </tr>
+                <tr>
+                    <td>repeat()</td>
+                    <td>Returns a new string with a number of copies of a string</td>
+                </tr>
+
+
+                <tr>
+                    <td>toLocaleLowerCase()</td>
+                    <td>Returns a string converted to lowercase letters, using the host's locale</td>
+                </tr>
+                <tr>
+                    <td>toLocaleUpperCase()</td>
+                    <td>Returns a string converted to uppercase letters, using the host's locale</td>
+                </tr>
+
+                <tr>
+                    <td>valueOf()</td>
+                    <td>Returns the primitive value of a string or a string object</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        	
+
+        	
+
+        	
+
+        	
+
+        	
+
+        	
+
+        	
+
+
+
+
+
+
+
+
+
+        
 
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>
