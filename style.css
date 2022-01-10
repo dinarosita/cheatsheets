@@ -20,7 +20,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 
-
 /* General */
 
 :root {
@@ -148,6 +147,8 @@ h3 code, h4 code, h5 code, h6 code {
     font-weight: bold;
 }
 
+
+
 .formula code {
     color: inherit;
 }
@@ -182,13 +183,15 @@ code,
 
 code,
 .js-codebox,
-.css-codebox {
+.css-codebox,
+.code {
     font-family: 'Fira Mono', monospace;   
 }
 
 code,
 .js-codebox,
-.css-codebox {
+.css-codebox,
+.code {
     font-size: 0.9em;
 }
 
@@ -204,6 +207,16 @@ h4 + ul {
 p + ul {
     margin-top: var(--remove-bumper);
 }
+
+h3 + h4 {
+    margin-top: var(--bumper);
+}
+
+ul + div {
+    margin-top: var(--remove-bumper-double);
+
+}
+
 
 
 /* JavaScript Notes */

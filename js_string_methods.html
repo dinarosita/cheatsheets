@@ -13,10 +13,6 @@
     <body>
         <script>
             let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-            console.log(`Lorem Ipsum:
-
-"${loremIpsum}"
-            `);
             console.log(`About Lorem Ipsum`);
             console.log(`Character count: ${loremIpsum.length}`);
             console.log(`Word count: ${(loremIpsum.split(" ")).length}`);
@@ -144,45 +140,6 @@ part = text.substr(-13, 0);  // ""
 part = text.substr(-13, -1); // ""
 </pre>
 
-        <!--Checking for Values inside Content-->
-        <a href="#top"><hr></a>
-        <h3>Checking for Values inside Content</h3>
-
-        <div class="formula"><code><span class="variable">text</span>.includes(<span class="parameter">"value"</span>)</code></div>
-
-        <p>Returns <code>true</code> if a string contains the specified value.</p>
-
-<pre class="js-codebox">
-let animal = "Kitten and Doggie are best friends."
-animal.includes("friends");     // true
-animal.includes("kitten");      // false
-animal.includes("g c");         // true
-</pre>
-
-        <div class="formula"><code><span class="variable">text</span>.startsWith(<span class="parameter">"value"</span>)</code></div>
-
-        <p>Returns <code>true</code> if a string starts with the specified value.</p>
-
-<pre class="js-codebox">
-let animal = "Kitten and Doggie are best friends."
-animal.startsWith("Dog");       // false
-animal.startsWith("kitten");    // false
-animal.startsWith("K");         // true
-</pre>
-
-        <div class="formula"><code><span class="variable">text</span>.endsWith(<span class="parameter">"value"</span>)</code></div>
-
-        <p>Returns <code>true</code> if a string ends with the specified value.</p>
-
-<pre class="js-codebox">
-let animal = "Kitten and Doggie are best friends."
-animal.endsWith("friends");     // false
-animal.endsWith(".");           // true
-animal.endsWith("ds.");         // true
-</pre>
-
-        <p>For <code>includes()</code>, <code>startsWith()</code>, and <code>endsWith()</code>, the content searched must be a string <code>"__"</code>, can't be a regular expression <code>/__/</code>.</p>
-
         <!--Replacing String Content-->
         <a href="#top"><hr></a>
         <h3>Replacing String Content</h3>
@@ -207,7 +164,6 @@ let triple = "Kitten one, Kitten two, Kitten three!";
 let newTriple;
 newTriple = triple.replace("Kitten", "Pup");    // "Pup one, Kitten two, Kitten three!"
 newTriple = triple.replace(/Kitten/g, "Pup");   // "Pup one, Pup two, Pup three!"
-
 </pre>
 
         <h4>Case Insensitive /i</h4>
@@ -237,6 +193,12 @@ let newText;
 newText = text.toUpperCase(); // "KITTEN SINGS A SONG."
 newText = text.toLowerCase(); // "kitten sings a song."
 </pre>
+
+        <div class="formula"><code><span class="variable">text</span>.toLocaleUpperCase()</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.toLocaleLowerCase()</code></div>
+
+        <p>These 2 are similar to lowercase and uppercase above, except for locales that conflict with the regular Unicode case mappings (such as Turkish).</p>
 
         <!--Concatenating Strings-->
         <a href="#top"><hr></a>
@@ -306,7 +268,6 @@ let shortNumber = realNumber.slice(-4);
 let safeNumber  = shortNumber.padStart(16, "*"); 
 safeNumber;     // "************6789"
 </pre>
-
 
         <!--Extracting String Characters-->
         <a href="#top"><hr></a>
@@ -441,19 +402,65 @@ Word count: 69
 Sentence count: 4
 </pre>
 
+        <!--Checking for Values inside Content-->
+        <a href="#top"><hr></a>
+        <h3>Checking for Values inside Content</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.includes(<span class="parameter">"value"</span>)</code></div>
+
+        <p>Returns <code>true</code> if a string contains the specified value.</p>
+
+<pre class="js-codebox">
+let animal = "Kitten and Doggie are best friends."
+animal.includes("friends");     // true
+animal.includes("kitten");      // false
+animal.includes("g c");         // true
+</pre>
+
+        <div class="formula"><code><span class="variable">text</span>.startsWith(<span class="parameter">"value"</span>)</code></div>
+
+        <p>Returns <code>true</code> if a string starts with the specified value.</p>
+
+<pre class="js-codebox">
+let animal = "Kitten and Doggie are best friends."
+animal.startsWith("Dog");       // false
+animal.startsWith("kitten");    // false
+animal.startsWith("K");         // true
+</pre>
+
+        <div class="formula"><code><span class="variable">text</span>.endsWith(<span class="parameter">"value"</span>)</code></div>
+
+        <p>Returns <code>true</code> if a string ends with the specified value.</p>
+
+<pre class="js-codebox">
+let animal = "Kitten and Doggie are best friends."
+animal.endsWith("friends");     // false
+animal.endsWith(".");           // true
+animal.endsWith("ds.");         // true
+</pre>
+
+        <p>For <code>includes()</code>, <code>startsWith()</code>, and <code>endsWith()</code>, the content searched must be a string <code>"__"</code>, can't be a regular expression <code>/__/</code>.</p>
+
         <!--Searches with Index Returns-->
         <a href="#top"><hr></a>
         <h3>Searches with Index Returns</h3>
 
         <div class="formula"><code><span class="variable">text</span>.indexOf(<span class="parameter">"value"</span>)</code></div>
 
+        <p><code>indexOf()</code> returns the index (position) of the first occurrence of a value in a string.</p>
+
         <div class="formula"><code><span class="variable">text</span>.lastIndexOf(<span class="parameter">"value"</span>)</code></div>
 
-        <p>Returns the index (position) of the first occurrence of a value in a string.</p>
+        <p><code>lastIndexOf()</code> returns the index (position) of the last occurrence of a value in a string. The method searches the value from the end of the string to the beginning.</p> 
 
-        <p>Returns the index (position) of the last occurrence of a value in a string. The method searches the value from the end of the string to the beginning.</p> 
+        <p>For both methods:</p>
         
-        <p>Both <code>indexOf()</code> and <code>lastIndexOf() </code> are case sensitive. Value must be in string format <code>"__"</code>. When using regular expression sign <code>/__/</code>, instead of giving an error message, it will return <code>-1</code> just like not found.</p>
+        <ul>
+                <li>Case sensitive.</li>
+                <li>If there is no match, they will return <code>-1</code>.</li>
+                <li>Value must be in string format <code>" "</code>.</li>
+                <li>When using regular expression sign <code>/ /</code>, instead of giving an error message, it will return <code>-1</code> just like not found.</li>
+        </ul>
 
 <pre class="js-codebox">
 let text = "Mr. Brown's hair is brown."
@@ -465,13 +472,22 @@ text.lastIndexOf("own");    // 22
 text.indexOf("own");        // 6
 </pre>
 
-        <h4>Using Regular Expressions</h4>
-
-        <div class="formula"><code><span class="variable">text</span>.search(<span class="parameter">"value"</span>)</code></div>
+        <!--Searches using Regular Expression-->
+        <a href="#top"><hr></a>
+        <h3>Searches using Regular Expression</h3>
 
         <div class="formula"><code><span class="variable">text</span>.search(<span class="parameter">/value/</span>)</code></div>
 
-        <p><code>search()</code> searches a string for a regular expression, and returns the index (position) of the first match. If the searched valule is a string, it is cnverted t a regular expression. It's case sensitive, and it can be made  case insensitive with flag <code>/i</code>. It will return <code>-1</code> if there is no match.</p>
+        <div class="formula"><code><span class="variable">text</span>.search(<span class="parameter">"value"</span>)</code></div>        
+
+        <p><code>search()</code> searches a regular expression, and returns the index (position) of the <strong>first</strong> match.</p>
+        
+        <ul>
+                <li>If the searched value is a string, it is converted to a regular expression.</li>
+                <li>It's case sensitive, and it can be made  case insensitive with flag <code>/i</code>.</li>
+                <li>It can't find more than 1 match even when flag <code>/g</code> is used.</li>
+                <li>It will return <code>-1</code> if there is no match.</li>
+        </ul>           
 
 <pre class="js-codebox">
 let text = "Mr. Brown's hair is brown."
@@ -480,65 +496,137 @@ text.search(/brown/i);  // 4
 text.search(/mr/);      // -1
 </pre>
 
+        <div class="formula"><code><span class="variable">text</span>.match(<span class="parameter">/value/</span>)</code></div>
 
-<tr>
-    <td>match()</td>
-    <td>Searches a string for a value, or a regular expression, and returns the matches</td>
-</tr>
+        <div class="formula"><code><span class="variable">text</span>.match(<span class="parameter">"value"</span>)</code></div>
 
-        <!--Other String Methods-->
+        <p><code>match()</code> finds <strong>all</strong> matches and displays them in array.</p>
+        <ul>
+                <li>It searches for a <strong>regular expression</strong> value. When the value is a string, it converts it into regular expression.</li>
+                <li>Flag <code>/g</code> is needed to find all matches. Without the flag, the method only searches for the first match.</li>
+                <li>It returns an array of the matches.</li>
+                <li>If there is no match, the return is <code>null</code>.</li>
+                <li>It is case sensitive. Use <code>/i</code> flag to make in case insensitive. Just stack it up with the g into <code>/ig</code>.</li>
+        </ul>
+
+<pre class="js-codebox">
+let text = "Mr. Brown's hair is brown."
+text.match("brown");    // ['brown', index: 20, input: "Mr. Brown's hair is brown.", groups: undefined]
+text.match(/brown/i);   // ['Brown', index: 4, input: "Mr. Brown's hair is brown.", groups: undefined]
+text.match(/brown/ig);  // (2) ['Brown', 'brown']
+text.match(/BROWN/);    // null
+</pre>
+
+        <!--Comparing 2 Strings-->
         <a href="#top"><hr></a>
-        <h3>Other String Methods</h3>
+        <h3>Comparing 2 Strings</h3>
 
-        <table class="js-table-code-column-1">
-            <thead>
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="formula"><code><span class="variable">text1</span>.localeCompare(<span class="parameter">text2</span>)</code></div>
 
-                <tr>
-                    <td>fromCharCode()</td>
-                    <td>Returns Unicode values as characters</td>
-                </tr>
+        <p><code>localeCompare()</code> compares two strings in the current locale. It returns 1 of 3 possible numbers indicating the sort order:</p>
+        
+        <ul>
+                <li><code>-1</code> if sorted before</li>
+                <li><code>0</code> if equal</li>
+                <li><code>1</code> if sorted after</li>
+        </ul>
 
+<pre class="js-codebox">
+let text1 = "aaa";
+let text2 = "bbb";
+let text3 = "aaa";
+let text4 = "AAA";
+let text5 = "123";
+let text6 = "";
+let text7 = 1;
+text1.localeCompare(text2);     // -1
+text1.localeCompare(text3);     // 0
+text1.localeCompare(text4);     // -1
+text1.localeCompare(text5);     // 1
+text1.localeCompare(text6);     // 1
+text1.localeCompare(text7);     // 1
+</pre>
 
-                <tr>
-                    <td>localeCompare()</td>
-                    <td>Compares two strings in the current locale</td>
-                </tr>
-                <tr>
-                    <td>match()</td>
-                    <td>Searches a string for a value, or a regular expression, and returns the matches</td>
-                </tr>
-                <tr>
-                    <td>repeat()</td>
-                    <td>Returns a new string with a number of copies of a string</td>
-                </tr>
+        <!--Create Repeat String-->
+        <a href="#top"><hr></a>
+        <h3>Create Repeat String</h3>
 
+        <div class="formula"><code><span class="variable">text1</span>.repeat(<span class="parameter">count</span>)</code></div>
 
-                <tr>
-                    <td>toLocaleLowerCase()</td>
-                    <td>Returns a string converted to lowercase letters, using the host's locale</td>
-                </tr>
-                <tr>
-                    <td>toLocaleUpperCase()</td>
-                    <td>Returns a string converted to uppercase letters, using the host's locale</td>
-                </tr>
+        <p><code>repeat()</code> returns a new string with a number of copies of a string.</p>
 
-                <tr>
-                    <td>valueOf()</td>
-                    <td>Returns the primitive value of a string or a string object</td>
-                </tr>
-            </tbody>
-        </table>
+<pre class="js-codebox">
+let text1 = "Kitten";
+let text2;
+text2 = text1.repeat(3);        // "KittenKittenKitten"
+text2 = text1.repeat(1);        // "Kitten"
+text2 = text1.repeat(0);        // ""
+text2 = text1.repeat();         // ""
+text2 = text1.repeat(-1);       // error, invalid count value
+</pre>
 
+        <!--Convert a String Object into a String-->
+        <a href="#top"><hr></a>
+        <h3>Convert a String Object into a String</h3>
 
-        	
+        <div class="formula"><code><span class="variable">text1</span>.toString()</code></div>
 
-        	
+        <p><code>toString()</code> returns a string. It can be used to change string object or number into string.</p>
+
+<pre class="js-codebox">
+let text1 = "cow";
+let text2;
+text2 = new String(text1);      // making string object
+text2 = new String("cow");      // or directly
+text2;                          // String {"cow"}
+typeof text2;                   // object
+let text3 = text2.toString();
+text3;                          // "cow"
+typeof text3;                   // string
+
+text2 = 123;                    // 123
+typeof text2;                   // number
+let text3 = text2.toString();
+text3;                          // "123"
+typeof text3;                   // string
+</pre>
+
+        <div class="formula"><code><span class="variable">text1</span>.valueOf()</code></div>
+
+        <p><code>valueOf()</code> returns the primitive value of a string. If the string is already a primitive string, then there's no change. It can be used to convert a string object into a string. Normally we don't need to use this. It is used internally by JavaScript. It can't be used to change number into string.</p>
+
+<pre class="js-codebox">
+let text1 = "cow";
+let text2;
+text2 = new String(text1);      // making string object
+text2 = new String("cow");      // or directly
+text2;                          // String {"cow"}
+typeof text2;                   // object
+let text3 = text2.valueOf();
+text3;                          // "cow"
+typeof text3;                   // string
+</pre>
+
+        <!--Convert Unicode Values into Characters-->
+        <a href="#top"><hr></a>
+        <h3>Convert Unicode Values into Characters</h3>
+
+        <div class="formula"><code>String.fromCharCode(<span class="parameter">n1, n2, ..., nX</span>)</code></div>
+
+        <p><code>fromCharCode()</code> returns Unicode values as characters</p>
+        
+        <ul>
+                <li>It is a static method if the String object.</li>
+                <li>Note the <code>String.</code> prior to <code>fromCharCode()</code>. It's part of the syntax, can't be changed with our string variable names.</li>
+        </ul>
+        
+<pre class="js-codebox">
+let text = String.fromCharCode(65);
+text;           // "A"
+let text = String.fromCharCode(72, 69, 76, 76, 79);
+text;           // "HELLO"
+</pre>
+
 
         	
 
