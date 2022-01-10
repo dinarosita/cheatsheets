@@ -12,33 +12,41 @@
 
     <body>
         <script>
-            console.log(`String name: str`);
-            let str = "Kitten sings a song.";
-            console.log(`str: "${str}"`);
-            console.log(`Length: ${str.length} characters`);
+            let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+            console.log(`Lorem Ipsum:
+
+"${loremIpsum}"
+            `);
+            console.log(`About Lorem Ipsum`);
+            console.log(`Character count: ${loremIpsum.length}`);
+            console.log(`Word count: ${(loremIpsum.split(" ")).length}`);
+            console.log(`Sentence count: ${(loremIpsum.split(".")).length-1}`);
         </script>
 
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>Coding Notes</h1></a>        
         <h2>JavaScript String Methods and Properties</h2>
 
+        <p>Strings are immutable: Strings cannot be changed, only replaced. All string methods return a new string. They don't modify the original string.</p>
+      
         <!--String Length-->
+        <a href="#top"><hr></a>
         <h3>String Length</h3>
 
-        <div class="formula"><code><span class="changeable">str</span>.length</code></div>
+        <div class="formula"><code><span class="variable">text</span>.length</code></div>
 
         <p>The <code>length</code> property returns the length of a string.</p>
 
 <pre class="js-codebox">
-let str = "Kitten sings a song.";
-let length = str.length;                // 20
+let text = "Kitten sings a song.";
+let length = text.length;                // 20
 </pre>
 
         <!--Extracting String Parts-->
         <a href="#top"><hr></a>
         <h3>Extracting String Parts</h3>
 
-        <p>Javascript counts position from <code>0</code>. Then, last position will be <code>str.length-1</code>.</p>
+        <p>Javascript counts position from <code>0</code>. Then, last position will be <code>text.length-1</code>.</p>
 
         <p>There are 3 methods to extract parts of a string:</p>
         <ul>
@@ -47,10 +55,357 @@ let length = str.length;                // 20
             <li><code>substr(start, length)</code></li>
         </ul>
 
+        <!--Slice-->
         <h4>Slice</h4>
 
-        <div class="formula"><code>slice(<span class="changeable">start</span>, <span class="changeable">end</span>)</code></div>
+        <div class="formula"><code><span class="variable">text</span>.slice(<span class="parameter">start</span>)</code></div>
+        <div class="formula"><code><span class="variable">text</span>.slice(<span class="parameter">start</span>, <span class="parameter">end</span>)</code></div>
 
+        <p>The first parameter marks the start position, the second parameter marks the end position to slice prior to (end position not included).</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let part = text.slice(7, 12);    // "sings"
+</pre>
+
+<pre class="js-codebox">
+K  i  t  t  e  n  _    <strong>s</strong>  i  n  g  s    <strong>_</strong>  a  _  s  o  n  g  .  
+0  1  2  3  4  5  6    <strong>7</strong>  8  9 10 11    <strong>12</strong> 13 14 15 16 17 18 19
+</pre>
+
+        <p>If the parameter is <strong>negative</strong>, the position is counted from the end of the string, started from 0.</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let part;
+part = text.slice(-13, -8);  // "sings"
+part = text.slice(7, -8);    // "sings"
+</pre>
+
+<pre class="js-codebox">
+  K   i   t   t   e   n   _      <strong>s</strong>   i   n   g   s      <strong>_</strong>   a   _   s   o   n   g   .  
+-20 -19 -18 -17 -16 -15 -14    <strong>-13</strong> -12 -11 -10  -9     <strong>-8</strong>  -7  -6  -5  -4  -3  -2  -1
+</pre>
+
+        <p>If there's only one parameter, it's considered the starting parameter and will slice to the end of the string</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let part;
+part = text.slice(7);        // "sings a song."
+part = text.slice(-13);      // "sings a song."
+</pre>
+
+        <!--Substring-->
+        <h4>Substring</h4>
+
+        <div class="formula"><code><span class="variable">text</span>.substring(<span class="parameter">start</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.substring(<span class="parameter">start</span>, <span class="parameter">end</span>)</code></div>
+
+        <p>Very similar to <code>slice()</code>, but can't accept negative parameter.</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let part;
+part = text.substring(7, 12);    // "sings"
+part = text.substring(7);        // "sings a song."
+part = text.substring(-13, -8);  // ""
+part = text.substring(-13);      // "Kitten sings a song."
+</pre>
+
+        <p>Backward <code>substring(end, start)</code> works, with identical result with substring(end, start). This is not possible in <code>slice()</code>.</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let part;
+part = text.substring(7, 12);    // "sings"
+part = text.substring(12, 7);    // "sings a song."
+part = text.slice(12, 7);        // ""
+</pre>
+
+        <!--Substr-->
+        <h4>Substr</h4>
+
+        <div class="formula"><code><span class="variable">text</span>.substr(<span class="parameter">start</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.substr(<span class="parameter">start</span>, <span class="parameter">length</span>)</code></div>
+
+        <p><code>substr()</code>is also similar to <code>slice()</code>, but the second parameter is string length instead of end position. Just like <code>slice(),</code> without the second parameter, it will slice to the end of the string, and <strong>negative</strong> first parameter will count starting position from end of the string. Negative length will just mean to length.</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let part;
+part = text.substr(7, 5);    // "sings"
+part = text.substr(7);       // "sings a song."
+part = text.substr(-13, 5);  // "sings a song."
+part = text.substr(-13);     // "sings a song."
+part = text.substr(-13, 0);  // ""
+part = text.substr(-13, -1); // ""
+</pre>
+
+        <!--Replacing String Content-->
+        <a href="#top"><hr></a>
+        <h3>Replacing String Content</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.replace(<span class="parameter">current</span>, <span class="parameter">new</span>)</code></div>
+
+        <p><code>replace()</code> is like find and replace function.</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let newText;
+newText = text.replace("Kitten", "Pup"); // "Pup sings a song."
+newText = text.replace("sing", "play");  // "Kitten plays a song."
+</pre>
+
+        <h4>Global Match /g</h4>
+
+        <p><code>replace()</code> only changes the first match. To replace all matches, use <strong>regular expression</strong> with a <code>/g</code> flag (global match). Regular expressions are written without quotes.</p>
+
+<pre class="js-codebox">
+let triple = "Kitten one, Kitten two, Kitten three!";
+let newTriple;
+newTriple = triple.replace("Kitten", "Pup");    // "Pup one, Kitten two, Kitten three!"
+newTriple = triple.replace(/Kitten/g, "Pup");   // "Pup one, Pup two, Pup three!"
+
+</pre>
+
+        <h4>Case Insensitive /i</h4>
+
+        <p><code>replace()</code> is case sensitive. To replace case insensitive, use a <strong>regular expression</strong> with an <code>/i</code> flag (insensitive).</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let newText;
+newText = text.replace("kitten", "Pup");    // "Kitten sings a song."
+newText = text.replace(/kitten/i, "Pup");   // "Pup sings a song."
+</pre>
+
+        <p>More on regular expressions: <a href="https://www.w3schools.com/js/js_regexp.asp">w3schools - JS Regular Expressions</a></p>
+
+        <!--Converting to Lower and Upper Case-->
+        <a href="#top"><hr></a>
+        <h3>Converting to Lower and Upper Case</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.toUpperCase()</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.toLowerCase()</code></div>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let newText;
+newText = text.toUpperCase(); // "KITTEN SINGS A SONG."
+newText = text.toLowerCase(); // "kitten sings a song."
+</pre>
+
+        <!--Concatenating Strings-->
+        <a href="#top"><hr></a>
+        <h3>Concatenating Strings</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.concat(<span class="parameter">string1</span>, <span class="parameter">string2</span>, <span class="parameter">and so on</span>)</code></div>
+
+<pre class="js-codebox">
+let animal1 = "cat";                            // "cat"
+let animal2 = "dog";                            // "dog"
+let animal3;
+animal3 = animal1.concat(" and ", animal2); // "cat and dog"
+animal3 = animal1 + " and " + animal2; // "cat and dog"
+</pre>
+
+        <!--Trimming Strings-->
+        <a href="#top"><hr></a>
+        <h3>Trimming Strings</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.trim()</code></div>
+
+        <p><code>trim()</code> removes whitespace from both sides of a string.</p>
+
+<pre class="js-codebox">
+let text = "    Kitten     ";
+let cleanText = text.trim();    // "Kitten"
+</pre>
+
+        <!--Padding Strings-->
+        <a href="#top"><hr></a>
+        <h3>Padding Strings</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.padStart(<span class="parameter">targetLength</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.padStart(<span class="parameter">targetLength</span>, <span class="parameter">padString</span>)</code></div>
+        
+        <br>
+
+        <div class="formula"><code><span class="variable">text</span>.padEnd(<span class="parameter">targetLength</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.padEnd(<span class="parameter">targetLength</span>, <span class="parameter">padString</span>)</code></div>
+
+        <p>Use <code>padStart()</code> to add padding to the beginning of a text, and <code>padEnd()</code> to the end of a text. The first parameter is the new text target length, and the second parameter is the filler fo the pad. If there's only 1 parameter, the filler will be whitespace.</p>
+
+<pre class="js-codebox">
+let text = "KITTEN";
+let padded;
+padded = text.padStart(12,"*-");    // "*-*-*-KITTEN"
+padded.length;                      // 12
+padded = text.padStart(12);         // "      KITTEN"
+padded = text.padEnd(12,"*-");      // "KITTEN*-*-*-"
+</pre>
+
+        <p>Exercise: Let's change the first 12 digits of credit card with *</p>
+
+<pre class="js-codebox">
+let realNumber = "0000111100006789";
+let safeNumber = (realNumber.slice(-4)).padStart(16, "*"); 
+safeNumber;     // "************6789"
+</pre>
+
+        <p>More legible writing:</p>
+
+<pre class="js-codebox">
+let realNumber  = "0000111100006789";
+let shortNumber = realNumber.slice(-4);
+let safeNumber  = shortNumber.padStart(16, "*"); 
+safeNumber;     // "************6789"
+</pre>
+
+
+        <!--Extracting String Characters-->
+        <a href="#top"><hr></a>
+        <h3>Extracting String Characters</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.charAt(<span class="parameter">index</span>)</code></div>
+
+        <p>The <code>charAt()</code> method returns the character at a specified index (position) in a string.</p>
+
+<pre class="js-codebox">
+let text = "Kitten";
+let char = text.charAt(1); // "i"
+</pre>
+
+        <div class="formula"><code><span class="variable">text</span>.charCodeAt(<span class="parameter">index</span>)</code></div>
+
+        <p>The <code>charCodeAt()</code> method returns unicode of the character at a specified index in a string.</p>
+
+<pre class="js-codebox">
+let text = "Kitten";
+let char = text.charAt(1); // 105
+</pre>
+
+        <h4>Property Access []</h4>
+
+        <div class="formula"><code><span class="variable">text</span>[<span class="parameter">index</span>]</code></div>
+
+<pre class="js-codebox">
+let text = "Kitten";
+let char = text[1]; // "i"
+</pre>
+
+        <p>When no character is found, <code>charAt()</code> returns an empty string <code>""</code>, while property access <code>[]</code> returnes <code>undefined</code>.</p>
+
+<pre class="js-codebox">
+let text = "Kitten";
+let char;
+char = text.charAt(6);  // ""
+char = text[6];         // undefined
+</pre>
+
+        <p>Property access <code>[]</code> is read only, we can't change the text's character using this. It gives no error, but it doesn't work.</p>
+
+<pre class="js-codebox">
+let text = "Kitten";
+text[1];                // "i"
+text[1] = "o";          // "o"
+text[1];                // "i"
+text;                   // "Kitten"
+</pre>
+
+        <!--Converting a String to an Array-->
+        <a href="#top"><hr></a>
+        <h3>Converting a String to an Array</h3>
+        
+        <p>Property access <code>[]</code> makes a string looks like an array, but it's not.</p>
+
+        <p>A string can be converted to an array with the <code>split()</code> method. Inside the bracket is the <strong>separator</strong>. The string will be splitted on this separator.</p>
+
+        <div class="formula"><code><span class="variable">text</span>.split()</code></div>
+
+        <p>Without any separator, the whole string will be put in <code>[0]</code>.</p>
+
+<pre class="js-codebox">
+let text = "cat and dog";
+llet array = text.split();
+array;          // ['cat and dog']
+array.length;   // 1
+text.length;    // 11
+array[0];       // 'cat and dog'
+array[1];       // undefined
+</pre>
+
+        <div class="formula"><code><span class="variable">text</span>.split(<span class="parameter">""</span>)</code></div>
+
+        <p>With an empty quote as the separator <code>""</code>, each character will be separated into elements. The variable length and index content will be the same with the original string.</p>
+
+<pre class="js-codebox">
+let text = "cat and dog";
+let array = text.split("");
+array;          // (11) ['c', 'a', 't', ' ', 'a', 'n', 'd', ' ', 'd', 'o', 'g']
+</pre>
+
+        <div class="formula"><code><span class="variable">text</span>.split(<span class="parameter">","</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.split(<span class="parameter">" "</span>)</code></div>
+
+        <div class="formula"><code><span class="variable">text</span>.split(<span class="parameter">"|"</span>)</code></div>
+
+        <p>These are some common separators. The string will be splitted at commas, spaces, or pipes. So which one to use will depend on the string source.</p>
+
+<pre class="js-codebox">
+let zoo = "cat dog cow pig fox";
+let animal;
+
+animal = zoo.split(" ");    // Use space separator
+animal;                     // (5) ['cat', 'dog', 'cow', 'pig', 'fox']
+
+animal = zoo.split(",");    // Don't use comma separator
+animal;                     // ['cat dog cow pig fox']
+</pre>
+
+        <p>Example of using other separator</p>
+
+<pre class="js-codebox">
+let zoo = "cat, dog, cow, pig, fox";
+let animal;
+
+animal = zoo.split(",");    // Using comma separator
+animal;                     // (5) ['cat', ' dog', ' cow', ' pig', ' fox']
+
+animal = zoo.split(", ");   // Use "comma-space" separator
+animal;                     // (5) ['cat', 'dog', 'cow', 'pig', 'fox']
+</pre>
+
+        <p>Fun practise: Using <code>split()</code> to count characters, words, or sentences.</p>
+
+        <p class="js-codebox">loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";</p>
+
+<pre class="js-codebox">
+console.log(`About Lorem Ipsum`);
+console.log(`Character count: ${loremIpsum.length}`);
+console.log(`Word count: ${(loremIpsum.split(" ")).length}`);
+console.log(`Sentence count: ${(loremIpsum.split(".")).length-1}`);
+</pre>
+
+Results:
+<pre class="js-codebox">
+About Lorem Ipsum
+Character count: 445
+Word count: 69
+Sentence count: 4
+</pre>
+
+        <a href="#top"><hr></a>
+        
+        <h3>Read more</h3>
+        <p><a href="https://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">w3schools - JavaScript String Reference</a></p>
 
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>

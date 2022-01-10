@@ -152,7 +152,12 @@ h3 code, h4 code, h5 code, h6 code {
     color: inherit;
 }
 
-.formula .changeable {
+.formula .variable {
+    color: var(--othercolor1);
+    font-weight: normal;
+}
+
+.formula .parameter {
     color: var(--othercolor2);
     font-weight: normal;
 }
@@ -185,6 +190,10 @@ code,
 .js-codebox,
 .css-codebox {
     font-size: 0.9em;
+}
+
+.js-codebox strong {
+    color: var(--othercolor2);
 }
 
 h3 + ul,
