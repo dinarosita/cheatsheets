@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS String Properties</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <script>
+            let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+            console.log(`About Lorem Ipsum`);
+            console.log(`Character count: ${loremIpsum.length}`);
+            console.log(`Word count: ${(loremIpsum.split(" ")).length}`);
+            console.log(`Sentence count: ${(loremIpsum.split(".")).length-1}`);
+        </script>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>        
+        <h2>JavaScript String Properties</h2>
+
+        <p>Strings are immutable: Strings cannot be changed, only replaced. All string methods return a new string. They don't modify the original string.</p>
+      
+        <!--String length-->
+        <a href="#top"><hr></a>
+        <h3>String length</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.length</code></div>
+
+        <p>The <code>length</code> property returns the length of a string.</p>
+
+<pre class="js-codebox">
+let text = "Kitten sings a song.";
+let length = text.length;                // 20
+</pre>
+
+        <!--String constructor-->
+        <a href="#top"><hr></a>
+        <h3>String constructor</h3>
+
+        <div class="formula"><code><span class="variable">text</span>.constructor</code></div>
+
+        <p>The <code>constructor</code> property returns the function that created the String prototype.</p>
+        
+        <p>For strings, it returns: <code>function String() { [native code] }</code>.</p>
+
+<pre class="js-codebox">
+let message = "Hello World!";
+let text = message.constructor;
+text;       // ƒ String() { [native code] }
+</pre>
+
+        <!--String prototype-->
+        <a href="#top"><hr></a>
+        <h3>String prototype</h3>
+
+        <div class="formula"><code><span class="variable">object</span>.prototype</code>.<span class="variable">name</span> = <span class="variable">value</span></div>
+
+        <p>The <code>prototype</code> is a property available with all JavaScript objects. The prototype property allows you to add new properties and methods to strings.</p>
+
+        <p class="alert">Warning</p>
+        <ul>
+            <li>Only change the prototype of your own objects.</li>
+            <li>Don't change prototype of an object we don't control.</li>
+            <li>Don't change prototype of built in JS datatypes like numbers, strings, arrays, dates, booleans, function, and objects.</li>
+        </ul>
+        <p></p>
+
+
+<pre class="js-codebox">
+function Person(first, last, age, eyecolor) {
+    this.firstName = first;
+    this.lastName = last;
+    this.eyeColor = eyecolor;
+}
+    
+Person.prototype.nationality = "English";
+</pre>
+
+        <!--Footer - don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+

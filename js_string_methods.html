@@ -21,23 +21,10 @@
 
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>Coding Notes</h1></a>        
-        <h2>JavaScript String Methods and Properties</h2>
+        <h2>JavaScript String Methods</h2>
 
         <p>Strings are immutable: Strings cannot be changed, only replaced. All string methods return a new string. They don't modify the original string.</p>
       
-        <!--String Length-->
-        <a href="#top"><hr></a>
-        <h3>String Length</h3>
-
-        <div class="formula"><code><span class="variable">text</span>.length</code></div>
-
-        <p>The <code>length</code> property returns the length of a string.</p>
-
-<pre class="js-codebox">
-let text = "Kitten sings a song.";
-let length = text.length;                // 20
-</pre>
-
         <!--Extracting String Parts-->
         <a href="#top"><hr></a>
         <h3>Extracting String Parts</h3>
@@ -456,10 +443,10 @@ animal.endsWith("ds.");         // true
         <p>For both methods:</p>
         
         <ul>
-                <li>Case sensitive.</li>
-                <li>If there is no match, they will return <code>-1</code>.</li>
-                <li>Value must be in string format <code>" "</code>.</li>
-                <li>When using regular expression sign <code>/ /</code>, instead of giving an error message, it will return <code>-1</code> just like not found.</li>
+            <li>Case sensitive.</li>
+            <li>If there is no match, they will return <code>-1</code>.</li>
+            <li>Value must be in string format <code>" "</code>.</li>
+            <li>When using regular expression sign <code>/ /</code>, instead of giving an error message, it will return <code>-1</code> just like not found.</li>
         </ul>
 
 <pre class="js-codebox">
@@ -483,10 +470,10 @@ text.indexOf("own");        // 6
         <p><code>search()</code> searches a regular expression, and returns the index (position) of the <strong>first</strong> match.</p>
         
         <ul>
-                <li>If the searched value is a string, it is converted to a regular expression.</li>
-                <li>It's case sensitive, and it can be made  case insensitive with flag <code>/i</code>.</li>
-                <li>It can't find more than 1 match even when flag <code>/g</code> is used.</li>
-                <li>It will return <code>-1</code> if there is no match.</li>
+            <li>If the searched value is a string, it is converted to a regular expression.</li>
+            <li>It's case sensitive, and it can be made  case insensitive with flag <code>/i</code>.</li>
+            <li>It can't find more than 1 match even when flag <code>/g</code> is used.</li>
+            <li>It will return <code>-1</code> if there is no match.</li>
         </ul>           
 
 <pre class="js-codebox">
@@ -502,11 +489,11 @@ text.search(/mr/);      // -1
 
         <p><code>match()</code> finds <strong>all</strong> matches and displays them in array.</p>
         <ul>
-                <li>It searches for a <strong>regular expression</strong> value. When the value is a string, it converts it into regular expression.</li>
-                <li>Flag <code>/g</code> is needed to find all matches. Without the flag, the method only searches for the first match.</li>
-                <li>It returns an array of the matches.</li>
-                <li>If there is no match, the return is <code>null</code>.</li>
-                <li>It is case sensitive. Use <code>/i</code> flag to make in case insensitive. Just stack it up with the g into <code>/ig</code>.</li>
+            <li>It searches for a <strong>regular expression</strong> value. When the value is a string, it converts it into regular expression.</li>
+            <li>Flag <code>/g</code> is needed to find all matches. Without the flag, the method only searches for the first match.</li>
+            <li>It returns an array of the matches.</li>
+            <li>If there is no match, the return is <code>null</code>.</li>
+            <li>It is case sensitive. Use <code>/i</code> flag to make in case insensitive. Just stack it up with the g into <code>/ig</code>.</li>
         </ul>
 
 <pre class="js-codebox">
@@ -526,9 +513,9 @@ text.match(/BROWN/);    // null
         <p><code>localeCompare()</code> compares two strings in the current locale. It returns 1 of 3 possible numbers indicating the sort order:</p>
         
         <ul>
-                <li><code>-1</code> if sorted before</li>
-                <li><code>0</code> if equal</li>
-                <li><code>1</code> if sorted after</li>
+            <li><code>-1</code> if sorted before</li>
+            <li><code>0</code> if equal</li>
+            <li><code>1</code> if sorted after</li>
         </ul>
 
 <pre class="js-codebox">
@@ -616,8 +603,8 @@ typeof text3;                   // string
         <p><code>fromCharCode()</code> returns Unicode values as characters</p>
         
         <ul>
-                <li>It is a static method if the String object.</li>
-                <li>Note the <code>String.</code> prior to <code>fromCharCode()</code>. It's part of the syntax, can't be changed with our string variable names.</li>
+            <li>It is a static method if the String object.</li>
+            <li>Note the <code>String.</code> prior to <code>fromCharCode()</code>. It's part of the syntax, can't be changed with our string variable names.</li>
         </ul>
         
 <pre class="js-codebox">
@@ -627,26 +614,6 @@ let text = String.fromCharCode(72, 69, 76, 76, 79);
 text;           // "HELLO"
 </pre>
 
-
-        	
-
-        	
-
-        	
-
-        	
-
-        	
-
-
-
-
-
-
-
-
-
-        
 
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>

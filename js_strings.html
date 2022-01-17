@@ -24,6 +24,61 @@ This message is created using backticks.`);
         
         <h2>JavaScript Strings</h2>
 
+        <!--Creating strings-->
+        <h3>Creating strings</h3>
+                
+        <ul>
+            <li>
+                Create as primitives from string literals<br>
+                Using single or double quotes, or backticks (template literals)<br>
+                Example: <code>let string1 = "A string primitive";</code> </li>
+            <li>Create from string literals</li>
+            <li>
+                Create as objects<br>
+                Using: <code>String()</code> constructor<br>
+                Example: <code>let string2 = new String("A String object");</code>
+            </li>
+        </ul>
+
+        <h4>Most used operations and methods on strings:</h4>
+        
+        <ul>
+            <li><code>length</code> operator</li>
+            <li>concatenations using <code>+</code> and <code>+=</code> operators</li>
+            <li>checking of existence or locations using <code>indexOf()</code> method</li>
+            <li>deriving content using <code>substring()</code> method</li>
+        </ul>
+
+        <!--Character Access-->
+        <a href="#top"><hr></a>
+        <h3>Character Access</h3>
+
+        <div class="formula"><code><span class="variable">"string"</span>.charAt(<span class="variable">index</span>)</code></div>
+        
+        <div class="formula"><code><span class="variable">text</span>.charAt(<span class="variable">index</span>)</code></div>      
+
+        <p>Character of a string can be access using <code>charAt()</code> method.</p>
+
+<pre class="js-codebox">
+"Kitten".charAt(1);     // "i"
+let text = "Kitten";
+text.charAt(1);         // "i"
+</pre>
+
+        <div class="formula"><code><span class="variable">"string"</span>[<span class="variable">index</span>]</code></div>
+                
+        <div class="formula"><code><span class="variable">text</span>[<span class="variable">index</span>]</code></div>      
+
+        <p>It also can be treated like an array-like object.</p>
+
+<pre class="js-codebox">
+"Kitten"[i];     // "i"
+let text = "Kitten";
+text[i];         // "i"
+</pre>  
+
+        <!--Escaping Characters-->
+        <a href="#top"><hr></a>
         <h3>Escaping Characters</h3>
 
         <p>Backslash <code>\</code> is used to escape characters.</p>
@@ -32,11 +87,12 @@ This message is created using backticks.`);
 let sentence = 'I\'m Kitten.';  // "I'm Kitten."
 </pre>
 
+
         <p>Read more: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_sequences" target="_blank">Escape sequence</a></p>
 
         <h3>Concatenations and Template Literal</h3>
 
-        <p>Concatenations using <code>+</code> can be used to chain strings together. However usng <strong>template literals</strong> is a better way to do it.
+        <p>Concatenations using <code>+</code> and <code>+=</code> operators can be used to chain strings together. However usng <strong>template literals</strong> is a better way to do it.
             
         <p>In template literals, instead of single <code>''</code> or double <code>""</code> quotes, backticks <code>``</code> are used. Then, expresssions can be embedded within as substitutions using <code>${...}</code>.</p>
 
