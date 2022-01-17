@@ -228,6 +228,9 @@ ul + div {
 
 }
 
+code a {
+    font-style: normal;
+}
 
 
 /* JavaScript Notes */

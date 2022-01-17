@@ -24,23 +24,66 @@ This message is created using backticks.`);
         
         <h2>JavaScript Strings</h2>
 
-        <!--Creating strings-->
-        <h3>Creating strings</h3>
+        <!--String Primitives and String Objects-->
+        <a href="#top"><hr></a>
+        <h3>String Primitives and String Objects</h3>
+
+        <p>JavaScript distinguishes between <strong>String objects</strong> and <strong>primitive string</strong> values. The same goes with <code>Boolean</code> and <code>Number</code>.</p>
+
+        <h4>Creating strings</h4>
                 
         <ul>
             <li>
-                Create as primitives from string literals<br>
-                Using single or double quotes, or backticks (template literals)<br>
-                Example: <code>let string1 = "A string primitive";</code> </li>
-            <li>Create from string literals</li>
+                <strong>Primitive strings</strong><br>
+                From string literals using:
+                <ul>
+                    <li><code>''</code> single quotes</li>
+                    <li><code>""</code> double quotes</li>
+                    <li><code>``</code> backticks (template literals)</li>
+                </ul>
             <li>
-                Create as objects<br>
-                Using: <code>String()</code> constructor<br>
-                Example: <code>let string2 = new String("A String object");</code>
+                <strong>String objects</strong><br>
+                Using: <code>String()</code> constructor
             </li>
         </ul>
 
-        <h4>Most used operations and methods on strings:</h4>
+<pre class="js-codebox">
+let stringPrim = "A string primitive";
+stringPrim;                     // 'A string primitive'
+typeof stringPrim;              // 
+
+let stringObj = new String("A String object");
+stringObj;                      // String {'A String object'}
+typeof stringObj;               // object
+</pre>
+
+        <h4>Converting between primitive strings and string objects</h4>
+
+        <div class="formula"><code>new String(<span class="variable">stringPrim</span>)</code></div> 
+
+        <p>To convert a string primitive into a string object, use <code>String()</code> constructor.</p>
+
+        <div class="formula"><code><span class="variable">stringObj</span>.valueOf()</code></div>   
+
+        <p>To convert a string object into a string primitive, use <code>valueOf()</code> method.</p>
+
+<pre class="js-codebox">
+let stringPrim = "Kitten";
+stringPrim;                     // 'Kitten'
+typeof stringPrim;              // string
+
+let stringObj = new String(stringPrim);
+stringObj;                      // String {'Kitten'}
+typeof stringObj;               // object
+
+let stringPrim2 = stringObj.valueOf();
+stringPrim2;                    // 'Kitten'
+typeof stringPrim2;             // string
+</pre>
+            
+        <!---->
+        <a href="#top"><hr></a>
+        <h3>Most used operations and methods on strings:</h3>
         
         <ul>
             <li><code>length</code> operator</li>
@@ -148,8 +191,68 @@ console.log(output);
 
         <p>Read more: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">MDN - Tempalte Literals</a></p>
 
-        <a href="#top"><hr></a>
 
+        <!--Comparing Strings-->
+        <a href="#top"><hr></a>
+        <h3>Comparing Strings</h3>
+
+        <p>Comparing strings can be done with:</p>
+        
+        <ul>
+            <li>Method: <code><a href="https://dinarosita.github.io/codingnotes/js_string_methods.html#:~:text=match(/BROWN/)%3B%20%20%20%20//%20null-,Comparing%202%20Strings,-text1.localeCompare(text2">localeCompare()</a></code></li>
+            <li>Comparison operators, such as<code>&lt</code>, <code>&gt</code>, and <code>===</code>. It's case sensitive and results will be in boolean.</li>
+        </ul> 
+
+<pre class="js-codebox">
+let textA = "A";
+let textB = "B";
+textA < textB;      // true
+textA > textB;      // false 
+
+let textA2 = "A";
+let textA3 = "a";
+textA === textA2;   // true
+textA === textA3;   // false
+textA2 < text A3;   // true
+</pre>
+
+To make case insensitive, use <code>toUpperCase()</code> method. It's preffered rather than <code>toLowerCase()</code> method because some problems with certain UTF-8 character conversions.
+
+<pre class="js-codebox">
+let textA2 = "A";
+let textA3 = "a";
+textA2 === textA3;                              // false
+textA2.toUpperCase() === textA3.toUpperCase();  // true
+</pre>
+
+<p>Example of use</p>
+
+<pre class="js-codebox">
+let textA = "ABC";
+let textB = "123";
+let upperA = textA.toUpperCase();
+let upperB = textB.toUpperCase();
+let result;
+
+if (upperA < upperB) {
+    result = "before";
+} else if (upperA > upperB) {
+    result = "after";
+} else {
+    result = "the same as"
+}
+
+console.log(`"${textA}" is ${result} "${textB}"`); // Trying out various textA and textB
+// "ABC" is before "DEF"
+// "ABC" is the same as "abc"
+// "ABC" is after "aaa"
+// "ABC" is after "123"
+
+
+</pre>
+
+        <!--Footer - don't change below-->
+        <a href="#top"><hr></a>
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>
