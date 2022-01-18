@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Conditionals</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <script>
+            console.log("Hey Ho!");
+        </script>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>Coding Notes</h1></a>
+        
+        <h2>JavaScript Conditionals</h2>
+
+        <!--Comparisons-->
+        <h3>Comparisons</h3>
+
+        <p>Comparisons using <code>&lt</code>, <code>&gt</code>, <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>&lt=</code>, and <code>&gt=</code> have been discussed a lot in the previous notes. Here's the summary.</p>
+        
+        <ul>
+            <li>Return <strong>boolean</strong> values</li>
+            <li><strong>Strings</strong> are compared letter by letter just like in dictionary. Order is Unicode order. Case sensitive, with the uppercases comes before (smaller than) the lowercases as listed in the Unicode.</li>
+            <li>When values of <strong>different types</strong> are compared using non-strict equality, they are converted to numbers.</li>
+            <li>In <strong>strict equality</strong>, values of different types are never the same.</li>
+            <li><code>null == undefined</code> and they don't equal to anything else</li>
+            <li>Be extra careful when comparing variables that the value might be <code>null</code> or <code>undefined</code> as they have specific behaviours.</li>
+        </ul>
+
+        <p>Check out the complete reference here: <a href="https://javascript.info/comparison" target="_blank">JavaScript: Comparison</a></p>
+
+        <a href="#top"><hr></a>
+        <!--Conditional Statements-->
+        <h3>Conditional Statements</h3>
+
+        <div class="formula"><code>if</code></div>
+        <div class="formula"><code>else if</code></div>
+        <div class="formula"><code>else</code></div>
+
+        <p>When it's more like conditional inclusions and exclusions, use <code>if</code> system.</p>
+
+        <div class="formula"><code>switch</code></div>
+
+        <p>When it's more like options, especially when there are many, use <code>switch</code>.</p>
+
+        <a href="#top"><hr></a>
+        <!--The if Statement-->
+        <h3>The if Statement</h3>
+
+        <div class="formula">
+            <code>if (<span class="parameter">condition 1</span>) {<br>
+                <span class="tab parameter">block of code 1;</span><br>
+            } else if (<span class="parameter">condition 2</span>) {<br>
+                <span class="tab parameter">block of code 2;</span><br>
+            } else {<br>
+                <span class="tab parameter">block of code x;</span><br>
+            }</code>
+        </div>
+
+        <p>It reads:</p>
+        <ul>
+            <li>If condition 1 is true: Execute block of code 1. Exit.</li>
+            <li>Otherwise, if condition 2 is true: Execute block of code 2. Exit.</li>
+            <li>Anything else: Execute block of code x. Exit.</li>
+        </ul>
+
+        <p>We can have more than have one <code>else if</code>.</p> 
+        
+        <p>Note that only exclusion from previous condition goes to the next. When a condition is met, the block of code for it is run, then it exits.</p>
+
+        <p>Conditions can be as many as needed. But in the case there are a lot of conditions (especially options type), consider using <code>switch</code> instead of <code>if</code> that's more like a list than inclusion-exclusion conditions.</p>
+
+<pre class="js-codebox">
+if (time < 10) {
+    greeting = "Good morning";
+} else if (time < 20) {
+    greeting = "Good day";
+} else {
+    greeting = "Good evening";
+}
+</pre>
+
+        <!--Footer - don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+
