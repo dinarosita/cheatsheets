@@ -12,7 +12,65 @@
 
     <body>
         <script>
-            console.log("Hey Ho!");
+            let today = new Date();
+            let time = today.getHours();
+            let month = today.getMonth();
+            let timeName;
+            let monthName;
+
+            // Time 
+            if (time < 12) {
+                timeName = "morning";
+            } else if (time < 17) {
+                timeName = "afternoon";
+            } else {
+                timeName = "evening";
+            }
+
+            // Month
+            switch (month) {
+                case 0:
+                    monthName = "January";
+                    break;
+                case 1:
+                    monthName = "February";
+                    break;
+                case 2:
+                    monthName = "March";
+                    break;
+                case 3:
+                    monthName = "April";
+                    break;
+                case 4:
+                    monthName = "May";
+                    break;
+                case 5:
+                    monthName = "June";
+                    break;
+                case 6:
+                    monthName = "July";
+                    break;
+                case 7:
+                    monthName = "August";
+                    break;
+                case 8:
+                    monthName = "September";
+                    break;
+                case 9:
+                    monthName = "October";
+                    break;
+                case 10:
+                    monthName = "November";
+                    break;
+                case 11:
+                    monthName = "December";
+            }
+
+            let dateName = `${today.getDate()} ${monthName} ${today.getFullYear()}`
+            let greeting = `Good ${timeName}! Today is ${dateName}.`;
+
+            console.log(greeting);
+
         </script>
 
         <!--Clickable Page Title-->
@@ -56,37 +114,200 @@
 
         <div class="formula">
             <code>if (<span class="parameter">condition 1</span>) {<br>
-                <span class="tab parameter">block of code 1;</span><br>
+                <span class="tab parameter">code block 1;</span><br>
             } else if (<span class="parameter">condition 2</span>) {<br>
-                <span class="tab parameter">block of code 2;</span><br>
+                <span class="tab parameter">code block 2;</span><br>
             } else {<br>
-                <span class="tab parameter">block of code x;</span><br>
+                <span class="tab parameter">code block x;</span><br>
             }</code>
         </div>
 
         <p>It reads:</p>
         <ul>
-            <li>If condition 1 is true: Execute block of code 1. Exit.</li>
-            <li>Otherwise, if condition 2 is true: Execute block of code 2. Exit.</li>
-            <li>Anything else: Execute block of code x. Exit.</li>
+            <li>If condition 1 is true: Execute code block 1. Exit.</li>
+            <li>Otherwise, if condition 2 is true: Execute code block 2. Exit.</li>
+            <li>Anything else: Execute code block x. Exit.</li>
         </ul>
 
         <p>We can have more than have one <code>else if</code>.</p> 
         
-        <p>Note that only exclusion from previous condition goes to the next. When a condition is met, the block of code for it is run, then it exits.</p>
+        <p>Note that only exclusion from previous condition goes to the next. When a condition is met, its code block is run, then it exits.</p>
 
         <p>Conditions can be as many as needed. But in the case there are a lot of conditions (especially options type), consider using <code>switch</code> instead of <code>if</code> that's more like a list than inclusion-exclusion conditions.</p>
 
 <pre class="js-codebox">
-if (time < 10) {
-    greeting = "Good morning";
-} else if (time < 20) {
-    greeting = "Good day";
+today = new Date();
+time = today.getHours();
+
+if (time < 12) {
+    console.log("Good morning!");
+} else if (time < 17) {
+    console.log("Good afternoon!");
 } else {
-    greeting = "Good evening";
+    console.log("Good evening!");
 }
 </pre>
 
+        <a href="#top"><hr></a>
+        <!--The switch Statement-->
+        <h3>The switch Statement</h3>
+
+        <div class="formula">
+            <code>
+                switch (<span class="parameter">variableName</span>) {<br>
+                    <span class="tab">case <span class="parameter">value1</span>:</span><br>
+                        <span class="tab2 parameter">code block A</span>;<br>
+                        <span class="tab2">break</span>;<br>
+                    <span class="tab">case <span class="parameter">value2</span>:</span><br>
+                        <span class="tab2 parameter">code block B</span>;<br>
+                        <span class="tab2">break</span>;<br>
+                    <span class="tab">case <span class="parameter">value3</span>:</span><br>
+                    <span class="tab">case <span class="parameter">value4</span>:</span><br>
+                        <span class="tab2 parameter">code block C</span>;<br>
+                        <span class="tab2">break</span>;<br>
+                    <span class="tab">default</span>:</span><br>
+                        <span class="tab2 parameter">code block Z</span>;<br>
+                }
+            </code>
+        </div>
+
+        <p>Switch statement</p>
+        <ul>
+            <li><code>break</code>
+                <ul>
+                    <li>The <code>break</code> statement is used to stop execution inside the switch block.</li>
+                    <li>It's not necessary in the last case because it will end there anyway.</li>
+                    <li><span class="alert">Warning:</span> <strong>Without break</strong> statement, it will <strong>continue</strong> to the next case <strong>and execute</strong> even when it's not a match.</li>
+                </ul>
+            </li>
+            <li><code>default</code>
+                <ul>
+                    <li>The <code>default</code> case is for when there is no match.</li>
+                    <li>It doesn't have to be written at the end. When it's not located at the end, don't forget to use <code>break</code>.</li>
+                    <li>Without default value, if there's no match, program will leave the switch block without execute anything.</li>
+                </ul>
+            </li>
+            <li><strong>multiple cases sharing a code block</strong>
+                <ul>
+                    <li>It is possible. Just list all the cases before the code block.</li>
+                </ul>
+            </li>
+            <li><strong>Multiple cases matches a case value</strong>
+                <ul>
+                    <li>The first case is selected.</li>
+                </ul>
+            </li>
+            <li><strong>Strict comparison ===</strong>
+                <ul>
+                    <li>Switch uses strict comparison. It can only a match if it's the same data type.</li>
+                </ul>
+            </li>
+        </ul>
+        
+<pre class="js-codebox">
+today = new Date();
+month = today.getMonth();
+monthName;
+
+switch (month) {
+    case 0:
+        monthName = "January";
+        break;
+    case 1:
+        monthName = "February";
+        break;
+    case 2:
+        monthName = "March";
+        break;
+    case 3:
+        monthName = "April";
+        break;
+    case 4:
+        monthName = "May";
+        break;
+    case 5:
+        monthName = "June";
+        break;
+    case 6:
+        monthName = "July";
+        break;
+    case 7:
+        monthName = "August";
+        break;
+    case 8:
+        monthName = "September";
+        break;
+    case 9:
+        monthName = "October";
+        break;
+    case 10:
+        monthName = "November";
+        break;
+    case 11:
+        monthName = "December";
+}
+
+dateName = `${today.getDate()} ${monthName} ${today.getFullYear()}`
+console.log(`Today is ${dateName}.`);
+</pre>
+
+        <p>Without <code>break</code> statement:</p>
+
+<pre class="js-codebox">
+month = 1;
+let correctMonth;
+let forgetSomeBreaks;
+let forgetAllBreaks;
+
+switch (month) {
+    case 0:
+        correctMonth = "January";
+        break;
+    case 1:
+        correctMonth = "February";
+        break;
+    case 2:
+        correctMonth = "March";
+        break;
+    default:
+        correctMonth = "December";
+}
+
+switch (month) {
+    case 0:
+        forgetSomeBreaks = "January";
+    case 1:
+        forgetSomeBreaks = "February";
+    case 2:
+        forgetSomeBreaks = "March";
+        break;
+    default:
+        forgetSomeBreaks = "December";
+}
+
+switch (month) {
+    case 0:
+        forgetAllBreaks = "January";
+    case 1:
+        forgetAllBreaks = "February";
+        case 2:
+        forgetAllBreaks = "March";
+    default:
+        forgetAllBreaks = "December";
+}
+
+console.log("Correct month: " + correctMonth);
+console.log("Forget some breaks: " + forgetSomeBreaks);
+console.log("Forget all breaks: " + forgetAllBreaks);
+
+/*
+Correct month: January
+Forget first break: February
+Forget all breaks: December
+*/
+</pre>
+
+        
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>

@@ -136,6 +136,10 @@ th, td {
     margin-left: 1.5em;
 }
 
+.tab2 {
+    margin-left: 3em;
+}
+
 .alert {
     color: var(--alert);
     font-weight: bold;
