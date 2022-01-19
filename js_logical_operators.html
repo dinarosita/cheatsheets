@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Logical Operators</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <script>
+            console.log("true || true == " + (true || true));
+            console.log("true || 2 == " + (true || 2));
+            console.log("2 || true == " + (2 || true));
+            console.log("true || true == " + (true || true));
+            console.log("true || true == " + (true || true));
+        </script>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript</h1></a>
+        
+        <h2>Logical Operators</h2>
+
+        <p>There are 4 logical operators in JavaScript:</p>
+        <ul>
+            <li><code>||</code> (OR)</li>
+            <li><code>&&</code> (AND)</li>
+            <li><code>!</code> (NOT)</li>
+            <li><code>??</code> (Nullish Coalescing)</li>
+        </ul>
+
+        <p>They can be applied to values of any type with results of any type.</p>
+
+        <!--Truthy and Falsy-->
+        <a href="#top"><hr></a>
+        <h3>Truthy and Falsy</h3>
+
+        <p>Every value in JavaScript has an inherent boolean value: <strong>truthy</strong> or <strong>falsy</strong>.</p>
+        
+        <h4>Falsy values</h4>
+        
+        <ul>
+            <li><code>null</code></li>
+            <li><code>undefined</code></li>
+            <li>Boolean: <code>false</code></li>
+            <li>Number: <code>0</code>, <code>-0</code>, <code>NaN</code></li>
+            <li>BigInt: <code>0n</code></li>
+            <li>String: <code>''</code>, <code>""</code>, <code>``</code></li>
+        </ul>
+
+        <h4>Everything else is truthy</h4>
+
+        <ul>
+            <li>Boolean: <code>true</code></li>
+            <li>Any numbers, except for zeros and NaN</li>
+            <li>Any bigint, except for zero</li>
+            <li>Any strings, except for the empty ones</li>
+            <li>Any symbols</li>
+            <li>Any objects, including empty array <code>[]</code>, empty object<code>{}</code>, and empty <code>function () {}</code></li>
+        </ul>
+
+        <!--|| (OR)-->
+        <a href="#top"><hr></a>
+        <h3 class="text-decoration-none"><code>|| (OR)</code></h3>
+
+        <div class="formula"><code><span class="variable">operand1</span> || <span class="parameter">operand2</span></code></div>
+        
+        <div class="formula"><code><span class="variable">operand1</span> || <span class="parameter">operand2</span> || <span class="parameter">operand3 and so on</span></code></div>
+
+        <p><strong>OR: If any operand is truthy, then it's truthy.</strong></p>
+
+        <p><strong>Return value</strong>: <strong>first truthy</strong> or <strong>last falsy</strong> when there's no truthy.</p>
+
+
+        <p>Operator <code>||</code> does the following:</p>
+        <ul>
+            <li>It evaluates operands from left to right.</li>
+            <li>For each operand, the operand is converted into its boolean. If the boolean is <code>true</code>, it stops and returns the original value of the operand.</li>
+            <li>If it reaches the end and all were <code>false</code>, it returns the original value of the last operand.</li>
+        </ul>
+
+        <h4>The classic boolean operands</h4>
+
+        <div class="formula"><code><span class="variable">boolean1</span> || <span class="parameter">boolean2</span></code></div>
+
+<pre class="js-codebox">
+true  || true   // true
+true  || false  // true
+false || true   // true
+false || false  // false
+</pre>
+
+        <h4>With any data type operands</h4>
+
+<pre class="js-codebox">
+<strong>true || true    // true</strong>
+true || 5       // true
+5 || true       // 5 (truthy)
+"A" || 5        // "A" (truthy)
+
+<strong>true  || false  // true</strong>
+false || 5      // 5 (truthy)
+5 || false      // 5 (truthy)
+"A" || 0        // "A" (truthy)
+
+<strong>false || false  // false</strong>
+false || 0      // 0 (falsy)
+0 || false      // false
+"" || 0         // 0 (falsy)
+0 || "" || null // null (falsy)
+</pre>
+
+
+        <!--&& (AND)-->
+        <a href="#top"><hr></a>
+        <h3 class="text-decoration-none"><code>&& (AND)</code></h3>
+
+        <div class="formula"><code><span class="variable">operand1</span> && <span class="parameter">operand2</span></code></div>
+       
+
+        <p><code>&&</code> <strong>(AND)</strong>: Both operands must be true to return true</p>
+
+<pre class="js-codebox">
+true  || true   // true
+true  || false  // false
+false || true   // false
+false || false  // false
+</pre>
+
+        <!--! (NOT)-->
+        <a href="#top"><hr></a>
+        <h3 class="text-decoration-none"><code>! (NOT)</code></h3>
+
+        <!--?? (Nullish Coalescing)-->
+        <a href="#top"><hr></a>
+        <h3 class="text-decoration-none"><code>?? (Nullish Coalescing)</code></h3>
+        
+
+
+        <!--Footer - don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+

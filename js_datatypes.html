@@ -11,64 +11,28 @@
     </head>
     <body>
         <!--Clickable Page Title-->
-        <a href="./index.html"><h1>Coding Notes</h1></a>
+        <a href="./index.html"><h1>JavaScript</h1></a>
         
-        <h2>JavaScript Data Types</h2>
+        <h2>Data Types</h2>
 
-        <p>A value in JavaScript is always a certain type. There are 8 basic data types:</p>
+        <p>In JavaScript, a value is set to 1 of 7 primitive data types:</p>
+        <ul>
+            <li><code>Undefined</code> (a variable with no defined value -- <code>undefined</code> is the only value)</li>
+            <li><code>Null</code> (a single null value -- <code>null</code> is the only value)</li>
+            <li><code>Boolean</code> (logical value <code>true</code> or <code>false</code>)</li>
+            <li><code>Number</code> (includes <code>Infinity</code> and not-number <code>NaN</code>)</li>
+            <li><code>BigInt</code> (an integer value larger than 2^53 -1)</li>
+            <li><code>String</code> (textual data)</li>
+            <li><code>Symbol</code> (a unique and immutable primitive new to ES6/2015)</li>
+        </ul>
 
-        <table class="js-table-bold-column-1 js-table-code-column-1">
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Values</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Number</td>
-                    <td>Regular numbers</td>
-                    <td>e.g. <code>578</code></td>
-                </tr>
-                <tr>
-                    <td>BigInt</td>
-                    <td>Beyond "numbers"</td>
-                    <td>e.g. <code>1234567890123456789012345678901234567890n</code></td>
-                </tr>
-                <tr>
-                    <td>String</td>
-                    <td>Any strings type</td>
-                    <td>e.g. <code>"kitten"</code>, <code>'123'</code></td>
-                </tr>
-                <tr>
-                    <td>Boolean</td>
-                    <td>Logical type</td>
-                    <td><code>true</code> and <code>false</code></td>
-                </tr>
-                <tr>
-                    <td>Null</td>
-                    <td>Unknown values</td>
-                    <td><code>null</code></td>
-                </tr>
-                <tr>
-                    <td>Undefined</td>
-                    <td>Unassigned values</td>
-                    <td><code>undefined</code></td>
-                </tr>
-                <tr>
-                    <td>Object</td>
-                    <td>Complex data structures</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Symbol</td>
-                    <td>Unique identifiers</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <p>Everything else falls to the 8th data type:</p>
+        <ul>
+            <li><code>Object</code> (a complex data structure, including arrays and functions)</li>
+        </ul>
 
+        <p>Note on <code>function</code>: Function's data type is object. However when running <code>typeof</code> operator to a function, the result is "function". This is an error in JavaScript. It should return "object".</p>
+        
         <p>JavaScript is <strong>dynamically typed</strong> programming language. Data types exist, but variables are not bound to it. Variables are declared without declaring the type. And the type can easily changed based on the content.</p>
 
         <!--Number-->
