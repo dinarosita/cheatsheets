@@ -62,9 +62,9 @@
             <li>Any objects, including empty array <code>[]</code>, empty object<code>{}</code>, and empty <code>function () {}</code></li>
         </ul>
 
-        <!--|| (OR)-->
+        <!--OR ||-->
         <a href="#top"><hr></a>
-        <h3 class="text-decoration-none"><code>|| (OR)</code></h3>
+        <h3 class="text-decoration-none"><code>OR ||</code></h3>
 
         <div class="formula"><code><span class="variable">operand1</span> || <span class="parameter">operand2</span></code></div>
         
@@ -73,7 +73,6 @@
         <p><strong>OR: If any operand is truthy, then it's truthy.</strong></p>
 
         <p><strong>Return value</strong>: <strong>first truthy</strong> or <strong>last falsy</strong> when there's no truthy.</p>
-
 
         <p>Operator <code>||</code> does the following:</p>
         <ul>
@@ -97,38 +96,156 @@ false || false  // false
 
 <pre class="js-codebox">
 <strong>true || true    // true</strong>
-true || 5       // true
-5 || true       // 5 (truthy)
-"A" || 5        // "A" (truthy)
+true || 5       // true (first truthy)
+5 || true       // 5 (first truthy)
+"A" || 5        // "A" (first truthy)
 
 <strong>true  || false  // true</strong>
-false || 5      // 5 (truthy)
-5 || false      // 5 (truthy)
-"A" || 0        // "A" (truthy)
+false || 5      // 5 (first truthy)
+5 || false      // 5 (first truthy)
+"A" || 0        // "A" (first truthy)
 
 <strong>false || false  // false</strong>
-false || 0      // 0 (falsy)
-0 || false      // false
-"" || 0         // 0 (falsy)
-0 || "" || null // null (falsy)
+false || 0      // 0 (last falsy)
+0 || false      // false (last falsy)
+"" || 0         // 0 (last falsy)
+0 || "" || null // null (last falsy)
 </pre>
 
+        <h4>Example 1: Getting the first truthy value available</h4>
 
-        <!--&& (AND)-->
-        <a href="#top"><hr></a>
-        <h3 class="text-decoration-none"><code>&& (AND)</code></h3>
-
-        <div class="formula"><code><span class="variable">operand1</span> && <span class="parameter">operand2</span></code></div>
-       
-
-        <p><code>&&</code> <strong>(AND)</strong>: Both operands must be true to return true</p>
+        <p>Let's think about a personalized greeting alert incorporating the guest's name. Name might be inputted as first name, last name, nickname, or any combination, or none. We just want to display any 1 of them, or address the person as "Pal" if none was inputted.</p>
 
 <pre class="js-codebox">
-true  || true   // true
-true  || false  // false
-false || true   // false
-false || false  // false
+let firstName;
+let lastName;
+let nickName = "Kitten";
+
+alert(`Greetings, ${firstName || lastName || nickName || "Pal"}!`);
+// "Greetings, Kitten!"
+// If none was inputted: "Greetings, Pal!"
 </pre>
+
+        <h4>Example 2: Short-circuit evaluation</h4>
+
+        <p>Short-circuit evaluation refers to how <code>||</code> will process the argument until first truthy value is reached, and exit with that as the return value, without ever see the rest of the argument. Then safely we can place, not just a default value, but an action/command to execute in the case no truthy value is found.</p>
+
+<pre class="js-codebox">
+var cat = {
+    name: 'Kitten',
+    age: 3,
+    job: 'fishercat'
+}
+console.log(cat.job || 'unemployed');   // fishercat
+cat.job || alert ('unemployed');        // (alert is not triggered)
+
+var cat = {
+    name: 'Kitten',
+    age: 3,
+}
+console.log(cat.job || 'unemployed');   // unemployed
+cat.job || alert ('unemployed');        // alert: "unemployed"
+</pre>
+
+        <!--AND &&-->
+        <a href="#top"><hr></a>
+        <h3 class="text-decoration-none"><code>AND &&</code></h3>
+       
+        <div class="formula"><code><span class="variable">operand1</span> && <span class="parameter">operand2</span></code></div>
+                
+        <div class="formula"><code><span class="variable">operand1</span> && <span class="parameter">operand2</span> && <span class="parameter">operand3 and so on</span></code></div>
+
+        <p><strong>AND: Only if all the operands are truthy, it will be truthy.</strong></p>
+
+        <p><strong>Return value</strong>: <strong>first falsy</strong> or <strong>last truthy</strong> when there's no falsy.</p>
+
+        <p>Operator <code>&&</code> does the following:</p>
+        <ul>
+            <li>It evaluates operands from left to right.</li>
+            <li>For each operand, the operand is converted into its boolean. If the boolean is <code>false</code>, it stops and returns the original value of the operand.</li>
+            <li>If it reaches the end and all were <code>true</code>, it returns the original value of the last operand.</li>
+        </ul>
+
+        <h4>The classic boolean operands</h4>
+
+        <div class="formula"><code><span class="variable">boolean1</span> && <span class="parameter">boolean2</span></code></div>
+
+<pre class="js-codebox">
+true  && true   // true
+true  && false  // false
+false && true   // false
+false && false  // false
+</pre>
+
+<h4>With any data type operands</h4>
+
+<pre class="js-codebox">
+<strong>true && true    // true</strong>
+true && 5       // 5 (last truthy)
+5 && true       // true (last truthy)
+"A" && 5        // 5 (last truthy)
+
+<strong>true  && false  // false</strong>
+false && 5      // false (first falsy)
+5 && false      // false (first falsy)
+"A" && 0        // 0 (first falsy)
+
+<strong>false && false  // false</strong>
+false && 0      // false (first falsy)
+0 && false      // 0 (first falsy)
+"" && 0         // "" (first falsy)
+null && 0 && "" // null (first falsy)
+</pre>
+
+        <!--AND vs OR-->
+        <a href="#top"><hr></a>
+        <h3>AND vs OR</h3>
+
+        <p>The precedence of <code>&&</code> is higher than <code>||</code>. No bracket around <code>&&</code> needed to make it priority.</p>
+
+        <div>
+            <div class="formula"><code><span class="variable">a</span> && <span class="parameter">b</span> || <span class="variable">c</span> && <span class="parameter">d</span></code></div>
+            <span class="tab">and</span>
+            <div class="formula"><code>(<span class="variable">a</span> && <span class="parameter">b</span>) || (<span class="variable">c</span> && <span class="parameter">d</span>)</code></div>
+            <span class="tab">are the same.</span>
+        </div>
+        
+        <!--Don't replace if with || or &&-->
+        <a href="#top"><hr></a>
+        <h3>Don't replace IF with AND or OR</h3>
+            
+        <p>For example, let see following codes</p>
+
+<pre class="js-codebox">
+let x=1;
+
+if (x &gt 0) alert ("X is greater than zero!");
+(x &gt 0) && alert ("X is greater than zero!");
+
+// Both produces alert: "X is greater than zero!"
+</pre>
+
+        <p>Even though they are analogues, this can be confusing especially if the code meant to be read by others. Let's leave <code>if</code> for <code>if</code> uses and <code>&&</code> for <code>&&</code> uses.</p>
+
+
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!--! (NOT)-->
         <a href="#top"><hr></a>
