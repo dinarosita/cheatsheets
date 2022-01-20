@@ -35,7 +35,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --alert: rgb(214, 64, 64);
     --othercolor1: olive;
     --othercolor2: rgb(206, 131, 131);
-    --othercolor3: rgb(145, 145, 90);
+    --othercolor3: rgb(241, 162, 151);
     --js-border: rgb(190, 215, 216);
     --bumper-quarter: 4px;
     --bumper-half: 8px;
@@ -242,9 +242,8 @@ code a {
 
 .code2 {
     color: var(--othercolor3);
-    font-style: italic;
-    font-weight: normal;
-    text-decoration: underline;
+    background-color: var(--flexbackground);
+
 }
 /* JavaScript Notes */
 

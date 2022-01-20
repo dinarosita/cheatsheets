@@ -51,28 +51,230 @@
             </li>
         </ul>
         
+        <p>First, let's take a look at basic <code>&ltinput&gt </code>element and function within <code>&ltscript&gt</code> to put event handler into context.</p>
+                
+        <!--Input element-->
+        <a href="#top"><hr></a>
+        <h3>Input element</h3>
+
+        <div class="formula">
+            <code>
+                &ltinput type="<span class="variable">the-type</span>" 
+                value="<span class="variable">the-label</span>" 
+                on<span class="code2">event</span>="<span class="parameter">the-action</span>"&gt
+            </code>
+        </div>
+
+        <p>Attributes:</p>
+        <ul>
+            <li><code>type</code>
+                <ul>
+                    <li>The type of the element box.</li>
+                    <li><code>button</code>, <code>submit</code>, and <a href="https://www.w3schools.com/tags/att_input_type.asp#:~:text=input%20type%3D%22value%22%3E-,Attribute%20Values,-Value" target="_blank">more</a>.</li>
+                </ul>
+            </li>
+            <li><code>value</code>
+                <ul>
+                    <li>The label/message on the element box.</li>
+                </ul>
+            </li>
+            <li><code>on<span class="code2">event</span></code>
+                <ul>
+                    <li>The event handler.</li>
+                    <li>Action to be triggered. Example:
+                        <ul>
+                            <li><code>"alert('Greetings!')"</code></li>
+                            <li><code>"functionName()"</code> -- with function detailed in <code>&ltscript&gt</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>HTML attributes are not case-sensitive, but usually lowercases are used.</p>
+
+        <!--Function-->
+        <a href="#top"><hr></a>
+        <h3>Function</h3>
+
+        <div class="formula"><code>
+            &ltscript&gt<br>
+                <span class="tab">function <span class="variable">functionName</span>() {<span class="variable">code block</span>}</span><br>
+            &lt/script&gt<br>
+        </code></div>
+
         <!--Event Handlers-->
         <a href="#top"><hr></a>
-        <h3>Event Handlers</h3>
+        <h3>Event Handlers</h3>      
 
-        <div class="formula"><code>on<span class="code2">event</span></code></div>
+        <p><strong>A handler:</strong> a function that runs in case of an event.</p>
 
-        <div class="formula"><code>&ltinput type="<span class="variable">the-type</span>" value="<span class="variable">the-label</span>" on<span class="code2">event</span>="<span class="parameter">the-action</span>"&gt</code></div>
+        <p>Various way to assign event handlers:</p>
+        
+        <ul>
+            <li>HTML-attributes</li>
+            <li>DOM property</li>
+        </ul>
 
-        <p><strong>A handler:</strong> a function that runs in case of an event</p>
+        <!--HTML-attributes-->
+        <h4>HTML-attributes</h4>
+
+        <div class="formula">
+            <code>
+                on<span class="code2">event</span>
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                &ltinput
+                <span class="variable">...</span> 
+                on<span class="code2">event</span>="<span class="parameter">the-action</span>"&gt
+            </code>
+        </div>
 
         <p>A handler can be set with an attribute named <code>on<span class="code2">event</span></code>. For example:</p>
         <ul>
             <li><code>click</code> handler: <code>onclick</code></li>
         </ul>
 
-        <p><strong>Type values: </strong><a href="https://www.w3schools.com/tags/att_input_type.asp#:~:text=input%20type%3D%22value%22%3E-,Attribute%20Values,-Value" target="_blank">Check here in w3schools</a></p>
+        <p>Example:</p>
 
-<pre class="js-codebox">&ltinput value="Click me" onclick="alert('Click!')" type="button"&gt
+<pre class="js-codebox">
+&ltinput type="button" value="Click me" onclick="alert('It works!')"&gt
 </pre>
 
         <div class ="css-codebox">
-            <input value="Click me" onclick="alert('Click!')" type="button">
+            <input type="button" value="Click me" onclick="alert('It works!')">
+        </div>
+
+        <!--DOM Property-->
+        <h4>DOM Property</h4>
+
+        <div class="formula">
+            <code>
+                &ltinput 
+                <span class="variable">...</span>
+                id="<span class="variable">idName</span>" 
+                &gt
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">idName</span>.on<span class="code2">event</span>
+            </code>
+        </div>
+
+        <p>A handler can be assign using a DOM property <code>on<span class="code2">event</span></code>.</p>
+
+        <o>Example:</o>
+
+<pre class="js-codebox">
+&ltinput type="button" value="Click me" id="handler"&gt
+
+&ltscript&gt
+    handler.onclick = function() {
+        alert('This also works!');
+    };
+&lt/script&gt
+</pre>
+
+        <div class ="css-codebox">
+            <input type="button" value="Click me" id="handler">
+        </div>
+
+        <script>
+        handler.onclick = function() {
+            alert('This also works!');
+        };
+        </script>
+
+        <!--HTML-attributes works like DOM property-->
+        <a href="#top"><hr></a>
+        <h3>HTML-attributes works like DOM property</h3>
+
+        <p>When a handler is assigned using HTML-attributes, actually the browser creates a new function from the attribute content and writes it to the DOM property.</p>
+
+        <p>Creation of event handler using HTML-attribute:</p>
+
+<pre class="js-codebox">
+&ltinput type="button" onclick="alert('Yippie!')" value="Click here"&gt
+</pre>
+
+        <div class ="css-codebox">
+            <input type="button" onclick="alert('Yippie!')" value="Click here">
+        </div>
+
+        <p>The HTML attribute is used to initialize <code>button.onclick</code>. It's the same with:</p>
+
+<pre class="js-codebox">
+&ltinput type="button" id="button" value="Click here"&gt
+&ltscript&gt
+    button.onclick = function() {
+        alert('Yippie too!');
+    }
+&lt/script&gt
+</pre>
+
+        <div class ="css-codebox">
+            <input type="button" id="button" value="Click here">
+            <script>
+                button.onclick = function() {
+                    alert('Yippie too!');
+                }
+            </script>   
+        </div>
+
+        <!--Using both HTML-attributes and DOM property-->
+        <a href="#top"><hr></a>
+        <h3>Using both HTML-attributes and DOM property</h3>
+
+        <p>Because only one action/function can happen per event, when both are used, the later one (DOM property on <code>&ltscript&gt;</code>) will overwrite the HTML-attribute.</p>
+
+<pre class="js-codebox">
+&ltinput type="button" id="handler2" onclick="alert('First')" value="Click here"&gt
+&ltscript&gt
+    handler2.onclick = function() {
+        alert('Second');
+    }
+&lt/script&gt
+</pre>
+
+        <div class ="css-codebox">
+            <input type="button" id="handler2" onclick="alert('First')" value="Click here">
+            <script>
+                handler2.onclick = function() {
+                    alert('Second');
+                }
+            </script>
+        </div>
+
+        <!--Remove handler-->
+        <a href="#top"><hr></a>
+        <h3>Remove handler</h3>
+
+        <div class="formula">
+            <code>
+                <span class="variable">idName</span>.on<span class="code2">event</span> 
+                = null;
+            </code>
+        </div>
+
+        <p>To remove a handler, assign <code>null</code>.</p>
+
+<pre class="js-codebox">
+handler2.onclick = null;
+</pre>
+
+        <!--Examples-->
+        <a href="#top"><hr></a>
+        <h3>Examples</h3>
+
+<pre class="js-codebox">
+</pre>
+
+        <div class ="css-codebox">
         </div>
 
         
