@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Fun Codes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript</h1></a>
+        
+        <h2>Fun Codes</h2>
+
+        <!--Admin username and password-->
+        <h3>Admin username and password</h3>
+
+        <p>Prompt user with username. If it's "Admin", prompt with password. If it's "TheMaster", greet. If password is wrong, display message. If it's not admin, display message. If canceled, display cancel message.</p>
+
+<pre class="js-codebox">
+let userName = prompt ("User name:", "");
+if (userName === null) {
+    alert ("Canceled");
+} else if (userName === "Admin") {
+    let userPass = prompt ("Password:", "");
+    if (userPass === null) {
+        alert ("Canceled");
+    } else if (userPass === "TheMaster") {
+        alert (`Greetings, ${userName}!`);
+    } else {
+        alert ("Wrong password");
+    }
+} else {
+    alert ("I don't know you.");
+}
+</pre>
+        
+        <a href="#top"><hr></a>
+
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+
