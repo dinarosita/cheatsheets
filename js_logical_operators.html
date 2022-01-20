@@ -197,19 +197,36 @@ false && 0      // false (first falsy)
 null && 0 && "" // null (first falsy)
 </pre>
 
-        <!--AND vs OR-->
+        <!--NOT !-->
         <a href="#top"><hr></a>
-        <h3>AND vs OR</h3>
+        <h3 class="text-decoration-none"><code>NOT !</code></h3>
 
-        <p>The precedence of <code>&&</code> is higher than <code>||</code>. No bracket around <code>&&</code> needed to make it priority.</p>
+        <div class="formula"><code>!<span class="parameter">operand</span></code></div> 
 
-        <div>
-            <div class="formula"><code><span class="variable">a</span> && <span class="parameter">b</span> || <span class="variable">c</span> && <span class="parameter">d</span></code></div>
-            <span class="tab">and</span>
-            <div class="formula"><code>(<span class="variable">a</span> && <span class="parameter">b</span>) || (<span class="variable">c</span> && <span class="parameter">d</span>)</code></div>
-            <span class="tab">are the same.</span>
-        </div>
-        
+        <p>Operator NOT accept a single operand, convert it to <strong>boolean</strong> if not already is, and return the <strong>inverse value</strong>.</p>
+
+        <div class="formula"><code>!!<span class="parameter">operand</span></code></div>
+
+        <p>Double NOT <code>!!</code> inverses the boolean value twice, returning the original boolean value of the operand. This is the same with the built-in <code>Boolean()</code> function.</p>
+
+<pre class="js-codebox">
+!true;          // false
+!null;          // true
+!!null;         // false
+Boolean(null);  // false
+</pre>
+
+        <!--Precedence of NOT, AND, and OR-->
+        <a href="#top"><hr></a>
+        <h3>Precedence of NOT, AND, and OR</h3>
+
+        <p>The order of precedences from highest to lowest:</p>
+        <ul>
+            <li>NOT <code>!</code></li>
+            <li>AND <code>&&</code></li>
+            <li>OR <code>||</code></li>
+        </ul>
+       
         <!--Don't replace if with || or &&-->
         <a href="#top"><hr></a>
         <h3>Don't replace IF with AND or OR</h3>
@@ -228,8 +245,6 @@ if (x &gt 0) alert ("X is greater than zero!");
         <p>Even though they are analogues, this can be confusing especially if the code meant to be read by others. Let's leave <code>if</code> for <code>if</code> uses and <code>&&</code> for <code>&&</code> uses.</p>
 
 
-            
-            
 
 
 
@@ -247,9 +262,7 @@ if (x &gt 0) alert ("X is greater than zero!");
 
 
 
-        <!--! (NOT)-->
-        <a href="#top"><hr></a>
-        <h3 class="text-decoration-none"><code>! (NOT)</code></h3>
+
 
         <!--?? (Nullish Coalescing)-->
         <a href="#top"><hr></a>

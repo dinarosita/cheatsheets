@@ -28,8 +28,22 @@
 
         <p><code>var</code> is an old way to declare variables. Avoid using it. Use <code>let</code> instead.</p>
 
+        <a href="#top"><hr></a>
+        <h3>Prompt and alert</h3>
 
+        <div class="formula"><code>let <span class="variable">varName</span> = prompt ("<span class="parameter">Value: </span>", "");</code></div>
 
+        <div class="formula"><code>alert ("<span class="variable">Message</span>");</code></div>
+
+<pre class="js-codebox">
+let userName = prompt ("User name:", "");
+alert (`Greetings, ${userName}!`);
+
+// prompt: User name: ___ 
+// (Kitten entered)
+// alert: Greetings, Kitten!
+</pre>
+        
         <a href="#top"><hr></a>
 
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
