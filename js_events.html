@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Events</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript</h1></a>        
+        <h2>Events</h2>
+
+        <p><strong>An event:</strong> a signal that something has happened.</p>
+
+        <p>Some most useful DOM Events:</p>
+        <ul>
+            <li>Mouse Events
+                <ul>
+                    <li><code>click</code></li>
+                    <li><code>contextmenu</code> (right click)</li>
+                    <li><code>mouseover</code> and <code>mouseout</code></li>
+                    <li><code>mousedown</code> and <code>mouseup</code></li>
+                    <li><code>mousemove</code></li>
+                </ul>
+            </li>
+            <li>Keyboard events
+                <ul>
+                    <li><code>keydown</code> and <code>keyup</code></li>
+                </ul>
+            </li>
+            <li>Form element events
+                <ul>
+                    <li><code>submit</code></li>
+                    <li><code>focus</code></li>
+                </ul>
+            </li>
+            <li>Document Events
+                <ul>
+                    <li><code>DOMContentLoaded</code></li>
+                </ul>
+            </li>
+            <li>CSS events
+                <ul>
+                    <li><code>transitioned</code></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <!--Event Handlers-->
+        <a href="#top"><hr></a>
+        <h3>Event Handlers</h3>
+
+        <div class="formula"><code>on<span class="code2">event</span></code></div>
+
+        <div class="formula"><code>&ltinput type="<span class="variable">the-type</span>" value="<span class="variable">the-label</span>" on<span class="code2">event</span>="<span class="parameter">the-action</span>"&gt</code></div>
+
+        <p><strong>A handler:</strong> a function that runs in case of an event</p>
+
+        <p>A handler can be set with an attribute named <code>on<span class="code2">event</span></code>. For example:</p>
+        <ul>
+            <li><code>click</code> handler: <code>onclick</code></li>
+        </ul>
+
+        <p><strong>Type values: </strong><a href="https://www.w3schools.com/tags/att_input_type.asp#:~:text=input%20type%3D%22value%22%3E-,Attribute%20Values,-Value" target="_blank">Check here in w3schools</a></p>
+
+<pre class="js-codebox">&ltinput value="Click me" onclick="alert('Click!')" type="button"&gt
+</pre>
+
+        <div class ="css-codebox">
+            <input value="Click me" onclick="alert('Click!')" type="button">
+        </div>
+
+        
+        <!--Footer, don't change below-->
+        <a href="#top"><hr></a>
+
+        <p>References:</p>
+        
+        <ul>
+            <li><a href="https://javascript.info/introduction-browser-events" target="_blank">JavaScript.info: Introduction to Browser Events</a></li>
+            <li><a href="https://www.w3schools.com/tags/att_input_type.asp#:~:text=input%20type%3D%22value%22%3E-,Attribute%20Values,-Value" target="_blank">w3schools: &ltinput&gt type attribute values</a></li>
+        </ul>      
+
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+

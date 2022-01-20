@@ -10,24 +10,25 @@
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     </head>
     <body>
+
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>JavaScript</h1></a>
         
         <h2>Fun Codes</h2>
 
-        <!--Admin username and password-->
-        <h3>Admin username and password</h3>
+        <!--Admin login-->
+        <h3>Admin login</h3>
 
         <p>Prompt user with username. If it's "Admin", prompt with password. If it's "TheMaster", greet. If password is wrong, display message. If it's not admin, display message. If canceled, display cancel message.</p>
 
 <pre class="js-codebox">
 let userName = prompt ("User name:", "");
 if (userName === null) {
-    alert ("Canceled");
+    alert ("Cancelled");
 } else if (userName === "Admin") {
     let userPass = prompt ("Password:", "");
     if (userPass === null) {
-        alert ("Canceled");
+        alert ("Cancelled");
     } else if (userPass === "TheMaster") {
         alert (`Greetings, ${userName}!`);
     } else {
@@ -37,9 +38,101 @@ if (userName === null) {
     alert ("I don't know you.");
 }
 </pre>
-        
-        <a href="#top"><hr></a>
 
+        <div class="css-codebox">
+            <label for="userName">User name: </label>
+            <input type="text" id="userName" name="userName" size="10">
+
+            <p id="loginComment"></p>
+
+            <script>
+                const userName = document.querySelector("userName");
+                const loginComment = document.querySelector('p#loginComment');
+
+                input.addEventListener('change', setWeather);
+
+                if (userName === null) {
+                    loginComment.textContent = "Cancelled";
+                } else if (userName === "Admin") {
+                    let userPass = prompt "Password:", "";
+                    if (userPass === null) {
+                        loginComment.textContent = "Cancelled";
+                    } else if (userPass === "TheMaster") {
+                        loginComment.textContent = `Greetings, ${userName}!`;
+                    } else {
+                        loginComment.textContent = "Wrong password";
+                    }
+                } else {
+                    loginComment.textContent = "I don't know you.";
+                }
+            </script>
+
+
+
+
+
+        </div>
+        <script>
+
+        </script>
+
+        <!--Weather-->
+        <a href="#top"><hr></a>
+        <h3>Weather</h3>
+
+        <div class ="css-codebox">
+            <label for="weather">Select the weather type today: </label>
+            <select id="weather">
+                <option value="">--Make a choice--</option>
+                <option value="sunny">Sunny</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowing">Snowing</option>
+                <option value="overcast">Overcast</option>
+            </select>
+
+            <p id="weather"></p>
+
+            <script>
+                const select = document.querySelector('select');
+                const para = document.querySelector('p#weather');
+
+                select.addEventListener('change', setWeather);
+
+                function setWeather() {
+                    const choice = select.value;
+
+                    if (choice === 'sunny') {
+                        para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.';
+                    } else if (choice === 'rainy') {
+                        para.textContent = 'Rain is falling outside; take a rain coat and an umbrella, and don\'t stay out for too long.';
+                    } else if (choice === 'snowing') {
+                        para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
+                    } else if (choice === 'overcast') {
+                        para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
+                    } else {
+                        para.textContent = '';
+                    }
+                }
+            </script>
+        </div>
+        
+        <!--Try here-->
+        <a href="#top"><hr></a>
+        <h3>Try here</h3>
+
+        <div class ="css-codebox">
+
+<pre class="js-codebox">
+&ltinput value="Click me" onclick="alert('Click!')" type="button"&gt
+</pre>
+            <input value="Click me" onclick="alert('Click!')" type="button">
+        </div>
+
+
+
+        
+        <!--Footer, don't change below-->
+        <a href="#top"><hr></a>
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>
