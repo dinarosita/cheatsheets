@@ -35,7 +35,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --alert: rgb(214, 64, 64);
     --othercolor1: olive;
     --othercolor2: rgb(206, 131, 131);
-    --othercolor3: rgb(241, 162, 151);
+    --othercolor3: rgb(223, 146, 132);
     --js-border: rgb(190, 215, 216);
     --bumper-quarter: 4px;
     --bumper-half: 8px;
@@ -202,6 +202,7 @@ code,
 
 code,
 .js-codebox,
+.js-resultbox,
 .css-codebox,
 .code {
     font-family: 'Fira Mono', monospace;   
@@ -209,6 +210,7 @@ code,
 
 code,
 .js-codebox,
+.js-resultbox,
 .css-codebox,
 .code {
     font-size: 0.9em;
@@ -254,6 +256,16 @@ code a {
     word-wrap: break-word:
 }
 
+.js-resultbox {
+    padding: 1em;
+    border: 2px solid var(--js-border);
+    border-radius: 5px;
+    margin: 1em;
+    max-width: 400px;
+}
+
+
+
 .js-table-code-column-1 tbody tr :nth-child(1), 
 .js-table-code-column-2 tbody tr :nth-child(2), 
 .js-table-code-column-3 tbody tr :nth-child(3), 
@@ -267,6 +279,8 @@ code a {
 .js-table-bold-column-1 tbody tr :nth-child(1){
     font-weight: 500;
 }
+
+
 
 /* Listing */
 

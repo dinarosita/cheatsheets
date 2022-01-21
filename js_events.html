@@ -91,17 +91,7 @@
             </li>
         </ul>
 
-        <p>HTML attributes are not case-sensitive, but usually lowercases are used.</p>
-
-        <!--Function-->
-        <a href="#top"><hr></a>
-        <h3>Function</h3>
-
-        <div class="formula"><code>
-            &ltscript&gt<br>
-                <span class="tab">function <span class="variable">functionName</span>() {<span class="variable">code block</span>}</span><br>
-            &lt/script&gt<br>
-        </code></div>
+        <p>HTML attributes are not case-sensitive, but usually lowercases are used. DOM Property is case-sensitive.</p>
 
         <!--Event Handlers-->
         <a href="#top"><hr></a>
@@ -138,13 +128,15 @@
             <li><code>click</code> handler: <code>onclick</code></li>
         </ul>
 
+        <p><span class="alert">Note:</span> We will use <code><strong>onclick</strong></code> a lot to illustrate <code>on<span class="code2">event</span></code> in this note.</p>
+
         <p>Example:</p>
 
 <pre class="js-codebox">
 &ltinput type="button" value="Click me" onclick="alert('It works!')"&gt
 </pre>
 
-        <div class ="css-codebox">
+        <div class ="js-resultbox">
             <input type="button" value="Click me" onclick="alert('It works!')">
         </div>
 
@@ -180,7 +172,7 @@
 &lt/script&gt
 </pre>
 
-        <div class ="css-codebox">
+        <div class ="js-resultbox">
             <input type="button" value="Click me" id="handler">
         </div>
 
@@ -194,15 +186,30 @@
         <a href="#top"><hr></a>
         <h3>HTML-attributes works like DOM property</h3>
 
+        <div class="formula" style="font-weight: normal;">
+            <code>
+                &ltinput <strong>type</strong>="<strong>button</strong>" <strong>onclick</strong>="<span class="variable" style="font-weight: bold;">whatever here</span>" ...&gt
+            </code>
+        </div>
+
+        <div class="formula" style="font-weight: normal;">
+            <code>
+                &ltinput <strong>type</strong>="<strong>button</strong>" <strong>id</strong>="<strong>button</strong>" ...&gt<br>
+                &ltscript&gt<br>
+                    <strong><span class="tab">button.onclick = function() {</span><br>
+                        <span class="variable tab2" style="font-weight: bold;">whatever here</span>;<br>
+                    <span class="tab">}</span></strong><br>
+                &lt/script&gt<br>
+            </code>
+        </div>
+
         <p>When a handler is assigned using HTML-attributes, actually the browser creates a new function from the attribute content and writes it to the DOM property.</p>
-
-        <p>Creation of event handler using HTML-attribute:</p>
-
+        
 <pre class="js-codebox">
 &ltinput type="button" onclick="alert('Yippie!')" value="Click here"&gt
 </pre>
-
-        <div class ="css-codebox">
+        
+        <div class ="js-resultbox">
             <input type="button" onclick="alert('Yippie!')" value="Click here">
         </div>
 
@@ -212,18 +219,135 @@
 &ltinput type="button" id="button" value="Click here"&gt
 &ltscript&gt
     button.onclick = function() {
-        alert('Yippie too!');
+        alert('Yippie!');
     }
 &lt/script&gt
 </pre>
 
-        <div class ="css-codebox">
+        <div class ="js-resultbox">
             <input type="button" id="button" value="Click here">
             <script>
                 button.onclick = function() {
                     alert('Yippie too!');
                 }
             </script>   
+        </div>
+
+        <!--Function-->
+        <a href="#top"><hr></a>
+        <h3>Function</h3>
+
+        <div class="formula">
+            <code>
+                    function <span class="variable">functionName</span>() {<span class="variable">code block</span>}
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">functionName</span> = function() {<span class="variable">code block</span>}
+            </code>
+        </div>
+
+        <p>A function can be assigned like above. <code>()</code> is where arguments are listed. It can be empty if there's no arguments.</p>
+
+        <div class="formula">
+            <code>
+                <span class="variable">functionName</span>
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">newVar</span> = <span class="variable">functionName</span>
+            </code>
+        </div><br>
+
+        <p>To see the value (description/formulation) of a function, we are using <code>functionName</code> without the brackets <code>()</code>. Imagine this is how we do to check primitive variables value too. If we assigning it to a new variable <code>newVar</code>, newVar will now contain the same function as <code>functionName</code>. So without bracket, the function will be assigned/declared. Not run. This is what we are using when we assigning a function to an event handler. We just want to assign the function to the handler. Not to run the function and assign its return value to the handler (which will be <code>undefined</code> if the function doesn't have a return value.)</p>
+
+        <div class="formula">
+            <code>
+                <span class="variable">functionName</span>()
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">newVar</span> = <span class="variable">functionName</span>()
+            </code>
+        </div>
+
+        <p>To run the function, use the brackets: <code>functionName()</code>. It will return a return value or <code>undefined</code> if there's no return value. If we are assigning it to a new variable <code>newVar</code>, then newVar value will be that return value (or <code>undefined</code>) instead of assigning the function formulation. The function will be run when loading the page in order to give newVar the return value needed.</p>
+
+        <h4>Assigning function to DOM Property</h4>
+
+        <div class="formula">
+            <code>
+                <span class="variable">idName</span>.onclick = <span class="variable">functionName</span>
+            </code>
+        </div>
+
+        <p><span class="alert">Important:</span> Pay attention to <code>functionName</code> vs <code>functionName()</code> when assigning existing function to event handler. Like in example below, make sure <code>thanksButton.onclick</code> is <code>sayThanks</code>, instead of <code>sayThanks()</code>.</p>
+                
+<pre class="js-codebox">
+&ltinput type="button" value="Thank you button" id="thanksButton"&gt
+&ltscript&gt
+    function sayThanks() {
+        alert('Thank you!');
+    }
+
+    thanksButton.onclick = sayThanks;
+&lt/script&gt
+</pre>
+
+<div class="js-resultbox">
+    <input type="button" value="Thank you button" id="thanksButton">
+    <script>
+        function sayThanks() {
+            alert('Thank you!');
+        }
+
+        thanksButton.onclick = sayThanks;
+    </script>
+</div>
+
+        <h4>Assigning function to HTML-attribute</h4>
+
+        <div class="formula" style="font-weight: normal;">
+            <code>
+                &ltinput type="button" onclick="<span class="variable">functionName()</span> ...&gt
+            </code>
+        </div>
+
+        <div class="formula" style="font-weight: normal;">
+            <code>
+                &ltinput type="button" id="button" ...&gt<br>
+                &ltscript&gt<br>
+                    <span class="tab">button.onclick = function() {</span><br>
+                        <span class="variable tab2">functionName()</span>;<br>
+                    <span class="tab">}</span><br>
+                &lt/script&gt<br>
+            </code>
+        </div>
+
+        <p>In the other way around, use <code>functionName()</code> for assignment of HTML-attribute handler, because it's essentially going to be rewritten in such way from HTML to Script.</p>
+
+<pre class="js-codebox">
+&ltinput type="button" value="Tombol Makasih" onclick="makasih()"&gt
+&ltscript&gt
+    function makasih() {
+        alert('Terima kasih!');
+    }
+&lt/script&gt
+</pre>
+        
+        <div class="js-resultbox">
+            <input type="button" value="Tombol Makasih" onclick="makasih()">
+            <script>
+                function makasih() {
+                    alert('Terima kasih!');
+                }
+            </script>
         </div>
 
         <!--Using both HTML-attributes and DOM property-->
@@ -241,7 +365,7 @@
 &lt/script&gt
 </pre>
 
-        <div class ="css-codebox">
+        <div class ="js-resultbox">
             <input type="button" id="handler2" onclick="alert('First')" value="Click here">
             <script>
                 handler2.onclick = function() {
@@ -256,7 +380,7 @@
 
         <div class="formula">
             <code>
-                <span class="variable">idName</span>.on<span class="code2">event</span> 
+                <span class="variable">idName</span>.onclick 
                 = null;
             </code>
         </div>
@@ -267,14 +391,34 @@
 handler2.onclick = null;
 </pre>
 
-        <!--Examples-->
+        <!--Accessing the element: this-->
         <a href="#top"><hr></a>
-        <h3>Examples</h3>
+        <h3>Accessing the element: this</h3>
+
+        <div class="formula"><code>this</code></div>
+
+        <p>It's possible for a handler to access the element it's on. It's by using <code>this</code>.</p>
+
+        <p>Example:</p>
 
 <pre class="js-codebox">
+&ltbutton onclick="alert(`Button name: ${this.innerHTML}`)"&gtKitten&lt/button&gt
 </pre>
 
-        <div class ="css-codebox">
+        <div class ="js-resultbox">
+            <button onclick="alert(`Button name: ${this.innerHTML}`)">Kitten</button>
+        </div>
+
+        <!--Sandbox-->
+        <a href="#top"><hr></a>
+        <h3>Sandbox</h3>
+
+<pre class="js-codebox">
+//code
+</pre>
+
+        <div class ="js-resultbox">
+
         </div>
 
         
