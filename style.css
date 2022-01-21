@@ -144,6 +144,14 @@ th, td {
     margin-left: 3em;
 }
 
+.tab3 {
+    margin-left: 4.5em;
+}
+
+.tab4 {
+    margin-left: 6em;
+}
+
 .alert {
     color: var(--alert);
     font-weight: bold;

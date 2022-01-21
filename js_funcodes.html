@@ -16,65 +16,92 @@
         
         <h2>Fun Codes</h2>
 
+        <!--Sandbox-->
+        <a href="#top"><hr></a>
+        <h3>Sandbox</h3>
+        
+        <div class ="css-codebox"></div>
+        <!-- Temporary dumpster -->
+
         <!--Admin login-->
+        <a href="#top"><hr></a>
         <h3>Admin login</h3>
 
-        <p>Prompt user with username. If it's "Admin", prompt with password. If it's "TheMaster", greet. If password is wrong, display message. If it's not admin, display message. If canceled, display cancel message.</p>
+        <p>Here's a special button for admin login. Only accepts 1 guest, that is Admin (not case sensitive). Password is "TheMaster" (case sensitive).</p>
+
+        <div class ="css-codebox">
 
 <pre class="js-codebox">
-let userName = prompt ("User name:", "");
-if (userName === null) {
-    alert ("Cancelled");
-} else if (userName === "Admin") {
-    let userPass = prompt ("Password:", "");
-    if (userPass === null) {
-        alert ("Cancelled");
-    } else if (userPass === "TheMaster") {
-        alert (`Greetings, ${userName}!`);
-    } else {
-        alert ("Wrong password");
-    }
-} else {
-    alert ("I don't know you.");
-}
+&ltinput type="button" id="loginButton" value="Login"&gt
+&ltscript&gt
+<span class="tab">function loginFunction() {
+<span class="tab2">let userName1 = prompt("Who are you?");
+<span class="tab2">if (userName1 === null) {
+<span class="tab3">alert ("Nevermind...");
+<span class="tab2">} else if (userName1.toUpperCase() === "ADMIN") {
+<span class="tab3">let userPass1 = window.prompt ("Enter your password: ");
+<span class="tab3">if (userPass1 === null) {
+<span class="tab4">alert ("Sigh...");
+<span class="tab3">} else if (userPass1 === "TheMaster") {
+<span class="tab4">alert ("Hello, Admin!");
+<span class="tab3">} else {
+<span class="tab4">alert ("No no no no no... not today!");
+<span class="tab3">}
+<span class="tab2">} else {
+<span class="tab3">alert ("Sorry, we don't know you.");
+<span class="tab2">}
+<span class="tab">}
+<span class="tab">loginButton.onclick = loginFunction;
+&lt/script&gt   
 </pre>
-
-        <div class="css-codebox">
-            <label for="userName">User name: </label>
-            <input type="text" id="userName" name="userName" size="10">
-
-            <p id="loginComment"></p>
-
+            <input type="button" id="loginButton" value="Login">
             <script>
-                const userName = document.querySelector("userName");
-                const loginComment = document.querySelector('p#loginComment');
-
-                input.addEventListener('change', setWeather);
-
-                if (userName === null) {
-                    loginComment.textContent = "Cancelled";
-                } else if (userName === "Admin") {
-                    let userPass = prompt "Password:", "";
-                    if (userPass === null) {
-                        loginComment.textContent = "Cancelled";
-                    } else if (userPass === "TheMaster") {
-                        loginComment.textContent = `Greetings, ${userName}!`;
+                function loginFunction() {
+                    let userName1 = prompt("Who are you?");
+                    if (userName1 === null) {
+                        alert ("Nevermind...");
+                    } else if (userName1.toUpperCase() === "ADMIN") {
+                        let userPass1 = window.prompt ("Enter your password: ");
+                        if (userPass1 === null) {
+                            alert ("Sigh...");
+                        } else if (userPass1 === "TheMaster") {
+                            alert ("Hello, Admin!");
+                        } else {
+                            alert ("No no no no no... not today!");
+                        }
                     } else {
-                        loginComment.textContent = "Wrong password";
+                        alert ("Sorry, we don't know you.");
                     }
-                } else {
-                    loginComment.textContent = "I don't know you.";
                 }
+                loginButton.onclick = loginFunction;
             </script>
-
-
-
-
-
         </div>
-        <script>
 
-        </script>
+        <!--Favourite food-->
+        <a href="#top"><hr></a>
+        <h3>Favourite food</h3>
+
+        <div class ="css-codebox">
+
+<pre class="js-codebox">
+&ltinput type="button" id="foodButton" value="Food Button"&gt
+&ltscript&gt
+<span class="tab">function food() {
+<span class="tab2">let favFood = window.prompt("What's your favourite food?");
+<span class="tab2">alert ("Your favourite food is " + favFood);
+<span class="tab">}
+<span class="tab">foodButton.onclick = food;
+&lt/script&gt
+</pre>
+            <input type="button" id="foodButton" value="Food Button">
+            <script>
+                function food() {
+                    let favFood = window.prompt("What's your favourite food?");
+                    alert ("Your favourite food is " + favFood);
+                }
+                foodButton.onclick = food;
+            </script>
+        </div>
 
         <!--Weather-->
         <a href="#top"><hr></a>
@@ -116,9 +143,9 @@ if (userName === null) {
             </script>
         </div>
         
-        <!--Try here-->
+        <!--Click Button-->
         <a href="#top"><hr></a>
-        <h3>Try here</h3>
+        <h3>Click Button</h3>
 
         <div class ="css-codebox">
 
@@ -127,9 +154,6 @@ if (userName === null) {
 </pre>
             <input value="Click me" onclick="alert('Click!')" type="button">
         </div>
-
-
-
         
         <!--Footer, don't change below-->
         <a href="#top"><hr></a>
