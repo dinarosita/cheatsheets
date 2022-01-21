@@ -132,7 +132,7 @@
                 on<span class="code2">event</span>
             </code>
         </div>
-
+        <br>
         <div class="formula">
             <code>
                 &ltinput
@@ -153,10 +153,9 @@
 <pre class="js-codebox">
 &ltinput type="button" value="Click me" onclick="alert('It works!')"&gt
 </pre>
+        
+        <input type="button" value="Click me" onclick="alert('It works!')">
 
-        <div class ="js-resultbox">
-            <input type="button" value="Click me" onclick="alert('It works!')">
-        </div>
 
         <!--DOM Property-->
         <a href="#top"><hr></a>
@@ -179,7 +178,7 @@
 
         <p>A handler can be assign using a DOM property <code>on<span class="code2">event</span></code>.</p>
 
-        <o>Example:</o>
+        <p>Example:</p>
 
 <pre class="js-codebox">
 &ltinput type="button" value="Click me" id="handler"&gt
@@ -191,7 +190,6 @@
 &lt/script&gt
 </pre>
 
-        <div class ="js-resultbox">
             <input type="button" value="Click me" id="handler">
         </div>
 
@@ -210,6 +208,7 @@
                 &ltinput <strong>type</strong>="<strong>button</strong>" <strong>onclick</strong>="<span class="variable" style="font-weight: bold;">whatever here</span>" ...&gt
             </code>
         </div>
+        <br>
 
         <div class="formula" style="font-weight: normal;">
             <code>
@@ -226,11 +225,8 @@
         
 <pre class="js-codebox">
 &ltinput type="button" onclick="alert('Yippie!')" value="Click here"&gt
-</pre>
-        
-        <div class ="js-resultbox">
-            <input type="button" onclick="alert('Yippie!')" value="Click here">
-        </div>
+</pre>            
+        <input type="button" onclick="alert('Yippie!')" value="Click here">
 
         <p>The HTML attribute is used to initialize <code>button.onclick</code>. It's the same with:</p>
 
@@ -243,14 +239,13 @@
 &lt/script&gt
 </pre>
 
-        <div class ="js-resultbox">
-            <input type="button" id="button" value="Click here">
-            <script>
-                button.onclick = function() {
-                    alert('Yippie too!');
-                }
-            </script>   
-        </div>
+        <input type="button" id="button" value="Click here">
+        <script>
+            button.onclick = function() {
+                alert('Yippie too!');
+            }
+        </script>   
+
 
         <!--Function-->
         <a href="#top"><hr></a>
@@ -319,16 +314,14 @@
 &lt/script&gt
 </pre>
 
-<div class="js-resultbox">
-    <input type="button" value="Thank you button" id="thanksButton">
-    <script>
-        function sayThanks() {
-            alert('Thank you!');
-        }
+        <input type="button" value="Thank you button" id="thanksButton">
+        <script>
+            function sayThanks() {
+                alert('Thank you!');
+            }
 
-        thanksButton.onclick = sayThanks;
-    </script>
-</div>
+            thanksButton.onclick = sayThanks;
+        </script>
 
         <h4>Assigning function to HTML-attribute</h4>
 
@@ -337,7 +330,7 @@
                 &ltinput type="button" onclick="<span class="variable">functionName()</span> ...&gt
             </code>
         </div>
-
+        <br>
         <div class="formula" style="font-weight: normal;">
             <code>
                 &ltinput type="button" id="button" ...&gt<br>
@@ -359,15 +352,13 @@
     }
 &lt/script&gt
 </pre>
-        
-        <div class="js-resultbox">
-            <input type="button" value="Tombol Makasih" onclick="makasih()">
-            <script>
-                function makasih() {
-                    alert('Terima kasih!');
-                }
-            </script>
-        </div>
+
+        <input type="button" value="Tombol Makasih" onclick="makasih()">
+        <script>
+            function makasih() {
+                alert('Terima kasih!');
+            }
+        </script>
 
         <!--Using both HTML-attributes and DOM property-->
         <a href="#top"><hr></a>
@@ -384,14 +375,12 @@
 &lt/script&gt
 </pre>
 
-        <div class ="js-resultbox">
-            <input type="button" id="handler2" onclick="alert('First')" value="Click here">
-            <script>
-                handler2.onclick = function() {
-                    alert('Second');
-                }
-            </script>
-        </div>
+        <input type="button" id="handler2" onclick="alert('First')" value="Click here">
+        <script>
+            handler2.onclick = function() {
+                alert('Second');
+            }
+        </script>
 
         <!--Remove handler-->
         <a href="#top"><hr></a>
@@ -423,13 +412,9 @@ handler2.onclick = null;
 <pre class="js-codebox">
 &ltbutton onclick="alert(`Button name: ${this.innerHTML}`)"&gtKitten&lt/button&gt
 </pre>
+        <button onclick="alert(`Button name: ${this.innerHTML}`)">Kitten</button>
 
-        <div class ="js-resultbox">
-            <button onclick="alert(`Button name: ${this.innerHTML}`)">Kitten</button>
-        </div>
-
-        <!---------------------------------------->
-        <!------------addEventListener------------>
+        <!--addEventListener-->
         <a href="#top"><hr></a>
         <h2>addEventListener</h2>
 
@@ -513,23 +498,21 @@ input.removeEventListener("click", () => alert("Kitten"));
 &lt/script&gt
 </pre>
 
-        <div class ="js-resultbox">
-            <input id="countInput" type="button" value="Counting button">
+        <input id="countInput" type="button" value="Counting button">
 
-            <script>
-                function countTwo() {
-                    alert("Two");
-                };
-            
-                function countThree() {
-                    alert("Three")
-                }
-            
-                countInput.onclick = () => alert("One");
-                countInput.addEventListener("click", countTwo);
-                countInput.addEventListener("click", countThree);
-            </script>
-        </div>
+        <script>
+            function countTwo() {
+                alert("Two");
+            };
+        
+            function countThree() {
+                alert("Three")
+            }
+        
+            countInput.onclick = () => alert("One");
+            countInput.addEventListener("click", countTwo);
+            countInput.addEventListener("click", countThree);
+        </script>
 
         <h4>More universal</h4>
 
@@ -543,11 +526,6 @@ input.removeEventListener("click", () => alert("Kitten"));
 <pre class="js-codebox">
 //code
 </pre>
-
-        <div class ="js-resultbox">
-
-        </div>
-
         
         <!--Footer, don't change below-->
         <a href="#top"><hr></a>
