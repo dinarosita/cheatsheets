@@ -99,15 +99,33 @@
 
         <p><strong>A handler:</strong> a function that runs in case of an event.</p>
 
-        <p>Various way to assign event handlers:</p>
+        <p>There are 3 ways to assign event handlers:</p>
         
         <ul>
-            <li>HTML-attributes</li>
-            <li>DOM property</li>
+            <li><strong>HTML-attributes</strong>
+                <ul>
+                    <li><code>onclick = "..."</code></li>
+                    <li>Not usually a choice because JavaScript in the middle of HTML tag looks a bit odd and can't write a lot of codes there.</li>
+                </ul>
+            </li>
+            <li><strong>DOM property</strong>
+                <ul>
+                    <li><code>elementName.onclick = function</code></li>
+                    <li>Sometimes a choice. But it's limited 1 one handler function per event.</li>
+                </ul>
+            </li>
+            <li><strong>Methods</strong>
+                <ul>
+                    <li><code>elementName.addEventListener(event, handler, [phase])</code> and <code>elementName.removeEventListener(event, handler, [phase])</code></li>
+                    <li>Most flexible even though a bit long to write.</li>
+                    <li>Some events can only be assigned this way</li>
+                </ul>
+            </li>
         </ul>
 
         <!--HTML-attributes-->
-        <h4>HTML-attributes</h4>
+        <a href="#top"><hr></a>
+        <h2>HTML-attributes</h2>
 
         <div class="formula">
             <code>
@@ -141,7 +159,8 @@
         </div>
 
         <!--DOM Property-->
-        <h4>DOM Property</h4>
+        <a href="#top"><hr></a>
+        <h2>DOM Property</h2>
 
         <div class="formula">
             <code>
@@ -408,6 +427,114 @@ handler2.onclick = null;
         <div class ="js-resultbox">
             <button onclick="alert(`Button name: ${this.innerHTML}`)">Kitten</button>
         </div>
+
+        <!---------------------------------------->
+        <!------------addEventListener------------>
+        <a href="#top"><hr></a>
+        <h2>addEventListener</h2>
+
+        <div class="formula">
+            <code>
+                <span class="variable">element</span>.addEventListener
+                (<span class="variable">event</span>, <span class="variable">handler</span>, [<span class="variable">options</span>]);
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">element</span>.removeEventListener
+                (<span class="variable">event</span>, <span class="variable">handler</span>, [<span class="variable">options</span>]);
+            </code>
+        </div>
+
+        <p>Problem with previous way, we can't assign multiple handlers to 1 event. The later handler will overwrite the earlier one. Special methods <code>addEventListener</code> and <code>removeEventListener</code> allow multiple handler assignments.</p>
+
+        <ul>
+            <li><code>addEventListener</code>: adding a handler</li>
+            <li><code>removeEventListener</code>: removing a handler</li>
+        </ul>
+
+        <p>The components:</p>
+        <ul>
+            <li><strong>Event</strong>: event name, for example <code>"click"</code></li>
+            <li><strong>Handler</strong>: the handler <strong>function</strong></li>
+            <li><strong>Options</strong>: an additional optional object with properties:
+                <ul>
+                    <li><code><strong>once</strong></code>: if <code>true</code>, the listener is automatically removed after it triggers.</li>
+                    <li><code><strong>capture</strong></code>: the phase where to handle the event. Also <code>false/true</code>historically, that's the same as <code>{capture: false/true}</code> Further explanation: <a href="https://javascript.info/bubbling-and-capturing" target="_blank">bubbling and capturing</a>.</li>
+                    <li><code><strong>passive</strong></code>: if <code>true</code>, the handler will not call <code>preventDefault()</code>. Further explanation: <a href="https://javascript.info/default-browser-action" target="_blank">browser default actions</a>.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Removal's handler</h4>
+        <p><span class="alert">Important:</span> Removal requires the <strong>same function</strong> as the assignment. Function must be passed as a <strong>variable</strong>.</p>      
+
+        <p>The right way:</p>
+
+<pre class="js-codebox">
+function handler() {
+    alert("Kitten");
+}
+
+input.addEventListener("click", handler);
+// ...
+input.removeEventListener("click", handler);
+</pre>
+
+        <p>If not, even though we are using the same code, it will be different function object, and removal will fail. Example:</p>
+
+<pre class="js-codebox">
+input.addEventListener("click", () => alert("Kitten"));
+// ...
+input.removeEventListener("click", () => alert("Kitten"));
+// The removal doesn't work
+</pre>
+
+        <h4>Multiple handlers</h4>
+
+        <p>DOM property and <code>addEventListener</code> can be used together to assign handlers, even though typically only one way is used, and some handlers only work with <code>addEventListener</code></p>
+
+<pre class="js-codebox">
+&ltinput id="countInput" type="button" value="Counting button"&gt
+
+&ltscript&gt
+    function countTwo() {
+        alert("Two");
+    };
+
+    function countThree() {
+        alert("Three")
+    }
+
+    countInput.onclick = () => alert("One");
+    countInput.addEventListener("click", countTwo);
+    countInput.addEventListener("click", countThree);
+&lt/script&gt
+</pre>
+
+        <div class ="js-resultbox">
+            <input id="countInput" type="button" value="Counting button">
+
+            <script>
+                function countTwo() {
+                    alert("Two");
+                };
+            
+                function countThree() {
+                    alert("Three")
+                }
+            
+                countInput.onclick = () => alert("One");
+                countInput.addEventListener("click", countTwo);
+                countInput.addEventListener("click", countThree);
+            </script>
+        </div>
+
+        <h4>More universal</h4>
+
+        <p>There are some events that can only be assigned using <code>addEventListener</code>. It can't be assigned using DOM property. For example, <code>DOMContentLoaded</code> event that triggers when the document is loaded and DOM is built. 
+        </p>
 
         <!--Sandbox-->
         <a href="#top"><hr></a>
