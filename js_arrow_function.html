@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS () =></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript</h1></a>
+
+        <h2>Arrow Function</h2>
+
+        <!--Arrow Function-->
+        <h3>Arrow Function</h3>
+
+        <div class="formula">
+            <code>
+                <span class="parameter">functionName</span> = function () {<br>
+                    <span class="parameter tab">code block</span>;<br>
+                    <span class="tab"></span>return <span class="parameter">returnValue</span>;<br>
+                }
+            </code>
+        </div>
+        <br>
+
+        <div class="formula">
+            <code>
+                <span class="parameter">functionName</span> = () => {<br>
+                    <span class="parameter tab">code block</span>;<br>
+                    <span class="tab"></span>return <span class="parameter">returnValue</span>;<br>
+                }
+            </code>
+        </div>
+
+        <p>Writing function can be shortened by using arrow function where <code>function () {}</code> is written as <code>() => {}</code>.</p>
+
+        <div class="formula">
+            <code>
+                <span class="parameter">functionName</span> = () => <span class="parameter">returnValue</span>;
+            </code>
+        </div>
+        
+        <p>If the code block only has the return value, it can be even shorter. No curly brackets <code>{}</code> and the word "<code>return</code>" to be used.</p>
+
+<pre class="js-codebox">
+hello = function () {
+    return "Hi there!";
+}                           // same code
+
+hello = () => {
+    return "Hi there!";
+}                           // same code
+
+hello = () => "Hi there!";  // same code
+</pre>
+
+        <div class="formula">
+            <code>
+                <span class="parameter">functionName</span> = (<span class="parameter">param1</span>, <span class="parameter">param2</span>) => <span class="parameter">returnValue</span>;
+            </code>
+        </div>
+
+        <p>Just like the a regular function, arguments/parameters are listed inside parentheses <code>()</code>.</p>
+
+<pre class="js-codebox">
+multiply = function (a, b) {
+    return a*b;
+}                           // same code
+
+multiply = (a, b) => {
+    return a*b;
+}                           // same code
+
+multiply = (a, b) => a*b;   // same code
+</pre>
+
+        <div class="formula">
+            <code>
+                <span class="parameter">functionName</span> = <span class="parameter">param1</span> => <span class="parameter">returnValue</span>;
+            </code>
+        </div>
+
+        <p>An exception, when there's only 1 parameter, the parentheses <code>()</code> are not needed. Remember when there's no parameter, the parentheses are needed.</p>
+
+<pre class="js-codebox">
+greetings = function (userName) {
+    return "Hello, " + userName + "!";
+}
+
+greetings = userName => "Hello, " + userName + "!";
+</pre>
+
+
+        
+        <!--Footer - don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+

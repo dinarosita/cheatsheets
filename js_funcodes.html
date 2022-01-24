@@ -26,6 +26,51 @@
 
         <!-- Temporary dumpster -->
 
+        <!--Select theme-->
+        <a href="#top"><hr></a>
+        <h3>Select theme</h3>
+
+<pre class="js-codebox">
+&ltlabel for="theme"&gtSelect theme: &lt/label&gt
+&ltselect id="theme"&gt
+    &ltoption value="light"&gtLight theme&lt/option&gt
+    &ltoption value="dark"&gtDark theme&lt/option&gt
+&lt/select&gt
+
+&ltscript&gt
+    const userTheme = document.querySelector('#theme');
+    const userHtml = document.querySelector('html');
+
+    function update(bgColor, textColor) {
+        userHtml.style.backgroundColor = bgColor;
+        userHtml.style.color = textColor;
+    }
+
+    theme.addEventListener('change', () =&gt ( userTheme.value === 'dark' ) ? update('black','white') : update('white','black'));
+&lt/script&gt 
+</pre>
+
+        <div class="js-resultbox">
+            <label for="theme">Select theme: </label>
+            <select id="theme">
+                <option value="light">Light theme</option>
+                <option value="dark">Dark theme</option>
+            </select>
+        </div>
+
+
+        <script>
+            const userTheme = document.querySelector('#theme');
+            const userHtml = document.querySelector('html');
+
+            function update(bgColor, textColor) {
+                userHtml.style.backgroundColor = bgColor;
+                userHtml.style.color = textColor;
+            }
+
+            theme.addEventListener('change', () => ( userTheme.value === 'dark' ) ? update('black','white') : update('white','black'));
+        </script>     
+
         <!--Admin login-->
         <a href="#top"><hr></a>
         <h3>Admin login</h3>

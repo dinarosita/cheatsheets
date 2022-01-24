@@ -109,8 +109,8 @@
         <p>When it's more like options, especially when there are many, use <code>switch</code>.</p>
 
         <a href="#top"><hr></a>
-        <!--The if Statement-->
-        <h3>The if Statement</h3>
+        <!--If and else-->
+        <h3>If and else</h3>
 
         <div class="formula">
             <code>if (<span class="parameter">condition 1</span>) {<br>
@@ -149,8 +149,8 @@ if (time < 12) {
 </pre>
 
         <a href="#top"><hr></a>
-        <!--The switch Statement-->
-        <h3>The switch Statement</h3>
+        <!--Switch-->
+        <h3>Switch</h3>
 
         <div class="formula">
             <code>
@@ -306,7 +306,69 @@ Forget first break: February
 Forget all breaks: December
 */
 </pre>
-        
+
+        <a href="#top"><hr></a>
+        <!--Ternary-->
+        <h3>Ternary</h3>
+
+        <div class="formula">
+            <code>
+                <span class="parameter">(condition)</span> ? 
+                <span class="parameter">(if true, run this code)</span> : 
+                <span class="parameter">(if false, run this code)</span>
+            </code>
+        </div>
+
+        <p>In ternary, we are giving 1 condition. If it's true, run the left side code. If it's false, run the right side code.</p>
+
+<pre class="js-codebox">
+let greeting = (isBirthday) ? "Happy Birthday" : "Good morning";
+</pre>
+
+        <h4>Example: Select theme</h4>
+
+<pre class="js-codebox">
+&ltlabel for="theme"&gtSelect theme: &lt/label&gt
+&ltselect id="theme"&gt
+    &ltoption value="light"&gtLight theme&lt/option&gt
+    &ltoption value="dark"&gtDark theme&lt/option&gt
+&lt/select&gt
+
+&ltscript&gt
+    const userTheme = document.querySelector('#theme');
+    const userHtml = document.querySelector('html');
+
+    function update(bgColor, textColor) {
+        userHtml.style.backgroundColor = bgColor;
+        userHtml.style.color = textColor;
+    }
+
+    theme.addEventListener('change', () =&gt ( userTheme.value === 'dark' ) ? update('black','white') : update('white','black'));
+&lt/script&gt 
+</pre>
+
+        <div class="js-resultbox">
+            <label for="theme">Select theme: </label>
+            <select id="theme">
+                <option value="light">Light theme</option>
+                <option value="dark">Dark theme</option>
+            </select>
+        </div>
+
+
+        <script>
+            const userTheme = document.querySelector('#theme');
+            const userHtml = document.querySelector('html');
+
+            function update(bgColor, textColor) {
+                userHtml.style.backgroundColor = bgColor;
+                userHtml.style.color = textColor;
+            }
+
+            theme.addEventListener('change', () => ( userTheme.value === 'dark' ) ? update('black','white') : update('white','black'));
+        </script>     
+
+
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
