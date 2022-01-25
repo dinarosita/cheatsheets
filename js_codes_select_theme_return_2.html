@@ -38,9 +38,7 @@
         </div>
 
         <script>
-            changeTheme = () => document.querySelector(document.querySelector("#scope").value).style.backgroundColor = document.querySelector("#theme").value;
-
-            theme.addEventListener ("change", changeTheme);
+            theme.addEventListener ("change", () => document.querySelector(document.querySelector("#scope").value).style.backgroundColor = document.querySelector("#theme").value);
         </script>
 
 <pre class="js-codebox">
@@ -64,11 +62,21 @@
         &ltoption value="lightgray"&gtGray&lt/option&gt
     &lt/select&gt
 &lt/div&gt
+</pre>
 
+<p>The script (2 liners)</p>
+<pre class="js-codebox">
 &ltscript&gt
     changeTheme = () => document.querySelector(document.querySelector("#scope").value).style.backgroundColor = document.querySelector("#theme").value;
 
     theme.addEventListener ("change", changeTheme);
+&lt/script&gt
+</pre>
+
+<p>The script (1 liner)</p>
+<pre class="js-codebox">
+&ltscript&gt
+    theme.addEventListener ("change", () => document.querySelector(document.querySelector("#scope").value).style.backgroundColor = document.querySelector("#theme").value);
 &lt/script&gt
 </pre>
 
