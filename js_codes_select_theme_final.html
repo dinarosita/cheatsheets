@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Fun Codes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript Fun Codes</h1></a>
+
+        <h2>Select Theme: Final</h2>
+
+        <div class="js-resultbox" id="box1">
+            <label for="scope">Step 1. Select scope: </label>
+            <select id="scope">
+                <option value="page">The page</option>
+                <option value="box1">Box 1</option>
+                <option value="box2">Box 2</option>
+            </select>
+        </div>
+
+        <div class="js-resultbox" id="box2">
+            <label for="theme">Step 2.  Select theme: </label>
+            <select id="theme">
+                <option value="light">Light</option>
+                <option value="pink">Pink</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="blue">Blue</option>
+                <option value="gray">Gray</option>
+            </select>
+        </div>
+
+        <script>
+
+            function getScope () {
+                const userScope = document.querySelector("#scope").value;
+                if (userScope === "page") {
+                    return "html";
+                } else {
+                    return "#" + userScope;
+                }
+            }
+
+            function getTheme () {
+                const userTheme = document.querySelector("#theme").value;
+                switch (userTheme) {
+                    case "light": return "white"; break;
+                    case "pink": return "mistyrose"; break;
+                    case "orange": return "peachpuff"; break;
+                    case "yellow": return "lightyellow"; break;
+                    case "blue": return "lightblue"; break;
+                    case "gray": return "lightgray"; break;
+                }
+            }
+
+            function changeTheme () {
+                document.querySelector(getScope()).style.backgroundColor = getTheme();
+            }
+
+            theme.addEventListener ("change", changeTheme);
+        </script>
+
+<pre class="js-codebox">
+&ltdiv class="js-resultbox" id="box1"&gt
+    &ltlabel for="scope"&gtStep 1. Select scope: &lt/label&gt
+    &ltselect id="scope"&gt
+        &ltoption value="page"&gtThe page&lt/option&gt
+        &ltoption value="box1"&gtBox 1&lt/option&gt
+        &ltoption value="box2"&gtBox 2&lt/option&gt
+    &lt/select&gt
+&lt/div&gt
+
+&ltdiv class="js-resultbox" id="box2"&gt
+    &ltlabel for="theme"&gtStep 2.  Select theme: &lt/label&gt
+    &ltselect id="theme"&gt
+        &ltoption value="light"&gtLight&lt/option&gt
+        &ltoption value="pink"&gtPink&lt/option&gt
+        &ltoption value="orange"&gtOrange&lt/option&gt
+        &ltoption value="yellow"&gtYellow&lt/option&gt
+        &ltoption value="blue"&gtBlue&lt/option&gt
+        &ltoption value="gray"&gtGray&lt/option&gt
+    &lt/select&gt
+&lt/div&gt
+
+&ltscript&gt
+
+    function getScope () {
+        const userScope = document.querySelector("#scope").value;
+        if (userScope === "page") {
+            return "html";
+        } else {
+            return "#" + userScope;
+        }
+    }
+
+    function getTheme () {
+        const userTheme = document.querySelector("#theme").value;
+        switch (userTheme) {
+            case "light": return "white"; break;
+            case "pink": return "mistyrose"; break;
+            case "orange": return "peachpuff"; break;
+            case "yellow": return "lightyellow"; break;
+            case "blue": return "lightblue"; break;
+            case "gray": return "lightgray"; break;
+        }
+    }
+
+    function changeTheme () {
+        document.querySelector(getScope()).style.backgroundColor = getTheme();
+    }
+
+    theme.addEventListener ("change", changeTheme);
+&lt/script&gt
+</pre>
+
+        <!--Footer, don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+
