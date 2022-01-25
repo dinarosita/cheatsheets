@@ -15,9 +15,52 @@
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>JavaScript</h1></a>
 
-        <h2>Arrow Function</h2>
+        <h2>Functions</h2>
+
+        <div class="formula">
+            <code>
+                    function <span class="variable">functionName</span>() {<span class="variable">code block</span>}
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">functionName</span> = function() {<span class="variable">code block</span>}
+            </code>
+        </div>
+
+        <p>A function can be assigned like above. <code>()</code> is where arguments are listed. It can be empty if there's no arguments.</p>
+
+        <div class="formula">
+            <code>
+                <span class="variable">functionName</span>
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">newVar</span> = <span class="variable">functionName</span>
+            </code>
+        </div><br>
+
+        <p>To see the value (description/formulation) of a function, we are using <code>functionName</code> without the brackets <code>()</code>. Imagine this is how we do to check primitive variables value too. If we assigning it to a new variable <code>newVar</code>, newVar will now contain the same function as <code>functionName</code>. So without bracket, the function will be assigned/declared. Not run. This is what we are using when we assigning a function to an event handler. We just want to assign the function to the handler. Not to run the function and assign its return value to the handler (which will be <code>undefined</code> if the function doesn't have a return value.)</p>
+
+        <div class="formula">
+            <code>
+                <span class="variable">functionName</span>()
+            </code>
+        </div>
+
+        <div class="formula">
+            <code>
+                <span class="variable">newVar</span> = <span class="variable">functionName</span>()
+            </code>
+        </div>
+
+        <p>To run the function, use the brackets: <code>functionName()</code>. It will return a return value or <code>undefined</code> if there's no return value. If we are assigning it to a new variable <code>newVar</code>, then newVar value will be that return value (or <code>undefined</code>) instead of assigning the function formulation. The function will be run when loading the page in order to give newVar the return value needed.</p>
 
         <!--Arrow Function-->
+        <a href="#top"><hr></a>
         <h3>Arrow Function</h3>
 
         <div class="formula">
@@ -96,8 +139,6 @@ greetings = function (userName) {
 
 greetings = userName => "Hello, " + userName + "!";
 </pre>
-
-
         
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>

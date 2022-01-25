@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>JS Select</title>
+        <title>JS Events</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./style.css">
@@ -9,15 +9,63 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     </head>
-
     <body>
 
         <!--Clickable Page Title-->
-        <a href="./index.html"><h1>JavaScript</h1></a>
+        <a href="./index.html"><h1>JavaScript</h1></a>        
+        <h2>Events' Elements</h2>
 
-        <h2>Select Element</h2>
+        <p>There are some elements that are commonly paired up with event handlers in use. They will be featured in this page as we go.</p>
+
+        <ul>
+            <li><code>&ltinput&gt</code></li>
+            <li><code>&ltbutton&gt</code></li>
+            <li><code>&ltselect&gt</code></li>
+        </ul>
+      
+        <!--Input element-->
+        <a href="#top"><hr></a>
+        <h3>Input element</h3>
+
+        <div class="formula">
+            <code>
+                &ltinput type="<span class="variable">the-type</span>" 
+                value="<span class="variable">the-label</span>" 
+                on<span class="code2">event</span>="<span class="parameter">the-action</span>"&gt
+            </code>
+        </div>
+
+        <p>Attributes:</p>
+        <ul>
+            <li><code>type</code>
+                <ul>
+                    <li>The type of the element box.</li>
+                    <li><code>button</code>, <code>submit</code>, and <a href="https://www.w3schools.com/tags/att_input_type.asp#:~:text=input%20type%3D%22value%22%3E-,Attribute%20Values,-Value" target="_blank">more</a>.</li>
+                </ul>
+            </li>
+            <li><code>value</code>
+                <ul>
+                    <li>The label/message on the element box.</li>
+                </ul>
+            </li>
+            <li><code>on<span class="code2">event</span></code>
+                <ul>
+                    <li>The event handler.</li>
+                    <li>Action to be triggered. Example:
+                        <ul>
+                            <li><code>"alert('Greetings!')"</code></li>
+                            <li><code>"functionName()"</code> -- with function detailed in <code>&ltscript&gt</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>HTML attributes are not case-sensitive, but usually lowercases are used. DOM Property is case-sensitive.</p>
+
 
         <!--Select Element-->
+        <a href="#top"><hr></a>
         <h3>Select Element</h3>
 
         <div class="formula">
@@ -64,52 +112,23 @@
             </select>
         </div>
 
-        <h3>Example: Select theme</h3>
-            
+        <!--Sandbox-->
+        <a href="#top"><hr></a>
+        <h4>Sandbox</h4>
 
 <pre class="js-codebox">
-&ltlabel for="theme"&gtSelect theme: &lt/label&gt
-&ltselect id="theme"&gt
-    &ltoption value="light"&gtLight theme&lt/option&gt
-    &ltoption value="dark"&gtDark theme&lt/option&gt
-&lt/select&gt
-
-&ltscript&gt
-    const userTheme = document.querySelector('#theme');
-    const userHtml = document.querySelector('html');
-
-    function update(bgColor, textColor) {
-        userHtml.style.backgroundColor = bgColor;
-        userHtml.style.color = textColor;
-    }
-
-    theme.addEventListener('change', () =&gt ( userTheme.value === 'dark' ) ? update('black','white') : update('white','black'));
-&lt/script&gt 
+//code
 </pre>
-
-        <div class="js-resultbox">
-            <label for="theme">Select theme: </label>
-            <select id="theme">
-                <option value="light">Light theme</option>
-                <option value="dark">Dark theme</option>
-            </select>
-        </div>
-
-
-        <script>
-            const userTheme = document.querySelector('#theme');
-            const userHtml = document.querySelector('html');
-
-            function update(bgColor, textColor) {
-                userHtml.style.backgroundColor = bgColor;
-                userHtml.style.color = textColor;
-            }
-
-            theme.addEventListener('change', () => ( userTheme.value === 'dark' ) ? update('black','white') : update('white','black'));
-        </script>     
         
-        <!--Footer - don't change below-->
+        <!--Footer, don't change below-->
         <a href="#top"><hr></a>
+        <p>References:</p>
+        
+        <ul>
+            <li><a href="https://javascript.info/introduction-browser-events" target="_blank">JavaScript.info: Introduction to Browser Events</a></li>
+            <li><a href="https://www.w3schools.com/tags/att_input_type.asp#:~:text=input%20type%3D%22value%22%3E-,Attribute%20Values,-Value" target="_blank">w3schools: &ltinput&gt type attribute values</a></li>
+        </ul>      
+
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Fun Codes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript Fun Codes</h1></a>
+
+        <h2>Select Theme: B/W</h2>
+
+        <div class="js-resultbox">
+            <label for="theme">Select theme: </label>
+            <select id="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>                
+            </select>
+        </div>
+        
+        <script>
+            // Function for changing theme
+            function changeTheme (textColor, backColor) {
+                document.querySelector("html").style.color = textColor;
+                document.querySelector("html").style.backgroundColor = backColor;
+            }
+
+            // Capture user input
+            theme.addEventListener("change", () => (document.querySelector("#theme").value === "dark") ? changeTheme("white", "black") : changeTheme("black", "white"));
+        </script>
+
+
+<pre class="js-codebox">
+&ltdiv class="js-resultbox"&gt
+    &ltlabel for="theme"&gtSelect theme: &lt/label&gt
+    &ltselect id="theme"&gt
+        &ltoption value="light"&gtLight&lt/option&gt
+        &ltoption value="dark"&gtDark&lt/option&gt                
+    &lt/select&gt
+&lt/div&gt
+</pre>
+
+<p>Script 2: Without defining document.querySelector const separately</p>
+<pre class="js-codebox">
+&ltscript&gt
+    // Function for changing theme
+    function changeTheme (textColor, backColor) {
+        document.querySelector("html").style.color = textColor;
+        document.querySelector("html").style.backgroundColor = backColor;
+    }
+
+    // Capture user input
+    theme.addEventListener("change", () => (document.querySelector("#theme").value === "dark") ? changeTheme("white", "black") : changeTheme("black", "white"));
+&lt/script&gt
+</pre>
+
+<p>Script 1: As lectured</p>
+<pre class="js-codebox">
+&ltscript&gt
+    // Define user input
+    const userTheme = document.querySelector("#theme");
+
+    // Define affected area
+    const displayScope = document.querySelector("html");
+
+    // Function for changing theme
+    function changeTheme (textColor, backColor) {
+        displayScope.style.color = textColor;
+        displayScope.style.backgroundColor = backColor;
+    }
+
+    // Capture user input
+    theme.addEventListener("change", () => (userTheme.value === "dark") ? changeTheme("white", "black") : changeTheme("black", "white"));
+&lt/script&gt
+</pre>
+
+        <!--Footer, don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+

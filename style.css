@@ -41,6 +41,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --bumper-half: 8px;
     --bumper: 16px;
     --bumper-double: 32px;
+    --bumper-triple: 48px;
+
     --remove-bumper-quarter: -4px;
     --remove-bumper-half: -8px;
     --remove-bumper: -16px;
@@ -74,13 +76,22 @@ h1 {
     text-align: center;
 }
 
-h2 {
+h2, h3 {
     padding: var(--bumper);
     text-decoration: underline;
     text-align: center;
 }
 
-h3, h4 {
+.titleBox {
+    margin: var(--bumper-triple) 0 var(--bumper);
+    padding: var(--bumper-quarter);
+    border: 8px double var(--border);
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+h4 {
     padding-top: var(--bumper);
 }
 
@@ -101,7 +112,7 @@ a {
     font-style: italic;
 }
 
-a h1, a h2 {
+a h1, a h2, h3 a, h4 a {
     font-style: normal;
 }
 

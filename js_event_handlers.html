@@ -13,7 +13,10 @@
 
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>JavaScript</h1></a>        
-        <h2>Events and Input Element</h2>
+        <h2>Event Handlers</h2>
+
+        <!--Events-->
+        <h4>Events</h4>
 
         <p><strong>An event:</strong> a signal that something has happened.</p>
 
@@ -51,51 +54,16 @@
             </li>
         </ul>
         
-        <p>First, let's take a look at basic <code>&ltinput&gt </code>element and function within <code>&ltscript&gt</code> to put event handler into context.</p>
-                
-        <!--Input element-->
-        <a href="#top"><hr></a>
-        <h3>Input element</h3>
+        <h4><a href="./js_events_elements.html">Elements</a></h4>
 
-        <div class="formula">
-            <code>
-                &ltinput type="<span class="variable">the-type</span>" 
-                value="<span class="variable">the-label</span>" 
-                on<span class="code2">event</span>="<span class="parameter">the-action</span>"&gt
-            </code>
-        </div>
-
-        <p>Attributes:</p>
+        <p>Some common elements highly related to events and handlers:</p>
         <ul>
-            <li><code>type</code>
-                <ul>
-                    <li>The type of the element box.</li>
-                    <li><code>button</code>, <code>submit</code>, and <a href="https://www.w3schools.com/tags/att_input_type.asp#:~:text=input%20type%3D%22value%22%3E-,Attribute%20Values,-Value" target="_blank">more</a>.</li>
-                </ul>
-            </li>
-            <li><code>value</code>
-                <ul>
-                    <li>The label/message on the element box.</li>
-                </ul>
-            </li>
-            <li><code>on<span class="code2">event</span></code>
-                <ul>
-                    <li>The event handler.</li>
-                    <li>Action to be triggered. Example:
-                        <ul>
-                            <li><code>"alert('Greetings!')"</code></li>
-                            <li><code>"functionName()"</code> -- with function detailed in <code>&ltscript&gt</code></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+            <li><code>&ltinput&gt</code></li>
+            <li><code>&ltbutton&gt</code></li>
+            <li><code>&ltselect&gt/code></li>
         </ul>
 
-        <p>HTML attributes are not case-sensitive, but usually lowercases are used. DOM Property is case-sensitive.</p>
-
-        <!--Event Handlers-->
-        <a href="#top"><hr></a>
-        <h3>Event Handlers</h3>      
+        <h4>Event Handlers</h4>      
 
         <p><strong>A handler:</strong> a function that runs in case of an event.</p>
 
@@ -114,7 +82,7 @@
                     <li>Sometimes a choice. But it's limited 1 one handler function per event.</li>
                 </ul>
             </li>
-            <li><strong>Methods</strong>
+            <li><strong>Methods</strong>: <code><a href="#section_addEventListener">addEventListener</a></code>
                 <ul>
                     <li><code>elementName.addEventListener(event, handler, [phase])</code> and <code>elementName.removeEventListener(event, handler, [phase])</code></li>
                     <li>Most flexible even though a bit long to write.</li>
@@ -123,9 +91,10 @@
             </li>
         </ul>
 
-        <!--HTML-attributes-->
+        
+        <!--HTML-attributes-->       
         <a href="#top"><hr></a>
-        <h2>HTML-attributes</h2>
+        <h3>HTML-attributes</h3>
 
         <div class="formula">
             <code>
@@ -159,7 +128,7 @@
 
         <!--DOM Property-->
         <a href="#top"><hr></a>
-        <h2>DOM Property</h2>
+        <h3>DOM Property</h3>
 
         <div class="formula">
             <code>
@@ -201,7 +170,7 @@
 
         <!--HTML-attributes works like DOM property-->
         <a href="#top"><hr></a>
-        <h3>HTML-attributes works like DOM property</h3>
+        <h4>HTML-attributes works like DOM property</h4>
 
         <div class="formula" style="font-weight: normal;">
             <code>
@@ -246,52 +215,8 @@
             }
         </script>   
 
-
-        <!--Function-->
+        <!--Assigning Functions-->
         <a href="#top"><hr></a>
-        <h3>Function</h3>
-
-        <div class="formula">
-            <code>
-                    function <span class="variable">functionName</span>() {<span class="variable">code block</span>}
-            </code>
-        </div>
-
-        <div class="formula">
-            <code>
-                <span class="variable">functionName</span> = function() {<span class="variable">code block</span>}
-            </code>
-        </div>
-
-        <p>A function can be assigned like above. <code>()</code> is where arguments are listed. It can be empty if there's no arguments.</p>
-
-        <div class="formula">
-            <code>
-                <span class="variable">functionName</span>
-            </code>
-        </div>
-
-        <div class="formula">
-            <code>
-                <span class="variable">newVar</span> = <span class="variable">functionName</span>
-            </code>
-        </div><br>
-
-        <p>To see the value (description/formulation) of a function, we are using <code>functionName</code> without the brackets <code>()</code>. Imagine this is how we do to check primitive variables value too. If we assigning it to a new variable <code>newVar</code>, newVar will now contain the same function as <code>functionName</code>. So without bracket, the function will be assigned/declared. Not run. This is what we are using when we assigning a function to an event handler. We just want to assign the function to the handler. Not to run the function and assign its return value to the handler (which will be <code>undefined</code> if the function doesn't have a return value.)</p>
-
-        <div class="formula">
-            <code>
-                <span class="variable">functionName</span>()
-            </code>
-        </div>
-
-        <div class="formula">
-            <code>
-                <span class="variable">newVar</span> = <span class="variable">functionName</span>()
-            </code>
-        </div>
-
-        <p>To run the function, use the brackets: <code>functionName()</code>. It will return a return value or <code>undefined</code> if there's no return value. If we are assigning it to a new variable <code>newVar</code>, then newVar value will be that return value (or <code>undefined</code>) instead of assigning the function formulation. The function will be run when loading the page in order to give newVar the return value needed.</p>
 
         <h4>Assigning function to DOM Property</h4>
 
@@ -362,7 +287,7 @@
 
         <!--Using both HTML-attributes and DOM property-->
         <a href="#top"><hr></a>
-        <h3>Using both HTML-attributes and DOM property</h3>
+        <h4>Using both HTML-attributes and DOM property</h4>
 
         <p>Because only one action/function can happen per event, when both are used, the later one (DOM property on <code>&ltscript&gt;</code>) will overwrite the HTML-attribute.</p>
 
@@ -384,7 +309,7 @@
 
         <!--Remove handler-->
         <a href="#top"><hr></a>
-        <h3>Remove handler</h3>
+        <h4>Remove handler</h4>
 
         <div class="formula">
             <code>
@@ -401,7 +326,7 @@ handler2.onclick = null;
 
         <!--Accessing the element: this-->
         <a href="#top"><hr></a>
-        <h3>Accessing the element: this</h3>
+        <h4>Accessing the element: this</h4>
 
         <div class="formula"><code>this</code></div>
 
@@ -416,7 +341,7 @@ handler2.onclick = null;
 
         <!--addEventListener-->
         <a href="#top"><hr></a>
-        <h2>addEventListener</h2>
+        <h3>addEventListener</h3>
 
         <div class="formula">
             <code>
@@ -519,9 +444,10 @@ input.removeEventListener("click", () => alert("Kitten"));
         <p>There are some events that can only be assigned using <code>addEventListener</code>. It can't be assigned using DOM property. For example, <code>DOMContentLoaded</code> event that triggers when the document is loaded and DOM is built. 
         </p>
 
+
         <!--Sandbox-->
         <a href="#top"><hr></a>
-        <h3>Sandbox</h3>
+        <h4>Sandbox</h4>
 
 <pre class="js-codebox">
 //code
@@ -529,7 +455,6 @@ input.removeEventListener("click", () => alert("Kitten"));
         
         <!--Footer, don't change below-->
         <a href="#top"><hr></a>
-
         <p>References:</p>
         
         <ul>

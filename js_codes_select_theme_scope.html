@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Fun Codes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript Fun Codes</h1></a>
+
+        <h2>Select Theme: Within scope</h2>
+
+        <div class="js-resultbox">
+            <div>
+                <label for="scope">Select scope: </label>
+                <select id="scope">
+                    <option value="page">Whole page</option>
+                    <option value="box">This box</option>
+                </select>
+            </div>
+            <div>
+                <label for="theme">Select theme: </label>
+                <select id="theme">
+                    <option value="default">Default</option>
+                    <option value="baby">Baby</option>   
+                    <option value="unicorn">Unicorn</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>                
+                </select>
+            </div>
+        </div>
+        
+        <script>
+            // Script 2
+            // Function for capturing user's preference
+            captureScope = () => (document.querySelector("#scope").value === "page") ? "html": ".js-resultbox";
+
+            function captureTheme () {
+                switch (document.querySelector("#theme").value) {
+                    case "baby":
+                        changeTheme ("cadetblue", "mistyrose");
+                        break;
+                    case "unicorn":
+                        changeTheme ("purple", "lightyellow");
+                        break;
+                    case "light":
+                        changeTheme ("black", "whitesmoke");
+                        break;
+                    case "dark":
+                        changeTheme ("white", "black");
+                        break;
+                    case "default":
+                        changeTheme(null, null);
+                        break;
+                }
+            }                  
+
+            // Function for changing theme
+            function changeTheme (textColor, backColor) {
+                document.querySelector(captureScope()).style.color = textColor;
+                document.querySelector(captureScope()).style.backgroundColor = backColor;
+            }
+
+            // Capture user input
+            theme.addEventListener("change", captureTheme);
+            scope.addEventListener("change", captureScope);
+
+        </script>
+
+
+<pre class="js-codebox">
+&ltdiv&gt
+    &ltlabel for="scope"&gtSelect scope: &lt/label&gt
+    &ltselect id="scope"&gt
+        &ltoption value="page"&gtWhole page&lt/option&gt
+        &ltoption value="box"&gtThis box&lt/option&gt
+    &lt/select&gt
+&lt/div&gt
+
+&ltdiv class="js-resultbox"&gt
+    &ltlabel for="theme"&gtSelect theme: &lt/label&gt
+    &ltselect id="theme"&gt
+        &ltoption value="default"&gtDefault&lt/option&gt
+        &ltoption value="baby"&gtBaby&lt/option&gt   
+        &ltoption value="unicorn"&gtUnicorn&lt/option&gt
+        &ltoption value="light"&gtLight&lt/option&gt
+        &ltoption value="dark"&gtDark&lt/option&gt                
+    &lt/select&gt
+&lt/div&gt
+</pre>
+
+<h4>Script 2</h4>
+<pre class="js-codebox">
+&ltscript&gt
+    // Function for capturing user's preference
+    captureScope = () => (document.querySelector("#scope").value === "page") ? "html": ".js-resultbox";
+
+    function captureTheme () {
+        switch (document.querySelector("#theme").value) {
+            case "baby":
+                changeTheme ("cadetblue", "mistyrose");
+                break;
+            case "unicorn":
+                changeTheme ("purple", "lightyellow");
+                break;
+            case "light":
+                changeTheme ("black", "whitesmoke");
+                break;
+            case "dark":
+                changeTheme ("white", "black");
+                break;
+            case "default":
+                changeTheme(null, null);
+                break;
+        }
+    }                  
+
+    // Function for changing theme
+    function changeTheme (textColor, backColor) {
+        document.querySelector(captureScope()).style.color = textColor;
+        document.querySelector(captureScope()).style.backgroundColor = backColor;
+    }
+
+    // Capture user input
+    theme.addEventListener("change", captureTheme);
+    scope.addEventListener("change", captureScope);
+&lt/script&gt
+</pre>
+
+<h4>Script 1</h4>
+<pre class="js-codebox">
+&ltscript&gt
+    let userScope = "html";
+                
+    function captureScope () {
+        switch (document.querySelector("#scope").value) {
+            case "page":
+                userScope = "html";
+                break;
+            case "box":
+                userScope = ".js-resultbox";
+                break;
+        }
+    }
+
+    function captureTheme () {
+        switch (document.querySelector("#theme").value) {
+            case "baby":
+                changeTheme ("cadetblue", "mistyrose");
+                break;
+            case "unicorn":
+                changeTheme ("purple", "lightyellow");
+                break;
+            case "light":
+                changeTheme ("black", "whitesmoke");
+                break;
+            case "dark":
+                changeTheme ("white", "black");
+                break;
+            case "default":
+                changeTheme(null, null);
+                break;
+        }
+    }        
+
+    // Function for changing theme
+    function changeTheme (textColor, backColor) {
+        document.querySelector(userScope).style.color = textColor;
+        document.querySelector(userScope).style.backgroundColor = backColor;
+    }
+
+    // Capture user input
+    theme.addEventListener("change", captureTheme);
+    scope.addEventListener("change", captureScope);
+&lt/script&gt
+</pre>
+
+        <!--Footer, don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+
