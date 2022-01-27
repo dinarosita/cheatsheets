@@ -278,7 +278,14 @@ code a {
 .code2 {
     color: var(--othercolor3);
     background-color: var(--flexbackground);
+}
 
+.js-resultbox h6 {
+    text-decoration: none;
+    margin: 1em 0;
+}
+.toggle {
+    display: none;
 }
 /* JavaScript Notes */
 
@@ -293,7 +300,6 @@ code a {
     padding: 1em;
     border: 2px solid var(--border);
     border-radius: 5px;
-    max-width: 600px;
     margin: 1em;
 }
 

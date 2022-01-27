@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>JS Fun Codes</title>
+        <title>JS Codes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./style.css">
@@ -12,97 +12,9 @@
     <body>
 
         <!--Clickable Page Title-->
-        <a href="./index.html"><h1>JavaScript</h1></a>
+        <a href="./index.html"><h1>JavaScript: Little Codes</h1></a>
         
-        <h2>Fun Codes</h2>
-
-        <!--Sandbox-->
-        <h4>Sandbox</h4>
-
-        <pre class="js-codebox">Code block</pre>
-        
-        <div class ="js-resultbox">Result</div>
-
-        <!-- Temporary dumpster -->
-
-
-        <!--Admin login-->
-        <a href="#top"><hr></a>
-        <h3>Admin login</h3>
-
-        <p>Here's a special button for admin login. Only accepts Admin (not case sensitive) at login. Password is "TheMaster" (case sensitive).</p>
-
-<pre class="js-codebox">
-&ltinput type="button" id="loginButton" value="Login"&gt
-&ltscript&gt
-<span class="tab">function loginFunction() {
-<span class="tab2">let userName1 = prompt("Who are you?");
-<span class="tab2">if (userName1 === null) {
-<span class="tab3">alert ("Nevermind...");
-<span class="tab2">} else if (userName1.toUpperCase() === "ADMIN") {
-<span class="tab3">let userPass1 = prompt ("Enter your password: ");
-<span class="tab3">if (userPass1 === null) {
-<span class="tab4">alert ("Sigh...");
-<span class="tab3">} else if (userPass1 === "TheMaster") {
-<span class="tab4">alert ("Hello, Admin!");
-<span class="tab3">} else {
-<span class="tab4">alert ("No no no no no... not today!");
-<span class="tab3">}
-<span class="tab2">} else {
-<span class="tab3">alert ("Sorry, we don't know you.");
-<span class="tab2">}
-<span class="tab">}
-<span class="tab">loginButton.onclick = loginFunction;
-&lt/script&gt   
-</pre>
-        <input type="button" id="loginButton" value="Login">
-        <script>
-            function loginFunction() {
-                let userName1 = prompt("Who are you?");
-                if (userName1 === null) {
-                    alert ("Nevermind...");
-                } else if (userName1.toUpperCase() === "ADMIN") {
-                    let userPass1 = prompt ("Enter your password: ");
-                    if (userPass1 === null) {
-                        alert ("Sigh...");
-                    } else if (userPass1 === "TheMaster") {
-                        alert ("Hello, Admin!");
-                    } else {
-                        alert ("No no no no no... not today!");
-                    }
-                } else {
-                    alert ("Sorry, we don't know you.");
-                }
-            }
-            loginButton.onclick = loginFunction;
-        </script>
-
-        <!--Favourite food-->
-        <a href="#top"><hr></a>
-        <h3>Favourite food</h3>
-
-<pre class="js-codebox">
-&ltinput type="button" id="foodButton" value="Food Button"&gt
-&ltscript&gt
-<span class="tab">function food() {
-<span class="tab2">let favFood = window.prompt("What's your favourite food?");
-<span class="tab2">alert ("Your favourite food is " + favFood);
-<span class="tab">}
-<span class="tab">foodButton.onclick = food;
-&lt/script&gt
-</pre>
-        <input type="button" id="foodButton" value="Food Button">
-        <script>
-            function food() {
-                let favFood = window.prompt("What's your favourite food?");
-                alert ("Your favourite food is " + favFood);
-            }
-            foodButton.onclick = food;
-        </script>
-
-        <!--Weather-->
-        <a href="#top"><hr></a>
-        <h3>Weather</h3>
+        <h2>Weather</h2>
 
 <pre class="js-codebox">
 &ltlabel for="weather"&gtSelect the weather type today: &lt/label&gt
@@ -170,15 +82,6 @@
                 }
             </script>
         </div>        
-        
-        <!--Click Button-->
-        <a href="#top"><hr></a>
-        <h3>Click Button</h3>
-
-<pre class="js-codebox">
-&ltinput value="Click me" onclick="alert('Click!')" type="button"&gt
-</pre>
-        <input value="Click me" onclick="alert('Click!')" type="button">
         
         <!--Footer, don't change below-->
         <a href="#top"><hr></a>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Sandbox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript: Sandbox</h1></a>
+        
+        <h2>Paragraph analyzer</h2>
+
+        <div class ="js-resultbox">
+
+            <h6><label for="inputParagraph">Submit a paragraph:</label></h6>
+            <textarea id="inputParagraph" name="inputParagraph" rows="10" cols="50"></textarea><br>
+            <button id="submit">Submit</button>
+            <br><br>
+            <div id="boxOriginal" class="toggle">
+                <h6>The paragraph:</h6>
+                <p id="theOriginal"></p>
+            </div>            
+            <div id="boxOptions" class="toggle">
+                <button id="buttonStat">Statistics</button>
+                <button id="buttonSuggest">Suggestions</button>
+            </div>
+            <div id="boxStats" class="toggle">
+                <h6>The statistics:</h6>
+                <p id="theWordCount"></p>
+                <p id="theSentenceCount"></p>
+            </div> 
+            <div id="boxSuggest" class="toggle suggest">
+                <h6>Suggestions:</h6>
+                <p id="noSuggest" class="toggle suggest">Looking good, I have nothing to suggest :)</p>
+                <p id="probSpaceStartEnd" class="toggle suggest">Consider removing leading and ending spaces.</p>
+                <p id="probSpaceStart" class="toggle suggest">Consider removing leading spaces.</p>
+                <p id="probSpaceEnd" class="toggle suggest">Consider removing ending spaces.</p>
+                <p id="probSpaceMulti" class="toggle suggest">Consider condensing multiple spaces.</p>
+                <p id="probSpaceBeforePunc" class="toggle suggest">Consider removing spaces before periods, commas, question marks, and punctuation marks.</p>
+                <button id="buttonAutoFix" class="toggle suggest">Auto fix</button>
+                <p id="fixedPara" class="toggle suggest"></p>
+            </div> 
+
+            <script>
+                // SUBMIT BUTTON
+
+                // getPara(): capture paragraph, display paragraph, display options
+
+                function toggleNone (classname) {
+                    let setNone = document.getElementsByClassName(classname);
+                    for (let i = 0; i < setNone.length; i++){
+                        setNone[i].style.display = "none";
+                    }
+                }
+                function getPara () {                   
+                    // get user's paragraph
+                    const userPara = document.querySelector("#inputParagraph").value;
+                    // display the paragraph and option as long as it's not an empty strinG or white space only
+                    if (userPara.trim()  === "") {
+                        // do nothing
+                    } else {
+                        document.querySelector("#theOriginal").textContent = userPara;
+                        document.getElementById("boxOriginal").style.display = "block";
+                        document.getElementById("boxOptions").style.display = "block";
+                    }          
+                    return userPara;          
+                }
+
+                // startPoint(): Set all members of class "toggle" to display:none
+                function startPoint () {
+                    toggleNone("toggle");
+                    getPara ();
+                }              
+
+                
+                // Submit button: call getPara()
+                submit.addEventListener("click", startPoint);
+
+                // STATISTIC BUTTON
+                // countablePara(): create countable paragraph for countPara()
+                function countablePara () {
+                    // get paragraph
+                    let modPara = getPara ();   
+                    // remove white spaces
+                    modPara = modPara.trim();
+                    // condense multiple spaces
+                    modPara = modPara.replace (/[ ]+ /g, " ");
+                    // condense multiple ?!.
+                    modPara = modPara.replace(/[?!.]+/g, ".");
+                    // make sure text end with ?!.
+                    const lastChar = modPara[(modPara.length)-1];
+                    if (lastChar !== "." && lastChar !== "?" && lastChar !== "!") {
+                        modPara += ".";
+                    }
+                    return modPara;
+                }
+                    
+                // countPara(): need countablePara(), count words count and sentences, display. 
+                function countPara () {
+                    const modPara = countablePara();
+                    const wordArray = modPara.split(" ");
+                    const sentenceArray = modPara.split(".");
+
+                    if (modPara === "") {
+                        wordCount = 0;
+                        sentenceCount = 0;
+                    } else {
+                        wordCount = wordArray.length;
+                        sentenceCount = (sentenceArray.length) -1;
+                    }
+                    // report results
+                    document.querySelector("#theWordCount").textContent = `Word count = ${wordCount}`;
+                    document.querySelector("#theSentenceCount").textContent = `Sentence count = ${sentenceCount}`;
+                    document.getElementById("boxStats").style.display = "block";
+                }
+                // Statistic button: call countPara() to do statistic and display the results
+                buttonStat.addEventListener("click", countPara);
+
+                // SUGGEST BUTTON
+                // suggestFix(): find mistakes and display the mistakes without fixing
+                function suggestFix () {
+                    // refreshing the section
+                    toggleNone("suggest");
+                    // get paragraph
+                    let modPara = getPara ();
+                    let noSuggest = true;
+                    // 1. Detect leading and ending spaces. Fix: trim.
+                    if (modPara.startsWith(" ") && modPara.endsWith(" ")) {
+                        noSuggest = false;
+                        document.getElementById("probSpaceStartEnd").style.display = "block";
+                    } else if (modPara.startsWith(" ")) {
+                        noSuggest = false;
+                        document.getElementById("probSpaceStart").style.display = "block";
+                    } else if (modPara.endsWith(" ")) {
+                        noSuggest = false;
+                        document.getElementById("probSpaceEnd").style.display = "block";
+                    }
+                    modPara = modPara.trim();
+
+                    // 2. Detect multiple spaces. Fix: condense spaces.
+                    if (modPara.search(/  /) !== -1) {
+                        noSuggest = false;
+                        document.getElementById("probSpaceMulti").style.display = "block";
+                        modPara = modPara.replace (/[ ]+ /g, " ");
+                    }
+
+                    // 3. Detect no leading space to ?!.
+                    if (modPara.search(/[ ][?!.,]/) !== -1) {
+                        noSuggest = false;
+                        document.getElementById("probSpaceBeforePunc").style.display = "block";
+                        modPara = modPara.replace (/ \?/g, "?");
+                        modPara = modPara.replace (/ !/g, "!");
+                        modPara = modPara.replace (/ \./g, ".");
+                        modPara = modPara.replace (/ ,/g, ",");
+                    }
+
+
+
+
+
+                    // If no problem is found, display "no suggestion" message. Otherwise, display "Suggestions".
+                    if (noSuggest === true) {
+                        document.getElementById("noSuggest").style.display = "block";
+                    } else {
+                        document.getElementById("noSuggest").style.display = "none";
+                        document.getElementById("buttonAutoFix").style.display = "block";
+                    }
+
+                    // Display suggestion box
+                    document.getElementById("boxSuggest").style.display = "block";
+                    return modPara;
+                }
+
+                // fixPara(): call getPara() and fix the paragraph
+                function fixPara() {
+                    let modPara = getPara();
+                }
+
+                // Suggest button: call suggestFix()
+                buttonSuggest.addEventListener("click", suggestFix);
+
+                //
+
+                function autoFix () {
+                    let modPara = suggestFix();
+                    document.getElementById("fixedPara").style.display = "block";
+                    document.querySelector("#fixedPara").textContent = modPara;
+                }
+
+                // autoFix button: call getPara()
+                buttonAutoFix.addEventListener("click", autoFix);
+
+            </script>
+
+            <!--
+                1. Large input box with submit button to enter the paragraph as a string.
+                2. Basic analysis: Number of words, Number of sentences.
+                3. Commentor:
+                    a. Use uppercase to start a sentence.
+                    b. Remove space before .,?!
+                    c. Add space after .,?!
+                    d. Multiple spaces.
+                4. Option to fix problems at #3.
+            -->
+        </div>
+
+        <script>
+
+        </script>
+
+
+<pre class="js-codebox">
+Code placeholder
+</pre>
+                
+        <!--Footer, don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+

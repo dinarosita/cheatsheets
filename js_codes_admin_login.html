@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Codes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <a href="./index.html"><h1>JavaScript: Little Codes</h1></a>
+        
+        <h2>Admin login</h2>
+
+        <p>Here's a special button for admin login. Only accepts Admin (not case sensitive) at login. Password is "TheMaster" (case sensitive).</p>
+
+<pre class="js-codebox">
+&ltinput type="button" id="loginButton" value="Login"&gt
+&ltscript&gt
+<span class="tab">function loginFunction() {
+<span class="tab2">let userName1 = prompt("Who are you?");
+<span class="tab2">if (userName1 === null) {
+<span class="tab3">alert ("Nevermind...");
+<span class="tab2">} else if (userName1.toUpperCase() === "ADMIN") {
+<span class="tab3">let userPass1 = prompt ("Enter your password: ");
+<span class="tab3">if (userPass1 === null) {
+<span class="tab4">alert ("Sigh...");
+<span class="tab3">} else if (userPass1 === "TheMaster") {
+<span class="tab4">alert ("Hello, Admin!");
+<span class="tab3">} else {
+<span class="tab4">alert ("No no no no no... not today!");
+<span class="tab3">}
+<span class="tab2">} else {
+<span class="tab3">alert ("Sorry, we don't know you.");
+<span class="tab2">}
+<span class="tab">}
+<span class="tab">loginButton.onclick = loginFunction;
+&lt/script&gt   
+</pre>
+        <input type="button" id="loginButton" value="Login">
+        <script>
+            function loginFunction() {
+                let userName1 = prompt("Who are you?");
+                if (userName1 === null) {
+                    alert ("Nevermind...");
+                } else if (userName1.toUpperCase() === "ADMIN") {
+                    let userPass1 = prompt ("Enter your password: ");
+                    if (userPass1 === null) {
+                        alert ("Sigh...");
+                    } else if (userPass1 === "TheMaster") {
+                        alert ("Hello, Admin!");
+                    } else {
+                        alert ("No no no no no... not today!");
+                    }
+                } else {
+                    alert ("Sorry, we don't know you.");
+                }
+            }
+            loginButton.onclick = loginFunction;
+        </script>
+        
+        <!--Footer, don't change below-->
+        <a href="#top"><hr></a>
+        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+    </body>
+</html>
+
