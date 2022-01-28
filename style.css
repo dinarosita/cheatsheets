@@ -126,6 +126,10 @@ button {
     color: var(--title);
 }
 
+button {
+    margin: 16px 0;
+}
+
 .index-container a {
     color: var(--link1);
     font-style: normal;
@@ -146,8 +150,16 @@ table {
     text-align: left;
 }
 
+textarea {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid var(--border);
+}
+
 label {
     padding: var(--bumper) 0;
+    font-weight: bold;
+    color: var(--title);
 }
 
 th, td {
@@ -225,6 +237,7 @@ table code {
 .text-decoration-none {
     text-decoration: none;
 }
+
 
 /* Coding Font */ 
 
