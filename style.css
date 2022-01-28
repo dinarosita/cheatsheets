@@ -330,7 +330,33 @@ code a {
     font-weight: 500;
 }
 
+form input {
+    margin: 10px auto;
+}
 
+input.valid {
+    color: var(--title);
+    border-color: var(--title);
+}
+
+input.invalid {
+    color:orange;
+    border-color: orange;
+}
+
+input + p {
+    font-weight: bold;
+    font-size: 0.8em;
+    margin: 0 10px;
+    color: orange;
+    opacity: 0;
+    height: 0;
+}
+input.invalid + p {
+    opacity: 1;
+    height:auto;
+    margin-bottom: 20px;
+}
 
 /* Listing */
 

@@ -127,6 +127,8 @@
                 }
                 par = par.replace (/[ ]+ /g, " ");
 
+                // make sure there's space after ?!.,
+
                 // remove spaces before ?!,.
                 if (par.search(/[ ][?!.,]/) !== -1) {
                     noProb = false;
@@ -137,7 +139,6 @@
                 par = par.replace (/ \./g, ".");
                 par = par.replace (/ ,/g, ",");
 
-                // make sure there's space after 
 
                 // no problem found
                 if (noProb === true) {
