@@ -101,12 +101,13 @@
                 return sentCount;
             }
        
-            // function: Find problems
-            function findProblems () {
+            // function: Find problems and fix paragraph
+            function fixPar() {
                 toggleClass("tips", "none");
                 let par = getUserPar ();
                 let noProb = true;
-                // 1. Detect leading and ending spaces. Fix: trim.
+                
+                // reamove leading and ending white spaces
                 if (par.startsWith(" ") && par.endsWith(" ")) {
                     noProb = false;
                     document.getElementById("probSpaceStartEnd").style.display = "block";
@@ -119,45 +120,39 @@
                 }
                 par = par.trim();
 
-                // 2. Detect multiple spaces. Fix: condense spaces.
+                // remove doubled spaces
                 if (par.search(/  /) !== -1) {
                     noProb = false;
                     document.getElementById("probSpaceMulti").style.display = "block";
-                    par = par.replace (/[ ]+ /g, " ");
                 }
+                par = par.replace (/[ ]+ /g, " ");
 
-                // 3. Detect no leading space to ?!.
+                // remove spaces before ?!,.
                 if (par.search(/[ ][?!.,]/) !== -1) {
                     noProb = false;
                     document.getElementById("probSpaceBeforePunc").style.display = "block";
-                    par = par.replace (/ \?/g, "?");
-                    par = par.replace (/ !/g, "!");
-                    par = par.replace (/ \./g, ".");
-                    par = par.replace (/ ,/g, ",");
                 }
+                par = par.replace (/ \?/g, "?");
+                par = par.replace (/ !/g, "!");
+                par = par.replace (/ \./g, ".");
+                par = par.replace (/ ,/g, ",");
 
+                // make sure there's space after 
+
+                // no problem found
                 if (noProb === true) {
                     document.getElementById("noTips").style.display = "block";
                 } else {
                     document.getElementById("noTips").style.display = "none";
                 }
-
-                // Display suggestion box
                 return par;
             }
             
-            // Function: fixing paragraph
-            function fixPar () {
-                let par = getUserPar();
-                return par;
-            }
-
             // Function: analyse and assign results
             function analyze() {
                 document.querySelector("#oriPar").textContent = getUserPar();
                 document.querySelector("#wordCount").textContent = countWords();
                 document.querySelector("#sentCount").textContent = countSents();
-                findProblems();
                 document.querySelector("#fixedPar").textContent = fixPar(); 
             }
 
