@@ -38,11 +38,15 @@
         <button class="toggle optionButton" id="tipsButton">Tips</button>
         <div class="toggle resultBox" id="tipsBox">
             <p class="tips" id="noTips">Looking good, I have nothing to suggest :)</p>
-            <p class="tips" id="probSpaceStartEnd">Consider removing leading and ending spaces.</p>
-            <p class="tips" id="probSpaceStart">Consider removing leading spaces.</p>
-            <p class="tips" id="probSpaceEnd">Consider removing ending spaces.</p>
+            <p class="tips" id="probSpaceStartEnd">Consider removing leading/ending spaces.</p>
             <p class="tips" id="probSpaceMulti">Consider condensing doubled spaces.</p>
-            <p class="tips" id="probSpaceBeforePunc">Consider removing spaces before (.,?!).</p>
+            <p class="tips" id="probSpaceBeforePunc">Consider removing spaces before [.,?!].</p>
+            <p class="tips" id="probNoSpaceAfterPunc">Consider adding a space after [?!].</p>
+            <p class="tips" id="haltNoSpaceAfterPeriod">Period separated number or email address detected. Consider checking for a space after a period manually.</p>
+            <p class="tips" id="probNoSpaceAfterPeriod">Consider adding a space after period.</p>
+            <p class="tips" id="haltNoSpaceAfterComma">Comma separated number detected. Consider checking for a space after a comma manually.</p>
+            <p class="tips" id="probNoSpaceAfterComma">Consider adding a space after comma.</p>
+
         </div> 
         
         <!-- Section: Fix-->
@@ -108,40 +112,80 @@
                 let noProb = true;
                 
                 // reamove leading and ending white spaces
-                if (par.startsWith(" ") && par.endsWith(" ")) {
+                if (par.startsWith(" ") || par.endsWith(" ")) {
                     noProb = false;
                     document.getElementById("probSpaceStartEnd").style.display = "block";
-                } else if (par.startsWith(" ")) {
-                    noProb = false;
-                    document.getElementById("probSpaceStart").style.display = "block";
-                } else if (par.endsWith(" ")) {
-                    noProb = false;
-                    document.getElementById("probSpaceEnd").style.display = "block";
+                    par = par.trim();
                 }
-                par = par.trim();
 
                 // remove doubled spaces
-                if (par.search(/  /) !== -1) {
+                if (par.search(/\s\s/) !== -1) {
                     noProb = false;
                     document.getElementById("probSpaceMulti").style.display = "block";
+                    par = par.replace (/\s\s+/g, " ");
                 }
-                par = par.replace (/[ ]+ /g, " ");
-
-                // make sure there's space after ?!.,
 
                 // remove spaces before ?!,.
                 if (par.search(/[ ][?!.,]/) !== -1) {
                     noProb = false;
                     document.getElementById("probSpaceBeforePunc").style.display = "block";
+                    par = par.replace (/\s\?/g, "?");
+                    par = par.replace (/\s!/g, "!");
+                    par = par.replace (/\s\./g, ".");
+                    par = par.replace (/\s,/g, ",");
                 }
-                par = par.replace (/ \?/g, "?");
-                par = par.replace (/ !/g, "!");
-                par = par.replace (/ \./g, ".");
-                par = par.replace (/ ,/g, ",");
 
+                // make sure there's a space after ?!
+                if (par.search(/[?!]\S/) !== -1) {
+                    noProb = false;
+                    document.getElementById("probNoSpaceAfterPunc").style.display = "block";
+                    if (par.search(/[?]\S/) !== -1) {
+                        par = par.replace (/\?/g, "? ");
+                        par = par.replace (/\?\s\s+/, "? ");
+                        par = par.trim();
+                    }
+                    if (par.search(/[!]\S/) !== -1) {
+                        par = par.replace (/!/g, "? ");
+                        par = par.replace (/!\s\s+/, "? ");
+                        par = par.trim();
+                    }
+                }
+
+                // make sure there's space after a period, except if email or number is detected
+                let email =  false;
+                let numPeriod = false;
+                if (par.search(/[a-z\d\.-]+@[a-z\d-]+\.[a-z]{2,8}(\.[a-z]{2,8})?/i) !== -1) {
+                    email = true;
+                }
+                if (par.search(/\.\d/) !== -1) {
+                    numPeriod = true;
+                }
+
+                if (email || numPeriod) {
+                    noProb = false;
+                    document.getElementById("haltNoSpaceAfterPeriod").style.display = "block";
+                } else if (par.search(/\.\S/) !== -1) {
+                    noProb = false;
+                    document.getElementById("probNoSpaceAfterPeriod").style.display = "block";
+                    par = par.replace (/\./g, ". ");
+                    par = par.replace (/\.\s\s+/, ". ");
+                    par = par.trim();
+                }
+
+                // make sure there's space after a comma, except if number is detected.
+                if (par.search(/,\d/) !== -1) {
+                    noProb = false;
+                    document.getElementById("haltNoSpaceAfterComma").style.display = "block";
+                } else if (par.search(/,\S/) !== -1) {
+                    noProb = false;
+                    document.getElementById("probNoSpaceAfterComma").style.display = "block";
+                    par = par.replace (/,/g, ", ");
+                    par = par.replace (/,\s\s+/, ", ");
+                    par = par.trim();
+                }
 
                 // no problem found
-                if (noProb === true) {
+                if (noProb) {
                     document.getElementById("noTips").style.display = "block";
                 } else {
                     document.getElementById("noTips").style.display = "none";
