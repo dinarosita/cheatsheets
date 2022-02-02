@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>JS () =></title>
+        <title>JS RegExp</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./style.css">
@@ -15,131 +15,135 @@
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>JavaScript</h1></a>
 
-        <h2>Functions</h2>
-
+        <h2>Regular Expressions</h2>
+        
         <div class="formula">
             <code>
-                    function <span class="variable">functionName</span>() {<span class="variable">code block</span>}
-            </code>
-        </div>
-
-        <div class="formula">
-            <code>
-                <span class="variable">functionName</span> = function() {<span class="variable">code block</span>}
-            </code>
-        </div>
-
-        <p>A function can be assigned like above. <code>()</code> is where arguments are listed. It can be empty if there's no arguments.</p>
-
-        <div class="formula">
-            <code>
-                <span class="variable">functionName</span>
-            </code>
-        </div>
-
-        <div class="formula">
-            <code>
-                <span class="variable">newVar</span> = <span class="variable">functionName</span>
+                    <span class="variable">regexName</span> = /<span class="variable">pattern</span>/<span class="variable">flags</span>
             </code>
         </div><br>
 
-        <p>To see the value (description/formulation) of a function, we are using <code>functionName</code> without the brackets <code>()</code>. Imagine this is how we do to check primitive variables value too. If we assigning it to a new variable <code>newVar</code>, newVar will now contain the same function as <code>functionName</code>. So without bracket, the function will be assigned/declared. Not run. This is what we are using when we assigning a function to an event handler. We just want to assign the function to the handler. Not to run the function and assign its return value to the handler (which will be <code>undefined</code> if the function doesn't have a return value.)</p>
-
         <div class="formula">
             <code>
-                <span class="variable">functionName</span>()
+                    <span class="variable">regexName</span> = new RegExp ("<span class="variable">pattern</span>", "<span class="variable">flags</span>")
             </code>
         </div>
 
-        <div class="formula">
-            <code>
-                <span class="variable">newVar</span> = <span class="variable">functionName</span>()
-            </code>
-        </div>
+        <p><code>RegExp</code> consist of a pattern an optional flags. RegExp can be expressed using short or long syntaxes above. </p>
 
-        <p>To run the function, use the brackets: <code>functionName()</code>. It will return a return value or <code>undefined</code> if there's no return value. If we are assigning it to a new variable <code>newVar</code>, then newVar value will be that return value (or <code>undefined</code>) instead of assigning the function formulation. The function will be run when loading the page in order to give newVar the return value needed.</p>
+        <h4>Standard behaviour</h4>
 
-        <!--Arrow Function-->
+        <ul>
+            <li>Only search for 1 match.</li>
+            <li>Case-sensitive</li>
+        </ul>
+
+        <h4>Flags</h4>
+
+        <p>There are only 6 flags in JavaScript:</p>
+        <ul>
+            <li><code>i</code>: case-insensitive</li>
+            <li><code>g</code>: global. Looking for all matches.</li>
+            <li><code>m</code>: multiline mode</li>
+            <li><code>s</code>: "dotall" mode. Allowing a dot <code>.</code> to match newline character<code>\n</code>.</li>
+            <li><code>u</code>: full Unicode support</li>
+            <li><code>y</code>: Searching at exact opsition in the text.</li>
+        </ul>
+
+        <h4>RegExp cheatsheets:</h4>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet" target="_blank">MDN Web Docs: Regular expression syntax cheatsheet</a></li>
+            <li><a href="https://www.debuggex.com/cheatsheet/regex/javascript" target="_blank">Debuggex: JavaScript Regex Cheatsheet</a></li>
+        </ul>
+
+        <p>Please also check: <a href="https://javascript.info/regexp-groups" target="_blank">Capturing group</a>.</p>
+
+        <!--Dinamically generated RegExp-->
         <a href="#top"><hr></a>
-        <h3>Arrow Function</h3>
+        <h3>Dinamically generated RegExp</h3>
 
-        <div class="formula">
-            <code>
-                <span class="parameter">functionName</span> = function () {<br>
-                    <span class="parameter tab">code block</span>;<br>
-                    <span class="tab"></span>return <span class="parameter">returnValue</span>;<br>
-                }
-            </code>
-        </div>
-        <br>
-
-        <div class="formula">
-            <code>
-                <span class="parameter">functionName</span> = () => {<br>
-                    <span class="parameter tab">code block</span>;<br>
-                    <span class="tab"></span>return <span class="parameter">returnValue</span>;<br>
-                }
-            </code>
-        </div>
-
-        <p>Writing function can be shortened by using arrow function where <code>function () {}</code> is written as <code>() => {}</code>.</p>
-
-        <div class="formula">
-            <code>
-                <span class="parameter">functionName</span> = () => <span class="parameter">returnValue</span>;
-            </code>
-        </div>
+        <p>The long <code>new RegExp()</code> syntax allows expression to be inserted, for example with ${...}, and therefore allow dinamically generated RegExp. This is not possible for the short syntax using slashes <code>//</code>. It can only contain static expression, that's known already duting the time the code is written. Which is most of the cases.</p>
         
-        <p>If the code block only has the return value, it can be even shorter. No curly brackets <code>{}</code> and the word "<code>return</code>" to be used.</p>
-
-<pre class="js-codebox">
-hello = function () {
-    return "Hi there!";
-}                           // same code
-
-hello = () => {
-    return "Hi there!";
-}                           // same code
-
-hello = () => "Hi there!";  // same code
-</pre>
-
-        <div class="formula">
-            <code>
-                <span class="parameter">functionName</span> = (<span class="parameter">param1</span>, <span class="parameter">param2</span>) => <span class="parameter">returnValue</span>;
-            </code>
-        </div>
-
-        <p>Just like the a regular function, arguments/parameters are listed inside parentheses <code>()</code>.</p>
-
-<pre class="js-codebox">
-multiply = function (a, b) {
-    return a*b;
-}                           // same code
-
-multiply = (a, b) => {
-    return a*b;
-}                           // same code
-
-multiply = (a, b) => a*b;   // same code
-</pre>
-
-        <div class="formula">
-            <code>
-                <span class="parameter">functionName</span> = <span class="parameter">param1</span> => <span class="parameter">returnValue</span>;
-            </code>
-        </div>
-
-        <p>An exception, when there's only 1 parameter, the parentheses <code>()</code> are not needed. Remember when there's no parameter, the parentheses are needed.</p>
-
-<pre class="js-codebox">
-greetings = function (userName) {
-    return "Hello, " + userName + "!";
-}
-
-greetings = userName => "Hello, " + userName + "!";
-</pre>
         
+<pre class="js-codebox">
+let tag = prompt("User tag:", "Kitten");
+let tagRegex = new RegExp(`<${tag}>`);
+tag;            "Kitten"
+tagRegex;       /&ltKitten&gt/
+</pre>   
+
+        <!--match()-->
+        <a href="#top"><hr></a>
+        <h3>Searching using match()</h3>
+
+        <div class="formula">
+            <code>
+                    <span class="variable">stringName</span>.match(<span class="variable">regex</span>)
+            </code>
+        </div>
+
+        <p>Return values:</p>
+        <ul>
+            <li>With flag <code>g</code>:<br>
+                Return an array of all matches.</li>
+            <li>Without flag <code>g</code>:<br> 
+                Return an array of the first match, with the full match at index <code>0</code> and some additional details in properties.<br>
+                The array might have index other than <code>0</code>.</li>
+            <li>No match (with or without flag <code>g</code>):<br>
+                Return <code>null</code> (instead of an empty array).</li>
+        </ul>
+        
+        <!--replace()-->
+        <a href="#top"><hr></a>
+        <h3>Replacing using replace()</h3>
+
+        <div class="formula">
+            <code>
+                    <span class="variable">stringName</span>.replace(<span class="variable">regex</span>, "<span class="variable">replacement</span>")
+            </code>
+        </div>
+
+        <p>Default method only replace the first match. To replace all matches, use flag <code>g</code>. Case-sensitive. Use flag <code>i</code> to make case-insensitive.</p>
+
+        <p>The replacement is in a string format <code>""</code>. We can insert fragment of the match using special character combinations below:</p>
+
+        <ul>
+            <li><code>$&</code>: insert the whole match.</li>
+            <li><code>$`</code>: insert a part of the string before the match.</li>
+            <li><code>$'</code>: insert a part of the string after the match.</li>
+            <li><code>$n</code>: with n a 1-2 digit number. Inserts the contents of n-th parentheses.</li>
+            <li><code>$&ltname&gt</code>: insert the content of the parentheses with the given <code>name.</code></li>
+            <li><code>$$</code>: insert character $.</li>
+        </ul>
+
+<pre class="js-codebox">
+text = "cat dog lion";
+text.replace(/dog/, "pig");     // 'cat pig lion'
+text.replace(/dog/, "$& pig");  // 'cat dog pig lion'
+text.replace(/dog/, "$` pig");  // 'cat cat  pig lion'
+text.replace(/dog/, "$' pig");  // 'cat  lion pig lion'
+</pre>
+
+        <!--test()-->
+        <a href="#top"><hr></a>
+        <h3>testing using test()</h3>
+
+        <div class="formula">
+            <code>
+                    <span class="variable">regexName</span>.test(<span class="variable">string</span>)
+            </code>
+        </div>
+
+        <p><code>test()</code>> looks for at least 1 match. If found, returns <code>true</code>. Otherwise, <code>false</code>.</p>
+
+<pre class="js-codebox">
+statement = "I like dogs. Cats though, I love best.";
+regex1 = /cat/i;
+regex1.test(statement);     // true
+regex2 = /lion/i;
+regex2.test(statement);     // false
+</pre>
+
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>

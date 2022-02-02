@@ -3,7 +3,7 @@
     <head>
         <title>DevTools Intro</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta "name"="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +17,18 @@
         
         <p>DevTools: developer tools. Used to inspect elements.</p>
 
-        <p>How to access DevTools:</p>
+        <p>DevTools tabs and how to access them:</p>
         <ul>
-            <li>Press F12, or:</li>
-            <li>Right click on element, choose inspect element</li>
+            <li>Element</li>
+            <li>Console</li>
+            <li>Sources</li>
+            <li>Network</li>
+            <li>Performance</li>
+            <li>Memory</li>
+            <li>Application</li>
+            <li>Security</li>
+            <li>Lighthouse (audit)</li>
+            <li>Recorder</li>
         </ul>
 
         <p>Open chrome browser with DevTools open automatically for each window:</p>
@@ -28,11 +36,257 @@
             <li>From terminal, open chrome with additional flags:<br>
                 $ google-chrome --auto-open-devtools-for-tabs</li>
             <li>Only works if there's no chrome already opened</li>
-            <li>Future opening html code with xdg-open filename.html will open in new chrome window without DevTools pre-opened</li>
+            <li>Future opening html code with xdg-open file"name".html will open in new chrome window without DevTools pre-opened</li>
             <li>Note, chrome opened from terminal keeps erroering. with or without the tags</li>
         </ul>
+       
+        <!-------------------->
+        <a href="#top"><hr></a>
+        <h3>Elements Tab</h3>
 
-        <p>Focus: Element and style pane</p>    
+        <p>Main function: Inspect elements and styles</p>
+
+        <p>This tab is for inspecting html elements and css style applied to each of the elements. It can make a quick change on the style and observe he effect. It can even copy the whole style of an element from different site and pastes in our chose element to see how it looks.</p>                        
+
+        <p>Elements tab has open 2 main panes:</p>
+        <ul>
+            <li>Elements</li>
+            <li>Pane</li>
+        </ul>
+
+        <p>Access:</p>
+            <ul>
+                <li>Press <code>F12</code></li>
+                <li><code>Right click</code> on element, choose <code>inspect element</code></li>
+            </ul>
+
+        <p><code>Run&gtcommand</code> panel:</p>
+        <ul>
+            <li><code>ctrl</code>+<code>shift</code>+<code>p</code></li>
+            <li>eg. type "screeshot" to open screenshot options.</li>
+        </ul>
+
+        <p>Question: Is there a way to record/apply/render the style after all the changes as a new css file.</p>
+
+        <!-------------------->
+        <a href="#top"><hr></a>
+        <h3>Console Tab</h3>
+
+        <p>Main function: Logging code executions.</p>
+
+        <p>How? Add <code>console</code> commands wherever wanted within the code, it will log out what's asked in console panel.</p>
+
+        <p>The console panel is also a handy place to try out codes snippets.</p>
+
+        <p>Access:</p>
+        <ul>
+            <li><code>F12</code> and choose <code>console</code> tab.</li>
+            <li><code>ctrl</code>+<code>shift</code>+<code>j</code></li>
+            <li>Console in the drawer: <code>esc</code><br>
+            This allows a console panel to stay open regardless which tab is chosen. Will come handy for debugging, to open <code>source</code> tab and <code>console</code> panel at the same time.</li>
+        </ul>
+
+        <h4>Handy Loggings</h4>
+
+        <div class="formula"><code>console.log(<span class="variable">pets</span>)</code></div>
+
+        <p>The regular <code>console.log()</code>, can log "comments", variables, or combinations (comma separated).</p>
+
+        <div class="formula"><code>console.log({<span class="variable">pets</span>})</code></div>
+
+        <p><strong>Object shorthand syntax</strong></p>
+        <p>With curly brackets <code>{}</code> wrapping the object, it will log the <strong></strong>: <code>{objName: objValue}</code>.</p>
+
+        <p>Examples:</p>
+        <ul>
+            <li>Array <code>{pets}</code> into <code>{pets: Array(3)}</code></li>
+            <li>Primitive string <code>{myCat}</code> into <code>{myCat: "Kitten"}</code></li>
+        </ul>
+
+        <div class="formula"><code>console.table(<span class="variable">pets</span>)</code></div>
+
+        <p><code>console.table()</code> log a table. Sorting based on the values is possible by clicking the table headers. In the case the variabe is a primitive, it's just displayed plainly like using <code>console.log</code>.</p>
+
+        <div class="formula"><code>console.trace("<span class="variable">Comment</span>")</code></div>
+
+        <p><code>console.trace()</code> outputs a stack trace to the console. Not sure what it means, read further.</p>
+
+        <h4>Example 1: Array pets</h4>
+
+<pre class="js-codebox">
+&ltscript&gt
+    let pets = [
+        {"name": "Spot", "color": "black", "type": "cat"}, 
+        {"name": "Spike", "color": "grey", "type": "cat"}, 
+        {"name": "Hamlet", "color": "brown", "type": "hamster"}
+    ];
+
+    console.log("console.log(pets)");
+    console.log(pets);
+
+    console.log("console.log({pets})");
+    console.log({pets});
+
+    console.log("console.table(pets)");
+    console.table(pets);
+
+    console.trace("how is this?");
+&lt/script&gt
+</pre>
+
+        <h4>Console for pets:</h4>
+<pre class="js-codebox">
+console.log(pets)
+&#9658 (3) [{…}, {…}, {…}]
+
+console.log({pets})
+&#9658 {pets: Array(3)}
+
+console.table(pets)
+(index) name        color       type
+0       'Spot'      'black'     'cat'
+1       'Spike'     'grey'      'cat'
+2       'Hamlet'    'brown'     'hamster'
+&#9658 Array(3)
+
+&#9660 how is this?
+  (anonymous) @ devtools_intro.html:165
+</pre>
+
+        <h4>Example 2: String myCat</h4>
+<pre class="js-codebox">
+&ltscript&gt
+    let myCat = "Kitten";
+    console.log("console.log(myCat)");
+    console.log(pets);
+
+    console.log("console.log({myCat})");
+    console.log({pets});
+
+    console.log("console.table(myCat)");
+    console.table(pets);
+
+    console.trace("how is this?");
+&lt/script&gt
+</pre>
+
+        <h4>Console for myCat:</h4>
+<pre class="js-codebox">
+console.log(myCat)
+Kitten
+
+console.log({myCat})
+&#9658 {myCat: 'Kitten'}
+
+console.table(myCat)
+Kitten
+
+&#9660 how is this?
+  (anonymous) @ devtools_intro.html:177
+</pre>
+
+        <script>
+            let pets = [
+                {"name": "Spot", "color": "black", "type": "cat"}, 
+                {"name": "Spike", "color": "grey", "type": "cat"}, 
+                {"name": "Hamlet", "color": "brown", "type": "hamster"}
+            ];
+
+            console.log("console.log(pets)");
+            console.log(pets);
+
+            console.log("console.log({pets})");
+            console.log({pets});
+
+            console.log("console.table(pets)");
+            console.table(pets);
+
+            console.trace("how is this?");
+
+            let myCat = "Kitten";
+            console.log("console.log(myCat)");
+            console.log(myCat);
+
+            console.log("console.log({myCat})");
+            console.log({myCat});
+
+            console.log("console.table(myCat)");
+            console.table(myCat);
+
+            console.trace("how is this?");
+        </script>
+
+        <!-------------------->
+        <a href="#top"><hr></a>
+        <h3>Source Tab</h3>
+
+        <p>Main function: Debugging.</p>
+
+        <p>How?</p>
+        <ul>
+            <li>Put <code>debugger;</code> on your code. When devtools find it, it will stop there.</li>
+            <li>Additional <code>breakpoint</code> can be added simply by clicking on the line number on the source panel.</li>
+            <li>More breakpoint:
+                <ul>
+                    <li><code>Dome mutation breakpoint</code>
+                        <ul>
+                            <li>Go to Elements tab, right click on the element chosen</li>
+                            <li>Choose <code>Break on</code>, choose <code>Attribute modifications</code> for example.</li>
+                        </ul>
+                    </li>
+                    <li><code>Event Listener breakpoint</code>
+                        <ul>
+                            <li>Easily jumping to particular event without even knowing where is it located in the code.</li>
+                            <li>In the second pane of <code>source</code> tab, in the bottom, find <code>Event listener breakpoint</code>.</li>
+                            <li>Then, for example, expand <code>mouse</code> and enable <code>Click</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Watch the journey of variable values along operation using life <code>expression</code>:
+                <ul>
+                    <li>Open console in drawer(<code>esc</code>)</li>
+                    <li>Click expression option (eye button) and enter in the variables (can be multiple).</li>
+                </ul>
+            </li>
+            <li>
+                Add <code>logpoint</code>
+                <ul>
+                    <li>Right click in the source code in the line number, and choose <code>logpoint</code>. Tips: consider log <code>{varName}</code></li>
+                    <li>It's like console.log but without the need of putting the command in the code.</li>
+                </ul>
+            </li>
+            <li>We can do stuff with the values/variables that get logged in the console by right click and choose <code>Store as global variable</code>.</li>
+            <li>If we don't want to pause at the <code>debugger</code>s anymore, we can right click on it and choose <code>never pause here</code></li>
+        </ul>
+            
+        <p>Tips:</p>
+        <ul>
+            <li><code>&gt enable code folding</code></li>
+        </ul>
+
+        <!-------------------->
+        <a href="#top"><hr></a>
+        <h3>Other Tabs</h3>
+
+        <p>Analyze load Performance</p>
+        <ul>
+            <li>Start with <code>Audits</code> panel (lighthouse?)
+                <ul>
+                    <li>Run audit</li>
+                    <li>It checks for: Performance, Accessibility, Best Practices, SEO, Progressive Web App, and gives the score in percentages. It also show the exact problem on this page.</li>
+                </ul>
+            </li>
+            <li>Analyze further with <code>Coverage</code> tab, <code>Performance</code> panel, or <code>Network</code> panel depending on <code>Audits</code> panel result.
+                <ul>
+                    <li>Coverage: Open command box <code>ctrl</code>+<code>shift</code>+<code>p</code>, search "coverage", choose show in drawer.</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!-------------------->
+        <a href="#top"><hr></a>
 
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>

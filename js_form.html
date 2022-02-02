@@ -15,12 +15,160 @@
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>JavaScript</h1></a>
 
-        <h2>Forms</h2>
+        <h2>Forms and Controls</h2>
 
+        <p>Forms <code>&ltform&gt</code> and controls: <code>&ltinput&gt</code>, <code>&ltselect&gt</code>, etc</p>
 
+        <!-------------------->
+        <a href="#top"><hr></a>
+        <h3>Form properties and methods</h3>
+
+        <h4>Navigate forms</h4>
+
+        <div class="formula">
+            <code>
+                    document.forms.<span class="variable">formName</span><br>
+                    document.forms[<span class="variable">0</span>]<br>
+            </code>
+        </div>
+
+        <h4>Navigate elements</h4>
+
+        <div class="formula">
+            <code>
+                <span class="variable">formName</span>.elements.<span class="variable">elementName</span><br>
+                <span class="variable">formName</span>.elements[<span class="variable">0</span>]
+            </code>
+        </div>
+
+        <p>Document forms are members of the special collection <code>document.forms</code>.</p>    
+
+        <p><strong>Named collection</strong>: it's both named and ordered. We can use both  name or number in the document to get the form.</p>
+
+<pre class="js-codebox">
+&ltform name="zoo"&gt
+    &ltinput name="cat" value="Kitten"&gt
+    &ltinput name="dog" value="Doggie"&gt
+&lt/form&gt
+&ltp&gtcatElem.value = &ltspan id="result1"&gt&lt/span&gt&lt/p&gt
+&ltp&gtdogElem.value = &ltspan id="result2"&gt&lt/span&gt&lt/p&gt
+
+&ltscript&gt
+    let zooForm = document.forms.zoo;
+    let catElem = zooForm.elements.cat;
+    let dogElem = zooForm.elements.dog;
+    document.querySelector("#result1").textContent = catElem.value;
+    document.querySelector("#result2").textContent = dogElem.value;
+&lt/script&gt
+</pre>
+
+        <div class="js-resultbox">
+            <form name = "zoo">
+                <input name="cat" value="Kitten">
+                <input name="dog" value="Doggie">
+            </form>
+            <p>catElem.value = <span id="result1"></span></p>
+            <p>dogElem.value = <span id="result2"></span></p>
+        </div>
+
+        <script>
+            let zooForm = document.forms.zoo;
+            let catElem = zooForm.elements.cat;
+            let dogElem = zooForm.elements.dog;
+            document.querySelector("#result1").textContent = catElem.value;
+            document.querySelector("#result2").textContent = dogElem.value;
+        </script>
+
+        <h4>Navigate a collection of elements with the same name</h4>
+
+        <div class="formula">
+            <code>
+                <span class="variable">formName</span>.elements.<span class="variable">elementName</span>[<span class="variable">0</span>]<br>
+                <span class="variable">formName</span>.elements[<span class="variable">0</span>]
+            </code>
+        </div>
+
+        <p>It's possible to have multiple elements with one same name. This is typical for radio buttons and checkboxes. In this case, <code>formName.elements.elementName</code> is a collection and can be referred individually using their index (the order of the element being listed).</p>
+
+        <div class="js-resultbox">
+            <label for="student">Student data</label>
+            <form name="student">
+                <label for="age">Age: </label>
+                <input type="radio" name="age" value="7" id="7">
+                <label for="7">7</label>
+                <input type="radio" name="age" value="8" id="8">
+                <label for="8">8</label>
+                <input type="radio" name="age" value="9" id="9">
+                <label for="9">9</label>
+                <br>
+                <label for="sex">Sex: </label>
+                <input type="radio" name="sex" value="F" id="f">
+                <label for="f">Female</label>
+                <input type="radio" name="sex" value="M" id="m">
+                <label for="m">Male</label>
+            </form>
+        </div>
         
+        <p>Explanations:
+            <ul>
+                <li><strong>The form</strong>
+                    <ul>
+                        <li>Form name: "student"</li>
+                        <li>Form order in the document: 2</li>
+                        <li>Addresing the form:
+                            <ul>
+                                <li><code>document.forms.student</code></li>
+                                <li><code>document.forms[1]</code></li>
+                            </ul>
+                        </li>                        
+                    </ul>
+                </li>
+
+               
+                <li><strong>The element collections</strong>
+                    <ul>
+                        <li>Elements name: "age", type: "radio"
+                            <ul>
+                                <li>3 element members: value "7", "8", and "9"</li>
+                                <li>Addressing the first element (value "7"):
+                                    <ul>
+                                        <li><code>studentForm.elements.age[0].value</code></li>
+                                        <li><code>studentForm.elements[0].value</code></li>
+                                    </ul>                                  
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Elements name: "sex", type: "radio"
+                            <ul>
+                                <li>3 element members: value "f" and "m"</li>
+                                <li>Addressing the first element (value "F"):
+                                    <ul>
+                                        <li><code>studentForm.elements.sex[0].value</code></li>
+                                        <li><code>studentForm.elements[3].value</code></li>
+                                        <li><code>document.forms[1].elements[3].value</code></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+          
+          <script>
+          let studentForm = document.forms[1];
+          let result3 = studentForm.elements[0].value
+          </script>
+          
         <!--Footer - don't change below-->
         <a href="#top"><hr></a>
+
+        <p>Form learning put in halt, moving on to object.</p>
+
+        <p>Main resources:</p>
+        <ul>
+            <li><a href="https://javascript.info/form-elements" target ="_blank">Javascript.info: Form and Control Elements</a></li>
+        </ul>
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
 </html>

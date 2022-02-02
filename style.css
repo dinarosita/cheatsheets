@@ -78,9 +78,9 @@ h1 {
 
 h2, h3 {
     padding: var(--bumper);
-    text-decoration: underline;
     text-align: center;
 }
+
 
 .titleBox {
     margin: var(--bumper-triple) 0 var(--bumper);
@@ -90,7 +90,6 @@ h2, h3 {
     text-align: center;
     text-decoration: none;
 }
-
 h4 {
     padding-top: var(--bumper);
 }
@@ -103,7 +102,7 @@ h5 {font-size: 1.1em;}
 
 h6 {font-size: 1em;}
 
-h3, h4, h5, h6 {
+ h5, h6 {
     text-decoration: underline;
 }
 
@@ -238,6 +237,9 @@ table code {
     text-decoration: none;
 }
 
+.weaker {
+    font-weight: normal;
+}
 
 /* Coding Font */ 
 
