@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DevTools Intro</title>
+        <title>DevTools | Codingnotes</title>
         <meta charset="UTF-8">
         <meta "name"="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./style.css">
@@ -12,32 +12,38 @@
 
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>DevTools</h1></a>
-        
-        <h2>Introduction</h2>
-        
+               
         <p>DevTools: developer tools. Used to inspect elements.</p>
 
-        <p>DevTools tabs and how to access them:</p>
+        <p>DevTools tabs (panels):</p>
         <ul>
-            <li>Element</li>
-            <li>Console</li>
-            <li>Sources</li>
-            <li>Network</li>
-            <li>Performance</li>
-            <li>Memory</li>
-            <li>Application</li>
-            <li>Security</li>
-            <li>Lighthouse (audit)</li>
-            <li>Recorder</li>
+            <li><strong>Elements</strong>: View and change the DOM and CSS.</li>
+            <li><strong>Console</strong>: View messages and run JavaScript from the console.</li>
+            <li><strong>Sources</strong>: Debug JavaScript</li>
+            <li><strong>Network</strong>: View and debug network activity.</li>
+            <li><strong>Performance</strong> (Timeline): Find waysto improve load and runtime performance.</li>
+            <li><strong>Memory</strong> (Profiles): Fix memory problems, JavaScript CPU profiler.</li>
+            <li><strong>Application</strong>: Inspect all resources that are loaded.</li>
+            <li><strong>Security</strong>: Debug mixed content issues, ceritificate problems, and more.</li>
+            <li><strong>Lighthouse</strong> (Audit): </li>
+            <li><strong>Recorder</strong>: </li>
         </ul>
 
-        <p>Open chrome browser with DevTools open automatically for each window:</p>
+        <p>Open Chrome DevTools:</p>
         <ul>
-            <li>From terminal, open chrome with additional flags:<br>
-                $ google-chrome --auto-open-devtools-for-tabs</li>
-            <li>Only works if there's no chrome already opened</li>
-            <li>Future opening html code with xdg-open file"name".html will open in new chrome window without DevTools pre-opened</li>
-            <li>Note, chrome opened from terminal keeps erroering. with or without the tags</li>
+            <li><code>Ctrl</code>+<code>Shift</code>+<code>C</code> for elements tab</li>
+            <li><code>Ctrl</code>+<code>Shift</code>+<code>J</code> for console tab</li>
+            <li><code>Ctrl</code>+<code>Shift</code>+<code>I</code> to open the last panel opened</li>
+            <li>From Chrome's main menu: Click <code>Customize and control Google Chrome</code>, select <code>More Tools &gt Developer Tools</code>.</li>
+            <li>
+                Auto-open DevTools on every new tab: 
+                <ul>
+                    <li>On the command line: <code>$ google-chrome --auto-open-devtools-for-tabs</code></li>
+                    <li>Only works if there's no chrome already opened</li>
+                    <li>Future opening html code with xdg-open file"name".html will open in new chrome window without DevTools pre-opened</li>
+                    <li>Note, chrome opened from terminal keeps erroering. with or without the tags</li>
+                </ul>
+            </li>
         </ul>
        
         <!-------------------->
@@ -57,12 +63,13 @@
         <p>Access:</p>
             <ul>
                 <li>Press <code>F12</code></li>
+                <li><code>Ctrl</code>+<code>Shift</code>+<code>c</code></li>
                 <li><code>Right click</code> on element, choose <code>inspect element</code></li>
             </ul>
 
         <p><code>Run&gtcommand</code> panel:</p>
         <ul>
-            <li><code>ctrl</code>+<code>shift</code>+<code>p</code></li>
+            <li><code>ctrl</code>+<code>Shift</code>+<code>p</code></li>
             <li>eg. type "screeshot" to open screenshot options.</li>
         </ul>
 
@@ -81,7 +88,7 @@
         <p>Access:</p>
         <ul>
             <li><code>F12</code> and choose <code>console</code> tab.</li>
-            <li><code>ctrl</code>+<code>shift</code>+<code>j</code></li>
+            <li><code>ctrl</code>+<code>Shift</code>+<code>j</code></li>
             <li>Console in the drawer: <code>esc</code><br>
             This allows a console panel to stay open regardless which tab is chosen. Will come handy for debugging, to open <code>source</code> tab and <code>console</code> panel at the same time.</li>
         </ul>
@@ -279,7 +286,7 @@ Kitten
             </li>
             <li>Analyze further with <code>Coverage</code> tab, <code>Performance</code> panel, or <code>Network</code> panel depending on <code>Audits</code> panel result.
                 <ul>
-                    <li>Coverage: Open command box <code>ctrl</code>+<code>shift</code>+<code>p</code>, search "coverage", choose show in drawer.</li>
+                    <li>Coverage: Open command box <code>ctrl</code>+<code>Shift</code>+<code>p</code>, search "coverage", choose show in drawer.</li>
                 </ul>
             </li>
         </ul>
