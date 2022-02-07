@@ -24,6 +24,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 
 :root {
     --border:rgb(243, 196, 205);
+    --borderfill:rgb(250, 242, 243);
     --title: cadetblue;
     --code: steelblue;
     --link1: sienna;
@@ -323,6 +324,34 @@ code a {
 .toggle {
     display: none;
 }
+
+/* display bar */
+
+.displaybar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: var(--bumper) auto;
+    justify-content: center;
+}
+
+.displaybar input {
+    border: 3px solid var(--border);
+    padding: var(--bumper-quarter) var(--bumper);
+    font-size: 0.9em;
+}
+
+.displaybar .off {
+    color: var(--title);
+    background-color: white;
+}
+
+
+.displaybar .on {
+    color: var(--title);
+    background-color: var(--borderfill);
+}
+
 /* JavaScript Notes */
 
 .js-codebox {
