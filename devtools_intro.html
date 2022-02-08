@@ -26,9 +26,10 @@
         <script src="./toggle.js"></script>
 
         <div class="displaybox intro" style="display: block">
+            <h2>Introduction</h2>
             <p>DevTools: developer tools. Used to inspect elements.</p>
 
-            <p>DevTools tabs (panels):</p>
+            <h4>DevTools tabs (panels):</h4>
             <ul>
                 <li><strong>Elements</strong>: View and change the DOM and CSS.</li>
                 <li><strong>Console</strong>: View messages and run JavaScript from the console.</li>
@@ -42,12 +43,12 @@
                 <li><strong>Recorder</strong>: </li>
             </ul>
 
-            <p>Open Chrome DevTools:</p>
+            <h4>Open Chrome DevTools:</h4>
             <ul>
                 <li><code>Ctrl</code>+<code>Shift</code>+<code>C</code> for elements tab</li>
                 <li><code>Ctrl</code>+<code>Shift</code>+<code>J</code> for console tab</li>
                 <li><code>Ctrl</code>+<code>Shift</code>+<code>I</code> to open the last panel opened</li>
-                <li>From Chrome's main menu: Click <code>Customize and control Google Chrome</code>, select <code>More Tools &gt Developer Tools</code>.</li>
+                <li>From Chrome's main menu: Click <strong>Customize and control Google Chrome</strong>, select <strong>More Tools &gt Developer Tools</strong>.</li>
                 <li>
                     Auto-open DevTools on every new tab: 
                     <ul>
@@ -63,45 +64,85 @@
         <div class="displaybox element" style="display: none">
             <h3>Elements Tab</h3>
 
-            <p>Main function: Inspect elements and styles</p>
-    
-            <p>This tab is for inspecting html elements and css style applied to each of the elements. It can make a quick change on the style and observe he effect. It can even copy the whole style of an element from different site and pastes in our chose element to see how it looks.</p>         
-            
-            <p>Access:</p>
+            <p>Element tab is for inspecting html elements and css style applied to each of the elements. It can make a quick change on the style and observe he effect. It can even copy the whole style of an element from different site and pastes in our chose element to see how it looks.</p>       
+
+            <h4>2 panes:</h4>
+            <ul>
+                <li>Elements pane</li>
+                <li>Styles pane</li>
+            </ul>
+              
+            <h4>Access:</h4>
             <ul>
                 <li>Press <code>F12</code></li>
                 <li><code>Ctrl</code>+<code>Shift</code>+<code>c</code></li>
-                <li><code>Right click</code> on element, choose <code>inspect element</code></li>
+                <li>In viewport, <strong>right click</strong> on element, choose <strong>inspect element</strong>.</li>
             </ul>
-    
-            <p>Elements tab opens 2 tabs:</p>
+
+            <h4>Choosing an element:</h4>
             <ul>
-                <li>Elements</li>
-                <li>Styles</li>
+                <li>In viewport, <strong>right click</strong> on element, choose <strong>Inspect element</strong>.</li>
+                <li>In elements pane, click on the element.</li>
+                <li>In elements pane, click <strong>Select an element</strong>, and click the element in the viewport.</li>
+                <li>In console pane, run a query like <code>document.querySelector("p")</code>. Right click the result and select <strong>Reveal in Elements panel</strong></li>
             </ul>
     
-            <p>CSS styles tab</p>
+            <h4>Styles tab in styles pane</h4>
             <ul>
                 <li>View and change CSS
                     <ul>
-                        <li>Add CSS declaration to an element: right click on element, choose <code>inspect</code>, modify styles.</li>
-                        <li><code>.cls</code>: To add a new class to an element</li>
-                        <li><code>.hov</code>: Permanently apply a CSS pseudostates to an element.</li>
-                        <li><code>Box model</code>: Changing dimension of an element directly in box model is possible. It assumes <code>px</code> if written without unit.</li>
+                        <li>Changing just one particular element's style: Add property and value between <code>element {...}</code>.</li>
+                        <li>Changing the group/class rule: Find the appropriate class/tag name to insert the property and value. FOr example: <code>H2 {...}</code>, <code>.formula {...}</code>, etc.</li>
                     </ul>
+                <li>Add CSS declaration to an element: right click on element, choose <strong>inspect</strong>, modify styles.</li>
+                <li><strong>.cls</strong>: To add a new class to an element</li>
+                <li><strong>.hov</strong>: toggle to a CSS pseudo-class of an element such as <code>:active</code>, <code>:focus</code>, <code>:hover</code>, <code>:visited</code>, <code>:focus-within</code>, or <code>:focus-visible</code>.</li>
+                <li><strong>Box model</strong> (at the bottom): Changing dimension of an element directly in box model is possible. It assumes <code>px</code> if written without unit.</li>
                 </li>
-    
+                <li>Filter text box: Searching specific CSS properties or values.</li>
             </ul>
-    
-            <p><code>Run&gtcommand</code> panel:</p>
+
+            <h4>Computed tab in styles pane</h4>
             <ul>
+                <li>View only CSS that's actually applied to an element. They are listed in alphabetical order</li>
+                <li>Inherited propeties are shown in opaque mode. Check <strong>Show all</strong> box to see them all.</li>
+                <li>Filter text box: Searching specific CSS properties or values.</li>
+            </ul>              
+            
+            <h4>Command menu</h4>
+            <ul>
+                <li><code>Run&gtcommand</code> panel</li>
                 <li>How: <code>Ctrl</code>+<code>Shift</code>+<code>P</code></li>
-                <li>Examples:
+                <li>Start typing the keyword and choose from the selections displayed. Examples:
                     <ul>
                         <li><code>dock</code></li>
                         <li><code>screeshot</code></li>
                     </ul>
                 </li>
+            </ul>
+
+            <h4>Some useful views:</h4>
+            <ul>
+                <li>View a page in print mode
+                    <ul>
+                        <li>Open command menu, start typing <code>Rendering</code>, select <code>show rendering</code>, go to <strong>Emulate CSS Media</strong></li>
+                    </ul>
+                </li>
+                <li>View used and unused CSS with coverage Tab
+                    <ul>
+                        <li>Open command menu, start typing <strong>Coverage</strong>, select <strong>show coverage</strong>. In the coverage tab just opened, click the round arrow button <strong>Start Instrumenting Coverage and Reload Page</strong>.</li>
+                        <li>The result shows: How much CSS and JS used from each file that the browser load. Green represented used CSS, red unused CSS.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Up/down keys shortcuts</h4>
+            <ul>
+                <li>to increase/decrease numeric value</li>
+                <li><code>Alt</code>+<code>Up</code>: 0.1 increment</li>
+                <li><code>Up</code>: 1 increment or 0.1 if the current value is between -1 and 1.</li>
+                <li><code>Shift</code>+<code>Up</code>: 10 increment</li>
+                <li><code>Shift</code>+<code>Page</code>+<code>Up</code>: Increment 100</li>
             </ul>
         </div>
        
@@ -110,16 +151,16 @@
 
             <p>Main function: Logging code executions.</p>
     
-            <p>How? Add <code>console</code> commands wherever wanted within the code, it will log out what's asked in console panel.</p>
+            <p>How? Add <strong>console</strong> commands wherever wanted within the code, it will log out what's asked in console panel.</p>
     
             <p>The console panel is also a handy place to try out codes snippets.</p>
     
             <p>Access:</p>
             <ul>
-                <li><code>F12</code> and choose <code>console</code> tab.</li>
+                <li><code>F12</code> and choose <strong>console</strong> tab.</li>
                 <li><code>ctrl</code>+<code>Shift</code>+<code>j</code></li>
                 <li>Console in the drawer: <code>esc</code><br>
-                This allows a console panel to stay open regardless which tab is chosen. Will come handy for debugging, to open <code>source</code> tab and <code>console</code> panel at the same time.</li>
+                This allows a console panel to stay open regardless which tab is chosen. Will come handy for debugging, to open <strong>source</strong> tab and <strong>console</strong> panel at the same time.</li>
             </ul>
     
             <h4>Handy Loggings</h4>
@@ -261,39 +302,39 @@ Kitten
             <p>How?</p>
             <ul>
                 <li>Put <code>debugger;</code> on your code. When devtools find it, it will stop there.</li>
-                <li>Additional <code>breakpoint</code> can be added simply by clicking on the line number on the source panel.</li>
+                <li>Additional <strong>breakpoint</strong> can be added simply by clicking on the line number on the source panel.</li>
                 <li>More breakpoint:
                     <ul>
-                        <li><code>Dome mutation breakpoint</code>
+                        <li><strong>Dome mutation breakpoint</strong>
                             <ul>
                                 <li>Go to Elements tab, right click on the element chosen</li>
-                                <li>Choose <code>Break on</code>, choose <code>Attribute modifications</code> for example.</li>
+                                <li>Choose <strong>Break on</strong>, choose <strong>Attribute modifications</strong> for example.</li>
                             </ul>
                         </li>
-                        <li><code>Event Listener breakpoint</code>
+                        <li><strong>Event Listener breakpoint</strong>
                             <ul>
                                 <li>Easily jumping to particular event without even knowing where is it located in the code.</li>
-                                <li>In the second pane of <code>source</code> tab, in the bottom, find <code>Event listener breakpoint</code>.</li>
-                                <li>Then, for example, expand <code>mouse</code> and enable <code>Click</code></li>
+                                <li>In the second pane of <strong>source</strong> tab, in the bottom, find <strong>Event listener breakpoint</strong>.</li>
+                                <li>Then, for example, expand <strong>mouse</strong> and enable <strong>Click</strong></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li>Watch the journey of variable values along operation using life <code>expression</code>:
+                <li>Watch the journey of variable values along operation using <strong>life expression</strong>:
                     <ul>
                         <li>Open console in drawer(<code>esc</code>)</li>
                         <li>Click expression option (eye button) and enter in the variables (can be multiple).</li>
                     </ul>
                 </li>
                 <li>
-                    Add <code>logpoint</code>
+                    Add <strong>logpoint</strong>
                     <ul>
-                        <li>Right click in the source code in the line number, and choose <code>logpoint</code>. Tips: consider log <code>{varName}</code></li>
+                        <li>Right click in the source code in the line number, and choose <strong>logpoint</strong>. Tips: consider log <code>{varName}</code></li>
                         <li>It's like console.log but without the need of putting the command in the code.</li>
                     </ul>
                 </li>
-                <li>We can do stuff with the values/variables that get logged in the console by right click and choose <code>Store as global variable</code>.</li>
-                <li>If we don't want to pause at the <code>debugger</code>s anymore, we can right click on it and choose <code>never pause here</code></li>
+                <li>We can do stuff with the values/variables that get logged in the console by right click and choose <strong>Store as global variable</strong>.</li>
+                <li>If we don't want to pause at the <code>debugger</code>s anymore, we can right click on it and choose <strong>never pause here</strong></li>
             </ul>
                 
             <p>Tips:</p>
@@ -307,13 +348,13 @@ Kitten
 
             <p>Analyze load Performance</p>
             <ul>
-                <li>Start with <code>Audits</code> panel (lighthouse?)
+                <li>Start with <strong>Audits</strong> panel (lighthouse?)
                     <ul>
                         <li>Run audit</li>
                         <li>It checks for: Performance, Accessibility, Best Practices, SEO, Progressive Web App, and gives the score in percentages. It also show the exact problem on this page.</li>
                     </ul>
                 </li>
-                <li>Analyze further with <code>Coverage</code> tab, <code>Performance</code> panel, or <code>Network</code> panel depending on <code>Audits</code> panel result.
+                <li>Analyze further with <strong>Coverage</strong> tab, <strong>Performance</strong> panel, or <strong>Network</strong> panel depending on <strong>Audits</strong> panel result.
                     <ul>
                         <li>Coverage: Open command box <code>Ctrl</code>+<code>Shift</code>+<code>P</code>, search "coverage", choose show in drawer.</li>
                     </ul>

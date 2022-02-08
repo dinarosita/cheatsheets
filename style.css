@@ -48,6 +48,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --remove-bumper-half: -8px;
     --remove-bumper: -16px;
     --remove-bumper-double: -32px;
+    --remove-bumper-triple: -48px;
+
 }
 
 html {
@@ -256,7 +258,8 @@ table code {
 }
 
 .glossary p {
-    margin: var(--bumper-quarter) 0;
+    margin: var(--bumper-quarter) 0 var(--bumper-quarter) var(--bumper-double);
+    text-indent: var(--remove-bumper-double);
 }
 ;
 .glossary strong {
