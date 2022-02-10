@@ -38,6 +38,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --othercolor2: rgb(206, 131, 131);
     --othercolor3: rgb(223, 146, 132);
     --js-border: rgb(190, 215, 216);
+
     --bumper-quarter: 4px;
     --bumper-half: 8px;
     --bumper: 16px;
@@ -104,10 +105,6 @@ h4 {font-size: 1.2em;}
 h5 {font-size: 1.1em;}
 
 h6 {font-size: 1em;}
-
- h5, h6 {
-    text-decoration: underline;
-}
 
 a {
     color: var(--link2);
@@ -254,6 +251,18 @@ table code {
     font-weight: normal;
 }
 
+/* || CSS Grid */
+
+.gridDefault {
+    display: grid;
+    border: 4px solid plum;
+}
+
+.gridDefault div {
+    border: 4px solid peachpuff;
+}
+
+
 /* || Glossary */
 
 .glossary {
@@ -338,6 +347,10 @@ code,
 
 .js-codebox strong {
     color: var(--othercolor2);
+}
+
+.js-codebox+.js-codebox {
+    margin-top: var(--bumper-double);
 }
 
 h3 + ul,

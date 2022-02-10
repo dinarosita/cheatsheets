@@ -49,6 +49,61 @@
         </section>
         
         <section>
+            <h3>Grid Container</h3>
+
+            <div class="formula"><code>display: grid</code></div>
+            <div class="formula"><code>display: inline-grid</code></div> 
+
+            <p>An element is made into a <strong>grid container</strong> by <code>display: grid</code> or <code>inline-grid</code> declaration. All of its direct children become the <strong>grid items</strong>.</p>
+
+            <p>The default grid is to arrange the grid items vertically just like in an unstyled list.</p>
+
+<pre class="js-codebox">
+<strong>&lt!-- HTML --&gt</strong>
+&ltdiv class="gridDefault"&gt
+    &ltdiv&gtItem 1&lt/div&gt
+    &ltdiv&gtItem 2&lt/div&gt
+    &ltdiv&gtItem 3&lt/div&gt
+    &ltdiv&gtItem 4&lt/div&gt
+    &ltdiv&gtItem 5&lt/div&gt
+&lt/div&gt
+</pre>
+
+<pre class="js-codebox">
+<strong>/* CSS */</strong>
+.gridDefault {
+    display: grid;
+    border: 4px solid plum;
+}
+
+.gridDefault div {
+    border: 4px solid peachpuff;
+}
+</pre>
+
+<pre class="js-codebox">
+<strong>Result</strong>
+<div class="gridDefault" style="display: grid">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+    <div>Item 4</div>
+    <div>Item 5</div>
+</div></pre>
+
+
+
+
+
+            <a href="#top"><hr></a>
+        </section>
+
+        <section>
+            <h3></h3>
+            <a href="#top"><hr></a>
+        </section>
+
+        <section>
             <h3>Resources</h3>
             <ul>
                 <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid
@@ -56,9 +111,13 @@
                 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout" target="_blank">MDN: Basic Concepts of grid layout
                 </a></li>
                 <!--<li><a href="" target="_blank"></a></li>-->
-
             </ul>
-        </section>   
+
+            <h4>Tools</h4>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts" target="_blank">Grid Inspector</a> within Firefox's Developer Tools.</li>
+            </ul>
+        </section>
 
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
     </body>
