@@ -1,4 +1,4 @@
-// toggle.js is a navigation button bar - display/hide content toggle script.
+// toggle.js is a navigation button bar - display/hide content toggle script. For element tags, class and id naming, check out devtools_intro.html
 
 function toggle () {
 

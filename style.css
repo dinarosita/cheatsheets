@@ -170,8 +170,12 @@ th, td {
 
 dt {
     font-weight: bold;
-    font-family: 'Fira Mono', monospace;   
-    color: var(--code);
+    color: var(--title);
+    margin: 10px 0 0;
+}
+
+dd {
+    margin-inline-start: var(--bumper-double);
 }
 
 .img {
@@ -250,6 +254,12 @@ table code {
     font-weight: normal;
 }
 
+/* || Glossary */
+
+.glossary {
+    margin: var(--bumper-half);
+}
+
 .glossary h3 {
     text-align: left;
     padding: 0;
@@ -257,16 +267,53 @@ table code {
     color: var(--border);
 }
 
-.glossary p {
-    margin: var(--bumper-quarter) 0 var(--bumper-quarter) var(--bumper-double);
-    text-indent: var(--remove-bumper-double);
-}
-;
-.glossary strong {
+.glossary div {
+    display: flex;
+    align-items: baseline;
 }
 
+.glossary div h3 {
+    flex: 0 0 30px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    text-align: center;
+    margin-right: var(--bumper);
+}
 
-/* Coding Font */ 
+.glossary div dl {
+    flex: 1;
+}
+
+#abcBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: var(--bumper-half);
+    margin-top: var(--bumper-half);
+}
+
+#abcBar a {
+    width: 30px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    text-align: center;
+    color: var(--border); 
+    background-color: white;
+    font-size: 1.3em;
+    line-height: inherit;
+    font-weight: bold;
+    font-style: normal;
+}
+
+#abcBar a:hover {
+    background-color: var(--border);
+    color: white;
+}
+
+/* || Coding Font */ 
 
 code,
 .js-codebox {
@@ -328,7 +375,7 @@ code a {
     display: none;
 }
 
-/* display bar */
+/* || display bar */
 
 .displaybar {
     display: flex;
@@ -355,7 +402,7 @@ code a {
     background-color: var(--borderfill);
 }
 
-/* JavaScript Notes */
+/* || JavaScript Notes */
 
 .js-codebox {
     margin: var(--bumper);
@@ -413,7 +460,7 @@ input.invalid + p {
     margin-bottom: 20px;
 }
 
-/* Listing */
+/* || Listing */
 
 .list-plain {
     padding: 0;
@@ -431,7 +478,7 @@ input.invalid + p {
     width: 8em;
 }
 
-/* Navigation */
+/* || Navigation */
 
 .nav-bar {
     display: flex;
@@ -473,7 +520,7 @@ input.invalid + p {
     color: var(--linkhover);
 }
 
-/* Index Flexbox */
+/* || Index Flexbox */
 
 .index-container {
     display: flex;
@@ -515,7 +562,7 @@ input.invalid + p {
     padding-left: var(--bumper-double);
 }
 
-/* Css Notes: Boxes */
+/* || Css Notes: Boxes */
 
 .css-codebox {
     padding: 1em;
@@ -525,7 +572,7 @@ input.invalid + p {
     max-width: 800px;
 }
 
-/* CSS Notes: Flexboxes */
+/* || CSS Notes: Flexboxes */
 
 .css-container,
 .css-flex-container,
@@ -576,7 +623,7 @@ input.invalid + p {
     height: 60px;
 }
 
-/* CSS Notes: Font used inside flexboxes */
+/* || CSS Notes: Font used inside flexboxes */
 
 .giant,
 .semigiant {
@@ -593,7 +640,7 @@ input.invalid + p {
     font-size: 1.3em;
 }
 
-/* CSS Notes: Navigation bar, still not working properly */
+/* || CSS Notes: Navigation bar, still not working properly */
 
 .links-list a {
     background-color: var(--flexbackground);

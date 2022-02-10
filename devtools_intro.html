@@ -4,6 +4,7 @@
         <title>DevTools | Codingnotes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="idth=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
         <link rel="stylesheet" href="./style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +17,16 @@
         <a href="./index.html"><h1>DevTools</h1></a>
         
         <div class="displaybar">
-            <input type="button" name="intro" id="intro" value="Intro" class="on"></button>
-            <input type="button" name="element" id="element" value="Element & Style Tab" class="off"></button>
-            <input type="button" name="console" id="console" value="Console tab" class="off"></button>
-            <input type="button" name="sources" id="sources" value="Sources Tab" class="off"></button>
+            <input type="button" name="intro" id="intro" value="Intro" class="off"></button>
+            <input type="button" name="element" id="element" value="Element & Style" class="on"></button>
+            <input type="button" name="console" id="console" value="Console" class="off"></button>
+            <input type="button" name="sources" id="sources" value="Sources" class="off"></button>
             <input type="button" name="others" id="others" value="Other Tabs" class="off"></button>
         </div>
 
         <script src="./toggle.js"></script>
 
-        <div class="displaybox intro" style="display: block">
+        <div class="displaybox intro" style="display: none">
             <h2>Introduction</h2>
             <p>DevTools: developer tools. Used to inspect elements.</p>
 
@@ -59,10 +60,12 @@
                     </ul>
                 </li>
             </ul>
+
+            <p>Reference: <a href="https://developer.chrome.com/docs/devtools/#css" target="_blank">Chrome DevTools</a></p>
         </div>
 
-        <div class="displaybox element" style="display: none">
-            <h3>Elements Tab</h3>
+        <div class="displaybox element" style="display: block">
+            <h3>Elements and Style</h3>
 
             <p>Element tab is for inspecting html elements and css style applied to each of the elements. It can make a quick change on the style and observe he effect. It can even copy the whole style of an element from different site and pastes in our chose element to see how it looks.</p>       
 
@@ -138,16 +141,23 @@
 
             <h4>Up/down keys shortcuts</h4>
             <ul>
-                <li>to increase/decrease numeric value</li>
+                <li>To increase/decrease numeric value</li>
                 <li><code>Alt</code>+<code>Up</code>: 0.1 increment</li>
                 <li><code>Up</code>: 1 increment or 0.1 if the current value is between -1 and 1.</li>
                 <li><code>Shift</code>+<code>Up</code>: 10 increment</li>
                 <li><code>Shift</code>+<code>Page</code>+<code>Up</code>: Increment 100</li>
+                <li>All above works with <code>Down</code> too to decrease</li>
+            </ul>
+
+            <h4>More tools</h4>
+            <ul>
+                <li><a href="https://developer.chrome.com/docs/devtools/css-overview/" target="_blank">CSS Overview</a></li>
+                <li><a href="https://developer.chrome.com/docs/devtools/css/animations/" target="_blank">Animation</a></li>
             </ul>
         </div>
        
         <div class="displaybox console" style="display: none">
-            <h3>Console Tab</h3>
+            <h3>Console</h3>
 
             <p>Main function: Logging code executions.</p>
     
@@ -295,7 +305,7 @@ Kitten
         </div>
 
         <div class="displaybox sources" style="display: none">
-            <h3>Source Tab</h3>
+            <h3>Source</h3>
 
             <p>Main function: Debugging.</p>
     
