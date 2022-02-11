@@ -13,9 +13,10 @@
 
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>CSS Grid</h1></a> 
+        <div id="sectionBar"></div>
 
-        <section>
-            <h2>Grid</h2>  
+        <section class="introduction">
+            <h2>Introduction</h2>  
         
             <p>A grid is a set of intersectiong horizontal and vertical lines defining columns and row, and elements can be placed onto this grid within the column and row lines. Together with flxbox, grid is a powerful way to create an intricate CSS layout.</p>
 
@@ -48,15 +49,15 @@
             <a href="#top"><hr></a>
         </section>
         
-        <section>
-            <h3>Grid Container</h3>
+        <section class="container">
+            <h2>Grid Container</h2>
 
             <div class="formula"><code>display: grid</code></div>
             <div class="formula"><code>display: inline-grid</code></div> 
 
             <p>An element is made into a <strong>grid container</strong> by <code>display: grid</code> or <code>inline-grid</code> declaration. All of its direct children become the <strong>grid items</strong>.</p>
 
-            <p>The default grid is to arrange the grid items vertically just like in an unstyled list.</p>
+            <p>The default grid is to arrange the grid items vertically (1 column, multiple rows) just like in an unstyled list.</p>
 
 <pre class="js-codebox">
 <strong>&lt!-- HTML --&gt</strong>
@@ -91,20 +92,16 @@
     <div>Item 5</div>
 </div></pre>
 
-
-
-
-
             <a href="#top"><hr></a>
         </section>
 
-        <section>
-            <h3></h3>
+        <section class="tracks">
+            <h2>Grid Tracks</h2>
             <a href="#top"><hr></a>
         </section>
 
-        <section>
-            <h3>Resources</h3>
+        <section class="resources">
+            <h2>Resources</h2>
             <ul>
                 <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid
                 </a></li>
@@ -113,12 +110,17 @@
                 <!--<li><a href="" target="_blank"></a></li>-->
             </ul>
 
-            <h4>Tools</h4>
+            <h3>Tools</h3>
             <ul>
                 <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts" target="_blank">Grid Inspector</a> within Firefox's Developer Tools.</li>
             </ul>
         </section>
 
         <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+
+        <script src="./sectionBar.js"></script>
+        <script src="./toggle.js"></script>
+
+
     </body>
     </html>

@@ -25,6 +25,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 :root {
     --border:rgb(243, 196, 205);
     --borderfill:rgb(250, 242, 243);
+    --borderdark:rgb(212, 154, 165);
     --title: cadetblue;
     --code: steelblue;
     --link1: sienna;
@@ -320,6 +321,37 @@ table code {
 #abcBar a:hover {
     background-color: var(--border);
     color: white;
+}
+
+/* || Section Bar */
+
+#sectionBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: var(--bumper-half);
+    margin-top: var(--bumper-half);
+}
+
+#sectionBar input {
+    color: var(--borderdark); 
+    border: 3px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9em;
+    padding: var(--bumper-quarter) var(--bumper-half);
+    margin-bottom: var(--bumper);
+}
+
+#sectionBar .on {
+    background-color: white;
+}
+
+#sectionBar .off {
+    color: rgb(179, 179, 179);
+    background-color: white;
+
+    border-color: lightgrey;
 }
 
 /* || Coding Font */ 
