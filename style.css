@@ -67,6 +67,10 @@ html {
   box-sizing: inherit;
 }
 
+footer {
+    text-align: center;
+}
+
 /* Fonts and alignings */
 
 h1, h2, h3, h4, h5, h6, th {
@@ -335,7 +339,7 @@ table code {
 }
 
 #sectionBar input {
-    color: var(--borderdark); 
+    color: var(--title); 
     border: 3px solid var(--border);
     border-radius: 8px;
     font-size: 0.9em;
@@ -344,14 +348,12 @@ table code {
 }
 
 #sectionBar .on {
-    background-color: white;
+    background-color: var(--borderfill);
 }
 
 #sectionBar .off {
-    color: rgb(179, 179, 179);
     background-color: white;
 
-    border-color: lightgrey;
 }
 
 /* || Coding Font */ 

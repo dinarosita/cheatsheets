@@ -15,7 +15,7 @@
         <a href="./index.html"><h1>CSS Grid</h1></a> 
         <div id="sectionBar"></div>
 
-        <section class="introduction">
+        <section title="introduction">
             <h2>Introduction</h2>  
         
             <p>A grid is a set of intersectiong horizontal and vertical lines defining columns and row, and elements can be placed onto this grid within the column and row lines. Together with flxbox, grid is a powerful way to create an intricate CSS layout.</p>
@@ -49,7 +49,7 @@
             <a href="#top"><hr></a>
         </section>
         
-        <section class="container">
+        <section title="container" class="landing">
             <h2>Grid Container</h2>
 
             <div class="formula"><code>display: grid</code></div>
@@ -95,12 +95,12 @@
             <a href="#top"><hr></a>
         </section>
 
-        <section class="tracks">
+        <section title="tracks">
             <h2>Grid Tracks</h2>
             <a href="#top"><hr></a>
         </section>
 
-        <section class="resources">
+        <section title="resources">
             <h2>Resources</h2>
             <ul>
                 <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid
@@ -120,6 +120,43 @@
 
         <script src="./sectionBar.js"></script>
         <script src="./toggle.js"></script>
+        <script>
+            // landing.js: This script is to give option to have a landing section instead of the default display all. If any section has a class "landing", then display block will be let on for just this section(s), the rest will be off. THere can be more than 1 landing section
+
+            
+            function landing () {
+                console.log("Landing is called");
+                let displayAll = true;
+                const sections = document.querySelectorAll("section");
+                for (let i = 0; i < sections.length; i++) {
+                    if (sections[i].classList.value === "landing") {
+                        displayAll = false;
+                        console.log ("Section " + (i+1) + " is a landing section")
+                    }
+                }
+                console.log("Display all: " + displayAll);
+
+                if (displayAll === false) {
+                    for (let i = 0; i < sections.length; i++) {
+                        const theClass = sections[i].classList.value;
+                        console.log("Loop " + (i+1) + ": " + theClass);
+                        
+                        if (theClass !== "landing") {
+                            console.log("The class is not landing");
+                            document.querySelectorAll("input")[i].classList.value = "off";
+                            sections[i].style.display = "none";
+                        } else if (sections[i].classList.value === "landing") {
+                            // do nothing, it's already on by default
+                        }
+                    }
+                } else if (displayAll === true) {
+                    // do nothing, this is the default value
+                }
+            }
+
+            landing();
+            
+        </script>
 
 
     </body>

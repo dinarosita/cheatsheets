@@ -2,13 +2,15 @@
 
 for (var i = 65; i <= 90; i++) {
     const abcButton = document.createElement("a");
-    abcButton.setAttribute("id", String.fromCharCode(i));
-    abcButton.appendChild(document.createTextNode(String.fromCharCode(i)));
-    abcButton.setAttribute("href", `#section${String.fromCharCode(i)}`);
+    const character = String.fromCharCode(i);
+    abcButton.setAttribute("id", character);
+    abcButton.appendChild(document.createTextNode(character));
+    abcButton.setAttribute("href", `#section${character}`);
+    
     const location = document.querySelector("#abcBar");
     location.appendChild(abcButton);
-    if (document.querySelector(`#section${String.fromCharCode(i)}`).classList.value === "empty") {
-        document.querySelector(`#${String.fromCharCode(i)}`).style.backgroundColor = "lightgray";
-        document.querySelector(`#${String.fromCharCode(i)}`).style.color = "white";
+    if (document.querySelector(`#section${character}`).classList.value === "empty") {
+        document.querySelector(`#${character}`).style.backgroundColor = "lightgray";
+        document.querySelector(`#${character}`).style.color = "white";
     }
 }

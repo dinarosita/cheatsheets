@@ -1,4 +1,4 @@
-// sectionBar.JS is a script to generate section bar containing toggle section buttons dynamically with display block as the default. For element tags, class and id naming, check out css_grid.html.
+// sectionBar.JS is a script to generate section bar containing toggle section buttons dynamically with display block as the default. For element tags, title, class and id naming, check out css_grid.html.
 
 const sections = document.querySelectorAll("section");
 console.log({sections});
@@ -6,7 +6,7 @@ console.log({sections});
 for (let i = 0; i < sections.length; i++) {
     console.log("Button " + (i+1));
 
-    const sectionID = sections[i].classList.value;
+    const sectionID = sections[i].title;
     console.log("ID: " + sectionID);
 
     const sectionButton = document.createElement("input");
