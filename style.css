@@ -71,6 +71,24 @@ footer {
     text-align: center;
 }
 
+/* description dd, dl, dt */
+
+dd ul {
+    margin: 0; 
+    padding-left: 18px;
+}
+
+dd li {
+    list-style-type: circle;
+}
+
+.nogaplist dl,
+.nogaplist dt {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
 /* Fonts and alignings */
 
 h1, h2, h3, h4, h5, h6, th {
@@ -447,6 +465,15 @@ code a {
 .displaybar .on {
     color: var(--title);
     background-color: var(--borderfill);
+}
+
+/* || HTML Notes */
+
+.html_notes h2 {
+    text-align: left;
+    text-decoration: underline;
+    padding: 16px 0 8px;
+    font-size: 1.3em;
 }
 
 /* || JavaScript Notes */

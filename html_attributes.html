@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML Attributes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="./index.html"><h1>HTML Attributes</h1></a> 
+        </header>
+        <main>            
+            <section id="attributes">
+                <h2>Attributes</h2>
+
+                <h3>Global attributes</h3>
+                <dl>
+                    <dt><code>href</code></dt>
+                    <dd>URL, absolute or relative</dd>
+
+                    <dt><code>target</code></dt>
+                    <dd>Where to show the result of navigation</dd>
+                    <dd class="nogaplist">Values:
+                        <dl>
+                            <dt><code>_self</code></dt>
+                            <dd>Default. Show result in the current browsing context.</dd>
+                            <dt><code>_blank</code></dt>
+                            <dd>Show result in a new, unnamed browsing context</dd>
+                            <dt><code>_parent</code></dt>
+                            <dd>Show the result in the parent browsing context. If there's no parents, show in current browsing context just like <code>_self</code>.</dd>
+                            <dt><code>_top</code></dt>
+                            <dd>Show result in the top most browsing context. If there's no parents, show in current browsing context just like <code>_self</code>.</dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </section>
+
+            <section id="resources">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">HTML Elements</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity" target="_blank">Reserved characters</a></li>
+                </ul>
+                <a href="#top"><hr></a>
+            </section>
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>       
+    </body>
+</html>
