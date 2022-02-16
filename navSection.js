@@ -1,9 +1,9 @@
 /* navSection.js
-About: automatically generated navigation bar of sections. Requirement: Define id attribute of each section, and place HTML elements below under the main header element.
-<nav class="html-nav">
-    <ul id="navMenu">
-    </ul>
-</nav>
+About: automatically generated navigation bar of sections. Styling class included.
+Requirements: 
+1. <nav id="navMenu"></nav>
+2. <section id="section1_name">
+   ID format: lowercase, _ separated. Will be automatically modified into button title.
 */
 
 function makeTitle (id) {
@@ -13,24 +13,30 @@ function makeTitle (id) {
     return title;
 };
 
+function makeNavUl () {
+    /* Generate and append <ul> in <nav id="navMenu"> */
+    const navUl = document.createElement("ul");
+    navUl.id = "navUl"
+    document.querySelector("#navMenu").appendChild(navUl);
+    document.querySelector("#navMenu").className = "html-nav";
+}
+
 function sectionNavBar (sect) {
     /* Grab section id and create title */
-    const sectID = sect.id;
-    const sectTitle = makeTitle(sectID);
+    const sectionID = sect.id;
+    const sectionTitle = makeTitle(sectionID);
 
     /* Generate and append <li> */
-    const sectButton = document.createElement("li");
-    sectButton.setAttribute("id", (sectID + "Button"));
-    sectButton.setAttribute("class", "html-nav");
-
-    const navList = document.querySelector("#navMenu");
-    navList.appendChild(sectButton);
+    const navLi = document.createElement("li");
+    navLi.id = sectionID + "Button";
+    document.querySelector("#navUl").appendChild(navLi);
 
     /* Generate and append <a> */
-    const buttonLink = document.createElement("a");
-    buttonLink.setAttribute("href", `#${sectID}`);
-    buttonLink.textContent = sectTitle;
-    sectButton.appendChild(buttonLink);
+    const navA = document.createElement("a");
+    navA.href = `#${sectionID}`;
+    navA.textContent = sectionTitle;
+    navLi.appendChild(navA);
 };
 
+makeNavUl();
 document.querySelectorAll("section").forEach(sectionNavBar);
