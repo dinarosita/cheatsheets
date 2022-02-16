@@ -14,6 +14,7 @@
         <header>
             <a href="./index.html"><h1>HTML Elements</h1></a> 
         </header>
+          
         <main class="html_notes">
             <section id="components">
                 <h2>Components</h2>
@@ -170,7 +171,6 @@
 
             <section id="tags_section">
                 <h2>Content sectioning</h2>
-
                 <dl>
                     <dt><code>&lt;body&gt;</code></dt>
                     <dd>
@@ -187,9 +187,20 @@
                                 </code>
                             </dd>
                             <dd>It can be the header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element.</dd>
+                            <dd>
+                                <code>
+                                    &lt;article&gt;<br>
+                                    <span class="tab"/>&lt;header&gt;...&lt;/header&gt;<br>
+                                    <span class="tab"/>&lt;main&gt;...&lt;/main&gt;<br>
+                                    &lt;/article&gt;
+                                </code>
+                            </dd>
 
                             <dt><code>&lt;nav&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd>Navigation block.</dd>
+                            <dd>Common examples are unordered list <code>&lt;ul&gt;</code> presented as a sidebar, navigation bar, or dropdown menu. But it actually doesn't have to be structured like that. For example, the link choices can be given within a paragraph <code>&lt:p&gt;</code></dd>
+                            <dd>A document might have more than 1 <code>&lt;nav&gt;</code> element.</dd>
+                            <dd>Usually link menu in the bottom of the page are given within <code>&lt;footer&gt;</code> instead.</dd>
 
                             <dt><code>&lt;main&gt;</code></dt>
                             <dd>   </dd>
