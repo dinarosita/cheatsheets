@@ -476,6 +476,17 @@ code a {
     font-size: 1.3em;
 }
 
+.html_notes h3 {
+    text-align: left;
+    text-decoration: underline;
+    padding: 16px 0 8px;
+    font-size: 1.0em;
+
+}
+
+.obsolete dt code {
+    color: rgb(216, 142, 142);
+}
 /* || JavaScript Notes */
 
 .js-codebox {

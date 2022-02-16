@@ -15,17 +15,17 @@
             <a href="./index.html"><h1>HTML Elements</h1></a> 
         </header>
         <main class="html_notes">
-            <section>
+            <section id="components">
                 <h2>Components</h2>
                 <div class="formula">
-                    <code>&lth2 id="elements"&gt<span class="variable">HTML Elements</span>&lt/h2&gt</code>
+                    <code>&lt;h2 id="elements"&gt;<span class="variable">HTML Elements</span>&lt;/h2&gt;</code>
                 </div>
                 <p>HTML elements are created using tags. Elements are specified further using attributes.</p>
 
                 <p>In example above:
                     <ul>
-                        <li><strong>Element:</strong> <code>&lth2 id="elements"&gt<span class="variable">HTML Elements</span>&lt/h2&gt</code></li>
-                        <li><strong>Tag:</strong> <code>&lth2&gt</code></li>
+                        <li><strong>Element:</strong> <code>&lt;h2 id="elements"&gt;<span class="variable">HTML Elements</span>&lt;/h2&gt;</code></li>
+                        <li><strong>Tag:</strong> <code>&lt;h2&gt;</code></li>
                         <li><strong>Attribute:</strong> <code>id</code>
                         <li><strong>Attribute's value (of id):</strong> <code>"elements"</code></li>
                         <li><strong>(text content?):</strong> <code>"HTML Elements"</code></li>
@@ -34,44 +34,66 @@
                 <a href="#top"><hr></a>
             </section>
 
+            <section id="semantic">
+                <h2>Semantic elements</h2>
+
+                <dl>
+                    <dt>Semantic elements</dt>
+                    <dd>Semantic elements are elements with meaning</dd>
+                    <dd>Examples: <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;form&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;table&gt;</code></dd>
+
+                    <dt>Non-semantic elements</dt>
+                    <dd>Non-semantic elements tells nothing about its content.</dd>
+                    <dd>Examples: <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code></dd>
+                </dl>
+                <a href="#top"><hr></a>
+
+            </section>
+
             <section id="structure">
-                <h2>Structure example</h2>
+                <h2>Structure</h2>
+                <p><code>&lt;html&gt;</code> is the main root and its direct children are <code>&lt;head&gt;</code> where we put metadata and <code>&lt;body&gt;</code> where we put the content. Metadata elements inside <code>&lt;head&gt;</code> are written as direct children. The content elements though, are very flexible and can be super nesting. Below is just an example to give a rough idea.</p>               
+
+                <p>Keep in mind that many semantic tags are actually from HTML5 in 2008. Before then, there were no <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code> and <code>&lt;footer&gt;</code> for example. They are all sectioned inside nesting <code>&lt;div&gt;</code> when needed.</p>
+
 <pre class="js-codebox">
-&lthtml&gt
-    &lthead&gt
-        &lttitle&gt...&lt/title&gt
-        &ltmeta&gt
-        &ltlink&gt
-        &ltbase&gt
-        &ltstyle&gt...&lt/style&gt
-    &lt/head&gt
-    &ltbody&gt
-        &ltheader&gt...&lt/header&gt
-        &ltnav&gt...&lt/nav&gt
-        &ltmain&gt
-            &ltsection&gt...&lt/section&gt
-            &ltsection&gt...&lt/section&gt
-            &ltsection&gt...&lt/section&gt
-        &lt/main&gt
-        &ltaside&gt...&ltaside&gt
-        &ltfooter&gt...&lt/footer&gt
-        &ltscript&gt...&lt/script&gt
-    &lt/body&gt
-&lt/html&gt
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;...&lt;/title&gt;
+        &lt;meta&gt;
+        &lt;link&gt;
+        &lt;base&gt;
+        &lt;style&gt;...&lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;...&lt;/header&gt;
+        &lt;nav&gt;...&lt;/nav&gt;
+        &lt;main&gt;
+            &lt;section&gt;...&lt;/section&gt;
+            &lt;section&gt;...&lt;/section&gt;
+            &lt;section&gt;...&lt;/section&gt;
+        &lt;/main&gt;
+        &lt;aside&gt;...&lt;aside&gt;
+        &lt;footer&gt;...&lt;/footer&gt;
+        &lt;script&gt;...&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
 </pre>
+
+                <p>In the following sections, elements will be listed by their tags and sectioned based on their functions/roles. Listing will be given in nesting style. Some parent-child relations are rather exact, some are more of an illustration or common example to give a better idea how these element tags are used.</p>
                 <a href="#top"><hr></a>
             </section>
             
-            <section>
-                <h2>Main root and its direct children</h2>
+            <section id="tags_root">
+                <h2>Main root</h2>
                 <dl>
-                    <dt><code>&ltmain&gt</code></dt>
+                    <dt><code>&lt;main&gt;</code></dt>
                     <dd>The root element. All other elements must be descendants of this element.</dd>
-                    <dd>Directly under <code>&ltmain&gt</code> element:
+                    <dd>Directly under <code>&lt;main&gt;</code> element:
                         <dl>
-                            <dt><code>&lthead&gt</code></dt>
+                            <dt><code>&lt;head&gt;</code></dt>
                             <dd>This is where metadata of the page is located. It's functional, not the displayed content.</dd>
-                            <dt><code>&ltbody&gt</code></dt>
+                            <dt><code>&lt;body&gt;</code></dt>
                             <dd>Sectioning root.</dd>
                             <dd>This is where the actual displayed content is located, arranged in nesting elements each with role in the page composed by styling and organization.</dd>
                         </dl>
@@ -80,25 +102,26 @@
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags_metadata">
                 <h2>Document metadata</h2>
+
                 <dl>
-                    <dt><code>&lthead&gt</code></dt>
-                    <dd>Document's metadata elements are contained within (children of) <code>&lthead&gt</code> element.</dd>
+                    <dt><code>&lt;head&gt;</code></dt>
+                    <dd>Document's metadata elements are contained within (children of) <code>&lt;head&gt;</code> element.</dd>
                     <dd>
                         <dl>
-                            <dt><code>&lttitle&gt</code></dt>
+                            <dt><code>&lt;title&gt;</code></dt>
                             <dd>Browser's title bar or page's tab. Text only. Tag within this element will be ignored.</dd>
                             <dd>Example:
-                            <dd><code>&lttitle&gtHTML Intro&lt/title&gt</code></dd>
+                            <dd><code>&lt;title&gt;HTML Intro&lt;/title&gt;</code></dd>
 
-                            <dt><code>&ltmeta&gt</code></dt>
+                            <dt><code>&lt;meta&gt;</code></dt>
                             <dd>For metadata that can't be represented by the rest of metadata elements.</dd>
                             <dd>Examples:</dd>
-                            <dd><code>&ltmeta charset="UTF-8"&gt</code></dd>
-                            <dd><code>&ltmeta name="viewport" content="width=device-width, initial-scale=1"&gt</code></dd>
+                            <dd><code>&lt;meta charset="UTF-8"&gt;</code></dd>
+                            <dd><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></dd>
 
-                            <dt><code>&ltlink&gt</code></dt>
+                            <dt><code>&lt;link&gt;</code></dt>
                             <dd>To link the html with external resources and spevifies the relationship</dd>
                             <dd>Common attributes:
                                 <ul>
@@ -107,21 +130,21 @@
                                 </ul>
                             </dd>
                             <dd>Examples:</dd>
-                            <dd><code>&ltlink rel="stylesheet" href="./style.css"&gt</code></dd>
-                            <dd><code>&ltlink rel="preconnect" href="https://fonts.googleapis.com"&gt</code></dd>
+                            <dd><code>&lt;link rel="stylesheet" href="./style.css"&gt;</code></dd>
+                            <dd><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></dd>
 
-                            <dt><code>&ltstyle&gt</code></dt>
-                            <dd>Contain internal styling for the document. Better idea is using external styling in a separate css file instead and link it using <code>&ltlink&gt</code> tag. The syntax is similar to the external css file.</dd>
+                            <dt><code>&lt;style&gt;</code></dt>
+                            <dd>Contain internal styling for the document. Better idea is using external styling in a separate css file instead and link it using <code>&lt;link&gt;</code> tag. The syntax is similar to the external css file.</dd>
                             <dd>Examples:</dd>
                             <dd>
                                 <code>
-                                    &ltstyle&gt<br>
+                                    &lt;style&gt;<br>
                                     <span class="tab"/>p {color: blue}<br>
-                                    &lt/style&gt
+                                    &lt;/style&gt;
                                 </code>
                             </dd>                            
                             
-                            <dt><code>&ltbase&gt</code></dt>
+                            <dt><code>&lt;base&gt;</code></dt>
                             <dd>Specifies the base URL to use for all relative URLs in the document.</dd>
                             <dd>Only 2 attributes allowed:
                                 <ul>
@@ -132,11 +155,11 @@
                             <dd>Example:</dd>
                             <dd>
                                 <code>
-                                    &ltbase href="https://duaransel.com/" target="_blank"&gt<br>
-                                    &ltbody&gt<br>
-                                    <span class="tab"/>&ltimg src="img/placeholder.jpg"&gt<br>
-                                    <span class="tab"/>&lta href="tags/tag_base.asp"&gtHTML base Tag&lt/a&gt<br>
-                                    &lt/body&gt
+                                    &lt;base href="https://duaransel.com/" target="_blank"&gt;<br>
+                                    &lt;body&gt;<br>
+                                    <span class="tab"/>&lt;img src="img/placeholder.jpg"&gt;<br>
+                                    <span class="tab"/>&lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;<br>
+                                    &lt;/body&gt;
                                 </code>
                             </dd>
                         </dl>
@@ -145,233 +168,732 @@
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags_section">
                 <h2>Content sectioning</h2>
+
                 <dl>
-                    <dt>   </dt>
-                    <dd>   </dd>
+                    <dt><code>&lt;body&gt;</code></dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;header&gt;</code></dt>
+                            <dd>Introductory content, navigational aids, heading elements, logo, search form, author name, and other elements.</dd>
+                            <dd>It can be function as the banner landmark, the header of the page, when the element is a direct child of <code>&lt;body&gt;</code> element.</dd>
+                            <dd>
+                                <code>
+                                    &lt;header&gt;<br>
+                                    <span class="tab"/>&lt;h1&gt;Codey Luwak&lt;/h1&gt;<br>
+                                    <span class="tab"/>&lt;img src="..." alt="Luwak logo"&gt;<br>
+                                    &lt;/header&gt;
+                                </code>
+                            </dd>
+                            <dd>It can be the header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element.</dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                            <dt><code>&lt;nav&gt;</code></dt>
+                            <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                            <dt><code>&lt;main&gt;</code></dt>
+                            <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                            <dt><code>&lt;article&gt;</code></dt>
+                            <dd>   </dd>
+
+                            <dt><code>&lt;section&gt;</code></dt>
+                            <dd>   </dd>                            
+                            
+                            <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
+                            <dd>   </dd>
+
+                            <dt><code>&lt;address&gt;</code></dt>
+                            <dd>   </dd>
+
+                            <dt><code>&lt;aside&gt;</code></dt>
+                            <dd>   </dd>
+
+                            <dt><code>&lt;footer&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>                   
                 </dl>
 
                 <a href="#top"><hr></a>
             </section>
             
-            <section>
+            <section id="tags_text">
                 <h2>Text content</h2>
+
                 <dl>
-                    <dt>   </dt>
-                    <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                    <dt>Box</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;div&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                    <dt>Paragraphs</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;p&gt;</code></dt>
+                            <dd>   </dd>
+        
+                            <dt><code>&lt;pre&gt;</code></dt>
+                            <dd>   </dd>
+        
+                            <dt><code>&lt;blockquote&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
+                 
+                    <dt>Figures</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;figure&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;figcaption&gt;</code></dt>
+                                    <dd>   </dd>    
+                                </dl>
+                            </dd>                    
+                        </dl>
+                    </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                    <dt>Definitions</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;dl&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;dt&gt;</code></dt>
+                                    <dd>   </dd>
+        
+                                    <dt><code>&lt;dd&gt;</code></dt>
+                                    <dd>   </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Listing</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;ol&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd>   </dd>    
+                                </dl>
+                            </dd>
+
+                            <dt><code>&lt;ul&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd>   </dd>    
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Divider</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;hr&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
+
                 </dl>
                 
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags_inline">
                 <h2>Inline text semantics</h2>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;p&gt;</code></dt>
                     <dd>   </dd>
+                    <dd>
+                        <dl>
+                            <dt>Text role</dt>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;a&gt;</code></dt>
+                                    <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                                    <dt><code>&lt;span&gt;</code></dt>
+                                    <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                                    <dt><code>&lt;mark&gt;</code></dt>
+                                    <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
-                </dl>
+                                    <dt><code>&lt;q&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;small&gt;</code></dt>
+                                    <dd>   </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dd>
+                        <dl>
+                            <dt>Text appearance</dt>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;strong&gt;</code></dt>
+                                    <dd>   </dd>
+                                    <dd>
+                                        <dl>
+                                            <dt><code>&lt;b&gt;</code></dt>
+                                            <dd>   </dd>
+                                        </dl>
+                                    </dd>
+                
+                                    <dt><code>&lt;em&gt;</code></dt>
+                                    <dd>   </dd>
+                                    <dd>
+                                        <dl>
+                                            <dt><code>&lt;i&gt;</code></dt>
+                                            <dd>   </dd>
+                                        </dl>
+                                    </dd>
+                
+                                    <dt><code>&lt;u&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;s&gt;</code></dt>
+                                    <dd>   </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+
+                    <dd>
+                        <dl>
+                            <dt>Text annotation</dt>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;sub&gt;</code></dt>
+                                    <dd>   </dd>
+                
+                                    <dt><code>&lt;sup&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;ruby&gt;</code>
+                                        <dd>   </dd>
+                                        <dd>
+                                            <dl>
+                                                <dt><code>&lt;rp&gt;</code></dt>
+                                                <dd>   </dd>
+                                                <dt><code>&lt;rt&gt;</code></dt>
+                                                <dd>   </dd>
+                                            </dl>
+                                        </dd>
+                                    </dt>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+
+                    <dd>
+                        <dl>
+                            <dt>Text definition</dt>
+                            <dd>
+                                <dl>                
+                                    <dt><code>&lt;abbr&gt;</code></dt>
+                                    <dd>   </dd>
+                
+                                    <dt><code>&lt;dfn&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;data&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;time&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;cite&gt;</code></dt>
+                                    <dd>   </dd>
+                                    
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dd>
+                        <dl>
+                            <dt>Coding & mathematical expressions</dt>
+                            <dd>Monospace font except for <code>&lt;var&gt;</code></dd>
+                            <dd>
+                                <dl>                
+                                    <dt><code>&lt;code&gt;</code></dt>
+                                    <dd>   </dd>
+                
+                                    <dt><code>&lt;kbd&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;samp&gt;</code></dt>
+                                    <dd>   </dd>
+
+                                    <dt><code>&lt;var&gt;</code></dt>
+                                    <dd>   </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dd>
+                        <dl>
+                            <dt>Bidirection text</dt>
+                            <dd>
+                                <dl>                
+                                    <dt><code>&lt;bdi&gt;</code></dt>
+                                    <dd>   </dd>
+                
+                                    <dt><code>&lt;bdo&gt;</code></dt>
+                                    <dd>   </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+
+
+                    <dt>Breaks</dt>
+                    <dd>
+                        <dl>                
+                            <dt><code>&lt;wbr&gt;</code></dt>
+                            <dd>Word break</dd>
+        
+                            <dt><code>&lt;br&gt;</code></dt>
+                            <dd>Line break</dd>
+                        </dl>
+                    </dd>
+
+                </dl>               
                 
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
-                <h2>Image and mnultimedia</h2>
+            <section id="tags_media">
+                <h2>Image and multimedia</h2>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;img&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
+                    <dt><code>&lt;audio&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
+                    <dt><code>&lt;video&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;track&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
+
+                    <dt><code>&lt;map&gt;</code></dt>
                     <dd>   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;area&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags_embed">
                 <h2>Embedded content</h2>
+                <p><code>      </code></p>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;object&gt;</code></dt>
                     <dd>   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;param&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
 
-                    <dt>   </dt>
+                    <dt><code>&lt;picture&gt;</code></dt>
                     <dd>   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;source&gt;</code></dt>
+                            <dd>   </dd>
+                            <dt><code>&lt;img&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
 
-                    <dt>   </dt>
+                    <dt><code>&lt;embed&gt;</code></dt>
                     <dd>   </dd>
-
-                    <dt>   </dt>
+                    <dt><code>&lt;iframe&gt;</code></dt>
+                    <dd>   </dd>
+                    <dt><code>&lt;portal&gt;</code></dt>
                     <dd>   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags_math">
                 <h2>SVG and MathML</h2>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;svg&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
-
-                    <dt>   </dt>
-                    <dd>   </dd>
-
-                    <dt>   </dt>
+                    <dt><code>&lt;math&gt;</code></dt>
                     <dd>   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags_script">
                 <h2>Scripting</h2>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;script&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
+                    <dt><code>&lt;noscript&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
-
-                    <dt>   </dt>
+                    <dt><code>&lt;canvas&gt;</code></dt>
                     <dd>   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags-demarc">
                 <h2>Demarcating edits</h2>
+                <p><code>&lt;del&gt;</code> and <code>&lt;ins&gt;</code> marking deletion and insertion to the document to track changes.</p>
                 <dl>
-                    <dt>   </dt>
-                    <dd>   </dd>
+                    <dt><code>&lt;del&gt;</code></dt>
+                    <dd>Indicates <del>deletion</del>. Default style is strikethrough.</dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                    <dt><code>&lt;ins&gt;</code></dt>
+                    <dd>Indicates <ins>insertion</ins>. Default value is underline.</dd>
 
                 </dl>
                 
                 <a href="#top"><hr></a>
             </section>
             
-            <section>
-                <h2>Table content</h2>
+            <section id="tags_table">
+                <h2>Table</h2>                
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;table&gt;</code></dt>
                     <dd>   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;caption&gt;</code></dt>
+                            <dd>   </dd>
+                            
+                            <dt><code>&lt;colgroup&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;col&gt;</code></dt>
+                                    <dd>   </dd>
+                                </dl>
+                            </dd>
+                            
+                            <dt><code>&lt;thead&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;tr&gt;</code></dt>
+                                    <dd>   </dd>
+                                    <dd>
+                                        <dl>
+                                            <dt><code>&lt;th&gt;</code></dt>
+                                            <dd>   </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+        
+                            <dt><code>&lt;tbody&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;tr&gt;</code></dt>
+                                    <dd>   </dd>
+                                    <dd>
+                                        <dl>
+                                            <dt><code>&lt;th&gt;</code></dt>
+                                            <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
-
-                    <dt>   </dt>
-                    <dd>   </dd>
-
-                    <dt>   </dt>
-                    <dd>   </dd>
+                                            <dt><code>&lt;td&gt;</code></dt>
+                                            <dd>   </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+        
+                            <dt><code>&lt;tfoot&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
                 </dl>
+
                 <a href="#top"><hr></a>
             </section>
 
-            <section>
+            <section id="tags_form">
                 <h2>Forms</h2>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;form&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                    <dd>
+                        <dl>   
+                            <dt><code>&lt;label&gt;</code></dt>
+                            <dd>   </dd>     
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                            <dt><code>&lt;input&gt;</code></dt>
+                            <dd>   </dd>          
+                            
+                            <dt><code>&lt;button&gt;</code></dt>
+                            <dd>   </dd>
+        
+                            <dt><code>&lt;textarea&gt;</code></dt>
+                            <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+        
+                            <dt><code>&lt;datalist&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;option&gt;</code></dt>
+                                    <dd>   </dd>            
+                                </dl>
+                            </dd>
+
+                            <dt><code>&lt;select&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;optgroup&gt;</code></dt>
+                                    <dd>   </dd>
+                                    <dd>
+                                        <dl>
+                                            <dt><code>&lt;option&gt;</code></dt>
+                                            <dd>   </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+
+                            <dt><code>&lt;meter&gt;</code></dt>
+                            <dd>   </dd>
+
+                            <dt><code>&lt;progress&gt;</code></dt>
+                            <dd>   </dd>
+
+                            <dt><code>&lt;output&gt;</code></dt>
+                            <dd>   </dd>
+
+                        </dl>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;fieldset&gt;</code></dt>
+                            <dd>   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;legend&gt;</code></dt>
+                                    <dd>   </dd>
+                                    <dt><code>&lt;input&gt;</code></dt>
+                                    <dd>   </dd>
+                                    <dt><code>&lt;label&gt;</code></dt>
+                                    <dd>   </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </section>            
             
-            <section>
+            <section id="tags_interactive">
                 <h2>Interactive elements</h2>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;details&gt;</code></dt>
+                    <dd>   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;summary&gt;</code></dt>
+                            <dd>   </dd>
+                        </dl>
+                    </dd>
+
+                    <dt><code>&lt;dialog&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
-
-                    <dt>   </dt>
-                    <dd>   </dd>
-
-                    <dt>   </dt>
+                    <dt><code>&lt;menu&gt;</code></dt>
                     <dd>   </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </section> 
 
-            <section>
+            <section id="tags_web">
                 <h2>Web components</h2>
                 <dl>
-                    <dt>   </dt>
+                    <dt><code>&lt;slot&gt;</code></dt>
                     <dd>   </dd>
 
-                    <dt>   </dt>
+                    <dt><code>&lt;template&gt;</code></dt>
                     <dd>   </dd>
 
                 <a href="#top"><hr></a>
             </section> 
 
-            <section>
+            <section id="tags_depracated">
                 <h2>Obsolete and depracated elements</h2>
-                <dl>
-                    <dt>   </dt>
-                    <dd>   </dd>
+                <p class="alert">Do not use. Replace if was used.</p>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                <dl class="obsolete">
+                    <dt>Sectioning</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&ltdir&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;ul&gt;</code></dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                            <dt><code>&lt;hgroup&gt;</code></dt>
+                            <dd>Use <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> directly</dd>
+                        </dl>                        
+                    </dd>
+                    
+                    <dt>Section layout</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;center&gt;</code></dt>
+                            <dd>Use CSS property instead.</dd>
+                            <dd>For centering text: <code>text-align: center</code></dd>
+                            <dd>For centering block: <code>margin-right: auto</code> and <code>margin-left: auto</code></dd>
+                            
+                            <dt><code>&lt;nobr&gt;</code></dt>
+                            <dd>Prevent text from automatically wrapping across multiple lines.</dd>
+                            <dd>Use CSS property instead: <code>white-space: nowrap</code></dd>
 
-                    <dt>   </dt>
-                    <dd>   </dd>
+                            <dt><code>&lt;plaintext&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;pre&gt;</code>, <code>&lt;code&gt;</code>, or CSS <code>font-family</code> with monospace value.</dd>
+
+                            <dt><code>&lt;xmp&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;pre&gt;</code>, <code>&lt;code&gt;</code>, or CSS <code>font-family</code> with monospace value.</dd>
+
+                            <dt><code>&lt;tt&gt;</code></dt>
+                            <dd>Teletype Text element</dd>
+                            <dd>Use instead: <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, <code>&lt;samp&gt;</code>, <code>&lt;var&gt;</code>, <code>&lt;pre&gt;</code>, or <code>&lt;span&gt;</code> styled with CSS <code>font-family</code></dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Text role</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;acronym&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;abbr&gt;</code></dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Text annotation</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;rb&gt;</code> <code>&lt;rtc&gt;</code></dt>
+                            <dd>Check out more current <code>&lt;ruby&gt;</code> elements</dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Font</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;basefont&gt;</code></dt>
+                            <dd>Use various CSS font properties instead</dd>
+
+                            <dt><code>&lt;font&gt;</code></dt>
+                            <dd>Use various CSS font properties instead</dd>
+
+                            <dt><code>&lt;big&gt;</code></dt>
+                            <dd>Use CSS property instead: <code>font-size: larger</code></dd>
+
+                            <dt><code>&lt;strike&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;del&gt;</code> for deletion or <code>&lt;del&gt;</code> for else.</dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Web components</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;content&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;slot&gt;</code></dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Image and multimedia</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;image&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;img&gt;</code></dd>
+
+                            <dt><code>&lt;bgsound&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;audio&gt;</code></dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Embedded content</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;applet&gt;</code> <code>&lt;noembed&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;object&gt;</code></dd>
+
+                            <dt><code>&lt;frame&gt;</code> <code>&lt;frameset&gt;</code> <code>&lt;noframes&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;iframe&gt;</code></dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Unrecommended features. Not replaced, just don't.</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;blink&gt;</code></dt>
+                            <dd>Blinking text. Just don't. Can use animation if you must.</dd>
+                            
+                            <dt><code>&lt;marquee&gt;</code></dt>
+                            <dd>Scrolling and bouncing text. Just don't.</dd>
+
+                            <dt><code>&lt;spacer&gt;</code></dt>
+                            <dd></dd>
+
+                            <dt><code>&lt;shadow&gt;</code></dt>
+                            <dd></dd>
+
+                            <dt><code>&lt;keygen&gt;</code></dt>
+                            <dd></dd>
+                        </dl>
+                    </dd>
+                
+                    <dt>I don't understand yet</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;menuitem&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;  &gt;</code></dd>
+                        </dl>
+                    </dd>
+
                 </dl>
                 <a href="#top"><hr></a>
             </section> 
