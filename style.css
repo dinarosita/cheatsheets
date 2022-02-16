@@ -483,9 +483,6 @@ code a {
     font-size: 1.0em;
 }
 
-.html-nav {
-
-}
 
 .html-nav ul {
     display: flex;
@@ -504,6 +501,7 @@ code a {
     padding: 0 5px;
     border: 2px solid var(--border);
     border-radius: 5px;
+    flex-basis:initial;
 }
 
 .html-nav li:hover {
