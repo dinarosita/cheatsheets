@@ -481,7 +481,38 @@ code a {
     text-decoration: underline;
     padding: 16px 0 8px;
     font-size: 1.0em;
+}
 
+.html-nav {
+
+}
+
+.html-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.html-nav li {
+    color: var(--title);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0 5px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+}
+
+.html-nav li:hover {
+    background-color: var(--borderfill);
+}
+
+.html-nav li a {
+    color: inherit;
+    font-style: normal;
 }
 
 .obsolete dt code {

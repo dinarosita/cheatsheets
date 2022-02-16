@@ -12,46 +12,66 @@
     <body>
 
         <!--Clickable Page Title-->
-        <a href="./index.html"><h1>Git</h1></a>
+        <header>
+            <a href="./index.html"><h1>Git Cheatsheet</h1></a>
+        </header>
         
-        <h2>Introduction</h2>
+        <main class="html_notes">
+            <h2>Initiate repo locally</h2>
+            <ul>
+                <li><code>git init</code></li>
+                <li><code>git add --all</code></li>
+                <li><code>git commit -m "Initial commit"</code></li>
+            </br>
+                <li><code>git remote add origin <em>[SSH link]</em></code></li>
+                <li><code>git branch -M main</code></li>
+                <li><code>git push -u origin main</code></li>
+            </ul>
 
-        <h3>Initiate repo locally</h3>
-        <ul>
-            <li>git init</li>
-            <li>git add --all</li>
-            <li>git commit -m "Initial commit"</li>
-        </br>
-            <li>git remote add origin <em>[SSH link]</em></li>
-            <li>git branch -M main</li>
-            <li>git push -u origin main</li>
-        </ul>
+            <h2>Cloning GitHub repo to local computer</h2>
+            <ul>
+                <li><code>git clone <em>[SSH link]</em></code></li>
+            </ul>
 
-        <h3>Cloning GitHub repo to local computer</h3>
-        <ul>
-            <li>git clone <em>[SSH link]</em></li>
-        </ul>
+            <h2>Pushing to GitHub</h2>
+            <ul>
+                <li><code>git add --all</code></li>
+                <li><code>git commit -m "state changes made"</code></li>
+                <li><code>git push origin main</code></li>
+            </ul>
 
-        <h3>Pushing to GitHub</h3>
-        <ul>
-            <li>git add --all</li>
-            <li>git commit -m "state changes made"</li>
-            <li>git push origin main</li>
-        </ul>
+            <h2>Checking status</h2>
+            <ul>
+                <li><code>git status</code></li>
+            </ul>
 
-        <h3>Checking status</h3>
-        <ul>
-            <li>git status</li>
-        </ul>
+            <h2>Make a local repo into non-repo directory</h2>
+            <ul>
+                <li><code>rm -rf .git</code></li>
+            </ul>
 
-        <h3>Make a local repo into non-repo directory</h3>
-        <ul>
-            <li>rm -rf .git</li>
-        </ul>
+            <h2>Undo changes with Git</h2>
+            <p><a href="https://www.cloudbees.com/blog/git-undo-commit" target="_blank">Time Travel in Your Project: Undo Changes with Git</a></p>
 
-        <h3>Undo changes with Git</h3>
-        <p><a href="https://www.cloudbees.com/blog/git-undo-commit" target="_blank">Time Travel in Your Project: Undo Changes with Git</a></p>
-
-        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+            <h2>Changing repo folder name</h2>
+            <ul>
+                <li>After repo name is changed, for example from cheatsheets to codingnotes and then into codeyluwak, even though local can track and update the remote correctly, we should still changing the link into the new correct URL.</li>
+                <li><code>git remote set-url</code> (existing remote name) (the new URL)</li>
+                <li>Existing remote name: <code>origin</code>, <code>upstream</code>, etc. Check it at .git configuration.</li>
+                <li>URL: SSH or HTTPS. Check it out at the github page.</li>
+                <li>In the case of this Codey Luwak, remote name is <code>origin</code> and it is using SSH link.</li>
+                <li>Terminal commands:
+                    <ul>
+                        <li><code>cd .git</code></li>
+                        <li><code>less config</code> or <code>more config</code></li>
+                        <li><code>git remote set-url origin git@github.com:dinarosita/codeyluwak.git</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
     </body>
 </html>
