@@ -483,7 +483,6 @@ code a {
     font-size: 1.0em;
 }
 
-
 .html-nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -515,6 +514,10 @@ code a {
 
 .obsolete dt code {
     color: rgb(216, 142, 142);
+}
+
+dl .js-codebox {
+    margin: 8px 0;
 }
 /* || JavaScript Notes */
 

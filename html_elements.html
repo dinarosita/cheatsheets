@@ -91,13 +91,16 @@
                 <h2>Main root</h2>
                 <dl>
                     <dt><code>&lt;main&gt;</code></dt>
-                    <dd>The root element. All other elements must be descendants of this element.</dd>
-                    <dd>Directly under <code>&lt;main&gt;</code> element:
+                    <dd><strong>Root element</strong></dd>
+                    <dd>All other elements must be descendants of this element.</dd>
+                    <dd>Child of <code>&lt;main&gt;</code> element:
                         <dl>
                             <dt><code>&lt;head&gt;</code></dt>
-                            <dd>This is where metadata of the page is located. It's functional, not the displayed content.</dd>
+                            <dd><strong>Metadata container</strong></dd>
+                            <dd>It's functional, not the displayed content.</dd>
+
                             <dt><code>&lt;body&gt;</code></dt>
-                            <dd>Sectioning root.</dd>
+                            <dd><strong>Sectioning root</strong></dd>
                             <dd>This is where the actual displayed content is located, arranged in nesting elements each with role in the page composed by styling and organization.</dd>
                         </dl>
                     </dd>
@@ -110,19 +113,25 @@
 
                 <dl>
                     <dt><code>&lt;head&gt;</code></dt>
-                    <dd>Document's metadata elements are contained within (children of) <code>&lt;head&gt;</code> element.</dd>
+                    <dd><strong>Metadata container</strong></dd>
+                    <dd>Metadata elements are direct children of <code>&lt;head&gt;</code> element.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;title&gt;</code></dt>
-                            <dd>Browser's title bar or page's tab. Text only. Tag within this element will be ignored.</dd>
+                            <dd><strong>Browser's title bar or page's tab</strong></dd>
+                            <dd>Text only. Tag within this element will be ignored.</dd>
                             <dd>Example:
                             <dd><code>&lt;title&gt;HTML Intro&lt;/title&gt;</code></dd>
 
                             <dt><code>&lt;meta&gt;</code></dt>
                             <dd>For metadata that can't be represented by the rest of metadata elements.</dd>
                             <dd>Examples:</dd>
-                            <dd><code>&lt;meta charset="UTF-8"&gt;</code></dd>
-                            <dd><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></dd>
+                            <dd>
+                                <div class="js-codebox">
+                                    &lt;meta charset="UTF-8"&gt;<br>
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                                </div>
+                            </dd>
 
                             <dt><code>&lt;link&gt;</code></dt>
                             <dd>To link the html with external resources and spevifies the relationship</dd>
@@ -133,18 +142,22 @@
                                 </ul>
                             </dd>
                             <dd>Examples:</dd>
-                            <dd><code>&lt;link rel="stylesheet" href="./style.css"&gt;</code></dd>
-                            <dd><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></dd>
+                            <dd>
+                                <div class="js-codebox">
+                                    &lt;link rel="stylesheet" href="./style.css"&gt;<br>
+                                    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+                                </div>
+                            </dd>
 
                             <dt><code>&lt;style&gt;</code></dt>
                             <dd>Contain internal styling for the document. Better idea is using external styling in a separate css file instead and link it using <code>&lt;link&gt;</code> tag. The syntax is similar to the external css file.</dd>
                             <dd>Examples:</dd>
                             <dd>
-                                <code>
+                                <div class="js-codebox">
                                     &lt;style&gt;<br>
                                     <span class="tab"/>p {color: blue}<br>
                                     &lt;/style&gt;
-                                </code>
+                                </div>
                             </dd>                            
                             
                             <dt><code>&lt;base&gt;</code></dt>
@@ -157,13 +170,18 @@
                             <dd>There should be just 1 declaration of each attributes. If there are more, only the first one is acknowledged.</dd>
                             <dd>Example:</dd>
                             <dd>
-                                <code>
-                                    &lt;base href="https://duaransel.com/" target="_blank"&gt;<br>
+                                <div class="js-codebox">
+                                    &lt;base href="https://duaransel.com/" target="_blank"&gt;
+
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="js-codebox">
                                     &lt;body&gt;<br>
                                     <span class="tab"/>&lt;img src="img/placeholder.jpg"&gt;<br>
                                     <span class="tab"/>&lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;<br>
                                     &lt;/body&gt;
-                                </code>
+                                </div>
                             </dd>
                         </dl>
                     </dd>
@@ -178,24 +196,25 @@
                     <dd>
                         <dl>
                             <dt><code>&lt;header&gt;</code></dt>
-                            <dd>Introductory content, navigational aids, heading elements, logo, search form, author name, and other elements.</dd>
-                            <dd>It can be function as the banner landmark, the header of the page, when the element is a direct child of <code>&lt;body&gt;</code> element.</dd>
+                            <dd>Introductory content.</dd>
+                            <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
+
                             <dd>
-                                <code>
+                                <div class="js-codebox">
                                     &lt;header&gt;<br>
                                     <span class="tab"/>&lt;h1&gt;Codey Luwak&lt;/h1&gt;<br>
                                     <span class="tab"/>&lt;img src="..." alt="Luwak logo"&gt;<br>
                                     &lt;/header&gt;
-                                </code>
+                                </div>
                             </dd>
-                            <dd>It can be the header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element.</dd>
+                            <dd>Header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element.</dd>
                             <dd>
-                                <code>
+                                <div class="js-codebox">
                                     &lt;article&gt;<br>
                                     <span class="tab"/>&lt;header&gt;...&lt;/header&gt;<br>
                                     <span class="tab"/>&lt;main&gt;...&lt;/main&gt;<br>
                                     &lt;/article&gt;
-                                </code>
+                                </div>
                             </dd>
 
                             <dt><code>&lt;nav&gt;</code></dt>
@@ -920,6 +939,10 @@
                 <a href="#top"><hr></a>
             </section>
         </main>
+
+        <aside>
+
+        </aside>
         <footer>
             <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
             <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
