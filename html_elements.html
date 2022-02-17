@@ -244,13 +244,15 @@
                             </dd>
 
                             <dt><code>&lt;main&gt;</code></dt>
-                            <dd><strong>Dominant content of document body</strong></dd>
-                            <dd>A document should have only 1 <code>&lt;main&gt;</code> element (other than the <code>hidden</code> one).</dd>
+                            <dd><strong>Dominant content of document <code>&lt;body&gt;</code></strong></dd>
+                            <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
+                                
                             <dd>
                                 <div class="js-codebox">
                                     &lt;body&gt;<br>
                                     <span class="tab"/>&lt;header&gt;...&lt;/header&gt;<br>
                                     <span class="tab"/>&lt;main&gt;<br>
+                                    <span class="tab2"/>&lt;h1&gt;...&lt;/h1&gt;<br>
                                     <span class="tab2"/>&lt;p&gt;...&lt;/p&gt;<br>
                                     <span class="tab2"/>&lt;p&gt;...&lt;/p&gt;<br>
                                     <span class="tab"/>&lt;/main&gt;<br>
@@ -259,12 +261,40 @@
                                 </div>
                             </dd>
 
-
                             <dt><code>&lt;article&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>Self contained composition</strong></dd>
+                            <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
+                            <dd>
+                                <div class="js-codebox">
+
+                                    &lt;main&gt;<br>
+                                    <span class="tab"/>&lt;h1&gt;...&lt;/h1&gt;<br>
+                                    <span class="tab"/>&lt;p&gt;...&lt;/p&gt;<br><br>
+                                    <span class="tab"/>&lt;article&gt;<br>
+                                    <span class="tab2"/>&lt;h2&gt;...&lt;/h2&gt;<br>
+                                    <span class="tab2"/>&lt;p&gt;...&lt;/p&gt;<br>
+                                    <span class="tab"/>&lt;/article&gt;<br><br>
+                                    <span class="tab"/>&lt;article&gt;<br>
+                                    <span class="tab2"/>&lt;h2&gt;...&lt;/h2&gt;<br>
+                                    <span class="tab2"/>&lt;p&gt;...&lt;/p&gt;<br>
+                                    <span class="tab"/>&lt;/article&gt;<br>
+                                    &lt;/main&gt;
+                                </div>
+                            </dd>
 
                             <dt><code>&lt;section&gt;</code></dt>
-                            <dd>   </dd>                            
+                            <dd><strong>Generic sectioning element</strong></dd>
+                            <dd>Should only be used if there is not a more specific element to represent it:
+                                <ul>
+                                    <li>If contents represent standalone pieces, use <code>&lt;article&gt;</code></li>
+                                    <li>If contents represent side info like relate links or author bio, use <code>&lt;aside&gt;</code></li>
+                                    <li>If content represent main cintent area of a document, use <code>&lt;main&gt;</code></li>
+                                    <li>If contents represent navigational menu, use <code>&lt;nav&gt;</code></li>
+                                    <li>If element is only use as a styling wrapper, use <code>&lt;div&gt;</code>. Rule of thumb, <code>&lt;section&gt;</code> should logically appear in the document outline.</li>
+                                </ul>
+                            </dd>
+                            <dd>Each <code>&lt;section&gt;</code> should be identified by heading <code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> element whenever possible. Section without heading do not appear in the document outline.</dd>
+                            <dd>Example use: search result, map display.</dd>
                             
                             <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
                             <dd>   </dd>
