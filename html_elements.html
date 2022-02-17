@@ -92,16 +92,14 @@
                 <dl>
                     <dt><code>&lt;main&gt;</code></dt>
                     <dd><strong>Root element</strong></dd>
-                    <dd>All other elements must be descendants of this element.</dd>
-                    <dd>Child of <code>&lt;main&gt;</code> element:
+                    <dd>Direct children:
                         <dl>
                             <dt><code>&lt;head&gt;</code></dt>
                             <dd><strong>Metadata container</strong></dd>
-                            <dd>It's functional, not the displayed content.</dd>
 
                             <dt><code>&lt;body&gt;</code></dt>
                             <dd><strong>Sectioning root</strong></dd>
-                            <dd>This is where the actual displayed content is located, arranged in nesting elements each with role in the page composed by styling and organization.</dd>
+
                         </dl>
                     </dd>
                 </dl>
@@ -123,18 +121,9 @@
                             <dd>Example:
                             <dd><code>&lt;title&gt;HTML Intro&lt;/title&gt;</code></dd>
 
-                            <dt><code>&lt;meta&gt;</code></dt>
-                            <dd>For metadata that can't be represented by the rest of metadata elements.</dd>
-                            <dd>Examples:</dd>
-                            <dd>
-                                <div class="js-codebox">
-                                    &lt;meta charset="UTF-8"&gt;<br>
-                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-                                </div>
-                            </dd>
 
                             <dt><code>&lt;link&gt;</code></dt>
-                            <dd>To link the html with external resources and spevifies the relationship</dd>
+                            <dd><strong>Link to external resources</strong></dd>
                             <dd>Common attributes:
                                 <ul>
                                     <li><code>rel</code>: relationship. Values example: stylesheet, preconnect.</li>
@@ -150,7 +139,7 @@
                             </dd>
 
                             <dt><code>&lt;style&gt;</code></dt>
-                            <dd>Contain internal styling for the document. Better idea is using external styling in a separate css file instead and link it using <code>&lt;link&gt;</code> tag. The syntax is similar to the external css file.</dd>
+                            <dd><strong>Internal CSS</strong></dd>
                             <dd>Examples:</dd>
                             <dd>
                                 <div class="js-codebox">
@@ -161,7 +150,7 @@
                             </dd>                            
                             
                             <dt><code>&lt;base&gt;</code></dt>
-                            <dd>Specifies the base URL to use for all relative URLs in the document.</dd>
+                            <dd><strong>Base URL for all relative links</strong></dd>
                             <dd>Only 2 attributes allowed:
                                 <ul>
                                     <li><code>href</code>: URL of all the relative links in the page.</li>
@@ -183,6 +172,16 @@
                                     &lt;/body&gt;
                                 </div>
                             </dd>
+
+                            <dt><code>&lt;meta&gt;</code></dt>
+                            <dd><strong>Meta without its own element</strong></dd>
+                            <dd>Examples:</dd>
+                            <dd>
+                                <div class="js-codebox">
+                                    &lt;meta charset="UTF-8"&gt;<br>
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                                </div>
+                            </dd>
                         </dl>
                     </dd>
                 </dl>
@@ -196,7 +195,7 @@
                     <dd>
                         <dl>
                             <dt><code>&lt;header&gt;</code></dt>
-                            <dd>Introductory content.</dd>
+                            <dd><strong>Introductory content</strong></dd>
                             <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
 
                             <dd>
@@ -218,13 +217,48 @@
                             </dd>
 
                             <dt><code>&lt;nav&gt;</code></dt>
-                            <dd>Navigation block.</dd>
-                            <dd>Common examples are unordered list <code>&lt;ul&gt;</code> presented as a sidebar, navigation bar, or dropdown menu. But it actually doesn't have to be structured like that. For example, the link choices can be given within a paragraph <code>&lt:p&gt;</code></dd>
-                            <dd>A document might have more than 1 <code>&lt;nav&gt;</code> element.</dd>
-                            <dd>Usually link menu in the bottom of the page are given within <code>&lt;footer&gt;</code> instead.</dd>
+                            <dd><strong>Navigation block</strong></dd>
+                            <dd>Using <code>&lt;ul&gt;</code> listing presented as a sidebar, navigation bar, or dropdown menu is common, but links within <code>&lt;p&gt;</code> paragraph is a cool choice too.</dd>
+                            <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
+                            <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
+                            <dd>
+                                <div class="js-codebox">
+                                    &lt;nav&gt;<br>
+                                    <span class="tab"/>&lt;ul&gt;<br>
+                                    <span class="tab2"/>&lt;li&gt;...&lt;/li&gt;<br>
+                                    <span class="tab2"/>&lt;li&gt;...&lt;/li&gt;<br>
+                                    <span class="tab2"/>&lt;li&gt;...&lt;/li&gt;<br>
+                                    <span class="tab"/>&lt;/ul&gt;<br>
+                                    &lt;/nav&gt;
+                                </div>
+                            </dd>
+                            <dd>CSS for horizontal bar:</dd>
+                            
+                            <dd>
+                                <div class="js-codebox">
+                                    .html-nav ul {<br>
+                                    <span class="tab"/>display: flex;<br>
+                                    <span class="tab"/>list-style-type: none;<br>
+                                    }
+                                </div>
+                            </dd>
 
                             <dt><code>&lt;main&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>Dominant content of document body</strong></dd>
+                            <dd>A document should have only 1 <code>&lt;main&gt;</code> element (other than the <code>hidden</code> one).</dd>
+                            <dd>
+                                <div class="js-codebox">
+                                    &lt;body&gt;<br>
+                                    <span class="tab"/>&lt;header&gt;...&lt;/header&gt;<br>
+                                    <span class="tab"/>&lt;main&gt;<br>
+                                    <span class="tab2"/>&lt;p&gt;...&lt;/p&gt;<br>
+                                    <span class="tab2"/>&lt;p&gt;...&lt;/p&gt;<br>
+                                    <span class="tab"/>&lt;/main&gt;<br>
+                                    <span class="tab"/>&lt;footer&gt;...&lt;/footer&gt;<br>
+                                    &lt;/body&gt;
+                                </div>
+                            </dd>
+
 
                             <dt><code>&lt;article&gt;</code></dt>
                             <dd>   </dd>
