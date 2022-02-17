@@ -377,7 +377,8 @@ table code {
 /* || Coding Font */ 
 
 code,
-.js-codebox {
+.js-codebox,
+.html-codebox {
     color:var(--code);
 }
 
@@ -385,6 +386,7 @@ code,
 .js-codebox,
 .js-resultbox,
 .css-codebox,
+.html-codebox,
 .code {
     font-family: 'Fira Mono', monospace;   
 }
@@ -393,11 +395,13 @@ code,
 .js-codebox,
 .js-resultbox,
 .css-codebox,
+.html-codebox
 .code {
     font-size: 0.9em;
 }
 
-.js-codebox strong {
+.js-codebox strong,
+.html-codebox strong {
     color: var(--othercolor2);
 }
 
@@ -483,6 +487,18 @@ code a {
     font-size: 1.0em;
 }
 
+.html_notes dd ul {
+    margin: 0; 
+    padding-left: 20px;
+}
+
+.html_notes dd li {
+    list-style-type: circle;
+}
+
+
+
+
 .html-nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -516,7 +532,15 @@ code a {
     color: rgb(216, 142, 142);
 }
 
-dl .js-codebox {
+.html-codebox{
+    margin: var(--bumper);
+    border-left: solid 3px mistyrose;
+    padding: 0 16px;
+    word-wrap: break-word;
+    font-size: 0.9em;
+}
+
+dl .html-codebox {
     margin: 8px 0;
 }
 /* || JavaScript Notes */
@@ -525,7 +549,7 @@ dl .js-codebox {
     margin: var(--bumper);
     border-left: solid 3px var(--js-border);
     padding: 0 var(--bumper);
-    word-wrap: break-word:
+    word-wrap: break-word;
 }
 
 .js-resultbox {

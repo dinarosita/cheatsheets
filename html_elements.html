@@ -18,7 +18,7 @@
         <nav id="navMenu"></nav>
           
         <main class="html_notes">
-            <section id="components">
+            <article id="components">
                 <h2>Components</h2>
                 <div class="formula">
                     <code>&lt;h2 id="elements"&gt;<span class="variable">HTML Elements</span>&lt;/h2&gt;</code>
@@ -35,9 +35,9 @@
                     </ul>
                 </p>
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="semantic">
+            <article id="semantic">
                 <h2>Semantic elements</h2>
 
                 <dl>
@@ -51,15 +51,15 @@
                 </dl>
                 <a href="#top"><hr></a>
 
-            </section>
+            </article>
 
-            <section id="structure">
+            <article id="structure">
                 <h2>Structure</h2>
                 <p><code>&lt;html&gt;</code> is the main root and its direct children are <code>&lt;head&gt;</code> where we put metadata and <code>&lt;body&gt;</code> where we put the content. Metadata elements inside <code>&lt;head&gt;</code> are written as direct children. The content elements though, are very flexible and can be super nesting. Below is just an example to give a rough idea.</p>               
 
                 <p>Keep in mind that many semantic tags are actually from HTML5 in 2008. Before then, there were no <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code> and <code>&lt;footer&gt;</code> for example. They are all sectioned inside nesting <code>&lt;div&gt;</code> when needed.</p>
 
-<pre class="js-codebox">
+<pre class="html-codebox">
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;...&lt;/title&gt;
@@ -85,9 +85,9 @@
 
                 <p>In the following sections, elements will be listed by their tags and sectioned based on their functions/roles. Listing will be given in nesting style. Some parent-child relations are rather exact, some are more of an illustration or common example to give a better idea how these element tags are used.</p>
                 <a href="#top"><hr></a>
-            </section>
+            </article>
             
-            <section id="main_root">
+            <article id="main_root">
                 <h2>Main root</h2>
                 <dl>
                     <dt><code>&lt;main&gt;</code></dt>
@@ -104,9 +104,9 @@
                     </dd>
                 </dl>
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="metadata">
+            <article id="metadata">
                 <h2>Document metadata</h2>
 
                 <dl>
@@ -132,7 +132,7 @@
                             </dd>
                             <dd>Examples:</dd>
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;link rel="stylesheet" href="./style.css"&gt;<br>
                                     &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
                                 </div>
@@ -142,7 +142,7 @@
                             <dd><strong>Internal CSS</strong></dd>
                             <dd>Examples:</dd>
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;style&gt;<br>
                                     <span class="tab"/>p {color: blue}<br>
                                     &lt;/style&gt;
@@ -159,13 +159,13 @@
                             <dd>There should be just 1 declaration of each attributes. If there are more, only the first one is acknowledged.</dd>
                             <dd>Example:</dd>
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;base href="https://duaransel.com/" target="_blank"&gt;
 
                                 </div>
                             </dd>
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;body&gt;<br>
                                     <span class="tab"/>&lt;img src="img/placeholder.jpg"&gt;<br>
                                     <span class="tab"/>&lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;<br>
@@ -177,7 +177,7 @@
                             <dd><strong>Meta without its own element</strong></dd>
                             <dd>Examples:</dd>
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;meta charset="UTF-8"&gt;<br>
                                     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
                                 </div>
@@ -186,9 +186,9 @@
                     </dd>
                 </dl>
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="sectioning">
+            <article id="sectioning">
                 <h2>Content sectioning</h2>
                 <dl>
                     <dt><code>&lt;body&gt;</code></dt>
@@ -199,7 +199,7 @@
                             <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
 
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;header&gt;<br>
                                     <span class="tab"/>&lt;h1&gt;Codey Luwak&lt;/h1&gt;<br>
                                     <span class="tab"/>&lt;img src="..." alt="Luwak logo"&gt;<br>
@@ -208,7 +208,7 @@
                             </dd>
                             <dd>Header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element.</dd>
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;article&gt;<br>
                                     <span class="tab"/>&lt;header&gt;...&lt;/header&gt;<br>
                                     <span class="tab"/>&lt;main&gt;...&lt;/main&gt;<br>
@@ -222,7 +222,7 @@
                             <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
                             <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;nav&gt;<br>
                                     <span class="tab"/>&lt;ul&gt;<br>
                                     <span class="tab2"/>&lt;li&gt;...&lt;/li&gt;<br>
@@ -235,7 +235,7 @@
                             <dd>CSS for horizontal bar:</dd>
                             
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     .html-nav ul {<br>
                                     <span class="tab"/>display: flex;<br>
                                     <span class="tab"/>list-style-type: none;<br>
@@ -248,7 +248,7 @@
                             <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
                                 
                             <dd>
-                                <div class="js-codebox">
+                                <div class="html-codebox">
                                     &lt;body&gt;<br>
                                     <span class="tab"/>&lt;header&gt;...&lt;/header&gt;<br>
                                     <span class="tab"/>&lt;main&gt;<br>
@@ -265,8 +265,7 @@
                             <dd><strong>Self contained composition</strong></dd>
                             <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
                             <dd>
-                                <div class="js-codebox">
-
+                                <div class="html-codebox">
                                     &lt;main&gt;<br>
                                     <span class="tab"/>&lt;h1&gt;...&lt;/h1&gt;<br>
                                     <span class="tab"/>&lt;p&gt;...&lt;/p&gt;<br><br>
@@ -284,17 +283,60 @@
 
                             <dt><code>&lt;section&gt;</code></dt>
                             <dd><strong>Generic sectioning element</strong></dd>
-                            <dd>Should only be used if there is not a more specific element to represent it:
+                            <dd>
                                 <ul>
-                                    <li>If contents represent standalone pieces, use <code>&lt;article&gt;</code></li>
-                                    <li>If contents represent side info like relate links or author bio, use <code>&lt;aside&gt;</code></li>
-                                    <li>If content represent main cintent area of a document, use <code>&lt;main&gt;</code></li>
-                                    <li>If contents represent navigational menu, use <code>&lt;nav&gt;</code></li>
-                                    <li>If element is only use as a styling wrapper, use <code>&lt;div&gt;</code>. Rule of thumb, <code>&lt;section&gt;</code> should logically appear in the document outline.</li>
-                                </ul>
+                                    <li>A generic wrapper for a heading <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> and its content.</li>
+                                    <li>It will appear in the document outline except if it doesn't have the heading element.</li>
+                                    <li>It should be used only when there's no more specific element to represent it.</li>
+                                    <li>Example use: search result, map display, user comments section.</li>
+                                </ul>   
                             </dd>
-                            <dd>Each <code>&lt;section&gt;</code> should be identified by heading <code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> element whenever possible. Section without heading do not appear in the document outline.</dd>
-                            <dd>Example use: search result, map display.</dd>
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;section&gt;<br>
+                                    <span class="tab"/>&lt;h2&gt;Comments&lt;/h2&gt;<br>
+                                    <span class="tab"/>&lt;article&gt;...Comment 1...&lt;/article&gt;<br>
+                                    <span class="tab"/>&lt;article&gt;...Comment 2...&lt;/article&gt;<br>
+                                    &lt;/section&gt;
+                                </div>
+                            </dd>
+                            <dd>Usage in place of <code>&lt;div&gt;</code></dd>
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;section&gt;<br>
+                                    <span class="tab"/>&lt;h2&gt;...&lt;/h2&gt;<br>
+                                    <span class="tab"/>&lt;p&gt;...&lt;/p&gt;<br>
+                                    &lt;/section&gt;
+                                </div>
+                            </dd>
+
+                            <dd>Without heading</dd>
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;section id="main"&gt;<br>
+                                    <span class="tab"/>&lt;article&gt;...First blog post...&lt;/article&gt;<br>
+                                    <span class="tab"/>&lt;article&gt;...Second blog post...&lt;/article&gt;<br>
+                                    <span class="tab"/>&lt;article&gt;...Third blog post...&lt;/article&gt;<br>
+                                    &lt;/section&gt;
+                                </div>
+                            </dd>
+                            
+                            <dd>If heading is wanted so it appears in document outline, but not visually appear in the web page: use attribute <code>hidden</code>.</dd>
+
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;section&gt;<br>
+                                    <span class="tab"/>&lt;h2 class="hidden"&gt;Controls&lt;/h2&gt;<br>
+                                    <span class="tab"/>&lt;button class="reply"&gt;Reply&lt;/button&gt;<br>
+                                    <span class="tab"/>&lt;button class="reply-all"&gt;Reply to all&lt;/button&gt;<br>
+                                    <span class="tab"/>&lt;button class="fwd"&gt;Forward&lt;/button&gt;<br>
+                                    <span class="tab"/>&lt;button class="del"&gt;Delete&lt;/button&gt;<br>
+                                    &lt;/section&gt;
+                                </div>
+                            </dd>
+
+
+
                             
                             <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
                             <dd>   </dd>
@@ -312,9 +354,9 @@
                 </dl>
 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
             
-            <section id="text">
+            <article id="text">
                 <h2>Text content</h2>
 
                 <dl>
@@ -406,9 +448,9 @@
                 </dl>
                 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="inline">
+            <article id="inline">
                 <h2>Inline text semantics</h2>
                 <dl>
                     <dt><code>&lt;p&gt;</code></dt>
@@ -576,9 +618,9 @@
                 </dl>               
                 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="img_media">
+            <article id="img_media">
                 <h2>Image and multimedia</h2>
                 <dl>
                     <dt><code>&lt;img&gt;</code></dt>
@@ -608,9 +650,9 @@
                 </dl>
                 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="embed">
+            <article id="embed">
                 <h2>Embedded content</h2>
                 <p><code>      </code></p>
                 <dl>
@@ -643,9 +685,9 @@
                 </dl>
                 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="svg_math">
+            <article id="SVG_math">
                 <h2>SVG and MathML</h2>
                 <dl>
                     <dt><code>&lt;svg&gt;</code></dt>
@@ -656,9 +698,9 @@
                 </dl>
                 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="script">
+            <article id="script">
                 <h2>Scripting</h2>
                 <dl>
                     <dt><code>&lt;script&gt;</code></dt>
@@ -672,9 +714,9 @@
                 </dl>
                 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="demarcation">
+            <article id="demarcation">
                 <h2>Demarcating edits</h2>
                 <p><code>&lt;del&gt;</code> and <code>&lt;ins&gt;</code> marking deletion and insertion to the document to track changes.</p>
                 <dl>
@@ -687,9 +729,9 @@
                 </dl>
                 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
             
-            <section id="table">
+            <article id="table">
                 <h2>Table</h2>                
                 <dl>
                     <dt><code>&lt;table&gt;</code></dt>
@@ -748,9 +790,9 @@
                 </dl>
 
                 <a href="#top"><hr></a>
-            </section>
+            </article>
 
-            <section id="form">
+            <article id="form">
                 <h2>Forms</h2>
                 <dl>
                     <dt><code>&lt;form&gt;</code></dt>
@@ -824,9 +866,9 @@
                     </dd>
                 </dl>
                 <a href="#top"><hr></a>
-            </section>            
+            </article>            
             
-            <section id="interactive">
+            <article id="interactive">
                 <h2>Interactive elements</h2>
                 <dl>
                     <dt><code>&lt;details&gt;</code></dt>
@@ -845,9 +887,9 @@
                     <dd>   </dd>
                 </dl>
                 <a href="#top"><hr></a>
-            </section> 
+            </article> 
 
-            <section id="web">
+            <article id="web">
                 <h2>Web components</h2>
                 <dl>
                     <dt><code>&lt;slot&gt;</code></dt>
@@ -857,9 +899,9 @@
                     <dd>   </dd>
 
                 <a href="#top"><hr></a>
-            </section> 
+            </article> 
 
-            <section id="depracated">
+            <article id="depracated">
                 <h2>Obsolete and depracated elements</h2>
                 <p class="alert">Do not use. Replace if was used.</p>
 
@@ -992,16 +1034,16 @@
 
                 </dl>
                 <a href="#top"><hr></a>
-            </section> 
+            </article> 
 
-            <section id="resources">
+            <article id="resources">
                 <h2>Resources</h2>
                 <ul>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">HTML Elements</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity" target="_blank">Reserved characters</a></li>
                 </ul>
                 <a href="#top"><hr></a>
-            </section>
+            </article>
         </main>
 
         <aside>
@@ -1012,6 +1054,8 @@
             <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
         </footer>     
         
-        <script src="./navSection.js"></script>
+        <script src="./navArticle.js"></script>
+        <script src="./hoverElement.js"></script>
+
     </body>
 </html>
