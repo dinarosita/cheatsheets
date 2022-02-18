@@ -4,6 +4,5 @@ function makeTitle (elem) {
     elem.title = elemTitle;
 }
 
-
 const elements = Array.from(document.body.children);
 elements.forEach(makeTitle);
