@@ -184,6 +184,18 @@ label {
     color: var(--title);
 }
 
+aside {
+    width: 30%;
+    float: right;
+    color: steelblue;
+    border-left: 1px solid steelblue;
+    padding-left: 8px;
+}
+
+aside p {
+    margin: 0;
+}
+
 th, td {
     padding-right: var(--bumper);
 }

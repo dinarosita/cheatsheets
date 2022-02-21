@@ -223,7 +223,8 @@
                                     &lt;/article&gt;
                                 </div>
                             </dd>
-
+                            
+                            <!-- NAV -->
                             <dt><code>&lt;nav&gt;</code></dt>
                             <dd><strong>Navigation block</strong></dd>
                             <dd>Using <code>&lt;ul&gt;</code> listing presented as a sidebar, navigation bar, or dropdown menu is common, but links within <code>&lt;p&gt;</code> paragraph is a cool choice too.</dd>
@@ -251,6 +252,7 @@
                                 </div>
                             </dd>
 
+                            <!-- MAIN -->
                             <dt><code>&lt;main&gt;</code></dt>
                             <dd><strong>Dominant content of document <code>&lt;body&gt;</code></strong></dd>
                             <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
@@ -269,6 +271,7 @@
                                 </div>
                             </dd>
 
+                            <!-- ARTICLE -->
                             <dt><code>&lt;article&gt;</code></dt>
                             <dd><strong>Self contained composition</strong></dd>
                             <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
@@ -289,6 +292,7 @@
                                 </div>
                             </dd>
 
+                            <!-- SECTION -->
                             <dt><code>&lt;section&gt;</code></dt>
                             <dd><strong>Generic sectioning element</strong></dd>
                             <dd>
@@ -343,12 +347,14 @@
                                 </div>
                             </dd>
                             
+                            <!-- H1-H6 -->
                             <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
                             <dd><strong>Section heading elements</strong></dd>
                             <dd>Heading information can be used to automatically construct document's table of contents.</dd>
                             <dd>Avoid skipping heading levels.</dd>
                             <dd>Use only 1 <code>&lt;h1&gt;</code> per page/view. Multiple <code>&lt;h1&gt;</code> is allowed however not the best practise.</dd>
 
+                            <!-- ADDRESS -->
                             <dt><code>&lt;address&gt;</code></dt>
                             <dd><strong>Contact address element</strong></dd>
                             <dd>Typically placed inside &lt;footer&gt; element of the current section, if any.</dd>
@@ -385,14 +391,50 @@
                                 </div>
                             </dd>
 
+                            <!-- ASIDE -->
+
+
                             <dt><code>&lt;aside&gt;</code></dt>
+
+                            <aside>
+                                <p>Here is an example of an aside. Place the <code>&lt;aside&gt;</code> element before the content it is indirectly related.</p>
+                            </aside>
+
                             <dd>Aside (indirectly related) content</dd>
                             <dd>Usually displayed as a sidebar or call-out boxes.</dd>
+                            <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;dl&gt;<br>
+                                    <span class="tab"></span>&lt;dt&gt;...Title...&lt;/dt&gt;<br>
+                                    <span class="tab"></span>&lt;aside&gt;...Aside...&lt;/aside&gt;<br>
+                                    <span class="tab"></span>&lt;dd&gt;...Definition...&lt;/dd&gt;<br>
+                                    &lt;/dl&gt;<br>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="html-codebox">
+                                    aside {<br>
+                                        <span class="tab"></span>width: 30%;<br>
+                                        <span class="tab"></span>float: right;<br>
+                                        <span class="tab"></span>color: steelblue;<br>
+                                        <span class="tab"></span>border-left: 1px solid steelblue;<br>
+                                        <span class="tab"></span>padding-left: 8px;<br>
+                                    }<br>
+                                    <br>
+                                    aside p {<br>
+                                        <span class="tab"></span>margin: 0;<br>
+                                    }
+                                </div>
+                            </dd>
+
+
+
                             <dt><code>&lt;footer&gt;</code></dt>
-                            <dd>   </dd>
                         </dl>
                     </dd>                   
                 </dl>
+
 
                 <a href="#top"><hr></a>
             </article>
@@ -1087,9 +1129,7 @@
             </article>
         </main>
 
-        <aside>
 
-        </aside>
         <footer>
             <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
             <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
