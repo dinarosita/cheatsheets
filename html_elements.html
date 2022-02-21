@@ -61,6 +61,25 @@
 
             </article>
 
+            <article id="level">
+                <h2>Elements level</h2>
+
+                <dl>
+                    <dt>Block level elements</dt>
+                    <dd>A block: Start in a new line, occupy entire horizontal space of its parent element (container), with height depends on its content.</dd>
+                    <dd>Examples: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;h1-h6&gt;</code></dd>
+
+                    <dt>Inline level elements</dt>
+                    <dd>Within line: Doesn't start a new line, only takes up as much width as necessary, same with height. Look like span of writing than block.</dd>
+                    <dd>Examples: <code>&lt;code&gt;</code> and <code>&lt;strong&gt;</code></dd>
+                </dl>
+
+                <p>Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout" target="_blank">CSS Flow layout</a> for normal flow etc.</p>
+
+                <a href="#top"><hr></a>
+
+              </article>
+
             <article id="structure">
                 <h2>Structure</h2>
                 <p><code>&lt;html&gt;</code> is the main root and its direct children are <code>&lt;head&gt;</code> where we put metadata and <code>&lt;body&gt;</code> where we put the content. Metadata elements inside <code>&lt;head&gt;</code> are written as direct children. The content elements though, are very flexible and can be super nesting. Below is just an example to give a rough idea.</p>               
@@ -392,15 +411,13 @@
                             </dd>
 
                             <!-- ASIDE -->
-
-
                             <dt><code>&lt;aside&gt;</code></dt>
 
                             <aside>
                                 <p>Here is an example of an aside. Place the <code>&lt;aside&gt;</code> element before the content it is indirectly related.</p>
                             </aside>
 
-                            <dd>Aside (indirectly related) content</dd>
+                            <dd><strong>Indirectly related content</strong></dd>
                             <dd>Usually displayed as a sidebar or call-out boxes.</dd>
                             <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
                             <dd>
@@ -428,9 +445,21 @@
                                 </div>
                             </dd>
 
-
-
+                            <!-- FOOTER -->
                             <dt><code>&lt;footer&gt;</code></dt>
+                            <dd><strong>Closing element</strong></dd>
+                            <dd>Usually contains information about author, copyright, or links to the related document. It could be footer for the whole body or main content, or just for an article element.</dd>
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;article&gt;<br>
+                                    <span class="tab"></span>&lt;h3&gt;...Title...&lt;/h3&gt;<br>
+                                    <span class="tab"></span>&lt;p&gt;...Paragraph 1...&lt;/p&gt;<br>
+                                    <span class="tab"></span>&lt;p&gt;...Paragraph 2...&lt;/p&gt;<br>
+                                    <span class="tab"></span>...<br>
+                                    <span class="tab"></span>&lt;footer&gt;&copy; Codey Luwak&lt;/footer&gt;<br>
+                                    &lt;/article&gt;
+                                </div>
+                            </dd>
                         </dl>
                     </dd>                   
                 </dl>
@@ -443,26 +472,118 @@
                 <h2>Text content</h2>
 
                 <dl>
-
                     <dt>Box</dt>
                     <dd>
                         <dl>
                             <dt><code>&lt;div&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>Generic content division</strong></dd>
+                            <dd>Use this when no other semantic element like <code>&lt;article&gt;</code> and <code>&lt;nav&gt;</code> could be more appropriately applied.</dd>
+                            <dd>For aligning and positioning, use CSS Grid and CSS Flexbox. Previously done with <code>align</code> attribute, but it's obsolete.</dd>
+                            <dd>Handy styling container. Use <code>class</code> attribute and style it in CSS.</dd>
+                            <dd>
+                                <div class="js-resultbox">
+                                    This <code>
+                                        &lt;div class="js-resultbox"&gt;</code> box is an example. 
+                                </div>
+                            </dd>
                         </dl>
                     </dd>
 
+                    <dt>Quotation</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;blockquote&gt;</code></dt>
+                            <dd><strong>Block quoation wrapper</strong></dd>
+                            <dd>For quotation displayed in its own block. Special attribute: <code>cite</code> for the citation's URL.</dd>
+                            <dd><code>&lt;blockquote cite="https://..."&gt;</code></dd>
+
+                            <dd>Example:
+                                <div class="html-codebox">
+                                    &lt;figure&gt;<br>
+                                    <span class="tab"></span>&lt;blockquote cite="https://en.wikipedia.org/wiki/Supernova"&gt;<br>
+                                    <span class="tab2"></span>&lt;p&gt;A supernova is a powerful and luminous stellar explosion.&lt;/p&gt;<br>
+                                    <span class="tab"></span>&lt;/blockquote&gt;<br>
+                                    <span class="tab"></span>&lt;figcaption&gt;&ndash;Author Name, &lt;cite&gt;Wikipedia&lt;/cite&gt;&lt;/figcaption&gt;<br>
+                                    &lt;/figure&gt;
+                                </div>
+                                <div class="html-codebox">
+                                    blockquote {<br>
+                                        <span class="tab"></span>padding: 0 1em;<br>
+                                        <span class="tab"></span>border: 2px solid palegoldenrod;<br>
+                                        <span class="tab"></span>border-radius: 5px;<br>
+                                        <span class="tab"></span>margin: 0.5em;<br>
+                                    }
+                                </div>
+
+                                <figure>
+                                    <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
+                                        <p>A supernova is a powerful and luminous stellar explosion.</p>
+                                    </blockquote>
+                                    <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
+                                </figure>
+                            </dd>
+                        </dl>
+                    </dd>
                     <dt>Paragraphs</dt>
                     <dd>
                         <dl>
                             <dt><code>&lt;p&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>Paragraph</strong>
+                            <dd>The block level element for regular paragraph.</dd>
+                            <dd>Default characteristic:
+                                <ul>
+                                    <li>Has top and bottom margin.</li>
+                                    <li>Automatically remove extra spaces and lines.</li>
+                                    <li>Wrap</li>
+                                </ul>
+                            </dd>
+                            <dd>Initial CSS values:
+                                <div class="html-codebox">
+                                    display: block;<br>
+                                    margin-top: 1em;<br>
+                                    margin-bottom: 1em;<br>
+                                    margin-left: 0;<br>
+                                    margin-right: 0;<br>
+                                </div>
+                            </dd>
         
                             <dt><code>&lt;pre&gt;</code></dt>
-                            <dd>   </dd>
-        
-                            <dt><code>&lt;blockquote&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>Preformatted Text</strong></dd>
+                            <dd>Present the paragraph exactly as written in the HTML file.</dd>
+                            <dd>Default characteristic:
+                                <li>Monospace font</li>
+                                <li>Extra spaces and lines are not removed</li>
+                                <li>Not wrapped</li>
+                                <li>Like <code>&lt;p&gt;</code>, has top and bottom margin.</li>
+                            </dd>
+                            <dd>Initial CSS values:
+                                <div class="html-codebox">
+                                    display: block;<br>
+                                    font-family: monospace;<br>
+                                    white-space: pre;<br>
+                                    margin: 1em 0;<br>
+                                </div>
+                            </dd>
+                            <dd>Example
+                                <div class="html-codebox">
+<pre>
+&lt;pre class="js-resultbox"&gt;
+    ^__^
+    (oo)\_______
+    (__)\       )\/\
+        ||----w |
+        ||     ||
+&lt;/pre&gt;
+</pre>
+                                </div>
+<pre class="js-resultbox">
+   ^__^
+   (oo)\_______
+   (__)\       )\/\
+       ||----w |
+       ||     ||
+</pre>
+                            </dd>
                         </dl>
                     </dd>
                  
@@ -470,11 +591,11 @@
                     <dd>
                         <dl>
                             <dt><code>&lt;figure&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;figcaption&gt;</code></dt>
-                                    <dd>   </dd>    
+                                    <dd><strong>   </strong></dd>    
                                 </dl>
                             </dd>                    
                         </dl>
@@ -484,14 +605,14 @@
                     <dd>
                         <dl>
                             <dt><code>&lt;dl&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;dt&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
         
                                     <dt><code>&lt;dd&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -501,20 +622,20 @@
                     <dd>
                         <dl>
                             <dt><code>&lt;ol&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;li&gt;</code></dt>
-                                    <dd>   </dd>    
+                                    <dd><strong>   </strong></dd>    
                                 </dl>
                             </dd>
 
                             <dt><code>&lt;ul&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;li&gt;</code></dt>
-                                    <dd>   </dd>    
+                                    <dd><strong>   </strong></dd>    
                                 </dl>
                             </dd>
                         </dl>
@@ -524,7 +645,7 @@
                     <dd>
                         <dl>
                             <dt><code>&lt;hr&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                         </dl>
                     </dd>
 
@@ -537,26 +658,26 @@
                 <h2>Inline text semantics</h2>
                 <dl>
                     <dt><code>&lt;p&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dd>
                         <dl>
                             <dt>Text role</dt>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;a&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;span&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;mark&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;q&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;small&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -568,28 +689,28 @@
                             <dd>
                                 <dl>
                                     <dt><code>&lt;strong&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;b&gt;</code></dt>
-                                            <dd>   </dd>
+                                            <dd><strong>   </strong></dd>
                                         </dl>
                                     </dd>
                 
                                     <dt><code>&lt;em&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;i&gt;</code></dt>
-                                            <dd>   </dd>
+                                            <dd><strong>   </strong></dd>
                                         </dl>
                                     </dd>
                 
                                     <dt><code>&lt;u&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;s&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -602,19 +723,19 @@
                             <dd>
                                 <dl>
                                     <dt><code>&lt;sub&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                 
                                     <dt><code>&lt;sup&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;ruby&gt;</code>
-                                        <dd>   </dd>
+                                        <dd><strong>   </strong></dd>
                                         <dd>
                                             <dl>
                                                 <dt><code>&lt;rp&gt;</code></dt>
-                                                <dd>   </dd>
+                                                <dd><strong>   </strong></dd>
                                                 <dt><code>&lt;rt&gt;</code></dt>
-                                                <dd>   </dd>
+                                                <dd><strong>   </strong></dd>
                                             </dl>
                                         </dd>
                                     </dt>
@@ -630,19 +751,19 @@
                             <dd>
                                 <dl>                
                                     <dt><code>&lt;abbr&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                 
                                     <dt><code>&lt;dfn&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;data&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;time&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;cite&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     
                                 </dl>
                             </dd>
@@ -656,16 +777,16 @@
                             <dd>
                                 <dl>                
                                     <dt><code>&lt;code&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                 
                                     <dt><code>&lt;kbd&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;samp&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;var&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -677,10 +798,10 @@
                             <dd>
                                 <dl>                
                                     <dt><code>&lt;bdi&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                 
                                     <dt><code>&lt;bdo&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -707,27 +828,27 @@
                 <h2>Image and multimedia</h2>
                 <dl>
                     <dt><code>&lt;img&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dt><code>&lt;audio&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dt><code>&lt;video&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dd>
                         <dl>
                             <dt><code>&lt;track&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;map&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;area&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                         </dl>
                     </dd>
                 </dl>
@@ -740,31 +861,31 @@
                 <p><code>      </code></p>
                 <dl>
                     <dt><code>&lt;object&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;param&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;picture&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;source&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dt><code>&lt;img&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;embed&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dt><code>&lt;iframe&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dt><code>&lt;portal&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -774,10 +895,10 @@
                 <h2>SVG and MathML</h2>
                 <dl>
                     <dt><code>&lt;svg&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dt><code>&lt;math&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -787,13 +908,13 @@
                 <h2>Scripting</h2>
                 <dl>
                     <dt><code>&lt;script&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dt><code>&lt;noscript&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dt><code>&lt;canvas&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -818,56 +939,56 @@
                 <h2>Table</h2>                
                 <dl>
                     <dt><code>&lt;table&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;caption&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             
                             <dt><code>&lt;colgroup&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;col&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                 </dl>
                             </dd>
                             
                             <dt><code>&lt;thead&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;th&gt;</code></dt>
-                                            <dd>   </dd>
+                                            <dd><strong>   </strong></dd>
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
         
                             <dt><code>&lt;tbody&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;th&gt;</code></dt>
-                                            <dd>   </dd>
+                                            <dd><strong>   </strong></dd>
 
                                             <dt><code>&lt;td&gt;</code></dt>
-                                            <dd>   </dd>
+                                            <dd><strong>   </strong></dd>
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
         
                             <dt><code>&lt;tfoot&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                         </dl>
                     </dd>
                 </dl>
@@ -879,70 +1000,70 @@
                 <h2>Forms</h2>
                 <dl>
                     <dt><code>&lt;form&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dd>
                         <dl>   
                             <dt><code>&lt;label&gt;</code></dt>
-                            <dd>   </dd>     
+                            <dd><strong>   </strong></dd>     
 
                             <dt><code>&lt;input&gt;</code></dt>
-                            <dd>   </dd>          
+                            <dd><strong>   </strong></dd>          
                             
                             <dt><code>&lt;button&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
         
                             <dt><code>&lt;textarea&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
 
         
                             <dt><code>&lt;datalist&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;option&gt;</code></dt>
-                                    <dd>   </dd>            
+                                    <dd><strong>   </strong></dd>            
                                 </dl>
                             </dd>
 
                             <dt><code>&lt;select&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;optgroup&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;option&gt;</code></dt>
-                                            <dd>   </dd>
+                                            <dd><strong>   </strong></dd>
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
 
                             <dt><code>&lt;meter&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
 
                             <dt><code>&lt;progress&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
 
                             <dt><code>&lt;output&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
 
                         </dl>
                     </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;fieldset&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;legend&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     <dt><code>&lt;input&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                     <dt><code>&lt;label&gt;</code></dt>
-                                    <dd>   </dd>
+                                    <dd><strong>   </strong></dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -955,19 +1076,19 @@
                 <h2>Interactive elements</h2>
                 <dl>
                     <dt><code>&lt;details&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;summary&gt;</code></dt>
-                            <dd>   </dd>
+                            <dd><strong>   </strong></dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;dialog&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dt><code>&lt;menu&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article> 
@@ -976,10 +1097,10 @@
                 <h2>Web components</h2>
                 <dl>
                     <dt><code>&lt;slot&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                     <dt><code>&lt;template&gt;</code></dt>
-                    <dd>   </dd>
+                    <dd><strong>   </strong></dd>
 
                 <a href="#top"><hr></a>
             </article> 
@@ -1124,6 +1245,8 @@
                 <ul>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">HTML Elements</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity" target="_blank">Reserved characters</a></li>
+                    <li><a href="https://www.w3schools.com/cssref/css_default_values.asp" target="_blank">CSS Default Values Reference</a></li>
+                    <li><a href="https://www.w3.org/wiki/Common_HTML_entities_used_for_typography" target="_blank">Common HTML entities used for typography</a></li>
                 </ul>
                 <a href="#top"><hr></a>
             </article>

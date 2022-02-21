@@ -196,6 +196,13 @@ aside p {
     margin: 0;
 }
 
+blockquote {
+    padding: 0 1em;
+    border: 2px solid palegoldenrod;
+    border-radius: 5px;
+    margin: 0.5em;
+}
+
 th, td {
     padding-right: var(--bumper);
 }
@@ -551,7 +558,7 @@ code a {
 }
 
 dl .html-codebox {
-    margin: 8px 0;
+    margin: 8px 0 16px;
 }
 
 a[href^="mailto"]::before {
@@ -570,6 +577,7 @@ a[href^="tel"]::before {
     padding: 0 var(--bumper);
     word-wrap: break-word;
 }
+
 
 .js-resultbox {
     padding: 1em;
