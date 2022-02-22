@@ -517,8 +517,14 @@ code a {
     font-style: normal;
 }
 
+.html_notes .alert,
 .obsolete dt code {
     color: rgb(216, 142, 142);
+}
+
+.js-resultbox hr {
+    border: none;
+    border-top: 2px dotted pink;
 }
 
 .html-codebox{

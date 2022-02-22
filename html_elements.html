@@ -719,13 +719,30 @@
                     <dd>
                         <dl>
                             <dt><code>&lt;figure&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd><strong>Figure with optional caption</strong></dd>
+                            <dd>The figure, its caption, and its content are a single figure unit.</dd>            
+                            <dd>Example usage: image, illustration, code snippet, diagram, etc.</dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;figcaption&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>    
+                                    <dd><strong>Figure's caption</strong></dd>    
                                 </dl>
-                            </dd>                    
+                            </dd>     
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;figure&gt;<br>
+                                        <span class="tab"></span>&lt;img src="..." alt="..."&gt;<br>
+                                        <span class="tab"></span>&lt;figcaption&gt;...&lt;/figcaption&gt;<br>
+                                        &lt;/figure&gt;
+                                </div>
+                                <div class="html-codebox">
+                                    <figure>
+                                        <img src="picturesample.jpg" alt="Lavender">
+                                        <figcaption>Lavender</figcaption>
+                                    </figure>
+                                </div>
+                            </dd>
+
                         </dl>
                     </dd>
 
@@ -753,8 +770,31 @@
                         <dl>
                             <dt><code>&lt;hr&gt;</code></dt>
                             <dd><strong>Horizontal Rule</strong></dd>
+                            <dd>Thematic break  between paragraph level elements.</dd>
+                            <dd>Empty element, only have start tag.</dd>
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;p&gt;...&lt;/p&gt;<br>
+                                    &lt;hr&gt;<br>
+                                    &lt;p&gt;...&lt;/p&gt;
+                                </div>
+                                <div class="html-codebox">
+                                    hr {<br>
+                                        <span class="tab"></span>border: none;<br>
+                                        <span class="tab"></span>border-top: 2px dotted pink;<br>
+                                    }
+                                </div>
+                                <div class="js-resultbox">
+                                    <p>Monoceros (Greek: Μονόκερως, "unicorn") is a faint constellation on the celestial equator. Its definition is attributed to the 17th-century Dutch cartographer Petrus Plancius.</p>
+                                    <hr>
+                                    <p>Draco is a constellation in the far northern sky. Its name is Latin for dragon. It was one of the 48 constellations listed by the 2nd century astronomer Ptolemy, and remains one of the 88 modern</p>
+                                </div>
+                            </dd>
+                            <dd><span class="alert">Demarcated</span> attributes: <code>align</code>, <code>noshade</code>, <code>size</code>, <code>width</code></dd>
+                            <dd><span class="alert">Non-standard</span> attributes: <code>color</code></dd>
                         </dl>
                     </dd>
+
 
                 </dl>
                 
