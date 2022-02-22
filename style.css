@@ -522,10 +522,7 @@ code a {
     color: rgb(216, 142, 142);
 }
 
-.js-resultbox hr {
-    border: none;
-    border-top: 2px dotted pink;
-}
+
 
 .html-codebox{
     margin: var(--bumper);
@@ -561,12 +558,23 @@ a[href^="tel"]::before {
     /* font-weight: bold; */
 }
 
+.figcode figcaption code {
+    font-style: normal;
+    color: inherit;
+}
+
 .figcode pre {
     color: steelblue;
     font-family: 'Fira Mono', monospace;   
     margin: 0.5em 0;
     font-size: 0.9em;
+}
 
+.figcode li {
+    color: steelblue;
+    font-family: 'Fira Mono', monospace;   
+    margin: 0;
+    font-size: 0.9em;
 }
 
 .figure1 figure {
@@ -575,7 +583,10 @@ a[href^="tel"]::before {
     padding: 0.5em 1em;
 }
 
-
+.figcode hr {
+    border: none;
+    border-top: 2px dotted pink;
+}
 
 /* || JavaScript Notes */
 

@@ -88,7 +88,7 @@
 
                 <figure class="figcode">
                     <figcaption>HTML structure</figcaption>
-                    <pre>
+<pre>
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;...&lt;/title&gt;
@@ -171,8 +171,8 @@
                             <dd><strong>Internal CSS</strong></dd>
                             <dd>
                                 <figure class="figcode">
-                                    <figcaption>Internal CSS example</figcaption>
-                                    <pre>
+                                    <figcaption>Internal CSS</figcaption>
+<pre>
 &lt;style&gt;
     p {color: blue}
 &lt;/style&gt;
@@ -191,7 +191,7 @@
                             <dd>
                                 <figure class="figcode">
                                     <figcaption>Defining base at &lt;head&gt;</figcaption>
-                                    <pre>
+<pre>
 &lt;head&gt;
     &lt;base href="https://duaransel.com/" target="_blank"&gt;
 &lt;/head&gt;
@@ -201,7 +201,7 @@
                             <dd>
                                 <figure class="figcode">
                                     <figcaption>How to write the relative URL within the body</figcaption>
-                                    <pre>
+<pre>
 &lt;body&gt;
     &lt;img src="img/placeholder.jpg"&gt;
     &lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;
@@ -243,7 +243,7 @@
                             <dd>
                                 <figure class="figcode">
                                     <figcaption>As page title</figcaption>
-                                    <pre>
+<pre>
 &lt;body&gt;
     &lt;header&gt;
         &lt;h1&gt;Codey Luwak&lt;/h1&gt;
@@ -257,7 +257,7 @@
                             <dd>
                                 <figure class="figcode">
                                     <figcaption>As article title</figcaption>
-                                    <pre>
+<pre>
 &lt;article&gt;
     &lt;header&gt;
         &lt;h2&gt;...&lt;/h2&gt;
@@ -277,25 +277,27 @@
                             <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
                             <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;nav&gt;<br>
-                                    <span class="tab"></span>&lt;ul&gt;<br>
-                                    <span class="tab2"></span>&lt;li&gt;...&lt;/li&gt;<br>
-                                    <span class="tab2"></span>&lt;li&gt;...&lt;/li&gt;<br>
-                                    <span class="tab2"></span>&lt;li&gt;...&lt;/li&gt;<br>
-                                    <span class="tab"></span>&lt;/ul&gt;<br>
-                                    &lt;/nav&gt;
-                                </div>
-                            </dd>
-                            <dd>CSS for horizontal bar:</dd>
-                            
-                            <dd>
-                                <div class="html-codebox">
-                                    .html-nav ul {<br>
-                                    <span class="tab"></span>display: flex;<br>
-                                    <span class="tab"></span>list-style-type: none;<br>
-                                    }
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>Nav structure</figcaption>
+<pre>
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;...&lt;/li&gt;
+        &lt;li&gt;...&lt;/li&gt;
+        &lt;li&gt;...&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>CSS for forizontal nav bar</figcaption>
+<pre>
+.html-nav ul {
+    display: flex;
+    list-style-type: none;
+}
+</pre>
+                                </figure>
                             </dd>
 
                             <!-- MAIN -->
@@ -304,17 +306,20 @@
                             <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
                                 
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;body&gt;<br>
-                                    <span class="tab"></span>&lt;header&gt;...&lt;/header&gt;<br>
-                                    <span class="tab"></span>&lt;main&gt;<br>
-                                    <span class="tab2"></span>&lt;h1&gt;...&lt;/h1&gt;<br>
-                                    <span class="tab2"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    <span class="tab2"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;/main&gt;<br>
-                                    <span class="tab"></span>&lt;footer&gt;...&lt;/footer&gt;<br>
-                                    &lt;/body&gt;
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>Main structure</figcaption>
+<pre>
+&lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;
+        &lt;h1&gt;...&lt;/h1&gt;
+        &lt;p&gt;...&lt;/p&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;
+</pre>
+                                </figure>
                             </dd>
 
                             <!-- ARTICLE -->
@@ -322,20 +327,24 @@
                             <dd><strong>Self contained composition</strong></dd>
                             <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;main&gt;<br>
-                                    <span class="tab"></span>&lt;h1&gt;...&lt;/h1&gt;<br>
-                                    <span class="tab"></span>&lt;p&gt;...&lt;/p&gt;<br><br>
-                                    <span class="tab"></span>&lt;article&gt;<br>
-                                    <span class="tab2"></span>&lt;h2&gt;...&lt;/h2&gt;<br>
-                                    <span class="tab2"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;/article&gt;<br><br>
-                                    <span class="tab"></span>&lt;article&gt;<br>
-                                    <span class="tab2"></span>&lt;h2&gt;...&lt;/h2&gt;<br>
-                                    <span class="tab2"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;/article&gt;<br>
-                                    &lt;/main&gt;
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>Article structure</figcaption>
+<pre>
+&lt;main&gt;
+    &lt;h1&gt;...&lt;/h1&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;article&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;article&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+</pre>
+                                </figure>
+
                             </dd>
 
                             <!-- SECTION -->
@@ -345,52 +354,56 @@
                                 <ul>
                                     <li>A generic wrapper for a heading <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> and its content.</li>
                                     <li>It will appear in the document outline except if it doesn't have the heading element.</li>
+                                    <li>If heading element is wanted functionally but not visually, still use it but <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section#:~:text=include%20a%20heading%20but%20hide%20it" target="_blank">hide it with CSS styling</a>.s</li>
                                     <li>It should be used only when there's no more specific element to represent it.</li>
                                     <li>Example use: search result, map display, user comments section.</li>
                                 </ul>   
                             </dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;section&gt;<br>
-                                    <span class="tab"></span>&lt;h2&gt;Comments&lt;/h2&gt;<br>
-                                    <span class="tab"></span>&lt;article&gt;...Comment 1...&lt;/article&gt;<br>
-                                    <span class="tab"></span>&lt;article&gt;...Comment 2...&lt;/article&gt;<br>
-                                    &lt;/section&gt;
-                                </div>
-                            </dd>
-                            <dd>Usage in place of <code>&lt;div&gt;</code></dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    &lt;section&gt;<br>
-                                    <span class="tab"></span>&lt;h2&gt;...&lt;/h2&gt;<br>
-                                    <span class="tab"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    &lt;/section&gt;
-                                </div>
-                            </dd>
+                                <figure class="figcode">
+                                    <figcaption>Section structure</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2&gt;Comments&lt;/h2&gt;
+    &lt;article&gt;...Comment 1...&lt;/article&gt;
+    &lt;article&gt;...Comment 2...&lt;/article&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
 
-                            <dd>Without heading</dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    &lt;section id="main"&gt;<br>
-                                    <span class="tab"></span>&lt;article&gt;...First blog post...&lt;/article&gt;<br>
-                                    <span class="tab"></span>&lt;article&gt;...Second blog post...&lt;/article&gt;<br>
-                                    <span class="tab"></span>&lt;article&gt;...Third blog post...&lt;/article&gt;<br>
-                                    &lt;/section&gt;
-                                </div>
-                            </dd>
-                            
-                            <dd>If heading is wanted so it appears in document outline, but not visually appear in the web page: use attribute <code>hidden</code>.</dd>
+                                <figure class="figcode">
+                                    <figcaption>Article used in place of div</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2&gt;...&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
 
-                            <dd>
-                                <div class="html-codebox">
-                                    &lt;section&gt;<br>
-                                    <span class="tab"></span>&lt;h2 class="hidden"&gt;Controls&lt;/h2&gt;<br>
-                                    <span class="tab"></span>&lt;button class="reply"&gt;Reply&lt;/button&gt;<br>
-                                    <span class="tab"></span>&lt;button class="reply-all"&gt;Reply to all&lt;/button&gt;<br>
-                                    <span class="tab"></span>&lt;button class="fwd"&gt;Forward&lt;/button&gt;<br>
-                                    <span class="tab"></span>&lt;button class="del"&gt;Delete&lt;/button&gt;<br>
-                                    &lt;/section&gt;
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>Without heading</figcaption>
+<pre>
+&lt;section id="main"&gt;
+    &lt;article&gt;...First blog post...&lt;/article&gt;
+    &lt;article&gt;...Second blog post...&lt;/article&gt;
+    &lt;article&gt;...Third blog post...&lt;/article&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+
+                                <figure class="figcode">
+                                    <figcaption>Using h1-h6 titling but hide it from view with CSS</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2 class="hidden"&gt;Controls&lt;/h2&gt;
+    &lt;button class="reply"&gt;Reply&lt;/button&gt;
+    &lt;button class="reply-all"&gt;Reply to all&lt;/button&gt;
+    &lt;button class="fwd"&gt;Forward&lt;/button&gt;
+    &lt;button class="del"&gt;Delete&lt;/button&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
                             </dd>
                             
                             <!-- H1-H6 -->
@@ -406,35 +419,36 @@
                             <dd>Typically placed inside &lt;footer&gt; element of the current section, if any.</dd>
                             <dd>HTML</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;p&gt;Contact:&lt;/p&gt;<br>
-                                    &lt;address&gt;<br>
-                                    <span class="tab"></span>&lt;a href="mailto:name@example.com"&gt;name@example.com&lt;/a&gt;&lt;br&gt;<br>
-                                    <span class="tab"></span>&lt;a href="tel:+15195555555"&gt;(519) 555-5555&lt;/a&gt;<br>
-                                    &lt;/address&gt;
-                                </div>
-                            </dd>
-                            <dd>CSS</dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    a[href^="mailto"]::before {<br>
-                                    <span class="tab"></span>content: "📧 ";<br>
-                                    }<br>
-                                    <br>
-                                    a[href^="tel"]::before {<br>
-                                    <span class="tab"></span>content: ""📞 ";<br>
-                                    }<br>
-                                </div>
-                            </dd>
-                            <dd>Webpage</dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    <p>Contact:</p>
-                                    <address>
-                                        <a href="mailto:name@example.com">name@example.com</a><br>
-                                        <a href="tel:+15195555555">(519) 555-5555</a>
-                                    </address>
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>HTML for address</figcaption>
+<pre>
+&lt;p&gt;Contact:&lt;/p&gt;
+&lt;address&gt;
+    &lt;a href="mailto:name@example.com"&gt;name@example.com&lt;/a&gt;&lt;br&gt;
+    &lt;a href="tel:+15195555555"&gt;(519) 555-5555&lt;/a&gt;
+&lt;/address&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>CSS for address</figcaption>
+<pre>
+a[href^="mailto"]::before {
+    content: "📧 ";
+}
+
+a[href^="tel"]::before {
+    content: ""📞 ";
+}
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>Address in page</figcaption>
+                                        <p>Contact:</p>
+                                        <address>
+                                            <a href="mailto:name@example.com">name@example.com</a><br>
+                                            <a href="tel:+15195555555">(519) 555-5555</a>
+                                        </address>
+                                </figure>
                             </dd>
 
                             <!-- ASIDE -->
@@ -448,28 +462,32 @@
                             <dd>Usually displayed as a sidebar or call-out boxes.</dd>
                             <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;dl&gt;<br>
-                                    <span class="tab"></span>&lt;dt&gt;...&lt;/dt&gt;<br>
-                                    <span class="tab"></span>&lt;aside&gt;...&lt;/aside&gt;<br>
-                                    <span class="tab"></span>&lt;dd&gt;...&lt;/dd&gt;<br>
-                                    &lt;/dl&gt;<br>
-                                </div>
-                            </dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    aside {<br>
-                                        <span class="tab"></span>width: 30%;<br>
-                                        <span class="tab"></span>float: right;<br>
-                                        <span class="tab"></span>color: steelblue;<br>
-                                        <span class="tab"></span>border-left: 1px solid steelblue;<br>
-                                        <span class="tab"></span>padding-left: 8px;<br>
-                                    }<br>
-                                    <br>
-                                    aside p {<br>
-                                        <span class="tab"></span>margin: 0;<br>
-                                    }
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>HTML for aside above </figcaption>
+<pre>
+&lt;dl&gt;
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;aside&gt;...&lt;/aside&gt;
+    &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>CSS for aside above </figcaption>
+<pre>
+aside {
+    width: 30%;
+    float: right;
+    color: steelblue;
+    border-left: 1px solid steelblue;
+    padding-left: 8px;
+}
+
+aside p {
+    margin: 0;
+}
+</pre>
+                                </figure>
                             </dd>
 
                             <!-- FOOTER -->
@@ -477,14 +495,17 @@
                             <dd><strong>Closing element</strong></dd>
                             <dd>Usually contains information about author, copyright, or links to the related document. It could be footer for the whole body or main content, or just for an article element.</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;article&gt;<br>
-                                    <span class="tab"></span>&lt;h3&gt;...&lt;/h3&gt;<br>
-                                    <span class="tab"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;footer&gt;...&lt;/footer&gt;<br>
-                                    &lt;/article&gt;
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>Footer structure</figcaption>
+<pre>
+&lt;article&gt;
+    &lt;h3&gt;...&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/article&gt;
+</pre>
+                                </figure>
                             </dd>
                         </dl>
                     </dd>                   
@@ -499,9 +520,10 @@
                 <p>Text content element: to organize blocks or sections of contents placed within <code>body</code> element tags.</p>
 
                 <dl>
-                    <dt>Generic box</dt>
+                    <dt>Blocks</dt>
                     <dd>
                         <dl>
+                            <!-- DIV -->
                             <dt><code>&lt;div&gt;</code></dt>
                             <dd><strong>Generic content division</strong></dd>
                             <dd>Use this when no other semantic element like <code>&lt;article&gt;</code> and <code>&lt;nav&gt;</code> could be more appropriately applied.</dd>
@@ -513,10 +535,80 @@
                                         &lt;div class="js-resultbox"&gt;</code> box is an example. 
                                 </div>
                             </dd>
+
+                            <!-- FIGURES -->
+                            <dt><code>&lt;figure&gt;</code></dt>
+                            <dd><strong>Figure with optional caption</strong></dd>
+                            <dd>The figure, its caption, and its content are a single figure unit.</dd>            
+                            <dd>Example usage: image, illustration, code snippet, diagram, etc.</dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;figcaption&gt;</code></dt>
+                                    <dd><strong>Figure's caption</strong></dd>    
+                                </dl>
+                            </dd>     
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Figure for img</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;img src="..." alt="..."&gt;
+    &lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <img src="picturesample.jpg" alt="Lavender">
+                                    <figcaption>Lavender</figcaption>
+                                </figure>
+                                
+                                <figure class="figcode">
+                                    <figcaption>Figure for code snippet (HTML)</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;figcaption&gt;CSS&lt;/figcaption&gt;
+    &lt;pre&gt;
+...
+    ...
+    ...
+...
+    &lt;/pre&gt;
+&lt;/figure&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>Figure for code snippet (CSS)</figcaption>
+<pre>
+figure {
+    border: 3px solid peachpuff;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+}
+
+figcaption {
+    color: cadetblue;
+    font-weight: bold;
+}
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>Figure for blockquote</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;figcaption&gt;&lt;cite&gt;...:&lt;/cite&gt;&lt;/figcaption&gt;
+    &lt;blockquote&gt;...&lt;/blockquote&gt;
+&lt;/figure&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption><cite>Little girl:</cite></figcaption>
+                                    <blockquote>Twinkle twinkle little stars, how I wonder what you are.</blockquote>
+                                </figure>
+                            </dd>
                         </dl>
                     </dd>
 
-                    <dt>Paragraphs</dt>
+                    <dt>Paragraph blocks</dt>
                     <dd>
                         <dl>
                             <dt><code>&lt;p&gt;</code></dt>
@@ -530,13 +622,13 @@
                                 </ul>
                             </dd>
                             <dd>Initial CSS values:
-                                <div class="html-codebox">
-                                    display: block;<br>
-                                    margin-top: 1em;<br>
-                                    margin-bottom: 1em;<br>
-                                    margin-left: 0;<br>
-                                    margin-right: 0;<br>
-                                </div>
+                                <ul>
+                                    <li><code>display: block;</code></li>
+                                    <li><code>margin-top: 1em;</code></li>
+                                    <li><code>margin-bottom: 1em;</code></li>
+                                    <li><code>margin-left: 0;</code></li>
+                                    <li><code>margin-right: 0;</code></li>
+                                </ul>
                             </dd>
         
                             <dt><code>&lt;pre&gt;</code></dt>
@@ -552,15 +644,15 @@
 
                             </dd>
                             <dd>Initial CSS values:
-                                <div class="html-codebox">
-                                    display: block;<br>
-                                    font-family: monospace;<br>
-                                    white-space: pre;<br>
-                                    margin: 1em 0;<br>
-                                </div>
+                                <ul>
+                                    <li><code>display: block;</code></li>
+                                    <li><code>font-family: monospace;</code></li>
+                                    <li><code>white-space: pre;</code></li>
+                                    <li><code>margin: 1em 0;</code></li>
+                                </ul>
                             </dd>
-                            <dd>Example
-                                <div class="html-codebox">
+                            <dd>                                <figure class="figcode">
+                                <figcaption>Drawing with pre</figcaption>
 <pre>
 &lt;pre class="js-resultbox"&gt;
     ^__^
@@ -570,13 +662,15 @@
         ||     ||
 &lt;/pre&gt;
 </pre>
-                                </div>
-<pre class="js-resultbox">
-   ^__^
-   (oo)\_______
-   (__)\       )\/\
-       ||----w |
-       ||     ||
+                            </figure>
+                            <figure class="figcode">
+                                <figcaption>The result on page</figcaption>
+<pre>
+    ^__^
+    (oo)\_______
+    (__)\       )\/\
+        ||----w |
+        ||     ||
 </pre>
                             </dd>
                             <dt><code>&lt;blockquote&gt;</code></dt>
@@ -586,24 +680,23 @@
                             <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
 
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;figure&gt;<br>
-                                    <span class="tab"></span>&lt;blockquote cite="https:..."&gt;<br>
-                                    <span class="tab2"></span>&lt;p&gt;...&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;/blockquote&gt;<br>
-                                    <span class="tab"></span>&lt;figcaption&gt;...&lt;cite&gt;...&lt;/cite&gt;&lt;/figcaption&gt;<br>
-                                    &lt;/figure&gt;
-                                </div>
-                                Result:
-                                <div class="html-codebox"">
-                                    <figure>
-                                        <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
-                                            <p>A supernova is a powerful and luminous stellar explosion.</p>
-                                        </blockquote>
-                                        <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
-                                    </figure>
-                                </div>
-
+                                <figure class="figcode">
+                                    <figcaption>Blockquote with figure</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;blockquote cite="https:..."&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;...&lt;cite&gt;...&lt;/cite&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
+                                        <p>A supernova is a powerful and luminous stellar explosion.</p>
+                                    </blockquote>
+                                    <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
+                                </figure>
                             </dd>
                         </dl>
                     </dd>             
@@ -624,21 +717,24 @@
                             </dd>
 
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;ul&gt;<br>
-                                    <span class="tab"></span>&lt;li&gt;...&lt;/li&gt;<br>
-                                    <span class="tab"></span>&lt;li&gt;...&lt;/li&gt;<br>
-                                    <span class="tab"></span>&lt;li&gt;...&lt;/li&gt;<br>
-                                    &lt;/ul&gt;
-                                </div>
-    
-                                <div class="html-codebox">
+                                <figure class="figcode">
+                                    <figcaption>List structure</figcaption>
+<pre>
+&lt;ul&gt;
+    &lt;li&gt;...&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>Unordered list</figcaption>
                                     <ul>
                                         <li>First item</li>
                                         <li>Second item</li>
                                         <li>Third item</li>
                                     </ul>
-                                </div>
+                                </figure>
                             </dd>
                             <dd>Default bullet style:
                                 <ul>
@@ -685,39 +781,37 @@
                             <dd>Special attributes:
                                 <ol>
                                     <li>
-                                        <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low.<br> 
-
-                                        Example: <code>&lt;ol reversed="true"&gt;</code>
-                                        <div class="html-codebox">
+                                        <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low. 
+                                        <figure class="figcode">
+                                            <figcaption>&lt;ol reversed="true"&gt;</figcaption>
                                             <ol reversed="true">
                                                 <li>First item</li>
                                                 <li>Second item</li>
                                                 <li>Third item</li>
                                             </ol>
-                                        </div>
+                                        </figure>
                                     </li>
                                     <li>
-                                        <code>start</code>: arabic numerals. Starting number of the list item.<br>
-                                        
-                                        Example: <code>&lt;ol start="5"&gt;</code>
-                                        <div class="html-codebox">
+                                        <code>start</code>: arabic numerals. Starting number of the list item.
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol start="5"&gt;</code></figcaption>
                                             <ol start="5">
                                                 <li>First item</li>
                                                 <li>Second item</li>
                                                 <li>Third item</li>
                                             </ol>
-                                        </div>
-                                        Example: <code>&lt;ol start="5" reversed="true"&gt;</code>
-                                        <div class="html-codebox">
+                                        </figure>
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol start="5" reversed="true"&gt;</code></figcaption>
                                             <ol start="5" reversed="true">
                                                 <li>First item</li>
                                                 <li>Second item</li>
                                                 <li>Third item</li>
                                             </ol>
-                                        </div>
+                                        </figure>
                                     </li>
                                     <li>
-                                        <code>type</code>: numbering type.<br>
+                                        <code>type</code>: numbering type.
                                         Value options:
                                         <ul>
                                             <li><code>a</code>: lowercase letters</li>
@@ -726,14 +820,14 @@
                                             <li><code>I</code>: uppercase Roman numerals letters</li>
                                             <li><code>1</code>: default Arabic numerals</li>
                                         </ul>
-                                        Example: <code>&lt;ol type="A" start="5" reversed="true"&gt;</code>
-                                        <div class="html-codebox">
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol type="A" start="5" reversed="true"&gt;</code></figcaption>
                                             <ol type="A" start="5" reversed="true">
                                                 <li>First item</li>
                                                 <li>Second item</li>
                                                 <li>Third item</li>
                                             </ol>
-                                        </div>
+                                        </figure>
                                     </li>
                                 </ol>
                             </dd>
@@ -742,79 +836,7 @@
                         </dl>
                     </dd>
 
-                    <dt>Figures</dt>
-                    <dd>
-                        <dl>
-                            <dt><code>&lt;figure&gt;</code></dt>
-                            <dd><strong>Figure with optional caption</strong></dd>
-                            <dd>The figure, its caption, and its content are a single figure unit.</dd>            
-                            <dd>Example usage: image, illustration, code snippet, diagram, etc.</dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;figcaption&gt;</code></dt>
-                                    <dd><strong>Figure's caption</strong></dd>    
-                                </dl>
-                            </dd>     
-                            <dd>Example 1: image
-                                <div class="html-codebox">
-                                    &lt;figure&gt;<br>
-                                        <span class="tab"></span>&lt;img src="..." alt="..."&gt;<br>
-                                        <span class="tab"></span>&lt;figcaption&gt;...&lt;/figcaption&gt;<br>
-                                    &lt;/figure&gt;
-                                </div>
-                                <div class="html-codebox">
-                                    <figure>
-                                        <img src="picturesample.jpg" alt="Lavender">
-                                        <figcaption>Lavender</figcaption>
-                                    </figure>
-                                </div>
-                            </dd>
-                            <dd>Example 2: code snippet
 
-                                <div class="html-codebox">
-                                &lt;figure&gt;<br>
-                                <span class="tab"></span>&lt;figcaption&gt;CSS&lt;/figcaption&gt;<br>
-                                <span class="tab"></span>&lt;pre&gt;<br>
-                                ...<br>
-                                <span class="tab"></span>...<br>
-                                <span class="tab"></span>...<br>
-                                ...<br>
-                                <span class="tab"></span>&lt;/pre&gt;<br>
-                                &lt;/figure&gt;
-                                </div>
-                                <div class="html-codebox figure1">
-                                    <figure>
-                                        <figcaption>CSS</figcaption>
-                                        <pre>
-figure {
-    border: 3px solid peachpuff;
-    border-radius: 8px;
-    padding: 0.5em 1em;
-}
-
-figcaption {
-    color: cadetblue;
-    font-weight: bold;
-}
-</pre>
-                                    </figure>
-                                </div>
-                            </dd>
-                            <dd>Example 3: blockquote
-                                <pre class="html-codebox">
-&lt;figure&gt;
-    &lt;figcaption&gt;&lt;cite&gt;...:&lt;/cite&gt;&lt;/figcaption&gt;
-    &lt;blockquote&gt;...&lt;/blockquote&gt;
-&lt;/figure&gt;</pre>
-                                <div class="html-codebox">
-                                    <figure>
-                                        <figcaption><cite>Little girl:</cite></figcaption>
-                                        <blockquote>Twinkle twinkle little stars, how I wonder what you are.</blockquote>
-                                    </figure>
-                                </div>
-                            </dd>
-                        </dl>
-                    </dd>
 
                     <dt>Description</dt>
                     <dd>
@@ -842,26 +864,38 @@ figcaption {
                             <dd><strong>Horizontal Rule</strong></dd>
                             <dd>Thematic break  between paragraph level elements.</dd>
                             <dd>Empty element, only have start tag.</dd>
+                            <dd>Special attributes:
+                                <ul>
+                                    <li><span class="alert">Depracated</span> attributes: <code>align</code>, <code>noshade</code>, <code>size</code>, <code>width</code></li>
+                                    <li><span class="alert">Non-standard</span> attributes: <code>color</code></li>
+                                </ul>
+                            </dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;p&gt;...&lt;/p&gt;<br>
-                                    &lt;hr&gt;<br>
-                                    &lt;p&gt;...&lt;/p&gt;
-                                </div>
-                                <div class="html-codebox">
-                                    hr {<br>
-                                        <span class="tab"></span>border: none;<br>
-                                        <span class="tab"></span>border-top: 2px dotted pink;<br>
-                                    }
-                                </div>
-                                <div class="js-resultbox">
+                                <figure class="figcode">
+                                    <figcaption>HR</figcaption>
+<pre>
+&lt;p&gt;...&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;...&lt;/p&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>The CSS</figcaption>
+<pre>
+hr {
+    <span class="tab"></span>border: none;
+    <span class="tab"></span>border-top: 2px dotted pink;
+}
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>Result</figcaption>
                                     <p>Monoceros (Greek: Μονόκερως, "unicorn") is a faint constellation on the celestial equator. Its definition is attributed to the 17th-century Dutch cartographer Petrus Plancius.</p>
                                     <hr>
                                     <p>Draco is a constellation in the far northern sky. Its name is Latin for dragon. It was one of the 48 constellations listed by the 2nd century astronomer Ptolemy, and remains one of the 88 modern</p>
-                                </div>
+                                </figure>
                             </dd>
-                            <dd><span class="alert">Demarcated</span> attributes: <code>align</code>, <code>noshade</code>, <code>size</code>, <code>width</code></dd>
-                            <dd><span class="alert">Non-standard</span> attributes: <code>color</code></dd>
+
                         </dl>
                     </dd>
 
