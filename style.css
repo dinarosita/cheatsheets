@@ -185,7 +185,7 @@ th, td {
 dt {
     font-weight: bold;
     color: var(--title);
-    margin: 10px 0 0;
+    margin: 1em 0 0;
 }
 
 dd {
@@ -546,6 +546,36 @@ a[href^="mailto"]::before {
 a[href^="tel"]::before {
     content: "📞 ";
 }
+
+.figcode {
+    border: 3px solid papayawhip;
+    border-radius: 8px;
+    padding: 0.5em 1em 0;
+    margin: 0.5em 0;
+}
+
+.figcode figcaption,
+.figure1 figcaption {
+    color: var(--borderdark);
+    font-style: italic;
+    /* font-weight: bold; */
+}
+
+.figcode pre {
+    color: steelblue;
+    font-family: 'Fira Mono', monospace;   
+    margin: 0.5em 0;
+    font-size: 0.9em;
+
+}
+
+.figure1 figure {
+    border: 3px solid peachpuff;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+}
+
+
 
 /* || JavaScript Notes */
 

@@ -86,7 +86,9 @@
 
                 <p>Keep in mind that many semantic tags are actually from HTML5 in 2008. Before then, there were no <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code> and <code>&lt;footer&gt;</code> for example. They are all sectioned inside nesting <code>&lt;div&gt;</code> when needed.</p>
 
-<pre class="html-codebox">
+                <figure class="figcode">
+                    <figcaption>HTML structure</figcaption>
+                    <pre>
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;...&lt;/title&gt;
@@ -109,6 +111,7 @@
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
+                </figure>
 
                 <p>In the following sections, elements will be listed by their tags and sectioned based on their functions/roles. Listing will be given in nesting style. Some parent-child relations are rather exact, some are more of an illustration or common example to give a better idea how these element tags are used.</p>
                 <a href="#top"><hr></a>
@@ -157,24 +160,25 @@
                                     <li><code>ref</code>: URL</li>
                                 </ul>
                             </dd>
-                            <dd>Examples:</dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    &lt;link rel="stylesheet" href="./style.css"&gt;<br>
-                                    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
-                                </div>
+                            <dd>Examples:
+                                <ul>
+                                    <li><code>&lt;link rel="stylesheet" href="./style.css"&gt;</code></li>
+                                    <li><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></li>
+                                </ul>
                             </dd>
 
                             <dt><code>&lt;style&gt;</code></dt>
                             <dd><strong>Internal CSS</strong></dd>
-                            <dd>Examples:</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;style&gt;<br>
-                                    <span class="tab"></span>p {color: blue}<br>
-                                    &lt;/style&gt;
-                                </div>
-                            </dd>                            
+                                <figure class="figcode">
+                                    <figcaption>Internal CSS example</figcaption>
+                                    <pre>
+&lt;style&gt;
+    p {color: blue}
+&lt;/style&gt;
+</pre>
+                                </figure>
+                            </dd>          
                             
                             <dt><code>&lt;base&gt;</code></dt>
                             <dd><strong>Base URL for all relative links</strong></dd>
@@ -184,31 +188,42 @@
                                     <li><code>target</code>: Target page of opening any page link if not specified further.</li>
                                 </ul></dd>
                             <dd>There should be just 1 declaration of each attributes. If there are more, only the first one is acknowledged.</dd>
-                            <dd>Example:</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;base href="https://duaransel.com/" target="_blank"&gt;
-
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>Defining base at &lt;head&gt;</figcaption>
+                                    <pre>
+&lt;head&gt;
+    &lt;base href="https://duaransel.com/" target="_blank"&gt;
+&lt;/head&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>How to write the relative URL within the body</figcaption>
+                                    <pre>
+&lt;body&gt;
+    &lt;img src="img/placeholder.jpg"&gt;
+    &lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;
+&lt;/body&gt;
+</pre>
+                                </figure>
                             </dd>
                             <dd>
                                 <div class="html-codebox">
-                                    &lt;body&gt;<br>
-                                    <span class="tab"></span>&lt;img src="img/placeholder.jpg"&gt;<br>
-                                    <span class="tab"></span>&lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;<br>
-                                    &lt;/body&gt;
+                                    
                                 </div>
                             </dd>
 
                             <dt><code>&lt;meta&gt;</code></dt>
                             <dd><strong>Meta without its own element</strong></dd>
-                            <dd>Examples:</dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    &lt;meta charset="UTF-8"&gt;<br>
-                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-                                </div>
+                            <dd>Examples:
+                                <ul>
+                                    <li><code>&lt;meta charset="UTF-8"&gt;</code></li>
+                                    <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></li>
+                                </ul>
                             </dd>
+
                         </dl>
                     </dd>
                 </dl>
@@ -226,22 +241,34 @@
                             <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
 
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;header&gt;<br>
-                                    <span class="tab"></span>&lt;h1&gt;Codey Luwak&lt;/h1&gt;<br>
-                                    <span class="tab"></span>&lt;img src="..." alt="Luwak logo"&gt;<br>
-                                    &lt;/header&gt;
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>As page title</figcaption>
+                                    <pre>
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Codey Luwak&lt;/h1&gt;
+        &lt;img src="..." alt="Luwak logo"&gt;
+    &lt;/header&gt;
+&lt;/body&gt;
+</pre>
+                                </figure>
                             </dd>
-                            <dd>Header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element.</dd>
+                            <dd>Header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element. Intended to be used with heading element <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> even though not required.</dd>
                             <dd>
-                                <div class="html-codebox">
-                                    &lt;article&gt;<br>
-                                    <span class="tab"></span>&lt;header&gt;...&lt;/header&gt;<br>
-                                    <span class="tab"></span>&lt;main&gt;...&lt;/main&gt;<br>
-                                    &lt;/article&gt;
-                                </div>
+                                <figure class="figcode">
+                                    <figcaption>As article title</figcaption>
+                                    <pre>
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;p&gt;
+    &lt;/header&gt;
+    &lt;p&gt;...&lt/p&gt;
+&lt;/article&gt;
+</pre>
+                                </figure>
                             </dd>
+
                             
                             <!-- NAV -->
                             <dt><code>&lt;nav&gt;</code></dt>
@@ -728,12 +755,12 @@
                                     <dd><strong>Figure's caption</strong></dd>    
                                 </dl>
                             </dd>     
-                            <dd>
+                            <dd>Example 1: image
                                 <div class="html-codebox">
                                     &lt;figure&gt;<br>
                                         <span class="tab"></span>&lt;img src="..." alt="..."&gt;<br>
                                         <span class="tab"></span>&lt;figcaption&gt;...&lt;/figcaption&gt;<br>
-                                        &lt;/figure&gt;
+                                    &lt;/figure&gt;
                                 </div>
                                 <div class="html-codebox">
                                     <figure>
@@ -742,7 +769,50 @@
                                     </figure>
                                 </div>
                             </dd>
+                            <dd>Example 2: code snippet
 
+                                <div class="html-codebox">
+                                &lt;figure&gt;<br>
+                                <span class="tab"></span>&lt;figcaption&gt;CSS&lt;/figcaption&gt;<br>
+                                <span class="tab"></span>&lt;pre&gt;<br>
+                                ...<br>
+                                <span class="tab"></span>...<br>
+                                <span class="tab"></span>...<br>
+                                ...<br>
+                                <span class="tab"></span>&lt;/pre&gt;<br>
+                                &lt;/figure&gt;
+                                </div>
+                                <div class="html-codebox figure1">
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+                                        <pre>
+figure {
+    border: 3px solid peachpuff;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+}
+
+figcaption {
+    color: cadetblue;
+    font-weight: bold;
+}
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dd>Example 3: blockquote
+                                <pre class="html-codebox">
+&lt;figure&gt;
+    &lt;figcaption&gt;&lt;cite&gt;...:&lt;/cite&gt;&lt;/figcaption&gt;
+    &lt;blockquote&gt;...&lt;/blockquote&gt;
+&lt;/figure&gt;</pre>
+                                <div class="html-codebox">
+                                    <figure>
+                                        <figcaption><cite>Little girl:</cite></figcaption>
+                                        <blockquote>Twinkle twinkle little stars, how I wonder what you are.</blockquote>
+                                    </figure>
+                                </div>
+                            </dd>
                         </dl>
                     </dd>
 

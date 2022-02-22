@@ -12,7 +12,7 @@ function createSearchBox () {
     searchBox.id = "userElement";
     searchBox.type = "text";
     searchBox.name = "userElement";
-    searchBox.placeholder = "element";
+    searchBox.placeholder = "Highlight element";
     searchBox.style.display = "inline block";
 
     const searchButton = document.createElement("button");
@@ -20,7 +20,7 @@ function createSearchBox () {
     searchButton.id = "submitButton";
     searchButton.appendChild(buttonLabel);
 
-    document.body.children[0].appendChild(searchDiv);
+    document.body.prepend(searchDiv);
     searchDiv.appendChild(searchBox);
     searchDiv.appendChild(searchButton);
 }
