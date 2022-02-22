@@ -230,10 +230,12 @@
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="sectioning">
+            <article id="content_sectioning">
                 <h2>Content sectioning</h2>
+                <p>Content sectioning elements allow document content to be organized into logical pieces. It creates a broad outline of the page content.</p>
                 <dl>
                     <dt><code>&lt;body&gt;</code></dt>
+                    <dd><strong>Sectioning root</strong></dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;header&gt;</code></dt>
@@ -517,7 +519,7 @@ aside p {
             
             <article id="text_content">
                 <h2>Text content</h2>
-                <p>Text content element: to organize blocks or sections of contents placed within <code>body</code> element tags.</p>
+                <p>Text content elements organizes blocks or sections of contents placed within <code>body</code> element tags.</p>
 
                 <dl>
                     <dt>Blocks</dt>
@@ -783,7 +785,7 @@ figcaption {
                                     <li>
                                         <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low. 
                                         <figure class="figcode">
-                                            <figcaption>&lt;ol reversed="true"&gt;</figcaption>
+                                            <figcaption><code>&lt;ol reversed="true"&gt;</code></figcaption>
                                             <ol reversed="true">
                                                 <li>First item</li>
                                                 <li>Second item</li>
@@ -836,8 +838,6 @@ figcaption {
                         </dl>
                     </dd>
 
-
-
                     <dt>Description</dt>
                     <dd>
                         <dl>
@@ -852,6 +852,22 @@ figcaption {
                                     <dd><strong>Description Details</strong></dd>
                                 </dl>
                             </dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Description structure</figcaption>
+<pre>
+&lt;dl&gt;
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;dl&gt;...&lt;/dl&gt;
+
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            <dd>Multiple terms and multiple descriptions are both allowed</dd>
+                            <dd>Most prominent usage example of description listing is glossary. This page is structured using nesting description listing. If then different structure is founds to be more suiting, or this is not appropriate use altogether, then maybe a note will be placed here.</dd>
                         </dl>
                     </dd>
 
@@ -929,11 +945,20 @@ hr {
                                     <dd>For inline quotation within text. Special attribute: <code>cite</code> for the citation's URL.</dd>
                                     <dd><code>&lt;q cite="https://..."&gt;</code></dd>
                                     <dd>Automatically gives quote sign "" to the text within.</dd>
-        
-                                    <dd>Example:
-                                        <div class="html-codebox">
-                                            &lt;p&gt;According to the Wikipedia, &lt;q cite="https://en.wikipedia.org/wiki/Supernova"&gt;A supernova is a powerful and luminous stellar explosion.&lt;/q&gt;&lt;/p&gt;
-                                        </div>
+                                    <dd>
+                                        <figure class="figcode">
+                                            <figcaption>Inline quote example</figcaption>
+<pre>
+&lt;p&gt;According to the ..., &lt;q cite="https:..."&gt;...&lt;/q&gt;&lt;/p&gt;
+</pre>
+                                        </figure>
+                                        <figure class="figcode">
+                                            <figcaption>Inline quote example</figcaption>
+                                            <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
+                                        </figure>
+                                    </dd>
+                                    <dd>
+                   
                                         Result:
                                         <div class="html-codebox"">
                                             <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>

@@ -563,6 +563,7 @@ a[href^="tel"]::before {
     color: inherit;
 }
 
+
 .figcode pre {
     color: steelblue;
     font-family: 'Fira Mono', monospace;   
