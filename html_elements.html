@@ -423,9 +423,9 @@
                             <dd>
                                 <div class="html-codebox">
                                     &lt;dl&gt;<br>
-                                    <span class="tab"></span>&lt;dt&gt;...Title...&lt;/dt&gt;<br>
-                                    <span class="tab"></span>&lt;aside&gt;...Aside...&lt;/aside&gt;<br>
-                                    <span class="tab"></span>&lt;dd&gt;...Definition...&lt;/dd&gt;<br>
+                                    <span class="tab"></span>&lt;dt&gt;...&lt;/dt&gt;<br>
+                                    <span class="tab"></span>&lt;aside&gt;...&lt;/aside&gt;<br>
+                                    <span class="tab"></span>&lt;dd&gt;...&lt;/dd&gt;<br>
                                     &lt;/dl&gt;<br>
                                 </div>
                             </dd>
@@ -452,11 +452,10 @@
                             <dd>
                                 <div class="html-codebox">
                                     &lt;article&gt;<br>
-                                    <span class="tab"></span>&lt;h3&gt;...Title...&lt;/h3&gt;<br>
-                                    <span class="tab"></span>&lt;p&gt;...Paragraph 1...&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;p&gt;...Paragraph 2...&lt;/p&gt;<br>
-                                    <span class="tab"></span>...<br>
-                                    <span class="tab"></span>&lt;footer&gt;&copy; Codey Luwak&lt;/footer&gt;<br>
+                                    <span class="tab"></span>&lt;h3&gt;...&lt;/h3&gt;<br>
+                                    <span class="tab"></span>&lt;p&gt;...&lt;/p&gt;<br>
+                                    <span class="tab"></span>&lt;p&gt;...&lt;/p&gt;<br>
+                                    <span class="tab"></span>&lt;footer&gt;...&lt;/footer&gt;<br>
                                     &lt;/article&gt;
                                 </div>
                             </dd>
@@ -559,13 +558,13 @@
                             <dd><strong><code>&lt;blockquote cite="https://..."&gt;</code></strong></dd>
                             <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
 
-                            <dd>Example:
+                            <dd>
                                 <div class="html-codebox">
                                     &lt;figure&gt;<br>
-                                    <span class="tab"></span>&lt;blockquote cite="https://en.wikipedia.org/wiki/Supernova"&gt;<br>
-                                    <span class="tab2"></span>&lt;p&gt;A supernova is a powerful and luminous stellar explosion.&lt;/p&gt;<br>
+                                    <span class="tab"></span>&lt;blockquote cite="https:..."&gt;<br>
+                                    <span class="tab2"></span>&lt;p&gt;...&lt;/p&gt;<br>
                                     <span class="tab"></span>&lt;/blockquote&gt;<br>
-                                    <span class="tab"></span>&lt;figcaption&gt;&ndash;Author Name, &lt;cite&gt;Wikipedia&lt;/cite&gt;&lt;/figcaption&gt;<br>
+                                    <span class="tab"></span>&lt;figcaption&gt;...&lt;cite&gt;...&lt;/cite&gt;&lt;/figcaption&gt;<br>
                                     &lt;/figure&gt;
                                 </div>
                                 Result:
@@ -589,6 +588,31 @@
                             <dt><code>&lt;ul&gt;</code></dt>
                             <dd><strong>Unordered list</strong></dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd><strong>List item</strong></dd>    
+                                    <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
+                                </dl>
+                            </dd>
+
+                            <dd>
+                                <div class="html-codebox">
+                                    &lt;ul&gt;<br>
+                                    <span class="tab"></span>&lt;li&gt;...&lt;/li&gt;<br>
+                                    <span class="tab"></span>&lt;li&gt;...&lt;/li&gt;<br>
+                                    <span class="tab"></span>&lt;li&gt;...&lt;/li&gt;<br>
+                                    &lt;/ul&gt;
+                                </div>
+    
+                                <div class="html-codebox">
+                                    <ul>
+                                        <li>First item</li>
+                                        <li>Second item</li>
+                                        <li>Third item</li>
+                                    </ul>
+                                </div>
+                            </dd>
                             <dd>Default bullet style:
                                 <ul>
                                     <li>First level: <code>disc</code>
@@ -607,41 +631,16 @@
                                     <li><strong><code>ul {list-style-type: circle;}</code></strong></li>
                                 </ul>
                             </dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;li&gt;</code></dt>
-                                    <dd><strong>List item</strong></dd>    
-                                </dl>
-                            </dd>
-                            <dd>Example
-                                <div class="html-codebox">
-                                    &lt;ul&gt;<br>
-                                    <span class="tab"></span>&lt;li&gt;First item&lt;/li&gt;<br>
-                                    <span class="tab"></span>&lt;li&gt;Second item&lt;/li&gt;<br>
-                                    <span class="tab"></span>&lt;li&gt;Third item&lt;/li&gt;<br>
-                                    &lt;/ul&gt;
-                                </div>
-    
-                                Result:
-                                <div class="html-codebox">
-                                    <ul>
-                                        <li>First item</li>
-                                        <li>Second item</li>
-                                        <li>Third item</li>
-                                    </ul>
-                                </div>
-                            </dd>
+
+
                             <dd><span class="alert">Deprecated</span> special attributes:
                                 <ul>
                                     <li>
-                                        <code class="alert">compact</code><br>
-                                        Use CSS <code>line height</code> property instead. Example value: <code>80%</code>
+                                        <code>compact</code> &ndash;
+                                        Use CSS <code>line height</code> property instead. Try value: <code>80%</code>
                                     </li>
                                     <li>
-                                        <code class="alert">type</code><br>
-                                        3 values: <code>circle</code>, <code>disc</code>, and <code>square</code><br>
-                                        Fourth value <code>triange</code> is not supported by all browsers.<br>
-                                        Use CSS  <code>list-style-type</code> property instead.
+                                        <code>type</code> &ndash; values: <code>circle</code>, <code>disc</code>, and <code>square</code>.Use CSS  <code>list-style-type</code> property instead.
                                     </li>
                                 </ul>
                             </dd>
@@ -649,6 +648,13 @@
                             <dt><code>&lt;ol&gt;</code></dt>
                             <dd><strong>Ordered list</strong></dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd><strong>List item</strong></dd>    
+                                    <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
+                                </dl>
+                            </dd>
                             <dd>Special attributes:
                                 <ol>
                                     <li>
