@@ -71,24 +71,6 @@ footer {
     text-align: center;
 }
 
-/* description dd, dl, dt */
-
-dd ul {
-    margin: 0; 
-    padding-left: 18px;
-}
-
-dd li {
-    list-style-type: circle;
-}
-
-.nogaplist dl,
-.nogaplist dt {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-
 /* Fonts and alignings */
 
 h1, h2, h3, h4, h5, h6, th {
@@ -194,13 +176,6 @@ aside {
 
 aside p {
     margin: 0;
-}
-
-blockquote {
-    padding: 0 1em;
-    border: 2px solid palegoldenrod;
-    border-radius: 5px;
-    margin: 0.5em;
 }
 
 th, td {
@@ -433,7 +408,8 @@ h4 + ul {
     margin-top: 0;
 }
 
-p + ul {
+p + ul,
+p + ol {
     margin-top: var(--remove-bumper);
 }
 
@@ -441,7 +417,8 @@ h3 + h4 {
     margin-top: var(--bumper);
 }
 
-ul + div {
+ul + div,
+ol + div {
     margin-top: var(--remove-bumper-double);
 
 }
@@ -506,15 +483,10 @@ code a {
     font-size: 1.0em;
 }
 
-.html_notes dd ul {
+.html_notes dd ul,
+.html_notes dd ol {
     margin: 0; 
-    padding-left: 20px;
 }
-
-.html_notes dd li {
-    list-style-type: circle;
-}
-
 
 .html-nav ul {
     display: flex;
@@ -526,7 +498,7 @@ code a {
     padding-left: 0;
 }
 
-.html-nav li {
+.html-nav ul li {
     color: var(--title);
     font-size: 0.9em;
     font-weight: bold;
@@ -536,11 +508,11 @@ code a {
     white-space:nowrap;
 }
 
-.html-nav li:hover {
+.html-nav ul li:hover {
     background-color: var(--borderfill);
 }
 
-.html-nav li a {
+.html-nav ul li a {
     color: inherit;
     font-style: normal;
 }

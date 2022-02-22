@@ -470,9 +470,10 @@
             
             <article id="text">
                 <h2>Text content</h2>
+                <p>Text content element: to organize blocks or sections of contents placed within <code>body</code> element tags.</p>
 
                 <dl>
-                    <dt>Box</dt>
+                    <dt>Generic box</dt>
                     <dd>
                         <dl>
                             <dt><code>&lt;div&gt;</code></dt>
@@ -489,41 +490,6 @@
                         </dl>
                     </dd>
 
-                    <dt>Quotation</dt>
-                    <dd>
-                        <dl>
-                            <dt><code>&lt;blockquote&gt;</code></dt>
-                            <dd><strong>Block quoation wrapper</strong></dd>
-                            <dd>For quotation displayed in its own block. Special attribute: <code>cite</code> for the citation's URL.</dd>
-                            <dd><code>&lt;blockquote cite="https://..."&gt;</code></dd>
-
-                            <dd>Example:
-                                <div class="html-codebox">
-                                    &lt;figure&gt;<br>
-                                    <span class="tab"></span>&lt;blockquote cite="https://en.wikipedia.org/wiki/Supernova"&gt;<br>
-                                    <span class="tab2"></span>&lt;p&gt;A supernova is a powerful and luminous stellar explosion.&lt;/p&gt;<br>
-                                    <span class="tab"></span>&lt;/blockquote&gt;<br>
-                                    <span class="tab"></span>&lt;figcaption&gt;&ndash;Author Name, &lt;cite&gt;Wikipedia&lt;/cite&gt;&lt;/figcaption&gt;<br>
-                                    &lt;/figure&gt;
-                                </div>
-                                <div class="html-codebox">
-                                    blockquote {<br>
-                                        <span class="tab"></span>padding: 0 1em;<br>
-                                        <span class="tab"></span>border: 2px solid palegoldenrod;<br>
-                                        <span class="tab"></span>border-radius: 5px;<br>
-                                        <span class="tab"></span>margin: 0.5em;<br>
-                                    }
-                                </div>
-
-                                <figure>
-                                    <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
-                                        <p>A supernova is a powerful and luminous stellar explosion.</p>
-                                    </blockquote>
-                                    <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
-                                </figure>
-                            </dd>
-                        </dl>
-                    </dd>
                     <dt>Paragraphs</dt>
                     <dd>
                         <dl>
@@ -551,10 +517,13 @@
                             <dd><strong>Preformatted Text</strong></dd>
                             <dd>Present the paragraph exactly as written in the HTML file.</dd>
                             <dd>Default characteristic:
-                                <li>Monospace font</li>
-                                <li>Extra spaces and lines are not removed</li>
-                                <li>Not wrapped</li>
-                                <li>Like <code>&lt;p&gt;</code>, has top and bottom margin.</li>
+                                <ul>
+                                    <li>Monospace font</li>
+                                    <li>Extra spaces and lines are not removed</li>
+                                    <li>Not wrapped</li>
+                                    <li>Like <code>&lt;p&gt;</code>, has top and bottom margin.</li>
+                                </ul>
+
                             </dd>
                             <dd>Initial CSS values:
                                 <div class="html-codebox">
@@ -584,9 +553,162 @@
        ||     ||
 </pre>
                             </dd>
+                            <dt><code>&lt;blockquote&gt;</code></dt>
+                            <dd><strong>Block quoation wrapper</strong></dd>
+                            <dd>For quotation displayed in its own block. Special attribute: <code>cite</code> for the citation's URL.</dd>
+                            <dd><strong><code>&lt;blockquote cite="https://..."&gt;</code></strong></dd>
+                            <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
+
+                            <dd>Example:
+                                <div class="html-codebox">
+                                    &lt;figure&gt;<br>
+                                    <span class="tab"></span>&lt;blockquote cite="https://en.wikipedia.org/wiki/Supernova"&gt;<br>
+                                    <span class="tab2"></span>&lt;p&gt;A supernova is a powerful and luminous stellar explosion.&lt;/p&gt;<br>
+                                    <span class="tab"></span>&lt;/blockquote&gt;<br>
+                                    <span class="tab"></span>&lt;figcaption&gt;&ndash;Author Name, &lt;cite&gt;Wikipedia&lt;/cite&gt;&lt;/figcaption&gt;<br>
+                                    &lt;/figure&gt;
+                                </div>
+                                Result:
+                                <div class="html-codebox"">
+                                    <figure>
+                                        <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
+                                            <p>A supernova is a powerful and luminous stellar explosion.</p>
+                                        </blockquote>
+                                        <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
+                                    </figure>
+                                </div>
+
+                            </dd>
+                        </dl>
+                    </dd>             
+                 
+                    <dt>Listing</dt>
+                    <dd>
+                        <dl>
+
+                            <dt><code>&lt;ul&gt;</code></dt>
+                            <dd><strong>Unordered list</strong></dd>
+                            <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>Default bullet style:
+                                <ul>
+                                    <li>First level: <code>disc</code>
+                                        <ul>
+                                            <li>Second level: <code>circle</code>
+                                                <ul>
+                                                    <li>Third level and the rest: <code> square</code></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>To change bullet style in CSS: 
+                                <ul>
+                                    <li><strong><code>ul {list-style-type: circle;}</code></strong></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd><strong>List item</strong></dd>    
+                                </dl>
+                            </dd>
+                            <dd>Example
+                                <div class="html-codebox">
+                                    &lt;ul&gt;<br>
+                                    <span class="tab"></span>&lt;li&gt;First item&lt;/li&gt;<br>
+                                    <span class="tab"></span>&lt;li&gt;Second item&lt;/li&gt;<br>
+                                    <span class="tab"></span>&lt;li&gt;Third item&lt;/li&gt;<br>
+                                    &lt;/ul&gt;
+                                </div>
+    
+                                Result:
+                                <div class="html-codebox">
+                                    <ul>
+                                        <li>First item</li>
+                                        <li>Second item</li>
+                                        <li>Third item</li>
+                                    </ul>
+                                </div>
+                            </dd>
+                            <dd><span class="alert">Deprecated</span> special attributes:
+                                <ul>
+                                    <li>
+                                        <code class="alert">compact</code><br>
+                                        Use CSS <code>line height</code> property instead. Example value: <code>80%</code>
+                                    </li>
+                                    <li>
+                                        <code class="alert">type</code><br>
+                                        3 values: <code>circle</code>, <code>disc</code>, and <code>square</code><br>
+                                        Fourth value <code>triange</code> is not supported by all browsers.<br>
+                                        Use CSS  <code>list-style-type</code> property instead.
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <dt><code>&lt;ol&gt;</code></dt>
+                            <dd><strong>Ordered list</strong></dd>
+                            <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>Special attributes:
+                                <ol>
+                                    <li>
+                                        <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low.<br> 
+
+                                        Example: <code>&lt;ol reversed="true"&gt;</code>
+                                        <div class="html-codebox">
+                                            <ol reversed="true">
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <code>start</code>: arabic numerals. Starting number of the list item.<br>
+                                        
+                                        Example: <code>&lt;ol start="5"&gt;</code>
+                                        <div class="html-codebox">
+                                            <ol start="5">
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </div>
+                                        Example: <code>&lt;ol start="5" reversed="true"&gt;</code>
+                                        <div class="html-codebox">
+                                            <ol start="5" reversed="true">
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <code>type</code>: numbering type.<br>
+                                        Value options:
+                                        <ul>
+                                            <li><code>a</code>: lowercase letters</li>
+                                            <li><code>A</code>: uppercase letters</li>
+                                            <li><code>i</code>: lowercase Roman numerals</li>
+                                            <li><code>I</code>: uppercase Roman numerals letters</li>
+                                            <li><code>1</code>: default Arabic numerals</li>
+                                        </ul>
+                                        Example: <code>&lt;ol type="A" start="5" reversed="true"&gt;</code>
+                                        <div class="html-codebox">
+                                            <ol type="A" start="5" reversed="true">
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </dd>
+
+
                         </dl>
                     </dd>
-                 
+
                     <dt>Figures</dt>
                     <dd>
                         <dl>
@@ -618,28 +740,7 @@
                         </dl>
                     </dd>
 
-                    <dt>Listing</dt>
-                    <dd>
-                        <dl>
-                            <dt><code>&lt;ol&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;li&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>    
-                                </dl>
-                            </dd>
 
-                            <dt><code>&lt;ul&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;li&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>    
-                                </dl>
-                            </dd>
-                        </dl>
-                    </dd>
 
                     <dt>Divider</dt>
                     <dd>
@@ -674,7 +775,21 @@
                                     <dd><strong>   </strong></dd>
 
                                     <dt><code>&lt;q&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd><strong>Inline quotoation element</strong></dd>
+                                    <dd>For inline quotation within text. Special attribute: <code>cite</code> for the citation's URL.</dd>
+                                    <dd><code>&lt;q cite="https://..."&gt;</code></dd>
+                                    <dd>Automatically gives quote sign "" to the text within.</dd>
+        
+                                    <dd>Example:
+                                        <div class="html-codebox">
+                                            &lt;p&gt;According to the Wikipedia, &lt;q cite="https://en.wikipedia.org/wiki/Supernova"&gt;A supernova is a powerful and luminous stellar explosion.&lt;/q&gt;&lt;/p&gt;
+                                        </div>
+                                        Result:
+                                        <div class="html-codebox"">
+                                            <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
+                                        </div>
+        
+                                    </dd>
 
                                     <dt><code>&lt;small&gt;</code></dt>
                                     <dd><strong>   </strong></dd>
