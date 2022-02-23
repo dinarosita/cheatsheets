@@ -206,8 +206,8 @@ figcaption {
 }
 
 pre {
-    white-space: pre-wrap;
-    word-break: keep-all;
+    /* white-space: pre-wrap;
+    word-break: keep-all; */
     margin: 0;
     font-family: 'Fira Mono', monospace;   
 }
@@ -570,9 +570,8 @@ a[href^="tel"]::before {
 }
 
 .figcode {
-
-    border: 3px solid papayawhip;
-    border-radius: 0.5rem;
+    border-left: 3px solid papayawhip;
+    /* border-radius: 0.5rem; */
     padding: 0.5rem 1rem;
     margin: 0.5rem 0;
 }
