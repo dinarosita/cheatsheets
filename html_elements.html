@@ -191,32 +191,26 @@
                                 </ul></dd>
                             <dd>There should be just 1 declaration of each attributes. If there are more, only the first one is acknowledged.</dd>
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>Defining base at &lt;head&gt;</figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Defining base at &lt;head&gt;</figcaption>
 <pre>
 &lt;head&gt;
     &lt;base href="https://duaransel.com/" target="_blank"&gt;
 &lt;/head&gt;
 </pre>
-                                </figure>
-                            </dd>
-                            <dd>
-                                <figure class="figcode">
-                                    <figcaption>How to write the relative URL within the body</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>How to write the relative URL within the body</figcaption>
 <pre>
 &lt;body&gt;
     &lt;img src="img/placeholder.jpg"&gt;
     &lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;
 &lt;/body&gt;
 </pre>
-                                </figure>
-                            </dd>
-                            <dd>
-                                <div class="html-codebox">
-                                    
+                                    </figure>
                                 </div>
                             </dd>
-
                             <dt><code>&lt;meta&gt;</code></dt>
                             <dd class="maindd">Meta without its own element</dd>
                             <dd>Examples:
@@ -281,8 +275,9 @@
                             <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
                             <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>Nav structure</figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Nav structure</figcaption>
 <pre>
 &lt;nav&gt;
     &lt;ul&gt;
@@ -292,16 +287,17 @@
     &lt;/ul&gt;
 &lt;/nav&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>CSS for forizontal nav bar</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS for forizontal nav bar</figcaption>
 <pre>
 .html-nav ul {
     display: flex;
     list-style-type: none;
 }
 </pre>
-                                </figure>
+                                    </figure>
+                                </div>
                             </dd>
 
                             <!-- MAIN -->
@@ -423,8 +419,9 @@
                             <dd>Typically placed inside &lt;footer&gt; element of the current section, if any.</dd>
                             <dd>HTML</dd>
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>HTML for address</figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Address example</figcaption>
 <pre>
 &lt;p&gt;Contact:&lt;/p&gt;
 &lt;address&gt;
@@ -432,9 +429,9 @@
     &lt;a href="tel:+15195555555"&gt;(519) 555-5555&lt;/a&gt;
 &lt;/address&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>CSS for address</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
 <pre>
 a[href^="mailto"]::before {
     content: "📧 ";
@@ -444,15 +441,16 @@ a[href^="tel"]::before {
     content: ""📞 ";
 }
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>Address in page</figcaption>
-                                        <p>Contact:</p>
-                                        <address>
-                                            <a href="mailto:name@example.com">name@example.com</a><br>
-                                            <a href="tel:+15195555555">(519) 555-5555</a>
-                                        </address>
-                                </figure>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                            <p>Contact:</p>
+                                            <address>
+                                                <a href="mailto:name@example.com">name@example.com</a><br>
+                                                <a href="tel:+15195555555">(519) 555-5555</a>
+                                            </address>
+                                    </figure>
+                                </div>
                             </dd>
 
                             <!-- ASIDE -->
@@ -466,8 +464,9 @@ a[href^="tel"]::before {
                             <dd>Usually displayed as a sidebar or call-out boxes.</dd>
                             <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>HTML for aside above </figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>HTML for aside above </figcaption>
 <pre>
 &lt;dl&gt;
     &lt;dt&gt;...&lt;/dt&gt;
@@ -475,9 +474,9 @@ a[href^="tel"]::before {
     &lt;dd&gt;...&lt;/dd&gt;
 &lt;/dl&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>CSS for aside above </figcaption>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS for aside above </figcaption>
 <pre>
 aside {
     width: 30%;
@@ -491,7 +490,8 @@ aside p {
     margin: 0;
 }
 </pre>
-                                </figure>
+                                    </figure>
+                                </div>
                             </dd>
 
                             <!-- FOOTER -->
@@ -565,9 +565,9 @@ aside p {
                                     <img src="picturesample.jpg" alt="Lavender">
                                     <figcaption>Lavender</figcaption>
                                 </figure>
-                                
-                                <figure class="figcode">
-                                    <figcaption>Figure for code snippet (HTML)</figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Figure for code snippet</figcaption>
 <pre>
 &lt;figure&gt;
     &lt;figcaption&gt;CSS&lt;/figcaption&gt;
@@ -579,9 +579,9 @@ aside p {
     &lt;/pre&gt;
 &lt;/figure&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>Figure for code snippet (CSS)</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
 <pre>
 figure {
     border: 3px solid peachpuff;
@@ -594,20 +594,26 @@ figcaption {
     font-weight: bold;
 }
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>Figure for blockquote</figcaption>
+                                    </figure>
+                                </div>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Figure for blockquote</figcaption>
 <pre>
 &lt;figure&gt;
     &lt;figcaption&gt;&lt;cite&gt;...:&lt;/cite&gt;&lt;/figcaption&gt;
     &lt;blockquote&gt;...&lt;/blockquote&gt;
 &lt;/figure&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption><cite>Little girl:</cite></figcaption>
-                                    <blockquote>Twinkle twinkle little stars, how I wonder what you are.</blockquote>
-                                </figure>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <figcaption><cite>Little girl:</cite></figcaption>
+                                            <blockquote>Twinkle twinkle little stars, how I wonder what you are.</blockquote>
+                                        </figure>
+                                    </figure>
+                                </div>
                             </dd>
                         </dl>
                     </dd>
@@ -655,8 +661,10 @@ figcaption {
                                     <li><code>margin: 1em 0;</code></li>
                                 </ul>
                             </dd>
-                            <dd>                                <figure class="figcode">
-                                <figcaption>Drawing with pre</figcaption>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Drawing with pre</figcaption>
 <pre>
 &lt;pre class="js-resultbox"&gt;
     ^__^
@@ -666,9 +674,9 @@ figcaption {
         ||     ||
 &lt;/pre&gt;
 </pre>
-                            </figure>
-                            <figure class="figcode">
-                                <figcaption>The result on page</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
 <pre>
     ^__^
     (oo)\_______
@@ -676,6 +684,8 @@ figcaption {
         ||----w |
         ||     ||
 </pre>
+                                    </figure>
+                                </div>
                             </dd>
                             <dt><code>&lt;blockquote&gt;</code></dt>
                             <dd class="maindd">Block quoation wrapper</dd>
@@ -684,8 +694,9 @@ figcaption {
                             <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
 
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>Blockquote with figure</figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Blockquote with figure</figcaption>
 <pre>
 &lt;figure&gt;
     &lt;blockquote cite="https:..."&gt;
@@ -694,13 +705,17 @@ figcaption {
     &lt;figcaption&gt;...&lt;cite&gt;...&lt;/cite&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
-                                        <p>A supernova is a powerful and luminous stellar explosion.</p>
-                                    </blockquote>
-                                    <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
-                                </figure>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
+                                                <p>A supernova is a powerful and luminous stellar explosion.</p>
+                                            </blockquote>
+                                            <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
+                                        </figure>
+                                    </figure>
+                                </div>
                             </dd>
                         </dl>
                     </dd>             
@@ -721,8 +736,9 @@ figcaption {
                             </dd>
 
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>List structure</figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>List structure</figcaption>
 <pre>
 &lt;ul&gt;
     &lt;li&gt;...&lt;/li&gt;
@@ -730,15 +746,16 @@ figcaption {
     &lt;li&gt;...&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>Unordered list</figcaption>
-                                    <ul>
-                                        <li>First item</li>
-                                        <li>Second item</li>
-                                        <li>Third item</li>
-                                    </ul>
-                                </figure>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <ul>
+                                            <li>First item</li>
+                                            <li>Second item</li>
+                                            <li>Third item</li>
+                                        </ul>
+                                    </figure>
+                                </div>
                             </dd>
                             <dd>Default bullet style:
                                 <ul>
@@ -887,29 +904,33 @@ figcaption {
                                 </ul>
                             </dd>
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>HR</figcaption>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>HR</figcaption>
 <pre>
 &lt;p&gt;...&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;...&lt;/p&gt;
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>The CSS</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>The CSS</figcaption>
 <pre>
 hr {
     border: none;
     border-top: 2px dotted pink;
 }
 </pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>Result</figcaption>
-                                    <p>Monoceros (Greek: Μονόκερως, "unicorn") is a faint constellation on the celestial equator. Its definition is attributed to the 17th-century Dutch cartographer Petrus Plancius.</p>
-                                    <hr>
-                                    <p>Draco is a constellation in the far northern sky. Its name is Latin for dragon. It was one of the 48 constellations listed by the 2nd century astronomer Ptolemy, and remains one of the 88 modern</p>
-                                </figure>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <p>Monoceros (Greek: Μονόκερως, "unicorn") is a faint constellation on the celestial equator. Its definition is attributed to the 17th-century Dutch cartographer Petrus Plancius.</p>
+                                            <hr>
+                                            <p>Draco is a constellation in the far northern sky. Its name is Latin for dragon. It was one of the 48 constellations listed by the 2nd century astronomer Ptolemy, and remains one of the 88 modern</p>
+                                        </figure>
+                                    </figure>
+                                </div>
                             </dd>
 
                         </dl>
@@ -964,26 +985,19 @@ hr {
                             <dd><code>&lt;q cite="https://..."&gt;</code></dd>
                             <dd>Automatically gives quote sign "" to the text within.</dd>
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>Inline quote example</figcaption>
-<pre>
-&lt;p&gt;According to the ..., &lt;q cite="https:..."&gt;...&lt;/q&gt;&lt;/p&gt;
-</pre>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>Inline quote example</figcaption>
-                                    <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
-                                </figure>
-                            </dd>
-                            <dd>
-            
-                                Result:
-                                <div class="html-codebox"">
-                                    <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Inline quote example</figcaption>
+
+                                        <p><code>&lt;p&gt;</code>According to the ..., <code>&lt;q cite="https:</code>...<code>"&gt;</code>...<code>&lt;/q&gt;&lt;/p&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>      
+                                    </figure>
                                 </div>
-
                             </dd>
-
+              
                             <!-- small -->
                             <dt><code>&lt;small&gt;</code></dt>
                             <dd class="maindd">Side comment</dd>
@@ -1016,14 +1030,16 @@ hr {
                             <dd class="maindd">Strong importance - <code>bold</code></dd>
                             <dd>Including great seriousness or urgency such as warning. Could be of a great importance in the whole page, or some words that are of greater importance compared to nearby content.</dd>
                             <dd>
-                                <figure class="figcode">
-                                    <figcaption>Strong text example</figcaption>
-                                    <p><code>&lt;p&gt;</code>...Main text...<code>&lt;strong&gt;</code>Warning:<code>&lt;/strong&gt;</code>...Main text...<code>&lt;/p&gt;</code></p>
-                                </figure>
-                                <figure class="figcode">
-                                    <figcaption>Result</figcaption>
-                                    <p>Dinner tonight will be sizzling fajita. <strong>Warning:</strong> Don't put your face on it! Sizzling fajita is sizzling hot.</p>
-                                </figure>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Strong text example</figcaption>
+                                        <p><code>&lt;p&gt;</code>...Main text...<code>&lt;strong&gt;</code>Warning:<code>&lt;/strong&gt;</code>...Main text...<code>&lt;/p&gt;</code></p>
+                                    </figure>
+                                        <figure>
+                                            <figcaption>Result</figcaption>
+                                            <p>Dinner tonight will be sizzling fajita. <strong>Warning:</strong> Don't put your face on it! Sizzling fajita is sizzling hot.</p>
+                                        </figure>      
+                                </div>
                             </dd>
 
                             <!-- b -->
@@ -1039,6 +1055,7 @@ hr {
                             <!-- em -->
                             <dt><code>&lt;em&gt;</code></dt>
                             <dd class="maindd">Emphasis</dd>
+                            <dd></dd>
 
                             <!-- i -->
                             <dt><code>&lt;i&gt;</code></dt>

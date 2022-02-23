@@ -20,6 +20,9 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 
+figure {
+    margin: 0;
+}
 /* General */
 
 :root {
@@ -199,7 +202,7 @@ dd {
 }
 
 figcaption {
-    margin: 0;
+    margin: 0.25rem 0;
 }
 
 pre {
@@ -567,9 +570,7 @@ a[href^="tel"]::before {
 }
 
 .figcode {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+
     border: 3px solid papayawhip;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
@@ -588,6 +589,10 @@ a[href^="tel"]::before {
     color: inherit;
 }
 
+.figcode p {
+    margin: 0.5em 0;
+
+}
 
 .figcode pre {
     color: steelblue;
@@ -599,6 +604,10 @@ a[href^="tel"]::before {
     font-family: 'Fira Mono', monospace;   
     margin: 0;
     font-size: 0.9rem;
+}
+
+.figcode figure + figure {
+    margin-top: 1rem;
 }
 
 .figure1 figure {
