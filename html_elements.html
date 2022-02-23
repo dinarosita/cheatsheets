@@ -989,7 +989,7 @@ hr {
                                     <figure>
                                         <figcaption>Inline quote example</figcaption>
 
-                                        <p><code>&lt;p&gt;</code>According to the ..., <code>&lt;q cite="https:</code>...<code>"&gt;</code>...<code>&lt;/q&gt;&lt;/p&gt;</code></p>
+                                        <p><code>&lt;p&gt;</code>... ... ..., <code>&lt;q cite="https:</code>...<code>"&gt;</code>...<code>&lt;/q&gt;&lt;/p&gt;</code></p>
                                     </figure>
                                     <figure>
                                         <figcaption>Result</figcaption>
@@ -1033,12 +1033,12 @@ hr {
                                 <div class="figcode">
                                     <figure>
                                         <figcaption>Strong text example</figcaption>
-                                        <p><code>&lt;p&gt;</code>...Main text...<code>&lt;strong&gt;</code>Warning:<code>&lt;/strong&gt;</code>...Main text...<code>&lt;/p&gt;</code></p>
+                                        <p>... ... ...<code>&lt;strong&gt;</code>...<code>&lt;/strong&gt;</code>... ... ...</code></p>
                                     </figure>
                                         <figure>
-                                            <figcaption>Result</figcaption>
-                                            <p>Dinner tonight will be sizzling fajita. <strong>Warning:</strong> Don't put your face on it! Sizzling fajita is sizzling hot.</p>
-                                        </figure>      
+                                        <figcaption>Result</figcaption>
+                                        <p>Dinner tonight will be sizzling fajita. <strong>Warning:</strong> Don't put your face on it! Sizzling fajita is sizzling hot.</p>
+                                    </figure>      
                                 </div>
                             </dd>
 
@@ -1047,7 +1047,7 @@ hr {
                             <dd class="maindd">Boldface - <code>bold</code></dd>
                             <dd>To draw attention to the text without indicating it's more important.</dd>
                             <dd>If there's no semantic meaning to the text, use CSS  property instead:
-                                <p class="indent">
+                                <p>
                                     <code>font-weight: bold</code>
                                 </p>
                             </dd>
@@ -1055,11 +1055,65 @@ hr {
                             <!-- em -->
                             <dt><code>&lt;em&gt;</code></dt>
                             <dd class="maindd">Emphasis</dd>
-                            <dd></dd>
+                            <dd>Including stress contrast.</dd>
+                            <dd>Do not use this to apply italic styling other to stress emphasis:
+                                <ul>
+                                    <li>CSS <code>font-style: italic;</code> for general styling</li>
+                                    <li><code>&lt;cite&gt;</code> for citations such as title of book, play, song, etc.</li>
+                                    <li><code>&lt;i&gt;</code> for alternate tone or mood, fictional characters' thought, definition of a word, for scientific names, words in different languages</li>
+                                </ul>
+                                
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Emphasis text examples</figcaption>
+                                        <p>... ... ...<code>&lt;em&gt;</code>...<code>&lt;/em&gt;</code>... ... ...</code></p>
+                                    </figure>
+                                        <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>I do <em>not</em> want that.</p>
+                                        <p>Just <em>do</em> it already.</p>
+                                        <p>In HTML 5, what was previously called  <em>block-level</em> content is now called  <em>flow</em> content.</p>
+                                    </figure>      
+                                </div>
+                            </dd>
 
                             <!-- i -->
                             <dt><code>&lt;i&gt;</code></dt>
                             <dd class="maindd">Idiomatic text</dd>
+                            <dd>Usage: a range of text that deviates from normal text for some reason, such as:
+                                <ul>
+                                    <li>Idiomatic text</li>
+                                    <li>Technical terms</li>
+
+                                    <li>Alternative voice or mood</li>
+                                    <li>Taxonomical designations
+                                        <p>
+                                            For example: <i>Hedera helix</i>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Idiomatic text examples</figcaption>
+                                        <p>... ... ...<code>&lt;i&gt;</code>...<code>&lt;/i&gt;</code>... ... ...</code></p>
+                                    </figure>
+                                        <figure>
+                                        <figcaption>Result</figcaption>
+                                        <ul>
+                                            <li>"The <i>Queen Mary</i> sailed last night".
+                                                <p>No stress emphasis, just indicating it's not a queen named Mary, but a ship named Queen Mary.</p>
+                                            </li>
+                                            <li>The word <i>the</i> is an article".
+                                                <p>Making clear the word being described is "the".</p>
+                                            </li>
+                                        </ul>
+                                    </figure>      
+                                </div>
+                            </dd>
 
                             <!-- em vs i -->
                             <dt><code>&lt;em&gt;</code> vs <code>&lt;i&gt;</code></dt>

@@ -212,11 +212,6 @@ pre {
     font-family: 'Fira Mono', monospace;   
 }
 
-.indent {
-    margin: 0;
-    padding: 0 0 0 2rem;
-}
-
 .tab {
     margin-left: 1.5rem;
 }
@@ -540,6 +535,13 @@ code a {
     color: rgb(253, 164, 90);
 }
 
+.html_notes dd p {
+    margin: 0 0 0 2rem;
+}
+.html_notes li p {
+    margin: 0;
+}
+
 .dont_use dt code {
     color: rgb(194, 172, 172);
 }
@@ -602,7 +604,6 @@ a[href^="tel"]::before {
 }
 
 .figcode li {
-    color: steelblue;
     font-family: 'Fira Mono', monospace;   
     margin: 0;
     font-size: 0.9rem;
