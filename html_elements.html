@@ -67,11 +67,13 @@
                 <dl>
                     <dt>Block level elements</dt>
                     <dd>A block: Start in a new line, occupy entire horizontal space of its parent element (container), with height depends on its content.</dd>
-                    <dd>Examples: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;h1-h6&gt;</code></dd>
+                    <dd>Generic block level element: <code>&lt;div&gt;</code></dd>
+                    <dd>Other examples: <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>-<code>&lt;li&gt;</code> and <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code></dd>
 
                     <dt>Inline level elements</dt>
                     <dd>Within line: Doesn't start a new line, only takes up as much width as necessary, same with height. Look like span of writing than block.</dd>
-                    <dd>Examples: <code>&lt;code&gt;</code> and <code>&lt;strong&gt;</code></dd>
+                    <dd>Generic inline level element: <code>&lt;span&gt;</code></dd>
+                    <dd>Other examples: <code>&lt;code&gt;</code>, <code>&lt;a&gt;</code> and <code>&lt;strong&gt;</code></dd>
                 </dl>
 
                 <p>Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout" target="_blank">CSS Flow layout</a> for normal flow etc.</p>
@@ -108,9 +110,9 @@
         &lt;aside&gt;...&lt;aside&gt;
         &lt;footer&gt;...&lt;/footer&gt;
         &lt;script&gt;...&lt;/script&gt;
-    &lt;/body&gt;
+    &lt;/body&gt;    
 &lt;/html&gt;
-</pre>
+<pre>
                 </figure>
 
                 <p>In the following sections, elements will be listed by their tags and sectioned based on their functions/roles. Listing will be given in nesting style. Some parent-child relations are rather exact, some are more of an illustration or common example to give a better idea how these element tags are used.</p>
@@ -121,14 +123,14 @@
                 <h2>Main root</h2>
                 <dl>
                     <dt><code>&lt;main&gt;</code></dt>
-                    <dd><strong>Root element</strong></dd>
+                    <dd class="maindd">Root element</dd>
                     <dd>Direct children:
                         <dl>
                             <dt><code>&lt;head&gt;</code></dt>
-                            <dd><strong>Metadata container</strong></dd>
+                            <dd class="maindd">Metadata container</dd>
 
                             <dt><code>&lt;body&gt;</code></dt>
-                            <dd><strong>Sectioning root</strong></dd>
+                            <dd class="maindd">Sectioning root</dd>
 
                         </dl>
                     </dd>
@@ -141,19 +143,19 @@
 
                 <dl>
                     <dt><code>&lt;head&gt;</code></dt>
-                    <dd><strong>Metadata container</strong></dd>
+                    <dd class="maindd">Metadata container</dd>
                     <dd>Metadata elements are direct children of <code>&lt;head&gt;</code> element.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;title&gt;</code></dt>
-                            <dd><strong>Browser's title bar or page's tab</strong></dd>
+                            <dd class="maindd">Browser's title bar or page's tab</dd>
                             <dd>Text only. Tag within this element will be ignored.</dd>
                             <dd>Example:
                             <dd><code>&lt;title&gt;HTML Intro&lt;/title&gt;</code></dd>
 
 
                             <dt><code>&lt;link&gt;</code></dt>
-                            <dd><strong>Link to external resources</strong></dd>
+                            <dd class="maindd">Link to external resources</dd>
                             <dd>Common attributes:
                                 <ul>
                                     <li><code>rel</code>: relationship. Values example: stylesheet, preconnect.</li>
@@ -168,7 +170,7 @@
                             </dd>
 
                             <dt><code>&lt;style&gt;</code></dt>
-                            <dd><strong>Internal CSS</strong></dd>
+                            <dd class="maindd">Internal CSS</dd>
                             <dd>
                                 <figure class="figcode">
                                     <figcaption>Internal CSS</figcaption>
@@ -181,7 +183,7 @@
                             </dd>          
                             
                             <dt><code>&lt;base&gt;</code></dt>
-                            <dd><strong>Base URL for all relative links</strong></dd>
+                            <dd class="maindd">Base URL for all relative links</dd>
                             <dd>Only 2 attributes allowed:
                                 <ul>
                                     <li><code>href</code>: URL of all the relative links in the page.</li>
@@ -216,7 +218,7 @@
                             </dd>
 
                             <dt><code>&lt;meta&gt;</code></dt>
-                            <dd><strong>Meta without its own element</strong></dd>
+                            <dd class="maindd">Meta without its own element</dd>
                             <dd>Examples:
                                 <ul>
                                     <li><code>&lt;meta charset="UTF-8"&gt;</code></li>
@@ -235,11 +237,11 @@
                 <p>Content sectioning elements allow document content to be organized into logical pieces. It creates a broad outline of the page content.</p>
                 <dl>
                     <dt><code>&lt;body&gt;</code></dt>
-                    <dd><strong>Sectioning root</strong></dd>
+                    <dd class="maindd">Sectioning root</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;header&gt;</code></dt>
-                            <dd><strong>Introductory content</strong></dd>
+                            <dd class="maindd">Introductory content</dd>
                             <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
 
                             <dd>
@@ -274,7 +276,7 @@
                             
                             <!-- NAV -->
                             <dt><code>&lt;nav&gt;</code></dt>
-                            <dd><strong>Navigation block</strong></dd>
+                            <dd class="maindd">Navigation block</dd>
                             <dd>Using <code>&lt;ul&gt;</code> listing presented as a sidebar, navigation bar, or dropdown menu is common, but links within <code>&lt;p&gt;</code> paragraph is a cool choice too.</dd>
                             <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
                             <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
@@ -304,7 +306,7 @@
 
                             <!-- MAIN -->
                             <dt><code>&lt;main&gt;</code></dt>
-                            <dd><strong>Dominant content of document <code>&lt;body&gt;</code></strong></dd>
+                            <dd class="maindd">Dominant content of document's &lt;body&gt;</dd>
                             <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
                                 
                             <dd>
@@ -326,7 +328,7 @@
 
                             <!-- ARTICLE -->
                             <dt><code>&lt;article&gt;</code></dt>
-                            <dd><strong>Self contained composition</strong></dd>
+                            <dd class="maindd">Self contained composition</dd>
                             <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
                             <dd>
                                 <figure class="figcode">
@@ -351,7 +353,7 @@
 
                             <!-- SECTION -->
                             <dt><code>&lt;section&gt;</code></dt>
-                            <dd><strong>Generic sectioning element</strong></dd>
+                            <dd class="maindd">Generic sectioning element</dd>
                             <dd>
                                 <ul>
                                     <li>A generic wrapper for a heading <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> and its content.</li>
@@ -410,14 +412,14 @@
                             
                             <!-- H1-H6 -->
                             <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
-                            <dd><strong>Section heading elements</strong></dd>
+                            <dd class="maindd">Section heading elements</dd>
                             <dd>Heading information can be used to automatically construct document's table of contents.</dd>
                             <dd>Avoid skipping heading levels.</dd>
                             <dd>Use only 1 <code>&lt;h1&gt;</code> per page/view. Multiple <code>&lt;h1&gt;</code> is allowed however not the best practise.</dd>
 
                             <!-- ADDRESS -->
                             <dt><code>&lt;address&gt;</code></dt>
-                            <dd><strong>Contact address element</strong></dd>
+                            <dd class="maindd">Contact address element</dd>
                             <dd>Typically placed inside &lt;footer&gt; element of the current section, if any.</dd>
                             <dd>HTML</dd>
                             <dd>
@@ -460,7 +462,7 @@ a[href^="tel"]::before {
                                 <p>Here is an example of an aside. Place the <code>&lt;aside&gt;</code> element before the content it is indirectly related.</p>
                             </aside>
 
-                            <dd><strong>Indirectly related content</strong></dd>
+                            <dd class="maindd">Indirectly related content</dd>
                             <dd>Usually displayed as a sidebar or call-out boxes.</dd>
                             <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
                             <dd>
@@ -494,7 +496,7 @@ aside p {
 
                             <!-- FOOTER -->
                             <dt><code>&lt;footer&gt;</code></dt>
-                            <dd><strong>Closing element</strong></dd>
+                            <dd class="maindd">Closing element</dd>
                             <dd>Usually contains information about author, copyright, or links to the related document. It could be footer for the whole body or main content, or just for an article element.</dd>
                             <dd>
                                 <figure class="figcode">
@@ -527,7 +529,7 @@ aside p {
                         <dl>
                             <!-- DIV -->
                             <dt><code>&lt;div&gt;</code></dt>
-                            <dd><strong>Generic content division</strong></dd>
+                            <dd class="maindd">Generic content division</dd>
                             <dd>Use this when no other semantic element like <code>&lt;article&gt;</code> and <code>&lt;nav&gt;</code> could be more appropriately applied.</dd>
                             <dd>For aligning and positioning, use CSS Grid and CSS Flexbox. Previously done with <code>align</code> attribute, but it's obsolete.</dd>
                             <dd>Handy styling container. Use <code>class</code> attribute and style it in CSS.</dd>
@@ -540,13 +542,13 @@ aside p {
 
                             <!-- FIGURES -->
                             <dt><code>&lt;figure&gt;</code></dt>
-                            <dd><strong>Figure with optional caption</strong></dd>
+                            <dd class="maindd">Figure with optional caption</dd>
                             <dd>The figure, its caption, and its content are a single figure unit.</dd>            
                             <dd>Example usage: image, illustration, code snippet, diagram, etc.</dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;figcaption&gt;</code></dt>
-                                    <dd><strong>Figure's caption</strong></dd>    
+                                    <dd class="maindd">Figure's caption</dd>    
                                 </dl>
                             </dd>     
                             <dd>
@@ -614,7 +616,7 @@ figcaption {
                     <dd>
                         <dl>
                             <dt><code>&lt;p&gt;</code></dt>
-                            <dd><strong>Paragraph</strong>
+                            <dd class="maindd">Paragraph</dd>
                             <dd>The block level element for regular paragraph.</dd>
                             <dd>Default characteristic:
                                 <ul>
@@ -634,7 +636,7 @@ figcaption {
                             </dd>
         
                             <dt><code>&lt;pre&gt;</code></dt>
-                            <dd><strong>Preformatted Text</strong></dd>
+                            <dd class="maindd">Preformatted Text</dd>
                             <dd>Present the paragraph exactly as written in the HTML file.</dd>
                             <dd>Default characteristic:
                                 <ul>
@@ -676,9 +678,9 @@ figcaption {
 </pre>
                             </dd>
                             <dt><code>&lt;blockquote&gt;</code></dt>
-                            <dd><strong>Block quoation wrapper</strong></dd>
+                            <dd class="maindd">Block quoation wrapper</dd>
                             <dd>For quotation displayed in its own block. Special attribute: <code>cite</code> for the citation's URL.</dd>
-                            <dd><strong><code>&lt;blockquote cite="https://..."&gt;</code></strong></dd>
+                            <dd class="maindd"><code>&lt;blockquote cite="https://..."&gt;</code></dd>
                             <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
 
                             <dd>
@@ -708,12 +710,12 @@ figcaption {
                         <dl>
 
                             <dt><code>&lt;ul&gt;</code></dt>
-                            <dd><strong>Unordered List</strong></dd>
+                            <dd class="maindd">Unordered List</dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;li&gt;</code></dt>
-                                    <dd><strong>List Item</strong></dd>    
+                                    <dd class="maindd">List Item</dd>    
                                     <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
                                 </dl>
                             </dd>
@@ -752,13 +754,11 @@ figcaption {
                                 </ul>
                             </dd>
                             <dd>To change bullet style in CSS: 
-                                <ul>
-                                    <li><strong><code>ul {list-style-type: circle;}</code></strong></li>
-                                </ul>
+                                <p class="plainchild"><code>ul {list-style-type: circle;}</code></p>
                             </dd>
 
 
-                            <dd><span class="alert">Deprecated</span> special attributes:
+                            <dd><strong>Deprecated</strong> special attributes:
                                 <ul>
                                     <li>
                                         <code>compact</code> &ndash;
@@ -771,12 +771,12 @@ figcaption {
                             </dd>
 
                             <dt><code>&lt;ol&gt;</code></dt>
-                            <dd><strong>Ordered List</strong></dd>
+                            <dd class="maindd">Ordered List</dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;li&gt;</code></dt>
-                                    <dd><strong>List Item</strong></dd>    
+                                    <dd class="maindd">List Item</dd>    
                                     <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
                                 </dl>
                             </dd>
@@ -842,14 +842,14 @@ figcaption {
                     <dd>
                         <dl>
                             <dt><code>&lt;dl&gt;</code></dt>
-                            <dd><strong>Description List</strong></dd>
+                            <dd class="maindd">Description List</dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;dt&gt;</code></dt>
-                                    <dd><strong>Description Term</strong></dd>
+                                    <dd class="maindd">Description Term</dd>
         
                                     <dt><code>&lt;dd&gt;</code></dt>
-                                    <dd><strong>Description Details</strong></dd>
+                                    <dd class="maindd">Description Details</dd>
                                 </dl>
                             </dd>
                             <dd>
@@ -877,13 +877,13 @@ figcaption {
                     <dd>
                         <dl>
                             <dt><code>&lt;hr&gt;</code></dt>
-                            <dd><strong>Horizontal Rule</strong></dd>
+                            <dd class="maindd">Horizontal Rule</dd>
                             <dd>Thematic break  between paragraph level elements.</dd>
                             <dd>Empty element, only have start tag.</dd>
                             <dd>Special attributes:
                                 <ul>
-                                    <li><span class="alert">Depracated</span> attributes: <code>align</code>, <code>noshade</code>, <code>size</code>, <code>width</code></li>
-                                    <li><span class="alert">Non-standard</span> attributes: <code>color</code></li>
+                                    <li><strong>Depracated</strong> attributes: <code>align</code>, <code>noshade</code>, <code>size</code>, <code>width</code></li>
+                                    <li><strong>Non-standard</strong> attributes: <code>color</code></li>
                                 </ul>
                             </dd>
                             <dd>
@@ -899,8 +899,8 @@ figcaption {
                                     <figcaption>The CSS</figcaption>
 <pre>
 hr {
-    <span class="tab"></span>border: none;
-    <span class="tab"></span>border-top: 2px dotted pink;
+    border: none;
+    border-top: 2px dotted pink;
 }
 </pre>
                                 </figure>
@@ -923,142 +923,178 @@ hr {
 
             <article id="inline_text">
                 <h2>Inline text semantics</h2>
+                <p>Inline level elements don't have their own block shape. They are stretches of text that has particular semantic/role/meaning to it, embedded within block level elements like <code>&lt;p&gt;</code>; and <code>&lt;li&gt;</code>. Some come with certain font/text styling as default, some not.</p>
                 <dl>
-                    <dt><code>&lt;p&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <!-- Generic -->
+                    <dt>Generic inline container</dt>
                     <dd>
                         <dl>
-                            <dt>Text role</dt>
+                            <!-- span -->
+                            <dt><code>&lt;span&gt;</code></dt>
+                            <dd class="maindd">Generic inline container</dd>
+                            <dd>Role: styling group without specific meaning. This is like <code>&lt;div&gt;</code> for block-level element. Use only when there's no better or more specific inline semantic elements can be used.</dd>
+                            <dd>Default styling: none</dd>
+                        </dl>
+                    </dd>
+
+                    <!-- High function -->
+                    <dt>High function: links and definitions</dt>
+                    <dd>
+                        <dl>
+                            <!-- a -->
+                            <dt><code>&lt;a&gt;</code></dt>
+                            <dd class="maindd">Anchor element</dd>
+                            <dd>Role: link</dd>
+                            <dd>Default styling: underline, color, cursor</dd>
+                            <dd>Important attributes and values:
+                                <ul>
+                                    <li><code>href="https://..."</code></li>
+                                    <li>
+                                        <code>target="_blank"</code>
+                                        Default: open on the same page<br>
+                                    </li>
+                                </ul>
+                            </dd>                            
+                            <dd>Have various stages: <code>:link</code>, <code>:visited</code>, <code>:active</code>, <code>:hover</code>, check for more</dd>
+
+                            <!-- q -->
+                            <dt><code>&lt;q&gt;</code></dt>
+                            <dd class="maindd">Inline quotoation element</dd>
+                            <dd>For inline quotation within text. Special attribute: <code>cite</code> for the citation's URL.</dd>
+                            <dd><code>&lt;q cite="https://..."&gt;</code></dd>
+                            <dd>Automatically gives quote sign "" to the text within.</dd>
                             <dd>
-                                <dl>
-                                    <dt><code>&lt;a&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;span&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;mark&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;q&gt;</code></dt>
-                                    <dd><strong>Inline quotoation element</strong></dd>
-                                    <dd>For inline quotation within text. Special attribute: <code>cite</code> for the citation's URL.</dd>
-                                    <dd><code>&lt;q cite="https://..."&gt;</code></dd>
-                                    <dd>Automatically gives quote sign "" to the text within.</dd>
-                                    <dd>
-                                        <figure class="figcode">
-                                            <figcaption>Inline quote example</figcaption>
+                                <figure class="figcode">
+                                    <figcaption>Inline quote example</figcaption>
 <pre>
 &lt;p&gt;According to the ..., &lt;q cite="https:..."&gt;...&lt;/q&gt;&lt;/p&gt;
 </pre>
-                                        </figure>
-                                        <figure class="figcode">
-                                            <figcaption>Inline quote example</figcaption>
-                                            <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
-                                        </figure>
-                                    </dd>
-                                    <dd>
-                   
-                                        Result:
-                                        <div class="html-codebox"">
-                                            <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
-                                        </div>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>Inline quote example</figcaption>
+                                    <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
+                                </figure>
+                            </dd>
+                            <dd>
+            
+                                Result:
+                                <div class="html-codebox"">
+                                    <p>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></p>
+                                </div>
+
+                            </dd>
+
+                            <!-- small -->
+                            <dt><code>&lt;small&gt;</code></dt>
+                            <dd class="maindd">Side comment</dd>
+
+                            <dt><code>&lt;abbr&gt;</code></dt>
+                            <dd class="maindd">   </dd>
         
-                                    </dd>
+                            <dt><code>&lt;dfn&gt;</code></dt>
+                            <dd class="maindd">   </dd>
 
-                                    <dt><code>&lt;small&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-                                </dl>
+                            <dt><code>&lt;data&gt;</code></dt>
+                            <dd class="maindd">   </dd>
+
+                            <dt><code>&lt;time&gt;</code></dt>
+                            <dd class="maindd">   </dd>
+
+                            <dt><code>&lt;cite&gt;</code></dt>
+                            <dd class="maindd">   </dd>
+                        </dl>
+                    </dd>
+
+                    <!-- Main text -->
+                    <dt>Main text semantics</dt>
+                    <dd>Elements within the main text with their own unique style to visually represent their roles to the users, but don't have action or defining attributes like in the previous section.</dd>
+                    <dd>Prominent default appearance is featured. Of course this could be changed.</dd>
+                    <dd>
+                        <dl>
+                            <!-- strong -->
+                            <dt><code>&lt;strong&gt;</code></dt>
+                            <dd class="maindd">Strong importance - <code>bold</code></dd>
+                            <dd>Including great seriousness or urgency such as warning. Could be of a great importance in the whole page, or some words that are of greater importance compared to nearby content.</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Strong text example</figcaption>
+                                    <p><code>&lt;p&gt;</code>...Main text...<code>&lt;strong&gt;</code>Warning:<code>&lt;/strong&gt;</code>...Main text...<code>&lt;/p&gt;</code></p>
+                                </figure>
+                                <figure class="figcode">
+                                    <figcaption>Result</figcaption>
+                                    <p>Dinner tonight will be sizzling fajita. <strong>Warning:</strong> Don't put your face on it! Sizzling fajita is sizzling hot.</p>
+                                </figure>
+                            </dd>
+
+                            <!-- b -->
+                            <dt><code>&lt;b&gt;</code></dt>
+                            <dd class="maindd">Boldface - <code>bold</code></dd>
+                            <dd>To draw attention to the text without indicating it's more important.</dd>
+                            <dd>If there's no semantic meaning to the text, use CSS  property instead:
+                                <p class="indent">
+                                    <code>font-weight: bold</code>
+                                </p>
+                            </dd>
+
+                            <!-- em -->
+                            <dt><code>&lt;em&gt;</code></dt>
+                            <dd class="maindd">Emphasis</dd>
+
+                            <!-- i -->
+                            <dt><code>&lt;i&gt;</code></dt>
+                            <dd class="maindd">Idiomatic text</dd>
+
+                            <!-- em vs i -->
+                            <dt><code>&lt;em&gt;</code> vs <code>&lt;i&gt;</code></dt>
+
+                            <!-- u -->
+                            <dt><code>&lt;u&gt;</code></dt>
+                            <dd class="maindd">Unarticulated annotation (underline)</dd>
+
+                            <!-- s -->
+                            <dt><code>&lt;s&gt;</code></dt>
+                            <dd class="maindd">Strikethrough</dd>
+
+                            <!-- mark -->
+                            <dt><code>&lt;mark&gt;</code></dt>
+                            <dd class="maindd">Marked/highlighted text</dd>
+                            <dd>Default: highlight
+                                <ul>
+                                    <li><code>background-color: yellow;</code></li>
+                                    <li><code>color: black;</code></li>
+                                </ul>
                             </dd>
                         </dl>
                     </dd>
 
+                    <!-- Child text -->
+                    <dt>Child text semantics</dt>     
+                    <dd>Child text to the main text member. Usually represented in smaller font with specific positioning relative to the main text parent.</dd>   
+
                     <dd>
                         <dl>
-                            <dt>Text appearance</dt>
+
+                            <dt><code>&lt;sub&gt;</code></dt>
+                            <dd class="maindd">   </dd>
+        
+                            <dt><code>&lt;sup&gt;</code></dt>
+                            <dd class="maindd">   </dd>
+
+                            <dt><code>&lt;ruby&gt;</code></dt>
+                            <dd class="maindd">   </dd>
                             <dd>
                                 <dl>
-                                    <dt><code>&lt;strong&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-                                    <dd>
-                                        <dl>
-                                            <dt><code>&lt;b&gt;</code></dt>
-                                            <dd><strong>   </strong></dd>
-                                        </dl>
-                                    </dd>
-                
-                                    <dt><code>&lt;em&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-                                    <dd>
-                                        <dl>
-                                            <dt><code>&lt;i&gt;</code></dt>
-                                            <dd><strong>   </strong></dd>
-                                        </dl>
-                                    </dd>
-                
-                                    <dt><code>&lt;u&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;s&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dt><code>&lt;rp&gt;</code></dt>
+                                    <dd class="maindd">   </dd>
+                                    <dt><code>&lt;rt&gt;</code></dt>
+                                    <dd class="maindd">   </dd>
                                 </dl>
-                            </dd>
+                            </dd>                            
                         </dl>
+                    </dl>
                     </dd>
 
 
-                    <dd>
-                        <dl>
-                            <dt>Text annotation</dt>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;sub&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-                
-                                    <dt><code>&lt;sup&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;ruby&gt;</code>
-                                        <dd><strong>   </strong></dd>
-                                        <dd>
-                                            <dl>
-                                                <dt><code>&lt;rp&gt;</code></dt>
-                                                <dd><strong>   </strong></dd>
-                                                <dt><code>&lt;rt&gt;</code></dt>
-                                                <dd><strong>   </strong></dd>
-                                            </dl>
-                                        </dd>
-                                    </dt>
-                                </dl>
-                            </dd>
-                        </dl>
-                    </dd>
-
-
-                    <dd>
-                        <dl>
-                            <dt>Text definition</dt>
-                            <dd>
-                                <dl>                
-                                    <dt><code>&lt;abbr&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-                
-                                    <dt><code>&lt;dfn&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;data&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;time&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-
-                                    <dt><code>&lt;cite&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
-                                    
-                                </dl>
-                            </dd>
-                        </dl>
-                    </dd>
 
                     <dd>
                         <dl>
@@ -1067,16 +1103,16 @@ hr {
                             <dd>
                                 <dl>                
                                     <dt><code>&lt;code&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                 
                                     <dt><code>&lt;kbd&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
 
                                     <dt><code>&lt;samp&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
 
                                     <dt><code>&lt;var&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -1088,10 +1124,10 @@ hr {
                             <dd>
                                 <dl>                
                                     <dt><code>&lt;bdi&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                 
                                     <dt><code>&lt;bdo&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -1118,27 +1154,27 @@ hr {
                 <h2>Image and multimedia</h2>
                 <dl>
                     <dt><code>&lt;img&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dt><code>&lt;audio&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dt><code>&lt;video&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dd>
                         <dl>
                             <dt><code>&lt;track&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;map&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;area&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                         </dl>
                     </dd>
                 </dl>
@@ -1151,31 +1187,31 @@ hr {
                 <p><code>      </code></p>
                 <dl>
                     <dt><code>&lt;object&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;param&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;picture&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;source&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             <dt><code>&lt;img&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;embed&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                     <dt><code>&lt;iframe&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                     <dt><code>&lt;portal&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -1185,10 +1221,10 @@ hr {
                 <h2>SVG and MathML</h2>
                 <dl>
                     <dt><code>&lt;svg&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dt><code>&lt;math&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -1198,13 +1234,13 @@ hr {
                 <h2>Scripting</h2>
                 <dl>
                     <dt><code>&lt;script&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dt><code>&lt;noscript&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dt><code>&lt;canvas&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -1229,56 +1265,56 @@ hr {
                 <h2>Table</h2>                
                 <dl>
                     <dt><code>&lt;table&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;caption&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             
                             <dt><code>&lt;colgroup&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;col&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                 </dl>
                             </dd>
                             
                             <dt><code>&lt;thead&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;th&gt;</code></dt>
-                                            <dd><strong>   </strong></dd>
+                                            <dd class="maindd">   </dd>
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
         
                             <dt><code>&lt;tbody&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;th&gt;</code></dt>
-                                            <dd><strong>   </strong></dd>
+                                            <dd class="maindd">   </dd>
 
                                             <dt><code>&lt;td&gt;</code></dt>
-                                            <dd><strong>   </strong></dd>
+                                            <dd class="maindd">   </dd>
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
         
                             <dt><code>&lt;tfoot&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                         </dl>
                     </dd>
                 </dl>
@@ -1290,70 +1326,70 @@ hr {
                 <h2>Forms</h2>
                 <dl>
                     <dt><code>&lt;form&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dd>
                         <dl>   
                             <dt><code>&lt;label&gt;</code></dt>
-                            <dd><strong>   </strong></dd>     
+                            <dd class="maindd">   </dd>     
 
                             <dt><code>&lt;input&gt;</code></dt>
-                            <dd><strong>   </strong></dd>          
+                            <dd class="maindd">   </dd>          
                             
                             <dt><code>&lt;button&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
         
                             <dt><code>&lt;textarea&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
 
         
                             <dt><code>&lt;datalist&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;option&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>            
+                                    <dd class="maindd">   </dd>            
                                 </dl>
                             </dd>
 
                             <dt><code>&lt;select&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;optgroup&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;option&gt;</code></dt>
-                                            <dd><strong>   </strong></dd>
+                                            <dd class="maindd">   </dd>
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
 
                             <dt><code>&lt;meter&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
 
                             <dt><code>&lt;progress&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
 
                             <dt><code>&lt;output&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
 
                         </dl>
                     </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;fieldset&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;legend&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                     <dt><code>&lt;input&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                     <dt><code>&lt;label&gt;</code></dt>
-                                    <dd><strong>   </strong></dd>
+                                    <dd class="maindd">   </dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -1366,19 +1402,19 @@ hr {
                 <h2>Interactive elements</h2>
                 <dl>
                     <dt><code>&lt;details&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;summary&gt;</code></dt>
-                            <dd><strong>   </strong></dd>
+                            <dd class="maindd">   </dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;dialog&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dt><code>&lt;menu&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article> 
@@ -1387,19 +1423,19 @@ hr {
                 <h2>Web components</h2>
                 <dl>
                     <dt><code>&lt;slot&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                     <dt><code>&lt;template&gt;</code></dt>
-                    <dd><strong>   </strong></dd>
+                    <dd class="maindd">   </dd>
 
                 <a href="#top"><hr></a>
             </article> 
 
             <article id="depracated">
                 <h2>Obsolete and depracated elements</h2>
-                <p class="alert">Do not use. Replace if was used.</p>
+                <p><strong>Warning:</strong> Elements before are deprecated or obsolete. Do not use, and replace if it's in use.</p>
 
-                <dl class="obsolete">
+                <dl class="dont_use">
                     <dt>Sectioning</dt>
                     <dd>
                         <dl>

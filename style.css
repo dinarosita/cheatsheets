@@ -33,7 +33,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     --linkhover: white;
     --flexborder: rosybrown;
     --flexbackground: rgb(252, 248, 235);
-    --strong: cadetblue;
     --alert: rgb(214, 64, 64);
     --othercolor1: olive;
     --othercolor2: rgb(206, 131, 131);
@@ -80,7 +79,7 @@ h1, h2, h3, h4, h5, h6, th {
 
 h1 {
     padding: var(--bumper-quarter);
-    border: 8px double var(--border);
+    border: 0.5rem double var(--border);
     border-radius: 20px;
     text-align: center;
 }
@@ -94,7 +93,7 @@ h2, h3 {
 .titleBox {
     margin: var(--bumper-triple) 0 var(--bumper);
     padding: var(--bumper-quarter);
-    border: 8px double var(--border);
+    border: 0.5rem double var(--border);
     border-radius: 20px;
     text-align: center;
     text-decoration: none;
@@ -103,13 +102,13 @@ h4 {
     padding-top: var(--bumper);
 }
 
-h3 {font-size: 1.3em;}
+h3 {font-size: 1.3rem;}
 
-h4 {font-size: 1.2em;}
+h4 {font-size: 1.2rem;}
 
-h5 {font-size: 1.1em;}
+h5 {font-size: 1.1rem;}
 
-h6 {font-size: 1em;}
+h6 {font-size: 1rem;}
 
 a {
     color: var(--link2);
@@ -131,7 +130,7 @@ button {
 }
 
 button {
-    margin: 16px 0;
+    margin: 1rem 0;
 }
 
 .index-container a {
@@ -156,7 +155,7 @@ table {
 
 textarea {
     width: 100%;
-    padding: 1em;
+    padding: 1rem;
     border: 1px solid var(--border);
 }
 
@@ -171,7 +170,7 @@ aside {
     float: right;
     color: steelblue;
     border-left: 1px solid steelblue;
-    padding-left: 8px;
+    padding-left: 0.5rem;
 }
 
 aside p {
@@ -185,7 +184,7 @@ th, td {
 dt {
     font-weight: bold;
     color: var(--title);
-    margin: 1em 0 0;
+    margin: 1rem 0 0;
 }
 
 dd {
@@ -199,20 +198,36 @@ dd {
     height: auto;
 }
 
+figcaption {
+    margin: 0;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-break: keep-all;
+    margin: 0;
+    font-family: 'Fira Mono', monospace;   
+}
+
+.indent {
+    margin: 0;
+    padding: 0 0 0 2rem;
+}
+
 .tab {
-    margin-left: 1.5em;
+    margin-left: 1.5rem;
 }
 
 .tab2 {
-    margin-left: 3em;
+    margin-left: 3rem;
 }
 
 .tab3 {
-    margin-left: 4.5em;
+    margin-left: 4.5rem;
 }
 
 .tab4 {
-    margin-left: 6em;
+    margin-left: 6rem;
 }
 
 .alert {
@@ -235,7 +250,7 @@ h3 code, h4 code, h5 code, h6 code {
     border: 3px solid var(--border);
     border-radius: var(--bumper-half);
     margin: var(--bumper) 0 0 var(--bumper);
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
@@ -272,11 +287,11 @@ table code {
 
 .gridDefault {
     display: grid;
-    border: 4px solid plum;
+    border: 0.25rem solid plum;
 }
 
 .gridDefault div {
-    border: 4px solid peachpuff;
+    border: 0.25rem solid peachpuff;
 }
 
 
@@ -328,7 +343,7 @@ table code {
     text-align: center;
     color: var(--border); 
     background-color: white;
-    font-size: 1.3em;
+    font-size: 1.3rem;
     line-height: inherit;
     font-weight: bold;
     font-style: normal;
@@ -353,8 +368,8 @@ table code {
 #sectionBar input {
     color: var(--title); 
     border: 3px solid var(--border);
-    border-radius: 8px;
-    font-size: 0.9em;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
     padding: var(--bumper-quarter) var(--bumper-half);
     margin-bottom: var(--bumper);
 }
@@ -391,7 +406,7 @@ code,
 .css-codebox,
 .html-codebox
 .code {
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 .js-codebox strong,
@@ -434,7 +449,7 @@ code a {
 
 .js-resultbox h6 {
     text-decoration: none;
-    margin: 1em 0;
+    margin: 1rem 0;
 }
 .toggle {
     display: none;
@@ -445,7 +460,7 @@ code a {
 .displaybar {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 0.5rem;
     margin: var(--bumper) auto;
     justify-content: center;
 }
@@ -453,7 +468,7 @@ code a {
 .displaybar input {
     border: 3px solid var(--border);
     padding: var(--bumper-quarter) var(--bumper);
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 .displaybar .off {
@@ -472,15 +487,15 @@ code a {
 .html_notes h2 {
     text-align: left;
     text-decoration: underline;
-    padding: 16px 0 8px;
-    font-size: 1.3em;
+    padding: 1rem 0 0.5rem;
+    font-size: 1.3rem;
 }
 
 .html_notes h3 {
     text-align: left;
     text-decoration: underline;
-    padding: 16px 0 8px;
-    font-size: 1.0em;
+    padding: 1rem 0 0.5rem;
+    font-size: 1.0rem;
 }
 
 .html_notes dd ul,
@@ -492,15 +507,15 @@ code a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
     list-style-type: none;
     padding-left: 0;
 }
 
 .html-nav ul li {
     color: var(--title);
-    font-size: 0.9em;
+    font-size: 0.9rem;
     font-weight: bold;
     padding: 0 5px;
     border: 2px solid var(--border);
@@ -517,23 +532,30 @@ code a {
     font-style: normal;
 }
 
-.html_notes .alert,
-.obsolete dt code {
-    color: rgb(216, 142, 142);
+.html_notes strong,
+.html_notes .alert {
+    color: rgb(253, 164, 90);
 }
 
+.dont_use dt code {
+    color: rgb(194, 172, 172);
+}
 
+.maindd {
+    color: var(--title);
+    font-weight: bold;
+}
 
 .html-codebox{
     margin: var(--bumper);
     border-left: solid 3px mistyrose;
-    padding: 0 16px;
+    padding: 0 1rem;
     word-wrap: break-word;
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 dl .html-codebox {
-    margin: 8px 0 16px;
+    margin: 0.5rem 0 1rem;
 }
 
 a[href^="mailto"]::before {
@@ -545,17 +567,20 @@ a[href^="tel"]::before {
 }
 
 .figcode {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     border: 3px solid papayawhip;
-    border-radius: 8px;
-    padding: 0.5em 1em 0;
-    margin: 0.5em 0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
 }
 
 .figcode figcaption,
 .figure1 figcaption {
-    color: var(--borderdark);
+    color: rgb(235, 169, 162);
     font-style: italic;
-    /* font-weight: bold; */
+    font-weight: bold;
 }
 
 .figcode figcaption code {
@@ -566,22 +591,20 @@ a[href^="tel"]::before {
 
 .figcode pre {
     color: steelblue;
-    font-family: 'Fira Mono', monospace;   
-    margin: 0.5em 0;
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 .figcode li {
     color: steelblue;
     font-family: 'Fira Mono', monospace;   
     margin: 0;
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 .figure1 figure {
     border: 3px solid peachpuff;
-    border-radius: 8px;
-    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .figcode hr {
@@ -600,10 +623,10 @@ a[href^="tel"]::before {
 
 
 .js-resultbox {
-    padding: 1em;
+    padding: 1rem;
     border: 2px solid var(--border);
     border-radius: 5px;
-    margin: 1em;
+    margin: 1rem;
 }
 
 .js-table-code-column-1 tbody tr :nth-child(1), 
@@ -613,7 +636,7 @@ a[href^="tel"]::before {
 .js-table-code-column-5 tbody tr :nth-child(5) { 
     color: var(--code);
     font-family: 'Fira Mono', monospace;   
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 .js-table-bold-column-1 tbody tr :nth-child(1){
@@ -636,7 +659,7 @@ input.invalid {
 
 input + p {
     font-weight: bold;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     margin: 0 10px;
     color: orange;
     opacity: 0;
@@ -663,7 +686,7 @@ input.invalid + p {
 
 .list-horizontal li {
     display: inline-block;
-    width: 8em;
+    width: 8rem;
 }
 
 /* || Navigation */
@@ -671,7 +694,7 @@ input.invalid + p {
 .nav-bar {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 0.5rem;
     margin: 5px 0;
 }
 
@@ -680,7 +703,7 @@ input.invalid + p {
 .nav-button-rev:link,
 .nav-button-rev:visited {
     font-weight: bold;
-    padding: 0.2em 0.7em;
+    padding: 0.2rem 0.7rem;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
@@ -722,7 +745,7 @@ input.invalid + p {
     display: flex;
     flex-direction: column;
     padding: var(--bumper);
-    border: 8px double var(--border);
+    border: 0.5rem double var(--border);
     border-radius: 20px;
 }
 
@@ -737,7 +760,7 @@ input.invalid + p {
 .index-card-footer {
     margin: var(--bumper) auto 0;
     color: var(--border);
-    font-size: 0.9em;
+    font-size: 0.9rem;
     font-style: italic;
 }
 
@@ -753,10 +776,10 @@ input.invalid + p {
 /* || Css Notes: Boxes */
 
 .css-codebox {
-    padding: 1em;
+    padding: 1rem;
     border: 2px solid var(--border);
     border-radius: 5px;
-    margin: 1em auto;
+    margin: 1rem auto;
     max-width: 800px;
 }
 
@@ -821,11 +844,11 @@ input.invalid + p {
 }
 
 .giant {
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 .semigiant {
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 
 /* || CSS Notes: Navigation bar, still not working properly */
@@ -833,7 +856,7 @@ input.invalid + p {
 .links-list a {
     background-color: var(--flexbackground);
     text-decoration: none;
-    padding: 1em 2em;    
+    padding: 1rem 2rem;    
     display: inline-block;
 }
     
