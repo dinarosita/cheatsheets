@@ -542,6 +542,9 @@ code a {
     margin: 0;
 }
 
+.indent {
+    padding-left: 40px;
+}
 .dont_use dt code {
     color: rgb(194, 172, 172);
 }
@@ -549,6 +552,10 @@ code a {
 .maindd {
     color: var(--title);
     font-weight: bold;
+}
+
+.colordd {
+    color: rgb(47, 123, 124);
 }
 
 .html-codebox{

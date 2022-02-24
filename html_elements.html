@@ -1002,11 +1002,97 @@ hr {
                             <dt><code>&lt;small&gt;</code></dt>
                             <dd class="maindd">Side comment</dd>
 
+                            <!-- abbr -->
                             <dt><code>&lt;abbr&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindd">Abbreviation</dd>
+                            <dd class="colordd">Default display:
+                                <ul>
+                                    <li>Abbreviation: <i style="border-bottom: 1px dotted">italic with a dot-underline</i></li>
+                                    <li>Long form: on hover</li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Abbreviation example</figcaption>
+
+                                        <p><code>&lt;abbr title="</code>HyperText Markup Language<code>"&gt;</code>HTML<code>&lt;/abbr&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>In this chapter we are learning about <abbr title="HyperText Markup Language">HTML</abbr>.</p> 
+                                    </figure>
+                                </div>
+                            </dd>
         
+                            <!-- dfn -->
                             <dt><code>&lt;dfn&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindd">Definition</dd>
+                            <dd class="colordd">Default styling: <dfn>italics</dfn></dd>
+
+                            <dd>Indicates the term being defined within the context of definition phrase or sentence. Considered to be the definision: nearest ancestral <code>&lt;p&gt;</code>, <code>&lt;dt&gt;</code>/<code>&lt;dd&gt;</code> pair, or <code>&lt;section&gt;.</code></dd>
+                            <dd>Special attributes:
+                                <ul>
+                                    <li><code>title</code>
+                                        <ul>
+                                            <li>It is optional. But when it is used, it must contain the term itself, even though it can be the abbreviation or another form of the term.</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>id</code>
+                                        <ul>
+                                            <li>Give a unique <code>id</code>, then you'll able to link to it from the term being used in different part of the document simply by using <code>&lt;a&gt;</code>.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>The <i>term being defined</i>:
+                                <ul>
+                                    <li>If it has <code>title</code> attribute: The <i>term being defined</i> is the title's value.
+                                        <ul>
+                                            <li>Note that the element still needs to have a text content, which is the term itself or the term in different form such as abbreviation</li>
+                                        </ul>
+                                    </li>
+                                    <li>If the element contains a single child <code>&lt;abbr&gt;</code> element (with <code>title attribute</code>) and doesn't have a text content of its own: The <i>term being defined</i> is the  <code>&lt;abbr&gt;</code>'s title's value.</li>
+                                    <li>If it doesn't have <code>title</code> attribute not child element: The <i>term being defined</i> is the text content.</li>
+                                </ul>
+                            </dd>
+                            <dd>Check out the details <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn" target="_blank">here</a>.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Definition example</figcaption>
+                                        <p><code>&lt;dfn&gt;</code>term<code>&lt;/dfn&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Results</figcaption>
+                                        <p>A <dfn>supernova</dfn> is a powerful and luminous stellar explosion.</p>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <!-- dfn-abbr -->
+                            <dt><code>&lt;dfn&gt;&lt;abbr&gt;</code></dt>
+                            <dd class="maindd">Definition of abbreviation</dd>
+
+                            <dd class="colordd">Default display:
+                                <ul>
+                                    <li>Abbreviation: <i style="border-bottom: 1px dotted">italic with a dot-underline</i></li>
+                                    <li>Long form: on hover</li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Definition of abbreviation example</figcaption>
+
+                                        <p><code>&lt;dfn&gt;&lt;abbr title="</code>HyperText Markup Language<code>"&gt;</code>HTML<code>&lt;/abbr&gt;&lt;/dfn&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>The <dfn><abbr title="HyperText Markup Language">HTML</abbr></dfn> is the standard markup language for documents designed to be displayed in a web browser.</p> 
+                                    </figure>
+                                </div>
+                            </dd>
 
                             <dt><code>&lt;data&gt;</code></dt>
                             <dd class="maindd">   </dd>
@@ -1027,7 +1113,8 @@ hr {
                         <dl>
                             <!-- strong -->
                             <dt><code>&lt;strong&gt;</code></dt>
-                            <dd class="maindd">Strong importance - <code>bold</code></dd>
+                            <dd class="maindd">Strong importance</dd>
+                            <dd class="colordd">Default styling: <b>bold</b></dd>
                             <dd>Including great seriousness or urgency such as warning. Could be of a great importance in the whole page, or some words that are of greater importance compared to nearby content.</dd>
                             <dd>Example:
                                 <ul>
@@ -1037,14 +1124,16 @@ hr {
 
                             <!-- b -->
                             <dt><code>&lt;b&gt;</code></dt>
-                            <dd class="maindd">Boldface - <code>bold</code></dd>
+                            <dd class="maindd">Boldface</dd>
+                            <dd class="colordd">Default styling: <b>bold</b></dd>
                             <dd>To draw attention to the text without indicating it's more important.</dd>
                             <dd>If there's no semantic meaning to the text, use CSS <code>font-weight: bold</code> property instead.</dd>
 
                             <!-- em -->
                             <dt><code>&lt;em&gt;</code></dt>
                             <dd class="maindd">Emphasis</dd>
-                            <dd>Including stress contrast.</dd>
+                            <dd class="colordd">Default styling: <i>italics</i></dd>
+                            <dd>Indicates stressed emphasis, including stressed contrast.</dd>
                             <dd>If it's not to stress emphasize, use:
                                 <ul>
                                     <li>CSS <code>font-style: italic;</code> for general styling</li>
@@ -1106,6 +1195,11 @@ hr {
                                 <ul>
                                     <li><code>background-color: yellow;</code></li>
                                     <li><code>color: black;</code></li>
+                                </ul>
+                            </dd>
+                            <dd>Examples
+                                <ul>
+                                    <li>The searched word is <mark>potato</mark> and it's supposed to mark all <mark>potato</mark>es in the document.</li>
                                 </ul>
                             </dd>
                         </dl>
@@ -1629,7 +1723,7 @@ hr {
         </footer>     
         
         <script src="./navArticle.js"></script>
-        <script src="./hoverElement.js"></script>
+        <!-- <script src="./hoverElement.js"></script> -->
         <script src="./highlightElement.js"></script>
 
     </body>
