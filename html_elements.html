@@ -1409,6 +1409,7 @@ hr {
                                     </li>
                                 </ul>
                             </dd>
+                            <dd>Note: Can't use <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> at the same spot like in atomic symbol. Need <code>MathML</code> for that.</dd>
         
                             <dt><code>&lt;sup&gt;</code></dt>
                             <dd class="maindd">Superscript</dd>
@@ -1439,17 +1440,44 @@ hr {
                                     </li>
                                 </ul>
                             </dd>
+                            <dd>Note: Can't use <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> at the same spot like in atomic symbol. Need <code>MathML</code> for that.</dd>
 
                             <dt><code>&lt;ruby&gt;</code></dt>
-                            <dd class="maindd">   </dd>
-                            <dd>
+                            <dd class="maindd">Ruby annotation</dd>
+                            <dd>Represents small annotation that are rendered above, below, or next to base text. Usualy for showing pronunciation of East Asian characters.</dd>
+                            
+                            <dd>                                
+                                <div class="formula">
+                                    <code>
+                                        &lt;ruby&gt;<br>
+                                            <span class="tab variable">漢</span> &lt;rp&gt;<span class="variable">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="variable">kan</span>&lt;/rt&gt;&lt;rp&gt;<span class="variable">)</span>&lt;/rp&gt;<br>
+                                            <span class="tab variable">字</span> &lt;rp&gt;<span class="variable">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="variable">ji</span>&lt;/rt&gt;&lt;rp&gt;<span class="variable">)</span>&lt;/rp&gt;<br>
+                                        &lt;/ruby&gt;
+                                    </code>
+                                </div><br>
+                                <div class="figcode" style="display: inline-block">
+                                    <code>Result: </code>
+                                    <ruby>
+                                        漢 <rp>(</rp><rt>kan</rt><rp>)</rp>
+                                        字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+                                    </ruby>
+                                </div>
+                            </dd> 
+                            <dd>    
                                 <dl>
-                                    <dt><code>&lt;rp&gt;</code></dt>
-                                    <dd class="maindd">   </dd>
                                     <dt><code>&lt;rt&gt;</code></dt>
-                                    <dd class="maindd">   </dd>
+                                    <dd class="maindd">Ruby Text</dd>
+                                    <dd>Provide pronunciation, translation, or transliteration information</dd>
+
+                                    <dt><code>&lt;rp&gt;</code></dt>
+                                    <dd class="maindd">Ruby Fallback Parenthesis</dd>
+                                    <dd>Provide fall-back parentheses for browsers that do not support display of ruby annotations</dd>
                                 </dl>
-                            </dd>                            
+                            </dd>
+                            <dd>
+
+                            </dd>
+                      
                         </dl>
                     </dd>
 
