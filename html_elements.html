@@ -772,10 +772,7 @@ figcaption {
                                     </li>
                                 </ul>
                             </dd>
-                            <dd>To change bullet style in CSS: 
-                                <p class="plainchild"><code>ul {list-style-type: circle;}</code></p>
-                            </dd>
-
+                            <dd>To change bullet style in CSS: <code class="css-equiv">ul {list-style-type: circle;}</code></dd>
 
                             <dd><strong>Deprecated</strong> special attributes:
                                 <ul>
@@ -1452,14 +1449,22 @@ hr {
                                         &lt;ruby&gt;<br>
                                             <span class="tab variable">漢</span> &lt;rp&gt;<span class="variable">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="variable">kan</span>&lt;/rt&gt;&lt;rp&gt;<span class="variable">)</span>&lt;/rp&gt;<br>
                                             <span class="tab variable">字</span> &lt;rp&gt;<span class="variable">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="variable">ji</span>&lt;/rt&gt;&lt;rp&gt;<span class="variable">)</span>&lt;/rp&gt;<br>
+                                        &lt;/ruby&gt;<br>
+                                        &lt;ruby&gt;<br>
+                                        <span class="tab variable">明日</span> &lt;rp&gt;<span class="variable">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="variable">Ashita</span>&lt;/rt&gt;&lt;rp&gt;<span class="variable">)</span>&lt;/rp&gt;<br>
                                         &lt;/ruby&gt;
                                     </code>
                                 </div><br>
                                 <div class="figcode" style="display: inline-block">
-                                    <code>Result: </code>
+
+                                    <code>Result 1: </code>
                                     <ruby>
                                         漢 <rp>(</rp><rt>kan</rt><rp>)</rp>
                                         字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+                                    </ruby><br>
+                                    <code>Result 2: </code>
+                                    <ruby>
+                                        明日 <rp>(</rp><rt>Ashita</rt><rp>)</rp>
                                     </ruby>
                                 </div>
                             </dd> 
@@ -1474,10 +1479,26 @@ hr {
                                     <dd>Provide fall-back parentheses for browsers that do not support display of ruby annotations</dd>
                                 </dl>
                             </dd>
-                            <dd>
-
+                            <dd>It's possible to omit <code>&lt;rp&gt;</code>, but it won't have the fallback parenthesis.
                             </dd>
-                      
+                            <dd>                                
+                                <div class="formula">
+                                    <code>
+                                        &lt;ruby&gt;<br>
+                                            <span class="tab variable">漢</span> &lt;rt&gt;<span class="variable">kan</span>&lt;/rt&gt;<br>
+                                            <span class="tab variable">字</span> &lt;rt&gt;<span class="variable">ji</span>&lt;/rt&gt;<br>
+                                        &lt;/ruby&gt;
+                                    </code>
+                                </div><br>
+                                <div class="figcode" style="display: inline-block">
+                                    <code>Result: </code>
+                                    <ruby>
+                                        漢 <rt>kan</rt>
+                                        字 <rt>ji</rt>
+                                    </ruby><br>
+                                </div>
+                            </dd> 
+                            <dd><strong>Deprecated</strong> ruby elements: <code class="deprecated">&lt;rb&gt;</code>, <code class="deprecated">&lt;rtc&gt;</code></dd>
                         </dl>
                     </dd>
 
@@ -1514,12 +1535,119 @@ hr {
 
                     <dt>Breaks</dt>
                     <dd>
-                        <dl>                
-                            <dt><code>&lt;wbr&gt;</code></dt>
-                            <dd>Word break</dd>
-        
+                        <dl>      
                             <dt><code>&lt;br&gt;</code></dt>
-                            <dd>Line break</dd>
+                            <dd class="maindd">Line break / carriage return</dd>
+                            <dd>Use: To create a line break in a block of text.</dd>
+                            <dd>Example usage:
+                                <ul>
+                                    <li>Poem</li>
+                                    <li>Address</li>
+                                </ul>
+                            </dd>
+                            <dd>Don't use <code>&lt;br&gt;</code> to create margins between paragraphs. Instead, wrap it within a <code>&lt;p&gt;</code> element and style it with <code>margin</code>.</dd>
+                            <dd>CSS styling: <code class="css-equiv">line-height</code>
+                                <ul>
+                                    <li>Don't do it by setting <code>margin</code></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Poem</figcaption>
+                                        <p><code>&lt;p&gt;</code></p>
+                                            <p class="indent">
+                                                Humpty Dumpty sat on the wall<code>&lt;br&gt;</code><br>
+                                                Humpty Dumpty had a great fall<code>&lt;br&gt;</code><br>
+                                                All of the horses and all of the men<code>&lt;br&gt;</code><br>
+                                                Couldn't put Humpty together again.
+                                            </p>
+                                        <p><code>&lt;/p&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>
+                                            Humpty Dumpty sat on the wall<br>
+                                            Humpty Dumpty had a great fall<br>
+                                            All of the horses and all of the men<br>
+                                            Couldn't put Humpty together again.
+                                        </p>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Address</figcaption>
+                                        <p><code>&lt;p&gt;</code></p>
+                                            <p class="indent">
+                                                Name<code>&lt;br&gt;</code><br>
+                                                Address line 1<code>&lt;br&gt;</code><br>
+                                                Address line 2<code>&lt;br&gt;</code><br>
+                                                Telephone number
+                                            </p>
+                                        <p><code>&lt;/p&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>
+                                            Name<br>
+                                            Address line 1<br>
+                                            Address line 2<br>
+                                            Telephone number
+                                        </p>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <dt><code>&lt;wbr&gt;</code></dt>
+                            <dd class="maindd">Word break / line break opportunity</dd>
+                            <dd>Word break opportunity: a position within text where the browser may optionally break a line.</dd>
+                            <dd>Notes:
+                                <ul>
+                                    <li>It doesn't introduce hyphen</li>
+                                    <li>To make hyphen appear at the end of the line, use: <code>&amp;shy;</code> (soft hyphen character entity)</li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Plain</figcaption>
+
+                                        <code>&lt;p&gt;</code>Fernstraßenbauprivatfinanzierungsgesetz<code>&lt;/p&gt;</code>
+
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&lt;wbr&gt;</code></figcaption>
+
+                                        <code>&lt;p&gt;</code>Fernstraßen<code>&lt;wbr&gt;</code>bau<code>&lt;wbr&gt;</code>privat<code>&lt;wbr&gt;</code>finanzierungs<code>&lt;wbr&gt;</code>gesetz<code>&lt;/p&gt;</code>
+
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&amp;shy;</code></figcaption>
+
+                                        <code>&lt;p&gt;</code>Fernstraßen<code>&amp;shy;</code>bau<code>&amp;shy;</code>privat<code>&amp;shy;</code>finanzierungs<code>&amp;shy;</code>gesetz<code>&lt;/p&gt;</code>
+                                    </figure>
+                                    </div>
+
+                                </div>
+                                <div class="figcode" style="max-width:150px;">
+                                    <figure>
+                                        <figcaption>Plain</figcaption>
+                                        <p>Fernstraßenbauprivatfinanzierungsgesetz</p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&lt;wbr&gt;</code></figcaption>
+                                        <p>Fernstraßen<wbr>bau<wbr>privat<wbr>finanzierungs<wbr>gesetz</p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&amp;shy;</code></figcaption>
+                                    </figure>
+                                        <p>Fernstraßen&shy;bau&shy;privat&shy;finanzierungs&shy;gesetz</p>
+                                    </div>
+                                    </figure>
+                                </div>
+                            </dd>
                         </dl>
                     </dd>
 

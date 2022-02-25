@@ -265,6 +265,9 @@ h3 code, h4 code, h5 code, h6 code {
     font-weight: normal;
 }
 
+.indent {
+    padding-left: 32px;
+}
 .formula .parameter {
     color: var(--othercolor2);
     font-weight: normal;
@@ -538,9 +541,7 @@ code a {
     color: rgb(253, 164, 90);
 }
 
-.html_notes dd p {
-    margin: 0 0 0 2rem;
-}
+
 .html_notes li p {
     margin: 0;
 }
