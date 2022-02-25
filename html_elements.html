@@ -22,7 +22,7 @@
                 <h2>Components</h2>
                 <div class="formula">
                     <code>
-                        &lt;h2 <span class="attribute">id="<span class="variable">elements</span>"</span>&gt;<span class="variable">HTML Elements</span>&lt;/h2&gt;
+                        &lt;h2 <span class="attribute">id=<span class="variable">"elements"</span></span>&gt;<span class="variable">HTML Elements</span>&lt;/h2&gt;
                     </code>
                 </div>
 
@@ -521,9 +521,9 @@ aside p {
                 <a href="#top"><hr></a>
             </article>
             
-            <article id="text_content">
-                <h2>Text content</h2>
-                <p>Text content elements organizes blocks or sections of contents placed within <code>body</code> element tags.</p>
+            <article id="text_block">
+                <h2>Text block</h2>
+                <p>Text block elements organizes blocks or sections of contents placed within <code>body</code> element tags.</p>
 
                 <dl>
                     <dt>Blocks</dt>
@@ -726,11 +726,13 @@ figcaption {
                     <dd>
                         <dl>
 
+                            <!-- ul -->
                             <dt><code>&lt;ul&gt;</code></dt>
                             <dd class="maindd">Unordered List</dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
                             <dd>
                                 <dl>
+                                    <!-- li -->
                                     <dt><code>&lt;li&gt;</code></dt>
                                     <dd class="maindd">List Item</dd>    
                                     <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
@@ -786,6 +788,7 @@ figcaption {
                                 </ul>
                             </dd>
 
+                            <!-- ol -->
                             <dt><code>&lt;ol&gt;</code></dt>
                             <dd class="maindd">Ordered List</dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
@@ -848,6 +851,62 @@ figcaption {
                                         </figure>
                                     </li>
                                 </ol>
+                            </dd>
+
+                            <!-- menu -->
+                            <dt><code>&lt;menu&gt;</code></dt>
+                            <dd class="maindd">Semantic alternative to <code>&lt;ul&gt;</code></dd>
+                            <dd>Just like <code>&lt;ul&gt;</code>, it's also an unordered list. Difference:
+                                <ul>
+                                    <li><code>&lt;menu&gt;</code> is intended for interactive items, to act on.
+                                    <ul>
+                                        <li>One of old use is for context menu. This is now obsolete.</li>
+                                    </ul></li>
+                                    <li><code>&lt;ul&gt;</code> primarily contains items for display.</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <div class="figcode menuexample">
+                                    <figure>
+                                        <figcaption>Examples</figcaption>    
+<pre>
+<code>&lt;menu&gt;
+    &lt;li&gt;&lt;button onclick=<span class="variable">"copy()"</span>&gt;<span class="variable">Copy</span>&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button onclick=<span class="variable">"cut()"</span>&gt;<span class="variable">Cut</span>&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button onclick=<span class="variable">"paste()"</span>&gt;<span class="variable">Paste</span>&lt;/button&gt;&lt;/li&gt;    
+&lt;/menu&gt;
+</code></pre>
+                                        
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+<pre>
+menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 400px;
+}
+
+li {
+    flex-grow: 1;
+}
+
+button {
+    width: 100%;
+}
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Results</figcaption>
+                                        <menu>
+                                            <li><button onclick="copy()">Copy</button></li>
+                                            <li><button onclick="cut()">Cut</button></li>
+                                            <li><button onclick="paste()">Paste</button></li>
+                                        </menu>
+                                    </figure>
+                                </div>
+
                             </dd>
 
 
@@ -958,8 +1017,8 @@ hr {
                         </dl>
                     </dd>
 
-                    <!-- Links and other high level roles -->
-                    <dt>Links and other uses</dt>
+                    <!-- Links text -->
+                    <dt>Links text</dt>
                     <dd>
                         <dl>
                             <!-- a -->
@@ -968,11 +1027,11 @@ hr {
                             <dd>
                                 <div class="formula">
                                     <code>
-                                        &lt;a <span class="attribute">href="<span class="variable">URL</span>"  <span class="attribute">target="<span class="variable">value</span>"</span>&gt;<span class="variable">link handle</span>&lt;/a&gt;
+                                        &lt;a <span class="attribute">href=<span class="variable">"URL"</span>  <span class="attribute">target=<span class="variable">"value"</span></span>&gt;<span class="variable">link handle</span>&lt;/a&gt;
                                     </code>
                                 </div>
                             </dd>
-                            <dd>Formula:
+                            <dd>Breakdown:
                                 <ul>
                                     <li><i>Text content</i>: Link handle</li>
                                     <li><i>href attribute</i>: URL</li>
@@ -993,8 +1052,8 @@ hr {
                         </dl>
                     </dd>
 
-                    <!-- Text with explanations -->
-                    <dt>Text with explanations</dt>
+                    <!-- Text with data -->
+                    <dt>Text with data</dt>
                     <dd>
                         <dl>           
                             <!-- abbr -->
@@ -1003,11 +1062,11 @@ hr {
                             <dd>
                                 <div class="formula">
                                     <code>
-                                        &lt;abbr <span class="attribute">title="<span class="variable">Cascading Style Sheets</span>"</span>&gt;<span class="variable">CSS</span>&lt;/abbr&gt;
+                                        &lt;abbr <span class="attribute">title=<span class="variable">"Cascading Style Sheets"</span></span>&gt;<span class="variable">CSS</span>&lt;/abbr&gt;
                                     </code>
                                 </div>
                             </dd>
-                            <dd>Formula:
+                            <dd>Breakdown:
                                 <ul>
                                     <li><i>Text content</i>: Abbreviated form</li>
                                     <li><i>Title attribute</i> (optional): Non-abbreviated form</li>
@@ -1029,7 +1088,7 @@ hr {
                                     </li>
                                     <li>With title attribute:
                                         <ul>
-                                            <li>In this chapter we are learning about <code>&lt;abbr title="<span class="variable">HyperText Markup Language</span>"&gt;<span class="variable">HTML</span>&lt;/abbr&gt;</code>.</li>
+                                            <li>In this chapter we are learning about <code>&lt;abbr title=<span class="variable">"HyperText Markup Language"</span>&gt;<span class="variable">HTML</span>&lt;/abbr&gt;</code>.</li>
                                             <li>In this chapter we are learning about <abbr title="HyperText Markup Language">HTML</abbr>.</li>
                                         </ul>
                                     </li>
@@ -1042,15 +1101,15 @@ hr {
                             <dd>
                                 <div class="formula">
                                     <code>
-                                        &lt;dfn <span class="attribute">title="<span class="variable">supernova</span>"</span><span class="attribute"> id="<span class="variable">def-supernova</span>"</span>&gt;<span class="variable">supernova</span>&lt;/dfn&gt;
+                                        &lt;dfn <span class="attribute">title=<span class="variable">"supernova"</span></span><span class="attribute"> id=<span class="variable">"def-supernova"</span></span>&gt;<span class="variable">supernova</span>&lt;/dfn&gt;
                                     </code>
                                 </div>                                
                             </dd>
-                            <dd>Formula:
+                            <dd>Breakdown:
                                 <ul>
                                     <li><i>Text content</i>: The term</li>
                                     <li><i>Title attribute</i> (optional): The term (superseding the text content)</li>
-                                    <li><i>Id attribute</i> (optional): To facilited linking via <code>&lt;a <span class="attribute">href="<span class="variable">#idName</span>"</span>&gt;</code></li>
+                                    <li><i>Id attribute</i> (optional): To facilited linking via <code>&lt;a <span class="attribute">href=<span class="variable">"#idName"</span></span>&gt;</code></li>
                                     <li>Enclosing <code>&lt;p&gt;</code>, <code>&lt;dt&gt;</code>/<code>&lt;dd&gt;</code> pair, or <code>&lt;section&gt;</code>: The definition</li>
                                 </ul>
                             </dd>
@@ -1076,14 +1135,14 @@ hr {
                                     </li>
                                     <li>With title and id attributes
                                         <ul>
-                                            <li>A <code>&lt;dfn title="<span class="variable">supernova</span>" id="<span class="variable">def-supernova</span>"&gt;<span class="variable">supernova</span>&lt;/dfn&gt;</code> is a powerful and luminous stellar explosion.</li>
+                                            <li>A <code>&lt;dfn title=<span class="variable">"supernova"</span> id=<span class="variable">"def-supernova"</span>&gt;<span class="variable">supernova</span>&lt;/dfn&gt;</code> is a powerful and luminous stellar explosion.</li>
                                             <li>A <dfn title="supernova" id="def-supernova">supernova</dfn> is a powerful and luminous stellar explosion.</li>
                                             
                                         </ul>
                                     </li>
                                     <li>Linking to the definition from other part of document.
                                         <ul>
-                                            <li><code>&lt;a href="<span class="variable">#def-supernova</span>"&gt;<span class="variable">supernova</span>&lt;/a&gt;</code> can expel several solar masses of material at speeds up to several percent of the speed of light.</li>
+                                            <li><code>&lt;a href=<span class="variable">"#def-supernova"</span>&gt;<span class="variable">supernova</span>&lt;/a&gt;</code> can expel several solar masses of material at speeds up to several percent of the speed of light.</li>
                                             <li><a href="#def-supernova">Supernovae</a> can expel several solar masses of material at speeds up to several percent of the speed of light.</li>
                                         </ul>
                                     </li>
@@ -1096,7 +1155,7 @@ hr {
                             <dd>
                                 <div class="formula">
                                     <code>
-                                        &lt;dfn&gt;&lt;abbr <span class="attribute">title="<span class="variable">Cascading Style Sheets</span>"</span>&gt;<span class="variable">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;
+                                        &lt;dfn&gt;&lt;abbr <span class="attribute">title=<span class="variable">"Cascading Style Sheets"</span></span>&gt;<span class="variable">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;
                                     </code>
                                 </div>                                
                             </dd>
@@ -1116,19 +1175,19 @@ hr {
                                     </li>
                                     <li>With title attribute
                                         <ul>
-                                            <li><code>&lt;dfn&gt;&lt;abbr title="<span class="variable">Cascading Style Sheets</span>"&gt;<span class="variable">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;</code> is the language we use to style an HTML document.</li>
+                                            <li><code>&lt;dfn&gt;&lt;abbr title=<span class="variable">"Cascading Style Sheets"</span>&gt;<span class="variable">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;</code> is the language we use to style an HTML document.</li>
                                             <li><dfn><abbr title="Cascading Style Sheets">CSS</abbr></dfn> is the language we use to style an HTML document.</li>
                                         </ul>
                                     </li>
                                     <li>With id attribute
                                         <ul>
-                                            <li><code>&lt;dfn id="<span class="variable">def-css</span>"&gt;&lt;abbr title="<span class="variable">Cascading Style Sheets</span>"&gt;<span class="variable">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;</code> is the language we use to style an HTML document.</li>
+                                            <li><code>&lt;dfn id=<span class="variable">"def-css"</span>&gt;&lt;abbr title=<span class="variable">"Cascading Style Sheets"</span>&gt;<span class="variable">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;</code> is the language we use to style an HTML document.</li>
                                             <li><dfn id="def-css"><abbr title="Cascading Style Sheets">CSS</abbr></dfn> is the language we use to style an HTML document.</li>
                                         </ul>
                                     </li>
                                     <li>Linking to the definition from other part of document.
                                         <ul>
-                                            <li>A <code>&lt;a href="<span class="variable">#def-css</span>"&gt;<span class="variable">CSS</span>&lt;/a&gt;</code> may be used if one single HTML page has a unique style.</li>
+                                            <li>A <code>&lt;a href=<span class="variable">"#def-css"</span>&gt;<span class="variable">CSS</span>&lt;/a&gt;</code> may be used if one single HTML page has a unique style.</li>
                                             <li>A <a href="#def-css">CSS</a> may be used if one single HTML page has a unique style.</li>
                                         </ul>
                                     </li>
@@ -1141,11 +1200,11 @@ hr {
                             <dd>
                                 <div class="formula">
                                     <code>
-                                        &lt;cite&gt&lt;a <span class="attribute">href="<span class="variable">URL</span>"</span>&gt;<span class="variable">work title</span>&lt;/a&gt;&lt;/cite&gt;
+                                        &lt;cite&gt&lt;a <span class="attribute">href=<span class="variable">"URL"</span></span>&gt;<span class="variable">work title</span>&lt;/a&gt;&lt;/cite&gt;
                                     </code>
                                 </div>                                
                             </dd>
-                            <dd>Formula:
+                            <dd>Breakdown:
                                 <ul>
                                     <li><i>Text content</i>: Work title</li>
                                     <li>Child element <code>&lt;a&gt;</code> (optional): Link to the source</li>
@@ -1198,11 +1257,11 @@ hr {
                             <dd>
                                 <div class="formula">
                                     <code>
-                                        &lt;q <span class="attribute">cite="<span class="variable">URL</span>"</span>&gt;<span class="variable">quotation</span>&lt;/q&gt;
+                                        &lt;q <span class="attribute">cite=<span class="variable">"URL"</span></span>&gt;<span class="variable">quotation</span>&lt;/q&gt;
                                     </code>
                                 </div>                                
                             </dd>
-                            <dd>Formula:
+                            <dd>Breakdown:
                                 <ul>
                                     <li><i>Text content</i>: Quoted words</li>
                                     <li><i>Cite attribute</i> (optional): Link to the source
@@ -1221,25 +1280,150 @@ hr {
 
                             <dd>Examples:
                                 <ul>
-                                    <li>According to the Wikipedia, <code>&lt;q <span class="attribute">cite="<span class="variable">https://en.wikipedia.org/wiki/Supernova</span>"</span>&gt;<span class="variable">A supernova is a powerful and luminous stellar explosion.</span>&lt;/q&gt;</code></li>
+                                    <li>According to the Wikipedia, <code>&lt;q <span class="attribute">cite=<span class="variable">"https://en.wikipedia.org/wiki/Supernova"</span></span>&gt;<span class="variable">A supernova is a powerful and luminous stellar explosion.</span>&lt;/q&gt;</code></li>
                                     <li>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></li>
                                 </ul>
                             </dd>
 
-
-
+                            <!-- data -->
                             <dt><code>&lt;data&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindd">Data</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;data <span class="attribute">value=<span class="variable">"123"</span></span>&gt;<span class="variable">content</span>&lt;/data&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Human-readable content</li>
+                                    <li><i>Value attribute</i>: Machine-readable data</li>
+                                </ul>
+                            </dd>
+                            <dd>Default styling: <span class="keyword">none</span>
+                                <ul>
+                                    <li>Value not displayed</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>Codes
+                                        <ul>
+                                            <li><code>&lt;data value=<span class="variable">"123"</span>&gt;<span class="variable">Apples</span>&lt;/data&gt;</code></li>
+                                            <li><code>&lt;data value=<span class="variable">"124"</span>&gt;<span class="variable">Bananas</span>&lt;/data&gt;</code></li>
+                                            <li><code>&lt;data value=<span class="variable">"125"</span>&gt;<span class="variable">Oranges</span>&lt;/data&gt;</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Results
+                                        <ul>
+                                            <li><data value="123">Apples</data></li>
+                                            <li><data value="124">Bananas</data></li>
+                                            <li><data value="125">Oranges</data></li>
+                                        </ul>
+                                    </li>
+                                </ul>
 
+                            </dd>
+
+                            <!-- time -->
                             <dt><code>&lt;time&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindd">Date and time</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;time <span class="attribute">datetime=<span class="variable">"2022-07-24"</span></span>&gt;<span class="variable">24 July</span>&lt;/time&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Human-readable date, time, or time duration</li>
+                                    <li><i>Datetime attribute</i>: Machine-readable date, time, or time duration</li>
+                                </ul>
+                            </dd>
+                            <dd>Default styling: <span class="keyword">none</span>
+                                <ul>
+                                    <li>Datetime not displayed</li>
+                                </ul>
+                            </dd>
+                            <dd>Valid <i>datetime</i> string format:
+                                <ul>
+                                    <li>Date
+                                        <ul>
+                                            <li><code>2022</code></li>
+                                            <li><code>2022-11</code></li>
+                                            <li><code>2022-11-18</code></li>
+                                            <li><code>11-18</code></li>
+                                            <li><code>2022-W47</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Time
+                                        <ul>
+                                            <li><code>14:54</code></li>
+                                            <li><code>14:54:39</code></li>
+                                            <li><code>14:54:39.929</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Date and time
+                                        <ul>
+                                            <li><code>2011-11-18T14:54:39.929</code></li>
+                                            <li><code>2011-11-18 14:54:39.929</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Global date and time
+                                        <ul>
+                                            <li><code>2011-11-18T14:54:39.929Z</code></li>
+                                            <li><code>2011-11-18T14:54:39.929-0400</code></li>
+                                            <li><code>2011-11-18T14:54:39.929-04:00</code></li>
+                                            <li><code>2011-11-18 14:54:39.929Z</code></li>
+                                            <li><code>2011-11-18 14:54:39.929-0400</code></li>
+                                            <li><code>2011-11-18 14:54:39.929-04:00</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Time duration
+                                        <ul>
+                                            <li><code>PT4H18M3S</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>Codes
+                                        <ul>
+                                            <li>
+                                                <code>
+                                                    &lt;time <span class="attribute">datetime=<span class="variable">"2022-07-24"</span></span>&gt;<span class="variable">24 July</span>&lt;/time&gt;
+                                                </code>
+                                            </li>
+                                            <li>
+                                                <code>
+                                                    &lt;time <span class="attribute">datetime=<span class="variable">"20:00:00"</span></span>&gt;<span class="variable">8 pm</span>&lt;/time&gt;
+                                                </code>
+                                            </li>
+                                            <li>
+                                                <code>
+                                                    &lt;time <span class="attribute">datetime=<span class="variable">"PT2H30M"</span></span>&gt;<span class="variable">2h 30m</span>&lt;/time&gt;
+                                                </code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Results
+                                        <ul>
+                                            <li><time datetime="2022-07-24">24 July</time></li>
+                                            <li><time datetime="20:00:00">8 pm</time></li>
+                                            <li><time datetime="PT2H30M">2h 30m</time></li>
+                                        </ul>
+                                    </li>
+                                </ul>
 
-
+                            </dd>
                         </dl>
                     </dd>
 
-                    <!-- Main text -->
-                    <dt>Main text semantics</dt>
+                    <!-- Semantically styled text -->
+                    <dt>Semantically styled text</dt>
                     <dd>Elements within the main text with their own unique style to visually represent their roles to the users, but don't have action or defining attributes like in the previous section.</dd>
                     <dd>Prominent default appearance is featured. Of course this could be changed.</dd>
                     <dd>
@@ -1372,12 +1556,12 @@ hr {
                     </dd>
 
                     <!-- Child text -->
-                    <dt>Child text semantics</dt>     
+                    <dt>Child text</dt>     
                     <dd>Child text to the main text member. Usually represented in smaller font with specific positioning relative to the text parent.</dd>   
-
                     <dd>
                         <dl>
 
+                            <!-- sub -->
                             <dt><code>&lt;sub&gt;</code></dt>
                             <dd class="maindd">Subscript</dd>
                             <dd>Default display: <span class="keyword">parent<sub>child low and small</sub></span></dd>
@@ -1408,6 +1592,7 @@ hr {
                             </dd>
                             <dd>Note: Can't use <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> at the same spot like in atomic symbol. Need <code>MathML</code> for that.</dd>
         
+                            <!-- sup -->
                             <dt><code>&lt;sup&gt;</code></dt>
                             <dd class="maindd">Superscript</dd>
                             <dd>Default display: <span class="keyword">parent<sup>child high and small</sup></span></dd>
@@ -1438,7 +1623,229 @@ hr {
                                 </ul>
                             </dd>
                             <dd>Note: Can't use <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> at the same spot like in atomic symbol. Need <code>MathML</code> for that.</dd>
+                        </dl>
+                    </dd>
 
+                    <!-- Technical text -->
+                    <dt>Technical text</dt>
+                    <dd>Monospace font except for <code>&lt;var&gt;</code></dd>
+                    <dd>
+                        <dl>                
+
+                            <!-- code -->
+                            <dt><code>&lt;code&gt;</code></dt>
+                            <dd class="maindd">Inline code</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;code&gt;<span class="variable">let x = 123;</span>&lt;/code&gt;
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    <code>let x = 123;</code>
+                                </div>
+                            </dd>
+                            <dd>Default display: <code span="keyword">monospace font</code></dd>
+                            <dd>Wrap inside preformatted block element <code>&lt;pre&gt;</code> to create code blocks.
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Create code block:</figcaption>
+<pre>
+<code>&lt;pre&gt;
+&lt;code&gt;<span class="variable">let x = 123;
+let y = 456;
+let z = 780;</span>&lt;/code&gt;
+&lt;/pre&gt;</code>
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result:</figcaption>
+<pre>
+<code>let x = 123;
+let y = 456;
+let z = 780;</code>
+</pre>
+                                    </figure>
+                                </div>
+
+
+                            </dd>
+
+                            <!-- kbd -->
+                            <dt><code>&lt;kbd&gt;</code></dt>
+                            <dd class="maindd">Keyboard input</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        <span class="variable">Press</span> &lt;kbd&gt;<span class="variable">Ctrl</span>&lt;/kbd&gt; <span class="variable">+</span> &lt;kbd&gt;<span class="variable">Alt</span>&lt;/kbd&gt; <span class="variable">+</span> &lt;kbd&gt;<span class="variable">Del</span>&lt;/kbd&gt;
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd>
+                                </div>
+                            </dd>
+                            <dd>Default display: <code span="keyword">monospace font</code></dd>
+                            <dd>Represents textual user input from a keyboard, voice input, or any other text entry device.</dd>
+                                               
+                            <!-- samp -->
+                            <dt><code>&lt;samp&gt;</code></dt>
+                            <dd class="maindd">Sample output</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        <span class="variable">Output text: </span> &lt;samp&gt;<span class="variable">Scan complete. Press F1 to continue</span>&lt;/samp&gt;
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    Output text: <samp>Scan complete. Press F1 to continue</samp>
+                                </div>
+                            </dd>
+                            <dd>Default display: <code span="keyword">monospace font</code></dd>
+                            <dd>Nesting keyboard input and sample output:
+                                <ul>
+                                    <li>
+                                        <code>&lt;kbd&gt;</code> inside <code>&lt;kbd&gt;</code>
+                                        <ul>
+                                            <li>Child inputs as part of a parent input.</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <code>&lt;kbd&gt;</code> inside <code>&lt;samp&gt;</code>
+                                        <ul>
+                                            <li>Input has been echoed back to users by the system.</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <code>&lt;samp&gt;</code> inside <code>&lt;kbd&gt;</code>
+                                        <ul>
+                                            <li>Input based on the text presented by the system.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Learn more in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd" target="_blank">&lt;kbd&gt; page</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp" target="_blank">&lt;samp&gt; page</a></li>
+                                </ul>
+                            </dd>
+
+                            <!-- var -->
+                            <dt><code>&lt;var&gt;</code></dt>
+                            <dd class="maindd">Variable</dd>
+
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        <span class="variable">Equation: </span> &lt;var&gt;<span class="variable">x</span>&lt;/var&gt; <span class="variable">=</span> &lt;var&gt;<span class="variable">y</span>&lt;/var&gt; <span class="variable">+ 2</span>
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    Equation: <var>x</var> = <var>y</var> + 2
+                                </div>
+                            </dd>
+                            <dd>Typical default styling: <var class="keyword">italic</var></dd>
+                            <dd>Represents variable name in a mathematical expression or programming context</dd>
+                            <dd>Often used together with elements: <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, <code>&lt;samp&gt;</code></dd>
+                            <dd>Don't confuse with other elements with default italic font such as:  <code>&lt;em&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;q&gt;</code></dd>
+                            
+                        </dl>
+                    </dd>
+
+
+                    <dt>Different writing system</dt>
+                    <dd>
+                        <dl>                
+                            <dt><code>&lt;bdi&gt;</code></dt>
+                            <dd class="maindd">Bidirectional isolate</dd>
+                            <dd>Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text.</dd>
+                            <dd>Examples
+                                <ul>
+                                    <li>Without <code>&lt;bdi&gt;</code>
+                                        <ul>
+                                            <li>Codes:
+                                                <ul>
+                                                    <li><code>&lt;span class="name"&gt;<span class="variable">اَلأَعْشَى</span>&lt;/span&gt; <span class="variable">- 1st place</span></code></li>
+                                                    <li><code>&lt;span class="name"&gt;<span class="variable">Tom Smith</span>&lt;/span&gt; <span class="variable">- 2nd place</span></code></li>
+                                                </ul>
+                                            </li>
+                                            <li>Results:
+                                                <ul>
+                                                    <li><span class="name">اَلأَعْشَى</span> - 1st place</li>
+                                                    <li><span class="name">Tom Smith</span> - 2nd place</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>With <code>&lt;bdi&gt;</code>
+                                        <ul>
+                                            <li>Codes:
+                                                <ul>
+                                                    <li><code>&lt;bdi class="name"&gt;<bdi class="variable">اَلأَعْشَى</bdi>&lt;/bdi&gt; <bdi class="variable">- 1st place</bdi></code></li>
+                                                    <li><code>&lt;bdi class="name"&gt;<bdi class="variable">Tom Smith</bdi>&lt;/bdi&gt; <bdi class="variable">- 2nd place</bdi></code></li>
+                                                </ul>
+                                            </li>
+                                            <li>Results:
+                                                <ul>
+                                                    <li><bdi class="name">اَلأَعْشَى</bdi> - 1st place</li>
+                                                    <li><bdi class="name">Tom Smith</bdi> - 2nd place</li>
+                                                </ul>
+                                            </li>
+
+                                          </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+        
+                            <!-- bdo -->
+                            <dt><code>&lt;bdo&gt;</code></dt>
+                            <dd class="maindd">Bidirectional text element</dd>
+                            <dd>Important attribute: dir. It has 2 possible values:
+                                <ul>
+                                    <li><code>dir="ltr"</code>: left to right (like reagular alphabet)</li>
+                                    <li><code>dir="rtl"</code>: right to left.</li>
+                                </ul>
+                            </dd>
+                            <dd>Overrides current directionality of text. Text is rendered in a different direction.</dd>
+                            <dd>Language application example: Hebrew.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Codes</figcaption>
+                                            <p><code>&lt;p&gt;</code>The English song "Oh I do like to be beside the seaside"<code>&lt;/p&gt;</code></p>
+
+                                            <p><code>&lt;p&gt;</code>Looks like this in Hebrew: <code>&lt;span dir=<span class="variable">"rtl"</span>&gt;<span class="variable">אה, אני אוהב להיות ליד חוף הים</span>&lt;/span&gt;&lt;/p&gt;</code></p>
+        
+                                            <p><code>&lt;p&gt;</code>In the computer's memory, this is stored as <code>&lt;bdo dir=<span class="variable">"ltr"</span>&gt;<span class="variable">אה, אני אוהב להיות ליד חוף הים</span>&lt;/bdo&gt;&lt;/p&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Results</figcaption>
+                                        <p>The English song "Oh I do like to be beside the seaside"</p>
+
+                                        <p>Looks like this in Hebrew: <span dir="rtl">אה, אני אוהב להיות ליד חוף הים</span></p>
+    
+                                        <p>In the computer's memory, this is stored as <bdo dir="ltr">אה, אני אוהב להיות ליד חוף הים</bdo></p>
+                                    </figure>
+
+                                </div>
+                            </dd>
+                            <dd>Not familiar with Hebrew writing. Check the example <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo" target="_blank">here</a></dd>                            <dd>Examples:
+                                <ul>
+                                    <li>Codes:
+                                        <ul>
+                                            <li>Normal: 12345</li>
+                                            <li>Left to right: <code>&lt;bdo dir=<span class="variable">"ltr"</span>&gt;<span class="variable">12345</span>&lt;/bdo&gt;</code></li>
+                                            <li>Right to left: <code>&lt;bdo dir=<span class="variable">"rtl"</span>&gt;<span class="variable">12345</span>&lt;/bdo&gt;</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Results:
+                                        <ul>
+                                            <li>Normal: 12345</li>
+                                            <li>Left to right: <bdo dir="ltr">12345</bdo></li>
+                                            <li>Right to left: <bdo dir="rtl">12345</bdo></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- ruby -->
                             <dt><code>&lt;ruby&gt;</code></dt>
                             <dd class="maindd">Ruby annotation</dd>
                             <dd>Represents small annotation that are rendered above, below, or next to base text. Usualy for showing pronunciation of East Asian characters.</dd>
@@ -1455,7 +1862,7 @@ hr {
                                         &lt;/ruby&gt;
                                     </code>
                                 </div><br>
-                                <div class="figcode" style="display: inline-block">
+                                <div class="figinblock">
 
                                     <code>Result 1: </code>
                                     <ruby>
@@ -1490,7 +1897,7 @@ hr {
                                         &lt;/ruby&gt;
                                     </code>
                                 </div><br>
-                                <div class="figcode" style="display: inline-block">
+                                <div class="figinblock">
                                     <code>Result: </code>
                                     <ruby>
                                         漢 <rt>kan</rt>
@@ -1499,36 +1906,6 @@ hr {
                                 </div>
                             </dd> 
                             <dd><strong>Deprecated</strong> ruby elements: <code class="deprecated">&lt;rb&gt;</code>, <code class="deprecated">&lt;rtc&gt;</code></dd>
-                        </dl>
-                    </dd>
-
-                    <dt>Coding & mathematical expressions</dt>
-                    <dd>Monospace font except for <code>&lt;var&gt;</code></dd>
-                    <dd>
-                        <dl>                
-                            <dt><code>&lt;code&gt;</code></dt>
-                            <dd class="maindd">   </dd>
-        
-                            <dt><code>&lt;kbd&gt;</code></dt>
-                            <dd class="maindd">   </dd>
-
-                            <dt><code>&lt;samp&gt;</code></dt>
-                            <dd class="maindd">   </dd>
-
-                            <dt><code>&lt;var&gt;</code></dt>
-                            <dd class="maindd">   </dd>
-                        </dl>
-                    </dd>
-
-
-                    <dt>Bidirection text</dt>
-                    <dd>
-                        <dl>                
-                            <dt><code>&lt;bdi&gt;</code></dt>
-                            <dd class="maindd">   </dd>
-        
-                            <dt><code>&lt;bdo&gt;</code></dt>
-                            <dd class="maindd">   </dd>
                         </dl>
                     </dd>
 
@@ -1929,10 +2306,16 @@ hr {
                 <h2>Web components</h2>
                 <dl>
                     <dt><code>&lt;slot&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindd">Web component slot</dd>
+                    <dd>A placeholder inside a web component that we can fill with our own markup, allow us  to create separate DOM trees and present them together.</dd>
+                    <dd>Important attribute: <code>slot</code>
+                        <ul>
+                            <li>A <i>named slot</i> is a slot with a name attribute.</li>
+                        </ul></dd>
 
                     <dt><code>&lt;template&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindd">Content template</dd>
+                    <dd>A mechanism for holding HTML that is not rendered immediately when a page is loaded, but maybe instantiated subsequently during runtime in JavaScript.</dd>
 
                 <a href="#top"><hr></a>
             </article> 
@@ -1974,28 +2357,22 @@ hr {
                             <dt><code>&lt;tt&gt;</code></dt>
                             <dd>Teletype Text element</dd>
                             <dd>Use instead: <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, <code>&lt;samp&gt;</code>, <code>&lt;var&gt;</code>, <code>&lt;pre&gt;</code>, or <code>&lt;span&gt;</code> styled with CSS <code>font-family</code></dd>
+
+                            <dt><code>&lt;spacer&gt;</code></dt>
+                            <dd>Insert empty spaces on the page.</dd>
+                            <dd>Use instead: CSS</dd>
                         </dl>
                     </dd>
 
-                    <dt>Text role</dt>
+                    <dt>Inline text</dt>
                     <dd>
                         <dl>
                             <dt><code>&lt;acronym&gt;</code></dt>
                             <dd>Use instead: <code>&lt;abbr&gt;</code></dd>
-                        </dl>
-                    </dd>
 
-                    <dt>Text annotation</dt>
-                    <dd>
-                        <dl>
                             <dt><code>&lt;rb&gt;</code> <code>&lt;rtc&gt;</code></dt>
                             <dd>Check out more current <code>&lt;ruby&gt;</code> elements</dd>
-                        </dl>
-                    </dd>
-
-                    <dt>Font</dt>
-                    <dd>
-                        <dl>
+                            
                             <dt><code>&lt;basefont&gt;</code></dt>
                             <dd>Use various CSS font properties instead</dd>
 
@@ -2006,7 +2383,7 @@ hr {
                             <dd>Use CSS property instead: <code>font-size: larger</code></dd>
 
                             <dt><code>&lt;strike&gt;</code></dt>
-                            <dd>Use instead: <code>&lt;del&gt;</code> for deletion or <code>&lt;del&gt;</code> for else.</dd>
+                            <dd>Use instead: <code>&lt;del&gt;</code>, <code>&lt;s&gt;</code>, or CSS styling</dd>
                         </dl>
                     </dd>
 
@@ -2015,6 +2392,10 @@ hr {
                         <dl>
                             <dt><code>&lt;content&gt;</code></dt>
                             <dd>Use instead: <code>&lt;slot&gt;</code></dd>
+
+
+                            <dt><code>&lt;shadow&gt;</code></dt>
+                            <dd>Intended to be used as a shadow DOM insertion point.</dd>
                         </dl>
                     </dd>
 
@@ -2040,7 +2421,7 @@ hr {
                         </dl>
                     </dd>
 
-                    <dt>Unrecommended features. Not replaced, just don't.</dt>
+                    <dt>Just don't.</dt>
                     <dd>
                         <dl>
                             <dt><code>&lt;blink&gt;</code></dt>
@@ -2048,23 +2429,17 @@ hr {
                             
                             <dt><code>&lt;marquee&gt;</code></dt>
                             <dd>Scrolling and bouncing text. Just don't.</dd>
-
-                            <dt><code>&lt;spacer&gt;</code></dt>
-                            <dd></dd>
-
-                            <dt><code>&lt;shadow&gt;</code></dt>
-                            <dd></dd>
-
-                            <dt><code>&lt;keygen&gt;</code></dt>
-                            <dd></dd>
                         </dl>
                     </dd>
                 
-                    <dt>I don't understand yet</dt>
+                    <dt>Others</dt>
                     <dd>
                         <dl>
                             <dt><code>&lt;menuitem&gt;</code></dt>
-                            <dd>Use instead: <code>&lt;  &gt;</code></dd>
+                            <dd>Invoke through a pop up menu</dd>
+
+                            <dt><code>&lt;keygen&gt;</code></dt>
+                            <dd>Generation of key material and submission of the public key as part of an html.</dd>
                         </dl>
                     </dd>
 

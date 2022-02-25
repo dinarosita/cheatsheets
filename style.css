@@ -396,6 +396,8 @@ code,
 }
 
 code,
+kbd, 
+samp,
 .js-codebox,
 .js-resultbox,
 .css-codebox,
@@ -405,6 +407,8 @@ code,
 }
 
 code,
+kbd, 
+samp,
 .js-codebox,
 .js-resultbox,
 .css-codebox,
@@ -604,6 +608,17 @@ a[href^="tel"]::before {
     margin: 0.5rem 0;
 }
 
+.figinblock {
+    max-width: fit-content;
+    border-left: 3px solid papayawhip;
+    border-top: 3px solid papayawhip;
+    border-bottom: 3px solid papayawhip;
+    border-right: 3px dotted papayawhip;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+}
+
 .figcode figcaption,
 .figure1 figcaption {
     color: rgb(235, 169, 162);
@@ -647,6 +662,29 @@ a[href^="tel"]::before {
     border-top: 2px dotted pink;
     margin: 1rem;
 }
+
+.key kbd {
+    border-radius: 3px;
+    margin: 20px
+    padding: 10px 20px;
+    border: 1px solid black;
+}
+
+.menuexample menu {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    width: 400px;
+  }
+  
+.menuexample li {
+    flex-grow: 1;
+  }
+  
+.menuexample button {
+    width: 100%;
+  }
 
 /* || JavaScript Notes */
 
