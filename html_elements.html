@@ -802,10 +802,11 @@ figcaption {
                             <dd>Special attributes:
                                 <ol>
                                     <li>
-                                        <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low. 
+                                        <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low.<br>
+                                        Note: Since the attribute is a <i>boolean</i>, it's written without value. Writting the value both true or false will be equal to having the boolean (as true) altogether.
                                         <figure class="figcode">
-                                            <figcaption><code>&lt;ol reversed="true"&gt;</code></figcaption>
-                                            <ol reversed="true">
+                                            <figcaption><code>&lt;ol reversed&gt;</code></figcaption>
+                                            <ol reversed>
                                                 <li>First item</li>
                                                 <li>Second item</li>
                                                 <li>Third item</li>
@@ -823,8 +824,8 @@ figcaption {
                                             </ol>
                                         </figure>
                                         <figure class="figcode">
-                                            <figcaption><code>&lt;ol start="5" reversed="true"&gt;</code></figcaption>
-                                            <ol start="5" reversed="true">
+                                            <figcaption><code>&lt;ol start="5" reversed&gt;</code></figcaption>
+                                            <ol start="5" reversed>
                                                 <li>First item</li>
                                                 <li>Second item</li>
                                                 <li>Third item</li>
@@ -842,8 +843,8 @@ figcaption {
                                             <li><code>1</code>: default Arabic numerals</li>
                                         </ul>
                                         <figure class="figcode">
-                                            <figcaption><code>&lt;ol type="A" start="5" reversed="true"&gt;</code></figcaption>
-                                            <ol type="A" start="5" reversed="true">
+                                            <figcaption><code>&lt;ol type="A" start="5" reversed&gt;</code></figcaption>
+                                            <ol type="A" start="5" reversed>
                                                 <li>First item</li>
                                                 <li>Second item</li>
                                                 <li>Third item</li>
@@ -2117,13 +2118,16 @@ let z = 780;</code>
                 <h2>Scripting</h2>
                 <dl>
                     <dt><code>&lt;script&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindd">Script</dd>
+                    <dd>Embed executable code aor data. Usually refer to JavaScript code. Can also be used with different languages, for example: GLSL and JSON.</dd>
 
                     <dt><code>&lt;noscript&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindd">Noscript</dd>
+                    <dd>A section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.</dd>
 
                     <dt><code>&lt;canvas&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindd">Graphic canvas</dd>
+                    <dd>Use with either <i>canvas scripting API</i> or the <i>WebGL API</i> to draw graphics and animations.</dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -2285,19 +2289,62 @@ let z = 780;</code>
                 <h2>Interactive elements</h2>
                 <dl>
                     <dt><code>&lt;details&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindd">Details disclosure</dd>
+                    <dd>Only shows summary until it's clicked open.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;summary&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindd">Disclosure's summary</dd>
                         </dl>
                     </dd>
 
-                    <dt><code>&lt;dialog&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd>
+                        <div class="formula">
+<pre>
+<code>&lt;details&gt;
+    &lt;summary&gt;<span class="variable">Default display</span>&lt;/summary&gt;
+    <span class="variable">Detailed information on default display.</span>
+&lt;/details&gt;
+</code></pre>
+                        </div>
+                        <div class="figinblock">
+                            <details>
+                                <summary>Default display</summary>
+                                <ul>
+                                    <li><i>Summary</i>: Block level element, normal font, preceded with a triangle indicator to illustrate the stages:
+                                        <ul>
+                                            <li>Open: facing right</li>
+                                            <li>Closed: facing down</li>
+                                        </ul>
+                                    </li>
+                                    <li><i>Full information</i>: Displayed under the summary only when clicked open.</li>
+                                </ul> 
+                            </details>
+                        </div>
+                        <div class="formula">
+<pre>
+<code>&lt;details open&gt;
+    &lt;summary&gt;<span class="variable">Open attribute</span>&lt;/summary&gt;
+    <span class="variable">Detailed information on open attribute.</span>
+&lt;/details&gt;
+</code></pre>
+                        </div>
+                        <div class="figinblock">
+                            <details open>
+                                <summary><i>open</i> attribute</summary>
+                                <ul>
+                                    <li>To make open as the default display</li>
+                                    <li>A boolean, attribute, written without value. Adding value even when it is "false" will make it rendered as true.</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </dd>
+                    <dd>Further styling in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">here</a>.</dd>
 
-                    <dt><code>&lt;menu&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dt><code>&lt;dialog&gt;</code></dt>
+                    <dd class="maindd">Dialog</dd>
+                    <dd>Dialog box or other interactive component such as dismissible alert, inspector, or subwindow. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog" target="_blank">Read more</a>.</dd>
+
                 </dl>
                 <a href="#top"><hr></a>
             </article> 
