@@ -260,7 +260,8 @@ h3 code, h4 code, h5 code, h6 code {
     color: steelblue;
 }
 
-.variable {
+.variable,
+.sampledata {
     color: var(--othercolor2);
     font-weight: normal;
 }
@@ -550,6 +551,7 @@ code a {
     margin: 0;
 }
 
+
 dd .formula {
     margin: 0;
 }
@@ -663,6 +665,12 @@ a[href^="tel"]::before {
     margin: 1rem;
 }
 
+.figcode table {
+    text-align: center;
+    padding: 0.25rem 1rem;
+    margin: 0;
+}
+
 .key kbd {
     border-radius: 3px;
     margin: 20px
@@ -685,6 +693,16 @@ a[href^="tel"]::before {
 .menuexample button {
     width: 100%;
   }
+.coltitle {
+    background-color: rgb(248, 227, 230);
+}
+.colclass1 {
+    background-color: rgb(243, 240, 209);
+}
+
+.colclass2 {
+    background-color: rgb(204, 231, 235);
+}
 
 /* || JavaScript Notes */
 
