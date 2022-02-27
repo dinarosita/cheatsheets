@@ -2411,9 +2411,9 @@ th, td {
                             </dd>
 
                             <dd><!-- Table with caption, colgroup, and col -->
-                                <div class="figcode">
+                                <div class="figcode" id="complextable">
                                     <figure>
-                                        <figcaption>Table with caption, colgroup, and col elements</figcaption>
+                                        <figcaption>Table with caption, colgroup, and col elements, and th's attribute "scope"</figcaption>
                                         <table class="bottomcaption borderedtable">
                                             <caption>Pets</caption>
                                             <colgroup span="2" class="coltitle">
@@ -2596,6 +2596,39 @@ th, td {
                                                     <li>Occasionally, first column cells in <code>&lt;tbody&gt;&lt;tr&gt;</code> and <code>&lt;tfoot&gt;&lt;tr&gt;</code></li>
                                                 </ul>
                                             </dd>
+                                            <dd>Important attributes
+                                                <ul>
+                                                    <li><code>scope</code>
+                                                        <ul><li>Defines the cells the header relates to.</li>
+                                                            <li>Values:
+                                                                <ul>
+                                                                    <li><code>row</code>: The header relates to all cells of the row it belongs to</li>
+                                                                    <li><code>col</code>: The header relates to all cells of the column it belongs to.</li>
+                                                                    <li><code>rowgroup</code>: The header belongs to a rowgroup and relates to all of its cells. The cells can be placed right or left of the header depending on the <code>dir</code> attribute value of the <code>&lt;table&gt;</code></li>
+                                                                    <li><code>colgroup</code>: The header belongs to a colgroup and relates to all of its cells.</li>
+                                                                    <li>If <code>scope</code> attribute is not specified or the value is not one of the above, browsers automaticallt select the set of cells to which the header cell applies.</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>Check out <a href="#complextable">table titled "Pet" above</a> for an example.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>headers</code>
+                                                        <ul>
+                                                            <li>Contains a list of space-separated strings corresponding to the <code>id</code> attribute of the <code>&lt;th&gt;</code> elements that apply to this element.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>abbr</code>
+                                                        <ul>
+                                                            <li>Contains a short abbreviated descrition of the cell's content. Some user-agents such as speech readers may present this description before the content itself.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>colspan</code> and <code>rowspan</code>
+                                                        <ul>
+                                                            <li>Explained in details <a href="#colrowspan">below</a>.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </dd>
 
                                             <!-- td -->
                                             <dt><code>&lt;td&gt;</code></dt>
@@ -2603,6 +2636,20 @@ th, td {
                                             <dd>Defines all cells sitting in <code>&lt;tr&gt;</code> that are data in nature:
                                                 <ul>
                                                     <li>Most cells in <code>&lt;tbody&gt;&lt;tr&gt;</code> and <code>&lt;tfoot&gt;&lt;tr&gt;</code></li>
+                                                </ul>
+                                            </dd>
+                                            <dd>Important attributes
+                                                <ul>
+                                                    <li><code>headers</code>
+                                                        <ul>
+                                                            <li>Contains a list of space-separated strings corresponding to the <code>id</code> attribute of the <code>&lt;th&gt;</code> elements that apply to this element.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>colspan</code> and <code>rowspan</code>
+                                                        <ul>
+                                                            <li>Explained in details <a href="#colrowspan">below</a>.</li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </dd>
 
@@ -2615,9 +2662,8 @@ th, td {
                     </dd>
 
                     <!-- Column and row spanning -->
-                    <dt>Column and row spanning</dt>
-                    <dd>Elements: <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code></dd>
-                    <dd>Attributes: <code>colspan</code> and <code>rowspan</code></dd> 
+                    <dt id="colrowspan"><code>&lt;th&gt;</code> and <code>&lt;td&gt;</code>'s column and row spanning</dt>
+                    <dd>Arranged by <code>colspan</code> and <code>rowspan</code> attributes</dd> 
                     <dd>
                         <ul>
                             <li>
@@ -2639,14 +2685,22 @@ th, td {
                             </li>
                         </ul>
                     </dd>
-                    <dd>
-                    </dd>
-
                     <dd>Attribute's value
                         <ul>
-                            <li>Positive integer</li>
+                            <li>Non-negative integer</li>
                             <li>Defines number of cells in a span.</li>
                             <li>Default is <code>1</code></li>
+                            <li>For colspan:
+                                <ul>
+                                    <li>Integer higher than <code>1000</code> is considered incorrect. Default value <code>1</code> is used.</li>
+                                </ul>
+                            </li>
+                            <li>For rowspan:
+                                <ul>
+                                    <li>If value is <code>0</code>, the cell extends until the end of the table section that the cell belongs too.</li>
+                                    <li>Value higher than <code>65534</code> will be clipped down to <code>65534</code>.</li>
+                                </ul>
+                            </li>
                         </ul>
                     </dd>
 
@@ -3084,10 +3138,6 @@ background-color: rgb(255, 244, 235);
                             </dd>
                         </dl>
                     </dd>
-
-
-
-
                                  
                     <!-- Table sorting -->
                     <dt>Table sorting</dt>
