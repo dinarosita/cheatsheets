@@ -556,11 +556,6 @@ dd .formula {
     margin: 0;
 }
 
-.figcode .plain {
-    padding-bottom: 1rem;
-    margin: 0;
-}
-
 .inlinebox {
     border: 1px solid;
     border-radius: .25rem;
@@ -575,7 +570,7 @@ dd .formula {
     color: rgb(194, 172, 172);
 }
 
-.maindd {
+.maindef {
     color: var(--title);
     font-weight: bold;
 }
@@ -744,6 +739,10 @@ tbody th {
 
 .borderedtable thead {
     border-bottom: 4px double cadetblue;
+}
+
+#table .formula {
+    margin: 0.25rem;
 }
 
 /* || JavaScript Notes */

@@ -130,14 +130,14 @@
                 <h2>Main root</h2>
                 <dl>
                     <dt><code>&lt;main&gt;</code></dt>
-                    <dd class="maindd">Root element</dd>
+                    <dd class="maindef">Root element</dd>
                     <dd>Direct children:
                         <dl>
                             <dt><code>&lt;head&gt;</code></dt>
-                            <dd class="maindd">Metadata container</dd>
+                            <dd class="maindef">Metadata container</dd>
 
                             <dt><code>&lt;body&gt;</code></dt>
-                            <dd class="maindd">Sectioning root</dd>
+                            <dd class="maindef">Sectioning root</dd>
 
                         </dl>
                     </dd>
@@ -151,19 +151,19 @@
 
                 <dl>
                     <dt><code>&lt;head&gt;</code></dt>
-                    <dd class="maindd">Metadata container</dd>
+                    <dd class="maindef">Metadata container</dd>
                     <dd>Metadata elements are direct children of <code>&lt;head&gt;</code> element.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;title&gt;</code></dt>
-                            <dd class="maindd">Browser's title bar or page's tab</dd>
+                            <dd class="maindef">Browser's title bar or page's tab</dd>
                             <dd>Text only. Tag within this element will be ignored.</dd>
                             <dd>Example:
                             <dd><code>&lt;title&gt;HTML Intro&lt;/title&gt;</code></dd>
 
 
                             <dt><code>&lt;link&gt;</code></dt>
-                            <dd class="maindd">Link to external resources</dd>
+                            <dd class="maindef">Link to external resources</dd>
                             <dd>Common attributes:
                                 <ul>
                                     <li><code>rel</code>: relationship. Values example: stylesheet, preconnect.</li>
@@ -178,7 +178,7 @@
                             </dd>
 
                             <dt><code>&lt;style&gt;</code></dt>
-                            <dd class="maindd">Internal CSS</dd>
+                            <dd class="maindef">Internal CSS</dd>
                             <dd>
                                 <figure class="figcode">
                                     <figcaption>Internal CSS</figcaption>
@@ -191,7 +191,7 @@
                             </dd>          
                             
                             <dt><code>&lt;base&gt;</code></dt>
-                            <dd class="maindd">Base URL for all relative links</dd>
+                            <dd class="maindef">Base URL for all relative links</dd>
                             <dd>Only 2 attributes allowed:
                                 <ul>
                                     <li><code>href</code>: URL of all the relative links in the page.</li>
@@ -220,7 +220,7 @@
                                 </div>
                             </dd>
                             <dt><code>&lt;meta&gt;</code></dt>
-                            <dd class="maindd">Meta without its own element</dd>
+                            <dd class="maindef">Meta without its own element</dd>
                             <dd>Examples:
                                 <ul>
                                     <li><code>&lt;meta charset="UTF-8"&gt;</code></li>
@@ -240,11 +240,11 @@
                 <p>Content sectioning elements allow document content to be organized into logical pieces. It creates a broad outline of the page content.</p>
                 <dl>
                     <dt><code>&lt;body&gt;</code></dt>
-                    <dd class="maindd">Sectioning root</dd>
+                    <dd class="maindef">Sectioning root</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;header&gt;</code></dt>
-                            <dd class="maindd">Introductory content</dd>
+                            <dd class="maindef">Introductory content</dd>
                             <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
 
                             <dd>
@@ -279,7 +279,7 @@
                             
                             <!-- NAV -->
                             <dt><code>&lt;nav&gt;</code></dt>
-                            <dd class="maindd">Navigation block</dd>
+                            <dd class="maindef">Navigation block</dd>
                             <dd>Using <code>&lt;ul&gt;</code> listing presented as a sidebar, navigation bar, or dropdown menu is common, but links within <code>&lt;p&gt;</code> paragraph is a cool choice too.</dd>
                             <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
                             <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
@@ -311,7 +311,7 @@
 
                             <!-- MAIN -->
                             <dt><code>&lt;main&gt;</code></dt>
-                            <dd class="maindd">Dominant content of document's &lt;body&gt;</dd>
+                            <dd class="maindef">Dominant content of document's &lt;body&gt;</dd>
                             <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
                                 
                             <dd>
@@ -333,7 +333,7 @@
 
                             <!-- ARTICLE -->
                             <dt><code>&lt;article&gt;</code></dt>
-                            <dd class="maindd">Self contained composition</dd>
+                            <dd class="maindef">Self contained composition</dd>
                             <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
                             <dd>
                                 <figure class="figcode">
@@ -358,7 +358,7 @@
 
                             <!-- SECTION -->
                             <dt><code>&lt;section&gt;</code></dt>
-                            <dd class="maindd">Generic sectioning element</dd>
+                            <dd class="maindef">Generic sectioning element</dd>
                             <dd>
                                 <ul>
                                     <li>A generic wrapper for a heading <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> and its content.</li>
@@ -417,14 +417,14 @@
                             
                             <!-- H1-H6 -->
                             <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
-                            <dd class="maindd">Section heading elements</dd>
+                            <dd class="maindef">Section heading elements</dd>
                             <dd>Heading information can be used to automatically construct document's table of contents.</dd>
                             <dd>Avoid skipping heading levels.</dd>
                             <dd>Use only 1 <code>&lt;h1&gt;</code> per page/view. Multiple <code>&lt;h1&gt;</code> is allowed however not the best practise.</dd>
 
                             <!-- ADDRESS -->
                             <dt><code>&lt;address&gt;</code></dt>
-                            <dd class="maindd">Contact address element</dd>
+                            <dd class="maindef">Contact address element</dd>
                             <dd>Typically placed inside &lt;footer&gt; element of the current section, if any.</dd>
                             <dd>HTML</dd>
                             <dd>
@@ -469,7 +469,7 @@ a[href^="tel"]::before {
                                 <p>Here is an example of an aside. Place the <code>&lt;aside&gt;</code> element before the content it is indirectly related.</p>
                             </aside>
 
-                            <dd class="maindd">Indirectly related content</dd>
+                            <dd class="maindef">Indirectly related content</dd>
                             <dd>Usually displayed as a sidebar or call-out boxes.</dd>
                             <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
                             <dd>
@@ -505,7 +505,7 @@ aside p {
 
                             <!-- FOOTER -->
                             <dt><code>&lt;footer&gt;</code></dt>
-                            <dd class="maindd">Closing element</dd>
+                            <dd class="maindef">Closing element</dd>
                             <dd>Usually contains information about author, copyright, or links to the related document. It could be footer for the whole body or main content, or just for an article element.</dd>
                             <dd>
                                 <figure class="figcode">
@@ -539,7 +539,7 @@ aside p {
                         <dl>
                             <!-- DIV -->
                             <dt><code>&lt;div&gt;</code></dt>
-                            <dd class="maindd">Generic content division</dd>
+                            <dd class="maindef">Generic content division</dd>
                             <dd>Use this when no other semantic element like <code>&lt;article&gt;</code> and <code>&lt;nav&gt;</code> could be more appropriately applied.</dd>
                             <dd>For aligning and positioning, use CSS Grid and CSS Flexbox. Previously done with <code>align</code> attribute, but it's obsolete.</dd>
                             <dd>Handy styling container. Use <code>class</code> attribute and style it in CSS.</dd>
@@ -552,13 +552,13 @@ aside p {
 
                             <!-- FIGURES -->
                             <dt><code>&lt;figure&gt;</code></dt>
-                            <dd class="maindd">Figure with optional caption</dd>
+                            <dd class="maindef">Figure with optional caption</dd>
                             <dd>The figure, its caption, and its content are a single figure unit.</dd>            
                             <dd>Example usage: image, illustration, code snippet, diagram, etc.</dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;figcaption&gt;</code></dt>
-                                    <dd class="maindd">Figure's caption</dd>    
+                                    <dd class="maindef">Figure's caption</dd>    
                                 </dl>
                             </dd>     
                             <dd>
@@ -632,7 +632,7 @@ figcaption {
                     <dd>
                         <dl>
                             <dt><code>&lt;p&gt;</code></dt>
-                            <dd class="maindd">Paragraph</dd>
+                            <dd class="maindef">Paragraph</dd>
                             <dd>The block level element for regular paragraph.</dd>
                             <dd>Default characteristic:
                                 <ul>
@@ -652,7 +652,7 @@ figcaption {
                             </dd>
         
                             <dt><code>&lt;pre&gt;</code></dt>
-                            <dd class="maindd">Preformatted Text</dd>
+                            <dd class="maindef">Preformatted Text</dd>
                             <dd>Present the paragraph exactly as written in the HTML file.</dd>
                             <dd>Default characteristic:
                                 <ul>
@@ -698,9 +698,9 @@ figcaption {
                                 </div>
                             </dd>
                             <dt><code>&lt;blockquote&gt;</code></dt>
-                            <dd class="maindd">Block quoation wrapper</dd>
+                            <dd class="maindef">Block quoation wrapper</dd>
                             <dd>For quotation displayed in its own block. Special attribute: <code>cite</code> for the citation's URL.</dd>
-                            <dd class="maindd"><code>&lt;blockquote cite="https://..."&gt;</code></dd>
+                            <dd class="maindef"><code>&lt;blockquote cite="https://..."&gt;</code></dd>
                             <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
 
                             <dd>
@@ -736,13 +736,13 @@ figcaption {
 
                             <!-- ul -->
                             <dt><code>&lt;ul&gt;</code></dt>
-                            <dd class="maindd">Unordered List</dd>
+                            <dd class="maindef">Unordered List</dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
                             <dd>
                                 <dl>
                                     <!-- li -->
                                     <dt><code>&lt;li&gt;</code></dt>
-                                    <dd class="maindd">List Item</dd>    
+                                    <dd class="maindef">List Item</dd>    
                                     <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
                                 </dl>
                             </dd>
@@ -798,12 +798,12 @@ figcaption {
 
                             <!-- ol -->
                             <dt><code>&lt;ol&gt;</code></dt>
-                            <dd class="maindd">Ordered List</dd>
+                            <dd class="maindef">Ordered List</dd>
                             <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;li&gt;</code></dt>
-                                    <dd class="maindd">List Item</dd>    
+                                    <dd class="maindef">List Item</dd>    
                                     <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
                                 </dl>
                             </dd>
@@ -864,7 +864,7 @@ figcaption {
 
                             <!-- menu -->
                             <dt><code>&lt;menu&gt;</code></dt>
-                            <dd class="maindd">Semantic alternative to <code>&lt;ul&gt;</code></dd>
+                            <dd class="maindef">Semantic alternative to <code>&lt;ul&gt;</code></dd>
                             <dd>Just like <code>&lt;ul&gt;</code>, it's also an unordered list. Difference:
                                 <ul>
                                     <li><code>&lt;menu&gt;</code> is intended for interactive items, to act on.
@@ -926,14 +926,14 @@ button {
                     <dd>
                         <dl>
                             <dt><code>&lt;dl&gt;</code></dt>
-                            <dd class="maindd">Description List</dd>
+                            <dd class="maindef">Description List</dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;dt&gt;</code></dt>
-                                    <dd class="maindd">Description Term</dd>
+                                    <dd class="maindef">Description Term</dd>
         
                                     <dt><code>&lt;dd&gt;</code></dt>
-                                    <dd class="maindd">Description Details</dd>
+                                    <dd class="maindef">Description Details</dd>
                                 </dl>
                             </dd>
                             <dd>
@@ -961,7 +961,7 @@ button {
                     <dd>
                         <dl>
                             <dt><code>&lt;hr&gt;</code></dt>
-                            <dd class="maindd">Horizontal Rule</dd>
+                            <dd class="maindef">Horizontal Rule</dd>
                             <dd>Thematic break  between paragraph level elements.</dd>
                             <dd>Empty element, only have start tag.</dd>
                             <dd>Special attributes:
@@ -1020,7 +1020,7 @@ hr {
                         <dl>
                             <!-- span -->
                             <dt><code>&lt;span&gt;</code></dt>
-                            <dd class="maindd">Generic inline container</dd>
+                            <dd class="maindef">Generic inline container</dd>
                             <dd>Default styling: <span class="keyword">none</span></dd>
                             <dd>Role: styling a stretch of text without specific semantics.</dd>
                             <dd>This is like <code>&lt;div&gt;</code> for block-level element. Use only when there's no better or more specific inline semantic elements can be used.</dd>
@@ -1033,7 +1033,7 @@ hr {
                         <dl>
                             <!-- a -->
                             <dt><code>&lt;a&gt;</code></dt>
-                            <dd class="maindd">Anchor element</dd>
+                            <dd class="maindef">Anchor element</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1068,7 +1068,7 @@ hr {
                         <dl>           
                             <!-- abbr -->
                             <dt><code>&lt;abbr&gt;</code></dt>
-                            <dd class="maindd">Abbreviation</dd>
+                            <dd class="maindef">Abbreviation</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1107,7 +1107,7 @@ hr {
         
                             <!-- dfn -->
                             <dt><code>&lt;dfn&gt;</code></dt>
-                            <dd class="maindd">Definition</dd>
+                            <dd class="maindef">Definition</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1161,7 +1161,7 @@ hr {
 
                             <!-- dfn-abbr -->
                             <dt><code>&lt;dfn&gt;&lt;abbr&gt;</code></dt>
-                            <dd class="maindd">Definition of abbreviation</dd>
+                            <dd class="maindef">Definition of abbreviation</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1206,7 +1206,7 @@ hr {
 
                             <!-- cite -->
                             <dt><code>&lt;cite&gt;</code></dt>
-                            <dd class="maindd">Citation</dd>
+                            <dd class="maindef">Citation</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1263,7 +1263,7 @@ hr {
 
                             <!-- q -->
                             <dt><code>&lt;q&gt;</code></dt>
-                            <dd class="maindd">Inline quotoation</dd>
+                            <dd class="maindef">Inline quotoation</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1297,7 +1297,7 @@ hr {
 
                             <!-- data -->
                             <dt><code>&lt;data&gt;</code></dt>
-                            <dd class="maindd">Data</dd>
+                            <dd class="maindef">Data</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1338,7 +1338,7 @@ hr {
 
                             <!-- time -->
                             <dt><code>&lt;time&gt;</code></dt>
-                            <dd class="maindd">Date and time</dd>
+                            <dd class="maindef">Date and time</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1440,7 +1440,7 @@ hr {
                         <dl>
                             <!-- strong -->
                             <dt><code>&lt;strong&gt;</code></dt>
-                            <dd class="maindd">Strong importance</dd>
+                            <dd class="maindef">Strong importance</dd>
                             <dd>Default styling: <b class="keyword">bold</b></dd>
                             <dd>CSS equivalent: <code class="inlinebox">font-weight: bold;</code></dd>
                             <dd>Including great seriousness or urgency such as warning. Could be of a great importance in the whole page, or some words that are of greater importance compared to nearby content.</dd>
@@ -1452,7 +1452,7 @@ hr {
 
                             <!-- b -->
                             <dt><code>&lt;b&gt;</code></dt>
-                            <dd class="maindd">Boldface</dd>
+                            <dd class="maindef">Boldface</dd>
                             <dd>Default styling: <b class="keyword">bold</b></dd>
                             <dd>CSS equivalent: <code class="inlinebox">font-weight: bold;</code></dd>
                             <dd>To draw attention to the text without indicating it's more important.</dd>
@@ -1460,7 +1460,7 @@ hr {
 
                             <!-- em -->
                             <dt><code>&lt;em&gt;</code></dt>
-                            <dd class="maindd">Emphasis</dd>
+                            <dd class="maindef">Emphasis</dd>
                             <dd>Default styling: <i class="keyword">italics</i></dd>
                             <dd>CSS equivalent: <code class="inlinebox">font-style: italic;</code></dd>
                             <dd>Indicates stressed emphasis, including stressed contrast.</dd>
@@ -1481,7 +1481,7 @@ hr {
 
                             <!-- i -->
                             <dt><code>&lt;i&gt;</code></dt>
-                            <dd class="maindd">Idiomatic text</dd>
+                            <dd class="maindef">Idiomatic text</dd>
                             <dd>Default styling: <i class="keyword">italics</i></dd>
                             <dd>CSS equivalent: <code class="inlinebox">font-style: italic;</code></dd>
                             <dd>Use: a range of text that deviates from normal text for some reason, such as:
@@ -1514,13 +1514,13 @@ hr {
 
                             <!-- u -->
                             <dt><code>&lt;u&gt;</code></dt>
-                            <dd class="maindd">Unarticulated annotation</dd>
+                            <dd class="maindef">Unarticulated annotation</dd>
                             <dd>Default styling: <u class="keyword">underlined</u></dd>
                             <dd>CSS equivalent: <code class="inlinebox">text-decoration: underline;</code></dd>
 
                             <!-- s -->
                             <dt><code>&lt;s&gt;</code></dt>
-                            <dd class="maindd">Strikethrough</dd>
+                            <dd class="maindef">Strikethrough</dd>
                             <dd>Default styling: <s class="keyword">strikethrough</s></dd>
                             <dd>CSS equivalent: <code class="inlinebox">text-decoration: line-through;</code></dd>
                             <dd>Use: to indicate contents no longer relevant.</dd>
@@ -1533,7 +1533,7 @@ hr {
 
                             <!-- mark -->
                             <dt><code>&lt;mark&gt;</code></dt>
-                            <dd class="maindd">Marked/highlighted text</dd>
+                            <dd class="maindef">Marked/highlighted text</dd>
                             <dd>Default styling: <mark>highlight</mark></dd>
                             <dd>CSS equivalent:
                                 <ul>
@@ -1549,7 +1549,7 @@ hr {
 
                             <!-- small -->
                             <dt><code>&lt;small&gt;</code></dt>
-                            <dd class="maindd">Side comment</dd>
+                            <dd class="maindef">Side comment</dd>
                             <dd>Default styling: <small class="keyword">1 font smaller, like from small to x-small</small>.</dd>
                             <dd>CSS equivalent: <code class="inlinebox">font-size: 0.8rem;</code></dd>
                             <dd>Use: Represents side-comments and small print. Like copyright and legal text.</dd>
@@ -1573,7 +1573,7 @@ hr {
 
                             <!-- sub -->
                             <dt><code>&lt;sub&gt;</code></dt>
-                            <dd class="maindd">Subscript</dd>
+                            <dd class="maindef">Subscript</dd>
                             <dd>Default display: <span class="keyword">parent<sub>child low and small</sub></span></dd>
                             <dd>CSS equivalent:
                                 <ul>
@@ -1604,7 +1604,7 @@ hr {
         
                             <!-- sup -->
                             <dt><code>&lt;sup&gt;</code></dt>
-                            <dd class="maindd">Superscript</dd>
+                            <dd class="maindef">Superscript</dd>
                             <dd>Default display: <span class="keyword">parent<sup>child high and small</sup></span></dd>
                             <dd>CSS equivalent:
                                 <ul>
@@ -1644,7 +1644,7 @@ hr {
 
                             <!-- code -->
                             <dt><code>&lt;code&gt;</code></dt>
-                            <dd class="maindd">Inline code</dd>
+                            <dd class="maindef">Inline code</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1685,7 +1685,7 @@ let z = 780;</code>
 
                             <!-- kbd -->
                             <dt><code>&lt;kbd&gt;</code></dt>
-                            <dd class="maindd">Keyboard input</dd>
+                            <dd class="maindef">Keyboard input</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1701,7 +1701,7 @@ let z = 780;</code>
                                                
                             <!-- samp -->
                             <dt><code>&lt;samp&gt;</code></dt>
-                            <dd class="maindd">Sample output</dd>
+                            <dd class="maindef">Sample output</dd>
                             <dd>
                                 <div class="formula">
                                     <code>
@@ -1739,7 +1739,7 @@ let z = 780;</code>
 
                             <!-- var -->
                             <dt><code>&lt;var&gt;</code></dt>
-                            <dd class="maindd">Variable</dd>
+                            <dd class="maindef">Variable</dd>
 
                             <dd>
                                 <div class="formula">
@@ -1764,7 +1764,7 @@ let z = 780;</code>
                     <dd>
                         <dl>                
                             <dt><code>&lt;bdi&gt;</code></dt>
-                            <dd class="maindd">Bidirectional isolate</dd>
+                            <dd class="maindef">Bidirectional isolate</dd>
                             <dd>Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text.</dd>
                             <dd>Examples
                                 <ul>
@@ -1806,7 +1806,7 @@ let z = 780;</code>
         
                             <!-- bdo -->
                             <dt><code>&lt;bdo&gt;</code></dt>
-                            <dd class="maindd">Bidirectional text element</dd>
+                            <dd class="maindef">Bidirectional text element</dd>
                             <dd>Important attribute: dir. It has 2 possible values:
                                 <ul>
                                     <li><code>dir="ltr"</code>: left to right (like reagular alphabet)</li>
@@ -1857,7 +1857,7 @@ let z = 780;</code>
 
                             <!-- ruby -->
                             <dt><code>&lt;ruby&gt;</code></dt>
-                            <dd class="maindd">Ruby annotation</dd>
+                            <dd class="maindef">Ruby annotation</dd>
                             <dd>Represents small annotation that are rendered above, below, or next to base text. Usualy for showing pronunciation of East Asian characters.</dd>
                             
                             <dd>                                
@@ -1888,11 +1888,11 @@ let z = 780;</code>
                             <dd>    
                                 <dl>
                                     <dt><code>&lt;rt&gt;</code></dt>
-                                    <dd class="maindd">Ruby Text</dd>
+                                    <dd class="maindef">Ruby Text</dd>
                                     <dd>Provide pronunciation, translation, or transliteration information</dd>
 
                                     <dt><code>&lt;rp&gt;</code></dt>
-                                    <dd class="maindd">Ruby Fallback Parenthesis</dd>
+                                    <dd class="maindef">Ruby Fallback Parenthesis</dd>
                                     <dd>Provide fall-back parentheses for browsers that do not support display of ruby annotations</dd>
                                 </dl>
                             </dd>
@@ -1924,7 +1924,7 @@ let z = 780;</code>
                     <dd>
                         <dl>      
                             <dt><code>&lt;br&gt;</code></dt>
-                            <dd class="maindd">Line break / carriage return</dd>
+                            <dd class="maindef">Line break / carriage return</dd>
                             <dd>Use: To create a line break in a block of text.</dd>
                             <dd>Example usage:
                                 <ul>
@@ -1988,7 +1988,7 @@ let z = 780;</code>
                             </dd>
 
                             <dt><code>&lt;wbr&gt;</code></dt>
-                            <dd class="maindd">Word break / line break opportunity</dd>
+                            <dd class="maindef">Word break / line break opportunity</dd>
                             <dd>Word break opportunity: a position within text where the browser may optionally break a line.</dd>
                             <dd>Notes:
                                 <ul>
@@ -2048,27 +2048,27 @@ let z = 780;</code>
                 <h2>Image and multimedia</h2>
                 <dl>
                     <dt><code>&lt;img&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
 
                     <dt><code>&lt;audio&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
 
                     <dt><code>&lt;video&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
 
                     <dd>
                         <dl>
                             <dt><code>&lt;track&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;map&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;area&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                         </dl>
                     </dd>
                 </dl>
@@ -2082,31 +2082,31 @@ let z = 780;</code>
                 <p><code>      </code></p>
                 <dl>
                     <dt><code>&lt;object&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;param&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;picture&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;source&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                             <dt><code>&lt;img&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;embed&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
                     <dt><code>&lt;iframe&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
                     <dt><code>&lt;portal&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -2117,10 +2117,10 @@ let z = 780;</code>
                 <h2>SVG and MathML</h2>
                 <dl>
                     <dt><code>&lt;svg&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
 
                     <dt><code>&lt;math&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -2131,15 +2131,15 @@ let z = 780;</code>
                 <h2>Scripting</h2>
                 <dl>
                     <dt><code>&lt;script&gt;</code></dt>
-                    <dd class="maindd">Script</dd>
+                    <dd class="maindef">Script</dd>
                     <dd>Embed executable code or data. Usually refer to JavaScript code. Can also be used with different languages, for example: GLSL and JSON.</dd>
 
                     <dt><code>&lt;noscript&gt;</code></dt>
-                    <dd class="maindd">Noscript</dd>
+                    <dd class="maindef">Noscript</dd>
                     <dd>A section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.</dd>
 
                     <dt><code>&lt;canvas&gt;</code></dt>
-                    <dd class="maindd">Graphic canvas</dd>
+                    <dd class="maindef">Graphic canvas</dd>
                     <dd>Use with either <i>canvas scripting API</i> or the <i>WebGL API</i> to draw graphics and animations.</dd>
                 </dl>
                 
@@ -2165,53 +2165,56 @@ let z = 780;</code>
             <!-- Article: Table -->
             <article id="table">
                 <h2>Table</h2>        
-                <figure class="figcode" style="width: fit-content;">
-                    <figcaption>Table's structure and order*</figcaption>
-                        <code>
-                        <p class="plain">&lt;table&gt;</p>
-                        <ul>
-                            <li>&lt;caption&gt;</li>
-                            <li>&lt;colgroup&gt;
+
+                    <dt>Table's structure</dt>
+                    <dd><!-- Table structure -->
+                        <figure class="figcode" style="width: fit-content;">
+                            <figcaption>Table's structure</figcaption>
+                                <code>
+                                <p>&lt;table&gt;</p>
                                 <ul>
-                                    <li>&lt;col&gt;</li>
-                                </ul>
-                            </li>
-                            <li>&lt;thead&gt;
-                                <ul>
-                                    <li>&lt;tr&gt;
+                                    <li>&lt;caption&gt;</li>
+                                    <li>&lt;colgroup&gt;
                                         <ul>
-                                            <li>&lt;th&gt;</li>
+                                            <li>&lt;col&gt;</li>
+                                        </ul>
+                                    </li>
+                                    <li>&lt;thead&gt;
+                                        <ul>
+                                            <li>&lt;tr&gt;
+                                                <ul>
+                                                    <li>&lt;th&gt;</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>&lt;tbody&gt;
+                                        <ul>
+                                            <li>&lt;tr&gt;
+                                                <ul>
+                                                    <li>&lt;th&gt; or &lt;td&gt;</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>&lt;tfoot&gt;
+                                        <ul>
+                                            <li>&lt;tr&gt;
+                                                <ul>
+                                                    <li>&lt;th&gt; or &lt;td&gt;</li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
-                            <li>&lt;tbody&gt;
-                                <ul>
-                                    <li>&lt;tr&gt;
-                                        <ul>
-                                            <li>&lt;th&gt; or &lt;td&gt;</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>&lt;tfoot&gt;
-                                <ul>
-                                    <li>&lt;tr&gt;
-                                        <ul>
-                                            <li>&lt;th&gt; or &lt;td&gt;</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </code>                    
-                </figure>
-                <p>*When all table elements are used, they need to be in this structure and order.</p>  
-                <dl>
+                            </code>                    
+                        </figure>
+                    </dd>
+                    <dd>When all table elements are used, they need to be in this structure and order.</dd>
 
                     <!-- table -->
                     <dt><code>&lt;table&gt;</code></dt>
-                    <dd class="maindd">Table</dd>
+                    <dd class="maindef">Table</dd>
                     <dd>The elements:
                         <ul>
                             <li>In general, a table is optionally consist of 3 sections: <code>&lt;thead&gt;</code>, body <code>&lt;body&gt;</code>, and <code>&lt;footer&gt;</code>.</li>
@@ -2224,33 +2227,30 @@ let z = 780;</code>
                     </dd>
                     <dd>Default styling:
                         <ul>
-                            <li>Table comes very plain to make it very adaptable with any styling. Use CSS to style. Some handy CSS properties:
+                            <li>Table comes very plain to make it very adaptable with any styling. Use CSS for styling> Here some examples.</li>
+                            <li><code class="inlinebox">border: 1px solid gray</code></li>
+                            <li><code class="inlinebox">border-collapse: collapse;</code>
                                 <ul>
-                                    <li><code class="inlinebox">border: 1px solid gray</code></li>
-                                    <li><code class="inlinebox">border-collapse: collapse;</code>
+                                    <li>Values: <code>collapse</code>, <code>separate</code> (default)</li>
+                                    <li>To adjust spacing when borders are separated:
                                         <ul>
-                                            <li>Values: <code>collapse</code>, <code>separate</code> (default)</li>
-                                            <li>To adjust spacing when borders are separated:
-                                                <ul>
-                                                    <li><code class="inlinebox">border-spacing: 5px 10px;</code></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><code class="inlinebox">text-align: left;</code>
-                                        <ul>
-                                            <li>Values: <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code></li>
-                                        </ul></li>
-                                    <li><code class="inlinebox">vertical-align: middle;</code> on <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code>
-                                        <ul>
-                                            <li>Values: <code>baseline</code>, <code>sub</code>, <code>super</code>, <code>text-top</code>, <code>text-bottom</code>, <code>middle</code>, <code>top</code>, <code>bottom</code></li>
+                                            <li><code class="inlinebox">border-spacing: 5px 10px;</code></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
+                            <li><code class="inlinebox">text-align: left;</code>
+                                <ul>
+                                    <li>Values: <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code></li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">vertical-align: middle;</code> on <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code>
+                                <ul>
+                                    <li>Values: <code>baseline</code>, <code>sub</code>, <code>super</code>, <code>text-top</code>, <code>text-bottom</code>, <code>middle</code>, <code>top</code>, <code>bottom</code></li>
+                                </ul>
+                            </li>                            
                         </ul>
                     </dd>
-
                     <dd> <!-- Simple example -->
                         <div class="figcode">
                             <figure>
@@ -2332,25 +2332,11 @@ th, td {
                         </div>
                     </dd>
 
-                    <dd>Table sorting:
-                        <ul>
-                            <li>Use following JavaScript methods to sort an <code>HTMLCollection</code> of  <code>&lt;tr&gt;</code> elements:
-                                <ul>
-                                    <li><code>Array.prototype.slice()</code></li>
-                                    <li><code>Array.prototype.sort()</code></li>
-                                    <li><code>Node.removeChild()</code></li>
-                                    <li><code>Node.appendChild()</code></li>
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </dd>
-                    <dd><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank">More on table</a></dd>
                     <dd>
                         <dl>
                             <!-- caption -->
                             <dt><code>&lt;caption&gt;</code></dt>
-                            <dd class="maindd">Table caption</dd>
+                            <dd class="maindef">Table caption</dd>
                             <dd>
                                 <ul>
                                     <li>Optional, but when used, it <i>must</i> be the first chid of <code>&lt;table&gt;</code> element.</li>
@@ -2379,7 +2365,7 @@ th, td {
                                          
                             <!-- colgroup -->
                             <dt><code>&lt;colgroup&gt;</code></dt>
-                            <dd class="maindd">Table column group</dd>
+                            <dd class="maindef">Table column group</dd>
                             <dd>Defines a group of column within a table</dd>
                             <dd>Important child element: <code>&lt;col&gt;</code>
                                 <ul>
@@ -2410,7 +2396,7 @@ th, td {
                                 <dl>
                                     <!-- col -->
                                     <dt><code>&lt;col&gt;</code></dt>
-                                    <dd class="maindd">Table column</dd>
+                                    <dd class="maindef">Table column</dd>
                                     <dd>Permitted parrent: <code>&lt;colgroup&gt;</code> only
                                         <ul>
                                             <li>But it can be implicitely defined. See documentation.</li>
@@ -2424,7 +2410,7 @@ th, td {
                                 </dl>
                             </dd>
 
-                            <dd><!-- Complex example -->
+                            <dd><!-- Table with caption, colgroup, and col -->
                                 <div class="figcode">
                                     <figure>
                                         <figcaption>Table with caption, colgroup, and col elements</figcaption>
@@ -2573,333 +2559,364 @@ th, td {
                                                    
                             <!-- thead -->
                             <dt><code>&lt;thead&gt;</code></dt>
-                            <dd class="maindd">Table head</dd>
-                            <dd>
-                                <ul>
-                                    <li>Defining heading part of the table with 1 or more rows.</li>
-                                    <li>There can be only 1 <code>&lt;thead&gt;</code> per table.</li>
-                                </ul>
-                            </dd>
+                            <dd class="maindef">Table head</dd>
+                            <dd>Defining heading part of the table with 1 or more rows.</dd>
+                            <dd>There can be only 1 <code>&lt;thead&gt;</code> per table.</dd>
+
+                            <!-- tbody -->
+                            <dt><code>&lt;tbody&gt;</code></dt>
+                            <dd class="maindef">Table body</dd>
+                            <dd>Defining body part of the table with 1 or more rows.</dd> 
+
+                            <!-- tfoot -->
+                            <dt><code>&lt;tfoot&gt;</code></dt>
+                            <dd class="maindef">Table foot</dd>
+                            <dd>Defining footer or summary part of the table with 1 or more rows.</dd>
 
                             <dd>
                                 <dl>
                                     <!-- tr -->
                                     <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd class="maindd">Table row</dd>
-                                    <dd>
+                                    <dd class="maindef">Table row</dd>
+                                    <dd>Defines rows in a table.
                                         <ul>
-                                            <li>Defines a row of cells in a table.</li>
-                                            <li>Child elements: <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> mix</li>
+                                            <li>Permitted parents: <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code></li>
+                                            <li>Can be direct chid of <code>&lt;table&gt;</code> if there's no <code>&lt;tbody&gt;</code> element. Otherwise must be under the <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, or <code>&lt;tfoot&gt;</code>. Structure and order still need to be followed.</li>
+                                            <li>Permitted children: <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> combination</li>
                                         </ul>
                                     </dd>
                                     <dd>
                                         <dl>
                                             <!-- th -->
                                             <dt><code>&lt;th&gt;</code></dt>
-                                            <dd class="maindd">Table header cell</dd>
-                                            <dd>Row and column spanning with attribute <code>colspan</code> and <code>rowspan</code> for <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code>
+                                            <dd class="maindef">Table header cell</dd>
+                                            <dd>Defines all cells sitting in <code>&lt;tr&gt;</code> that are headers in nature:
                                                 <ul>
-                                                    <li>Column span:
-                                                        <ul>
-                                                            <li><code class="inlinebox">&lt;th colspan="2"&gt;</code> <code class="inlinebox">&lt;td colspan="2"&gt;</code></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>Row span:
-                                                        <ul>
-                                                            <li><code class="inlinebox">&lt;th rowspan="2"&gt;</code> <code class="inlinebox">&lt;td rowspan="2"&gt;</code></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>Value is the number of column or row being merged.</li>
-                                                    <li>When not written, use default <code>1</code>.</li>
-                                                    <li>Styling the header bottom:
-                                                        <div><code class="inlinebox">thead {border-bottom: 4px double cadetblue;}</code></div>
-                                                        <div><code class="inlinebox">thead > tr:nth-of-type(2) {border-bottom: 4px double cadetblue;}</code></div>
-                                                    </li>
+                                                    <li>All cells in <code>&lt;thead&gt;&lt;tr&gt;</code></li>
+                                                    <li>Occasionally, first column cells in <code>&lt;tbody&gt;&lt;tr&gt;</code> and <code>&lt;tfoot&gt;&lt;tr&gt;</code></li>
                                                 </ul>
                                             </dd>
+
+                                            <!-- td -->
+                                            <dt><code>&lt;td&gt;</code></dt>
+                                            <dd class="maindef">Table data cell</dd>
+                                            <dd>Defines all cells sitting in <code>&lt;tr&gt;</code> that are data in nature:
+                                                <ul>
+                                                    <li>Most cells in <code>&lt;tbody&gt;&lt;tr&gt;</code> and <code>&lt;tfoot&gt;&lt;tr&gt;</code></li>
+                                                </ul>
+                                            </dd>
+
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
-        
-                            <dd> <!-- colspan rowspan example -->
-                                <div class="figcode">
-                                    <figure>
-                                        <figcaption>Table with colspan and rowspan example</figcaption>
-                                        <table class="borderedtable">
-                                            <caption>Box List</caption>
-                                            <thead>
-                                                <tr>
-                                                    <th rowspan="2">Pet's name</th>
-                                                    <th rowspan="2">Box ID</th>
-                                                    <th colspan="3">Dimension (cm)</th>
-                                                    <th rowspan="2">Color</th>
-                                                </tr>
-                                                <tr>
-                                                    <th>width</th>
-                                                    <th>length</th>
-                                                    <th>height</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td rowspan="2">Bronto</td>
-                                                    <td>3</td>
-                                                    <td>8</td>
-                                                    <td>8</td>
-                                                    <td>8</td>
-                                                    <td>Blue</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>4</td>
-                                                    <td>4</td>
-                                                    <td>4</td>
-                                                    <td>Yellow</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lousie</td>
-                                                    <td>5</td>
-                                                    <td colspan="3">Ball with radius = 5 cm</td>
-                                                    <td>Silver</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kitten</td>
-                                                    <td>1</td>
-                                                    <td>5</td>
-                                                    <td>5</td>
-                                                    <td>5</td>
-                                                    <td>Red</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </figure>
-                                    <figure>
-                                        <details>
-                                            <summary>HTML codes</summary>
+
+                        </dl>
+                    </dd>
+
+                    <dt>Column and row spanning</dt>
+                    <dd>Elements: <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code></dd>
+                    <dd>Attributes: <code>colspan</code> and <code>rowspan</code></dd> 
+                    <dd>
+                        <ul>
+                            <li>
+                                Spanning horizontally with column span:<br>
+                                <div class="formula">
+                                    <code>&lt;th <span class="attribute">colspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                                <div class="formula">
+                                    <code>&lt;td <span class="attribute">colspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                            </li>
+                            <li>Spanning vertically with row span:<br>
+                                <div class="formula">
+                                    <code>&lt;th <span class="attribute">rowspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                                <div class="formula">
+                                    <code>&lt;td <span class="attribute">rowspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>
+                    </dd>
+
+                    <dd>Attribute's value
+                        <ul>
+                            <li>Positive integer</li>
+                            <li>Defines number of cells in a span.</li>
+                            <li>Default is <code>1</code></li>
+                        </ul>
+                    </dd>
+                    <dd>Styling tips: 
+                        <ul>
+                            <li>Have a header level bottom border</li>
+                            <li><code class="inlinebox">thead {border-bottom: 4px double cadetblue;}</code></li>
+                            <li><code class="inlinebox">thead > tr:nth-of-type(2) {border-bottom: 4px double cadetblue;}</code></li>
+                        </ul>
+                    </dd>
+
+                    <dd> <!-- colspan rowspan example -->
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Table with colspan and rowspan example</figcaption>
+                                <table class="borderedtable">
+                                    <caption>Box List</caption>
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">Pet's name</th>
+                                            <th rowspan="2">Box ID</th>
+                                            <th colspan="3">Dimension (cm)</th>
+                                            <th rowspan="2">Color</th>
+                                        </tr>
+                                        <tr>
+                                            <th>width</th>
+                                            <th>length</th>
+                                            <th>height</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">Bronto</td>
+                                            <td>3</td>
+                                            <td>8</td>
+                                            <td>8</td>
+                                            <td>8</td>
+                                            <td>Blue</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>Yellow</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lousie</td>
+                                            <td>5</td>
+                                            <td colspan="3">Ball with radius = 5 cm</td>
+                                            <td>Silver</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kitten</td>
+                                            <td>1</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                            <td>Red</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>HTML codes</summary>
 <pre>
 &lt;table&gt;
-    &lt;caption&gt;<span class="sampledata">Box List</span>&lt;/caption&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Pet's name</span>&lt;/th&gt;
-            &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Box ID</span>&lt;/th&gt;
-            &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Dimension (cm)</span>&lt;/th&gt;
-            &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Color</span>&lt;/th&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th&gt;<span class="sampledata">width</span>&lt;/th&gt;
-            &lt;th&gt;<span class="sampledata">length</span>&lt;/th&gt;
-            &lt;th&gt;<span class="sampledata">height</span>&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Bronto</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">3</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Blue</span>&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Louise</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
-            &lt;td colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Ball with radius = 5 cm</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Silver</span>&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">1</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Red</span>&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+&lt;caption&gt;<span class="sampledata">Box List</span>&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+    &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Pet's name</span>&lt;/th&gt;
+    &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Box ID</span>&lt;/th&gt;
+    &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Dimension (cm)</span>&lt;/th&gt;
+    &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Color</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;th&gt;<span class="sampledata">width</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">length</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">height</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+    &lt;td rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Bronto</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">3</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Blue</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Louise</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Ball with radius = 5 cm</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Silver</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">1</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Red</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 </pre> 
-                                        </details>                       
-                                    </figure>
-                                    <figure>
-                                        <details>
-                                            <summary>CSS codes</summary>
+                                </details>                       
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>CSS codes</summary>
 <pre>
 caption {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: cadetblue;
+font-weight: bold;
+font-size: 1.1rem;
+color: cadetblue;
 }
 
 table {
-    border: 1px solid cadetblue;
-    border-collapse: collapse;
-    text-align: center;
-    vertical-align: middle;
+border: 1px solid cadetblue;
+border-collapse: collapse;
+text-align: center;
+vertical-align: middle;
 }
 
 th, td {
-    border: 1px solid cadetblue;
-    text-align: center;
-    padding: 4px 8px;
+border: 1px solid cadetblue;
+text-align: center;
+padding: 4px 8px;
 }
 
 thead {
-    border-bottom: 4px double cadetblue;
+border-bottom: 4px double cadetblue;
 }
 </pre> 
-                                        </details>
-                                    </figure>
-                                </div>
-                            </dd>
+                                </details>
+                            </figure>
+                        </div>
+                    </dd>
 
-                            <!-- tbody -->
-                            <dt><code>&lt;tbody&gt;</code></dt>
-                            <dd class="maindd">Table body</dd>
-                            <dd>If <code>&lt;tbody&gt;</code> is used, all non-header and non-footer rows <code>&lt;tr&gt;</code> have to be inside <code>&lt;tbody&gt;</code>.</dd>
-                            <dd>
+                    <dt>Multiple <code>&lt;tbody&gt;</code></dt>
+                    <dd>There can be more than 1 <code>&lt;tbody&gt;</code> per table</dd>
+                    <dd>Structure idea:
+                        <ul>
+                            <li>Use <code>&lt;head&gt;</code> element to title each column as usual</li>
+                            <li>Use the first row <code>&lt;tr&gt;</code> of each <code>&lt;tbody&gt;</code> for the each body's title.
                                 <ul>
-                                    <li>Defining body part of the table with 1 or more rows.</li>
+                                    <li>Use <code>&lt;th&gt;</code> instead of <code>&lt;td&gt;</code> for the cell.</li>
+                                    <li>Merge all cells in the row to create a title band: <code>&lt;th  <span class="attribute">colspan=</span><span class="sampledata">"2"</span>&gt;</code></li>
                                 </ul>
-                            </dd>                            
-
-                            <dd>
-                                <dl>
-                                    <!-- tr -->
-                                    <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd class="maindd">Table row</dd>
-                                    <dd>If <code>&lt;tbody&gt;</code> is used, all non-header and non-footer rows <code>&lt;tr&gt;</code> have to be inside <code>&lt;tbody&gt;</code>.</dd>
-                                    <dd>
-                                        <dl>
-                                            <!-- td -->
-                                            <dt><code>&lt;td&gt;</code></dt>
-                                            <dd class="maindd">Table data cell</dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-                            </dd>
-
-
-
-
-                            <dd>Multiple <code>&lt;tbody&gt;</code>
-                                <ul>
-                                    <li>There can be more than 1 <code>&lt;tbody&gt;</code> per table</li>
-                                    <li>In this case, use <code>&lt;head&gt;</code> element to title each column as usual, then use the first row <code>&lt;tr&gt;</code> of each <code>&lt;tbody&gt;</code> for the sub-body's title. Use <code>&lt;th&gt;</code> instead of <code>&lt;td&gt;</code> for the cell. Merge the cells using attribute <code>colspan</code>.</li>
-                                </ul>
-                            </dd>
-
-                            
-                            <dd><!-- Table with multiple bodies -->
-                                <div class="figcode">
-                                    <figure>
-                                        <figcaption>Table with multiple bodies</figcaption>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th>Color</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th colspan="3">Olivia's pets</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kitten</td>
-                                                    <td>Cat</td>
-                                                    <td>Orange</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Doggy</td>
-                                                    <td>Dog</td>
-                                                    <td>Brown</td>
-                                                </tr>
-                                            </tbody>
-                                            <tbody>
-                                                <tr>
-                                                    <th colspan="3">Harry's pets</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>Dino</td>
-                                                    <td>Bronto</td>
-                                                    <td>Green</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Thomas</td>
-                                                    <td>Dog</td>
-                                                    <td>Brown</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </figure>
-                                    <figure>
-                                        <details>
-                                            <summary>HTML codes</summary>
+                            </li>
+                        </ul>
+                    </dd>
+                    
+                    <dd><!-- Table with multiple bodies -->
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Table with multiple bodies</figcaption>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="3">Olivia's pets</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Kitten</td>
+                                            <td>Cat</td>
+                                            <td>Orange</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Doggy</td>
+                                            <td>Dog</td>
+                                            <td>Brown</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="3">Harry's pets</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Dino</td>
+                                            <td>Bronto</td>
+                                            <td>Green</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thomas</td>
+                                            <td>Dog</td>
+                                            <td>Brown</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>HTML codes</summary>
 <pre>
 &lt;table&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;<span class="sampledata">Name</span>&lt;/th&gt;
-            &lt;th&gt;<span class="sampledata">Type</span>&lt;/th&gt;
-            &lt;th&gt;<span class="sampledata">Color</span>&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Olivia's pets</span>&lt;/th&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Cat</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Orange</span>&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Doggy</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Harry's pets</span>&lt;/th&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Dino</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Bronto</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Green</span>&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Thomas</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+    &lt;th&gt;<span class="sampledata">Name</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">Type</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">Color</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+    &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Olivia's pets</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Cat</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Orange</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Doggy</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+    &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Harry's pets</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Dino</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Bronto</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Green</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Thomas</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 </pre> 
-                                        </details>
-                                    </figure>
-                                    <figure>
-                                        <details>
-                                            <summary>CSS codes</summary>
+                                </details>
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>CSS codes</summary>
 <pre>
 tbody th {
-    font-weight: normal;
-    background-color: rgb(255, 244, 235);
+font-weight: normal;
+background-color: rgb(255, 244, 235);
 }
 </pre>
-                                        </details>
-                                    </figure>
-                                </div>
-                            </dd>
-                                                        
-                            <!-- tfoot -->
-                            <dt><code>&lt;tfoot&gt;</code></dt>
-                            <dd class="maindd">Table foot</dd>
-                            <dd>Defining footer part of the table with 1 or more rows, containing summary.</dd>
-                        </dl>
+                                </details>
+                            </figure>
+                        </div>
                     </dd>
+                                                
+                    <dt>Table sorting</dt>
+                    <dd>Use following JavaScript methods to sort an <code>HTMLCollection</code> of <code>&lt;tr&gt;</code> elements:
+                        <ul>
+                            <li><code>Array.prototype.slice()</code></li>
+                            <li><code>Array.prototype.sort()</code></li>
+                            <li><code>Node.removeChild()</code></li>
+                            <li><code>Node.appendChild()</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>There's so much more on table...</dt>
+                    <dd>Read up start from <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank">documentation on table element</a></dd>
 
                 </dl>
 
@@ -2911,70 +2928,70 @@ tbody th {
                 <h2>Forms</h2>
                 <dl>
                     <dt><code>&lt;form&gt;</code></dt>
-                    <dd class="maindd">   </dd>
+                    <dd class="maindef">   </dd>
 
                     <dd>
                         <dl>   
                             <dt><code>&lt;label&gt;</code></dt>
-                            <dd class="maindd">   </dd>     
+                            <dd class="maindef">   </dd>     
 
                             <dt><code>&lt;input&gt;</code></dt>
-                            <dd class="maindd">   </dd>          
+                            <dd class="maindef">   </dd>          
                             
                             <dt><code>&lt;button&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
         
                             <dt><code>&lt;textarea&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
 
         
                             <dt><code>&lt;datalist&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;option&gt;</code></dt>
-                                    <dd class="maindd">   </dd>            
+                                    <dd class="maindef">   </dd>            
                                 </dl>
                             </dd>
 
                             <dt><code>&lt;select&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;optgroup&gt;</code></dt>
-                                    <dd class="maindd">   </dd>
+                                    <dd class="maindef">   </dd>
                                     <dd>
                                         <dl>
                                             <dt><code>&lt;option&gt;</code></dt>
-                                            <dd class="maindd">   </dd>
+                                            <dd class="maindef">   </dd>
                                         </dl>
                                     </dd>
                                 </dl>
                             </dd>
 
                             <dt><code>&lt;meter&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
 
                             <dt><code>&lt;progress&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
 
                             <dt><code>&lt;output&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
 
                         </dl>
                     </dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;fieldset&gt;</code></dt>
-                            <dd class="maindd">   </dd>
+                            <dd class="maindef">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;legend&gt;</code></dt>
-                                    <dd class="maindd">   </dd>
+                                    <dd class="maindef">   </dd>
                                     <dt><code>&lt;input&gt;</code></dt>
-                                    <dd class="maindd">   </dd>
+                                    <dd class="maindef">   </dd>
                                     <dt><code>&lt;label&gt;</code></dt>
-                                    <dd class="maindd">   </dd>
+                                    <dd class="maindef">   </dd>
                                 </dl>
                             </dd>
                         </dl>
@@ -2988,12 +3005,12 @@ tbody th {
                 <h2>Interactive elements</h2>
                 <dl>
                     <dt><code>&lt;details&gt;</code></dt>
-                    <dd class="maindd">Details disclosure</dd>
+                    <dd class="maindef">Details disclosure</dd>
                     <dd>Only shows summary until it's clicked open.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;summary&gt;</code></dt>
-                            <dd class="maindd">Disclosure's summary</dd>
+                            <dd class="maindef">Disclosure's summary</dd>
                         </dl>
                     </dd>
 
@@ -3041,7 +3058,7 @@ tbody th {
                     <dd>Further styling in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">here</a>.</dd>
 
                     <dt><code>&lt;dialog&gt;</code></dt>
-                    <dd class="maindd">Dialog</dd>
+                    <dd class="maindef">Dialog</dd>
                     <dd>Dialog box or other interactive component such as dismissible alert, inspector, or subwindow. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog" target="_blank">Read more</a>.</dd>
 
                 </dl>
@@ -3053,7 +3070,7 @@ tbody th {
                 <h2>Web components</h2>
                 <dl>
                     <dt><code>&lt;slot&gt;</code></dt>
-                    <dd class="maindd">Web component slot</dd>
+                    <dd class="maindef">Web component slot</dd>
                     <dd>A placeholder inside a web component that we can fill with our own markup, allow us  to create separate DOM trees and present them together.</dd>
                     <dd>Important attribute: <code>slot</code>
                         <ul>
@@ -3061,7 +3078,7 @@ tbody th {
                         </ul></dd>
 
                     <dt><code>&lt;template&gt;</code></dt>
-                    <dd class="maindd">Content template</dd>
+                    <dd class="maindef">Content template</dd>
                     <dd>A mechanism for holding HTML that is not rendered immediately when a page is loaded, but maybe instantiated subsequently during runtime in JavaScript.</dd>
 
                 <a href="#top"><hr></a>
