@@ -1054,7 +1054,7 @@ hr {
                                 </ul>
                             </dd>
                        
-                            <dd>Various stages:
+                            <dd>Various CSS pseudo-class:
                                 <ul>
                                     <li><code>:link</code>, <code>:visited</code>, <code>:active</code>, <code>:hover</code>, check for more</li>
                                 </ul>
@@ -2614,6 +2614,7 @@ th, td {
                         </dl>
                     </dd>
 
+                    <!-- Column and row spanning -->
                     <dt>Column and row spanning</dt>
                     <dd>Elements: <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code></dd>
                     <dd>Attributes: <code>colspan</code> and <code>rowspan</code></dd> 
@@ -2646,13 +2647,6 @@ th, td {
                             <li>Positive integer</li>
                             <li>Defines number of cells in a span.</li>
                             <li>Default is <code>1</code></li>
-                        </ul>
-                    </dd>
-                    <dd>Styling tips: 
-                        <ul>
-                            <li>Have a header level bottom border</li>
-                            <li><code class="inlinebox">thead {border-bottom: 4px double cadetblue;}</code></li>
-                            <li><code class="inlinebox">thead > tr:nth-of-type(2) {border-bottom: 4px double cadetblue;}</code></li>
                         </ul>
                     </dd>
 
@@ -2777,16 +2771,13 @@ border: 1px solid cadetblue;
 text-align: center;
 padding: 4px 8px;
 }
-
-thead {
-border-bottom: 4px double cadetblue;
-}
 </pre> 
                                 </details>
                             </figure>
                         </div>
                     </dd>
 
+                    <!-- Multiple tbody -->
                     <dt>Multiple <code>&lt;tbody&gt;</code></dt>
                     <dd>There can be more than 1 <code>&lt;tbody&gt;</code> per table</dd>
                     <dd>Structure idea:
@@ -2904,7 +2895,201 @@ background-color: rgb(255, 244, 235);
                             </figure>
                         </div>
                     </dd>
-                                                
+
+                    <!-- nth-of-type -->
+                    <dt>CSS pseudo-class <code>:nth-of-type()</code> and <code>:nth-child()</code></dt>
+                    <dd>With these pseudo-classes, it's easy to specifically style certain rows or columns of a table</dd>
+                    <dd>
+                        <dl>
+                            <dt>Siblings of the same type</dt>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        :nth-of-type(<span class="sampledata">arg</span>)
+                                    </code>
+                                </div>
+                            </dd>
+                            <dd>Matches elements based on their position among siblings of the same type (tag name).</dd>
+                            <dd>Variations:
+                                <ul>
+                                    <li>An+B</var>
+                                        <ul>
+                                            <li><code>:nth-of-type(<span class="sampledata">2</span>)</code></li>
+                                            <li><code>:nth-of-type(<span class="sampledata">3n</span>)</code></li>
+                                            <li><code>:nth-of-type(<span class="sampledata">2n+1</span>)</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>An+B from the end of the list
+                                        <ul>
+                                            <li><code>:nth-<span class="sampledata">last</span>-of-type(<span class="sampledata">2n+1</span>)</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Odd or even
+                                        <ul>
+                                            <li><code>:nth-of-type(<span class="sampledata">odd</span>)</code></li>
+                                            <li><code>:nth-of-type(<span class="sampledata">even</span>)</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>First or last
+                                        <ul>
+                                            <li><code>:<span class="sampledata">first</span>-of-type</code></li>
+                                            <li><code>:<span class="sampledata">last</span>-of-type</code></li>  
+                                        </ul>
+                                    </li>
+                                    <li>The only one, if there's only 1 of the type.
+                                        <ul>
+                                            <li><code>:<span class="sampledata">only</span>-of-type</code></li>  
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <dt>Children of all types</dt>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        :nth-child(<span class="sampledata">arg</span>)
+                                    </code>
+                                </div>
+                            </dd>
+                            <dd>Alternatively, use <code>:nth-of-child()</code> to the parent element, if rule should be applied to all type of children elements.</dd>
+                            <dd>
+                            <dd>Variations:
+                                <ul>
+                                    <li>All variations of <code>:nth-of-type()</code> applies. Just replace <code>-of-type</code> with <code>-child</code></li>
+                                </ul>
+                            </dd>
+
+                            <dt>Examples</dt>
+                            <dd>
+                                <ul>
+                                    <li>To style bottom border of only 2nd row of header:
+                                        <ul>
+                                            <li><code><span class="sampledata">thead > tr</span>:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">border-bottom: 4px double cadetblue;</span>}</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>To create easy-to-read table with alternating color of each row:
+                                        <ul>
+                                            <li><code><span class="sampledata">tbody > tr</span>:nth-of-type(<span class="sampledata">odd</span>) {<span class="sampledata">background-color: lightyellow;</span>}</code></li>
+                                            <li><code><span class="sampledata">tbody > tr</span>:nth-of-type(<span class="sampledata">even</span>) {<span class="sampledata">background-color: whitesmoke;</span>}</code></li>
+                                            <li>Only need to use one of above, they can alternate with existing background-color</li>
+                                        </ul>
+                                    </li>
+                                    <li>In a complex header like in the pet's boxes example above, to style the subheader cell differently:
+                                        <ul>
+                                            <li><code><span class="sampledata">thead > tr:last-of-type > th</span>:nth-of-type(<span class="sampledata">1</span>) {<span class="sampledata">color: palevioletred;</span>}</code></li>
+                                            <li><code><span class="sampledata">thead > tr:last-of-type > th</span>:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">color: salmon;</span>}</code></li>
+                                            <li><code><span class="sampledata">thead > tr:last-of-type > th</span>:nth-of-type(<span class="sampledata">3</span>) {<span class="sampledata">color: olive;</span>}</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Text-align left specific column in the body
+                                        <ul>
+                                            <li><code><span class="sampledata">tbody > tr > td</span>:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">text-align: left;</span>}</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <dd> <!-- nth example -->
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Table styled with nth pseudo-classes</figcaption>
+                                        <table class="borderedtable nthtable">
+                                            <caption>Box List</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2">Box ID</th>
+                                                    <th rowspan="2">Pet's name</th>
+                                                    <th colspan="3">Dimension (cm)</th>
+                                                    <th rowspan="2">Color</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>width</th>
+                                                    <th>length</th>
+                                                    <th>height</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Bronto</td>
+                                                    <td>8</td>
+                                                    <td>8</td>
+                                                    <td>8</td>
+                                                    <td>Blue</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Dino</td>
+                                                    <td>4</td>
+                                                    <td>4</td>
+                                                    <td>4</td>
+                                                    <td>Yellow</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Lousie</td>
+                                                    <td colspan="3">Ball with radius = 5 cm</td>
+                                                    <td>Silver</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Kitten</td>
+                                                    <td>5</td>
+                                                    <td>5</td>
+                                                    <td>5</td>
+                                                    <td>Red</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Sirius</td>
+                                                    <td>25</td>
+                                                    <td>64</td>
+                                                    <td>81</td>
+                                                    <td>Rainbow</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>Mario</td>
+                                                    <td>10</td>
+                                                    <td>10</td>
+                                                    <td>10</td>
+                                                    <td>Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>Unicat</td>
+                                                    <td>3</td>
+                                                    <td>7</td>
+                                                    <td>20</td>
+                                                    <td>Pink</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </figure>
+                                    <figure>
+                                        <details open>
+                                            <summary open>Featured CSS codes</summary>
+                                            <ul>
+                                                <li><code>thead > tr:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">border-bottom: 4px double cadetblue;</span>}</code></li>
+                                                <li><code>tbody > tr:nth-of-type(<span class="sampledata">odd</span>) {<span class="sampledata">background-color: lightyellow;</span>}</code></li>
+                                                <li><code>thead > tr:last-of-type > th:nth-of-type(<span class="sampledata">1</span>) {<span class="sampledata">color: palevioletred;</span>}</code></li>
+                                                <li><code>thead > tr:last-of-type > th:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">color: salmon;</span>}</code></li>
+                                                <li><code>thead > tr:last-of-type > th:nth-of-type(<span class="sampledata">3</span>) {<span class="sampledata">color: olive;</span>}</code></li>
+                                                <li><code>tbody > tr > td:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">text-align: left;</span>}</code></li>
+                                            </ul>
+                                        </details>
+                                    </figure>
+                                </div>
+                            </dd>
+                        </dl>
+                    </dd>
+
+
+
+
+                                 
+                    <!-- Table sorting -->
                     <dt>Table sorting</dt>
                     <dd>Use following JavaScript methods to sort an <code>HTMLCollection</code> of <code>&lt;tr&gt;</code> elements:
                         <ul>
