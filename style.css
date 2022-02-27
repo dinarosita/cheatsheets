@@ -581,7 +581,7 @@ dd .formula {
 }
 
 i,
-.keyword {
+.inlinebox {
     color: rgb(47, 123, 124);
 }
 
@@ -676,6 +676,13 @@ a[href^="tel"]::before {
     margin: 0;
 }
 
+.normalboldmono {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-family: 'Fira Mono', monospace;   
+}
+
 td, th {
     vertical-align: middle;
 }
@@ -722,6 +729,25 @@ tbody th {
     caption-side: bottom;
 }
 
+.borderedtable {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid cadetblue;
+    border-collapse: collapse;
+}
+
+.borderedtable th, 
+.borderedtable td {
+    border: 1px solid cadetblue;
+    text-align: center;
+    padding: 4px 8px;
+}
+
+.borderedtable caption {
+    font-weight: bold;
+    color: cadetblue;
+    font-size: 1.1rem;
+}
 
 /* || JavaScript Notes */
 
