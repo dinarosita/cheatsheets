@@ -1,0 +1,3473 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML Elements | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="./index.html"><h1>HTML Elements</h1></a> 
+        </header>
+
+        <nav id="navMenu"></nav>
+          
+        <main class="html_notes">
+            <!-- Article: Components -->
+            <article id="components">
+                <h2>Components</h2>
+                <div class="formula">
+                    <code>
+                        &lt;h2 <span class="attribute">id=<span class="sampledata">"elements"</span></span>&gt;<span class="sampledata">HTML Elements</span>&lt;/h2&gt;
+                    </code>
+                </div>
+
+                <dl>
+                    <dt>Element</dt>
+                    <dd><code>&lt;h2 id="elements"&gt;<span class="sampledata">HTML Elements</span>&lt;/h2&gt;</code></dd>
+
+                    <dt>Tag</dt>
+                    <dd><code>&lt;h2&gt;</code></dd>
+
+                    <dt>Attribute</dt>
+                    <dd><code>id</code></dd>
+
+                    <dt>Attribute's value</dt>
+                    <dd><code>"elements"</code></dd>
+
+                    <dt>Text content</dt>
+                    <dd><code>"HTML Elements"</code></dd>
+                </dl>
+
+                
+                <a href="#top"><hr></a>
+            </article>
+            
+            <!-- Article: Semantic -->
+            <article id="semantic">
+                <h2>Semantic elements</h2>
+
+                <dl>
+                    <dt>Semantic elements</dt>
+                    <dd>Semantic elements are elements with meaning</dd>
+                    <dd>Examples: <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;form&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;table&gt;</code></dd>
+
+                    <dt>Non-semantic elements</dt>
+                    <dd>Non-semantic elements tells nothing about its content.</dd>
+                    <dd>Examples: <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code></dd>
+                </dl>
+                <a href="#top"><hr></a>
+
+            </article>
+
+            <!-- Article: Level -->
+            <article id="level">
+                <h2>Elements level</h2>
+
+                <dl>
+                    <dt>Block level elements</dt>
+                    <dd>A block: Start in a new line, occupy entire horizontal space of its parent element (container), with height depends on its content.</dd>
+                    <dd>Generic block level element: <code>&lt;div&gt;</code></dd>
+                    <dd>Other examples: <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>-<code>&lt;li&gt;</code> and <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code></dd>
+
+                    <dt>Inline level elements</dt>
+                    <dd>Within line: Doesn't start a new line, only takes up as much width as necessary, same with height. Look like span of writing than block.</dd>
+                    <dd>Generic inline level element: <code>&lt;span&gt;</code></dd>
+                    <dd>Other examples: <code>&lt;code&gt;</code>, <code>&lt;a&gt;</code> and <code>&lt;strong&gt;</code></dd>
+                </dl>
+
+                <p>Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout" target="_blank">CSS Flow layout</a> for normal flow etc.</p>
+
+                <a href="#top"><hr></a>
+
+            </article>
+
+            <!-- Article: Structure -->
+            <article id="structure">
+                <h2>Structure</h2>
+                <p><code>&lt;html&gt;</code> is the main root and its direct children are <code>&lt;head&gt;</code> where we put metadata and <code>&lt;body&gt;</code> where we put the content. Metadata elements inside <code>&lt;head&gt;</code> are written as direct children. The content elements though, are very flexible and can be super nesting. Below is just an example to give a rough idea.</p>               
+
+                <p>Keep in mind that many semantic tags are actually from HTML5 in 2008. Before then, there were no <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code> and <code>&lt;footer&gt;</code> for example. They are all sectioned inside nesting <code>&lt;div&gt;</code> when needed.</p>
+
+                <figure class="figcode">
+                    <figcaption>HTML structure</figcaption>
+<pre>
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;...&lt;/title&gt;
+        &lt;meta&gt;
+        &lt;link&gt;
+        &lt;base&gt;
+        &lt;style&gt;...&lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;...&lt;/header&gt;
+        &lt;nav&gt;...&lt;/nav&gt;
+        &lt;main&gt;
+            &lt;section&gt;...&lt;/section&gt;
+            &lt;section&gt;...&lt;/section&gt;
+            &lt;section&gt;...&lt;/section&gt;
+        &lt;/main&gt;
+        &lt;aside&gt;...&lt;aside&gt;
+        &lt;footer&gt;...&lt;/footer&gt;
+        &lt;script&gt;...&lt;/script&gt;
+    &lt;/body&gt;    
+&lt;/html&gt;
+<pre>
+                </figure>
+
+                <p>In the following sections, elements will be listed by their tags and sectioned based on their functions/roles. Listing will be given in nesting style. Some parent-child relations are rather exact, some are more of an illustration or common example to give a better idea how these element tags are used.</p>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <!-- Article: Main root -->
+            <article id="main_root">
+                <h2>Main root</h2>
+                <dl>
+                    <dt><code>&lt;main&gt;</code></dt>
+                    <dd class="maindef">Root element</dd>
+                    <dd>Direct children:
+                        <dl>
+                            <dt><code>&lt;head&gt;</code></dt>
+                            <dd class="maindef">Metadata container</dd>
+
+                            <dt><code>&lt;body&gt;</code></dt>
+                            <dd class="maindef">Sectioning root</dd>
+
+                        </dl>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Metadata -->
+            <article id="metadata">
+                <h2>Document metadata</h2>
+
+                <dl>
+                    <dt><code>&lt;head&gt;</code></dt>
+                    <dd class="maindef">Metadata container</dd>
+                    <dd>Metadata elements are direct children of <code>&lt;head&gt;</code> element.</dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;title&gt;</code></dt>
+                            <dd class="maindef">Browser's title bar or page's tab</dd>
+                            <dd>Text only. Tag within this element will be ignored.</dd>
+                            <dd>Example:
+                            <dd><code>&lt;title&gt;HTML Intro&lt;/title&gt;</code></dd>
+
+
+                            <dt><code>&lt;link&gt;</code></dt>
+                            <dd class="maindef">Link to external resources</dd>
+                            <dd>Common attributes:
+                                <ul>
+                                    <li><code>rel</code>: relationship. Values example: stylesheet, preconnect.</li>
+                                    <li><code>ref</code>: URL</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li><code>&lt;link rel="stylesheet" href="./style.css"&gt;</code></li>
+                                    <li><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></li>
+                                </ul>
+                            </dd>
+
+                            <dt><code>&lt;style&gt;</code></dt>
+                            <dd class="maindef">Internal CSS</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Internal CSS</figcaption>
+<pre>
+&lt;style&gt;
+    p {color: blue}
+&lt;/style&gt;
+</pre>
+                                </figure>
+                            </dd>          
+                            
+                            <dt><code>&lt;base&gt;</code></dt>
+                            <dd class="maindef">Base URL for all relative links</dd>
+                            <dd>Only 2 attributes allowed:
+                                <ul>
+                                    <li><code>href</code>: URL of all the relative links in the page.</li>
+                                    <li><code>target</code>: Target page of opening any page link if not specified further.</li>
+                                </ul></dd>
+                            <dd>There should be just 1 declaration of each attributes. If there are more, only the first one is acknowledged.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Defining base at &lt;head&gt;</figcaption>
+<pre>
+&lt;head&gt;
+    &lt;base href="https://duaransel.com/" target="_blank"&gt;
+&lt;/head&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>How to write the relative URL within the body</figcaption>
+<pre>
+&lt;body&gt;
+    &lt;img src="img/placeholder.jpg"&gt;
+    &lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;
+&lt;/body&gt;
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dt><code>&lt;meta&gt;</code></dt>
+                            <dd class="maindef">Meta without its own element</dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li><code>&lt;meta charset="UTF-8"&gt;</code></li>
+                                    <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></li>
+                                </ul>
+                            </dd>
+
+                        </dl>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Content sectioning -->
+            <article id="content_sectioning">
+                <h2>Content sectioning</h2>
+                <p>Content sectioning elements allow document content to be organized into logical pieces. It creates a broad outline of the page content.</p>
+                <dl>
+                    <dt><code>&lt;body&gt;</code></dt>
+                    <dd class="maindef">Sectioning root</dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;header&gt;</code></dt>
+                            <dd class="maindef">Introductory content</dd>
+                            <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
+
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>As page title</figcaption>
+<pre>
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Codey Luwak&lt;/h1&gt;
+        &lt;img src="..." alt="Luwak logo"&gt;
+    &lt;/header&gt;
+&lt;/body&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            <dd>Header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element. Intended to be used with heading element <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> even though not required.</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>As article title</figcaption>
+<pre>
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;p&gt;
+    &lt;/header&gt;
+    &lt;p&gt;...&lt/p&gt;
+&lt;/article&gt;
+</pre>
+                                </figure>
+                            </dd>
+
+                            
+                            <!-- NAV -->
+                            <dt><code>&lt;nav&gt;</code></dt>
+                            <dd class="maindef">Navigation block</dd>
+                            <dd>Using <code>&lt;ul&gt;</code> listing presented as a sidebar, navigation bar, or dropdown menu is common, but links within <code>&lt;p&gt;</code> paragraph is a cool choice too.</dd>
+                            <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
+                            <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Nav structure</figcaption>
+<pre>
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;...&lt;/li&gt;
+        &lt;li&gt;...&lt;/li&gt;
+        &lt;li&gt;...&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS for forizontal nav bar</figcaption>
+<pre>
+.html-nav ul {
+    display: flex;
+    list-style-type: none;
+}
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <!-- MAIN -->
+                            <dt><code>&lt;main&gt;</code></dt>
+                            <dd class="maindef">Dominant content of document's &lt;body&gt;</dd>
+                            <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
+                                
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Main structure</figcaption>
+<pre>
+&lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;
+        &lt;h1&gt;...&lt;/h1&gt;
+        &lt;p&gt;...&lt;/p&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;
+</pre>
+                                </figure>
+                            </dd>
+
+                            <!-- ARTICLE -->
+                            <dt><code>&lt;article&gt;</code></dt>
+                            <dd class="maindef">Self contained composition</dd>
+                            <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Article structure</figcaption>
+<pre>
+&lt;main&gt;
+    &lt;h1&gt;...&lt;/h1&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;article&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;article&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+</pre>
+                                </figure>
+
+                            </dd>
+
+                            <!-- SECTION -->
+                            <dt><code>&lt;section&gt;</code></dt>
+                            <dd class="maindef">Generic sectioning element</dd>
+                            <dd>
+                                <ul>
+                                    <li>A generic wrapper for a heading <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> and its content.</li>
+                                    <li>It will appear in the document outline except if it doesn't have the heading element.</li>
+                                    <li>If heading element is wanted functionally but not visually, still use it but <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section#:~:text=include%20a%20heading%20but%20hide%20it" target="_blank">hide it with CSS styling</a>.s</li>
+                                    <li>It should be used only when there's no more specific element to represent it.</li>
+                                    <li>Example use: search result, map display, user comments section.</li>
+                                </ul>   
+                            </dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Section structure</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2&gt;Comments&lt;/h2&gt;
+    &lt;article&gt;...Comment 1...&lt;/article&gt;
+    &lt;article&gt;...Comment 2...&lt;/article&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+
+                                <figure class="figcode">
+                                    <figcaption>Article used in place of div</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2&gt;...&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+
+                                <figure class="figcode">
+                                    <figcaption>Without heading</figcaption>
+<pre>
+&lt;section id="main"&gt;
+    &lt;article&gt;...First blog post...&lt;/article&gt;
+    &lt;article&gt;...Second blog post...&lt;/article&gt;
+    &lt;article&gt;...Third blog post...&lt;/article&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+
+                                <figure class="figcode">
+                                    <figcaption>Using h1-h6 titling but hide it from view with CSS</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2 class="hidden"&gt;Controls&lt;/h2&gt;
+    &lt;button class="reply"&gt;Reply&lt;/button&gt;
+    &lt;button class="reply-all"&gt;Reply to all&lt;/button&gt;
+    &lt;button class="fwd"&gt;Forward&lt;/button&gt;
+    &lt;button class="del"&gt;Delete&lt;/button&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            
+                            <!-- H1-H6 -->
+                            <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
+                            <dd class="maindef">Section heading elements</dd>
+                            <dd>Heading information can be used to automatically construct document's table of contents.</dd>
+                            <dd>Avoid skipping heading levels.</dd>
+                            <dd>Use only 1 <code>&lt;h1&gt;</code> per page/view. Multiple <code>&lt;h1&gt;</code> is allowed however not the best practise.</dd>
+
+                            <!-- ADDRESS -->
+                            <dt><code>&lt;address&gt;</code></dt>
+                            <dd class="maindef">Contact address element</dd>
+                            <dd>Typically placed inside &lt;footer&gt; element of the current section, if any.</dd>
+                            <dd>HTML</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Address example</figcaption>
+<pre>
+&lt;p&gt;Contact:&lt;/p&gt;
+&lt;address&gt;
+    &lt;a href="mailto:name@example.com"&gt;name@example.com&lt;/a&gt;&lt;br&gt;
+    &lt;a href="tel:+15195555555"&gt;(519) 555-5555&lt;/a&gt;
+&lt;/address&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+<pre>
+a[href^="mailto"]::before {
+    content: "📧 ";
+}
+
+a[href^="tel"]::before {
+    content: ""📞 ";
+}
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                            <p>Contact:</p>
+                                            <address>
+                                                <a href="mailto:name@example.com">name@example.com</a><br>
+                                                <a href="tel:+15195555555">(519) 555-5555</a>
+                                            </address>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <!-- ASIDE -->
+                            <dt><code>&lt;aside&gt;</code></dt>
+
+                            <aside>
+                                <p>Here is an example of an aside. Place the <code>&lt;aside&gt;</code> element before the content it is indirectly related.</p>
+                            </aside>
+
+                            <dd class="maindef">Indirectly related content</dd>
+                            <dd>Usually displayed as a sidebar or call-out boxes.</dd>
+                            <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>HTML for aside above </figcaption>
+<pre>
+&lt;dl&gt;
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;aside&gt;...&lt;/aside&gt;
+    &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS for aside above </figcaption>
+<pre>
+aside {
+    width: 30%;
+    float: right;
+    color: steelblue;
+    border-left: 1px solid steelblue;
+    padding-left: 8px;
+}
+
+aside p {
+    margin: 0;
+}
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <!-- FOOTER -->
+                            <dt><code>&lt;footer&gt;</code></dt>
+                            <dd class="maindef">Closing element</dd>
+                            <dd>Usually contains information about author, copyright, or links to the related document. It could be footer for the whole body or main content, or just for an article element.</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Footer structure</figcaption>
+<pre>
+&lt;article&gt;
+    &lt;h3&gt;...&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/article&gt;
+</pre>
+                                </figure>
+                            </dd>
+                        </dl>
+                    </dd>                   
+                </dl>
+
+
+                <a href="#top"><hr></a>
+            </article>
+            
+            <!-- Article: Text block -->
+            <article id="text_block">
+                <h2>Text block</h2>
+                <p>Text block elements organizes blocks or sections of contents placed within <code>body</code> element tags.</p>
+
+                <dl>
+                    <dt>Blocks</dt>
+                    <dd>
+                        <dl>
+                            <!-- DIV -->
+                            <dt><code>&lt;div&gt;</code></dt>
+                            <dd class="maindef">Generic content division</dd>
+                            <dd>Use this when no other semantic element like <code>&lt;article&gt;</code> and <code>&lt;nav&gt;</code> could be more appropriately applied.</dd>
+                            <dd>For aligning and positioning, use CSS Grid and CSS Flexbox. Previously done with <code>align</code> attribute, but it's obsolete.</dd>
+                            <dd>Handy styling container. Use <code>class</code> attribute and style it in CSS.</dd>
+                            <dd>
+                                <div class="js-resultbox">
+                                    This <code>
+                                        &lt;div class="js-resultbox"&gt;</code> box is an example. 
+                                </div>
+                            </dd>
+
+                            <!-- FIGURES -->
+                            <dt><code>&lt;figure&gt;</code></dt>
+                            <dd class="maindef">Figure with optional caption</dd>
+                            <dd>The figure, its caption, and its content are a single figure unit.</dd>            
+                            <dd>Example usage: image, illustration, code snippet, diagram, etc.</dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;figcaption&gt;</code></dt>
+                                    <dd class="maindef">Figure's caption</dd>    
+                                </dl>
+                            </dd>     
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Figure for img</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;img src="..." alt="..."&gt;
+    &lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <img src="picturesample.jpg" alt="Lavender">
+                                    <figcaption>Lavender</figcaption>
+                                </figure>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Figure for code snippet</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;figcaption&gt;CSS&lt;/figcaption&gt;
+    &lt;pre&gt;
+...
+    ...
+    ...
+...
+    &lt;/pre&gt;
+&lt;/figure&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+<pre>
+figure {
+    border: 3px solid peachpuff;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+}
+
+figcaption {
+    color: cadetblue;
+    font-weight: bold;
+}
+</pre>
+                                    </figure>
+                                </div>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Figure for blockquote</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;figcaption&gt;&lt;cite&gt;...:&lt;/cite&gt;&lt;/figcaption&gt;
+    &lt;blockquote&gt;...&lt;/blockquote&gt;
+&lt;/figure&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <figcaption><cite>Little girl:</cite></figcaption>
+                                            <blockquote>Twinkle twinkle little stars, how I wonder what you are.</blockquote>
+                                        </figure>
+                                    </figure>
+                                </div>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Paragraph blocks</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;p&gt;</code></dt>
+                            <dd class="maindef">Paragraph</dd>
+                            <dd>The block level element for regular paragraph.</dd>
+                            <dd>Default characteristic:
+                                <ul>
+                                    <li>Has top and bottom margin.</li>
+                                    <li>Automatically remove extra spaces and lines.</li>
+                                    <li>Wrap</li>
+                                </ul>
+                            </dd>
+                            <dd>Initial CSS values:
+                                <ul>
+                                    <li><code>display: block;</code></li>
+                                    <li><code>margin-top: 1em;</code></li>
+                                    <li><code>margin-bottom: 1em;</code></li>
+                                    <li><code>margin-left: 0;</code></li>
+                                    <li><code>margin-right: 0;</code></li>
+                                </ul>
+                            </dd>
+        
+                            <dt><code>&lt;pre&gt;</code></dt>
+                            <dd class="maindef">Preformatted Text</dd>
+                            <dd>Present the paragraph exactly as written in the HTML file.</dd>
+                            <dd>Default characteristic:
+                                <ul>
+                                    <li>Monospace font</li>
+                                    <li>Extra spaces and lines are not removed</li>
+                                    <li>Not wrapped</li>
+                                    <li>Like <code>&lt;p&gt;</code>, has top and bottom margin.</li>
+                                </ul>
+
+                            </dd>
+                            <dd>Initial CSS values:
+                                <ul>
+                                    <li><code>display: block;</code></li>
+                                    <li><code>font-family: monospace;</code></li>
+                                    <li><code>white-space: pre;</code></li>
+                                    <li><code>margin: 1em 0;</code></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Drawing with pre</figcaption>
+<pre>
+&lt;pre class="js-resultbox"&gt;
+    ^__^
+    (oo)\_______
+    (__)\       )\/\
+        ||----w |
+        ||     ||
+&lt;/pre&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+<pre>
+    ^__^
+    (oo)\_______
+    (__)\       )\/\
+        ||----w |
+        ||     ||
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dt><code>&lt;blockquote&gt;</code></dt>
+                            <dd class="maindef">Block quoation wrapper</dd>
+                            <dd>For quotation displayed in its own block. Special attribute: <code>cite</code> for the citation's URL.</dd>
+                            <dd class="maindef"><code>&lt;blockquote cite="https://..."&gt;</code></dd>
+                            <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
+
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Blockquote with figure</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;blockquote cite="https:..."&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;...&lt;cite&gt;...&lt;/cite&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
+                                                <p>A supernova is a powerful and luminous stellar explosion.</p>
+                                            </blockquote>
+                                            <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
+                                        </figure>
+                                    </figure>
+                                </div>
+                            </dd>
+                        </dl>
+                    </dd>             
+                 
+                    <dt>Listing</dt>
+                    <dd>
+                        <dl>
+
+                            <!-- ul -->
+                            <dt><code>&lt;ul&gt;</code></dt>
+                            <dd class="maindef">Unordered List</dd>
+                            <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>
+                                <dl>
+                                    <!-- li -->
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd class="maindef">List Item</dd>    
+                                    <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
+                                </dl>
+                            </dd>
+
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>List structure</figcaption>
+<pre>
+&lt;ul&gt;
+    &lt;li&gt;...&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <ul>
+                                            <li>First item</li>
+                                            <li>Second item</li>
+                                            <li>Third item</li>
+                                        </ul>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dd>Default bullet style:
+                                <ul>
+                                    <li>First level: <code>disc</code>
+                                        <ul>
+                                            <li>Second level: <code>circle</code>
+                                                <ul>
+                                                    <li>Third level and the rest: <code> square</code></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>To change bullet style in CSS: <code class="inlinebox">ul {list-style-type: circle;}</code></dd>
+
+                            <dd><strong>Deprecated</strong> special attributes:
+                                <ul>
+                                    <li>
+                                        <code class="deprecated">compact</code> &ndash;
+                                        CSS equivalent: <code class="inlinebox">line-height: 80%;</code>
+                                    </li>
+                                    <li>
+                                        <code class="deprecated">type</code> &ndash; values: <code>circle</code>, <code>disc</code>, and <code>square</code>. CSS equivalent:  <code class="inlinebox">list-style-type: <span class="sampledata">value</span></code>.
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- ol -->
+                            <dt><code>&lt;ol&gt;</code></dt>
+                            <dd class="maindef">Ordered List</dd>
+                            <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd class="maindef">List Item</dd>    
+                                    <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
+                                </dl>
+                            </dd>
+                            <dd>Special attributes:
+                                <ol>
+                                    <li>
+                                        <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low.<br>
+                                        Note: Since the attribute is a <i>boolean</i>, it's written without value. Writting the value both true or false will be equal to having the boolean (as true) altogether.
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol reversed&gt;</code></figcaption>
+                                            <ol reversed>
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        <code>start</code>: arabic numerals. Starting number of the list item.
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol start="5"&gt;</code></figcaption>
+                                            <ol start="5">
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol start="5" reversed&gt;</code></figcaption>
+                                            <ol start="5" reversed>
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        <code>type</code>: numbering type.
+                                        Value options:
+                                        <ul>
+                                            <li><code>a</code>: lowercase letters</li>
+                                            <li><code>A</code>: uppercase letters</li>
+                                            <li><code>i</code>: lowercase Roman numerals</li>
+                                            <li><code>I</code>: uppercase Roman numerals letters</li>
+                                            <li><code>1</code>: default Arabic numerals</li>
+                                        </ul>
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol type="A" start="5" reversed&gt;</code></figcaption>
+                                            <ol type="A" start="5" reversed>
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </dd>
+
+                            <!-- menu -->
+                            <dt><code>&lt;menu&gt;</code></dt>
+                            <dd class="maindef">Semantic alternative to <code>&lt;ul&gt;</code></dd>
+                            <dd>Just like <code>&lt;ul&gt;</code>, it's also an unordered list. Difference:
+                                <ul>
+                                    <li><code>&lt;menu&gt;</code> is intended for interactive items, to act on.
+                                    <ul>
+                                        <li>One of old use is for context menu. This is now obsolete.</li>
+                                    </ul></li>
+                                    <li><code>&lt;ul&gt;</code> primarily contains items for display.</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <div class="figcode menuexample">
+                                    <figure>
+                                        <figcaption>Examples</figcaption>    
+<pre>
+<code>&lt;menu&gt;
+    &lt;li&gt;&lt;button onclick=<span class="sampledata">"copy()"</span>&gt;<span class="sampledata">Copy</span>&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button onclick=<span class="sampledata">"cut()"</span>&gt;<span class="sampledata">Cut</span>&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button onclick=<span class="sampledata">"paste()"</span>&gt;<span class="sampledata">Paste</span>&lt;/button&gt;&lt;/li&gt;    
+&lt;/menu&gt;
+</code></pre>
+                                        
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+<pre>
+menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 400px;
+}
+
+li {
+    flex-grow: 1;
+}
+
+button {
+    width: 100%;
+}
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Results</figcaption>
+                                        <menu>
+                                            <li><button onclick="copy()">Copy</button></li>
+                                            <li><button onclick="cut()">Cut</button></li>
+                                            <li><button onclick="paste()">Paste</button></li>
+                                        </menu>
+                                    </figure>
+                                </div>
+
+                            </dd>
+
+
+                        </dl>
+                    </dd>
+
+                    <dt>Description</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;dl&gt;</code></dt>
+                            <dd class="maindef">Description List</dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;dt&gt;</code></dt>
+                                    <dd class="maindef">Description Term</dd>
+        
+                                    <dt><code>&lt;dd&gt;</code></dt>
+                                    <dd class="maindef">Description Details</dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Description structure</figcaption>
+<pre>
+&lt;dl&gt;
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;dl&gt;...&lt;/dl&gt;
+
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            <dd>Multiple terms and multiple descriptions are both allowed</dd>
+                            <dd>Most prominent usage example of description listing is glossary. This page is structured using nesting description listing. If then different structure is founds to be more suiting, or this is not appropriate use altogether, then maybe a note will be placed here.</dd>
+                        </dl>
+                    </dd>
+
+
+
+                    <dt>Divider</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;hr&gt;</code></dt>
+                            <dd class="maindef">Horizontal Rule</dd>
+                            <dd>Thematic break  between paragraph level elements.</dd>
+                            <dd>Empty element, only have start tag.</dd>
+                            <dd>Special attributes:
+                                <ul>
+                                    <li><strong>deprecated</strong> attributes: <code>align</code>, <code>noshade</code>, <code>size</code>, <code>width</code></li>
+                                    <li><strong>Non-standard</strong> attributes: <code>color</code></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>HR</figcaption>
+<pre>
+&lt;p&gt;...&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;...&lt;/p&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>The CSS</figcaption>
+<pre>
+hr {
+    border: none;
+    border-top: 2px dotted pink;
+}
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <p>Monoceros (Greek: Μονόκερως, "unicorn") is a faint constellation on the celestial equator. Its definition is attributed to the 17th-century Dutch cartographer Petrus Plancius.</p>
+                                            <hr>
+                                            <p>Draco is a constellation in the far northern sky. Its name is Latin for dragon. It was one of the 48 constellations listed by the 2nd century astronomer Ptolemy, and remains one of the 88 modern</p>
+                                        </figure>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                        </dl>
+                    </dd>
+
+
+                </dl>
+                
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Inline text -->
+            <article id="inline_text">
+                <h2>Inline text semantics</h2>
+                <p>Inline level elements don't have their own block shape. They are stretches of text that has particular semantic/role/meaning to it, embedded within block level elements like <code>&lt;p&gt;</code>; and <code>&lt;li&gt;</code>. Some come with certain font/text styling as default, some not.</p>
+                <dl>
+                    <!-- Generic -->
+                    <dt>Generic inline container</dt>
+                    <dd>
+                        <dl>
+                            <!-- span -->
+                            <dt><code>&lt;span&gt;</code></dt>
+                            <dd class="maindef">Generic inline container</dd>
+                            <dd>Default styling: <span class="keyword">none</span></dd>
+                            <dd>Role: styling a stretch of text without specific semantics.</dd>
+                            <dd>This is like <code>&lt;div&gt;</code> for block-level element. Use only when there's no better or more specific inline semantic elements can be used.</dd>
+                        </dl>
+                    </dd>
+
+                    <!-- Links text -->
+                    <dt>Links text</dt>
+                    <dd>
+                        <dl>
+                            <!-- a -->
+                            <dt><code>&lt;a&gt;</code></dt>
+                            <dd class="maindef">Anchor element</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;a <span class="attribute">href=<span class="sampledata">"URL"</span>  <span class="attribute">target=<span class="sampledata">"value"</span></span>&gt;<span class="sampledata">link handle</span>&lt;/a&gt;
+                                    </code>
+                                </div>
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Link handle</li>
+                                    <li><i>href attribute</i>: URL</li>
+                                    <li><i>Target attribute</i> (optional): Landing page</li>
+                                </ul>                                
+                            </dd>
+                            <dd>Default styling:
+                                <ul>
+                                    <li><a href="#inline_text"><u>underline, color, cursor</u></a></li>
+                                </ul>
+                            </dd>
+                       
+                            <dd>Various CSS pseudo-class:
+                                <ul>
+                                    <li><code>:link</code>, <code>:visited</code>, <code>:active</code>, <code>:hover</code>, check for more</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <!-- Text with data -->
+                    <dt>Text with data</dt>
+                    <dd>
+                        <dl>           
+                            <!-- abbr -->
+                            <dt><code>&lt;abbr&gt;</code></dt>
+                            <dd class="maindef">Abbreviation</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;abbr <span class="attribute">title=<span class="sampledata">"Cascading Style Sheets"</span></span>&gt;<span class="sampledata">CSS</span>&lt;/abbr&gt;
+                                    </code>
+                                </div>
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Abbreviated form</li>
+                                    <li><i>Title attribute</i> (optional): Non-abbreviated form</li>
+                                </ul>
+                            </dd>
+                            <dd>Default styling: 
+                                <ul>
+                                    <li><span class="keyword">none</span></li>
+                                    <li>With title attribute: <span class="keyword" style="border-bottom: 1px dotted">dot-underline</span>. Title value is displayed <span class="keyword">on hover</span>.</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>Without title attribute:
+                                        <ul>
+                                            <li>In this chapter we are learning about <code>&lt;abbr&gt;<span class="sampledata">HTML</span>&lt;/abbr&gt;</code>.</li>
+                                            <li>In this chapter we are learning about <abbr>HTML</abbr>.</li>
+                                        </ul>
+                                    </li>
+                                    <li>With title attribute:
+                                        <ul>
+                                            <li>In this chapter we are learning about <code>&lt;abbr title=<span class="sampledata">"HyperText Markup Language"</span>&gt;<span class="sampledata">HTML</span>&lt;/abbr&gt;</code>.</li>
+                                            <li>In this chapter we are learning about <abbr title="HyperText Markup Language">HTML</abbr>.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+        
+                            <!-- dfn -->
+                            <dt><code>&lt;dfn&gt;</code></dt>
+                            <dd class="maindef">Definition</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;dfn <span class="attribute">title=<span class="sampledata">"supernova"</span></span><span class="attribute"> id=<span class="sampledata">"def-supernova"</span></span>&gt;<span class="sampledata">supernova</span>&lt;/dfn&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: The term</li>
+                                    <li><i>Title attribute</i> (optional): The term (superseding the text content)</li>
+                                    <li><i>Id attribute</i> (optional): To facilited linking via <code>&lt;a <span class="attribute">href=<span class="sampledata">"#idName"</span></span>&gt;</code></li>
+                                    <li>Enclosing <code>&lt;p&gt;</code>, <code>&lt;dt&gt;</code>/<code>&lt;dd&gt;</code> pair, or <code>&lt;section&gt;</code>: The definition</li>
+                                </ul>
+                            </dd>
+                            <dd>Default styling:
+                                <ul>
+                                    <li><dfn class="keyword">italic</dfn></li>
+                                    <li>With title attribute, title value is displayed <span class="keyword">on hover</span>.</li>
+                                </ul>
+                            </dd>
+
+                            <dd>Special child:
+                                <ul>
+                                    <li><code>&lt;abbr&gt;</code>: See next point</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>Without any attributes
+                                        <ul>
+                                            <li>A <code>&lt;dfn&gt;<span class="sampledata">supernova</span>&lt;/dfn&gt;</code> is a powerful and luminous stellar explosion.</li>
+                                            <li>A <dfn>supernova</dfn> is a powerful and luminous stellar explosion.</li>
+                                        </ul>
+                                    </li>
+                                    <li>With title and id attributes
+                                        <ul>
+                                            <li>A <code>&lt;dfn title=<span class="sampledata">"supernova"</span> id=<span class="sampledata">"def-supernova"</span>&gt;<span class="sampledata">supernova</span>&lt;/dfn&gt;</code> is a powerful and luminous stellar explosion.</li>
+                                            <li>A <dfn title="supernova" id="def-supernova">supernova</dfn> is a powerful and luminous stellar explosion.</li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li>Linking to the definition from other part of document.
+                                        <ul>
+                                            <li><code>&lt;a href=<span class="sampledata">"#def-supernova"</span>&gt;<span class="sampledata">supernova</span>&lt;/a&gt;</code> can expel several solar masses of material at speeds up to several percent of the speed of light.</li>
+                                            <li><a href="#def-supernova">Supernovae</a> can expel several solar masses of material at speeds up to several percent of the speed of light.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- dfn-abbr -->
+                            <dt><code>&lt;dfn&gt;&lt;abbr&gt;</code></dt>
+                            <dd class="maindef">Definition of abbreviation</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;dfn&gt;&lt;abbr <span class="attribute">title=<span class="sampledata">"Cascading Style Sheets"</span></span>&gt;<span class="sampledata">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Default styling: 
+                                <ul>
+                                    <li><dfn class="keyword">italic</dfn></li>
+                                    <li>With title attribute: <dfn class="keyword" style="border-bottom: 1px dotted">italic and dot-underline</dfn>. Title value is displayed <span class="keyword">on hover</span>.</li>
+                                </ul>
+                            </dd>          
+                            <dd>Examples
+                                <ul>
+                                    <li>Without title attribute
+                                        <ul>
+                                            <li><code>&lt;dfn&gt;&lt;abbr&gt;<span class="sampledata">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;</code> is the language we use to style an HTML document.</li>
+                                            <li><dfn><abbr>CSS</abbr></dfn> is the language we use to style an HTML document.</li>
+                                        </ul>
+                                    </li>
+                                    <li>With title attribute
+                                        <ul>
+                                            <li><code>&lt;dfn&gt;&lt;abbr title=<span class="sampledata">"Cascading Style Sheets"</span>&gt;<span class="sampledata">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;</code> is the language we use to style an HTML document.</li>
+                                            <li><dfn><abbr title="Cascading Style Sheets">CSS</abbr></dfn> is the language we use to style an HTML document.</li>
+                                        </ul>
+                                    </li>
+                                    <li>With id attribute
+                                        <ul>
+                                            <li><code>&lt;dfn id=<span class="sampledata">"def-css"</span>&gt;&lt;abbr title=<span class="sampledata">"Cascading Style Sheets"</span>&gt;<span class="sampledata">CSS</span>&lt;/abbr&gt;&lt;/dfn&gt;</code> is the language we use to style an HTML document.</li>
+                                            <li><dfn id="def-css"><abbr title="Cascading Style Sheets">CSS</abbr></dfn> is the language we use to style an HTML document.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Linking to the definition from other part of document.
+                                        <ul>
+                                            <li>A <code>&lt;a href=<span class="sampledata">"#def-css"</span>&gt;<span class="sampledata">CSS</span>&lt;/a&gt;</code> may be used if one single HTML page has a unique style.</li>
+                                            <li>A <a href="#def-css">CSS</a> may be used if one single HTML page has a unique style.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- cite -->
+                            <dt><code>&lt;cite&gt;</code></dt>
+                            <dd class="maindef">Citation</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;cite&gt&lt;a <span class="attribute">href=<span class="sampledata">"URL"</span></span>&gt;<span class="sampledata">work title</span>&lt;/a&gt;&lt;/cite&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Work title</li>
+                                    <li>Child element <code>&lt;a&gt;</code> (optional): Link to the source</li>
+                                </ul>
+                            </dd>
+                            <dd>Default styling: 
+                            <ul>
+                                <li><i span="keyword">italic</i></li>
+                                <li>With link: link styling applies</li>
+                            </ul>
+                            </dd>
+
+                            <dd>Citation vs Quotation:
+                                <ul>
+                                    <li>Quotation elements<code>&lt;blockquote&gt;</code> and <code>&lt;q&gt;</code>  using <code>cite</code> attribute.
+                                        <ul>
+                                            <li>These are for <i>quotations</i>.</li> 
+                                            <li>Cite attribute here is to refer to the quotation source.</li>
+                                            <li>The text content is <i>quoted words</i>.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Citation element <code>&lt;cite&gt;</code>
+                                        <ul>
+                                            <li>This is for <i>citation</i>.</li>
+                                            <li>The text content is a <i>creative work's title</i>.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>Without link
+                                        <ul>
+                                            <li>I wrote <code>&lt;cite&gt;<span class="sampledata">Fluorine and Rhenium...</span>&lt;/cite&gt;</code> during my graduate study in Western University.</li>
+                                            <li>I wrote <cite>Fluorine and Rhenium Substituted Ghrelin Analogues as Potential Imaging Probes for the Growth Hormone Secretagogue Receptor</cite> during my graduate study in Western University.</li>
+                                        </ul>
+                                    </li>
+                                    <li>With link
+                                        <ul>
+                                            <li>I wrote <code>&lt;cite&gt;&lt;a href="URL"&gt;<span class="sampledata">Fluorine and Rhenium...</span>&lt;a&gt;&lt;/cite&gt;</code> during my graduate study in Western University.</li>
+                                            <li>I wrote <cite><a href="https://pubs.acs.org/doi/abs/10.1021/jm8014519">Fluorine and Rhenium Substituted Ghrelin Analogues as Potential Imaging Probes for the Growth Hormone Secretagogue Receptor</a></cite> during my graduate study in Western University.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- q -->
+                            <dt><code>&lt;q&gt;</code></dt>
+                            <dd class="maindef">Inline quotoation</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;q <span class="attribute">cite=<span class="sampledata">"URL"</span></span>&gt;<span class="sampledata">quotation</span>&lt;/q&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Quoted words</li>
+                                    <li><i>Cite attribute</i> (optional): Link to the source
+                                        <ul>
+                                            <li>Not displayed including upon hovering.</li>
+                                        </ul> 
+                                    </li>
+                                </ul>
+
+                            </dd>
+                            <dd>Default styling:
+                                <ul>
+                                    <li><span class="keyword">"quoted"</span></li>
+                                </ul>
+                            </dd>
+
+                            <dd>Examples:
+                                <ul>
+                                    <li>According to the Wikipedia, <code>&lt;q <span class="attribute">cite=<span class="sampledata">"https://en.wikipedia.org/wiki/Supernova"</span></span>&gt;<span class="sampledata">A supernova is a powerful and luminous stellar explosion.</span>&lt;/q&gt;</code></li>
+                                    <li>According to the Wikipedia, <q cite="https://en.wikipedia.org/wiki/Supernova">A supernova is a powerful and luminous stellar explosion.</q></li>
+                                </ul>
+                            </dd>
+
+                            <!-- data -->
+                            <dt><code>&lt;data&gt;</code></dt>
+                            <dd class="maindef">Data</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;data <span class="attribute">value=<span class="sampledata">"123"</span></span>&gt;<span class="sampledata">content</span>&lt;/data&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Human-readable content</li>
+                                    <li><i>Value attribute</i>: Machine-readable data</li>
+                                </ul>
+                            </dd>
+                            <dd>Default styling: <span class="keyword">none</span>
+                                <ul>
+                                    <li>Value not displayed</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>Codes
+                                        <ul>
+                                            <li><code>&lt;data value=<span class="sampledata">"123"</span>&gt;<span class="sampledata">Apples</span>&lt;/data&gt;</code></li>
+                                            <li><code>&lt;data value=<span class="sampledata">"124"</span>&gt;<span class="sampledata">Bananas</span>&lt;/data&gt;</code></li>
+                                            <li><code>&lt;data value=<span class="sampledata">"125"</span>&gt;<span class="sampledata">Oranges</span>&lt;/data&gt;</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Results
+                                        <ul>
+                                            <li><data value="123">Apples</data></li>
+                                            <li><data value="124">Bananas</data></li>
+                                            <li><data value="125">Oranges</data></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </dd>
+
+                            <!-- time -->
+                            <dt><code>&lt;time&gt;</code></dt>
+                            <dd class="maindef">Date and time</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;time <span class="attribute">datetime=<span class="sampledata">"2022-07-24"</span></span>&gt;<span class="sampledata">24 July</span>&lt;/time&gt;
+                                    </code>
+                                </div>                                
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li><i>Text content</i>: Human-readable date, time, or time duration</li>
+                                    <li><i>Datetime attribute</i>: Machine-readable date, time, or time duration</li>
+                                </ul>
+                            </dd>
+                            <dd>Default styling: <span class="keyword">none</span>
+                                <ul>
+                                    <li>Datetime not displayed</li>
+                                </ul>
+                            </dd>
+                            <dd>Valid <i>datetime</i> string format:
+                                <ul>
+                                    <li>Date
+                                        <ul>
+                                            <li><code>2022</code></li>
+                                            <li><code>2022-11</code></li>
+                                            <li><code>2022-11-18</code></li>
+                                            <li><code>11-18</code></li>
+                                            <li><code>2022-W47</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Time
+                                        <ul>
+                                            <li><code>14:54</code></li>
+                                            <li><code>14:54:39</code></li>
+                                            <li><code>14:54:39.929</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Date and time
+                                        <ul>
+                                            <li><code>2011-11-18T14:54:39.929</code></li>
+                                            <li><code>2011-11-18 14:54:39.929</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Global date and time
+                                        <ul>
+                                            <li><code>2011-11-18T14:54:39.929Z</code></li>
+                                            <li><code>2011-11-18T14:54:39.929-0400</code></li>
+                                            <li><code>2011-11-18T14:54:39.929-04:00</code></li>
+                                            <li><code>2011-11-18 14:54:39.929Z</code></li>
+                                            <li><code>2011-11-18 14:54:39.929-0400</code></li>
+                                            <li><code>2011-11-18 14:54:39.929-04:00</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Time duration
+                                        <ul>
+                                            <li><code>PT4H18M3S</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>Codes
+                                        <ul>
+                                            <li>
+                                                <code>
+                                                    &lt;time <span class="attribute">datetime=<span class="sampledata">"2022-07-24"</span></span>&gt;<span class="sampledata">24 July</span>&lt;/time&gt;
+                                                </code>
+                                            </li>
+                                            <li>
+                                                <code>
+                                                    &lt;time <span class="attribute">datetime=<span class="sampledata">"20:00:00"</span></span>&gt;<span class="sampledata">8 pm</span>&lt;/time&gt;
+                                                </code>
+                                            </li>
+                                            <li>
+                                                <code>
+                                                    &lt;time <span class="attribute">datetime=<span class="sampledata">"PT2H30M"</span></span>&gt;<span class="sampledata">2h 30m</span>&lt;/time&gt;
+                                                </code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Results
+                                        <ul>
+                                            <li><time datetime="2022-07-24">24 July</time></li>
+                                            <li><time datetime="20:00:00">8 pm</time></li>
+                                            <li><time datetime="PT2H30M">2h 30m</time></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <!-- Semantically styled text -->
+                    <dt>Semantically styled text</dt>
+                    <dd>Elements within the main text with their own unique style to visually represent their roles to the users, but don't have action or defining attributes like in the previous section.</dd>
+                    <dd>Prominent default appearance is featured. Of course this could be changed.</dd>
+                    <dd>
+                        <dl>
+                            <!-- strong -->
+                            <dt><code>&lt;strong&gt;</code></dt>
+                            <dd class="maindef">Strong importance</dd>
+                            <dd>Default styling: <b class="keyword">bold</b></dd>
+                            <dd>CSS equivalent: <code class="inlinebox">font-weight: bold;</code></dd>
+                            <dd>Including great seriousness or urgency such as warning. Could be of a great importance in the whole page, or some words that are of greater importance compared to nearby content.</dd>
+                            <dd>Example:
+                                <ul>
+                                    <li>Dinner tonight will be sizzling fajita. <strong>Warning:</strong> Don't put your face on it! Sizzling fajita is sizzling hot.</li>
+                                </ul>
+                            </dd>
+
+                            <!-- b -->
+                            <dt><code>&lt;b&gt;</code></dt>
+                            <dd class="maindef">Boldface</dd>
+                            <dd>Default styling: <b class="keyword">bold</b></dd>
+                            <dd>CSS equivalent: <code class="inlinebox">font-weight: bold;</code></dd>
+                            <dd>To draw attention to the text without indicating it's more important.</dd>
+                            <dd>If there's no semantic meaning to the text, use CSS <code>font-weight: bold</code> property instead.</dd>
+
+                            <!-- em -->
+                            <dt><code>&lt;em&gt;</code></dt>
+                            <dd class="maindef">Emphasis</dd>
+                            <dd>Default styling: <i class="keyword">italics</i></dd>
+                            <dd>CSS equivalent: <code class="inlinebox">font-style: italic;</code></dd>
+                            <dd>Indicates stressed emphasis, including stressed contrast.</dd>
+                            <dd>If it's not to stress emphasize, use:
+                                <ul>
+                                    <li>CSS <code>font-style: italic;</code> for general styling</li>
+                                    <li><code>&lt;cite&gt;</code> for citations such as title of book, play, song, etc.</li>
+                                    <li><code>&lt;i&gt;</code> for alternate tone or mood, fictional characters' thought, definition of a word, for scientific names, words in different languages</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>I do <em>not</em> want that.</li>
+                                    <li>Just <em>do</em> it already.</li>
+                                    <li>In HTML 5, what was previously called  <em>block-level</em> content is now called  <em>flow</em> content.</li>
+                                </ul>
+                            </dd>
+
+                            <!-- i -->
+                            <dt><code>&lt;i&gt;</code></dt>
+                            <dd class="maindef">Idiomatic text</dd>
+                            <dd>Default styling: <i class="keyword">italics</i></dd>
+                            <dd>CSS equivalent: <code class="inlinebox">font-style: italic;</code></dd>
+                            <dd>Use: a range of text that deviates from normal text for some reason, such as:
+                                <ul>
+                                    <li>Idiomatic text</li>
+                                    <li>Technical terms</li>
+
+                                    <li>Alternative voice or mood</li>
+                                    <li>Taxonomical designations
+                                        <p>
+                                            For example: <i>Hedera helix</i>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <ul>
+                                    <li>The <i>Queen Mary</i> sailed last night.
+                                        <ul>
+                                            <li>To indicate it's not about a queen named Mary, but about a ship named Queen Mary.</li>
+                                        </ul>
+                                    </li>
+                                    <li>The word <i>the</i> is an article.
+                                        <ul>
+                                            <li>To indicate the word being explained is "the".</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- u -->
+                            <dt><code>&lt;u&gt;</code></dt>
+                            <dd class="maindef">Unarticulated annotation</dd>
+                            <dd>Default styling: <u class="keyword">underlined</u></dd>
+                            <dd>CSS equivalent: <code class="inlinebox">text-decoration: underline;</code></dd>
+
+                            <!-- s -->
+                            <dt><code>&lt;s&gt;</code></dt>
+                            <dd class="maindef">Strikethrough</dd>
+                            <dd>Default styling: <s class="keyword">strikethrough</s></dd>
+                            <dd>CSS equivalent: <code class="inlinebox">text-decoration: line-through;</code></dd>
+                            <dd>Use: to indicate contents no longer relevant.</dd>
+                            <dd>Similar elements:
+                                <ul>
+                                    <li><code>&lt;del&gt;</code>: Indicates deleted text in document edit.</li>
+                                    <li><strong>Deprecated</strong>: <code class="deprecated">&lt;strike&gt;</code></li>
+                                </ul>
+                            </dd>
+
+                            <!-- mark -->
+                            <dt><code>&lt;mark&gt;</code></dt>
+                            <dd class="maindef">Marked/highlighted text</dd>
+                            <dd>Default styling: <mark>highlight</mark></dd>
+                            <dd>CSS equivalent:
+                                <ul>
+                                    <li><code class="inlinebox">background-color: yellow;</code></li>
+                                    <li><code class="inlinebox">color: black;</code></li>
+                                </ul>
+                            </dd>                            
+                            <dd>Examples
+                                <ul>
+                                    <li>The searched word is <mark>potato</mark> and it's supposed to mark all <mark>potato</mark>es in the document.</li>
+                                </ul>
+                            </dd>
+
+                            <!-- small -->
+                            <dt><code>&lt;small&gt;</code></dt>
+                            <dd class="maindef">Side comment</dd>
+                            <dd>Default styling: <small class="keyword">1 font smaller, like from small to x-small</small>.</dd>
+                            <dd>CSS equivalent: <code class="inlinebox">font-size: 0.8rem;</code></dd>
+                            <dd>Use: Represents side-comments and small print. Like copyright and legal text.</dd>
+                            <dd>Examples:
+                                
+                                <figure class="figcode">
+                                    <p>Here is the last content paragraph of the document, and after this there will be a divider continued with licensing statement.</p>
+                                    <hr>
+                                    <p><small>The content is licensed under a Creative Commons Attribution-ShareAlike 2.5 Generic License.</small></p>
+
+                                </figure>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <!-- Child text -->
+                    <dt>Child text</dt>     
+                    <dd>Child text to the main text member. Usually represented in smaller font with specific positioning relative to the text parent.</dd>   
+                    <dd>
+                        <dl>
+
+                            <!-- sub -->
+                            <dt><code>&lt;sub&gt;</code></dt>
+                            <dd class="maindef">Subscript</dd>
+                            <dd>Default display: <span class="keyword">parent<sub>child low and small</sub></span></dd>
+                            <dd>CSS equivalent:
+                                <ul>
+                                    <li><code class="inlinebox">vertical-align: sub;</code> or <code class="inlinebox">vertical-align: -25%;</code></li>
+                                    <li><code class="inlinebox">font-size: 0.8rem;</code></li>
+                                </ul>
+                            </dd>
+                            <dd>Example uses:
+                                <ul>
+                                    <li>Chemical formula
+                                        <ul>
+                                            <li>H<code>&lt;sub&gt;<span class="sampledata">2</span>&lt;/sub&gt;</code>O</li>
+                                            <li>H<sub>2</sub>O</li>
+                                        </ul>
+                                    </li>
+                                    <li>Footnote numbers:
+                                        <ul>
+                                            <li>poinsettia<sub>1</sub></li>
+                                        </ul></li>
+                                    <li>Mathematical variable numbers (consider using MathML)
+                                        <ul>
+                                            <li>x<sub>1</sub>...x<sub>n</sub></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>Note: Can't use <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> at the same spot like in atomic symbol. Need <code>MathML</code> for that.</dd>
+        
+                            <!-- sup -->
+                            <dt><code>&lt;sup&gt;</code></dt>
+                            <dd class="maindef">Superscript</dd>
+                            <dd>Default display: <span class="keyword">parent<sup>child high and small</sup></span></dd>
+                            <dd>CSS equivalent:
+                                <ul>
+                                    <li><code class="inlinebox">vertical-align: sup;</code> or <code class="inlinebox">vertical-align: 50%;</code></li>
+                                    <li><code class="inlinebox">font-size: 0.8rem;</code></li>
+                                </ul>
+                            </dd>
+                            <dd>Example uses:
+                                <ul>
+                                    <li>Superior lettering
+                                        <ul>
+                                            <li>M<code>&lt;sup&gt;<span class="sampledata">lle</span>&lt;/sup&gt;</code></li>
+                                            <li>M<sup>lle</sup></li>
+                                        </ul>
+                                    </li>
+                                    <li>Ordinal numbers
+                                        <ul>
+                                            <li>4<sup>th</sup></li>
+                                        </ul>
+                                    </li>
+                                    <li>Exponent (consider using MathML)
+                                        <ul>
+                                            <li>2<sup>2</sup> = 4</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>Note: Can't use <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> at the same spot like in atomic symbol. Need <code>MathML</code> for that.</dd>
+                        </dl>
+                    </dd>
+
+                    <!-- Technical text -->
+                    <dt>Technical text</dt>
+                    <dd>Monospace font except for <code>&lt;var&gt;</code></dd>
+                    <dd>
+                        <dl>                
+
+                            <!-- code -->
+                            <dt><code>&lt;code&gt;</code></dt>
+                            <dd class="maindef">Inline code</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        &lt;code&gt;<span class="sampledata">let x = 123;</span>&lt;/code&gt;
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    <code>let x = 123;</code>
+                                </div>
+                            </dd>
+                            <dd>Default display: <code span="keyword">monospace font</code></dd>
+                            <dd>Wrap inside preformatted block element <code>&lt;pre&gt;</code> to create code blocks.
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Create code block:</figcaption>
+<pre>
+<code>&lt;pre&gt;
+&lt;code&gt;<span class="sampledata">let x = 123;
+let y = 456;
+let z = 780;</span>&lt;/code&gt;
+&lt;/pre&gt;</code>
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result:</figcaption>
+<pre>
+<code>let x = 123;
+let y = 456;
+let z = 780;</code>
+</pre>
+                                    </figure>
+                                </div>
+
+
+                            </dd>
+
+                            <!-- kbd -->
+                            <dt><code>&lt;kbd&gt;</code></dt>
+                            <dd class="maindef">Keyboard input</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        <span class="sampledata">Press</span> &lt;kbd&gt;<span class="sampledata">Ctrl</span>&lt;/kbd&gt; <span class="sampledata">+</span> &lt;kbd&gt;<span class="sampledata">Alt</span>&lt;/kbd&gt; <span class="sampledata">+</span> &lt;kbd&gt;<span class="sampledata">Del</span>&lt;/kbd&gt;
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd>
+                                </div>
+                            </dd>
+                            <dd>Default display: <code span="keyword">monospace font</code></dd>
+                            <dd>Represents textual user input from a keyboard, voice input, or any other text entry device.</dd>
+                                               
+                            <!-- samp -->
+                            <dt><code>&lt;samp&gt;</code></dt>
+                            <dd class="maindef">Sample output</dd>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        <span class="sampledata">Output text: </span> &lt;samp&gt;<span class="sampledata">Scan complete. Press F1 to continue</span>&lt;/samp&gt;
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    Output text: <samp>Scan complete. Press F1 to continue</samp>
+                                </div>
+                            </dd>
+                            <dd>Default display: <code span="keyword">monospace font</code></dd>
+                            <dd>Nesting keyboard input and sample output:
+                                <ul>
+                                    <li>
+                                        <code>&lt;kbd&gt;</code> inside <code>&lt;kbd&gt;</code>
+                                        <ul>
+                                            <li>Child inputs as part of a parent input.</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <code>&lt;kbd&gt;</code> inside <code>&lt;samp&gt;</code>
+                                        <ul>
+                                            <li>Input has been echoed back to users by the system.</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <code>&lt;samp&gt;</code> inside <code>&lt;kbd&gt;</code>
+                                        <ul>
+                                            <li>Input based on the text presented by the system.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Learn more in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd" target="_blank">&lt;kbd&gt; page</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp" target="_blank">&lt;samp&gt; page</a></li>
+                                </ul>
+                            </dd>
+
+                            <!-- var -->
+                            <dt><code>&lt;var&gt;</code></dt>
+                            <dd class="maindef">Variable</dd>
+
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        <span class="sampledata">Equation: </span> &lt;var&gt;<span class="sampledata">x</span>&lt;/var&gt; <span class="sampledata">=</span> &lt;var&gt;<span class="sampledata">y</span>&lt;/var&gt; <span class="sampledata">+ 2</span>
+                                    </code>
+                                </div>
+                                <div class="figinblock">
+                                    Equation: <var>x</var> = <var>y</var> + 2
+                                </div>
+                            </dd>
+                            <dd>Typical default styling: <var class="keyword">italic</var></dd>
+                            <dd>Represents variable name in a mathematical expression or programming context</dd>
+                            <dd>Often used together with elements: <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, <code>&lt;samp&gt;</code></dd>
+                            <dd>Don't confuse with other elements with default italic font such as:  <code>&lt;em&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;q&gt;</code></dd>
+                            
+                        </dl>
+                    </dd>
+
+
+                    <dt>Different writing system</dt>
+                    <dd>
+                        <dl>                
+                            <dt><code>&lt;bdi&gt;</code></dt>
+                            <dd class="maindef">Bidirectional isolate</dd>
+                            <dd>Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text.</dd>
+                            <dd>Examples
+                                <ul>
+                                    <li>Without <code>&lt;bdi&gt;</code>
+                                        <ul>
+                                            <li>Codes:
+                                                <ul>
+                                                    <li><code>&lt;span class="name"&gt;<span class="sampledata">اَلأَعْشَى</span>&lt;/span&gt; <span class="sampledata">- 1st place</span></code></li>
+                                                    <li><code>&lt;span class="name"&gt;<span class="sampledata">Tom Smith</span>&lt;/span&gt; <span class="sampledata">- 2nd place</span></code></li>
+                                                </ul>
+                                            </li>
+                                            <li>Results:
+                                                <ul>
+                                                    <li><span class="name">اَلأَعْشَى</span> - 1st place</li>
+                                                    <li><span class="name">Tom Smith</span> - 2nd place</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>With <code>&lt;bdi&gt;</code>
+                                        <ul>
+                                            <li>Codes:
+                                                <ul>
+                                                    <li><code>&lt;bdi class="name"&gt;<bdi class="sampledata">اَلأَعْشَى</bdi>&lt;/bdi&gt; <bdi class="sampledata">- 1st place</bdi></code></li>
+                                                    <li><code>&lt;bdi class="name"&gt;<bdi class="sampledata">Tom Smith</bdi>&lt;/bdi&gt; <bdi class="sampledata">- 2nd place</bdi></code></li>
+                                                </ul>
+                                            </li>
+                                            <li>Results:
+                                                <ul>
+                                                    <li><bdi class="name">اَلأَعْشَى</bdi> - 1st place</li>
+                                                    <li><bdi class="name">Tom Smith</bdi> - 2nd place</li>
+                                                </ul>
+                                            </li>
+
+                                          </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+        
+                            <!-- bdo -->
+                            <dt><code>&lt;bdo&gt;</code></dt>
+                            <dd class="maindef">Bidirectional text element</dd>
+                            <dd>Important attribute: dir. It has 2 possible values:
+                                <ul>
+                                    <li><code>dir="ltr"</code>: left to right (like reagular alphabet)</li>
+                                    <li><code>dir="rtl"</code>: right to left.</li>
+                                </ul>
+                            </dd>
+                            <dd>Overrides current directionality of text. Text is rendered in a different direction.</dd>
+                            <dd>Language application example: Hebrew.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Codes</figcaption>
+                                            <p><code>&lt;p&gt;</code>The English song "Oh I do like to be beside the seaside"<code>&lt;/p&gt;</code></p>
+
+                                            <p><code>&lt;p&gt;</code>Looks like this in Hebrew: <code>&lt;span dir=<span class="sampledata">"rtl"</span>&gt;<span class="sampledata">אה, אני אוהב להיות ליד חוף הים</span>&lt;/span&gt;&lt;/p&gt;</code></p>
+        
+                                            <p><code>&lt;p&gt;</code>In the computer's memory, this is stored as <code>&lt;bdo dir=<span class="sampledata">"ltr"</span>&gt;<span class="sampledata">אה, אני אוהב להיות ליד חוף הים</span>&lt;/bdo&gt;&lt;/p&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Results</figcaption>
+                                        <p>The English song "Oh I do like to be beside the seaside"</p>
+
+                                        <p>Looks like this in Hebrew: <span dir="rtl">אה, אני אוהב להיות ליד חוף הים</span></p>
+    
+                                        <p>In the computer's memory, this is stored as <bdo dir="ltr">אה, אני אוהב להיות ליד חוף הים</bdo></p>
+                                    </figure>
+
+                                </div>
+                            </dd>
+                            <dd>Not familiar with Hebrew writing. Check the example <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo" target="_blank">here</a></dd>                            <dd>Examples:
+                                <ul>
+                                    <li>Codes:
+                                        <ul>
+                                            <li>Normal: 12345</li>
+                                            <li>Left to right: <code>&lt;bdo dir=<span class="sampledata">"ltr"</span>&gt;<span class="sampledata">12345</span>&lt;/bdo&gt;</code></li>
+                                            <li>Right to left: <code>&lt;bdo dir=<span class="sampledata">"rtl"</span>&gt;<span class="sampledata">12345</span>&lt;/bdo&gt;</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Results:
+                                        <ul>
+                                            <li>Normal: 12345</li>
+                                            <li>Left to right: <bdo dir="ltr">12345</bdo></li>
+                                            <li>Right to left: <bdo dir="rtl">12345</bdo></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- ruby -->
+                            <dt><code>&lt;ruby&gt;</code></dt>
+                            <dd class="maindef">Ruby annotation</dd>
+                            <dd>Represents small annotation that are rendered above, below, or next to base text. Usualy for showing pronunciation of East Asian characters.</dd>
+                            
+                            <dd>                                
+                                <div class="formula">
+                                    <code>
+                                        &lt;ruby&gt;<br>
+                                            <span class="tab sampledata">漢</span> &lt;rp&gt;<span class="sampledata">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="sampledata">kan</span>&lt;/rt&gt;&lt;rp&gt;<span class="sampledata">)</span>&lt;/rp&gt;<br>
+                                            <span class="tab sampledata">字</span> &lt;rp&gt;<span class="sampledata">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="sampledata">ji</span>&lt;/rt&gt;&lt;rp&gt;<span class="sampledata">)</span>&lt;/rp&gt;<br>
+                                        &lt;/ruby&gt;<br>
+                                        &lt;ruby&gt;<br>
+                                        <span class="tab sampledata">明日</span> &lt;rp&gt;<span class="sampledata">(</span>&lt;/rp&gt;&lt;rt&gt;<span class="sampledata">Ashita</span>&lt;/rt&gt;&lt;rp&gt;<span class="sampledata">)</span>&lt;/rp&gt;<br>
+                                        &lt;/ruby&gt;
+                                    </code>
+                                </div><br>
+                                <div class="figinblock">
+
+                                    <code>Result 1: </code>
+                                    <ruby>
+                                        漢 <rp>(</rp><rt>kan</rt><rp>)</rp>
+                                        字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+                                    </ruby><br>
+                                    <code>Result 2: </code>
+                                    <ruby>
+                                        明日 <rp>(</rp><rt>Ashita</rt><rp>)</rp>
+                                    </ruby>
+                                </div>
+                            </dd> 
+                            <dd>    
+                                <dl>
+                                    <dt><code>&lt;rt&gt;</code></dt>
+                                    <dd class="maindef">Ruby Text</dd>
+                                    <dd>Provide pronunciation, translation, or transliteration information</dd>
+
+                                    <dt><code>&lt;rp&gt;</code></dt>
+                                    <dd class="maindef">Ruby Fallback Parenthesis</dd>
+                                    <dd>Provide fall-back parentheses for browsers that do not support display of ruby annotations</dd>
+                                </dl>
+                            </dd>
+                            <dd>It's possible to omit <code>&lt;rp&gt;</code>, but it won't have the fallback parenthesis.
+                            </dd>
+                            <dd>                                
+                                <div class="formula">
+                                    <code>
+                                        &lt;ruby&gt;<br>
+                                            <span class="tab sampledata">漢</span> &lt;rt&gt;<span class="sampledata">kan</span>&lt;/rt&gt;<br>
+                                            <span class="tab sampledata">字</span> &lt;rt&gt;<span class="sampledata">ji</span>&lt;/rt&gt;<br>
+                                        &lt;/ruby&gt;
+                                    </code>
+                                </div><br>
+                                <div class="figinblock">
+                                    <code>Result: </code>
+                                    <ruby>
+                                        漢 <rt>kan</rt>
+                                        字 <rt>ji</rt>
+                                    </ruby><br>
+                                </div>
+                            </dd> 
+                            <dd><strong>Deprecated</strong> ruby elements: <code class="deprecated">&lt;rb&gt;</code>, <code class="deprecated">&lt;rtc&gt;</code></dd>
+                        </dl>
+                    </dd>
+
+
+                    <dt>Breaks</dt>
+                    <dd>
+                        <dl>      
+                            <dt><code>&lt;br&gt;</code></dt>
+                            <dd class="maindef">Line break / carriage return</dd>
+                            <dd>Use: To create a line break in a block of text.</dd>
+                            <dd>Example usage:
+                                <ul>
+                                    <li>Poem</li>
+                                    <li>Address</li>
+                                </ul>
+                            </dd>
+                            <dd>Don't use <code>&lt;br&gt;</code> to create margins between paragraphs. Instead, wrap it within a <code>&lt;p&gt;</code> element and style it with <code>margin</code>.</dd>
+                            <dd>CSS styling: <code class="inlinebox">line-height</code>
+                                <ul>
+                                    <li>Don't do it by setting <code>margin</code></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Poem</figcaption>
+                                        <p><code>&lt;p&gt;</code></p>
+                                            <p class="indent">
+                                                Humpty Dumpty sat on the wall<code>&lt;br&gt;</code><br>
+                                                Humpty Dumpty had a great fall<code>&lt;br&gt;</code><br>
+                                                All of the horses and all of the men<code>&lt;br&gt;</code><br>
+                                                Couldn't put Humpty together again.
+                                            </p>
+                                        <p><code>&lt;/p&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>
+                                            Humpty Dumpty sat on the wall<br>
+                                            Humpty Dumpty had a great fall<br>
+                                            All of the horses and all of the men<br>
+                                            Couldn't put Humpty together again.
+                                        </p>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Address</figcaption>
+                                        <p><code>&lt;p&gt;</code></p>
+                                            <p class="indent">
+                                                Name<code>&lt;br&gt;</code><br>
+                                                Address line 1<code>&lt;br&gt;</code><br>
+                                                Address line 2<code>&lt;br&gt;</code><br>
+                                                Telephone number
+                                            </p>
+                                        <p><code>&lt;/p&gt;</code></p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <p>
+                                            Name<br>
+                                            Address line 1<br>
+                                            Address line 2<br>
+                                            Telephone number
+                                        </p>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <dt><code>&lt;wbr&gt;</code></dt>
+                            <dd class="maindef">Word break / line break opportunity</dd>
+                            <dd>Word break opportunity: a position within text where the browser may optionally break a line.</dd>
+                            <dd>Notes:
+                                <ul>
+                                    <li>It doesn't introduce hyphen</li>
+                                    <li>To make hyphen appear at the end of the line, use: <code>&amp;shy;</code> (soft hyphen character entity)</li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Plain</figcaption>
+
+                                        <code>&lt;p&gt;</code>Fernstraßenbauprivatfinanzierungsgesetz<code>&lt;/p&gt;</code>
+
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&lt;wbr&gt;</code></figcaption>
+
+                                        <code>&lt;p&gt;</code>Fernstraßen<code>&lt;wbr&gt;</code>bau<code>&lt;wbr&gt;</code>privat<code>&lt;wbr&gt;</code>finanzierungs<code>&lt;wbr&gt;</code>gesetz<code>&lt;/p&gt;</code>
+
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&amp;shy;</code></figcaption>
+
+                                        <code>&lt;p&gt;</code>Fernstraßen<code>&amp;shy;</code>bau<code>&amp;shy;</code>privat<code>&amp;shy;</code>finanzierungs<code>&amp;shy;</code>gesetz<code>&lt;/p&gt;</code>
+                                    </figure>
+                                    </div>
+
+                                </div>
+                                <div class="figcode" style="max-width:150px;">
+                                    <figure>
+                                        <figcaption>Plain</figcaption>
+                                        <p>Fernstraßenbauprivatfinanzierungsgesetz</p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&lt;wbr&gt;</code></figcaption>
+                                        <p>Fernstraßen<wbr>bau<wbr>privat<wbr>finanzierungs<wbr>gesetz</p>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>With <code>&amp;shy;</code></figcaption>
+                                    </figure>
+                                        <p>Fernstraßen&shy;bau&shy;privat&shy;finanzierungs&shy;gesetz</p>
+                                    </div>
+                                    </figure>
+                                </div>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                </dl>               
+                
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Image and media -->
+            <article id="img_media">
+                <h2>Image and multimedia</h2>
+                <dl>
+                    <dt><code>&lt;img&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dt><code>&lt;audio&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dt><code>&lt;video&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;track&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                        </dl>
+                    </dd>
+
+                    <dt><code>&lt;map&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;area&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                        </dl>
+                    </dd>
+                </dl>
+                
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Embed -->
+            <article id="embed">
+                <h2>Embedded content</h2>
+                <p><code>      </code></p>
+                <dl>
+                    <dt><code>&lt;object&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;param&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                        </dl>
+                    </dd>
+
+                    <dt><code>&lt;picture&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;source&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                            <dt><code>&lt;img&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                        </dl>
+                    </dd>
+
+                    <dt><code>&lt;embed&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                    <dt><code>&lt;iframe&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                    <dt><code>&lt;portal&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                </dl>
+                
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: SVG Math -->
+            <article id="SVG_math">
+                <h2>SVG and MathML</h2>
+                <dl>
+                    <dt><code>&lt;svg&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dt><code>&lt;math&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                </dl>
+                
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Script -->
+            <article id="script">
+                <h2>Scripting</h2>
+                <dl>
+                    <dt><code>&lt;script&gt;</code></dt>
+                    <dd class="maindef">Script</dd>
+                    <dd>Embed executable code or data. Usually refer to JavaScript code. Can also be used with different languages, for example: GLSL and JSON.</dd>
+
+                    <dt><code>&lt;noscript&gt;</code></dt>
+                    <dd class="maindef">Noscript</dd>
+                    <dd>A section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.</dd>
+
+                    <dt><code>&lt;canvas&gt;</code></dt>
+                    <dd class="maindef">Graphic canvas</dd>
+                    <dd>Use with either <i>canvas scripting API</i> or the <i>WebGL API</i> to draw graphics and animations.</dd>
+                </dl>
+                
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Demarcation -->
+            <article id="demarcation">
+                <h2>Demarcating edits</h2>
+                <p><code>&lt;del&gt;</code> and <code>&lt;ins&gt;</code> marking deletion and insertion to the document to track changes.</p>
+                <dl>
+                    <dt><code>&lt;del&gt;</code></dt>
+                    <dd>Indicates <del>deletion</del>. Default style is strikethrough.</dd>
+
+                    <dt><code>&lt;ins&gt;</code></dt>
+                    <dd>Indicates <ins>insertion</ins>. Default value is underline.</dd>
+
+                </dl>
+                
+                <a href="#top"><hr></a>
+            </article>
+            
+            <!-- Article: Table -->
+            <article id="table">
+                <h2>Table</h2>        
+
+                    <dt>Table's structure</dt>
+                    <dd><!-- Table structure -->
+                        <figure class="figcode" style="width: fit-content;">
+                            <figcaption>Table's structure</figcaption>
+                                <code>
+                                <p>&lt;table&gt;</p>
+                                <ul>
+                                    <li>&lt;caption&gt;</li>
+                                    <li>&lt;colgroup&gt;
+                                        <ul>
+                                            <li>&lt;col&gt;</li>
+                                        </ul>
+                                    </li>
+                                    <li>&lt;thead&gt;
+                                        <ul>
+                                            <li>&lt;tr&gt;
+                                                <ul>
+                                                    <li>&lt;th&gt;</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>&lt;tbody&gt;
+                                        <ul>
+                                            <li>&lt;tr&gt;
+                                                <ul>
+                                                    <li>&lt;th&gt; or &lt;td&gt;</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>&lt;tfoot&gt;
+                                        <ul>
+                                            <li>&lt;tr&gt;
+                                                <ul>
+                                                    <li>&lt;th&gt; or &lt;td&gt;</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </code>                    
+                        </figure>
+                    </dd>
+                    <dd>When all table elements are used, they need to be in this structure and order.</dd>
+
+                    <!-- table -->
+                    <dt><code>&lt;table&gt;</code></dt>
+                    <dd class="maindef">Table</dd>
+                    <dd>The elements:
+                        <ul>
+                            <li>In general, a table is optionally consist of 3 sections: <code>&lt;thead&gt;</code>, body <code>&lt;body&gt;</code>, and <code>&lt;footer&gt;</code>.</li>
+                            <li>Each section can have 1 or more rows <code>&lt;tr&gt;</code>.</li>
+                            <li>Each row can have 1 or more data cells <code>&lt;td&gt;</code>.</li>
+                            <li>When a data cell functions as a header, <code>&lt;th&gt;</code> is used. Examples are all <code>&lt;thead&gt;</code>'s data cells, and sometimes the first data cell of each <code>&lt;body&gt;</code>'s rows.</li>
+                            <li>Column in the table can be organized through <code>&lt;colgroup&gt;</code> and <code>&lt;col&gt;</code> elements.</li>
+                            <li>Table caption can be included in <code>&lt;caption&gt;</code> element.</li>
+                        </ul>
+                    </dd>
+                    <dd>Default styling:
+                        <ul>
+                            <li>Table comes very plain to make it very adaptable with any styling. Use CSS for styling> Here some examples.</li>
+                            <li><code class="inlinebox">border: 1px solid gray</code></li>
+                            <li><code class="inlinebox">border-collapse: collapse;</code>
+                                <ul>
+                                    <li>Values: <code>collapse</code>, <code>separate</code> (default)</li>
+                                    <li>To adjust spacing when borders are separated:
+                                        <ul>
+                                            <li><code class="inlinebox">border-spacing: 5px 10px;</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">text-align: left;</code>
+                                <ul>
+                                    <li>Values: <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code></li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">vertical-align: middle;</code> on <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code>
+                                <ul>
+                                    <li>Values: <code>baseline</code>, <code>sub</code>, <code>super</code>, <code>text-top</code>, <code>text-bottom</code>, <code>middle</code>, <code>top</code>, <code>bottom</code></li>
+                                </ul>
+                            </li>                            
+                        </ul>
+                    </dd>
+                    <dd> <!-- Simple example -->
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Basic table</figcaption>
+                                <table class="borderedtable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Kitten</td>
+                                            <td>Cat</td>
+                                            <td>Orange</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Doggy</td>
+                                            <td>Dog</td>
+                                            <td>Brown</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>HTML codes</summary>
+<pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;<span class="sampledata">Name</span>&lt;/th&gt;
+            &lt;th&gt;<span class="sampledata">Type</span>&lt;/th&gt;
+            &lt;th&gt;<span class="sampledata">Color</span>&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Cat</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Orange</span>&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Doggy</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</pre> 
+                                </details>                       
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>CSS codes</summary>
+<pre>
+table {
+    border: 1px solid cadetblue;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    font-weight: bold;
+    color: cadetblue;
+}
+
+th, td {
+    border: 1px solid cadetblue;
+    text-align: center;
+    padding: 4px 8px;
+}
+</pre> 
+                                </details>
+                            </figure>
+                        </div>
+                    </dd>
+
+                    <dd>
+                        <dl>
+                            <!-- caption -->
+                            <dt><code>&lt;caption&gt;</code></dt>
+                            <dd class="maindef">Table caption</dd>
+                            <dd>
+                                <ul>
+                                    <li>Optional, but when used, it <i>must</i> be the first chid of <code>&lt;table&gt;</code> element.</li>
+                                    <li>Doesn't adopt the table's <code>background-color</code>. Style <code>&lt;caption&gt; directly</code>.</li>
+                                    <li>For <code>&lt;table&gt;</code> that is the only descendant element of <code>&lt;figure&gt;</code>, use <code>&lt;figcaption&gt;</code> instead of <code>&lt;caption&gt;</code>.</li>
+                                </ul>
+                            </dd>
+                            <dd>Default display: <span class="keyword">Centered, on top of table</span></dd>
+                            <dd>CSS styling:
+                                <ul>
+                                    <li><code>caption-side</code>
+                                        <ul>
+                                            <li>Default: <code class="inlinebox">caption-side: top;</code></li>
+                                            <li>Other value: <code>bottom</code></li>
+                                        </ul>
+                                    </li>
+                                    <li><code>text-align</code> 
+                                        <ul>
+                                            <li>Default: <code class="inlinebox">text-align: center;</code></li>
+                                            <li>Other values: <code>right</code> and <code>left</code></li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Deprecated</strong> attribute <code class="deprecated">align</code> was used to specify this in the past.</code></li>
+                                </ul>
+                            </dd>
+                                         
+                            <!-- colgroup -->
+                            <dt><code>&lt;colgroup&gt;</code></dt>
+                            <dd class="maindef">Table column group</dd>
+                            <dd>Defines a group of column within a table</dd>
+                            <dd>Important child element: <code>&lt;col&gt;</code>
+                                <ul>
+                                    <li>With child <code>&lt;col&gt;</code> element
+                                        <ul>
+                                            <li>Grouping is arranged more thoroughly through the child <code>&lt;col&gt;</code> elements.</li>
+                                            <li><code>span</code> attribute is not permitted. If it is written, it will be ignored.</li>
+                                            <li>For starting and ending tag requirement, check the documentation.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Without child <code>&lt;col&gt;</code> element
+                                        <ul>
+                                            <li>Important attribute: <code>span</code>
+                                                <ul>
+                                                    <li><code>span</code> attribute indicates the number of column this element is applied, from the start (left in ltr)</li>
+                                                    <li>If it's not written, default <code class="inlinebox">span="1"</code> is assumed.</li>
+                                                    <li>Default styling: <span class="keyword">none</span></li>
+                                                    <li>For styling, use class attribute and assign CSS styling.</li>
+                                                </ul>
+                                            </li>
+                                            
+                                            <li>Closing tag may be omitted. Check documentation.</li>
+                                        </ul>    
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd> 
+                                <dl>
+                                    <!-- col -->
+                                    <dt><code>&lt;col&gt;</code></dt>
+                                    <dd class="maindef">Table column</dd>
+                                    <dd>Permitted parrent: <code>&lt;colgroup&gt;</code> only
+                                        <ul>
+                                            <li>But it can be implicitely defined. See documentation.</li>
+                                        </ul>
+                                    </dd>
+                                    <dd>Important attribute: <code>span</code>
+                                        <ul>
+                                            <li>See note in <code>&lt;colgroup&gt;</code> above.</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </dd>
+
+                            <dd><!-- Table with caption, colgroup, and col -->
+                                <div class="figcode" id="complextable">
+                                    <figure>
+                                        <figcaption>Table with caption, colgroup, and col elements, and th's attribute "scope"</figcaption>
+                                        <table class="bottomcaption borderedtable">
+                                            <caption>Pets</caption>
+                                            <colgroup span="2" class="coltitle">
+                                                <col class="coltitle">
+                                                <col span="2" class="colclass1">
+                                                <col span="2" class="colclass2">
+                                            </colgroup>
+        
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Animal</th>
+                                                    <th scope="col">Harrison</th>
+                                                    <th scope="col">Olivia</th>
+                                                    <th scope="col">Nico</th>
+                                                    <th scope="col">Nika</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" >Dogs</th>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>2</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Cats</th>
+                                                    <td>6</td>
+                                                    <td>7</td>
+                                                    <td>8</td>
+                                                    <td>1</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th scope="row">Total</th>
+                                                    <td>9</td>
+                                                    <td>11</td>
+                                                    <td>10</td>
+                                                    <td>6</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </figure>
+                                    <figure>
+                                        <details>
+                                            <summary>HTML codes</summary>
+<pre>
+&lt;table&gt;
+    &lt;caption&gt;<span class="sampledata">Pets</span>&lt;/caption&gt;
+    &lt;colgroup&gt;
+        &lt;col span=<span class="sampledata">"1"</span> class=<span class="sampledata">"coltitle"</span>&gt;
+        &lt;col span=<span class="sampledata">"2"</span> class=<span class="sampledata">"colclass1"</span>&gt;
+        &lt;col span=<span class="sampledata">"2"</span> class=<span class="sampledata">"colclass2"</span>&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope=<span class="sampledata"><span class="sampledata">"col"</span></span>&gt;<span class="sampledata">Animal</span>&lt;/th&gt;
+            &lt;th scope=<span class="sampledata">"col"</span>&gt;<span class="sampledata">Harrison</span>&lt;/th&gt;
+            &lt;th scope=<span class="sampledata">"col"</span>&gt;Olivia&lt;/th&gt;
+            &lt;th scope=<span class="sampledata">"col"</span>&gt;Nico&lt;/th&gt;
+            &lt;th scope=<span class="sampledata">"col"</span>&gt;Nika&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope=<span class="sampledata">"row"</span>&gt;<span class="sampledata">Dogs</span>&lt;/th&gt;
+            &lt;td&gt;<span class="sampledata">3</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">4</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">2</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope=<span class="sampledata">"row"</span>&gt;<span class="sampledata">Cats</span>&lt;/th&gt;
+            &lt;td&gt;<span class="sampledata">6</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">7</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">1</span>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th scope=<span class="sampledata">"row"</span>&gt;Total&lt;/th&gt;
+            &lt;td&gt;<span class="sampledata">9</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">11</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">10</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">6</span>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;
+</pre>  
+                                        </details>
+                                    </figure>
+                                    <figure>
+                                        <details>
+                                            <summary>CSS codes</summary>
+<pre>
+table {
+    border: 1px solid cadetblue;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+}
+
+caption {
+    caption-side: bottom;
+    font-weight: bold;
+    color: cadetblue;
+    font-size: 1.1rem;
+}
+
+th {
+    font-weight: bold;
+    color: cadetblue;
+}
+
+tbody th  {
+    font-weight: normal;
+}
+
+th, td {
+    border: 1px solid cadetblue;
+    text-align: center;
+    padding: 4px 8px;
+}
+
+.coltitle {
+    background-color: rgb(248, 227, 230);
+}
+
+.colclass1 {
+    background-color: rgb(243, 240, 209);
+}
+
+.colclass2 {
+    background-color: rgb(204, 231, 235);
+}
+</pre>
+                                        </details>
+                                    </figure>
+                                </div>
+                            </dd>
+                                                   
+                            <!-- thead -->
+                            <dt><code>&lt;thead&gt;</code></dt>
+                            <dd class="maindef">Table head</dd>
+                            <dd>Defining heading part of the table with 1 or more rows.</dd>
+                            <dd>There can be only 1 <code>&lt;thead&gt;</code> per table.</dd>
+
+                            <!-- tbody -->
+                            <dt><code>&lt;tbody&gt;</code></dt>
+                            <dd class="maindef">Table body</dd>
+                            <dd>Defining body part of the table with 1 or more rows.</dd> 
+
+                            <!-- tfoot -->
+                            <dt><code>&lt;tfoot&gt;</code></dt>
+                            <dd class="maindef">Table foot</dd>
+                            <dd>Defining footer or summary part of the table with 1 or more rows.</dd>
+
+                            <dd>
+                                <dl>
+                                    <!-- tr -->
+                                    <dt><code>&lt;tr&gt;</code></dt>
+                                    <dd class="maindef">Table row</dd>
+                                    <dd>Defines rows in a table.
+                                        <ul>
+                                            <li>Permitted parents: <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code></li>
+                                            <li>Can be direct chid of <code>&lt;table&gt;</code> if there's no <code>&lt;tbody&gt;</code> element. Otherwise must be under the <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, or <code>&lt;tfoot&gt;</code>. Structure and order still need to be followed.</li>
+                                            <li>Permitted children: <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> combination</li>
+                                        </ul>
+                                    </dd>
+                                    <dd>
+                                        <dl>
+                                            <!-- th -->
+                                            <dt><code>&lt;th&gt;</code></dt>
+                                            <dd class="maindef">Table header cell</dd>
+                                            <dd>Defines all cells sitting in <code>&lt;tr&gt;</code> that are headers in nature:
+                                                <ul>
+                                                    <li>All cells in <code>&lt;thead&gt;&lt;tr&gt;</code></li>
+                                                    <li>Occasionally, first column cells in <code>&lt;tbody&gt;&lt;tr&gt;</code> and <code>&lt;tfoot&gt;&lt;tr&gt;</code></li>
+                                                </ul>
+                                            </dd>
+                                            <dd>Important attributes
+                                                <ul>
+                                                    <li><code>scope</code>
+                                                        <ul><li>Defines the cells the header relates to.</li>
+                                                            <li>Values:
+                                                                <ul>
+                                                                    <li><code>row</code>: The header relates to all cells of the row it belongs to</li>
+                                                                    <li><code>col</code>: The header relates to all cells of the column it belongs to.</li>
+                                                                    <li><code>rowgroup</code>: The header belongs to a rowgroup and relates to all of its cells. The cells can be placed right or left of the header depending on the <code>dir</code> attribute value of the <code>&lt;table&gt;</code></li>
+                                                                    <li><code>colgroup</code>: The header belongs to a colgroup and relates to all of its cells.</li>
+                                                                    <li>If <code>scope</code> attribute is not specified or the value is not one of the above, browsers automaticallt select the set of cells to which the header cell applies.</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>Check out <a href="#complextable">table titled "Pet" above</a> for an example.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>headers</code>
+                                                        <ul>
+                                                            <li>Contains a list of space-separated strings corresponding to the <code>id</code> attribute of the <code>&lt;th&gt;</code> elements that apply to this element.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>abbr</code>
+                                                        <ul>
+                                                            <li>Contains a short abbreviated descrition of the cell's content. Some user-agents such as speech readers may present this description before the content itself.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>colspan</code> and <code>rowspan</code>
+                                                        <ul>
+                                                            <li>Explained in details <a href="#colrowspan">below</a>.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </dd>
+
+                                            <!-- td -->
+                                            <dt><code>&lt;td&gt;</code></dt>
+                                            <dd class="maindef">Table data cell</dd>
+                                            <dd>Defines all cells sitting in <code>&lt;tr&gt;</code> that are data in nature:
+                                                <ul>
+                                                    <li>Most cells in <code>&lt;tbody&gt;&lt;tr&gt;</code> and <code>&lt;tfoot&gt;&lt;tr&gt;</code></li>
+                                                </ul>
+                                            </dd>
+                                            <dd>Important attributes
+                                                <ul>
+                                                    <li><code>headers</code>
+                                                        <ul>
+                                                            <li>Contains a list of space-separated strings corresponding to the <code>id</code> attribute of the <code>&lt;th&gt;</code> elements that apply to this element.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><code>colspan</code> and <code>rowspan</code>
+                                                        <ul>
+                                                            <li>Explained in details <a href="#colrowspan">below</a>.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </dd>
+
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+
+                        </dl>
+                    </dd>
+
+                    <!-- Column and row spanning -->
+                    <dt id="colrowspan"><code>&lt;th&gt;</code> and <code>&lt;td&gt;</code>'s column and row spanning</dt>
+                    <dd>Arranged by <code>colspan</code> and <code>rowspan</code> attributes</dd> 
+                    <dd>
+                        <ul>
+                            <li>
+                                Spanning horizontally with column span:<br>
+                                <div class="formula">
+                                    <code>&lt;th <span class="attribute">colspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                                <div class="formula">
+                                    <code>&lt;td <span class="attribute">colspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                            </li>
+                            <li>Spanning vertically with row span:<br>
+                                <div class="formula">
+                                    <code>&lt;th <span class="attribute">rowspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                                <div class="formula">
+                                    <code>&lt;td <span class="attribute">rowspan=</span><span class="sampledata">"2"</span>&gt;</code>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>Attribute's value
+                        <ul>
+                            <li>Non-negative integer</li>
+                            <li>Defines number of cells in a span.</li>
+                            <li>Default is <code>1</code></li>
+                            <li>For colspan:
+                                <ul>
+                                    <li>Integer higher than <code>1000</code> is considered incorrect. Default value <code>1</code> is used.</li>
+                                </ul>
+                            </li>
+                            <li>For rowspan:
+                                <ul>
+                                    <li>If value is <code>0</code>, the cell extends until the end of the table section that the cell belongs too.</li>
+                                    <li>Value higher than <code>65534</code> will be clipped down to <code>65534</code>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dd> <!-- colspan rowspan example -->
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Table with colspan and rowspan example</figcaption>
+                                <table class="borderedtable">
+                                    <caption>Box List</caption>
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">Pet's name</th>
+                                            <th rowspan="2">Box ID</th>
+                                            <th colspan="3">Dimension (cm)</th>
+                                            <th rowspan="2">Color</th>
+                                        </tr>
+                                        <tr>
+                                            <th>width</th>
+                                            <th>length</th>
+                                            <th>height</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">Bronto</td>
+                                            <td>3</td>
+                                            <td>8</td>
+                                            <td>8</td>
+                                            <td>8</td>
+                                            <td>Blue</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td>Yellow</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lousie</td>
+                                            <td>5</td>
+                                            <td colspan="3">Ball with radius = 5 cm</td>
+                                            <td>Silver</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kitten</td>
+                                            <td>1</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                            <td>Red</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>HTML codes</summary>
+<pre>
+&lt;table&gt;
+&lt;caption&gt;<span class="sampledata">Box List</span>&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+    &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Pet's name</span>&lt;/th&gt;
+    &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Box ID</span>&lt;/th&gt;
+    &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Dimension (cm)</span>&lt;/th&gt;
+    &lt;th rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Color</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;th&gt;<span class="sampledata">width</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">length</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">height</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+    &lt;td rowspan=<span class="sampledata">"2"</span>&gt;<span class="sampledata">Bronto</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">3</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">8</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Blue</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Louise</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Ball with radius = 5 cm</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Silver</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">1</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">5</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Red</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</pre> 
+                                </details>                       
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>CSS codes</summary>
+<pre>
+caption {
+font-weight: bold;
+font-size: 1.1rem;
+color: cadetblue;
+}
+
+table {
+border: 1px solid cadetblue;
+border-collapse: collapse;
+text-align: center;
+vertical-align: middle;
+}
+
+th, td {
+border: 1px solid cadetblue;
+text-align: center;
+padding: 4px 8px;
+}
+</pre> 
+                                </details>
+                            </figure>
+                        </div>
+                    </dd>
+
+                    <!-- Multiple tbody -->
+                    <dt>Multiple <code>&lt;tbody&gt;</code></dt>
+                    <dd>There can be more than 1 <code>&lt;tbody&gt;</code> per table</dd>
+                    <dd>Structure idea:
+                        <ul>
+                            <li>Use <code>&lt;head&gt;</code> element to title each column as usual</li>
+                            <li>Use the first row <code>&lt;tr&gt;</code> of each <code>&lt;tbody&gt;</code> for the each body's title.
+                                <ul>
+                                    <li>Use <code>&lt;th&gt;</code> instead of <code>&lt;td&gt;</code> for the cell.</li>
+                                    <li>Merge all cells in the row to create a title band: <code>&lt;th  <span class="attribute">colspan=</span><span class="sampledata">"2"</span>&gt;</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                    
+                    <dd><!-- Table with multiple bodies -->
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Table with multiple bodies</figcaption>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="3">Olivia's pets</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Kitten</td>
+                                            <td>Cat</td>
+                                            <td>Orange</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Doggy</td>
+                                            <td>Dog</td>
+                                            <td>Brown</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="3">Harry's pets</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Dino</td>
+                                            <td>Bronto</td>
+                                            <td>Green</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thomas</td>
+                                            <td>Dog</td>
+                                            <td>Brown</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>HTML codes</summary>
+<pre>
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+    &lt;th&gt;<span class="sampledata">Name</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">Type</span>&lt;/th&gt;
+    &lt;th&gt;<span class="sampledata">Color</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+    &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Olivia's pets</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Cat</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Orange</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Doggy</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+    &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Harry's pets</span>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Dino</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Bronto</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Green</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;<span class="sampledata">Thomas</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+    &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</pre> 
+                                </details>
+                            </figure>
+                            <figure>
+                                <details>
+                                    <summary>CSS codes</summary>
+<pre>
+tbody th {
+font-weight: normal;
+background-color: rgb(255, 244, 235);
+}
+</pre>
+                                </details>
+                            </figure>
+                        </div>
+                    </dd>
+
+                    <!-- nth-of-type -->
+                    <dt>CSS pseudo-class <code>:nth-of-type()</code> and <code>:nth-child()</code></dt>
+                    <dd>With these pseudo-classes, it's easy to specifically style certain rows or columns of a table</dd>
+                    <dd>
+                        <dl>
+                            <dt>Siblings of the same type</dt>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        :nth-of-type(<span class="sampledata">arg</span>)
+                                    </code>
+                                </div>
+                            </dd>
+                            <dd>Matches elements based on their position among siblings of the same type (tag name).</dd>
+                            <dd>Variations:
+                                <ul>
+                                    <li>An+B</var>
+                                        <ul>
+                                            <li><code>:nth-of-type(<span class="sampledata">2</span>)</code></li>
+                                            <li><code>:nth-of-type(<span class="sampledata">3n</span>)</code></li>
+                                            <li><code>:nth-of-type(<span class="sampledata">2n+1</span>)</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>An+B from the end of the list
+                                        <ul>
+                                            <li><code>:nth-<span class="sampledata">last</span>-of-type(<span class="sampledata">2n+1</span>)</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Odd or even
+                                        <ul>
+                                            <li><code>:nth-of-type(<span class="sampledata">odd</span>)</code></li>
+                                            <li><code>:nth-of-type(<span class="sampledata">even</span>)</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>First or last
+                                        <ul>
+                                            <li><code>:<span class="sampledata">first</span>-of-type</code></li>
+                                            <li><code>:<span class="sampledata">last</span>-of-type</code></li>  
+                                        </ul>
+                                    </li>
+                                    <li>The only one, if there's only 1 of the type.
+                                        <ul>
+                                            <li><code>:<span class="sampledata">only</span>-of-type</code></li>  
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <dt>Children of all types</dt>
+                            <dd>
+                                <div class="formula">
+                                    <code>
+                                        :nth-child(<span class="sampledata">arg</span>)
+                                    </code>
+                                </div>
+                            </dd>
+                            <dd>Alternatively, use <code>:nth-of-child()</code> to the parent element, if rule should be applied to all type of children elements.</dd>
+                            <dd>
+                            <dd>Variations:
+                                <ul>
+                                    <li>All variations of <code>:nth-of-type()</code> applies. Just replace <code>-of-type</code> with <code>-child</code></li>
+                                </ul>
+                            </dd>
+
+                            <dt>Examples</dt>
+                            <dd>
+                                <ul>
+                                    <li>To style bottom border of only 2nd row of header:
+                                        <ul>
+                                            <li><code><span class="sampledata">thead > tr</span>:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">border-bottom: 4px double cadetblue;</span>}</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>To create easy-to-read table with alternating color of each row:
+                                        <ul>
+                                            <li><code><span class="sampledata">tbody > tr</span>:nth-of-type(<span class="sampledata">odd</span>) {<span class="sampledata">background-color: lightyellow;</span>}</code></li>
+                                            <li><code><span class="sampledata">tbody > tr</span>:nth-of-type(<span class="sampledata">even</span>) {<span class="sampledata">background-color: whitesmoke;</span>}</code></li>
+                                            <li>Only need to use one of above, they can alternate with existing background-color</li>
+                                        </ul>
+                                    </li>
+                                    <li>In a complex header like in the pet's boxes example above, to style the subheader cell differently:
+                                        <ul>
+                                            <li><code><span class="sampledata">thead > tr:last-of-type > th</span>:nth-of-type(<span class="sampledata">1</span>) {<span class="sampledata">color: palevioletred;</span>}</code></li>
+                                            <li><code><span class="sampledata">thead > tr:last-of-type > th</span>:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">color: salmon;</span>}</code></li>
+                                            <li><code><span class="sampledata">thead > tr:last-of-type > th</span>:nth-of-type(<span class="sampledata">3</span>) {<span class="sampledata">color: olive;</span>}</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Text-align left specific column in the body
+                                        <ul>
+                                            <li><code><span class="sampledata">tbody > tr > td</span>:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">text-align: left;</span>}</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <dd> <!-- nth example -->
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Table styled with nth pseudo-classes</figcaption>
+                                        <table class="borderedtable nthtable">
+                                            <caption>Box List</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2">Box ID</th>
+                                                    <th rowspan="2">Pet's name</th>
+                                                    <th colspan="3">Dimension (cm)</th>
+                                                    <th rowspan="2">Color</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>width</th>
+                                                    <th>length</th>
+                                                    <th>height</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Bronto</td>
+                                                    <td>8</td>
+                                                    <td>8</td>
+                                                    <td>8</td>
+                                                    <td>Blue</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Dino</td>
+                                                    <td>4</td>
+                                                    <td>4</td>
+                                                    <td>4</td>
+                                                    <td>Yellow</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Lousie</td>
+                                                    <td colspan="3">Ball with radius = 5 cm</td>
+                                                    <td>Silver</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Kitten</td>
+                                                    <td>5</td>
+                                                    <td>5</td>
+                                                    <td>5</td>
+                                                    <td>Red</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Sirius</td>
+                                                    <td>25</td>
+                                                    <td>64</td>
+                                                    <td>81</td>
+                                                    <td>Rainbow</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>Mario</td>
+                                                    <td>10</td>
+                                                    <td>10</td>
+                                                    <td>10</td>
+                                                    <td>Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>Unicat</td>
+                                                    <td>3</td>
+                                                    <td>7</td>
+                                                    <td>20</td>
+                                                    <td>Pink</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </figure>
+                                    <figure>
+                                        <details open>
+                                            <summary open>Featured CSS codes</summary>
+                                            <ul>
+                                                <li><code>thead > tr:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">border-bottom: 4px double cadetblue;</span>}</code></li>
+                                                <li><code>tbody > tr:nth-of-type(<span class="sampledata">odd</span>) {<span class="sampledata">background-color: lightyellow;</span>}</code></li>
+                                                <li><code>thead > tr:last-of-type > th:nth-of-type(<span class="sampledata">1</span>) {<span class="sampledata">color: palevioletred;</span>}</code></li>
+                                                <li><code>thead > tr:last-of-type > th:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">color: salmon;</span>}</code></li>
+                                                <li><code>thead > tr:last-of-type > th:nth-of-type(<span class="sampledata">3</span>) {<span class="sampledata">color: olive;</span>}</code></li>
+                                                <li><code>tbody > tr > td:nth-of-type(<span class="sampledata">2</span>) {<span class="sampledata">text-align: left;</span>}</code></li>
+                                            </ul>
+                                        </details>
+                                    </figure>
+                                </div>
+                            </dd>
+                        </dl>
+                    </dd>
+                                 
+                    <!-- Table sorting -->
+                    <dt>Table sorting</dt>
+                    <dd>Use following JavaScript methods to sort an <code>HTMLCollection</code> of <code>&lt;tr&gt;</code> elements:
+                        <ul>
+                            <li><code>Array.prototype.slice()</code></li>
+                            <li><code>Array.prototype.sort()</code></li>
+                            <li><code>Node.removeChild()</code></li>
+                            <li><code>Node.appendChild()</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>There's so much more on table...</dt>
+                    <dd>Read up start from <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank">documentation on table element</a></dd>
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Form -->
+            <article id="form">
+                <h2>Forms</h2>
+                <dl>
+                    <dt><code>&lt;form&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dd>
+                        <dl>   
+                            <dt><code>&lt;label&gt;</code></dt>
+                            <dd class="maindef">   </dd>     
+
+                            <dt><code>&lt;input&gt;</code></dt>
+                            <dd class="maindef">   </dd>          
+                            
+                            <dt><code>&lt;button&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+        
+                            <dt><code>&lt;textarea&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+
+        
+                            <dt><code>&lt;datalist&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;option&gt;</code></dt>
+                                    <dd class="maindef">   </dd>            
+                                </dl>
+                            </dd>
+
+                            <dt><code>&lt;select&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;optgroup&gt;</code></dt>
+                                    <dd class="maindef">   </dd>
+                                    <dd>
+                                        <dl>
+                                            <dt><code>&lt;option&gt;</code></dt>
+                                            <dd class="maindef">   </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+
+                            <dt><code>&lt;meter&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+
+                            <dt><code>&lt;progress&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+
+                            <dt><code>&lt;output&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+
+                        </dl>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;fieldset&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;legend&gt;</code></dt>
+                                    <dd class="maindef">   </dd>
+                                    <dt><code>&lt;input&gt;</code></dt>
+                                    <dd class="maindef">   </dd>
+                                    <dt><code>&lt;label&gt;</code></dt>
+                                    <dd class="maindef">   </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>            
+            
+            <!-- Article: Interactive -->
+            <article id="interactive">
+                <h2>Interactive elements</h2>
+                <dl>
+                    <dt><code>&lt;details&gt;</code></dt>
+                    <dd class="maindef">Details disclosure</dd>
+                    <dd>Only shows summary until it's clicked open.</dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;summary&gt;</code></dt>
+                            <dd class="maindef">Disclosure's summary</dd>
+                        </dl>
+                    </dd>
+
+                    <dd>
+                        <div class="formula">
+<pre>
+<code>&lt;details&gt;
+    &lt;summary&gt;<span class="sampledata">Default display</span>&lt;/summary&gt;
+    <span class="sampledata">Detailed information on default display.</span>
+&lt;/details&gt;
+</code></pre>
+                        </div>
+                        <div class="figinblock">
+                            <details>
+                                <summary>Default display</summary>
+                                <ul>
+                                    <li><i>Summary</i>: Block level element, normal font, preceded with a triangle indicator to illustrate the stages:
+                                        <ul>
+                                            <li>Open: facing right</li>
+                                            <li>Closed: facing down</li>
+                                        </ul>
+                                    </li>
+                                    <li><i>Full information</i>: Displayed under the summary only when clicked open.</li>
+                                </ul> 
+                            </details>
+                        </div>
+                        <div class="formula">
+<pre>
+<code>&lt;details open&gt;
+    &lt;summary&gt;<span class="sampledata">Open attribute</span>&lt;/summary&gt;
+    <span class="sampledata">Detailed information on open attribute.</span>
+&lt;/details&gt;
+</code></pre>
+                        </div>
+                        <div class="figinblock">
+                            <details open>
+                                <summary><i>open</i> attribute</summary>
+                                <ul>
+                                    <li>To make open as the default display</li>
+                                    <li>A boolean, attribute, written without value. Adding value even when it is "false" will make it rendered as true.</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </dd>
+                    <dd>Further styling in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">here</a>.</dd>
+
+                    <dt><code>&lt;dialog&gt;</code></dt>
+                    <dd class="maindef">Dialog</dd>
+                    <dd>Dialog box or other interactive component such as dismissible alert, inspector, or subwindow. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog" target="_blank">Read more</a>.</dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article> 
+
+            <!-- Article: Web -->
+            <article id="web">
+                <h2>Web components</h2>
+                <dl>
+                    <dt><code>&lt;slot&gt;</code></dt>
+                    <dd class="maindef">Web component slot</dd>
+                    <dd>A placeholder inside a web component that we can fill with our own markup, allow us  to create separate DOM trees and present them together.</dd>
+                    <dd>Important attribute: <code>slot</code>
+                        <ul>
+                            <li>A <i>named slot</i> is a slot with a name attribute.</li>
+                        </ul></dd>
+
+                    <dt><code>&lt;template&gt;</code></dt>
+                    <dd class="maindef">Content template</dd>
+                    <dd>A mechanism for holding HTML that is not rendered immediately when a page is loaded, but maybe instantiated subsequently during runtime in JavaScript.</dd>
+
+                <a href="#top"><hr></a>
+            </article> 
+
+            <!-- Article: Deprecated -->
+            <article id="deprecated">
+                <h2>Obsolete and deprecated elements</h2>
+                <p><strong>Warning:</strong> Elements before are deprecated or obsolete. Do not use, and replace if it's in use.</p>
+
+                <dl class="deprecated_chapter">
+                    <dt>Sectioning</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&ltdir&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;ul&gt;</code></dd>
+
+                            <dt><code>&lt;hgroup&gt;</code></dt>
+                            <dd>Use <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> directly</dd>
+                        </dl>                        
+                    </dd>
+                    
+                    <dt>Section layout</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;center&gt;</code></dt>
+                            <dd>Use CSS property instead.</dd>
+                            <dd>For centering text: <code>text-align: center</code></dd>
+                            <dd>For centering block: <code>margin-right: auto</code> and <code>margin-left: auto</code></dd>
+                            
+                            <dt><code>&lt;nobr&gt;</code></dt>
+                            <dd>Prevent text from automatically wrapping across multiple lines.</dd>
+                            <dd>Use CSS property instead: <code>white-space: nowrap</code></dd>
+
+                            <dt><code>&lt;plaintext&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;pre&gt;</code>, <code>&lt;code&gt;</code>, or CSS <code>font-family</code> with monospace value.</dd>
+
+                            <dt><code>&lt;xmp&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;pre&gt;</code>, <code>&lt;code&gt;</code>, or CSS <code>font-family</code> with monospace value.</dd>
+
+                            <dt><code>&lt;tt&gt;</code></dt>
+                            <dd>Teletype Text element</dd>
+                            <dd>Use instead: <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, <code>&lt;samp&gt;</code>, <code>&lt;var&gt;</code>, <code>&lt;pre&gt;</code>, or <code>&lt;span&gt;</code> styled with CSS <code>font-family</code></dd>
+
+                            <dt><code>&lt;spacer&gt;</code></dt>
+                            <dd>Insert empty spaces on the page.</dd>
+                            <dd>Use instead: CSS</dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Inline text</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;acronym&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;abbr&gt;</code></dd>
+
+                            <dt><code>&lt;rb&gt;</code> <code>&lt;rtc&gt;</code></dt>
+                            <dd>Check out more current <code>&lt;ruby&gt;</code> elements</dd>
+                            
+                            <dt><code>&lt;basefont&gt;</code></dt>
+                            <dd>Use various CSS font properties instead</dd>
+
+                            <dt><code>&lt;font&gt;</code></dt>
+                            <dd>Use various CSS font properties instead</dd>
+
+                            <dt><code>&lt;big&gt;</code></dt>
+                            <dd>Use CSS property instead: <code>font-size: larger</code></dd>
+
+                            <dt><code>&lt;strike&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;del&gt;</code>, <code>&lt;s&gt;</code>, or CSS styling</dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Web components</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;content&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;slot&gt;</code></dd>
+
+
+                            <dt><code>&lt;shadow&gt;</code></dt>
+                            <dd>Intended to be used as a shadow DOM insertion point.</dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Image and multimedia</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;image&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;img&gt;</code></dd>
+
+                            <dt><code>&lt;bgsound&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;audio&gt;</code></dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Embedded content</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;applet&gt;</code> <code>&lt;noembed&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;object&gt;</code></dd>
+
+                            <dt><code>&lt;frame&gt;</code> <code>&lt;frameset&gt;</code> <code>&lt;noframes&gt;</code></dt>
+                            <dd>Use instead: <code>&lt;iframe&gt;</code></dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Just don't.</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;blink&gt;</code></dt>
+                            <dd>Blinking text. Just don't. Can use animation if you must.</dd>
+                            
+                            <dt><code>&lt;marquee&gt;</code></dt>
+                            <dd>Scrolling and bouncing text. Just don't.</dd>
+                        </dl>
+                    </dd>
+                
+                    <dt>Others</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;menuitem&gt;</code></dt>
+                            <dd>Invoke through a pop up menu</dd>
+
+                            <dt><code>&lt;keygen&gt;</code></dt>
+                            <dd>Generation of key material and submission of the public key as part of an html.</dd>
+                        </dl>
+                    </dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article> 
+
+            <!-- Article: Resources -->
+            <article id="resources">
+                <h2>Resources</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">HTML Elements</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity" target="_blank">Reserved characters</a></li>
+                    <li><a href="https://www.w3schools.com/cssref/css_default_values.asp" target="_blank">CSS Default Values Reference</a></li>
+                    <li><a href="https://www.w3.org/wiki/Common_HTML_entities_used_for_typography" target="_blank">Common HTML entities used for typography</a></li>
+                </ul>
+                <a href="#top"><hr></a>
+            </article>
+        </main>
+
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>     
+        
+        <script src="./navArticle.js"></script>
+        <script src="./hoverElement.js"></script>
+        <script src="./highlightElement.js"></script>
+
+    </body>
+</html>
