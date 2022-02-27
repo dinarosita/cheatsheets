@@ -18,6 +18,7 @@
         <nav id="navMenu"></nav>
           
         <main class="html_notes">
+            <!-- Article: Components -->
             <article id="components">
                 <h2>Components</h2>
                 <div class="formula">
@@ -46,7 +47,8 @@
                 
                 <a href="#top"><hr></a>
             </article>
-
+            
+            <!-- Article: Semantic -->
             <article id="semantic">
                 <h2>Semantic elements</h2>
 
@@ -63,6 +65,7 @@
 
             </article>
 
+            <!-- Article: Level -->
             <article id="level">
                 <h2>Elements level</h2>
 
@@ -82,8 +85,9 @@
 
                 <a href="#top"><hr></a>
 
-              </article>
+            </article>
 
+            <!-- Article: Structure -->
             <article id="structure">
                 <h2>Structure</h2>
                 <p><code>&lt;html&gt;</code> is the main root and its direct children are <code>&lt;head&gt;</code> where we put metadata and <code>&lt;body&gt;</code> where we put the content. Metadata elements inside <code>&lt;head&gt;</code> are written as direct children. The content elements though, are very flexible and can be super nesting. Below is just an example to give a rough idea.</p>               
@@ -121,6 +125,7 @@
                 <a href="#top"><hr></a>
             </article>
             
+            <!-- Article: Main root -->
             <article id="main_root">
                 <h2>Main root</h2>
                 <dl>
@@ -140,6 +145,7 @@
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Metadata -->
             <article id="metadata">
                 <h2>Document metadata</h2>
 
@@ -228,6 +234,7 @@
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Content sectioning -->
             <article id="content_sectioning">
                 <h2>Content sectioning</h2>
                 <p>Content sectioning elements allow document content to be organized into logical pieces. It creates a broad outline of the page content.</p>
@@ -521,6 +528,7 @@ aside p {
                 <a href="#top"><hr></a>
             </article>
             
+            <!-- Article: Text block -->
             <article id="text_block">
                 <h2>Text block</h2>
                 <p>Text block elements organizes blocks or sections of contents placed within <code>body</code> element tags.</p>
@@ -1001,6 +1009,7 @@ hr {
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Inline text -->
             <article id="inline_text">
                 <h2>Inline text semantics</h2>
                 <p>Inline level elements don't have their own block shape. They are stretches of text that has particular semantic/role/meaning to it, embedded within block level elements like <code>&lt;p&gt;</code>; and <code>&lt;li&gt;</code>. Some come with certain font/text styling as default, some not.</p>
@@ -2034,6 +2043,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Image and media -->
             <article id="img_media">
                 <h2>Image and multimedia</h2>
                 <dl>
@@ -2066,6 +2076,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Embed -->
             <article id="embed">
                 <h2>Embedded content</h2>
                 <p><code>      </code></p>
@@ -2101,6 +2112,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: SVG Math -->
             <article id="SVG_math">
                 <h2>SVG and MathML</h2>
                 <dl>
@@ -2114,6 +2126,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Script -->
             <article id="script">
                 <h2>Scripting</h2>
                 <dl>
@@ -2133,6 +2146,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Demarcation -->
             <article id="demarcation">
                 <h2>Demarcating edits</h2>
                 <p><code>&lt;del&gt;</code> and <code>&lt;ins&gt;</code> marking deletion and insertion to the document to track changes.</p>
@@ -2148,13 +2162,79 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
             
+            <!-- Article: Table -->
             <article id="table">
-                <h2>Table</h2>                
+                <h2>Table</h2>        
+                <figure class="figcode" style="width: fit-content;">
+                    <figcaption>Table's structure and order*</figcaption>
+                        <code>
+                        <p class="plain">&lt;table&gt;</p>
+                        <ul>
+                            <li>&lt;caption&gt;</li>
+                            <li>&lt;colgroup&gt;
+                                <ul>
+                                    <li>&lt;col&gt;</li>
+                                </ul>
+                            </li>
+                            <li>&lt;thead&gt;
+                                <ul>
+                                    <li>&lt;tr&gt;
+                                        <ul>
+                                            <li>&lt;th&gt;</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>&lt;tbody&gt;
+                                <ul>
+                                    <li>&lt;tr&gt;
+                                        <ul>
+                                            <li>&lt;th&gt; or &lt;td&gt;</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>&lt;tfoot&gt;
+                                <ul>
+                                    <li>&lt;tr&gt;
+                                        <ul>
+                                            <li>&lt;th&gt; or &lt;td&gt;</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </code>                    
+                </figure>
+                <p>*When all table elements are used, they need to be in this structure and order.</p>  
                 <dl>
+
+                    <!-- table -->
                     <dt><code>&lt;table&gt;</code></dt>
                     <dd class="maindd">Table</dd>
-                    <dd>Tabular data. Information in 2 dimensional table comprised of rows and columns of cells containing data.</dd>
-                    <dd>Table sorting
+                    <dd>The elements:
+                        <ul>
+                            <li>In general, a table is optionally consist of 3 sections: <code>&lt;thead&gt;</code>, body <code>&lt;body&gt;</code>, and <code>&lt;footer&gt;</code>.</li>
+                            <li>Each section can have 1 or more rows <code>&lt;tr&gt;</code>.</li>
+                            <li>Each row can have 1 or more data cells <code>&lt;td&gt;</code>.</li>
+                            <li>When a data cell functions as a header, <code>&lt;th&gt;</code> is used. Examples are all <code>&lt;thead&gt;</code>'s data cells, and sometimes the first data cell of each <code>&lt;body&gt;</code>'s rows.</li>
+                            <li>Column in the table can be organized through <code>&lt;colgroup&gt;</code> and <code>&lt;col&gt;</code> elements.</li>
+                            <li>Table caption can be included in <code>&lt;caption&gt;</code> element.</li>
+                        </ul>
+                    </dd>
+                    <dd>Default styling:
+                        <ul>
+                            <li>Table comes very plain to make it very adaptable with any styling. Use CSS to style. Some handy CSS properties:
+                                <ul>
+                                    <li><code class="css-equiv">border: 1px solid gray</code></li>
+                                    <li><code class="css-equiv">border-collapse: collapse;</code></li>
+                                    <li><code class="css-equiv">text-align: left;</code></li>
+                                    <li><code class="css-equiv">vertical-align: middle;</code> on <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>Table sorting:
                         <ul>
                             <li>Use following JavaScript methods to sort an <code>HTMLCollection</code> of  <code>&lt;tr&gt;</code> elements:
                                 <ul>
@@ -2168,115 +2248,11 @@ let z = 780;</code>
                         </ul>
                     </dd>
                     <dd><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank">More on table</a></dd>
-                    <dd>
-                        <dl>
-                            <dt><code>&lt;caption&gt;</code></dt>
-                            <dd class="maindd">Table caption</dd>
-                            <dd>
-                                <ul>
-                                    <li>Optional, but when used, it <i>must</i> be the first chid of <code>&lt;table&gt;</code> element.</li>
-                                    <li>Doesn't adopt the table's <code>background-color</code>. Style <code>&lt;caption&gt; directly</code>.</li>
-                                    <li>For
-<pre>
-<code>&lt;figure&gt;</code>
-    <code>&lt;table&gt;</code>
-</pre>
-                                         where <code>&lt;table&gt;</code> is the only descendant element of <code>&lt;figure&gt;</code>, use <code>&lt;figcaption&gt;</code> instead of <code>&lt;caption&gt;</code>.</li>
-                                    
-                                </ul>
-                            </dd>
-                                                        
-                            <dt><code>&lt;colgroup&gt;</code></dt>
-                            <dd class="maindd">Table column group</dd>
-                            <dd>Defines a group of column within a table</dd>
-                            <dd>Important attributes: <code>span</code>
-                                <ul>
-                                    <li>Value: positive integer</li>
-                                    <li>Default value: <code>1</code></li>
-                                    <li>Indicated the number of consecutive columns the <code>&lt;colgroup&gt;</code> element spans</li>
-                                    <li>Default styling: <span class="keyword">none</span></li>
-                                </ul>
-                            </dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;col&gt;</code></dt>
-                                    <dd class="maindd">Table column</dd>
-                                    <dd>Usually child of <code>&lt;colgroup&gt;</code> element that is without <code>span attribute.</code>.</dd>
-                                    <dd>Defines a column within a table and is used for defining common semantics on all common cells.</dd>
-                                    <dd>Important attribute: <code>span</code>, default value = <code>1</code></dd>
-                                </dl>
-                            </dd>
-                            
-                            <dt><code>&lt;thead&gt;</code></dt>
-                            <dd class="maindd">Table head</dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd class="maindd">Table row</dd>
-                                    <dd>
-                                        <dl>
-                                            <dt><code>&lt;th&gt;</code></dt>
-                                            <dd class="maindd">Table header</dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-                            </dd>
-        
-                            <dt><code>&lt;tbody&gt;</code></dt>
-                            <dd class="maindd">Table body</dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;tr&gt;</code></dt>
-                                    <dd class="maindd">Table row</dd>
-                                    <dd>
-                                        <dl>
-                                            <dt><code>&lt;th&gt;</code></dt>
-                                            <dd class="maindd">Table header</dd>
-
-                                            <dt><code>&lt;td&gt;</code></dt>
-                                            <dd class="maindd">Table data cell</dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-                            </dd>
-        
-                            <dt><code>&lt;tfoot&gt;</code></dt>
-                            <dd class="maindd">Table foot</dd>
-                        </dl>
-                    </dd>
-                    <dd>
+                    <dd> <!-- Simple example -->
                         <div class="figcode">
                             <figure>
                                 <figcaption>Simple table structure example</figcaption>
-<pre>
-&lt;table&gt;
-    &lt;caption&gt;Olivia's pets&lt;/caption&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;<span class="sampledata">Name</span>&lt;/th&gt;
-            &lt;th&gt;<span class="sampledata">Type</span>&lt;/th&gt;
-            &lt;th&gt;<span class="sampledata">Color</span>&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Cat</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Orange</span>&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;<span class="sampledata">Doggy</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
-            &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-</pre>                        
-                            </figure>
-                            <figure>
-                                <figcaption>Results</figcaption>
                                 <table>
-                                    <caption>Olivia's pets</caption>
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -2298,12 +2274,166 @@ let z = 780;</code>
                                     </tbody>
                                 </table>
                             </figure>
+                            <figure>
+                                <details>
+                                    <summary>HTML codes</summary>
+<pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;<span class="sampledata">Name</span>&lt;/th&gt;
+            &lt;th&gt;<span class="sampledata">Type</span>&lt;/th&gt;
+            &lt;th&gt;<span class="sampledata">Color</span>&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Cat</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Orange</span>&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Doggy</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</pre> 
+                                </details>                       
+                            </figure>
                         </div>
                     </dd>
+
                     <dd>
-                        <div class="figcode">
-                            <figure>
-                                <figcaption>Complex table structure example</figcaption>
+                        <dl>
+                            <!-- caption -->
+                            <dt><code>&lt;caption&gt;</code></dt>
+                            <dd class="maindd">Table caption</dd>
+                            <dd>
+                                <ul>
+                                    <li>Optional, but when used, it <i>must</i> be the first chid of <code>&lt;table&gt;</code> element.</li>
+                                    <li>Doesn't adopt the table's <code>background-color</code>. Style <code>&lt;caption&gt; directly</code>.</li>
+                                    <li>For <code>&lt;table&gt;</code> that is the only descendant element of <code>&lt;figure&gt;</code>, use <code>&lt;figcaption&gt;</code> instead of <code>&lt;caption&gt;</code>.</li>
+                                </ul>
+                            </dd>
+                            <dd>Default display: <span class="keyword">Centered, on top of table</span></dd>
+                            <dd>CSS styling:
+                                <ul>
+                                    <li><code>caption-side</code>
+                                        <ul>
+                                            <li>Default: <code class="css-equiv">caption-side: top;</code></li>
+                                            <li>Other value: <code>bottom</code></li>
+                                        </ul>
+                                    </li>
+                                    <li><code>text-align</code> 
+                                        <ul>
+                                            <li>Default: <code class="css-equiv">text-align: center;</code></li>
+                                            <li>Other values: <code>right</code> and <code>left</code></li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Deprecated</strong> attribute <code class="deprecated">align</code> was used to specify this in the past.</code></li>
+                                </ul>
+                            </dd>
+                                         
+                            <!-- colgroup -->
+                            <dt><code>&lt;colgroup&gt;</code></dt>
+                            <dd class="maindd">Table column group</dd>
+                            <dd>Defines a group of column within a table</dd>
+                            <dd>Important child element: <code>&lt;col&gt;</code>
+                                <ul>
+                                    <li>With child <code>&lt;col&gt;</code> element
+                                        <ul>
+                                            <li>Grouping is arranged more thoroughly through the child <code>&lt;col&gt;</code> elements.</li>
+                                            <li><code>span</code> attribute is not permitted. If it is written, it will be ignored.</li>
+                                            <li>For starting and ending tag requirement, check the documentation.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Without child <code>&lt;col&gt;</code> element
+                                        <ul>
+                                            <li>Important attribute: <code>span</code>
+                                                <ul>
+                                                    <li><code>span</code> attribute indicates the number of column this element is applied, from the start (left in ltr)</li>
+                                                    <li>If it's not written, default <code class="css-equiv">span="1"</code> is assumed.</li>
+                                                    <li>Default styling: <span class="keyword">none</span></li>
+                                                    <li>For styling, use class attribute and assign CSS styling.</li>
+                                                </ul>
+                                            </li>
+                                            
+                                            <li>Closing tag may be omitted. Check documentation.</li>
+                                        </ul>    
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd> 
+                                <dl>
+                                    <!-- col -->
+                                    <dt><code>&lt;col&gt;</code></dt>
+                                    <dd class="maindd">Table column</dd>
+                                    <dd>Permitted parrent: <code>&lt;colgroup&gt;</code> only
+                                        <ul>
+                                            <li>But it can be implicitely defined. See documentation.</li>
+                                        </ul>
+                                    </dd>
+                                    <dd>Important attribute: <code>span</code>
+                                        <ul>
+                                            <li>See note in <code>&lt;colgroup&gt;</code> above.</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </dd>
+
+                            <dd><!-- Complex example -->
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Complex table structure example</figcaption>
+                                        <table class="bottomcaption">
+                                            <caption>Pets</caption>
+                                            <colgroup span="2" class="coltitle">
+                                                <col class="coltitle">
+                                                <col span="2" class="colclass1">
+                                                <col span="2" class="colclass2">
+                                            </colgroup>
+        
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Animal</th>
+                                                    <th scope="col">Harrison</th>
+                                                    <th scope="col">Olivia</th>
+                                                    <th scope="col">Nico</th>
+                                                    <th scope="col">Nika</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" >Dogs</th>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>2</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Cats</th>
+                                                    <td rowspan="2">6</td>
+                                                    <td>7</td>
+                                                    <td>8</td>
+                                                    <td>1</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th scope="row">Total</th>
+                                                    <td>9</td>
+                                                    <td>11</td>
+                                                    <td>10</td>
+                                                    <td>6</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </figure>
+                                    <figure>
+                                        <details>
+                                            <summary>HTML codes</summary>
 <pre>
 &lt;table&gt;
     &lt;caption&gt;<span class="sampledata">Pets</span>&lt;/caption&gt;
@@ -2347,63 +2477,196 @@ let z = 780;</code>
         &lt;/tr&gt;
     &lt;/tfoot&gt;
 &lt;/table&gt;
-</pre>                        
-                            </figure>
-                            <figure>
-                                <figcaption>CSS</figcaption>
+</pre>  
+                                        </details>
+                                    </figure>
+                                    <figure>
+                                        <details>
+                                            <summary>CSS codes</summary>
 <pre>
+<span class="sampledata">caption</span> {caption-side: <span class="sampledata"></span>bottom</span>;}
+<span class="sampledata">tbody th</span> {font-weight: <span class="sampledata">normal</span>;}
 <span class="sampledata">.coltitle</span> {background-color: <span class="sampledata">rgb(248, 227, 230)</span>;}
 <span class="sampledata">.colclass1</span> {background-color: <span class="sampledata">rgb(243, 240, 209)</span>;}
 <span class="sampledata">.colclass2</span> {background-color: <span class="sampledata">rgb(204, 231, 235)</span>;}
 </pre>
-                            </figure>
-                            <figure>
-                                <figcaption>Results</figcaption>
-                                <table>
-                                    <caption>Pets</caption>
-                                    <colgroup>
-                                        <col span="1" class="coltitle">
-                                        <col span="2" class="colclass1">
-                                        <col span="2" class="colclass2">
-                                    </colgroup>
+                                        </details>
+                                    </figure>
+                                </div>
+                            </dd>
+                                                   
+                            <!-- thead -->
+                            <dt><code>&lt;thead&gt;</code></dt>
+                            <dd class="maindd">Table head</dd>
+                            <dd>
+                                <ul>
+                                    <li>Defining heading part of the table with 1 or more rows.</li>
+                                    <li>There can be only 1 <code>&lt;thead&gt;</code> per table.</li>
+                                </ul>
+                            </dd>
 
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Animal</th>
-                                            <th scope="col">Harrison</th>
-                                            <th scope="col">Olivia</th>
-                                            <th scope="col">Nico</th>
-                                            <th scope="col">Nika</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Dogs</th>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Cats</th>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>1</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th scope="row">Total</th>
-                                            <td>9</td>
-                                            <td>11</td>
-                                            <td>10</td>
-                                            <td>6</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </figure>
-                        </div>
+                            <dd>
+                                <dl>
+                                    <!-- tr -->
+                                    <dt><code>&lt;tr&gt;</code></dt>
+                                    <dd class="maindd">Table row</dd>
+                                    <dd>
+                                        <ul>
+                                            <li>Defines a row of cells in a table.</li>
+                                            <li>Child elements: <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> mix</li>
+                                        </ul>
+                                    </dd>
+                                    <dd>
+                                        <dl>
+                                            <!-- th -->
+                                            <dt><code>&lt;th&gt;</code></dt>
+                                            <dd class="maindd">Table header cell</dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+         
+                            <!-- tbody -->
+                            <dt><code>&lt;tbody&gt;</code></dt>
+                            <dd class="maindd">Table body</dd>
+                            <dd>If <code>&lt;tbody&gt;</code> is used, all non-header and non-footer rows <code>&lt;tr&gt;</code> have to be inside <code>&lt;tbody&gt;</code>.</dd>
+                            <dd>
+                                <ul>
+                                    <li>Defining body part of the table with 1 or more rows.</li>
+                                </ul>
+                            </dd>
+                            <dd>Multiple <code>&lt;tbody&gt;</code>
+                                <ul>
+                                    <li>There can be more than 1 <code>&lt;tbody&gt;</code> per table</li>
+                                    <li>In this case, use <code>&lt;head&gt;</code> element to title each column as usual, then use the first row <code>&lt;tr&gt;</code> of each <code>&lt;tbody&gt;</code> for the sub-body's title. Use <code>&lt;th&gt;</code> instead of <code>&lt;td&gt;</code> for the cell. Merge the cells using attribute <code>colspan</code> with value number of columns being merged.</li>
+                                </ul>
+                            </dd>
+
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Table with multiple bodies</figcaption>
+                                        <table class="table1">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Type</th>
+                                                    <th>Color</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th colspan="3">Olivia's pets</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Kitten</td>
+                                                    <td>Cat</td>
+                                                    <td>Orange</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Doggy</td>
+                                                    <td>Dog</td>
+                                                    <td>Brown</td>
+                                                </tr>
+                                            </tbody>
+                                            <tbody>
+                                                <tr>
+                                                    <th colspan="3">Harry's pets</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dino</td>
+                                                    <td>Bronto</td>
+                                                    <td>Green</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Thomas</td>
+                                                    <td>Dog</td>
+                                                    <td>Brown</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </figure>
+                                    <figure>
+                                        <details>
+                                            <summary>HTML codes</summary>
+<pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;<span class="sampledata">Name</span>&lt;/th&gt;
+            &lt;th&gt;<span class="sampledata">Type</span>&lt;/th&gt;
+            &lt;th&gt;<span class="sampledata">Color</span>&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Olivia's pets</span>&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Kitten</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Cat</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Orange</span>&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Doggy</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th colspan=<span class="sampledata">"3"</span>&gt;<span class="sampledata">Harry's pets</span>&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Dino</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Bronto</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Green</span>&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;<span class="sampledata">Thomas</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Dog</span>&lt;/td&gt;
+            &lt;td&gt;<span class="sampledata">Brown</span>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</pre> 
+                                        </details>
+                                    </figure>
+                                    <figure>
+                                        <details>
+                                            <summary>CSS codes</summary>
+<pre>
+tbody th {
+    font-weight: normal;
+    background-color: rgb(255, 244, 235);
+}
+</pre>
+                                        </details>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <dd>
+                                <dl>
+                                    <!-- tr -->
+                                    <dt><code>&lt;tr&gt;</code></dt>
+                                    <dd class="maindd">Table row</dd>
+                                    <dd>If <code>&lt;tbody&gt;</code> is used, all non-header and non-footer rows <code>&lt;tr&gt;</code> have to be inside <code>&lt;tbody&gt;</code>.</dd>
+                                    <dd>
+                                        <dl>
+                                            <!-- td -->
+                                            <dt><code>&lt;td&gt;</code></dt>
+                                            <dd class="maindd">Table data cell</dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+                                                        
+                            <!-- tfoot -->
+                            <dt><code>&lt;tfoot&gt;</code></dt>
+                            <dd class="maindd">Table foot</dd>
+                            <dd>Defining footer part of the table with 1 or more rows, containing summary.</dd>
+                        </dl>
                     </dd>
 
                 </dl>
@@ -2411,6 +2674,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
 
+            <!-- Article: Form -->
             <article id="form">
                 <h2>Forms</h2>
                 <dl>
@@ -2487,6 +2751,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>            
             
+            <!-- Article: Interactive -->
             <article id="interactive">
                 <h2>Interactive elements</h2>
                 <dl>
@@ -2551,6 +2816,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article> 
 
+            <!-- Article: Web -->
             <article id="web">
                 <h2>Web components</h2>
                 <dl>
@@ -2569,6 +2835,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article> 
 
+            <!-- Article: Deprecated -->
             <article id="deprecated">
                 <h2>Obsolete and deprecated elements</h2>
                 <p><strong>Warning:</strong> Elements before are deprecated or obsolete. Do not use, and replace if it's in use.</p>
@@ -2696,6 +2963,7 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article> 
 
+            <!-- Article: Resources -->
             <article id="resources">
                 <h2>Resources</h2>
                 <ul>
@@ -2707,7 +2975,6 @@ let z = 780;</code>
                 <a href="#top"><hr></a>
             </article>
         </main>
-
 
         <footer>
             <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>

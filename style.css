@@ -556,6 +556,11 @@ dd .formula {
     margin: 0;
 }
 
+.figcode .plain {
+    padding-bottom: 1rem;
+    margin: 0;
+}
+
 .css-equiv {
     border: 1px solid;
     border-radius: .25rem;
@@ -622,7 +627,8 @@ a[href^="tel"]::before {
 }
 
 .figcode figcaption,
-.figure1 figcaption {
+.figure1 figcaption,
+.figcode summary  {
     color: rgb(235, 169, 162);
     font-style: italic;
     font-weight: bold;
@@ -666,9 +672,16 @@ a[href^="tel"]::before {
 }
 
 .figcode table {
-    text-align: center;
     padding: 0.25rem 1rem;
     margin: 0;
+}
+
+td, th {
+    vertical-align: middle;
+}
+tbody th {
+    font-weight: normal;
+    background-color: rgb(255, 244, 235);
 }
 
 .key kbd {
@@ -693,6 +706,7 @@ a[href^="tel"]::before {
 .menuexample button {
     width: 100%;
   }
+
 .coltitle {
     background-color: rgb(248, 227, 230);
 }
@@ -703,6 +717,11 @@ a[href^="tel"]::before {
 .colclass2 {
     background-color: rgb(204, 231, 235);
 }
+
+.bottomcaption {
+    caption-side: bottom;
+}
+
 
 /* || JavaScript Notes */
 
