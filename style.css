@@ -561,7 +561,7 @@ dd .formula {
     margin: 0;
 }
 
-.css-equiv {
+.inlinebox {
     border: 1px solid;
     border-radius: .25rem;
     padding: 0 .25rem;
@@ -581,7 +581,7 @@ dd .formula {
 }
 
 i,
-.inlinebox {
+.keyword {
     color: rgb(47, 123, 124);
 }
 
@@ -676,13 +676,6 @@ a[href^="tel"]::before {
     margin: 0;
 }
 
-.normalboldmono {
-    font-weight: bold;
-    font-style: normal;
-    font-size: 0.9rem;
-    font-family: 'Fira Mono', monospace;   
-}
-
 td, th {
     vertical-align: middle;
 }
@@ -747,6 +740,10 @@ tbody th {
     font-weight: bold;
     color: cadetblue;
     font-size: 1.1rem;
+}
+
+.borderedtable thead {
+    border-bottom: 4px double cadetblue;
 }
 
 /* || JavaScript Notes */
