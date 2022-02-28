@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML Content Sectioning Elements | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="./index.html"><h1>HTML Content Sectioning Elements</h1></a> 
+        </header>
+
+        <!-- <nav id="navMenu"></nav> -->
+        <nav class="simple_nav">
+            <a href="#resources" class="nav-button-rev" style="margin: auto">Resources</a>
+            <a href="./html_elements.html" class="nav-button-rev" style="margin: auto">HTML Elements</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
+        </nav>
+
+        <main class="html_notes">
+
+            <!-- Article: Content sectioning -->
+            <article id="content_sectioning">
+                <h2>Content sectioning</h2>
+                <p>Content sectioning elements allow document content to be organized into logical pieces. It creates a broad outline of the page content.</p>
+                <dl>
+                    <dt><code>&lt;body&gt;</code></dt>
+                    <dd class="maindef">Sectioning root</dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;header&gt;</code></dt>
+                            <dd class="maindef">Introductory content</dd>
+                            <dd>Header of the whole document, banner landmark, direct child of <code>&lt;body&gt;</code> element.</dd>
+
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>As page title</figcaption>
+<pre>
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Codey Luwak&lt;/h1&gt;
+        &lt;img src="..." alt="Luwak logo"&gt;
+    &lt;/header&gt;
+&lt;/body&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            <dd>Header of other sectioning elements like <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;section&gt;</code> element. Intended to be used with heading element <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> even though not required.</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>As article title</figcaption>
+<pre>
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;p&gt;
+    &lt;/header&gt;
+    &lt;p&gt;...&lt/p&gt;
+&lt;/article&gt;
+</pre>
+                                </figure>
+                            </dd>
+
+                            
+                            <!-- NAV -->
+                            <dt><code>&lt;nav&gt;</code></dt>
+                            <dd class="maindef">Navigation block</dd>
+                            <dd>Using <code>&lt;ul&gt;</code> listing presented as a sidebar, navigation bar, or dropdown menu is common, but links within <code>&lt;p&gt;</code> paragraph is a cool choice too.</dd>
+                            <dd>Multiple <code>&lt;nav&gt;</code> elements possible.</dd>
+                            <dd>For bottom links, <code>&lt;footer&gt;</code> element is more commonly used.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Nav structure</figcaption>
+<pre>
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;...&lt;/li&gt;
+        &lt;li&gt;...&lt;/li&gt;
+        &lt;li&gt;...&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS for forizontal nav bar</figcaption>
+<pre>
+.html-nav ul {
+    display: flex;
+    list-style-type: none;
+}
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <!-- MAIN -->
+                            <dt><code>&lt;main&gt;</code></dt>
+                            <dd class="maindef">Dominant content of document's &lt;body&gt;</dd>
+                            <dd>A document should have only 1 non-hidden <code>&lt;main&gt;</code> element.</dd>
+                                
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Main structure</figcaption>
+<pre>
+&lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;
+        &lt;h1&gt;...&lt;/h1&gt;
+        &lt;p&gt;...&lt;/p&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;
+</pre>
+                                </figure>
+                            </dd>
+
+                            <!-- ARTICLE -->
+                            <dt><code>&lt;article&gt;</code></dt>
+                            <dd class="maindef">Self contained composition</dd>
+                            <dd>For examples: a forum post, a blog entry, a magazine/newspaper article, a product card, a user submitted comment, an interactive widget or gadget.</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Article structure</figcaption>
+<pre>
+&lt;main&gt;
+    &lt;h1&gt;...&lt;/h1&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;article&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;article&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+</pre>
+                                </figure>
+
+                            </dd>
+
+                            <!-- SECTION -->
+                            <dt><code>&lt;section&gt;</code></dt>
+                            <dd class="maindef">Generic sectioning element</dd>
+                            <dd>
+                                <ul>
+                                    <li>A generic wrapper for a heading <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> and its content.</li>
+                                    <li>It will appear in the document outline except if it doesn't have the heading element.</li>
+                                    <li>If heading element is wanted functionally but not visually, still use it but <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section#:~:text=include%20a%20heading%20but%20hide%20it" target="_blank">hide it with CSS styling</a>.s</li>
+                                    <li>It should be used only when there's no more specific element to represent it.</li>
+                                    <li>Example use: search result, map display, user comments section.</li>
+                                </ul>   
+                            </dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Section structure</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2&gt;Comments&lt;/h2&gt;
+    &lt;article&gt;...Comment 1...&lt;/article&gt;
+    &lt;article&gt;...Comment 2...&lt;/article&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+
+                                <figure class="figcode">
+                                    <figcaption>Article used in place of div</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2&gt;...&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+
+                                <figure class="figcode">
+                                    <figcaption>Without heading</figcaption>
+<pre>
+&lt;section id="main"&gt;
+    &lt;article&gt;...First blog post...&lt;/article&gt;
+    &lt;article&gt;...Second blog post...&lt;/article&gt;
+    &lt;article&gt;...Third blog post...&lt;/article&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+
+                                <figure class="figcode">
+                                    <figcaption>Using h1-h6 titling but hide it from view with CSS</figcaption>
+<pre>
+&lt;section&gt;
+    &lt;h2 class="hidden"&gt;Controls&lt;/h2&gt;
+    &lt;button class="reply"&gt;Reply&lt;/button&gt;
+    &lt;button class="reply-all"&gt;Reply to all&lt;/button&gt;
+    &lt;button class="fwd"&gt;Forward&lt;/button&gt;
+    &lt;button class="del"&gt;Delete&lt;/button&gt;
+&lt;/section&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            
+                            <!-- H1-H6 -->
+                            <dt><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></dt>
+                            <dd class="maindef">Section heading elements</dd>
+                            <dd>Heading information can be used to automatically construct document's table of contents.</dd>
+                            <dd>Avoid skipping heading levels.</dd>
+                            <dd>Use only 1 <code>&lt;h1&gt;</code> per page/view. Multiple <code>&lt;h1&gt;</code> is allowed however not the best practise.</dd>
+
+                            <!-- ADDRESS -->
+                            <dt><code>&lt;address&gt;</code></dt>
+                            <dd class="maindef">Contact address element</dd>
+                            <dd>Typically placed inside &lt;footer&gt; element of the current section, if any.</dd>
+                            <dd>HTML</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Address example</figcaption>
+<pre>
+&lt;p&gt;Contact:&lt;/p&gt;
+&lt;address&gt;
+    &lt;a href="mailto:name@example.com"&gt;name@example.com&lt;/a&gt;&lt;br&gt;
+    &lt;a href="tel:+15195555555"&gt;(519) 555-5555&lt;/a&gt;
+&lt;/address&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+<pre>
+a[href^="mailto"]::before {
+    content: "📧 ";
+}
+
+a[href^="tel"]::before {
+    content: ""📞 ";
+}
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                            <p>Contact:</p>
+                                            <address>
+                                                <a href="mailto:name@example.com">name@example.com</a><br>
+                                                <a href="tel:+15195555555">(519) 555-5555</a>
+                                            </address>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <!-- ASIDE -->
+                            <dt><code>&lt;aside&gt;</code></dt>
+
+                            <aside>
+                                <p>Here is an example of an aside. Place the <code>&lt;aside&gt;</code> element before the content it is indirectly related.</p>
+                            </aside>
+
+                            <dd class="maindef">Indirectly related content</dd>
+                            <dd>Usually displayed as a sidebar or call-out boxes.</dd>
+                            <dd>In small screen when sidebar will cramp the already small space, <code>&lt;aside&gt;</code> is usually located before or after the main content.</dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>HTML for aside above </figcaption>
+<pre>
+&lt;dl&gt;
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;aside&gt;...&lt;/aside&gt;
+    &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS for aside above </figcaption>
+<pre>
+aside {
+    width: 30%;
+    float: right;
+    color: steelblue;
+    border-left: 1px solid steelblue;
+    padding-left: 8px;
+}
+
+aside p {
+    margin: 0;
+}
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                            <!-- FOOTER -->
+                            <dt><code>&lt;footer&gt;</code></dt>
+                            <dd class="maindef">Closing element</dd>
+                            <dd>Usually contains information about author, copyright, or links to the related document. It could be footer for the whole body or main content, or just for an article element.</dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Footer structure</figcaption>
+<pre>
+&lt;article&gt;
+    &lt;h3&gt;...&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/article&gt;
+</pre>
+                                </figure>
+                            </dd>
+                        </dl>
+                    </dd>                   
+                </dl>
+
+
+                <a href="#top"><hr></a>
+            </article>
+            
+            <!-- Article: Resources -->
+            <article id="resources">
+                <h2>Resources</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">HTML Elements</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity" target="_blank">Reserved characters</a></li>
+                    <li><a href="https://www.w3schools.com/cssref/css_default_values.asp" target="_blank">CSS Default Values Reference</a></li>
+                    <li><a href="https://www.w3.org/wiki/Common_HTML_entities_used_for_typography" target="_blank">Common HTML entities used for typography</a></li>
+                </ul>
+                <a href="#top"><hr></a>
+            </article>
+        </main>
+
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./html_elements.html" class="nav-button-rev" style="margin: auto">HTML Elements</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
+        </footer>     
+        
+        <!-- <script src="./navArticle.js"></script> -->
+        <script src="./hoverElement.js"></script>
+        <!-- <script src="./highlightElement.js"></script> -->
+
+    </body>
+</html>

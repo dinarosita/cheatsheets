@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML Text Content Elements | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="./index.html"><h1>HTML Text Content Elements</h1></a> 
+        </header>
+
+        <!-- <nav id="navMenu"></nav> -->
+        <nav class="simple_nav">
+            <a href="#resources" class="nav-button-rev" style="margin: auto">Resources</a>
+            <a href="./html_elements.html" class="nav-button-rev" style="margin: auto">HTML Elements</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
+        </nav>
+
+        <main class="html_notes">
+            
+            <!-- Article: Text content -->
+            <article id="text_content">
+                <h2>Text content</h2>
+                <p>Text content elements organizes blocks or sections of contents placed within <code>body</code> element tags.</p>
+
+                <dl>
+                    <dt>Blocks</dt>
+                    <dd>
+                        <dl>
+                            <!-- DIV -->
+                            <dt><code>&lt;div&gt;</code></dt>
+                            <dd class="maindef">Generic content division</dd>
+                            <dd>Use this when no other semantic element like <code>&lt;article&gt;</code> and <code>&lt;nav&gt;</code> could be more appropriately applied.</dd>
+                            <dd>For aligning and positioning, use CSS Grid and CSS Flexbox. Previously done with <code>align</code> attribute, but it's obsolete.</dd>
+                            <dd>Handy styling container. Use <code>class</code> attribute and style it in CSS.</dd>
+                            <dd>
+                                <div class="js-resultbox">
+                                    This <code>
+                                        &lt;div class="js-resultbox"&gt;</code> box is an example. 
+                                </div>
+                            </dd>
+
+                            <!-- FIGURES -->
+                            <dt><code>&lt;figure&gt;</code></dt>
+                            <dd class="maindef">Figure with optional caption</dd>
+                            <dd>The figure, its caption, and its content are a single figure unit.</dd>            
+                            <dd>Example usage: image, illustration, code snippet, diagram, etc.</dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;figcaption&gt;</code></dt>
+                                    <dd class="maindef">Figure's caption</dd>    
+                                </dl>
+                            </dd>     
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Figure for img</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;img src="..." alt="..."&gt;
+    &lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt;
+</pre>
+                                </figure>
+                                <figure class="figcode">
+                                    <img src="picturesample.jpg" alt="Lavender">
+                                    <figcaption>Lavender</figcaption>
+                                </figure>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Figure for code snippet</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;figcaption&gt;CSS&lt;/figcaption&gt;
+    &lt;pre&gt;
+...
+    ...
+    ...
+...
+    &lt;/pre&gt;
+&lt;/figure&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+<pre>
+figure {
+    border: 3px solid peachpuff;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+}
+
+figcaption {
+    color: cadetblue;
+    font-weight: bold;
+}
+</pre>
+                                    </figure>
+                                </div>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Figure for blockquote</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;figcaption&gt;&lt;cite&gt;...:&lt;/cite&gt;&lt;/figcaption&gt;
+    &lt;blockquote&gt;...&lt;/blockquote&gt;
+&lt;/figure&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <figcaption><cite>Little girl:</cite></figcaption>
+                                            <blockquote>Twinkle twinkle little stars, how I wonder what you are.</blockquote>
+                                        </figure>
+                                    </figure>
+                                </div>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Paragraph blocks</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;p&gt;</code></dt>
+                            <dd class="maindef">Paragraph</dd>
+                            <dd>The block level element for regular paragraph.</dd>
+                            <dd>Default characteristic:
+                                <ul>
+                                    <li>Has top and bottom margin.</li>
+                                    <li>Automatically remove extra spaces and lines.</li>
+                                    <li>Wrap</li>
+                                </ul>
+                            </dd>
+                            <dd>Initial CSS values:
+                                <ul>
+                                    <li><code>display: block;</code></li>
+                                    <li><code>margin-top: 1em;</code></li>
+                                    <li><code>margin-bottom: 1em;</code></li>
+                                    <li><code>margin-left: 0;</code></li>
+                                    <li><code>margin-right: 0;</code></li>
+                                </ul>
+                            </dd>
+        
+                            <dt><code>&lt;pre&gt;</code></dt>
+                            <dd class="maindef">Preformatted Text</dd>
+                            <dd>Present the paragraph exactly as written in the HTML file.</dd>
+                            <dd>Default characteristic:
+                                <ul>
+                                    <li>Monospace font</li>
+                                    <li>Extra spaces and lines are not removed</li>
+                                    <li>Not wrapped</li>
+                                    <li>Like <code>&lt;p&gt;</code>, has top and bottom margin.</li>
+                                </ul>
+
+                            </dd>
+                            <dd>Initial CSS values:
+                                <ul>
+                                    <li><code>display: block;</code></li>
+                                    <li><code>font-family: monospace;</code></li>
+                                    <li><code>white-space: pre;</code></li>
+                                    <li><code>margin: 1em 0;</code></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Drawing with pre</figcaption>
+<pre>
+&lt;pre class="js-resultbox"&gt;
+    ^__^
+    (oo)\_______
+    (__)\       )\/\
+        ||----w |
+        ||     ||
+&lt;/pre&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+<pre>
+    ^__^
+    (oo)\_______
+    (__)\       )\/\
+        ||----w |
+        ||     ||
+</pre>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dt><code>&lt;blockquote&gt;</code></dt>
+                            <dd class="maindef">Block quoation wrapper</dd>
+                            <dd>For quotation displayed in its own block. Special attribute: <code>cite</code> for the citation's URL.</dd>
+                            <dd class="maindef"><code>&lt;blockquote cite="https://..."&gt;</code></dd>
+                            <dd>Compare to inline quotation element <code>&lt;q&gt;</code></dd>
+
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Blockquote with figure</figcaption>
+<pre>
+&lt;figure&gt;
+    &lt;blockquote cite="https:..."&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;...&lt;cite&gt;...&lt;/cite&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <blockquote cite="https://en.wikipedia.org/wiki/Supernova">
+                                                <p>A supernova is a powerful and luminous stellar explosion.</p>
+                                            </blockquote>
+                                            <figcaption>&ndash;Author Name, <cite>Wikipedia</cite></figcaption>
+                                        </figure>
+                                    </figure>
+                                </div>
+                            </dd>
+                        </dl>
+                    </dd>             
+                 
+                    <dt>Listing</dt>
+                    <dd>
+                        <dl>
+
+                            <!-- ul -->
+                            <dt><code>&lt;ul&gt;</code></dt>
+                            <dd class="maindef">Unordered List</dd>
+                            <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>
+                                <dl>
+                                    <!-- li -->
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd class="maindef">List Item</dd>    
+                                    <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
+                                </dl>
+                            </dd>
+
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>List structure</figcaption>
+<pre>
+&lt;ul&gt;
+    &lt;li&gt;...&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <ul>
+                                            <li>First item</li>
+                                            <li>Second item</li>
+                                            <li>Third item</li>
+                                        </ul>
+                                    </figure>
+                                </div>
+                            </dd>
+                            <dd>Default bullet style:
+                                <ul>
+                                    <li>First level: <code>disc</code>
+                                        <ul>
+                                            <li>Second level: <code>circle</code>
+                                                <ul>
+                                                    <li>Third level and the rest: <code> square</code></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            <dd>To change bullet style in CSS: <code class="inlinebox">ul {list-style-type: circle;}</code></dd>
+
+                            <dd><strong>Deprecated</strong> special attributes:
+                                <ul>
+                                    <li>
+                                        <code class="deprecated">compact</code> &ndash;
+                                        CSS equivalent: <code class="inlinebox">line-height: 80%;</code>
+                                    </li>
+                                    <li>
+                                        <code class="deprecated">type</code> &ndash; values: <code>circle</code>, <code>disc</code>, and <code>square</code>. CSS equivalent:  <code class="inlinebox">list-style-type: <span class="sampledata">value</span></code>.
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- ol -->
+                            <dt><code>&lt;ol&gt;</code></dt>
+                            <dd class="maindef">Ordered List</dd>
+                            <dd>Permitted child elements: <code>&lt;li&gt; &lt;script&gt; &lt;template&gt;</code></dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;li&gt;</code></dt>
+                                    <dd class="maindef">List Item</dd>    
+                                    <dd>Allowed parent elements: <code>&lt;ul&gt; &lt;ol&gt; &lt;menu&gt;</code></dd>
+                                </dl>
+                            </dd>
+                            <dd>Special attributes:
+                                <ol>
+                                    <li>
+                                        <code>reversed</code>: boolean attribute, specifies that list items are in reverse order. Items will be numbered from high to low.<br>
+                                        Note: Since the attribute is a <i>boolean</i>, it's written without value. Writting the value both true or false will be equal to having the boolean (as true) altogether.
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol reversed&gt;</code></figcaption>
+                                            <ol reversed>
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        <code>start</code>: arabic numerals. Starting number of the list item.
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol start="5"&gt;</code></figcaption>
+                                            <ol start="5">
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol start="5" reversed&gt;</code></figcaption>
+                                            <ol start="5" reversed>
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        <code>type</code>: numbering type.
+                                        Value options:
+                                        <ul>
+                                            <li><code>a</code>: lowercase letters</li>
+                                            <li><code>A</code>: uppercase letters</li>
+                                            <li><code>i</code>: lowercase Roman numerals</li>
+                                            <li><code>I</code>: uppercase Roman numerals letters</li>
+                                            <li><code>1</code>: default Arabic numerals</li>
+                                        </ul>
+                                        <figure class="figcode">
+                                            <figcaption><code>&lt;ol type="A" start="5" reversed&gt;</code></figcaption>
+                                            <ol type="A" start="5" reversed>
+                                                <li>First item</li>
+                                                <li>Second item</li>
+                                                <li>Third item</li>
+                                            </ol>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </dd>
+
+                            <!-- menu -->
+                            <dt><code>&lt;menu&gt;</code></dt>
+                            <dd class="maindef">Semantic alternative to <code>&lt;ul&gt;</code></dd>
+                            <dd>Just like <code>&lt;ul&gt;</code>, it's also an unordered list. Difference:
+                                <ul>
+                                    <li><code>&lt;menu&gt;</code> is intended for interactive items, to act on.
+                                    <ul>
+                                        <li>One of old use is for context menu. This is now obsolete.</li>
+                                    </ul></li>
+                                    <li><code>&lt;ul&gt;</code> primarily contains items for display.</li>
+                                </ul>
+                            </dd>
+                            <dd>Examples:
+                                <div class="figcode menuexample">
+                                    <figure>
+                                        <figcaption>Examples</figcaption>    
+<pre>
+<code>&lt;menu&gt;
+    &lt;li&gt;&lt;button onclick=<span class="sampledata">"copy()"</span>&gt;<span class="sampledata">Copy</span>&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button onclick=<span class="sampledata">"cut()"</span>&gt;<span class="sampledata">Cut</span>&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button onclick=<span class="sampledata">"paste()"</span>&gt;<span class="sampledata">Paste</span>&lt;/button&gt;&lt;/li&gt;    
+&lt;/menu&gt;
+</code></pre>
+                                        
+                                    </figure>
+                                    <figure>
+                                        <figcaption>CSS</figcaption>
+<pre>
+menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 400px;
+}
+
+li {
+    flex-grow: 1;
+}
+
+button {
+    width: 100%;
+}
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Results</figcaption>
+                                        <menu>
+                                            <li><button onclick="copy()">Copy</button></li>
+                                            <li><button onclick="cut()">Cut</button></li>
+                                            <li><button onclick="paste()">Paste</button></li>
+                                        </menu>
+                                    </figure>
+                                </div>
+
+                            </dd>
+
+
+                        </dl>
+                    </dd>
+
+                    <dt>Description</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;dl&gt;</code></dt>
+                            <dd class="maindef">Description List</dd>
+                            <dd>
+                                <dl>
+                                    <dt><code>&lt;dt&gt;</code></dt>
+                                    <dd class="maindef">Description Term</dd>
+        
+                                    <dt><code>&lt;dd&gt;</code></dt>
+                                    <dd class="maindef">Description Details</dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                <figure class="figcode">
+                                    <figcaption>Description structure</figcaption>
+<pre>
+&lt;dl&gt;
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;dl&gt;...&lt;/dl&gt;
+
+    &lt;dt&gt;...&lt;/dt&gt;
+    &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+                                </figure>
+                            </dd>
+                            <dd>Multiple terms and multiple descriptions are both allowed</dd>
+                            <dd>Most prominent usage example of description listing is glossary. This page is structured using nesting description listing. If then different structure is founds to be more suiting, or this is not appropriate use altogether, then maybe a note will be placed here.</dd>
+                        </dl>
+                    </dd>
+
+
+
+                    <dt>Divider</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;hr&gt;</code></dt>
+                            <dd class="maindef">Horizontal Rule</dd>
+                            <dd>Thematic break  between paragraph level elements.</dd>
+                            <dd>Empty element, only have start tag.</dd>
+                            <dd>Special attributes:
+                                <ul>
+                                    <li><strong>deprecated</strong> attributes: <code>align</code>, <code>noshade</code>, <code>size</code>, <code>width</code></li>
+                                    <li><strong>Non-standard</strong> attributes: <code>color</code></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>HR</figcaption>
+<pre>
+&lt;p&gt;...&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;...&lt;/p&gt;
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>The CSS</figcaption>
+<pre>
+hr {
+    border: none;
+    border-top: 2px dotted pink;
+}
+</pre>
+                                    </figure>
+                                    <figure>
+                                        <figcaption>Result</figcaption>
+                                        <figure class="figcode">
+                                            <p>Monoceros (Greek: Μονόκερως, "unicorn") is a faint constellation on the celestial equator. Its definition is attributed to the 17th-century Dutch cartographer Petrus Plancius.</p>
+                                            <hr>
+                                            <p>Draco is a constellation in the far northern sky. Its name is Latin for dragon. It was one of the 48 constellations listed by the 2nd century astronomer Ptolemy, and remains one of the 88 modern</p>
+                                        </figure>
+                                    </figure>
+                                </div>
+                            </dd>
+
+                        </dl>
+                    </dd>
+
+
+                </dl>
+                
+                <a href="#top"><hr></a>
+            </article>
+
+            <!-- Article: Resources -->
+            <article id="resources">
+                <h2>Resources</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">HTML Elements</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity" target="_blank">Reserved characters</a></li>
+                    <li><a href="https://www.w3schools.com/cssref/css_default_values.asp" target="_blank">CSS Default Values Reference</a></li>
+                    <li><a href="https://www.w3.org/wiki/Common_HTML_entities_used_for_typography" target="_blank">Common HTML entities used for typography</a></li>
+                </ul>
+                <a href="#top"><hr></a>
+            </article>
+        </main>
+
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./html_elements.html" class="nav-button-rev" style="margin: auto">HTML Elements</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
+        </footer>     
+        
+        <!-- <script src="./navArticle.js"></script> -->
+        <script src="./hoverElement.js"></script>
+        <!-- <script src="./highlightElement.js"></script> -->
+
+    </body>
+</html>
