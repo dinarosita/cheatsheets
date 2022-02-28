@@ -29,8 +29,151 @@
                 <h2>Forms</h2>
                 <dl>
                     <dt><code>&lt;form&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Form section</dd>
+                    <dd>A document section containing interactive controls for submitting information</dd>
+                    <dd class="ddsec"><span class="maindef">Important CSS pseudo-classes:</span>
+                        <ul>
+                            <li><code class="inlinebox">:valid</code> and <code class="inlinebox">:invalid</code>
+                                <ul>
+                                    <li>To style the form based on whether elements inside are valid or not</li>
+                                </ul>
+                            </li>
+                        </ul>      
 
+                    </dd>
+                    <dd class="ddsec"><span class="maindef">Important general attibutes:</span>
+                        <ul>
+                            <li><code class="inlinebox">Accept-charset</code> 
+                                <ul>
+                                    <li>Space separated character encodings the server accepts.</li>
+                                    <li>Browser using then in the order of the list.</li>
+                                    <li>Default: same encoding as the page. Read up: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding" target="_blank">Content-Encoding</a>.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">autocomplete</code> 
+                                <ul>
+                                    <li>Define whether input elements by default can have their values automatically completed by the browser.</li>
+                                    <li>Possible values:
+                                        <ul>
+                                            <li><code>on</code></li>
+                                            <li><code>off</code> &ndash; Browsers <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#the_autocomplete_attribute_and_login_fields" target="_blank">tend to ignore</a> this if they suspect login forms.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">name</code>  
+                                <ul>
+                                    <li>Contains name of the form.</li>
+                                    <li>Value's rules:
+                                        <ul>
+                                            <li>Must not be an empty string.</li>
+                                            <li>Must be unique among the form elements in the form collection.</li>
+                                        </ul>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">rel</code>: 
+                                <ul>
+                                    <li>Creates hyperlink or annotation depending on the value.</li>
+                                    <li>This is an extensive attribute. To learn more, check: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel" target="_blank">HTML attribute: rel</a></li>
+                                </ul>    
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd class="ddsec"><span class="maindef">Important attibutes for form submission:</span>
+                        <ul>
+                            <li><code class="inlinebox">method</code>
+                                <ul>
+                                    <li>Specify HTTP method to submit the form with</li>
+                                    <li>The value can be overridden by <code>formmethod</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                                    <li>Possible values (case insensitive):
+                                        <ul>
+                                            <li><code>post</code>
+                                                <ul>
+                                                    <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5" target="_blank">POST method</a> &ndash; Form data sent as the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/body" target="_blank">request body</a>.</li>
+                                                </ul>
+                                            </li>
+                                            <li><code>get</code>
+                                                <ul>
+                                                    <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3" target="_blank">GET method</a> &ndash; Form data appended to the <code>action</code> URL with a <code>?</code> separator.</li>
+
+                                                    <li>Use this when the form has no side-effects. Read: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent" target="_blank">idempotent</a></li>
+                                                </ul>    
+                                            </li>
+                                            <li><code>dialog</code>
+                                                <ul>
+                                                    <li>When the form is inside a <code>&lt;dialog&gt;</code>.</li>
+                                                    <li>Closes dialog and throws a submit event on submission without submitting data or clearing the form.</li>
+                                                </ul>
+
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">action</code>
+                                <ul>
+                                    <li>URL that processes the form submission</li>
+                                    <li>The value can be overridden by <code>formaction</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                                    <li>Will be ignored if <code>method="dialog"</code> is set.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">enctype</code>
+                                <ul>
+                                    <li>"ENCode type"</li>
+                                    <li>Specifies how the form-data should be encoded when submitting it to the server.</li>
+                                    <li>If <code>method="post"</code>, <code>enctype</code> is the <a href="https://en.wikipedia.org/wiki/Mime_type" target="_blank">MIME type</a> of the form submission.</li>
+                                    <li>The value can be overridden by <code>formenctype</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                                    <li>Possible values:
+                                        <ul>
+                                            <li><code>application/x-www-form-urlencoded</code>
+                                                <ul>
+                                                    <li>The default value</li>
+                                                </ul>
+                                            </li>
+                                            <li><code>multipart/form-data</code>
+                                                <ul>
+                                                    <li>Use this if the form contains <code>&lt;input&gt;</code> element with <code>type="file"</code></li>
+                                                </ul>    
+                                            </li>
+                                            <li><code>text/plain</code>
+                                                <ul>
+                                                    <li>For debugging purposes</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">novalidate</code>
+                                <ul>
+                                    <li>"no validate"</li>
+                                    <li>Indicates the form shouldn't be validated when submitted.</li>
+                                    <li>Boolean attribute
+                                        <ul>
+                                            <li>If it is not set, then the form <i>is</i> validated.</li>
+                                        </ul>
+                                    </li>
+                                    <li>If it is not set, it can be overridden by <code>formnovalidate</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">target</code>
+                                <ul>
+                                    <li>Indicates where to display the response after submitting the form</li>
+                                    <li>The value can be overridden by <code>formtarget</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                                    <li>Values:
+                                        <ul>
+                                            <li><code>_self</code>: Load in current browsing context.</li>
+                                            <li><code>_blank</code>: Load in new unnamed browsing context.</li>
+                                            <li><code>_parent</code>: Load into the parent browsing context. If there's no parent, load in current.</li>
+                                            <li><code>_top</code>: Load into the top-level browsing context. If nothing above the current browsing context, load in current.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
                     <dd>
                         <dl>   
                             <dt><code>&lt;label&gt;</code></dt>

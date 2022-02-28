@@ -30,6 +30,7 @@ figure {
     --borderfill:rgb(250, 242, 243);
     --borderdark:rgb(212, 154, 165);
     --title: cadetblue;
+    --thintitle:rgb(47, 123, 124);
     --code: steelblue;
     --link1: sienna;
     --link2: rgb(159, 101, 197);
@@ -580,9 +581,12 @@ dd .formula {
     font-weight: bold;
 }
 
+.ddsec {
+    padding-top: 1rem;
+}
 i,
 .keyword {
-    color: rgb(47, 123, 124);
+    color: var(--thintitle);
 }
 
 .html-codebox{
@@ -754,6 +758,10 @@ tbody th {
     margin: 0.25rem;
 }
 
+.ddtitle {
+    color: var(--thintitle);
+    text-decoration: underline;
+}
 /* || JavaScript Notes */
 
 .js-codebox {
