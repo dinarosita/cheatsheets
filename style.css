@@ -477,7 +477,19 @@ code a {
     color: var(--title);
     background-color: var(--borderfill);
 }
-/* || HTML-Notes: Forms */
+/* || HTML-Notes: Forms  and html-form-notes*/
+
+.html-form-notes > article > dl > dd > ul {
+    padding-left: 16px;
+}
+
+.html-form-notes > article > dl > dt {
+    margin: 1rem 0 0.5rem;
+}
+
+.html-form-notes .figcode {
+    margin-bottom: 1.5rem;
+}
 
 .html-notes input {
     margin: 0 0 0.5rem;
@@ -503,9 +515,6 @@ code a {
     margin: 0.5rem 0;
 }
 
-.html-notes .topic + .plain {
-    margin-top: -1rem;
-} 
 
 /* || General: Form */
 
@@ -660,7 +669,6 @@ dl .html-codebox {
 .figcode pre {
     color: steelblue;
     font-size: 0.9rem;
-    line-height: 1.5rem;
 }
 
 .figcode li {
