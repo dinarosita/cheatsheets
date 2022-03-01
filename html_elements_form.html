@@ -15,232 +15,369 @@
             <a href="./index.html"><h1>HTML Form Elements</h1></a> 
         </header>
 
-        <!-- <nav id="navMenu"></nav> -->
+        <nav id="navMenu"></nav>
         <nav class="simple_nav">
             <a href="#resources" class="nav-button-rev" style="margin: auto">Resources</a>
             <a href="./html_elements.html" class="nav-button-rev" style="margin: auto">HTML Elements</a>
             <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
         </nav>
 
-        <main class="html_notes">
+        <main class="html-notes">
 
             <!-- Article: Form -->
             <article id="form">
-                <h2>Forms</h2>
-                <dl>
-                    <dt><code>&lt;form&gt;</code></dt>
-                    <dd class="maindef">Form section</dd>
-                    <dd>A document section containing interactive controls for submitting information</dd>
-                    <dd class="ddsec"><span class="maindef">Important CSS pseudo-classes:</span>
-                        <ul>
-                            <li><code class="inlinebox">:valid</code> and <code class="inlinebox">:invalid</code>
-                                <ul>
-                                    <li>To style the form based on whether elements inside are valid or not</li>
-                                </ul>
-                            </li>
-                        </ul>      
+                <h2><code>&lt;form&gt;</code></h2>
 
-                    </dd>
-                    <dd class="ddsec"><span class="maindef">Important general attibutes:</span>
+                <p class="plain indent maindef">Form submission section</p>
+                    
+                <p class="topic">Example</p>
+                <div class="figcode"><!--simple form-->
+                    <figure>
+                        <figcaption>Simple form</figcaption>
+                        <form action="" method="get">
+                            <div>
+                              <label for="name">Enter your name: </label>
+                              <input type="text" name="name" id="name" required>
+                            </div>
+                            <div>
+                              <label for="email">Enter your email: </label>
+                              <input type="email" name="email" id="email" required>
+                            </div>
+                            <div>
+                              <input type="submit" value="Subscribe!">
+                            </div>
+                        </form>
+                    </figure>
+                    <figure>
+                        <details open>
+                            <summary>HTML codes</summary>
+<pre>
+<span class="element">&lt;form <span class="attribute">action=<span class="sampledata">""</span> method=<span class="sampledata">"get"</span></span>&gt</span>
+    <span class="element">&lt;div&gt;</span>
+        <span class="element">&lt;label <span class="attribute">for=<span class="sampledata">"name"</span></span>&gt;</span><span class="textcontent">Enter your name: </span><span class="element">&lt;/label&gt;</span>
+        <span class="element">&lt;input <span class="attribute">type=<span class="sampledata">"text"</span> name=<span class="sampledata">"name"</span> id=<span class="sampledata">"name"</span> required</span>&gt;</span>
+    <span class="element">&lt;/div&gt;</span>
+    <span class="element">&lt;div&gt;</span>
+        <span class="element">&lt;label <span class="attribute">for=<span class="sampledata">"email"</span></span>&gt;</span><span class="textcontent">Enter your email: </span><span class="element">&lt;/label&gt;</span>
+        <span class="element">&lt;input <span class="attribute">type=<span class="sampledata">"email"</span> name=<span class="sampledata">"email"</span> id=<span class="sampledata">"email"</span> required</span>&gt;</span>
+    <span class="element">&lt;/div&gt;</span>
+    <span class="element">&lt;div&gt;</span>
+        <span class="element">&lt;input <span class="attribute">type=<span class="sampledata">"submit"</span> value=<span class="sampledata">"Subscribe!"</span></span>&gt;</span>
+    <span class="element">&lt;/div&gt;</span>
+<span class="element">&lt;/form&gt;</span></code>
+</pre>
+                        </details>
+                    </figure>
+                </div>
+
+                <p class="topic">Important CSS pseudo-classes:</p>
+                <ul>
+                    <li><code class="inlinebox">:valid</code> and <code class="inlinebox">:invalid</code>
                         <ul>
-                            <li><code class="inlinebox">Accept-charset</code> 
-                                <ul>
-                                    <li>Space separated character encodings the server accepts.</li>
-                                    <li>Browser using then in the order of the list.</li>
-                                    <li>Default: same encoding as the page. Read up: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding" target="_blank">Content-Encoding</a>.</li>
-                                </ul>
-                            </li>
-                            <li><code class="inlinebox">autocomplete</code> 
-                                <ul>
-                                    <li>Define whether input elements by default can have their values automatically completed by the browser.</li>
-                                    <li>Possible values:
-                                        <ul>
-                                            <li><code>on</code></li>
-                                            <li><code>off</code> &ndash; Browsers <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#the_autocomplete_attribute_and_login_fields" target="_blank">tend to ignore</a> this if they suspect login forms.</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><code class="inlinebox">name</code>  
-                                <ul>
-                                    <li>Contains name of the form.</li>
-                                    <li>Value's rules:
-                                        <ul>
-                                            <li>Must not be an empty string.</li>
-                                            <li>Must be unique among the form elements in the form collection.</li>
-                                        </ul>
-                                    </li>
-                                    
-                                </ul>
-                            </li>
-                            <li><code class="inlinebox">rel</code>: 
-                                <ul>
-                                    <li>Creates hyperlink or annotation depending on the value.</li>
-                                    <li>This is an extensive attribute. To learn more, check: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel" target="_blank">HTML attribute: rel</a></li>
-                                </ul>    
-                            </li>
+                            <li>To style the form based on whether elements inside are valid or not</li>
                         </ul>
-                    </dd>
-                    <dd class="ddsec"><span class="maindef">Important attibutes for form submission:</span>
+                    </li>
+                </ul>      
+
+                <p class="topic">Important general attibutes:</p>
+                <ul>
+                    <li><code class="inlinebox">Accept-charset</code> 
                         <ul>
-                            <li><code class="inlinebox">method</code>
+                            <li>Space separated character encodings the server accepts.</li>
+                            <li>Browser using then in the order of the list.</li>
+                            <li>Default: same encoding as the page. Read up: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding" target="_blank">Content-Encoding</a>.</li>
+                        </ul>
+                    </li>
+                    <li><code class="inlinebox">autocomplete</code> 
+                        <ul>
+                            <li>Define whether input elements by default can have their values automatically completed by the browser.</li>
+                            <li>Possible values:
                                 <ul>
-                                    <li>Specify HTTP method to submit the form with</li>
-                                    <li>The value can be overridden by <code>formmethod</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
-                                    <li>Possible values (case insensitive):
-                                        <ul>
-                                            <li><code>post</code>
-                                                <ul>
-                                                    <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5" target="_blank">POST method</a> &ndash; Form data sent as the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/body" target="_blank">request body</a>.</li>
-                                                </ul>
-                                            </li>
-                                            <li><code>get</code>
-                                                <ul>
-                                                    <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3" target="_blank">GET method</a> &ndash; Form data appended to the <code>action</code> URL with a <code>?</code> separator.</li>
-
-                                                    <li>Use this when the form has no side-effects. Read: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent" target="_blank">idempotent</a></li>
-                                                </ul>    
-                                            </li>
-                                            <li><code>dialog</code>
-                                                <ul>
-                                                    <li>When the form is inside a <code>&lt;dialog&gt;</code>.</li>
-                                                    <li>Closes dialog and throws a submit event on submission without submitting data or clearing the form.</li>
-                                                </ul>
-
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><code class="inlinebox">action</code>
-                                <ul>
-                                    <li>URL that processes the form submission</li>
-                                    <li>The value can be overridden by <code>formaction</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
-                                    <li>Will be ignored if <code>method="dialog"</code> is set.</li>
-                                </ul>
-                            </li>
-                            <li><code class="inlinebox">enctype</code>
-                                <ul>
-                                    <li>"ENCode type"</li>
-                                    <li>Specifies how the form-data should be encoded when submitting it to the server.</li>
-                                    <li>If <code>method="post"</code>, <code>enctype</code> is the <a href="https://en.wikipedia.org/wiki/Mime_type" target="_blank">MIME type</a> of the form submission.</li>
-                                    <li>The value can be overridden by <code>formenctype</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
-                                    <li>Possible values:
-                                        <ul>
-                                            <li><code>application/x-www-form-urlencoded</code>
-                                                <ul>
-                                                    <li>The default value</li>
-                                                </ul>
-                                            </li>
-                                            <li><code>multipart/form-data</code>
-                                                <ul>
-                                                    <li>Use this if the form contains <code>&lt;input&gt;</code> element with <code>type="file"</code></li>
-                                                </ul>    
-                                            </li>
-                                            <li><code>text/plain</code>
-                                                <ul>
-                                                    <li>For debugging purposes</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><code class="inlinebox">novalidate</code>
-                                <ul>
-                                    <li>"no validate"</li>
-                                    <li>Indicates the form shouldn't be validated when submitted.</li>
-                                    <li>Boolean attribute
-                                        <ul>
-                                            <li>If it is not set, then the form <i>is</i> validated.</li>
-                                        </ul>
-                                    </li>
-                                    <li>If it is not set, it can be overridden by <code>formnovalidate</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements</li>
-                                </ul>
-                            </li>
-                            <li><code class="inlinebox">target</code>
-                                <ul>
-                                    <li>Indicates where to display the response after submitting the form</li>
-                                    <li>The value can be overridden by <code>formtarget</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
-                                    <li>Values:
-                                        <ul>
-                                            <li><code>_self</code>: Load in current browsing context.</li>
-                                            <li><code>_blank</code>: Load in new unnamed browsing context.</li>
-                                            <li><code>_parent</code>: Load into the parent browsing context. If there's no parent, load in current.</li>
-                                            <li><code>_top</code>: Load into the top-level browsing context. If nothing above the current browsing context, load in current.</li>
-                                        </ul>
-                                    </li>
+                                    <li><code class="inlinebox">on</code></li>
+                                    <li><code class="inlinebox">off</code> &ndash; Browsers <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#the_autocomplete_attribute_and_login_fields" target="_blank">tend to ignore</a> this if they suspect login forms.</li>
                                 </ul>
                             </li>
                         </ul>
-                    </dd>
-                    <dd>
-                        <dl>   
-                            <dt><code>&lt;label&gt;</code></dt>
-                            <dd class="maindef">   </dd>     
-
-                            <dt><code>&lt;input&gt;</code></dt>
-                            <dd class="maindef">   </dd>          
+                    </li>
+                    <li><code class="inlinebox">name</code>  
+                        <ul>
+                            <li>Contains name of the form.</li>
+                            <li>Value's rules:
+                                <ul>
+                                    <li>Must not be an empty string.</li>
+                                    <li>Must be unique among the form elements in the form collection.</li>
+                                </ul>
+                            </li>
                             
-                            <dt><code>&lt;button&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-        
-                            <dt><code>&lt;textarea&gt;</code></dt>
-                            <dd class="maindef">   </dd>
+                        </ul>
+                    </li>
+                    <li><code class="inlinebox">rel</code>: 
+                        <ul>
+                            <li>Creates hyperlink or annotation depending on the value.</li>
+                            <li>This is an extensive attribute. To learn more, check: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel" target="_blank">HTML attribute: rel</a></li>
+                        </ul>    
+                    </li>
+                </ul>
 
-        
-                            <dt><code>&lt;datalist&gt;</code></dt>
+                <p class="topic">Important attibutes for form submission:</span></p>
+                <ul>
+                    <li><code class="inlinebox">method</code>
+                        <ul>
+                            <li>Specify HTTP method to submit the form with</li>
+                            <li>The value can be overridden by <code>formmethod</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                            <li>Possible values (case insensitive):
+                                <ul>
+                                    <li><code class="inlinebox">post</code>
+                                        <ul>
+                                            <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5" target="_blank">POST method</a> &ndash; Form data sent as the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/body" target="_blank">request body</a>.</li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">get</code>
+                                        <ul>
+                                            <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3" target="_blank">GET method</a> &ndash; Form data appended to the <code>action</code> URL with a <code>?</code> separator.</li>
+
+                                            <li>Use this when the form has no side-effects. Read: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent" target="_blank">idempotent</a></li>
+                                        </ul>    
+                                    </li>
+                                    <li><code class="inlinebox">dialog</code>
+                                        <ul>
+                                            <li>When the form is inside a <code>&lt;dialog&gt;</code>.</li>
+                                            <li>Closes dialog and throws a submit event on submission without submitting data or clearing the form.</li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><code class="inlinebox">action</code>
+                        <ul>
+                            <li>URL that processes the form submission</li>
+                            <li>The value can be overridden by <code>formaction</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                            <li>Will be ignored if <code>method="dialog"</code> is set.</li>
+                        </ul>
+                    </li>
+                    <li><code class="inlinebox">enctype</code>
+                        <ul>
+                            <li>"ENCode type"</li>
+                            <li>Specifies how the form-data should be encoded when submitting it to the server.</li>
+                            <li>If <code>method="post"</code>, <code>enctype</code> is the <a href="https://en.wikipedia.org/wiki/Mime_type" target="_blank">MIME type</a> of the form submission.</li>
+                            <li>The value can be overridden by <code>formenctype</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                            <li>Possible values:
+                                <ul>
+                                    <li><code class="inlinebox">application/x-www-form-urlencoded</code>
+                                        <ul>
+                                            <li>The default value</li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">multipart/form-data</code>
+                                        <ul>
+                                            <li>Use this if the form contains <code>&lt;input&gt;</code> element with <code>type="file"</code></li>
+                                        </ul>    
+                                    </li>
+                                    <li><code class="inlinebox">text/plain</code>
+                                        <ul>
+                                            <li>For debugging purposes</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><code class="inlinebox">novalidate</code>
+                        <ul>
+                            <li>"no validate"</li>
+                            <li>Indicates the form shouldn't be validated when submitted.</li>
+                            <li>Boolean attribute
+                                <ul>
+                                    <li>If it is not set, then the form <i>is</i> validated.</li>
+                                </ul>
+                            </li>
+                            <li>If it is not set, it can be overridden by <code>formnovalidate</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements</li>
+                        </ul>
+                    </li>
+                    <li><code class="inlinebox">target</code>
+                        <ul>
+                            <li>Indicates where to display the response after submitting the form</li>
+                            <li>The value can be overridden by <code>formtarget</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
+                            <li>Values:
+                                <ul>
+                                    <li><code class="inlinebox">_self</code>: Load in current browsing context.</li>
+                                    <li><code class="inlinebox">_blank</code>: Load in new unnamed browsing context.</li>
+                                    <li><code class="inlinebox">_parent</code>: Load into the parent browsing context. If there's no parent, load in current.</li>
+                                    <li><code class="inlinebox">_top</code>: Load into the top-level browsing context. If nothing above the current browsing context, load in current.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="label">
+
+                <h2><code>&lt;label&gt;</code></h2>
+                <p class="indent plain maindef">A text label for the associated element.</p>
+
+                <p class="topic">Characteristics:</p>
+                <ul>
+                    <li>An inline text level element.</li>
+                </ul>
+
+                <p class="topic">Why association a label to an input element?</p>
+                <ul>
+                    <li>Giving visual explaination</li>
+                    <li>Giving programmatical explaination for example in assistive technology use, screen reader, etc.</li>
+                    <li>Giving larger hit area</li>
+                </ul>
+
+                <p class="topic">Examples of elements that can be associated with a <code>&lt;label&gt;</code>:</p>
+                <ul>
+                    <li><code>&lt;button&gt;</code></li>
+                    <li><code>&lt;input&gt;</code> (except for type="hidden")</li>
+                    <li><code>&lt;meter&gt;</code></li>
+                    <li><code>&lt;output&gt;</code></li>
+                    <li><code>&lt;progress&gt;</code></li>
+                    <li><code>&lt;select&gt;</code></li>
+                    <li><code>&lt;textarea&gt;</code></li>
+                </ul>
+               
+                <p class="topic">Associates a <code>&lt;label&gt;</code> to an <code>&lt;input&gt;</code> element:</p>
+                <ul>
+                    <li>Using attribute <code>id</code>-<code>for</code> relationship
+                        <ul>
+                            <li>Give a unique ID to <code>&lt;input&gt;</code> using attribute <code>id</code>.</li>
+                            <li>Use that id value to point the <code>&lt;label&gt;</code> to <code>&lt;input&gt;</code> element using attribute <code>for</code>.</li>
+                            <li>Can be written on the HTML codes directly represent their actual display position.</li>
+                            <li>They don't have to be nested because <code>id</code>-<code>for</code> relationship is adequate. Both are inline text level elements.</li>
+                            <li><code class="inlinebox">&lt;label for=<span class="sampledata">"inputId"</span>&gt;</code></li>
+                            <li><code class="inlinebox">&lt;input id=<span class="sampledata">"inputId"</span>&gt;</code></li>
+                        </ul>
+                    </li>
+                    <li>Nest <code>&lt;input&gt;</code> inside <code>&lt;label&gt;</code>
+                        <ul>
+                            <li>Neither <code>id</code> nor <code>for</code> is needed.</li>
+                        </ul>
+                    </li>
+                </ul>                    
+
+                <p class="topic">Labeling illustration</p>
+                <p class="plain indent">Label or paragraph around the input element (check-box) is highlighted. Click around to see the increase in hit area cause by the label.
+                <div class="figcode"><!--Labeling illustration-->
+                    <figure>
+                        <figcaption>Without label element</figcaption>
+                        <div>
+                            <div>
+                                <div class="highlight">This is a div box, not a label. Hit area only that small input check-box &RightArrow;
+                                    <input type="checkbox">
+                                </div>                                
+                            </div>
+                            <div>
+<pre>
+<span class="element">&lt;div&gt;</span><span class="textcontent">Div text</span>
+    <span class="element">&lt;input <span class="attribute">type=<span class="sampledata">"checkbox"</span></span>&gt;</span>
+<span class="element">&lt;/div&gt;</span>
+</pre>
+                            </div>
+                        </div>
+
+
+                    </figure>
+                    <figure>
+                        <figcaption>Nested label-input elements</figcaption>
+                        <div>
+                            <div>
+                                <label class="highlight">This is input element's label. Try click here. 
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+    
+                            <div>
+<pre>
+<span class="element">&lt;label&gt;</span><span class="textcontent">Label text</span>
+    <span class="element">&lt;input <span class="attribute">type=<span class="sampledata">"checkbox"</span></span>&gt;</span>
+<span class="element">&lt;/label&gt;</span>
+</pre>
+                            </div>
+                        </div>
+                    </figure>
+                    <figure>
+                        <figcaption>Label element connected to input element using for-id relationship</figcaption>
+                        <div>
+                            <div>
+                                <label for="label1" class="highlight">This is input element's label. Try click here.</label>
+                                <input id="label1" type="checkbox">
+                            </div>
+                            <div>
+<pre>
+<span class="element">&lt;label <span class="attribute">for=<span class="sampledata">"label1"</span></span>&gt;</span><span class="textcontent">Label text</span><span class="element">&lt;/label&gt;</span>
+<span class="element">&lt;input <span class="attribute">type=<span class="sampledata">"checkbox"</span> id=<span class="sampledata">"label1"</span></span>&gt;</span>
+</pre>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+
+
+                    <dt><code>&lt;input&gt;</code></dt>
+                    <dd class="maindef">   </dd>          
+                    
+                    <dt><code>&lt;button&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dt><code>&lt;textarea&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+
+                    <dt><code>&lt;datalist&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;option&gt;</code></dt>
+                            <dd class="maindef">   </dd>            
+                        </dl>
+                    </dd>
+
+                    <dt><code>&lt;select&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>&lt;optgroup&gt;</code></dt>
                             <dd class="maindef">   </dd>
                             <dd>
                                 <dl>
                                     <dt><code>&lt;option&gt;</code></dt>
-                                    <dd class="maindef">   </dd>            
-                                </dl>
-                            </dd>
-
-                            <dt><code>&lt;select&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;optgroup&gt;</code></dt>
                                     <dd class="maindef">   </dd>
-                                    <dd>
-                                        <dl>
-                                            <dt><code>&lt;option&gt;</code></dt>
-                                            <dd class="maindef">   </dd>
-                                        </dl>
-                                    </dd>
                                 </dl>
                             </dd>
-
-                            <dt><code>&lt;meter&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-
-                            <dt><code>&lt;progress&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-
-                            <dt><code>&lt;output&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-
                         </dl>
                     </dd>
+
+                    <dt><code>&lt;meter&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dt><code>&lt;progress&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                    <dt><code>&lt;output&gt;</code></dt>
+                    <dd class="maindef">   </dd>
+
+                
+                    <dt><code>&lt;fieldset&gt;</code></dt>
+                    <dd class="maindef">   </dd>
                     <dd>
                         <dl>
-                            <dt><code>&lt;fieldset&gt;</code></dt>
+                            <dt><code>&lt;legend&gt;</code></dt>
                             <dd class="maindef">   </dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;legend&gt;</code></dt>
-                                    <dd class="maindef">   </dd>
-                                    <dt><code>&lt;input&gt;</code></dt>
-                                    <dd class="maindef">   </dd>
-                                    <dt><code>&lt;label&gt;</code></dt>
-                                    <dd class="maindef">   </dd>
-                                </dl>
-                            </dd>
+                            <dt><code>&lt;input&gt;</code></dt>
+                            <dd class="maindef">   </dd>
+                            <dt><code>&lt;label&gt;</code></dt>
+                            <dd class="maindef">   </dd>
                         </dl>
                     </dd>
                 </dl>
+
                 <a href="#top"><hr></a>
             </article>            
             
@@ -263,8 +400,8 @@
             <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
         </footer>     
         
-        <!-- <script src="./navArticle.js"></script> -->
-        <script src="./hoverElement.js"></script>
+        <script src="./navArticle.js"></script>
+        <!-- <script src="./hoverElement.js"></script> -->
         <!-- <script src="./highlightElement.js"></script> -->
 
     </body>

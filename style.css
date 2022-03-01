@@ -42,6 +42,8 @@ figure {
     --othercolor2: rgb(206, 131, 131);
     --othercolor3: rgb(223, 146, 132);
     --js-border: rgb(190, 215, 216);
+    --dustyblack: rgb(99, 99, 99);
+    --label: rgb(147, 86, 173);
 
     --bumper-quarter: 4px;
     --bumper-half: 8px;
@@ -128,15 +130,7 @@ a h1, a h2, h3 a, h4 a {
     font-style: normal;
 }
 
-input,
-button {
-    border: 3px solid var(--js-border);
-    border-radius: 10px;
-    padding: var(--bumper-half) var(--bumper);
-    background-color: whitesmoke;
-    font-weight: bold;
-    color: var(--title);
-}
+
 
 button {
     margin: 1rem 0;
@@ -162,17 +156,7 @@ table {
     text-align: left;
 }
 
-textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid var(--border);
-}
 
-label {
-    padding: var(--bumper) 0;
-    font-weight: bold;
-    color: var(--title);
-}
 
 aside {
     width: 30%;
@@ -261,20 +245,17 @@ h3 code, h4 code, h5 code, h6 code {
     color: inherit;
 }
 
-.attribute {
-    font-weight: normal;
-    color: steelblue;
-}
-
-.variable,
-.sampledata {
-    color: var(--othercolor2);
-    font-weight: normal;
+.plain {
+    padding: 0;
+    margin: 0;
 }
 
 .indent {
     padding-left: 32px;
 }
+
+
+
 .formula .parameter {
     color: var(--othercolor2);
     font-weight: normal;
@@ -496,27 +477,89 @@ code a {
     color: var(--title);
     background-color: var(--borderfill);
 }
+/* || HTML-Notes: Forms */
 
-/* || HTML Notes */
-
-.html_notes h2 {
-    text-align: left;
-    text-decoration: underline;
-    padding: 1rem 0 0.5rem;
-    font-size: 1.3rem;
+.html-notes input {
+    margin: 0 0 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--title);
+    border-radius: 0.25rem;
+    background-color: rgb(255, 255, 248);
+    font-weight: bold;    
 }
 
-.html_notes h3 {
-    text-align: left;
-    text-decoration: underline;
-    padding: 1rem 0 0.5rem;
-    font-size: 1.0rem;
+.html-notes label {
+    color: var(--label);
+    font-weight: normal;
+    padding: 0;
 }
 
-.html_notes dd ul,
-.html_notes dd ol {
-    margin: 0; 
+.highlight {
+    background-color: lightyellow;
+    border: 1px solid cadetblue;
 }
+
+.html-notes figure div {
+    margin: 0.5rem 0;
+}
+
+.html-notes .topic + .plain {
+    margin-top: -1rem;
+} 
+
+/* || General: Form */
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border);
+}
+
+label {
+    padding: var(--bumper) 0;
+    font-weight: bold;
+    color: var(--title);
+}
+
+input,
+button {
+    border: 3px solid var(--js-border);
+    border-radius: 10px;
+    padding: var(--bumper-half) var(--bumper);
+    background-color: whitesmoke;
+    font-weight: bold;
+    color: var(--title);
+}
+
+form input {
+    margin: 0.5rem auto;
+}
+
+input.valid {
+    color: var(--title);
+    border-color: var(--title);
+}
+
+input.invalid {
+    color:orange;
+    border-color: orange;
+}
+
+input + p {
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin: 0 10px;
+    color: orange;
+    opacity: 0;
+    height: 0;
+}
+input.invalid + p {
+    opacity: 1;
+    height:auto;
+    margin-bottom: 20px;
+}
+
+/* || HTML-Notes: Nav */
 
 .html-nav ul {
     display: flex;
@@ -547,67 +590,33 @@ code a {
     font-style: normal;
 }
 
-.html_notes strong,
-.html_notes .alert {
-    color: rgb(253, 164, 90);
+/* || HTML-Notes: Definitions */
+
+.html-notes dd ul,
+.html-notes dd ol {
+    margin: 0; 
 }
-
-
-.html_notes li p {
-    margin: 0;
-}
-
 
 dd .formula {
     margin: 0;
-}
-
-.inlinebox {
-    border: 1px solid;
-    border-radius: .25rem;
-    padding: 0 .25rem;
-}
-
-.deprecated {
-    color: rgb(148, 128, 128);
 }
 
 .deprecated_chapter dt code {
     color: rgb(194, 172, 172);
 }
 
-.maindef {
-    color: var(--title);
-    font-weight: bold;
-}
-
-.ddsec {
-    padding-top: 1rem;
-}
-i,
-.keyword {
-    color: var(--thintitle);
-}
-
-.html-codebox{
-    margin: var(--bumper);
-    border-left: solid 3px mistyrose;
-    padding: 0 1rem;
-    word-wrap: break-word;
-    font-size: 0.9rem;
-}
 
 dl .html-codebox {
     margin: 0.5rem 0 1rem;
 }
 
-a[href^="mailto"]::before {
-    content: "📧 ";
+/* || HTML-Notes: List */
+
+.html-notes li p {
+    margin: 0;
 }
 
-a[href^="tel"]::before {
-    content: "📞 ";
-}
+/* || HTML-Notes: Figure (including .figcode) */
 
 .figcode {
     border-left: 3px solid papayawhip;
@@ -651,6 +660,7 @@ a[href^="tel"]::before {
 .figcode pre {
     color: steelblue;
     font-size: 0.9rem;
+    line-height: 1.5rem;
 }
 
 .figcode li {
@@ -680,6 +690,10 @@ a[href^="tel"]::before {
     margin: 0;
 }
 
+/* || HTML-Notes: Table */
+
+
+
 td, th {
     vertical-align: middle;
 }
@@ -687,29 +701,6 @@ tbody th {
     font-weight: normal;
     background-color: rgb(255, 244, 235);
 }
-
-.key kbd {
-    border-radius: 3px;
-    margin: 20px
-    padding: 10px 20px;
-    border: 1px solid black;
-}
-
-.menuexample menu {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-    width: 400px;
-  }
-  
-.menuexample li {
-    flex-grow: 1;
-  }
-  
-.menuexample button {
-    width: 100%;
-  }
 
 .coltitle {
     background-color: rgb(248, 227, 230);
@@ -746,22 +737,155 @@ tbody th {
     font-size: 1.1rem;
 }
 
-.nthtable thead {border-bottom: 4px double cadetblue;}
-.nthtable tbody > tr:nth-of-type(odd) {background-color:lightyellow;}
-.nthtable thead > tr:last-of-type > th:nth-of-type(1) {color: palevioletred;}
-.nthtable thead > tr:last-of-type > th:nth-of-type(2) {color: salmon;}
-.nthtable thead > tr:last-of-type > th:nth-of-type(3) {color: olive;}
+.nthtable thead {
+    border-bottom: 4px double cadetblue;
+}
 
-.nthtable tbody > tr > td:nth-of-type(2) {text-align: left;}
+.nthtable tbody > tr:nth-of-type(odd) {
+    background-color:lightyellow;
+}
+
+.nthtable thead > tr:last-of-type > th:nth-of-type(1) {
+    color: palevioletred;
+}
+
+.nthtable thead > tr:last-of-type > th:nth-of-type(2) {
+    color: salmon;
+}
+
+.nthtable thead > tr:last-of-type > th:nth-of-type(3) {
+    color: olive;
+}
+
+.nthtable tbody > tr > td:nth-of-type(2) {
+    text-align: left;
+}
 
 #table .formula {
     margin: 0.25rem;
 }
 
-.ddtitle {
-    color: var(--thintitle);
-    text-decoration: underline;
+/* || HTML-Notes: Menu */
+
+.menuexample menu {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    width: 400px;
 }
+  
+.menuexample li {
+    flex-grow: 1;
+}
+  
+.menuexample button {
+    width: 100%;
+}
+
+/* || HTML-Notes: General: boxes*/
+
+.html-codebox{
+    margin: var(--bumper);
+    border-left: solid 3px mistyrose;
+    padding: 0 1rem;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+}
+
+/* || HTML-Notes: General: text blocks */
+
+.html-notes h2 {
+    text-align: left;
+    text-decoration: underline;
+    padding: 1rem 0 0.5rem;
+    font-size: 1.3rem;
+}
+
+.html-notes h3 {
+    text-align: left;
+    text-decoration: underline;
+    padding: 1rem 0 0.5rem;
+    font-size: 1.0rem;
+}
+
+.html-notes summary {
+    padding: 0.5rem 0;
+}
+
+.html-notes h2 code {
+    font-size: inherit;
+}
+
+/* || HTML-Notes: General: inline text */
+
+.element {
+    font-weight: bold;
+    color: cadetblue;
+}
+
+.attribute {
+    font-weight: normal;
+    color: steelblue;
+}
+
+.figcode .attribute {
+    color: rgb(106, 161, 206);
+    font-weight: bold;
+}
+
+.variable,
+.sampledata {
+    color: var(--othercolor2);
+    font-weight: normal;
+}
+
+.textcontent {
+    color: var(--label);
+    font-weight: normal;
+}
+
+.maindef {
+    color: darksalmon;
+    font-weight: bold;
+}
+
+.topic {
+    color: var(--title);
+    font-weight: bold;
+}
+
+.html-notes strong,
+.html-notes .alert {
+    color: indianred;
+}
+
+.inlinebox {
+    border: 1px solid;
+    border-radius: .25rem;
+    padding: 0 .25rem;
+}
+
+.deprecated {
+    color: rgb(148, 128, 128);
+}
+
+
+
+i,
+.keyword {
+    color: var(--thintitle);
+}
+
+a[href^="mailto"]::before {
+    content: "📧 ";
+}
+
+a[href^="tel"]::before {
+    content: "📞 ";
+}
+
+
 /* || JavaScript Notes */
 
 .js-codebox {
@@ -793,33 +917,7 @@ tbody th {
     font-weight: 500;
 }
 
-form input {
-    margin: 10px auto;
-}
 
-input.valid {
-    color: var(--title);
-    border-color: var(--title);
-}
-
-input.invalid {
-    color:orange;
-    border-color: orange;
-}
-
-input + p {
-    font-weight: bold;
-    font-size: 0.8rem;
-    margin: 0 10px;
-    color: orange;
-    opacity: 0;
-    height: 0;
-}
-input.invalid + p {
-    opacity: 1;
-    height:auto;
-    margin-bottom: 20px;
-}
 
 /* || Listing */
 
