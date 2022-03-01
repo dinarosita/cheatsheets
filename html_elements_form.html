@@ -286,6 +286,32 @@
                             <li>An inline element (and so are the form controls &ndash; check whether it applies to all)</li>
                             <li>Default styling: <span class="keyword">none</span></li>
                             <li>Position relative to its labelled control is as written in the HTML structure.</li>
+                            <li>Don't place interactive element such as anchor  inside label. Because label is already an interactive content.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>The don'ts</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="topic">Interactive content</span>
+                                <ul>
+                                    <li>Examples: anchor <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code></li>
+                                    <li>Don't place interactive content inside label element. It makes it difficult to activate the form input.</li>
+                                </ul>                            
+                            </li>
+                            <li><span class="topic">Headings</span>
+                                <ul>
+                                    <li><code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code></li>
+                                    <li>Don't place heading element inside label element. It interferes with many kinds os assitive technology. For styling purposes, use CSS.</li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Buttons</span>
+                                <ul>
+                                    <li><code>&lt;input type="button"&gt;</code> with valid <code>value</code> attribute doesn't need a label associated with it. It may interfere with assistive technology.</li>
+                                    <li>Same deal with <code>&lt;button&gt;</code></li>
+                                </ul>
+                                
+                            </li>
                         </ul>
                     </dd>
 
@@ -401,7 +427,6 @@
                             <li><code>&lt;textarea&gt;</code></li>
                         </ul>
                     </dd>
-
                     <dt><code>htmlFor</code></dt>
                     <dd>Method to set <code>for</code> attribute. <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor" target="_blank">Read here</a>.</dd>
 
