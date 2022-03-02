@@ -24,6 +24,13 @@
 
         <main class="html-notes html-form-notes">
 
+            <div class="sticky-nav">
+                <details>
+                    <summary></summary>
+                    <nav id="navSticky"></nav>
+                </details>
+            </div>
+
             <!-- Article: Form -->
             <article id="form">
                 <h2><code>&lt;form&gt;</code></h2>
@@ -517,11 +524,11 @@
                             <figure>
                                 <figcaption>Meter with just min, max, and value</figcaption>
                                 <form>
-                                    <p>Heat the oven to <meter min="200" max="500" value="350">350 degrees</meter>.</p>
+                                    Heat the oven to <meter min="200" max="500" value="350">350 degrees</meter>.
                                 </form>
                                 <p>
                                     <code>
-                                        &lt;p&gt;<span class="sampledata">Heat the oven to </span>&lt;meter min=<span class="sampledata">"200"</span> max=<span class="sampledata">"500"</span> value=<span class="sampledata">"350"</span>&gt;<span class="sampledata">350 degrees</span>&lt;/meter&gt;<span class="sampledata">.</span>&lt;/p&gt;
+                                        <span class="text">Heat the oven to </span>&lt;meter min=<span class="value">"200"</span> max=<span class="value">"500"</span> value=<span class="value">"350"</span>&gt;<span class="textcontent">350 degrees</span>&lt;/meter&gt;<span class="text">.</span>
                                     </code>
                                 </p>
                                 
@@ -530,12 +537,12 @@
                                 <figcaption>Meter with low and high</figcaption>
                                 <div>
                                     <form>
-                                        <p>He got a <meter low="69" high="80" max="100"
-                                        value="84">B</meter> on the exam.</p>
+                                        He got a <meter low="69" high="80" max="100"
+                                        value="84">B</meter> on the exam.
                                     </form>
                                     <p>
                                         <code>
-                                            &lt;p&gt;<span class="sampledata">He got a </span>&lt;meter low=<span class="sampledata">"69"</span> high=<span class="sampledata">"80"</span> max=<span class="sampledata">"100"</span> value=<span class="sampledata">"84"</span>&gt;<span class="sampledata">B</span>&lt;/meter&gt;<span class="sampledata">on the exam.</span>&lt;/p&gt;
+                                            <span class="text">He got a </span>&lt;meter low=<span class="value">"69"</span> high=<span class="value">"80"</span> max=<span class="value">"100"</span> value=<span class="value">"84"</span>&gt;<span class="textcontent">B</span>&lt;/meter&gt;<span class="text">on the exam.</span>
                                         </code>
                                     </p>
                                 </div>
@@ -555,6 +562,13 @@
                 <dl>
                     <dt><code>&lt;progress&gt;</code></dt>
                     <dd class="maindef">Progress indicator</dd>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                &lt;progress <span class="attribute">value=<span class="value">"70"</span> max=<span class="value">"100"</span></span>&gt;<span class="textcontent">70%</span>&lt;/progress&gt;
+                        </code>
+                        </div>
+                    </dd>
                     <dd>Displays an indicator showing completion progress of a task. Typically as a progress bar.</dd>
 
                     <dt>Attributes:</dt>
@@ -579,7 +593,7 @@
                                     </li>
                                     <li>Value is <i>indeterminate</i> when not declared.
                                         <ul>
-                                            <li>pseudo-class: <code>:indeterminate</code></li>
+                                            <li>pseudo-class: <code class="inlinebox">:indeterminate</code></li>
                                             <li>If you have given <code>value</code> a value, and then want to change it to <i>indeterminate</i>, you must remoce the value attribute with <code class="inlinebox">element.removeAttribute("value")</code></li>
                                         </ul>
                                     </li>
@@ -588,25 +602,28 @@
                         </ul>
                     </dd>
 
+                    <dt>Text content:</dt>
+                    <dd>Not a label. A fallback for old browser that doesn't support this element.</dd>
+
                     <dt>Examples</dt>
                     <dd>
                         <div class="figcode">
                             <figure>
-                                <figcaption>Progress</figcaption>
-                                <form>
-                                    <label for="file">File progress:</label>
-                                    <progress id="file" max="100" value="70"> 70% </progress>
-                                </form>
-                            </figure>
-                            <figure>
-                                <figcaption>HTML codes</figcaption>
-                                <details>
-                                    <summary>HTML codes</summary>
+                                <figcaption>Progress nested with label</figcaption>
+                                <div>
+                                    <form>
+                                        <label for="progress">File progress: </label>
+                                        <progress id="progress" max="100" value="70">70%</progress>
+                                    </form>
 <pre>
-    
-</pre>
-                                </details>
+<code>
+&lt;label for=<span class="value">"progress"</span>&gt;<span class="textcontent">File progress: </span>&lt;/label&gt;
+&lt;progress id=<span class="value">"progress"</span> max=<span class="value">"100"</span> value=<span class="value">"70"</span>&gt;<span class="textcontent">70%</span>&lt;/progress&gt;
+</code></pre>
+                                </div>
+
                             </figure>
+
                         </div>
                     </dd>
                 </dl>
@@ -743,6 +760,8 @@
         </footer>     
         
         <script src="./navArticle.js"></script>
+        <script src="./navArticleSticky.js"></script>
+
         <!-- <script src="./hoverElement.js"></script> -->
         <!-- <script src="./highlightElement.js"></script> -->
 

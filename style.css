@@ -39,10 +39,19 @@ figure {
     --flexbackground: rgb(252, 248, 235);
     --alert: rgb(214, 64, 64);
     --othercolor1: olive;
-    --othercolor2: rgb(206, 131, 131);
+
+    --elementcolor: cadetblue;
+    --attributecolor: steelblue;
+    --valuecolor: rgb(206, 131, 131);
+    --textcontentcolor: olive;
+    --textcolor: rgb(99, 99, 99);
+
+
+    --whatcolor: rgb(114, 69, 114);
+
+    
     --othercolor3: rgb(223, 146, 132);
     --js-border: rgb(190, 215, 216);
-    --dustyblack: rgb(99, 99, 99);
     --label: rgb(147, 86, 173);
 
     --bumper-quarter: 4px;
@@ -254,10 +263,8 @@ h3 code, h4 code, h5 code, h6 code {
     padding-left: 32px;
 }
 
-
-
 .formula .parameter {
-    color: var(--othercolor2);
+    color: var(--whatcolor);
     font-weight: normal;
 }
 
@@ -407,7 +414,7 @@ samp,
 
 .js-codebox strong,
 .html-codebox strong {
-    color: var(--othercolor2);
+    color: var(--whatcolor);
 }
 
 .js-codebox+.js-codebox {
@@ -598,6 +605,54 @@ input.invalid + p {
     color: inherit;
     font-style: normal;
 }
+
+/* || Sticky nav */
+
+.sticky-nav {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+.sticky-nav summary {
+    list-style: none;
+}
+
+.sticky-nav summary::-webkit-details-marker {
+    display: none;
+}
+
+.sticky-nav details >summary:before {
+    content: "\25B6";
+    color: var(--border);
+}
+
+.sticky-nav details[open] > summary:before {
+    content: "\25BC";
+    color: var(--border);
+}
+
+.sticky-nav .html-nav ul {
+    display: inline-block;
+    justify-content: left;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.sticky-nav .html-nav ul li {
+    width: fit-content;
+    color: var(--title);
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0 5px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    white-space:nowrap;
+    margin: 0.5rem 0;
+    background-color: white;
+}
+
 
 /* || HTML-Notes: Definitions */
 
@@ -829,27 +884,28 @@ tbody th {
 
 .element {
     font-weight: bold;
-    color: cadetblue;
+    color: var(--elementcolor);
 }
 
 .attribute {
     font-weight: normal;
-    color: steelblue;
-}
-
-.figcode .attribute {
-    color: rgb(106, 161, 206);
-    font-weight: bold;
+    color: (--attributecolor);
 }
 
 .variable,
-.sampledata {
-    color: var(--othercolor2);
+.sampledata,
+.value {
+    color: var(--valuecolor);
     font-weight: normal;
 }
 
 .textcontent {
-    color: var(--label);
+    color: var(--textcontentcolor);
+    font-weight: normal;
+}
+
+.text {
+    color: var(--textcolor);
     font-weight: normal;
 }
 
