@@ -29,7 +29,8 @@
                 <h2><code>&lt;form&gt;</code></h2>
 
                 <dl>
-                    <dt><code>&lt;form&gt;</code>: Form submission section</dt>
+                    <dt><code>&lt;form&gt;</code></dt>
+                    <dd class="maindef">Form submission section</dd>
                     <dd>Represents section containing interactive controls for submitting information.</dd>
                     
                     <dt>Web forms</dt>
@@ -93,7 +94,7 @@
                         </div>
                     </dd>
 
-                    <dt>Important CSS pseudo-classes:</dt>
+                    <dt>CSS pseudo-classes:</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">:valid</code> and <code class="inlinebox">:invalid</code>
@@ -104,8 +105,7 @@
                         </ul>      
                     </dd>
 
-
-                    <dt>Important general attibutes:</dt>
+                    <dt>General attibutes:</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">Accept-charset</code> 
@@ -147,8 +147,7 @@
                         </ul>
                     </dd>
 
-
-                    <dt>Important attibutes for form submission:</dt>
+                    <dt>Attibutes for form submission:</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">method</code>
@@ -242,7 +241,6 @@
                             </li>
                         </ul>
                     </dd>
-
                 </dl>
 
                 <a href="#top"><hr></a>
@@ -250,14 +248,14 @@
 
             <!-- Article: Label -->
             <article id="label">
-
                 <h2><code>&lt;label&gt;</code></h2>
 
                 <dl>
                     <dt><code>&lt;label&gt;</code></dt>
+                    <dd class="maindef">Control label</dd>
                     <dd>A text label for the associated element.</dd>
 
-                    <dt>Important attribute: <code>for</code></dt>
+                    <dt>Attribute: <code>for</code></dt>
                     <dd>
                         <ul>
                             <li>Function: associating the label to a control element by their <code>id</code> attribute.</li>
@@ -395,7 +393,7 @@
                             <li>A label element can have both <code>for</code> attribute and a child control element as long as the attribute points to the child element.</li>
                         </ul>     
                     </dd>
-                    <dd>
+                    <dd><!-- 2 labels -->
                         <div class="figcode">
                             <figure>
                                 <figcaption>Input element with 2 label elements</figcaption>
@@ -429,12 +427,236 @@
                     </dd>
                     <dt><code>htmlFor</code></dt>
                     <dd>Method to set <code>for</code> attribute. <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor" target="_blank">Read here</a>.</dd>
-
                 </dl>
            
 
                 <a href="#top"><hr></a>
-            </article>     
+            </article>      
+
+            <!-- Article: meter -->
+            <article id="meter">
+                <h2><code>&lt;meter&gt;</code></h2>
+                <dl>
+                    <dt><code>&lt;meter&gt;</code></dt>
+                    <dd class="maindef">Gauge</dd>
+                    <dd>Represents either scalar value within a known range or fractional value.</dd>
+
+                    <dt>General attribute:</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">form</code>
+                                <ul>
+                                    <li>To associate the element to the <code>&lt;form&gt;</code> element it belongs to. Also called its <i>form owner</i>.</li>
+                                    <li>value = id of a <code>&lt;form&gt;</code> in the same document</li>
+                                    <li>When it is not set, the meter element will ne associated with its ancestor form element if any. </li>
+                                    <li>This attribute is used onlt if the lemeent is being used as a form-associated element, for example displaying a range corresponding to an <code>&lt;input type="number"&gt;</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Attributes regarding values in the gauge:</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">min</code> and <code class="inlinebox">max</code> 
+                                <ul>
+                                    <li>Determining meter's overall <code>min</code> and <code>max</code> range.</li>
+                                    <li>Rule: <code>min</code> &lt; <code>max</code></li>
+                                    <li>Default values if unspecified
+                                        <ul>
+                                            <li><code>min</code> =  <code>0</code></li>
+                                            <li><code>max</code> = <code>1</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">low</code> and <code class="inlinebox">high</code>
+                                <ul>
+                                    <li>Indicating <code>low</code> and <code>high</code> markers within meter's overall <code>min</code> and <code>max</code> range</li>
+                                    <li>Rule: <code>min</code> &lt; <code>low</code> &lt; <code>high</code> &lt; <code>max</code></li>
+                                    <li>If they are not specified, or specified but with values outside <code>min</code>-<code>max</code> range, then:
+                                        <ul>
+                                            <li><code>low</code> =  <code>min</code> value</li>
+                                            <li><code>high</code> = <code>max</code> value</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">optimum</code>
+                                <ul>
+                                    <li>Marking the optimal numeric value within meter's overall <code>min</code> and <code>max</code> range</li>
+                                    <li>Rule: <code>min</code> &lt; <code>optimum</code> &lt; <code>max</code></li>
+                                    <li>When used together with with <code>low</code> and <code>high</code> attributes, it give an indication where along the range is considered preferred.
+                                        <ul>
+                                            <li>For example, if <code>min</code> &lt; <code>optimal</code> &lt; <code>low</code>, then the lower range is considered preferred.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Browser might color the meter's bar differently</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">value</code>
+                                <ul>
+                                    <li>Representing current numeric value.</li>
+                                    <li>Rule: <code>min</code> &lt; <code>value</code> &lt; <code>max</code></li>
+                                    <li>If it is specified but outside the <code>min</code>-<code>max</code> range:
+                                        <ul>
+                                            <li><code>value</code> = <code>max</code> value if it's higher than the range</li>
+                                            <li><code>value</code> = <code>min</code> value if it's lower than the range</li>
+                                        </ul> 
+                                    </li>
+                                    <li>If unspecified or malformed, value of <code>value</code> is <code>0</code></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Examples</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Meter with just min, max, and value</figcaption>
+                                <form>
+                                    <p>Heat the oven to <meter min="200" max="500" value="350">350 degrees</meter>.</p>
+                                </form>
+                                <p>
+                                    <code>
+                                        &lt;p&gt;<span class="sampledata">Heat the oven to </span>&lt;meter min=<span class="sampledata">"200"</span> max=<span class="sampledata">"500"</span> value=<span class="sampledata">"350"</span>&gt;<span class="sampledata">350 degrees</span>&lt;/meter&gt;<span class="sampledata">.</span>&lt;/p&gt;
+                                    </code>
+                                </p>
+                                
+                            </figure>
+                            <figure>
+                                <figcaption>Meter with low and high</figcaption>
+                                <div>
+                                    <form>
+                                        <p>He got a <meter low="69" high="80" max="100"
+                                        value="84">B</meter> on the exam.</p>
+                                    </form>
+                                    <p>
+                                        <code>
+                                            &lt;p&gt;<span class="sampledata">He got a </span>&lt;meter low=<span class="sampledata">"69"</span> high=<span class="sampledata">"80"</span> max=<span class="sampledata">"100"</span> value=<span class="sampledata">"84"</span>&gt;<span class="sampledata">B</span>&lt;/meter&gt;<span class="sampledata">on the exam.</span>&lt;/p&gt;
+                                        </code>
+                                    </p>
+                                </div>
+
+                            </figure>
+
+                        </div>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article> 
+
+            <!-- Article: progress -->
+            <article id="progress">
+                <h2><code>&lt;progress&gt;</code></h2>
+                <dl>
+                    <dt><code>&lt;progress&gt;</code></dt>
+                    <dd class="maindef">Progress indicator</dd>
+                    <dd>Displays an indicator showing completion progress of a task. Typically as a progress bar.</dd>
+
+                    <dt>Attributes:</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">max</code>
+                                <ul>
+                                    <li>Indicates how much work required to be considered done.</li>
+                                    <li>Rule: <code>max</code> &lt; <code>0</code></li>
+                                    <li>Must be alid floating point number</li>
+                                    <li>Default: <code>1</code></li>
+                                    <li>Minimum value is always 0 in progress.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">value</code>
+                                <ul>
+                                    <li>Specifies how much of the task has been completed.</li>
+                                    <li>Rule: <code>0</code> &lt; <code>value</code> &lt; <code>max</code>
+                                        <ul>
+                                            <li>Remember <code>max</code> = <code>1</code> when not declared.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Value is <i>indeterminate</i> when not declared.
+                                        <ul>
+                                            <li>pseudo-class: <code>:indeterminate</code></li>
+                                            <li>If you have given <code>value</code> a value, and then want to change it to <i>indeterminate</i>, you must remoce the value attribute with <code class="inlinebox">element.removeAttribute("value")</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Examples</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Progress</figcaption>
+                                <form>
+                                    <label for="file">File progress:</label>
+                                    <progress id="file" max="100" value="70"> 70% </progress>
+                                </form>
+                            </figure>
+                            <figure>
+                                <figcaption>HTML codes</figcaption>
+                                <details>
+                                    <summary>HTML codes</summary>
+<pre>
+    
+</pre>
+                                </details>
+                            </figure>
+                        </div>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>  
+
+            <!-- Article: Template -->
+            <article id="template">
+                <h2><code>&lt;meter&gt;</code></h2>
+                <dl>
+                    <dt><code>&lt;meter&gt;</code></dt>
+                    <dd class="maindef">Main def</dd>
+                    <dd>Represents ...</dd>
+
+                    <dt>Attributes:</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">attribute</code>
+                                <ul>
+                                    <li>Explanation</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Examples</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Form...</figcaption>
+                                <form>
+
+                                </form>
+                            </figure>
+                            <figure>
+                                <figcaption>HTML codes</figcaption>
+                                <details>
+                                    <summary>HTML codes</summary>
+<pre>
+    
+</pre>
+                                </details>
+                            </figure>
+                        </div>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>  
 
             <!-- Article: Other form elements -->
             <article id="form-elements">
@@ -474,8 +696,7 @@
                         </dl>
                     </dd>
 
-                    <dt><code>&lt;meter&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+
 
                     <dt><code>&lt;progress&gt;</code></dt>
                     <dd class="maindef">   </dd>
