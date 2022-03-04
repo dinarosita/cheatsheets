@@ -515,8 +515,12 @@ code a {
     margin-left: 6rem;
 }
 
+.html-form-notes h2 + .subtitle + dl {
+    margin-top: 1.5rem;
+}
+
 .html-form-notes > article > dl > dd > ul {
-    padding-left: 16px;
+    padding-left: 1rem;
 }
 
 .html-form-notes > article > dl > dt {
