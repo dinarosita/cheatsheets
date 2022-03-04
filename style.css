@@ -486,6 +486,35 @@ code a {
 }
 /* || HTML-Notes: Forms  and html-form-notes*/
 
+
+.html-form-notes .subtitle {
+    margin-top: -0.5rem;
+    color: var(--title);
+    font-weight: bold;
+}
+
+.html-form-notes .subtitle code {
+    color: inherit;
+}
+
+.html-form-notes .h2-level2 {
+    margin-top: -1.5rem;
+    margin-left: 3rem;
+}
+
+.html-form-notes .h2-level2 + .subtitle {
+    margin-left: 3rem;
+}
+
+.html-form-notes .h2-level3 {
+    margin-top: -1.5rem;
+    margin-left: 6rem;
+}
+
+.html-form-notes .h2-level3 + .subtitle {
+    margin-left: 6rem;
+}
+
 .html-form-notes > article > dl > dd > ul {
     padding-left: 16px;
 }
@@ -508,9 +537,9 @@ code a {
 }
 
 .html-notes label {
-    color: var(--label);
     font-weight: normal;
     padding: 0;
+    color: black;
 }
 
 .highlight {
@@ -522,6 +551,37 @@ code a {
     margin: 0.5rem 0;
 }
 
+.bulletless > li{
+    margin-left: -1rem;
+}
+
+.bulletless li{
+    list-style-type: none;
+}
+
+
+.html-notes .fieldset1 {
+    width: fit-content;
+    border: 2px solid var(--borderdark);
+    border-radius: 0.3rem;
+}
+
+.html-notes .fieldset1 > legend {
+    background-color: var(--borderdark);
+    border-radius: 0.3rem;
+    font-weight: bold;
+    color: white;
+    padding: 0.1rem 0.5rem;
+}
+
+.html-notes .fieldset1 >input {
+    margin: 0.5rem;
+}
+
+.html-notes .fieldset1 > label {
+    padding-right: 1rem;
+    color: var(--code);
+}
 
 /* || General: Form */
 
@@ -614,6 +674,7 @@ input.invalid + p {
     top: 0;
 }
 
+
 .sticky-nav summary {
     list-style: none;
 }
@@ -637,7 +698,7 @@ input.invalid + p {
     justify-content: left;
     padding: 0;
     margin: 0;
-    
+
 }
 
 .sticky-nav .html-nav ul li {
@@ -707,7 +768,6 @@ dl .html-codebox {
 .figure1 figcaption,
 .figcode summary  {
     color: rgb(235, 169, 162);
-    font-style: italic;
     font-weight: bold;
 }
 
@@ -876,8 +936,25 @@ tbody th {
     padding: 0.5rem 0;
 }
 
-.html-notes h2 code {
-    font-size: inherit;
+.html-form-notes h2,
+.html-form-notes h3,
+.html-form-notes h4 {
+    text-decoration: none;
+}
+
+.html-form-notes h2 code,
+.html-form-notes h3 code,
+.html-form-notes h4 code {
+    border: none;
+    color: var(--code);
+    font-size: 1.2rem;
+}
+
+.html-form-notes .figcode > figure > figcaption {
+    color: var(--title);
+    font-style: none;
+    font-size: 1.1rem;
+    text-decoration: underline;
 }
 
 /* || HTML-Notes: General: inline text */

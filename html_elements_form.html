@@ -21,26 +21,20 @@
             <a href="./index.html"><h1>HTML Form Elements</h1></a> 
         </header>
 
-
-        <nav id="navMenu"></nav>
         <nav class="simple_nav">
-            <a href="#resources" class="nav-button-rev" style="margin: auto">Resources</a>
             <a href="./html_elements.html" class="nav-button-rev" style="margin: auto">HTML Elements</a>
             <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
         </nav>
-
+        <nav id="navMenu"></nav>
 
         <main class="html-notes html-form-notes">
 
             <!-- Article: Form -->
             <article id="form">
                 <h2><code>&lt;form&gt;</code></h2>
+                <p class="subtitle">A section containing interactive controls for submitting information.</p>
 
-                <dl>
-                    <dt><code>&lt;form&gt;</code></dt>
-                    <dd class="maindef">Form submission section</dd>
-                    <dd>Represents section containing interactive controls for submitting information.</dd>
-                    
+               <dl>                  
                     <dt>Web forms</dt>
                     <dd>
                         <ul>
@@ -61,6 +55,34 @@
                             <li>Learn more starts here: <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" target="_blank">Web forms — Working with user data</a></li>
                         </ul>
                     </dd>
+
+                    <dt>Structure example</dt>
+                    <dd>
+                        <div class="figcode">
+<pre>
+&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;
+        &lt;input&gt;
+        &lt;label&gt;
+        ...
+</pre>
+                        </div>            
+                    </dd>
+
+                    <dt>Associating other form elements to the <code>&lt;form&gt;</code> element aka <i>form owner</i></li>:</dt>
+                    <dd>
+                        <ul>
+                            <li>Being nested inside <code>&lt;form&gt;</code> element.</li>
+                            <li>Using <code>&lt;form&gt;</code>'s <code>id</code> attribute
+                                <ul>
+                                    <li>Use attribute <code>id</code> to give a unique id to which other elements can refer.</li>
+                                    <li>Use this id as value for attribute <code>&lt;form&gt;</code> of those other elements.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                    
                         
                     <dt>Example</dt>
                     <dd>
@@ -250,19 +272,14 @@
                         </ul>
                     </dd>
                 </dl>
-
-                <a href="#top"><hr></a>
             </article>
+            <a href="#top"><hr></a>
 
             <!-- Article: Label -->
             <article id="label">
                 <h2><code>&lt;label&gt;</code></h2>
-
+                <p class="subtitle">A text label for the associated element.</p>
                 <dl>
-                    <dt><code>&lt;label&gt;</code></dt>
-                    <dd class="maindef">Control label</dd>
-                    <dd>A text label for the associated element.</dd>
-
                     <dt>Attribute: <code>for</code></dt>
                     <dd>
                         <ul>
@@ -340,11 +357,11 @@
                                     <div class="highlight">This is a div box, not a label. Hit area only that small input check-box &RightArrow;
                                         <input type="checkbox">
                                     </div>                                
-        <pre>
-        <code>&lt;div&gt;Div text
-            &lt;input type="checkbox"&gt;
-        &lt;/div&gt;</code>
-        </pre>
+<pre>
+<code>&lt;div&gt;Div text
+    &lt;input type="checkbox"&gt;
+&lt;/div&gt;</code>
+</pre>
                                 </div>
                             </figure>
                             <figure>
@@ -354,11 +371,11 @@
                                         <input type="checkbox">
                                     </label>
             
-        <pre>
-        <code>&lt;label&gt;Label text
-            &lt;input type="checkbox"&gt;
-        &lt;/label&gt;</code>
-        </pre>
+<pre>
+<code>&lt;label&gt;Label text
+    &lt;input type="checkbox"&gt;
+&lt;/label&gt;</code>
+</pre>
                                 </div>
                             </figure>
                             <figure>
@@ -369,10 +386,10 @@
                                         <input id="hit-area" type="checkbox">
                                     </div>
                                     <div>
-        <pre>
-        <code>&lt;label for="hit-area"&gt;Label text&lt;/label&gt;
-        &lt;input type="checkbox" id="hit-area"&gt;</code>
-        </pre>
+<pre>
+<code>&lt;label for="hit-area"&gt;Label text&lt;/label&gt;
+&lt;input type="checkbox" id="hit-area"&gt;</code>
+</pre>
                                     </div>
                                 </div>
                             </figure>
@@ -411,11 +428,11 @@
                                     <label for="username">Forgot password?</label>
                                 
     
-        <pre>
-        <code>&lt;label for="username"&gt;Enter password:&lt;/label&gt;
-        &lt;input id="password"&gt;
-        &lt;label for="username"&gt;Forgot password?&lt;/label&gt;</code>
-        </pre>
+<pre>
+<code>&lt;label for="username"&gt;Enter password:&lt;/label&gt;
+&lt;input id="password"&gt;
+&lt;label for="username"&gt;Forgot password?&lt;/label&gt;</code>
+</pre>
                                 </div>
                             </figure>
                         </div>
@@ -435,20 +452,16 @@
                     </dd>
                     <dt><code>htmlFor</code></dt>
                     <dd>Method to set <code>for</code> attribute. <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor" target="_blank">Read here</a>.</dd>
-                </dl>
-           
+                </dl>           
 
-                <a href="#top"><hr></a>
-            </article>      
+            </article>    
+            <a href="#top"><hr></a>
 
             <!-- Article: meter -->
             <article id="meter">
                 <h2><code>&lt;meter&gt;</code></h2>
+                <p class="subtitle">The gauge element. A scalar value within a known range or fractional value.</p>
                 <dl>
-                    <dt><code>&lt;meter&gt;</code></dt>
-                    <dd class="maindef">Gauge</dd>
-                    <dd>Represents either scalar value within a known range or fractional value.</dd>
-
                     <dt>General attribute:</dt>
                     <dd>
                         <ul>
@@ -457,7 +470,7 @@
                                     <li>To associate the element to the <code>&lt;form&gt;</code> element it belongs to. Also called its <i>form owner</i>.</li>
                                     <li>value = id of a <code>&lt;form&gt;</code> in the same document</li>
                                     <li>When it is not set, the meter element will ne associated with its ancestor form element if any. </li>
-                                    <li>This attribute is used onlt if the lemeent is being used as a form-associated element, for example displaying a range corresponding to an <code>&lt;input type="number"&gt;</code></li>
+                                    <li>This attribute is used only if the element is being used as a form-associated element, for example displaying a range corresponding to an <code>&lt;input type="number"&gt;</code></li>
                                 </ul>
                             </li>
                         </ul>
@@ -527,25 +540,31 @@
                                 <form>
                                     Heat the oven to <meter min="200" max="500" value="350">350 degrees</meter>.
                                 </form>
-                                <p>
-                                    <code>
-                                        <span class="text">Heat the oven to </span>&lt;meter min=<span class="value">"200"</span> max=<span class="value">"500"</span> value=<span class="value">"350"</span>&gt;<span class="textcontent">350 degrees</span>&lt;/meter&gt;<span class="text">.</span>
-                                    </code>
-                                </p>
+<pre>
+<code>
+<span class="text">Heat the oven to </span>&lt;meter min=<span class="value">"200"</span> max=<span class="value">"500"</span> value=<span class="value">"350"</span>&gt;<span class="textcontent">350 degrees</span>&lt;/meter&gt;<span class="text">.</span>
+</code>
+</pre>
                                 
                             </figure>
                             <figure>
                                 <figcaption>Meter with low and high</figcaption>
                                 <div>
-                                    <form>
-                                        He got a <meter low="69" high="80" max="100"
-                                        value="84">B</meter> on the exam.
-                                    </form>
-                                    <p>
-                                        <code>
-                                            <span class="text">He got a </span>&lt;meter low=<span class="value">"69"</span> high=<span class="value">"80"</span> max=<span class="value">"100"</span> value=<span class="value">"84"</span>&gt;<span class="textcontent">B</span>&lt;/meter&gt;<span class="text">on the exam.</span>
-                                        </code>
-                                    </p>
+                                    <ul>
+                                        <li>Ben got a <meter low="69" high="80" max="100"
+                                        value="85">B</meter> on the exam.</li>
+                                        <li>Cia got a <meter low="69" high="80" max="100"
+                                        value="75">B</meter> on the exam.</li>
+                                        <li>Don got a <meter low="69" high="80" max="100"
+                                        value="65">B</meter> on the exam.</li>
+                                    </ul>
+<pre>
+<code>
+<span class="text">Ben got a </span>&lt;meter low=<span class="value">"69"</span> high=<span class="value">"80"</span> max=<span class="value">"100"</span> value=<span class="value">"85"</span>&gt;<span class="textcontent">B</span>&lt;/meter&gt;<span class="text">on the exam.</span>
+<span class="text">Cia got a </span>&lt;meter low=<span class="value">"69"</span> high=<span class="value">"80"</span> max=<span class="value">"100"</span> value=<span class="value">"75"</span>&gt;<span class="textcontent">C</span>&lt;/meter&gt;<span class="text">on the exam.</span>
+<span class="text">Don got a </span>&lt;meter low=<span class="value">"69"</span> high=<span class="value">"80"</span> max=<span class="value">"100"</span> value=<span class="value">"65"</span>&gt;<span class="textcontent">D</span>&lt;/meter&gt;<span class="text">on the exam.</span>
+</code>
+</pre>
                                 </div>
 
                             </figure>
@@ -554,15 +573,16 @@
                     </dd>
                 </dl>
 
-                <a href="#top"><hr></a>
             </article> 
+            <a href="#top"><hr></a>
 
             <!-- Article: progress -->
             <article id="progress">
                 <h2><code>&lt;progress&gt;</code></h2>
+                <p class="subtitle">An indicator showing completion progress of a task. Typically as a progress bar.</p>
+
                 <dl>
-                    <dt><code>&lt;progress&gt;</code></dt>
-                    <dd class="maindef">Progress indicator</dd>
+                    <dt>Formula</dt>
                     <dd>
                         <div class="formula">
                             <code>
@@ -570,7 +590,6 @@
                         </code>
                         </div>
                     </dd>
-                    <dd>Displays an indicator showing completion progress of a task. Typically as a progress bar.</dd>
 
                     <dt>Attributes:</dt>
                     <dd>
@@ -595,7 +614,7 @@
                                     <li>Value is <i>indeterminate</i> when not declared.
                                         <ul>
                                             <li>pseudo-class: <code class="inlinebox">:indeterminate</code></li>
-                                            <li>If you have given <code>value</code> a value, and then want to change it to <i>indeterminate</i>, you must remoce the value attribute with <code class="inlinebox">element.removeAttribute("value")</code></li>
+                                            <li>If you have given <code>value</code> a value, and then want to change it to <i>indeterminate</i>, you must remove the value attribute with <code class="inlinebox">element.removeAttribute("value")</code></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -627,119 +646,391 @@
 
                         </div>
                     </dd>
+
+                    <dt>Aria</dt>
+                    <dd><a href 
+                    ="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#labelling" target="_blank">Read here.</a></dd>
                 </dl>
-
-                <a href="#top"><hr></a>
             </article>  
+            <a href="#top"><hr></a>
 
-            <!-- Article: Template -->
-            <article id="template">
-                <h2><code>&lt;meter&gt;</code></h2>
+            <!-- Article: output -->
+            <article id="output">
+                <h2><code>&lt;output&gt;</code></h2>
+                <p class="subtitle">A container into which a site or app can inject result or outcome of a user action.</p>
                 <dl>
-                    <dt><code>&lt;meter&gt;</code></dt>
-                    <dd class="maindef">Main def</dd>
-                    <dd>Represents ...</dd>
-
                     <dt>Attributes:</dt>
                     <dd>
                         <ul>
-                            <li><code class="inlinebox">attribute</code>
+                            <li><code class="inlinebox">from</code>
                                 <ul>
-                                    <li>Explanation</li>
+                                    <li>To associate the element to its <i>form owner</i></li>
+                                    <li>Value is the <code>&lt;form&gt;</code>'s id</li>
+                                    <li>With this output element can be associated with any <code>&lt;form&gt;</code> element in the document, doesn't have to be inside it.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">for</code>
+                                <ul>
+                                    <li>To specify from which elements the calculation made for the output should be derived from or influenced by.</li>
+                                    <li>Value is a space-separated list of those influencing elements' <code>id</code>s.
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">name</code>
+                                <ul>
+                                    <li>Element's name</li>
+                                    <li>Used in <code>form.element</code> API</li>
                                 </ul>
                             </li>
                         </ul>
                     </dd>
 
+                    <dt>Form submission</dt>
+                    <dd><code>&lt;output&gt;</code> value, name, and contents, are not submitted during form submission.</dd>
+
+
+
                     <dt>Examples</dt>
                     <dd>
                         <div class="figcode">
                             <figure>
-                                <figcaption>Form...</figcaption>
-                                <form>
-
-                                </form>
+                                <figcaption>Output with intial values (incuding the typed-in output)</figcaption>
+                                <div>
+                                    <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+                                        <input type="range" id="a" name="a" value="40" /> +
+                                        <input type="number" id="b" name="b" value="30" /> =
+                                        <output name="result" for="a b">70</output>
+                                    </form>
+                                    
+<pre>
+<code>&lt;form oninput=<span class="value">"result.value=parseInt(a.value)+parseInt(b.value)"</span>&gt;
+    &lt;input type=<span class="value">"range"</span> id=<span class="value">"a"</span> name=<span class="value">"a"</span> value=<span class="value">"40"</span> /&gt; +
+    &lt;input type=<span class="value">"number"</span> id=<span class="value">"b"</span> name=<span class="value">"b"</span> value=<span class="value">"30"</span> /&gt; =
+    &lt;output name=<span class="value">"result"</span> for=<span class="value">"a b"</span>&gt;<span class="textcontent">70</span>&lt;/output&gt;
+&lt;/form&gt;
+</code></pre>
+                                </div>
                             </figure>
                             <figure>
-                                <figcaption>HTML codes</figcaption>
-                                <details>
-                                    <summary>HTML codes</summary>
+                                <figcaption>Output without initial values</figcaption>
+                                <div>
+                                    <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+                                        <input type="range" id="a" name="a" /> +
+                                        <input type="number" id="b" name="b" /> =
+                                        <output name="result" for="a b"></output>
+                                    </form>
+                                    
 <pre>
-    
+<code>&lt;form oninput=<span class="value">"result.value=parseInt(a.value)+parseInt(b.value)"</span>&gt;
+    &lt;input type=<span class="value">"range"</span> id=<span class="value">"a"</span> name=<span class="value">"a"</span> /&gt; +
+    &lt;input type=<span class="value">"number"</span> id=<span class="value">"b"</span> name=<span class="value">"b"</span> /&gt; =
+    &lt;output name=<span class="value">"result"</span> for=<span class="value">"a b"</span>&gt;&lt;/output&gt;
+&lt;/form&gt;
+</code></pre>
+                                </div>
+                            </figure>
+                        </div>
+                    </dd>
+
+                    <dt>Aria</dt>
+                    <dd><a href 
+                    ="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output#accessibility_concerns" target="_blank">Read here.</a></dd>
+                </dl>
+
+            </article>  
+            <a href="#top"><hr></a>
+
+            <!-- Article: fieldset and legend -->
+            <article id="fieldset">
+                <article id="legend">
+
+                <h2><code>&lt;fieldset&gt;</code></h2>
+                <p class="subtitle">A grouping element that groups several controls and their labels together.</p>
+
+                <h3><code>&lt;legend&gt;</code></h3>
+                <p class="subtitle">Caption to its parent <code>&lt;fieldset&gt;</code>.</p>
+                </div>
+                
+                <dl>
+                    <dt>Structure example</dt>
+                    <dd>
+                        <div class="figcode">
+<pre>
+<b>&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;</b>
+        &lt;input&gt;
+        &lt;label&gt;
+        ...
 </pre>
-                                </details>
+                        </div>            
+                    </dd>
+
+                    <dt>Fieldset attributes</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">form</code>
+                                <ul>
+                                    <li>This attribute associates the <code>&lt;fieldset&gt;</code> to the <code>&lt;form&gt;</code> it should be a part of.</li>
+                                    <li>Value: the <code>id</code> of the <code>&lt;form&gt;</code>.</li>
+                                    <li>Using this, <code>&lt;fieldset&gt;</code> doesn't need to be nested inside the <code>&lt;form&gt;</code></li>
+                                    <li>If the <code>&lt;input&gt;</code> elements inside <code>&lt;fieldset&gt;</code> should be associated with the <code>&lt;form&gt;</code>, then <code>form</code> attribute need to be directly applied to those elements.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">name</code>
+                                <ul>
+                                    <li>Name associated with the group</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">disabled</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>If set, all form controls that are descendants of <code>&lt;fieldset&gt;</code> are disabled.
+                                        <ul>
+                                            <li>Not editable</li>
+                                            <li>Won't be submitted along with the <code>&lt;form&gt;</code></li>
+                                            <li>Won't receive any browsing event like mouse click</li>
+                                            <li>Default display is grayed out.</li>
+                                            <li>Form elements inside <code>&lt;legend&gt;</code> won't be disabled.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Default styling</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="topic">&lt;fieldset&gt;</code>
+                                <ul>
+                                    <li><code class="inlinebox">display: block;</code></li>
+                                    <li><code class="inlinebox">border: 2px groove</code></li>
+                                    <li><code class="inlinebox">min-inline-size: min-content;</code></li>
+                                </ul>
+                            <li><code class="topic">&lt;legend&gt;</code>
+                                <ul>
+                                    <li>Placed over <code class="inlinebox">block-start</code></li>
+                                    <li>shrink-wrap</li>
+                                    <li>display is blockified</li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Anonymous box</span> holding content of <code>&lt;fieldset&gt;</code>
+                                <ul>
+                                    <li>Inherited some properties from <code>&lt;fieldset&gt;</code>, for examples:
+                                        <ul>
+                                            <li>If fieldset <code class="inlinebox">display: grid;</code> or <code class="inlinebox">display: inline-grid;</code>, then the box will be a grid formatting context.</li>
+                                            <li>If fieldset <code class="inlinebox">display: flex;</code> or <code class="inlinebox">display: inline-flex;</code>, then the box will be a flex formatting context.</li>
+                                            <li>Otherwise, block formatting context.</li>  
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Example</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Fieldset with legend (default styling) </figcaption>
+                                <div>
+                                    <form>
+                                        <fieldset>
+                                            <legend>Age</legend>
+                                            <input type="radio" id="20s" name="age">
+                                            <label for="20s">20-29</label><br>
+                                            <input type="radio" id="30s" name="age">
+                                            <label for="30s">30-39</label><br>
+                                            <input type="radio" id="40s" name="age">
+                                            <label for="40s">40-49</label>
+                                        </fieldset>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML Codes</summary>
+<pre>
+<code>&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Age&lt;/legend&gt;
+        &lt;input type="radio" id="20s" name="age"&gt;
+        &lt;label for="20s"&gt;20-29&lt;/label&gt;&lt;br&gt;
+        &lt;input type="radio" id="30s" name="age"&gt;
+        &lt;label for="30s"&gt;30-39&lt;/label&gt;&lt;br&gt;
+        &lt;input type="radio" id="40s" name="age"&gt;
+        &lt;label for="40s"&gt;40-49&lt;/label&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code>
+</pre>
+                                    </details>
+
+
+                                </div>
+                            </figure>
+                            <figure>
+                                <figcaption>Fieldset disabled: bullets are greyed and can't be clicked.</figcaption>
+                                <div>
+                                    <form>
+                                        <fieldset disabled>
+                                            <legend>Age</legend>
+                                            <input type="radio" id="20s" name="age">
+                                            <label for="20s">20-29</label><br>
+                                            <input type="radio" id="30s" name="age">
+                                            <label for="30s">30-39</label><br>
+                                            <input type="radio" id="40s" name="age">
+                                            <label for="40s">40-49</label>
+                                        </fieldset>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML Codes</summary>
+<pre>
+<code>&lt;form&gt;
+    &lt;fieldset disabled&gt;
+        ...</code>
+</pre>
+                                    </details>
+
+
+                                </div>
+                            </figure>
+                            <figure>
+                                <figcaption>Fieldset with styling class</figcaption>
+                                <div>
+                                    <form>
+                                        <fieldset class="fieldset1">
+                                            <legend>Age</legend>
+                                            <input type="radio" id="20s" name="age">
+                                            <label for="20s">20-29</label><br>
+                                            <input type="radio" id="30s" name="age">
+                                            <label for="30s">30-39</label><br>
+                                            <input type="radio" id="40s" name="age">
+                                            <label for="40s">40-49</label>
+                                        </fieldset>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML Codes</summary>
+                                    
+<pre>
+&lt;form&gt;
+    &lt;fieldset class="fieldset1"&gt;
+        ...
+</pre>
+                                    </details>
+                                    <details>
+                                        <summary>CSS codes</summary>
+<pre>
+:root {
+    --borderfill:rgb(250, 242, 243);
+    --code: steelblue;
+}
+
+.fieldset1 {
+    width: fit-content;
+    border: 2px solid var(--borderdark);
+    border-radius: 0.3rem;
+}
+
+.fieldset1 > legend {
+    background-color: var(--borderdark);
+    border-radius: 0.3rem;
+    font-weight: bold;
+    color: white;
+    padding: 0.1rem 0.5rem;
+}
+
+.fieldset1 >input {
+    margin: 0.5rem;
+}
+
+.fieldset1 > label {
+    padding-right: 1rem;
+    color: var(--code);
+}
+</pre>
+                                    </details>
+                                </div>
                             </figure>
                         </div>
                     </dd>
                 </dl>
-
-                <a href="#top"><hr></a>
+                </article>
             </article>  
+            <a href="#top"><hr></a>
 
-            <!-- Article: Other form elements -->
-            <article id="form-elements">
+            <!-- Article: select, optgroup, option -->            
+            <article id="select">
+                <article id="optgroup">
+                    <article id="option">
+                        <h2><code>&lt;select&gt;</code></h2>
+                        <p class="subtitle">Create grouping of <code>&lt;option&gt;</code> elements within a <code>&lt;select&gt;</code> element.</p>
 
+                        <h2 class="h2-level2"><code>&lt;optgroup&gt;</code></h2>
+                        <p class="subtitle">Create grouping of <code>&lt;option&gt;</code>s within a <code>&lt;select&gt;</code> element.</p>
 
-                    <dt><code>&lt;input&gt;</code></dt>
-                    <dd class="maindef">   </dd>          
-                    
-                    <dt><code>&lt;button&gt;</code></dt>
-                    <dd class="maindef">   </dd>
-
-                    <dt><code>&lt;textarea&gt;</code></dt>
-                    <dd class="maindef">   </dd>
-
-
-                    <dt><code>&lt;datalist&gt;</code></dt>
-                    <dd class="maindef">   </dd>
-                    <dd>
+                        <h2 class="h2-level3"><code>&lt;option&gt;</code></h2>
+                        <p class="subtitle">Define an item contained in <code>&lt;select&gt;</code>, <code>&lt;optgroup&gt;</code>, or <code>&lt;datalist&gt;</code>.</p>
+                        
                         <dl>
-                            <dt><code>&lt;option&gt;</code></dt>
-                            <dd class="maindef">   </dd>            
+
                         </dl>
-                    </dd>
-
-                    <dt><code>&lt;select&gt;</code></dt>
-                    <dd class="maindef">   </dd>
-                    <dd>
-                        <dl>
-                            <dt><code>&lt;optgroup&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-                            <dd>
-                                <dl>
-                                    <dt><code>&lt;option&gt;</code></dt>
-                                    <dd class="maindef">   </dd>
-                                </dl>
-                            </dd>
-                        </dl>
-                    </dd>
-
-
-
-                    <dt><code>&lt;progress&gt;</code></dt>
-                    <dd class="maindef">   </dd>
-
-                    <dt><code>&lt;output&gt;</code></dt>
-                    <dd class="maindef">   </dd>
-
+                    </article>
+                </article> 
                 
-                    <dt><code>&lt;fieldset&gt;</code></dt>
-                    <dd class="maindef">   </dd>
-                    <dd>
-                        <dl>
-                            <dt><code>&lt;legend&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-                            <dt><code>&lt;input&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-                            <dt><code>&lt;label&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-                        </dl>
-                    </dd>
-                </dl>
+            </article>
+            <a href="#top"><hr></a>
 
-                <a href="#top"><hr></a>
-            </article>            
-            
+            <!-- Article: datalist -->            
+            <article id="datalist">
+
+                <h2><code>&lt;datalist&gt;</code></h2>
+                <p class="subtitle">A collection of <code>&lt;option&gt;</code> elements available as choices for a control.</p>
+
+                <h2 class="h2-level2"><code>&lt;option&gt;</code></h2>
+                <p class="subtitle">Define an item contained in <code>&lt;select&gt;</code>, <code>&lt;optgroup&gt;</code>, or <code>&lt;datalist&gt;</code>.</p>
+                
+                <dl>
+
+                </dl>
+               
+            </article>
+            <a href="#top"><hr></a>
+
+            <!-- Article: input -->            
+            <article id="input">
+
+                <h2><code>&lt;input&gt;</code></h2>
+                <p class="subtitle">...</p>
+
+                <dl>
+
+                </dl>
+               
+            </article>
+            <a href="#top"><hr></a>
+
+            <!-- Article: button -->            
+            <article id="button">
+
+                <h2><code>&lt;button&gt;</code></h2>
+                <p class="subtitle">...</p>
+                <dl>
+
+                </dl>
+               
+            </article>
+            <a href="#top"><hr></a>
+
+            <!-- Article: textarea -->            
+            <article id="textarea">
+
+                <h2><code>&lt;textarea&gt;</code></h2>
+                <p class="subtitle">...</p>
+
+                <dl>
+
+                </dl>
+               
+            </article>
+            <a href="#top"><hr></a>
+
             <!-- Article: Resources -->
             <article id="resources">
                 <h2>Resources</h2>
