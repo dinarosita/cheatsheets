@@ -988,24 +988,90 @@
 </pre>  
                     </dd>         
       
-                    <dt>Example</dt>
+                    <dt>Attributes</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">form</code>
+                                <ul>
+                                    <li>To associate it with its form owner</li>
+                                    <li>The value is the <code>id</code> of that <code>&lt;form&gt;</code> element.</li>
+                                    <li>If the value is not set, the element will be associated with its ancestor <code>&lt;form&gt;</code> element is any.</li>
+                                    <li>With this, <code>&lt;select&gt;</code> element doesn't have to be nested inside its <code>&lt;form&gt;</code> owner.</li>
+                                    <li>It can override an ancestor <code>&lt;form&gt;</code> element.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">id</code>
+                                <ul>
+                                    <li>So it can be associated with a <code>&lt;label&gt;</code></li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">name</code>
+                                <ul>
+                                    <li>Name of the control. Represents the name of hte associated data point submitted to the server.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">multiple</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Multiple options can be selected.</li>
+                                    <li>If not specified, only 1 option can be selected</li>
+                                    <li>When specified, most browser will show a scrolling list box instead of single line dropdown.</li>
+                                </ul>
+                            </li>  
+                            <li><code class="inlinebox">size</code>
+                                <ul>
+                                    <li>For when control is presented as a scrolling box (for example, when <code>multiple</code> is specified.</li>
+                                    <li>Represents how many rows of options can be shown at once.</li>
+                                    <li>Browsers are not required to present a select element as a scrolled list box.</li>
+                                    <li>Default is <code>0</code>.</li>
+                                </ul>
+                            </li>  
+                            <li><code class="inlinebox">required</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Indicating that an option with a non-empty string value must be selected.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">disabled</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Indicates user can't interact with the control.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">autofocus</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Only 1 form element in a document can have <code>autofocus</code> attribute</li>
+                                    <li>Specify the form control that should have input focus when the page load.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">autocomplete</code>
+                                <ul>
+                                    <li>A DOMString provoding a hint for user agent's autocomplete feature.</li>
+                                    <li>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select" target="_blank">HTML autocomplete attribute</a> for list of the values and details.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Example with optgroup and option elements, with their value and name attributes</dt>
                     <dd>
                         <div class="figcode">
                             <figure>
-                                <figcaption>Select - Optgroup - Option</figcaption>
+                                <figcaption>Form example</figcaption>
                                 <div>
                                     <form>
-                                        <label for="destinations">Choose a destination:</label>
-                                        <select id="destinations">
+                                        <label for="destination-select">Choose a destination:</label>
+                                        <select name="destinations" id="destination-select">
                                             <optgroup label="Beach">
-                                                <option>Pantai Pasir Putih</option>
-                                                <option>Pantai Pangandaran</option>
-                                                <option>Pantai Kenjeran</option>
+                                                <option value="pasir-putih">Pantai Pasir Putih</option>
+                                                <option value="pangandaran">Pantai Pangandaran</option>
+                                                <option value="kenjeran">Pantai Kenjeran</option>
                                             </optgroup>
                                             <optgroup label="Mount">
-                                                <option>Gunung Bromo</option>
-                                                <option>Gunung Tangkuban Perahu</option>
-                                                <option>Gunung Semeru</option>
+                                                <option value="bromo">Gunung Bromo</option>
+                                                <option value="tangkuban-perahu">Gunung Tangkuban Perahu</option>
+                                                <option value="semeru">Gunung Semeru</option>
                                             </optgroup>
                                         </select>
                                     </form>
@@ -1013,17 +1079,17 @@
                                         <summary>HTML codes</summary>
 <pre>
 &lt;form&gt;
-&lt;label for="destinations"&gt;Choose a destination:&lt;/label&gt;
-&lt;select id="destinations"&gt;
+&lt;label for="destination-select"&gt;Choose a destination:&lt;/label&gt;
+&lt;select name="destinations" id="destination-select"&gt;
 &lt;optgroup label="Beach"&gt;
-    &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
-    &lt;option&gt;Pantai Pangandaran&lt;/option&gt;
-    &lt;option&gt;Pantai Kenjeran&lt;/option&gt;
+    &lt;option value="pasir-putih"&gt;Pantai Pasir Putih&lt;/option&gt;
+    &lt;option value="pangandaran"&gt;Pantai Pangandaran&lt;/option&gt;
+    &lt;option value="kenjeran"&gt;Pantai Kenjeran&lt;/option&gt;
 &lt;/optgroup&gt;
 &lt;optgroup label="Mount"&gt;
-    &lt;option&gt;Gunung Bromo&lt;/option&gt;
-    &lt;option&gt;Gunung Tangkuban Perahu&lt;/option&gt;
-    &lt;option&gt;Gunung Semeru&lt;/option&gt;
+    &lt;option value="bromo"&gt;Gunung Bromo&lt;/option&gt;
+    &lt;option value="tangkuban-perahu"&gt;Gunung Tangkuban Perahu&lt;/option&gt;
+    &lt;option value="semeru"&gt;Gunung Semeru&lt;/option&gt;
 &lt;/optgroup&gt;
 &lt;/select&gt;
 &lt;/form&gt;
@@ -1033,6 +1099,8 @@
                             </figure>
                         </div>
                     </dd>
+
+
                 </dl>
             </article>
             <a href="#top"><hr></a>
@@ -1084,8 +1152,8 @@
                                 <figcaption>With a disabled optgroup</figcaption>
                                 <div>
                                     <form>
-                                        <label for="destinations">Choose a destination:</label>
-                                        <select id="destinations">
+                                        <label for="destination-select">Choose a destination:</label>
+                                        <select name="destinations" id="destination-select">
                                             <optgroup label="Beach" disabled>
                                                 <option>Pantai Pasir Putih</option>
                                                 <option>Pantai Pangandaran</option>
@@ -1102,8 +1170,8 @@
                                         <summary>HTML codes</summary>
 <pre>
 &lt;form&gt;
-&lt;label for="destinations"&gt;Choose a destination:&lt;/label&gt;
-&lt;select id="destinations"&gt;
+&lt;label for="destination-select"&gt;Choose a destination:&lt;/label&gt;
+&lt;select name="destinations" id="destination-select"&gt;
 &lt;optgroup label="Beach" <b>disabled</b>&gt;
     &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
     &lt;option&gt;Pantai Pangandaran&lt;/option&gt;
@@ -1141,8 +1209,6 @@
         <a href="#option">&lt;option&gt;</a>
 </pre>  
                     </dd>  
-
-
 
                     <dt><code>&lt;option&gt;</code> can be nested under</dt>
                     <dd>
@@ -1183,6 +1249,77 @@
                             </li>
 
                         </ul>
+                    </dd>
+
+                    <dt>Example with selected and disabled options and some styling</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>With a selected option</figcaption>
+                                <div>
+                                    <form>
+                                        <label for="destination-select">Choose a destination:</label>
+                                        <select name="destinations" id="destination-select" class="styled-select">
+                                            <optgroup label="Beach">
+                                                <option>Pantai Pasir Putih</option>
+                                                <option disabled>Pantai Pangandaran</option>
+                                                <option>Pantai Kenjeran</option>
+                                            </optgroup>
+                                            <optgroup label="Mount">
+                                                <option>Gunung Bromo</option>
+                                                <option selected>Gunung Tangkuban Perahu</option>
+                                                <option>Gunung Semeru</option>
+                                            </optgroup>
+                                            <optgroup label="Island" disabled>
+                                                <option>Bali</option>
+                                                <option selected>Komodo Island</option>
+                                                <option>Lombok</option>
+                                            </optgroup>
+                                        </select>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML codes</summary>
+<pre>
+&lt;form&gt;
+    &lt;label for="destination-select"&gt;Choose a destination:&lt;/label&gt;
+    &lt;select name="destinations" id="destination-select"&gt;
+        &lt;optgroup label="Beach" &gt;
+            &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
+            &lt;option <b>disabled</b>&gt;Pantai Pangandaran&lt;/option&gt;
+            &lt;option&gt;Pantai Kenjeran&lt;/option&gt;
+        &lt;/optgroup&gt;
+        &lt;optgroup label="Mount"&gt;
+            &lt;option&gt;Gunung Bromo&lt;/option&gt;
+            &lt;option <b>selected</b>&gt;Gunung Tangkuban Perahu&lt;/option&gt;
+            &lt;option&gt;Gunung Semeru&lt;/option&gt;
+        &lt;/optgroup&gt;
+        &lt;optgroup label="Island" <b>disabled</b>&gt;
+            &lt;option&gt;Bali&lt;/option&gt;
+            &lt;option <b>selected</b>&gt;Komodo Island&lt;/option&gt;
+            &lt;option&gt;Lombok&lt;/option&gt;
+        &lt;/optgroup&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+</pre>
+                                    </details>
+                                    <details>
+                                        <summary>CSS codes</summary>
+<pre>
+.html-form-notes optgroup {
+    color: var(--code);
+    background-color: lightgoldenrodyellow;
+    font-weight: bold;
+}
+
+.html-form-notes option {
+    color: var(--code);
+    background-color: lightyellow;
+}
+</pre>
+                                    </details>
+                                </div>
+                            </figure>
+                        </div>
                     </dd>
 
                     <dt><code>&lt;option&gt;</code> CSS styling</dt>
@@ -1258,7 +1395,7 @@
             <article id="resources">
                 <h2>Resources</h2>
                 <ul>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" target="_blank"></a>Web forms</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" target="_blank">Web forms</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">HTML Elements</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity" target="_blank">Reserved characters</a></li>
                     <li><a href="https://www.w3schools.com/cssref/css_default_values.asp" target="_blank">CSS Default Values Reference</a></li>
