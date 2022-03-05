@@ -486,8 +486,34 @@ code a {
 }
 /* || HTML-Notes: Forms  and html-form-notes*/
 
+.html-form-notes .model {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--title);
+    line-height: 2rem;
+    margin: 0;
+    padding-right: 2rem;
+}
 
-.html-form-notes .subtitle {
+.html-form-notes .fit {
+    width: fit-content;
+
+}
+.html-form-notes .model a {
+    color: inherit;
+    font-style: normal;
+    text-decoration: underline;
+}
+
+.html-form-notes b {
+    color: rgb(185, 117, 185);
+    font-weight: bold;
+    font-style: normal;
+}
+
+.html-form-notes .subtitle,
+.html-form-notes .mock-h2 .subtitle
+ {
     margin-top: -0.5rem;
     color: var(--title);
     font-weight: bold;
@@ -519,7 +545,7 @@ code a {
     margin-top: 1.5rem;
 }
 
-.html-form-notes > article > dl > dd > ul {
+.html-form-notes article > dl > dd > ul {
     padding-left: 1rem;
 }
 

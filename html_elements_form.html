@@ -70,7 +70,7 @@
                         </div>            
                     </dd>
 
-                    <dt>Associating other form elements to the <code>&lt;form&gt;</code> element aka <i>form owner</i></li>:</dt>
+                    <dt>Associating other form elements to the <code>&lt;form&gt;</code> element aka <i>form owner</i></li></dt>
                     <dd>
                         <ul>
                             <li>Being nested inside <code>&lt;form&gt;</code> element.</li>
@@ -124,7 +124,7 @@
                         </div>
                     </dd>
 
-                    <dt>CSS pseudo-classes:</dt>
+                    <dt>CSS pseudo-classes</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">:valid</code> and <code class="inlinebox">:invalid</code>
@@ -135,7 +135,7 @@
                         </ul>      
                     </dd>
 
-                    <dt>General attibutes:</dt>
+                    <dt>General attibutes</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">Accept-charset</code> 
@@ -177,7 +177,7 @@
                         </ul>
                     </dd>
 
-                    <dt>Attibutes for form submission:</dt>
+                    <dt>Attibutes for form submission</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">method</code>
@@ -396,7 +396,7 @@
                         </div>
                     </dd>
 
-                    <dt>Associates <code>&lt;label&gt;</code> to a control element such as <code>&lt;input&gt;</code>:</dt>
+                    <dt>Associates <code>&lt;label&gt;</code> to a control element such as <code>&lt;input&gt;</code></dt>
                     <dd>
                         <ul>
                             <li><span class="maindef">Using attribute <code>id</code>-<code>for</code> relationship</span>
@@ -438,7 +438,7 @@
                         </div>
                     </dd>
                                  
-                    <dt>Elements that can be associated with <code>&lt;label&gt;</code> include:</dt>
+                    <dt>Elements that can be associated with <code>&lt;label&gt;</code> include</dt>
                     <dd>
                         <ul>
                             <li><code>&lt;button&gt;</code></li>
@@ -462,7 +462,7 @@
                 <h2><code>&lt;meter&gt;</code></h2>
                 <p class="subtitle">The gauge element. A scalar value within a known range or fractional value.</p>
                 <dl>
-                    <dt>General attribute:</dt>
+                    <dt>General attribute</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">form</code>
@@ -476,7 +476,7 @@
                         </ul>
                     </dd>
 
-                    <dt>Attributes regarding values in the gauge:</dt>
+                    <dt>Attributes regarding values in the gauge</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">min</code> and <code class="inlinebox">max</code> 
@@ -591,7 +591,7 @@
                         </div>
                     </dd>
 
-                    <dt>Attributes:</dt>
+                    <dt>Attributes</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">max</code>
@@ -622,7 +622,7 @@
                         </ul>
                     </dd>
 
-                    <dt>Text content:</dt>
+                    <dt>Text content</dt>
                     <dd>Not a label. A fallback for old browser that doesn't support this element.</dd>
 
                     <dt>Examples</dt>
@@ -659,7 +659,7 @@
                 <h2><code>&lt;output&gt;</code></h2>
                 <p class="subtitle">A container into which a site or app can inject result or outcome of a user action.</p>
                 <dl>
-                    <dt>Attributes:</dt>
+                    <dt>Attributes</dt>
                     <dd>
                         <ul>
                             <li><code class="inlinebox">from</code>
@@ -739,31 +739,20 @@
             </article>  
             <a href="#top"><hr></a>
 
-            <!-- Article: fieldset and legend -->
+            <!-- Article: fieldset -->
             <article id="fieldset">
-                <article id="legend">
-
                 <h2><code>&lt;fieldset&gt;</code></h2>
                 <p class="subtitle">A grouping element that groups several controls and their labels together.</p>
-
-                <h2 class="h2-level2"><code>&lt;legend&gt;</code></h2>
-                <p class="subtitle">Caption to its parent <code>&lt;fieldset&gt;</code>.</p>
-                </div>
                 
                 <dl>
-                    <dt>Structure example</dt>
+                    <dt>Structure</dt>       
                     <dd>
-                        <div class="figcode">
-<pre>
-<b>&lt;form&gt;
-    &lt;fieldset&gt;
-        &lt;legend&gt;</b>
-        &lt;input&gt;
-        &lt;label&gt;
-        ...
-</pre>
-                        </div>            
-                    </dd>
+<pre class="model figcode fit">
+<a href="#optgroup">&lt;fieldset&gt;</a>
+    <a href="#option">&lt;legend&gt;</a>
+</pre>  
+                    </dd>  
+
 
                     <dt>Fieldset attributes</dt>
                     <dd>
@@ -791,36 +780,6 @@
                                             <li>Won't receive any browsing event like mouse click</li>
                                             <li>Default display is grayed out.</li>
                                             <li>Form elements inside <code>&lt;legend&gt;</code> won't be disabled.</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </dd>
-
-                    <dt>Default styling</dt>
-                    <dd>
-                        <ul>
-                            <li><code class="topic">&lt;fieldset&gt;</code>
-                                <ul>
-                                    <li><code class="inlinebox">display: block;</code></li>
-                                    <li><code class="inlinebox">border: 2px groove</code></li>
-                                    <li><code class="inlinebox">min-inline-size: min-content;</code></li>
-                                </ul>
-                            <li><code class="topic">&lt;legend&gt;</code>
-                                <ul>
-                                    <li>Placed over <code class="inlinebox">block-start</code></li>
-                                    <li>shrink-wrap</li>
-                                    <li>display is blockified</li>
-                                </ul>
-                            </li>
-                            <li><span class="topic">Anonymous box</span> holding content of <code>&lt;fieldset&gt;</code>
-                                <ul>
-                                    <li>Inherited some properties from <code>&lt;fieldset&gt;</code>, for examples:
-                                        <ul>
-                                            <li>If fieldset <code class="inlinebox">display: grid;</code> or <code class="inlinebox">display: inline-grid;</code>, then the box will be a grid formatting context.</li>
-                                            <li>If fieldset <code class="inlinebox">display: flex;</code> or <code class="inlinebox">display: inline-flex;</code>, then the box will be a flex formatting context.</li>
-                                            <li>Otherwise, block formatting context.</li>  
                                         </ul>
                                     </li>
                                 </ul>
@@ -891,6 +850,64 @@
 
                                 </div>
                             </figure>
+                        </div>
+                    </dd>
+
+                    <dt>Default styling</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="topic">&lt;fieldset&gt;</code>
+                                <ul>
+                                    <li><code class="inlinebox">display: block;</code></li>
+                                    <li><code class="inlinebox">border: 2px groove</code></li>
+                                    <li><code class="inlinebox">min-inline-size: min-content;</code></li>
+                                </ul>
+                            <li><span class="topic">Anonymous box</span> holding content of <code>&lt;fieldset&gt;</code>
+                                <ul>
+                                    <li>Inherited some properties from <code>&lt;fieldset&gt;</code>, for examples:
+                                        <ul>
+                                            <li>If fieldset <code class="inlinebox">display: grid;</code> or <code class="inlinebox">display: inline-grid;</code>, then the box will be a grid formatting context.</li>
+                                            <li>If fieldset <code class="inlinebox">display: flex;</code> or <code class="inlinebox">display: inline-flex;</code>, then the box will be a flex formatting context.</li>
+                                            <li>Otherwise, block formatting context.</li>  
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+
+                </dl>
+            </article>
+            <a href="#top"><hr></a>
+
+            <!-- Article: legend -->
+            <article id="legend">
+
+                <h2><code>&lt;legend&gt;</code></h2>
+                <p class="subtitle">Caption to its parent <code>&lt;fieldset&gt;</code>.</p>
+
+                <dl>
+                    <dt>Structure</dt>       
+                    <dd>
+<pre class="model figcode fit">
+<a href="#optgroup">&lt;fieldset&gt;</a>
+    <a href="#option">&lt;legend&gt;</a>
+</pre>  
+                    </dd>  
+                    <dt>Default styling</dt>
+                    <dd>
+                        <ul>
+                            <li>Placed over <code class="inlinebox">block-start</code></li>
+                            <li>shrink-wrap</li>
+                            <li>display is blockified</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Example</dt>
+                    <dd>
+                        <div class="figcode">
+
                             <figure>
                                 <figcaption>Fieldset with styling class</figcaption>
                                 <div>
@@ -950,29 +967,235 @@
                             </figure>
                         </div>
                     </dd>
+
                 </dl>
-                </article>
+
             </article>  
             <a href="#top"><hr></a>
 
-            <!-- Article: select, optgroup, option -->            
+            <!-- Article: select -->            
             <article id="select">
-                <article id="optgroup">
-                    <article id="option">
-                        <h2><code>&lt;select&gt;</code></h2>
-                        <p class="subtitle">Create grouping of <code>&lt;option&gt;</code> elements within a <code>&lt;select&gt;</code> element.</p>
+                <h2><code>&lt;select&gt;</code></h2>
+                <p class="subtitle">A control that provides a menu of <code>&lt;option&gt;</code> elements. Directly, or grouped within <code>&lt;optgroup&gt;</code> elements.</p>
 
-                        <h2 class="h2-level2"><code>&lt;optgroup&gt;</code></h2>
-                        <p class="subtitle">Create grouping of <code>&lt;option&gt;</code>s within a <code>&lt;select&gt;</code> element.</p>
+                <dl>
+                    <dt>Structure</dt>       
+                    <dd>
+<pre class="model figcode fit">
+<a href="#select">&lt;select&gt;</a>
+    <a href="#optgroup">&lt;optgroup&gt;</a>
+        <a href="#option">&lt;option&gt;</a>
+</pre>  
+                    </dd>         
+      
+                    <dt>Example</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Select - Optgroup - Option</figcaption>
+                                <div>
+                                    <form>
+                                        <label for="destinations">Choose a destination:</label>
+                                        <select id="destinations">
+                                            <optgroup label="Beach">
+                                                <option>Pantai Pasir Putih</option>
+                                                <option>Pantai Pangandaran</option>
+                                                <option>Pantai Kenjeran</option>
+                                            </optgroup>
+                                            <optgroup label="Mount">
+                                                <option>Gunung Bromo</option>
+                                                <option>Gunung Tangkuban Perahu</option>
+                                                <option>Gunung Semeru</option>
+                                            </optgroup>
+                                        </select>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML codes</summary>
+<pre>
+&lt;form&gt;
+&lt;label for="destinations"&gt;Choose a destination:&lt;/label&gt;
+&lt;select id="destinations"&gt;
+&lt;optgroup label="Beach"&gt;
+    &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
+    &lt;option&gt;Pantai Pangandaran&lt;/option&gt;
+    &lt;option&gt;Pantai Kenjeran&lt;/option&gt;
+&lt;/optgroup&gt;
+&lt;optgroup label="Mount"&gt;
+    &lt;option&gt;Gunung Bromo&lt;/option&gt;
+    &lt;option&gt;Gunung Tangkuban Perahu&lt;/option&gt;
+    &lt;option&gt;Gunung Semeru&lt;/option&gt;
+&lt;/optgroup&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+</pre>
+                                    </details>
+                                </div>
+                            </figure>
+                        </div>
+                    </dd>
+                </dl>
+            </article>
+            <a href="#top"><hr></a>
 
-                        <h2 class="h2-level3"><code>&lt;option&gt;</code></h2>
-                        <p class="subtitle">Define an item contained in <code>&lt;select&gt;</code>, <code>&lt;optgroup&gt;</code>, or <code>&lt;datalist&gt;</code>.</p>
-                        
-                        <dl>
+            <!-- Article: optgroup -->     
+            <article id="optgroup">
 
-                        </dl>
-                    </article>
-                </article> 
+                <h2><code>&lt;optgroup&gt;</code></h2>
+                <p class="subtitle">Create grouping of <code>&lt;option&gt;</code> elements within a <code>&lt;select&gt;</code> element.</p>
+
+                <dl>
+
+                    <dt>Structure</dt>       
+                    <dd>
+<pre class="model figcode fit">
+<a href="#select">&lt;select&gt;</a>
+    <a href="#optgroup">&lt;optgroup&gt;</a>
+        <a href="#option">&lt;option&gt;</a>
+</pre>  
+                    </dd>  
+                    <dt><code>&lt;optgroup&gt;</code> note</dt>
+                    <dd>It doesn't have to be nested</dd>
+
+                    <dt><code>&lt;optgroup&gt;</code> attributes</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">label</code>
+                                <ul>
+                                    <li>Mandatory</li>
+                                    <li>The name of the group of options</li>
+                                    <li>The value will be displayed</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">disabled</code>
+                                <ul>
+                                    
+                                    <li>Boolean attribute</li>
+                                    <li>If set, none of the option group is selectable. Common styling is graying out. It won't receive browsing events.</li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </dd>
+
+                    <dt>Example with disabled optgroup</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>With a disabled optgroup</figcaption>
+                                <div>
+                                    <form>
+                                        <label for="destinations">Choose a destination:</label>
+                                        <select id="destinations">
+                                            <optgroup label="Beach" disabled>
+                                                <option>Pantai Pasir Putih</option>
+                                                <option>Pantai Pangandaran</option>
+                                                <option>Pantai Kenjeran</option>
+                                            </optgroup>
+                                            <optgroup label="Mount">
+                                                <option>Gunung Bromo</option>
+                                                <option>Gunung Tangkuban Perahu</option>
+                                                <option>Gunung Semeru</option>
+                                            </optgroup>
+                                        </select>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML codes</summary>
+<pre>
+&lt;form&gt;
+&lt;label for="destinations"&gt;Choose a destination:&lt;/label&gt;
+&lt;select id="destinations"&gt;
+&lt;optgroup label="Beach" <b>disabled</b>&gt;
+    &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
+    &lt;option&gt;Pantai Pangandaran&lt;/option&gt;
+    &lt;option&gt;Pantai Kenjeran&lt;/option&gt;
+&lt;/optgroup&gt;
+&lt;optgroup label="Mount"&gt;
+    &lt;option&gt;Gunung Bromo&lt;/option&gt;
+    &lt;option&gt;Gunung Tangkuban Perahu&lt;/option&gt;
+    &lt;option&gt;Gunung Semeru&lt;/option&gt;
+&lt;/optgroup&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+</pre>
+                                    </details>
+                                </div>
+                            </figure>
+                        </div>
+                    </dd>
+                </dl>
+            </article> 
+            <a href="#top"><hr></a>
+
+            <!-- Article: option -->     
+            <article id="option">
+
+                <h2><code>&lt;option&gt;</code></h2>
+                <p class="subtitle">Define an item contained in <code>&lt;select&gt;</code>, <code>&lt;optgroup&gt;</code>, or <code>&lt;datalist&gt;</code>.</p>
+                
+                <dl>
+                    <dt>Structure</dt>       
+                    <dd>
+<pre class="model figcode fit">
+<a href="#select">&lt;select&gt;</a>
+    <a href="#optgroup">&lt;optgroup&gt;</a>
+        <a href="#option">&lt;option&gt;</a>
+</pre>  
+                    </dd>  
+
+
+
+                    <dt><code>&lt;option&gt;</code> can be nested under</dt>
+                    <dd>
+                        <ul>
+                            <li><code>&lt;select&gt;</code></li>
+                            <li><code>&lt;select&gt;</code><code>&lt;optgroup&gt;</code></li>
+                            <li><code>&lt;datalist&gt;</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt><code>&lt;option&gt;</code> attributes</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">value</code>
+                                <ul>
+                                    <li>Value to be submitted with the form if the <code>&lt;option&gt;</code> got sellected.</li>
+                                    <li>If not define, the value is the <i>text content</i></li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">label</code>
+                                <ul>
+                                    <li>Text for the label indication meaning of the option.</li>
+                                    <li>If not define, the value is the <i>text content</i></li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">selected</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>If set, option is initially selected.</li>
+                                    <li>If <code>&lt;option&gt;</code> is descendent from <code>&lt;select&gt;</code> whose <code>multiple</code> attribute is not set, then only 1 <code>&lt;option&gt;</code> element can have the <code>selected</code> attribute.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">disabled</code>
+                                <ul>             
+                                    <li>Boolean attribute</li>
+                                    <li>If set, this <code>&lt;option&gt;</code> element is not checkable. Common styling is graying out. It won't receive browsing events.</li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </dd>
+
+                    <dt><code>&lt;option&gt;</code> CSS styling</dt>
+                    <dd>
+                        <ul>
+                            <li>It's very limited.</li>
+                            <li>Do not inherit font set on the parent.</li>
+                            <li>In Firefox, only <code>color</code> and <code>background-color</code> can be set.</li>
+                            <li>In Chrome and Safari, no property can be set.</li>
+                        </ul>
+                    </dd>
+
+                </dl>
                 
             </article>
             <a href="#top"><hr></a>
