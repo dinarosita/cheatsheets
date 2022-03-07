@@ -988,15 +988,41 @@
 </pre>  
                     </dd>         
       
-                    <dt>Example with optgroup and option elements, with their value and name attributes</dt>
+                    <dt>Simple and extensive select examples</dt>
                     <dd>
                         <div class="figcode">
                             <figure>
-                                <figcaption>Form example</figcaption>
+                                <figcaption>Simple select</figcaption>
                                 <div>
                                     <form>
-                                        <label for="destination-select">Choose a destination:</label>
-                                        <select name="destinations" id="destination-select">
+                                        <label for="beach-select">Choose a beach destination:</label>
+                                        <select id="beach-select">
+                                            <option>Pantai Pasir Putih</option>
+                                            <option>Pantai Pangandaran</option>
+                                            <option>Pantai Kenjeran</option>
+                                        </select>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML codes</summary>
+<pre>
+&lt;form&gt;
+    &lt;label for="beach-select"&gt;Choose a destination:&lt;/label&gt;
+    &lt;select id="beach-select"&gt;
+        &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
+        &lt;option&gt;Pantai Pangandaran&lt;/option&gt;
+        &lt;option&gt;Pantai Kenjeran&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+</pre>
+                                    </details>
+                                </div>
+                            </figure>
+                            <figure>
+                                <figcaption>Extensive select using optgroup elements and various attributes</figcaption>
+                                <div>
+                                    <form>
+                                        <label for="complete-select">Choose a destination:</label>
+                                        <select name="complete-destinations" id="complete-select">
                                             <optgroup label="Beach">
                                                 <option value="pasir-putih">Pantai Pasir Putih</option>
                                                 <option value="pangandaran">Pantai Pangandaran</option>
@@ -1013,19 +1039,19 @@
                                         <summary>HTML codes</summary>
 <pre>
 &lt;form&gt;
-&lt;label for="destination-select"&gt;Choose a destination:&lt;/label&gt;
-&lt;select name="destinations" id="destination-select"&gt;
-&lt;optgroup label="Beach"&gt;
-    &lt;option value="pasir-putih"&gt;Pantai Pasir Putih&lt;/option&gt;
-    &lt;option value="pangandaran"&gt;Pantai Pangandaran&lt;/option&gt;
-    &lt;option value="kenjeran"&gt;Pantai Kenjeran&lt;/option&gt;
-&lt;/optgroup&gt;
-&lt;optgroup label="Mount"&gt;
-    &lt;option value="bromo"&gt;Gunung Bromo&lt;/option&gt;
-    &lt;option value="tangkuban-perahu"&gt;Gunung Tangkuban Perahu&lt;/option&gt;
-    &lt;option value="semeru"&gt;Gunung Semeru&lt;/option&gt;
-&lt;/optgroup&gt;
-&lt;/select&gt;
+    &lt;label for="complete-select"&gt;Choose a destination:&lt;/label&gt;
+    &lt;select name="destinations" id="complete-select"&gt;
+        &lt;optgroup label="Beach"&gt;
+            &lt;option value="pasir-putih"&gt;Pantai Pasir Putih&lt;/option&gt;
+            &lt;option value="pangandaran"&gt;Pantai Pangandaran&lt;/option&gt;
+            &lt;option value="kenjeran"&gt;Pantai Kenjeran&lt;/option&gt;
+        &lt;/optgroup&gt;
+        &lt;optgroup label="Mount"&gt;
+            &lt;option value="bromo"&gt;Gunung Bromo&lt;/option&gt;
+            &lt;option value="tangkuban-perahu"&gt;Gunung Tangkuban Perahu&lt;/option&gt;
+            &lt;option value="semeru"&gt;Gunung Semeru&lt;/option&gt;
+        &lt;/optgroup&gt;
+    &lt;/select&gt;
 &lt;/form&gt;
 </pre>
                                     </details>
@@ -1102,7 +1128,12 @@
                     </dd>
 
                     <dt>CSS styling</dt>
-                    <dd>Styling is hard. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#styling_with_css" target="_blank">Read here.</a></dd>
+                    <dd>Styling is hard. References:
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#styling_with_css" target="_blank">Styling with CSS</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#customizing_select_styles" target="_blank">Advanced styling with CSS and JavaScript</a></li>
+                    </ul>
+                </dd>
                 </dl>
             </article>
             <a href="#top"><hr></a>
@@ -1154,8 +1185,8 @@
                                 <figcaption>With a disabled optgroup</figcaption>
                                 <div>
                                     <form>
-                                        <label for="destination-select">Choose a destination:</label>
-                                        <select name="destinations" id="destination-select">
+                                        <label for="available-select">Choose a destination:</label>
+                                        <select name="available-destinations" id="available-select">
                                             <optgroup label="Beach" disabled>
                                                 <option>Pantai Pasir Putih</option>
                                                 <option>Pantai Pangandaran</option>
@@ -1172,8 +1203,8 @@
                                         <summary>HTML codes</summary>
 <pre>
 &lt;form&gt;
-&lt;label for="destination-select"&gt;Choose a destination:&lt;/label&gt;
-&lt;select name="destinations" id="destination-select"&gt;
+&lt;label for="available-select"&gt;Choose a destination:&lt;/label&gt;
+&lt;select name="destinations" id="available-select"&gt;
 &lt;optgroup label="Beach" <b>disabled</b>&gt;
     &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
     &lt;option&gt;Pantai Pangandaran&lt;/option&gt;
@@ -1260,8 +1291,8 @@
                                 <figcaption>With a selected option</figcaption>
                                 <div>
                                     <form>
-                                        <label for="destination-select">Choose a destination:</label>
-                                        <select name="destinations" id="destination-select" class="styled-select">
+                                        <label for="recommended-select">Choose a destination:</label>
+                                        <select name="recommended-destinations" id="recommended-select" class="styled-select">
                                             <optgroup label="Beach">
                                                 <option>Pantai Pasir Putih</option>
                                                 <option disabled>Pantai Pangandaran</option>
@@ -1283,8 +1314,8 @@
                                         <summary>HTML codes</summary>
 <pre>
 &lt;form&gt;
-    &lt;label for="destination-select"&gt;Choose a destination:&lt;/label&gt;
-    &lt;select name="destinations" id="destination-select"&gt;
+    &lt;label for="recommended-select"&gt;Choose a destination:&lt;/label&gt;
+    &lt;select name="destinations" id="recommended-select"&gt;
         &lt;optgroup label="Beach" &gt;
             &lt;option&gt;Pantai Pasir Putih&lt;/option&gt;
             &lt;option <b>disabled</b>&gt;Pantai Pangandaran&lt;/option&gt;

@@ -486,6 +486,11 @@ code a {
 }
 /* || HTML-Notes: Forms  and html-form-notes*/
 
+.html-form-notes dd > ul >li {
+    margin-left: 2rem;
+
+}
+
 .html-form-notes .styled-select optgroup {
     color: var(--code);
     background-color: lightgoldenrodyellow;
