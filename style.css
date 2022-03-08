@@ -486,9 +486,16 @@ code a {
 }
 /* || HTML-Notes: Forms  and html-form-notes*/
 
-.html-form-notes dd > ul >li {
-    margin-left: 2rem;
+.html-form-notes textarea:invalid {
+    color: indianred;
+}
 
+.html-form-notes textarea:valid {
+    color: olivedrab;
+}
+
+.html-form-notes pre > code {
+    padding: 0;
 }
 
 .html-form-notes .styled-select optgroup {
@@ -629,7 +636,7 @@ code a {
 
 /* || General: Form */
 
-textarea {
+.parForm {
     width: 100%;
     padding: 1rem;
     border: 1px solid var(--border);

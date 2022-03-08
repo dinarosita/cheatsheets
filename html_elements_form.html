@@ -1415,9 +1415,255 @@
             <article id="textarea">
 
                 <h2><code>&lt;textarea&gt;</code></h2>
-                <p class="subtitle">...</p>
+                <p class="subtitle">A multi-line plain-text editing control</p>
 
                 <dl>
+                    <dt>Example</dt>
+                    <dd>
+                        <div class="figcode">
+                            <figure>
+                                <figcaption>Textarea</figcaption>
+                                <div>
+                                    <form>
+                                    <label for="comment">Comment:</label>
+                                        <textarea id="comment" name="user-comment" rows="5" cols="50">Your comment here...</textarea>
+                                    </form>
+                                    <details open>
+                                        <summary>HTML codes</summary>
+<pre>
+<code>&lt;form&gt;
+    &lt;label for="comment"&gt;Comment:&lt;/label&gt;
+    &lt;textarea id="comment" name="user-comment" rows="5" cols="50"&gt;Your comment here...&lt;/textarea&gt;
+&lt;/form&gt;
+</code></pre>
+                                    </details>
+
+                                </div>
+                            </figure>
+                        </div>
+                    </dd>
+                    <dt>Attributes</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">id</code></li>
+                            <li><code class="inlinebox">form</code></li>
+                            <li><code class="inlinebox">name</code></li>
+                            <li><code class="inlinebox">rows</code> and <code class="inlinebox">cols</code>
+                                <ul>
+                                    <li>Defining the size of the text area</li>
+                                    <li><code>cols</code>:
+                                        <ul>
+                                            <li>visible width of text control</li>
+                                            <li>Value positive integer</li>
+                                            <li>Default: <code>20</code></li>
+                                        </ul>
+                                    </li>
+                                    <li><code>rows</code>:
+                                        <ul>
+                                            <li>visible text lines for the control.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">minlength</code> and <code class="inlinebox">maxlength</code>
+                                <ul>
+                                    <li>Defining the size of the text area</li>
+                                    <li><code>minlength</code>:
+                                        <ul>
+                                            <li>Minimum number of characters  (UTF-16 code units) required that the user should enter.</li>
+                                            <li>Reducing characters to under the minlength is possible, but making the value invalid. And the element can be styled using pseudo-class <code>:invalid</code></li>
+                                            <li>Empty textarea is considered to be valid, unless attribute <code>required</code> is used.</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>maxlength</code>:
+                                        <ul>
+                                            <li>Maximum number of characters  (UTF-16 code units) required that the user should enter.</li>
+                                            <li>Default: unlimited.</li>
+                                            <li>Can't type pass the maxlength.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Textarea with min and maxlength</figcaption>
+                                        <div>
+                                            <label for="about">About me (10-20 chars)</label><br>
+                                            <textarea name="about" id="about" rows="2" minlength="10" maxlength="20">I...</textarea>
+                                            <details open>
+                                                <summary>HTML codes</summary>
+<pre>
+<code>&lt;label for="about"&gt;About me (10-20 chars)&lt;/label&gt;&lt;br&gt;
+&lt;textarea name="about" id="about" rows="2" minlength="10" maxlength="20"&gt;I...
+&lt;/textarea&gt;
+</code></pre>
+                                            </details>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li><code class="inlinebox">autocomplete</code>
+                                <ul>
+                                    <li>Possible values:
+                                        <ul>
+                                            <li><code>off</code></li>
+                                            <li><code>on</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Default: form owner's <code>autocomplete</code> attribute value</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">autofocus</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Indicates the form control should be in focus when the page load</li>
+                                    <li>There can be only 1 form-associated element in a document with this specified.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">placeholder</code>
+                                <ul>
+                                    <li>A hint to user what can be entered in the control</li>
+                                    <li>Will dissapear when user start typing the value</li>
+                                </ul>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Textarea with placeholder</figcaption>
+                                        <div>
+                                            <label for="bio">Bio (10-50 chars)</label><br>
+                                            <textarea id="bio" name="bio" rows="3" placeholder="I..." minlength="5" maxlength="50"></textarea>
+                                            <details open>
+                                                <summary>HTML codes</summary>
+<pre>
+<code>&lt;label for="bio"&gt;Bio (10-50 chars)&lt;/label&gt;&lt;br&gt;
+&lt;textarea id="bio" name="bio" rows="3" placeholder="I..." minlength="5"&gt;
+&lt;/textarea&gt;
+</code></pre>
+                                            </details>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li><code class="inlinebox">disabled</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Value can be inherited from the containing element such as <code>&lt;fieldset&gt;</code></li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">readonly</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Indicates user can not modify the value of the control</li>
+                                    <li>User still can click / select in the control (unlike disabled)</li>
+                                    <li>The value is still submitted with the form.</li>
+                                </ul>
+                                <div class="figcode">
+                                    <figure>
+                                        <figcaption>Disabled vs readonly textarea</figcaption>
+                                        <div>
+                                            <textarea name="disabled" disabled>Disabled</textarea><br>
+                                            <textarea name="readonly" readonly>Readonly</textarea>
+                                            <details open>
+                                                <summary>HTML codes</summary>
+<pre>
+<code>&lt;textarea name="disabled" disabled&gt;Disabled&lt;/textarea&gt;&lt;/br&gt;
+&lt;textarea name="readonly" readonly&gt;Readonly&lt;/textarea&gt;
+</code></pre>
+                                            </details>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li><code class="inlinebox">required</code>
+                                <ul>
+                                    <li>Specifies user must fill in the value before submitting the form.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">spellcheck</code>
+                                <ul>
+                                    <li>Specifies the text is subject to spellchecking by the browser/OS.</li>
+                                    <li>Values:
+                                        <ul>
+                                            <li><code>true</code>: element will have its spelling and grammar checked</li>
+                                            <li><code>default</code>: Assume default behaviour, possibly parent's spellcheck attribute value.</li>
+                                            <li><code>false</code>: element should not be spellchecked.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">wrap</code>
+                                <ul>
+                                    <li>Indicates how the control wraps text.</li>
+                                    <li>Values:
+                                        <ul>
+                                            <li><code>hard</code>:
+                                                <ul>
+                                                    <li>Browser automatically insert line breaks (CR+LF) so that each line has no more than the width of the control.</li>
+                                                    <li><code>cols</code> attribute must be specified for this one to work.</li>
+                                                </ul>
+                                            </li>
+                                            <li><code>soft</code>:
+                                                <ul>
+                                                    <li>Browser ensures all line breaks in the value consist of a CR+LF pair, but doesn't insert additional line breaks.</li>
+                                                    <li>The default value</li>
+                                                </ul>
+                                            </li>
+                                            <li><code>off</code> (<strong>don't use</strong>)
+                                                <ul>
+                                                    <li>Similar to soft, but changes appearance to white-space: pre, so line segments exceeding cols are not wrapped, and the textarea becomes horizontal scrollable.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Attribute not recommended</dt>
+                    <dd>
+                        <ul>
+                            <li>Not supported: <code>value</code></li>
+                            <li>Not standard: <code>autocapitalize</code>, <code>autocorrect</code></li>
+                        </ul>
+                        
+                    </dd>
+
+                    <dt>Text content</dt>
+                    <dd>Default content</dd>
+
+                    <dt>CSS styling</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="topic">Default</span>: <code class="inlinebox">display: inline-block</code></li>
+                            <li><span class="topic">Baseline</span> can be different between browsers
+                                <ul>
+                                    <li>Sometimes the first line, sometime the bottom of the box.</li>
+                                    <li>Don't try to force with <code>vertical-align: baseline</code> because the behaviour is unpredictable.</li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Resizeable</span>
+                                <ul>
+                                    <li>Textarea is resizeable in most browser. Check out the right-hand corner, try drag there.</li>
+                                    <li>To disable: <code class="inlinebox">textarea {resize: none;}</code></li>
+                                </ul>
+                            </li>
+                            <li>Style <span class="topic">valid</span> and <span class="topic">invalid</span> values differently 
+                                <ul>
+                                    <li>Using pseudo-classes <code class="inlinebox">:valid</code> and <code class="inlinebox">:invalid</code></li>
+                                    <li>For example: within vs outside <code>minlength</code>, <code>maxlength</code>, or <code>required</code>.</li>
+                                    <li>Examples:
+                                        <ul>
+                                            <li><code class="inlinebox">textarea:invalid {border: 2px dashed red;}</code></li>
+                                            <li><code class="inlinebox">textarea:valid {border: 2px solid lime;}</code></li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>More in styling: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#styling_with_css" target="_blank">Styling with CSS</a></li>
+                            <li>Also read: <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms" target="_blank">Styling web forms</a></li>
+                        </ul>
+                    </dd>
+
 
                 </dl>
                
