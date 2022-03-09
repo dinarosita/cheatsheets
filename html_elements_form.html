@@ -259,12 +259,12 @@
                                 <ul>
                                     <li>Indicates where to display the response after submitting the form</li>
                                     <li>The value can be overridden by <code>formtarget</code> attribute on <code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, or <code>&lt;input type="image"&gt;</code> elements.</li>
-                                    <li>Values:
+                                    <li>Some values:
                                         <ul>
                                             <li><code class="inlinebox">_self</code>: Load in current browsing context.</li>
                                             <li><code class="inlinebox">_blank</code>: Load in new unnamed browsing context.</li>
-                                            <li><code class="inlinebox">_parent</code>: Load into the parent browsing context. If there's no parent, load in current.</li>
-                                            <li><code class="inlinebox">_top</code>: Load into the top-level browsing context. If nothing above the current browsing context, load in current.</li>
+                                            <li><code class="inlinebox">_parent</code>: Load into the parent browsing context. If n/a, load in current.</li>
+                                            <li><code class="inlinebox">_top</code>: Load into the top-level browsing context. If n/a, load in current.</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -313,7 +313,7 @@
                         </ul>
                     </dd>
 
-                    <dt>The don'ts</dt>
+                    <dt>Accessibility concerns</dt>
                     <dd>
                         <ul>
                             <li><span class="topic">Interactive content</span>
@@ -625,33 +625,42 @@
                     <dt>Text content</dt>
                     <dd>Not a label. A fallback for old browser that doesn't support this element.</dd>
 
-                    <dt>Examples</dt>
+                    <dt>Accessibility concerns</dt>
                     <dd>
-                        <div class="figcode">
-                            <figure>
-                                <figcaption>Progress nested with label</figcaption>
-                                <div>
-                                    <form>
-                                        <label for="progress">File progress: </label>
-                                        <progress id="progress" max="100" value="70">70%</progress>
-                                    </form>
-<pre>
-<code>
-&lt;label for=<span class="value">"progress"</span>&gt;<span class="textcontent">File progress: </span>&lt;/label&gt;
-&lt;progress id=<span class="value">"progress"</span> max=<span class="value">"100"</span> value=<span class="value">"70"</span>&gt;<span class="textcontent">70%</span>&lt;/progress&gt;
-</code></pre>
-                                </div>
-
-                            </figure>
-
-                        </div>
+                        <ul>
+                            <li><span class="topic">Labelling</span>
+                                <ul>
+                                    <li>In most cases, provide accessible label</li>
+                                    <li>How:
+                                        <ul>
+                                            <li>Using ARIA labelling attributes <code>aria-labelledby</code> or <code>aria-label</code> just like for any element with <code>role="progressbar"</code></li>
+                                            <li>Using <code>&lt;label&gt;</code> element.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <figure class="figcode">
+                                    <figcaption>Progress with label</figcaption>
+                                    <div>
+                                        <form>
+                                            <label for="progress">File progress: </label>
+                                            <progress id="progress" max="100" value="70">70%</progress>
+                                        </form>
+        <pre>
+        <code>&lt;label for=<span class="value">"progress"</span>&gt;<span class="textcontent">File progress: </span>&lt;/label&gt;
+        &lt;progress id=<span class="value">"progress"</span> max=<span class="value">"100"</span> value=<span class="value">"70"</span>&gt;<span class="textcontent">70%</span>&lt;/progress&gt;
+        </code></pre>
+                                    </div>
+                                </figure>
+                            </li>
+                            <li><span class="topic">Describing a particular region</span>
+                                <ul>
+                                    <li>If it describes loading progress of a section of a page, use <code>aria-describedby</code> to point to the status and set <code>aria-busy="true"</code> on the section being updated. Remove the <code>aria-busy</code> attribtue when the loading is finished.</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </dd>
-
-                    <dt>Aria</dt>
-                    <dd><a href 
-                    ="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#labelling" target="_blank">Read here.</a></dd>
                 </dl>
-            </article>  
+            </article>
             <a href="#top"><hr></a>
 
             <!-- Article: output -->
@@ -731,7 +740,7 @@
                         </div>
                     </dd>
 
-                    <dt>Aria</dt>
+                    <dt>Accessibility concern and Aria</dt>
                     <dd><a href 
                     ="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output#accessibility_concerns" target="_blank">Read here.</a></dd>
                 </dl>
@@ -1403,9 +1412,225 @@
             <article id="button">
 
                 <h2><code>&lt;button&gt;</code></h2>
-                <p class="subtitle">...</p>
+                <p class="subtitle">Clickable button, used to submit forms, or standard button functions</p>
                 <dl>
+                    <dt>Very simple button with default styling</dt>
+                    <dd>
+                        <ul>
+                            <li><button type="button">Click me</button></li>
+                            <li><code>&lt;button type="button"&gt;Click me&lt;/button&gt;</code></li>
+                            <li>Default style: (user agent)</li>
+                        </ul>
+                        
+                    </dd>
 
+                    <dt>Attributes</dt>
+                    <dd>
+                        <ul>
+                            <li><code class="inlinebox">name</code>
+                                <ul>
+                                    <li>Name of the button. Submitted as a pair with the button's <code>value</code> as part of the form data when the button is used to submit the form.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">value</code>
+                                <ul>
+                                    <li>Defines value associated with the button's <code>name</code> when it's submitted with the form data.</li>
+                                    <li>The value is passed to the server in params when the form is submitted using this button.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">type</code>
+                                <ul>
+                                    <li>Default behaviour of the button.</li>
+                                    <li>Possible values:
+                                        <ul>
+                                            <li><code class="inlinebox">submit</code>
+                                                <ul>
+                                                    <li>Submits the form data to the server.</li>
+                                                    <li>Default value for a button associated with a form when attribute is not specified, or if the value is invalid or empty.</li>
+                                                </ul>
+                                            </li>
+                                            <li><code class="inlinebox">button</code>
+                                                <ul>
+                                                    <li>No default behaviour.</li>
+                                                    <li>Does nothing when pressed by default.</li>
+                                                    <li>It can have client-side scripts listen to the element's events.</li>
+                                                    <li><strong>Important:</strong> If the button is not for submitting form data, make sure to set this attribute value. Otherwise, it will try to submit form data and load the response that doesn't exist. This might destroy the current state of the document.</li>
+                                                </ul>
+                                            </li>
+
+                                            <li><code class="inlinebox">reset</code>
+                                                <ul>
+                                                    <li>Resets all the controls to their initial values.</li>
+                                                    <li>Like <code>&lt;input type="reset"&gt;</code></li>
+                                                    <li>Tends to annoy users.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">autofocus</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Specify the form control should be in focus when the page loads.</li>
+                                    <li>Only 1 element in a document can have this attribute.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">disabled</code>
+                                <ul>
+                                    <li>Boolean attribute</li>
+                                    <li>Prevent user from interacting with the button. It can't be pressed or focused.</li>
+                                </ul>
+                            </li>
+
+                            <li><code class="inlinebox">form</code>
+                                <ul>
+                                    <li>Associate the button with its form owner.</li>
+                                    <li>Value is the id of a <code>&lt;form&gt;</code> in the same document.</li>
+                                    <li>If not set, button will be associated with ancestor <code>&lt;form&gt;</code> if any.</li>
+                                    <li>When the attribute is set, it can override ancestor <code>&lt;form&gt;</code>.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">formaction</code>
+                                <ul>
+                                    <li>The URL that processes the information submitted by the button.</li>
+                                    <li>Overrides form owner's <code>action</code> attribute.</li>
+                                    <li>Does nothing if there's no form owner.</li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">formenctype</code>
+                                <ul>
+                                    <li>For a submit button (has form owner, type is not "button"), it specifies how to encode the form data that is submitted.</li>
+                                    <li>Overrides form owner's <code>enctype</code> attribute.</li>
+                                    <li>Possible values:
+                                        <ul>
+                                            <li><code class="inlinebox">application/x-www-urlencoded</code>: default</li>
+                                            <li><code class="inlinebox">multipart/form-data</code>: Use to submit <code>&lt;input&gt;</code> elements with <code>type="file"</code></li>
+                                            <li><code class="inlinebox">text/plain</code>: Specified as a debugging aid, shouldn't be used for real form submission.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li><code class="inlinebox">formmethod</code>
+                                <ul>
+                                    <li>For a submit button (has form owner, type is not "button"), it specifies the HTTP method used to submmit the form</li>
+                                    <li>Overrides form owner's <code>method</code> attribute.</li>
+                                    <li>Possible values:
+                                        <ul>
+                                            <li><code class="inlinebox">post</code>
+                                                <ul>
+                                                    <li>Data from the form are included in the body of the HTTP request when sent to the server.</li>
+                                                    <li>Use when it doesn't contain information that shouldn't be public like login credential.</li>
+                                                </ul>
+                                            </li>
+                                            <li><code class="inlinebox">get</code>
+                                                <ul>
+                                                    <li>Form data are appended to the form's <code>action</code> URL with a <code>?</code> separator. Resulting URL is sent to the server.</li>
+                                                    <li>Use when the form has no isde effects, like search form.</li>
+                                                </ul>    
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">formnovalidate</code>
+                                <ul>
+                                    <li>For a submit button (has form owner, type is not "button"), it specifies that the form is not to be validated when submitted.</li>
+                                    <li>Overrides form owner's <code>novalidate</code> attribute.</li>
+                                    <li>Also avaliable on <code>&lt;input type="image"&gt;</code> and <code>&lt;input type="submit"&gt;</code></li>
+                                </ul>
+                            </li>
+                            <li><code class="inlinebox">formtarget</code>
+                                <ul>
+                                    <li>For a submit button (has form owner, type is not "button"), it indicates where to display the response from submitting the form.</li>
+                                    <li>Overrides form owner's <code>target</code> attribute.</li>
+                                    <li>Some values:
+                                        <ul>
+                                            <li><code class="inlinebox">_self</code>: Load in current browsing context.</li>
+                                            <li><code class="inlinebox">_blank</code>: Load in new unnamed browsing context.</li>
+                                            <li><code class="inlinebox">_parent</code>: Load into the parent browsing context. If n/a, load in current.</li>
+                                            <li><code class="inlinebox">_top</code>: Load into the top-level browsing context. If n/a, load in current.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Attribute not recommended</dt>
+                    <dd>
+                        <ul>
+                            <li>Not standard: <code>autocomplete</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>CSS styling</dt>
+                    <dd>
+                        <ul>
+                            <li>Inner HTML content such as <code>&lt;i&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;img&gt;</code> possible</li>
+                            <li>Can use pseudo-elements <code>::after</code> and <code>::before</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Accessibility concerns</dt>
+                    <dd><span class="topic">Icon buttons</span>
+                        <ul>
+                            <li>Buttons that only show an icon to represent dont have an <i>accessible name</i> that provides information for assistive technology.</li>
+                            <li>To give an icon button an accessible name, describe the button's functionality as the text content.</li>
+                            <li>This text can be hidden visually from the screen while still parsable by assistive technology using <a href="https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link" target="_blank">combination CSS properties</a>. However probably better to leave it visible. User might not familiar with icon meanings.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <figure class="figcode">
+                            <figcaption>Icon button</figcaption>
+                            <div>
+                                <button name="favorite">
+                                    <svg aria-hidden="true" viewBox="0 0 10 10"><path d="M7 9L5 8 3 9V6L1 4h3l1-3 1 3h3L7 6z"/></svg>
+                                    Add to favorites
+                                </button>
+                            </div>
+                            <details open>
+                                <summary>HTML codes</summary>
+<pre>
+<code>&lt;button name="favorite"&gt;
+    &lt;svg aria-hidden="true" viewBox="0 0 10 10"&gt;
+        &lt;path d="M7 9L5 8 3 9V6L1 4h3l1-3 1 3h3L7 6z"/&gt;
+    &lt;/svg&gt;
+    Add to favorites
+&lt;/button&gt;
+</code></pre>
+                            </details>
+                        </figure>
+                    </dd>
+
+                    <dt>Size and proximity</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="topic">Size</span>
+                                <ul>
+                                    <li>For an interactive element like button, we should use large enough interactive area.</li>
+                                    <li>Recommended minimum size: 44x44 pixels (CSS)</li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Proximity</span>
+                                <ul>
+                                    <li>If multiple interactive contents like buttons are used in a close visual proximity, consider space them adequately to minimize error.</li>
+                                    <li>For example, use <code>margin</code>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Read more</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#clicking_and_focus" target="_blank">Clicking and focus</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role" target="_blank">Aria button role</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#firefox" target="_blank">Firefox</a></li>
+
+                        </ul>
+                    </dd>
                 </dl>
                
             </article>

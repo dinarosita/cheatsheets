@@ -141,7 +141,7 @@ a h1, a h2, h3 a, h4 a {
 
 
 
-button {
+.button-style1 button {
     margin: 1rem 0;
 }
 
@@ -649,7 +649,7 @@ label {
 }
 
 input,
-button {
+.button-style1 button {
     border: 3px solid var(--js-border);
     border-radius: 10px;
     padding: var(--bumper-half) var(--bumper);
