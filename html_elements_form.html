@@ -1400,6 +1400,8 @@
                 <h2><code>&lt;input&gt;</code></h2>
                 <p class="subtitle">Interactive controls for forms for accepting data from users.</p>
 
+                <!-- <p>Input element is a very extensive element. It deserves its own page: <a href="./html_elements_input.html">HTML Input Element</a></p> -->
+
                 <dl>
                     <dt>Types of input element</dt> 
                     <dd>
@@ -1422,52 +1424,128 @@
                                     </li>
                                 </ul>                            
                             </li>
-                            <li><span class="topic">Buttons</span>
+                            <li><span class="topic">Date and time</span>
                                 <ul>
-                                    <li><code class="inlinebox">button</code>
+                                    <li><code class="inlinebox">datetime-local</code>
                                         <ul>
-                                            <li>A push button with no default behaviour</li>
-                                            <li>Display the value of the <code>value</code> attribute. Blank is the default.</li>
+                                            <li>A control for entering a date and time with no time zone.</li>
+                                            <li>Display: a date picker or numeric wheels for date and time components.</li>
                                             <li>
-                                                <input type="button" name="button" value="Button"><br>
-                                                <code>&lt;input type="button" name="button" value="Button"&gt;</code>
-                                            </li>
-                                            <li>
-                                                <input type="button" name="button"><br>
-                                                <code>&lt;input type="button" name="button"&gt;</code>
+                                                <input type="datetime-local" name="datetime-local"><br>
+                                                <code>&lt;input type="datetime-local" name="datetime-local"&gt;</code>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><code class="inlinebox">submit</code>
+                                    <li><code class="inlinebox">time</code>
                                         <ul>
-                                            <li>A button that submits the form.</li>
-                                            <li>Display "submit" by default. To enter different value, use <code>value</code> attribute.</li>
+                                            <li>A control for entering a time with no time zone.</li>
                                             <li>
-                                                <input type="submit" name="submit"><br>
-                                                <code>&lt;input type="submit" name="submit"&gt;</code>
-                                            </li>
-                                            <li>
-                                                <input type="submit" name="submit" value="Send form"><br>
-                                                <code>&lt;input type="submit" name="submit" value="Send form"&gt;</code>
+                                                <input type="time" name="time"><br>
+                                                <code>&lt;input type="time" name="time"&gt;</code>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><code class="inlinebox">reset</code>
+                                    <li><code class="inlinebox">date</code>
                                         <ul>
-                                            <li>A button that resets the contents of the form to default values. <strong>Not recommended.</strong></li>
-                                            <li>Display "reset" by default. To enter different value, use <code>value</code> attribute.</li>
+                                            <li>A control for entering a date, month, and year with no time zone</li>
+                                            <li>Opens a date picker or numeric wheels/li>
                                             <li>
-                                                <input type="reset" name="reset"><br>
-                                                <code>&lt;input type="reset" name="reset"&gt;</code>
-                                            </li>
-                                            <li>
-                                                <input type="reset" name="reset" value="Refresh"><br>
-                                                <code>&lt;input type="reset" name="reset" value="Refresh"&gt;</code>
+                                                <input type="date" name="date"><br>
+                                                <code>&lt;input type="date" name="date"&gt;</code>
                                             </li>
                                         </ul>
-
+                                    </li>
+                                    <li><code class="inlinebox">week</code>
+                                        <ul>
+                                            <li>A control for entering a week and the year, with no time zone.</li>
+                                            <li>
+                                                <input type="week" name="week"><br>
+                                                <code>&lt;input type="week" name="week"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">month</code>
+                                        <ul>
+                                            <li>A control for entering a month and the year, with no time zone.</li>
+                                            <li>
+                                                <input type="month" name="month"><br>
+                                                <code>&lt;input type="month" name="month"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Obsolete: </strong><code class="inlinebox">datetime</code>
+                                        <ul>
+                                            <li>Use <code>datetime-local</code> instead</li>
+                                        </ul>
                                     </li>
                                 </ul>
+                            </li>
+                            <li><span class="topic">Other specialized text field</span>
+                                <ul>
+                                    <li><code class="inlinebox">tel</code>
+                                        <ul>
+                                            <li>A control for entering a phone number.</li>
+                                            <li>It is not automatically validated to a particular format.</li>
+                                            <li>Displays a phone keypad in some devices with dinamic keypads.</li>
+                                            <li>
+                                                <input type="tel" name="tel"><br>
+                                                <code>&lt;input type="tel" name="tel"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">email</code>
+                                        <ul>
+                                            <li>A field for entering an email address</li>
+                                            <li>Attribute <code>multiple</code>: multiple emails can be entered.</li>
+                                            <li>Has validation parameters.</li>
+                                            <li>
+                                                <input type="email" name="email"><br>
+                                                <code>&lt;input type="email" name="email"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">url</code>
+                                        <ul>
+                                            <li>A field for entering a URL.</li>
+                                            <li>Has validation parameters</li>
+                                            <li>
+                                                <input type="url" name="url"><br>
+                                                <code>&lt;input type="url" name="url"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">number</code>
+                                        <ul>
+                                            <li>A control for entering a number.</li>
+                                            <li>Displays a spinner and adds default validation when supported.</li>
+                                            <li>Displays a numeric keypad in some devices with dinamic keypads.</li>
+                                            <li>Doesn't take non-numeric key stroke.</li>
+                                            <li>
+                                                <input type="number" name="number"><br>
+                                                <code>&lt;input type="number" name="number"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">password</code>
+                                        <ul>
+                                            <li>A control for entering password.</li>
+                                            <li>
+                                                <input type="password" name="password"><br>
+                                                <code>&lt;input type="password" name="password"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">search</code>
+                                        <ul>
+                                            <li>A single-line text field for entering search strings.</li>
+                                            <li>Line breaks are automatically removed from the input value</li>
+                                            <li>
+                                                <input type="search" name="search"><br>
+                                                <code>&lt;input type="search" name="search"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>                            
                             </li>
                             <li><span class="topic">Check boxes</span>
                                 <ul>
@@ -1505,173 +1583,108 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><code class="inlinebox">range</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </li>
-                            <li><span class="topic">Date and time inputs</span>
+                            <li><span class="topic">Buttons</span>
                                 <ul>
-                                    <li><code class="inlinebox">datetime-local</code>
+                                    <li><code class="inlinebox">button</code>
                                         <ul>
-                                            <li></li>
+                                            <li>A push button with no default behaviour</li>
+                                            <li>Display the value of the <code>value</code> attribute. Blank is the default.</li>
                                             <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
+                                                <input type="button" name="button" value="Button"><br>
+                                                <code>&lt;input type="button" name="button" value="Button"&gt;</code>
+                                            </li>
+                                            <li>
+                                                <input type="button" name="button"><br>
+                                                <code>&lt;input type="button" name="button"&gt;</code>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><code class="inlinebox">time</code>
+                                    <li><code class="inlinebox">submit</code>
                                         <ul>
-                                            <li></li>
+                                            <li>A button that submits the form.</li>
+                                            <li>Display "submit" by default. To enter different value, use <code>value</code> attribute.</li>
                                             <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
+                                                <input type="submit" name="submit"><br>
+                                                <code>&lt;input type="submit" name="submit"&gt;</code>
                                             </li>
-                                        </ul>
-                                    </li>
-                                    <li><code class="inlinebox">date</code>
-                                        <ul>
-                                            <li></li>
                                             <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><code class="inlinebox">week</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><code class="inlinebox">month</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Obsolete: </strong><code class="inlinebox">datetime</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><span class="topic">Addressing inputs</span>
-                                <ul>
-                                    <li><code class="inlinebox">tel</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><code class="inlinebox">email</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><code class="inlinebox">url</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>                            
-                            </li>
-                            <li><span class="topic">Styling inputs</span>
-                                <ul>
-                                    <li><code class="inlinebox">color</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>                            
-                            </li>
-
-                            <li><span class="topic">To be organized</span>
-                                <ul>
-                                    <li><code class="inlinebox">file</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><code class="inlinebox">hidden</code>
-                                        <ul>
-                                            <li></li>
-                                            <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
+                                                <input type="submit" name="submit" value="Send form"><br>
+                                                <code>&lt;input type="submit" name="submit" value="Send form"&gt;</code>
                                             </li>
                                         </ul>
                                     </li>
                                     <li><code class="inlinebox">image</code>
                                         <ul>
-                                            <li></li>
+                                            <li>A graphical submit button</li>
+                                            <li>Attribute <code>src</code>: link to the image</li>
+                                            <li>Attribute <code>alt</code>: Text displayed when image SRC is missing</li>
                                             <li>
-                                                <input type=""><br>
+                                                <input type="image" name="image" src="./img/puzzle-piece-16.ico" alt="image input"><br>
                                                 <code>&lt;input type&gt;</code>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><code class="inlinebox">number</code>
+                                    <li><code class="inlinebox">reset</code>
                                         <ul>
-                                            <li></li>
+                                            <li>A button that resets the contents of the form to default values. <strong>Not recommended.</strong></li>
+                                            <li>Display "reset" by default. To enter different value, use <code>value</code> attribute.</li>
                                             <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
+                                                <input type="reset" name="reset"><br>
+                                                <code>&lt;input type="reset" name="reset"&gt;</code>
+                                            </li>
+                                            <li>
+                                                <input type="reset" name="reset" value="Refresh"><br>
+                                                <code>&lt;input type="reset" name="reset" value="Refresh"&gt;</code>
+                                            </li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Other input types</span>
+                                <ul>
+                                    <li><code class="inlinebox">range</code>
+                                        <ul>
+                                            <li>A control for entering number using a range widget.</li>
+                                            <li>Use this when the exact value is not important.</li>
+                                            <li>Default value is the middle value of the range.</li>
+                                            <li>Attribute <code>min</code> and <code>max</code> are used to define the range of acceptable values.</li>
+                                            <li>
+                                                <input type="range" name="range" min="0" max="25"><br>
+                                                <code>&lt;input type="range" name="range" min="0" max="25"&gt;</code>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><code class="inlinebox">password</code>
+                                    <li><code class="inlinebox">color</code>
                                         <ul>
-                                            <li></li>
+                                            <li>A control for specifying a color.</li>
+                                            <li>Opening a color picker when supported.</li>
                                             <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
+                                                <input type="color" name="color"><br>
+                                                <code>&lt;input type="color" name="color"&gt;</code>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><code class="inlinebox">search</code>
+                                    <li><code class="inlinebox">file</code>
                                         <ul>
-                                            <li></li>
+                                            <li>A control that lets the user select a file.</li>
                                             <li>
-                                                <input type=""><br>
-                                                <code>&lt;input type&gt;</code>
+                                                <input type="file" accept="image/*, text/*" name="file"><br>
+                                                <code>&lt;input type="file" accept="image/*, text/*" name="file"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">hidden</code>
+                                        <ul>
+                                            <li>A control that's not displayed but whose value is submitted to the server.</li>
+                                            <li>It lets the web developers to include data that can't be seen or modified by users when a form is submitted.</li>
+                                            <li>Examples: Content id, unique security token.</li>
+                                            <li>Completely invisible, no way to make it visible in the page content.</li>
+                                            <li>
+                                                <input type="hidden" name="hidden"><br>
+                                                <code>&lt;input type="hidden" name="hidden"&gt;</code>
                                             </li>
                                         </ul>
                                     </li>

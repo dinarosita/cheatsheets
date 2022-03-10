@@ -500,7 +500,8 @@ code a {
 
 .html-form-notes input[type="reset" i],
 .html-form-notes input[type="button" i],
-.html-form-notes input[type="submit" i] {
+.html-form-notes input[type="submit" i],
+.html-form-notes input[type="image" i] {
     appearance: auto;
     user-select: none;
     cursor: default; 
@@ -511,7 +512,8 @@ code a {
 
 .html-form-notes input[type="reset" i]:hover,
 .html-form-notes input[type="button" i]:hover,
-.html-form-notes input[type="submit" i]:hover {
+.html-form-notes input[type="submit" i]:hover,
+.html-form-notes input[type="image" i]:hover {
     background-color: white;
     border-style: inset;
 }
