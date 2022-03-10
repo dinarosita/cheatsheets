@@ -486,6 +486,36 @@ code a {
 }
 /* || HTML-Notes: Forms  and html-form-notes*/
 
+.html-form-notes dd .formula {
+    margin-bottom: 0.5rem;
+}
+
+.html-form-notes dd ul input {
+    color: black;
+    background-color: white;
+    font-weight: normal;
+    border: 1px solid var(--title);
+    margin: 0;
+}
+
+.html-form-notes input[type="reset" i],
+.html-form-notes input[type="button" i],
+.html-form-notes input[type="submit" i] {
+    appearance: auto;
+    user-select: none;
+    cursor: default; 
+    border: 2px outset;
+    background-color: whitesmoke;
+}
+
+
+.html-form-notes input[type="reset" i]:hover,
+.html-form-notes input[type="button" i]:hover,
+.html-form-notes input[type="submit" i]:hover {
+    background-color: white;
+    border-style: inset;
+}
+
 .html-form-notes textarea:invalid {
     color: indianred;
 }

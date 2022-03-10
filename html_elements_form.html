@@ -20,7 +20,6 @@
         <header>
             <a href="./index.html"><h1>HTML Form Elements</h1></a> 
         </header>
-
         <nav class="simple_nav">
             <a href="./html_elements.html" class="nav-button-rev" style="margin: auto">HTML Elements</a>
             <a href="./index.html" class="nav-button-rev" style="margin: auto">Codey Luwak</a>
@@ -1399,10 +1398,287 @@
             <article id="input">
 
                 <h2><code>&lt;input&gt;</code></h2>
-                <p class="subtitle">...</p>
+                <p class="subtitle">Interactive controls for forms for accepting data from users.</p>
 
                 <dl>
+                    <dt>Types of input element</dt> 
+                    <dd>
+                        <code class="formula">&lt;input type="___"&gt;</code>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li><span class="topic">Text fields</span>
+                                <ul>
+                                    <li><code class="inlinebox">text</code>
+                                        <ul>
+                                            <li>Default value</li>
+                                            <li>A single line text field.</li>
+                                            <li>Line breaks are automatically removed</li>
+                                            <li>
+                                                <input type="text" name="text" placeholder="Type here..."><br>
+                                                <code>&lt;input type="text" name="text" placeholder="Type here..."&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>                            
+                            </li>
+                            <li><span class="topic">Buttons</span>
+                                <ul>
+                                    <li><code class="inlinebox">button</code>
+                                        <ul>
+                                            <li>A push button with no default behaviour</li>
+                                            <li>Display the value of the <code>value</code> attribute. Blank is the default.</li>
+                                            <li>
+                                                <input type="button" name="button" value="Button"><br>
+                                                <code>&lt;input type="button" name="button" value="Button"&gt;</code>
+                                            </li>
+                                            <li>
+                                                <input type="button" name="button"><br>
+                                                <code>&lt;input type="button" name="button"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">submit</code>
+                                        <ul>
+                                            <li>A button that submits the form.</li>
+                                            <li>Display "submit" by default. To enter different value, use <code>value</code> attribute.</li>
+                                            <li>
+                                                <input type="submit" name="submit"><br>
+                                                <code>&lt;input type="submit" name="submit"&gt;</code>
+                                            </li>
+                                            <li>
+                                                <input type="submit" name="submit" value="Send form"><br>
+                                                <code>&lt;input type="submit" name="submit" value="Send form"&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">reset</code>
+                                        <ul>
+                                            <li>A button that resets the contents of the form to default values. <strong>Not recommended.</strong></li>
+                                            <li>Display "reset" by default. To enter different value, use <code>value</code> attribute.</li>
+                                            <li>
+                                                <input type="reset" name="reset"><br>
+                                                <code>&lt;input type="reset" name="reset"&gt;</code>
+                                            </li>
+                                            <li>
+                                                <input type="reset" name="reset" value="Refresh"><br>
+                                                <code>&lt;input type="reset" name="reset" value="Refresh"&gt;</code>
+                                            </li>
+                                        </ul>
 
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Check boxes</span>
+                                <ul>
+                                    <li><code class="inlinebox">checkbox</code>
+                                        <ul>
+                                            <li>Single check box, allowing single value to be selected/deselected.</li>
+                                            <li>
+                                                <input type="checkbox" name="checkbox" id="checkbox">
+                                                <label for="checkbox"> I Agree</label><br>
+                                                <code>&lt;input type="checkbox" name="checkbox"&gt;<br>
+                                                    &lt;label for="checkbox"&gt; I Agree&lt;/label&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">radio</code>
+                                        <ul>
+                                            <li>A single check box with a single value that can be selected/deselected.</li>
+                                            <li>Together with other radio buttons with the same <code>name</code> value, making a multiple choice selection system.</li>
+                                            <li>The default is, only 1 value in the group can be selected.</li>
+                                            <li>
+                                                <input type="radio" name="food" id="nasigoreng" value="nasigoreng">
+                                                <label for="nasigoreng">Nasi Goreng</label><br>
+                                                <input type="radio" name="food" id="sate" value="sate">
+                                                <label for="sate">Sate</label><br>
+                                                <input type="radio" name="food" id="lumpia" value="lumpia">
+                                                <label for="lumpia">Lumpia</label><br>
+                                                <code>
+                                                    &lt;input type="radio" name="food" id="nasigoreng" value="nasigoreng"&gt;<br>
+                                                    &lt;label for="nasigoreng"&gt;Nasi Goreng&lt;/label&gt;&lt;br&gt;<br>
+                                                    &lt;input type="radio" name="food" id="sate" value="sate"&gt;<br>
+                                                    &lt;label for="sate"&gt;Sate&lt;/label&gt;&lt;br&gt;<br>
+                                                    &lt;input type="radio" name="food" id="lumpia" value="lumpia"&gt;<br>
+                                                    &lt;label for="lumpia"&gt;Lumpia&lt;/label&gt;
+                                                </code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">range</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Date and time inputs</span>
+                                <ul>
+                                    <li><code class="inlinebox">datetime-local</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">time</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">date</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">week</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">month</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Obsolete: </strong><code class="inlinebox">datetime</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="topic">Addressing inputs</span>
+                                <ul>
+                                    <li><code class="inlinebox">tel</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">email</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">url</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>                            
+                            </li>
+                            <li><span class="topic">Styling inputs</span>
+                                <ul>
+                                    <li><code class="inlinebox">color</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>                            
+                            </li>
+
+                            <li><span class="topic">To be organized</span>
+                                <ul>
+                                    <li><code class="inlinebox">file</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">hidden</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">image</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">number</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">password</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><code class="inlinebox">search</code>
+                                        <ul>
+                                            <li></li>
+                                            <li>
+                                                <input type=""><br>
+                                                <code>&lt;input type&gt;</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>                            
+                            </li>
+                        </ul>
+                    </dd>
                 </dl>
                
             </article>
