@@ -244,6 +244,17 @@
             <article id="content_sectioning">
                 <h2>Content sectioning</h2>
 
+                <ul class="list-horizontal">
+                    <li><code>&lt;address&gt;</code></li>
+                    <li><code>&lt;article&gt;</code></li>
+                    <li><code>&lt;aside&gt;</code></li>
+                    <li><code>&lt;footer&gt;</code></li>
+                    <li><code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code></li>
+                    <li><code>&lt;header&gt;</code></li>
+                    <li><code>&lt;main&gt;</code></li>
+                    <li><code>&lt;nav&gt;</code></li>
+                </ul>
+
                 <p class="maindef"><a href="./html_elements_content_sectioning.html">Go to HTML Content Sectioning Elements page</a></p>
 
                 <a href="#top"><hr></a>
@@ -253,6 +264,22 @@
             <article id="text_content">
                 <h2>Text content</h2>
 
+                <ul class="list-horizontal">
+                    <li><code>&lt;blockquote&gt;</code></li>
+                    <li><code>&lt;dd&gt;</code></li>
+                    <li><code>&lt;div&gt;</code></li>
+                    <li><code>&lt;dl&gt;</code></li>
+                    <li><code>&lt;dt&gt;</code></li>
+                    <li><code>&lt;figcaption&gt;</code></li>
+                    <li><code>&lt;figure&gt;</code></li>
+                    <li><code>&lt;hr&gt;</code></li>
+                    <li><code>&lt;li&gt;</code></li>
+                    <li><code>&lt;menu&gt;</code></li>
+                    <li><code>&lt;ol&gt;</code></li>
+                    <li><code>&lt;p&gt;</code></li>
+                    <li><code>&lt;pre&gt;</code></li>
+                </ul>
+
                 <p class="maindef"><a href="./html_elements_text_content.html">Go to HTML Text Content Elements page</a></p>
                 
                 <a href="#top"><hr></a>
@@ -261,6 +288,39 @@
             <!-- Article: Inline text -->
             <article id="inline_text">
                 <h2>Inline text semantics</h2>
+                
+                <ul class="list-horizontal">
+                    <li><code>&lt;a&gt;</code></li>
+                    <li><code>&lt;abbr&gt;</code></li>
+                    <li><code>&lt;b&gt;</code></li>
+                    <li><code>&lt;bdi&gt;</code></li>
+                    <li><code>&lt;bdo&gt;</code></li>
+                    <li><code>&lt;br&gt;</code></li>
+                    <li><code>&lt;cite&gt;</code></li>
+                    <li><code>&lt;code&gt;</code></li>
+                    <li><code>&lt;data&gt;</code></li>
+                    <li><code>&lt;dfn&gt;</code></li>
+                    <li><code>&lt;em&gt;</code></li>
+                    <li><code>&lt;i&gt;</code></li>
+                    <li><code>&lt;kbd&gt;</code></li>
+                    <li><code>&lt;mark&gt;</code></li>
+                    <li><code>&lt;q&gt;</code></li>
+                    <li><code>&lt;rp&gt;</code></li>
+                    <li><code>&lt;rt&gt;</code></li>
+                    <li><code>&lt;ruby&gt;</code></li>
+                    <li><code>&lt;s&gt;</code></li>
+                    <li><code>&lt;samp&gt;</code></li>
+                    <li><code>&lt;small&gt;</code></li>
+                    <li><code>&lt;span&gt;</code></li>
+                    <li><code>&lt;strong&gt;</code></li>
+                    <li><code>&lt;sub&gt;</code></li>
+                    <li><code>&lt;sup&gt;</code></li>
+                    <li><code>&lt;time&gt;</code></li>
+                    <li><code>&lt;u&gt;</code></li>
+                    <li><code>&lt;var&gt;</code></li>
+                    <li><code>&lt;wbr&gt;</code></li>
+                </ul>   
+
 
                 <p class="maindef"><a href="./html_elements_inline_text.html">Go to HTML Inline Text Semantic Elements page</a></p>           
                 
@@ -272,27 +332,27 @@
                 <h2>Image and multimedia</h2>
                 <dl>
                     <dt><code>&lt;img&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Embeds an image into the document.</dd>
 
                     <dt><code>&lt;audio&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Embeds a sound content in the document.</dd>
 
                     <dt><code>&lt;video&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Embeds a media player which supports video playback into the document.</dd>
 
                     <dd>
                         <dl>
                             <dt><code>&lt;track&gt;</code></dt>
-                            <dd class="maindef">   </dd>
+                            <dd class="maindef">A child of media element such as audio and video.</dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;map&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Used together with area element. Defines an image map, a clickable link area.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;area&gt;</code></dt>
-                            <dd class="maindef">   </dd>
+                            <dd class="maindef">Image map area element. Defines an area inside an image map that has predefined clickable areas</dd>
                         </dl>
                     </dd>
                 </dl>
@@ -303,10 +363,9 @@
             <!-- Article: Embed -->
             <article id="embed">
                 <h2>Embedded content</h2>
-                <p><code>      </code></p>
                 <dl>
                     <dt><code>&lt;object&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">External resource that can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;param&gt;</code></dt>
@@ -315,22 +374,20 @@
                     </dd>
 
                     <dt><code>&lt;picture&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Element contains 0 or more <code>&lt;source&gt;</code> elements and one <code>&lt;img&gt;</code> element to offer alternative versions of an image for different display/device scenarios.</dd>
                     <dd>
                         <dl>
                             <dt><code>&lt;source&gt;</code></dt>
-                            <dd class="maindef">   </dd>
-                            <dt><code>&lt;img&gt;</code></dt>
-                            <dd class="maindef">   </dd>
+                            <dd class="maindef">Specifies multiple medua resources for the <code>&lt;picture&gt;</code>, <code>&lt;audio&gt;</code>, or <code>&lt;video&gt;</code> element</dd>
                         </dl>
                     </dd>
 
                     <dt><code>&lt;embed&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Embed external content at specified point in the document.</dd>
                     <dt><code>&lt;iframe&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">A nested browsing context, embedding another HTML page into the current one.</dd>
                     <dt><code>&lt;portal&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Enabled the embedding of another HTML page into the current one for the purposes of allowing smoother navigation into new pages.</dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -341,10 +398,16 @@
                 <h2>SVG and MathML</h2>
                 <dl>
                     <dt><code>&lt;svg&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">SVG = Scalable Vector Graphics. THe element is a container that defines a new coordinate system and viewport.</dd>
+                    <dd>Outermost element of SVG documents. Can also be used to embed SVG fragment inside an SVG or HTML document.</dd>
+                    <dd>It will be covered in depth in the future.</dd>
+                    <dd>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg" target="_blank">SVG</a></dd>
 
                     <dt><code>&lt;math&gt;</code></dt>
-                    <dd class="maindef">   </dd>
+                    <dd class="maindef">Top-level element in MathML.</dd>
+                    <dd>Every valid MathML instance must be wrapped in <code>&lt;math&gt;</code> tags.</dd>
+                    <dd>It will be covered in depth in the future.</dd>
+                    <dd>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math" target="_blank">math</a></dd>
                 </dl>
                 
                 <a href="#top"><hr></a>
@@ -389,6 +452,20 @@
             <!-- Article: Table -->
             <article id="table">
                 <h2>Table</h2>     
+
+                <ul class="list-horizontal">
+                    <li><code>&lt;caption&gt;</code></li>
+                    <li><code>&lt;col&gt;</code></li>
+                    <li><code>&lt;colgroup&gt;</code></li>
+                    <li><code>&lt;table&gt;</code></li>
+                    <li><code>&lt;tbody&gt;</code></li>
+                    <li><code>&lt;td&gt;</code></li>
+                    <li><code>&lt;tfoot&gt;</code></li>
+                    <li><code>&lt;th&gt;</code></li>
+                    <li><code>&lt;thead&gt;</code></li>
+                    <li><code>&lt;tr&gt;</code></li>
+                </ul>
+
                 
                 <p class="maindef"><a href="./html_elements_table.html">Go to HTML Table Elements page</a></p>
 
@@ -398,6 +475,22 @@
             <!-- Article: Form -->
             <article id="form">
                 <h2>Forms</h2>
+
+                <ul class="list-horizontal">
+                    <li><code>&lt;button&gt;</code></li>
+                    <li><code>&lt;datalist&gt;</code></li>
+                    <li><code>&lt;fieldset&gt;</code></li>
+                    <li><code>&lt;form&gt;</code></li>
+                    <li><code>&lt;input&gt;</code></li>
+                    <li><code>&lt;label&gt;</code></li>
+                    <li><code>&lt;legend&gt;</code></li>
+                    <li><code>&lt;meter&gt;</code></li>
+                    <li><code>&lt;optgroup&gt;</code></li>
+                    <li><code>&lt;output&gt;</code></li>
+                    <li><code>&lt;progress&gt;</code></li>
+                    <li><code>&lt;select&gt;</code></li>
+                    <li><code>&lt;textarea&gt;</code></li>
+                </ul>
 
                 <p class="maindef"><a href="./html_elements_form.html">Go to HTML Form Elements page</a></p>
 
