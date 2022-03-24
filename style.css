@@ -44,8 +44,8 @@ figure {
     --attributecolor: steelblue;
     --valuecolor: rgb(206, 131, 131);
     --textcontentcolor: olive;
-    --textcolor: rgb(99, 99, 99);
-
+    --textcolor: rgb(177, 110, 110);
+    --functions: rgb(189, 108, 189);
 
     --whatcolor: rgb(114, 69, 114);
 
@@ -280,6 +280,26 @@ table code {
 
 .weaker {
     font-weight: normal;
+}
+
+/* JS notes */
+
+.js-notes ul {
+    margin-top: 0;
+}
+
+.js-notes dl>dd>ul {
+    padding-left: 1rem;
+}
+
+.functions {
+    color: var(--functions);
+    font-weight: bold;
+}
+
+.functions2 {
+    color: var(--borderdark);
+    font-weight: bold;
 }
 
 /* || CSS Grid */
