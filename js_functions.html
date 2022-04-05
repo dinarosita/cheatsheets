@@ -22,6 +22,8 @@
             <article id="introduction">
                 <h2>Functions: Reusable blocks of code</h2>
 
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/fundamentals-part-3" target="_blank">JS Foundations fundamental part 3</a>. Last finished reading: 4. Function article by javascript.info.</p>
+
                 <dl>
                     <dt>Function</dt>
                     <dd>A piece of code that does a single task inside a define block.</dd>
@@ -42,6 +44,9 @@
                             <li><code>myText.<span class="functions">replace(</span>"dog", "cat"<span class="functions">)</span></code></li>
                             <li><code>myArray.<span class="functions">join(</span>' '<span class="functions">)</span></span></code></li>
                             <li><code class="functions">Math.random()</code></li>
+                            <li><code><span class="functions">alert(</span>message<span class="functions">)</span></code></li>
+                            <li><code><span class="functions">prompt(</span>message, default<span class="functions">)</span></code></li>
+                            <li><code><span class="functions">confirm(</span>question<span class="functions">)</span></code></li>
 
                         </ul>
                     </dd>
@@ -68,21 +73,67 @@
 
                     <dd>
                         <dl>
+                            <dt>Parameters vs arguments</dt>
+                            <dd>
+                                <ul>
+                                    <li><b>Parameters</b> are the <b>variables</b> listed inside the <code>()</code> in the function declaration.</li>
+                                    <li><b>Arguments</b> are the <b>values</b> that are passed to the function when it is called.</li>
+                                    <li>Function declaration, parameters are listed: 
+                                        <ul>
+                                            <li><code>function myFunction(parameter) {...};</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Function is called, arguments are passed: 
+                                        <ul>
+                                            <li>
+                                                <code>myFunction(argument);</code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+
                             <dt>Optional parameters</dt>
                             <dd>Sometimes parameters are optional. When it is not specified, it wil typically adopt some kind of default behaviour.</dd>
                             <dd>For example, function <code class="functions">join()</code>. Without defined parameters comma separator is used.</dd>
         
                             <dt>Default parameters</dt>
-                            <dd>Optional parameters in a custom function can be made by defining default parameter using an equal mark <code>=</code> when defining the function.</dd>
-                            <dd>Function declaration:<br>
-                                <code>function <span class="functions">myFunction(</span>name="Kitten"<span class="functions">) {</span>console.log(`Hello, ${name}!`)<span class="functions">}</span>;</code></dd>
-                            <dd>Function invoke:<br>
-                                <code><span class="functions">myFunction()</span>;</code> // "Hello, Kitten!"<br>
-                                <code><span class="functions">myFunction(</span>"Ruby"<span class="functions">)</span>;</code> // "Hello, Ruby!"
+                            <dd>
+                                <ul>
+                                    <li>Optional parameters in a custom function can be made by defining default parameter using an equal mark <code>=</code> when defining the function.</li>
+                                    <li>
+                                        Function declaration:<br>
+                                        <code>function <span class="functions">myFunction(</span>name="Kitten"<span class="functions">) {</span>console.log(`Hello, ${name}!`)<span class="functions">}</span>;</code>
+                                    </li>
+                                    <li>
+                                        Function invoke:<br>
+                                        <code><span class="functions">myFunction()</span>;</code> // "Hello, Kitten!"<br>
+                                        <code><span class="functions">myFunction(</span>"Ruby"<span class="functions">)</span>;</code> // "Hello, Ruby!"
+                                    </li>
+                                    <li>Alternatively, default can be generated inside the code block.
+<pre>
+<code>function myFunction(name) {
+    if (name === undefined) {name = "Kitten";}
+    console.log(`Hello, ${name}!`);
+}
+myFunction(); // "Hello, Kitten!"</code>
+</pre>
+                                                
+                                    </li>
+                                    <li>Using or operator <code>||</code>
+<pre>
+<code>function myFunction(name) {
+    name = name || "Kitten";
+    console.log(`Hello, ${name}!`);
+}
+myFunction(); // "Hello, Kitten!"</code>
+</pre>
+                                    </li>
+                                </ul>
                             </dd>
+
                         </dl>
                     </dd>
-
 
                     <dt>Anonymous functions</dt>
                     <dd>Functions without function name</dd>
@@ -164,12 +215,51 @@
                         </dl>
                     </dd>
 
+                    <dt>Naming a function</dt>
+                    <dd>
+                        <ul>
+                            <li>Function is an action. So the names are usually verb. Keep it brief and accurate. Decribe what the function does.</li>
+                            <li>2 words name in camelCase is common. First word is a verb, second is a noun.</li>
+                            <li>Some common first words and their common uses:
+                                <ul>
+                                    <li><code>get</code> &ndash; return a value</li>
+                                    <li><code>calc</code> &ndash; calculate something</li>
+                                    <li><code>create</code> &ndash; create something</li>
+                                    <li><code>check</code> &ndash; check something and return a boolean</li>
+                                    <li><code>is</code> &ndash; is it true or false</li>
+                                </ul>
+                            </li>
+                            <li>Examples:
+                                <ul>
+                                    <li><code>showMessage</code> &ndash; shows a message</li>
+                                    <li><code>getAge</code> &ndash; returns the age (gets it somehow)</li>
+                                    <li><code>calcSum</code> &ndash; calculates a sum and returns the result</li>
+                                    <li><code>createForm</code> &ndash; creates a form (and usually returns it)</li>
+                                    <li><code>checkPermission</code> &ndash; checks a permission, returns true/false</li>
+                                    <li><code>isPrime</code> &ndash; checking a value is a prime or not. Return boolean.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>One function one action</dt>
+                    <dd>
+                        <ul>
+                            <li>Limit 1 action per function. When there are 2 actions, better separate them in 2 functions. A third function can be created to combine them.</li>
+                            <li>For example:
+                                <ul>
+                                    <li><code>getAge</code> &ndash; Let the function only get the age. Don't have it shows an alert of the age.</li>
+                                    <li><code>checkPermission</code> &ndash; Should only check the permission and return the result. Don't mix it with displaying message <code>Access granted/denied</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="formula">
-                <h2>Formulas</h2>
+            <article id="function-declaration">
+                <h2>Function declaration</h2>
     
                 <div class="formula">
                     <code>
@@ -300,9 +390,12 @@ greetings = userName => "Hello, " + userName + "!";
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="return_value">
-                <h2>Return Value</h2>
+            <article id="return">
+                <h2>Return</h2>
                 <dl>
+
+                    <dt>Keyword: <code>return</code></dt>
+
                     <dt>Return value</dt>
                     <dd>A value returned by a function upon completing the execusion.</dd>
                     <dd>
@@ -310,20 +403,27 @@ greetings = userName => "Hello, " + userName + "!";
                             <li>A function can have a return value or not. When it does have, there can only be 1 return value.</li>
                             <li>(I guess I can see it like an equation mark. Return value is what's in the right side of equation.)</li>
                             <li>A return value is needed when the purpose of the function is to generate a value that will be proccessed further. This value needs to be available globally to be avaiable for other function to process. (Think of global variable, but not declared, and generated dynamically).</li>
+                            <li>Don't add newline between <code>return</code> and the value. A semicolon <code>;</code> will automatically be added. Making the return an empty one and immediately exit the function without ever reached the value line.</li>
                         </ul>
                     </dd>
 
-                    <dt>Keyword: <code>return</code></dt>
+                    <dt>Return without value</dt>
+                    <dd>Return without value is possible. It exit the function immediately.</dd>
+
                 </dl>
 
                 <a href="#top"><hr></a>
             </article>
-            
+
             <article id="references">
                 <h2>References</h2>
                 <ul>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions" target="_blank">MDN: Functions — reusable blocks of code</a></li>
+                    <li> <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Return_values" target="_blank">MDN: Function return value</a></li>
+                    <li><a href="https://javascript.info/function-basics" target="_blank">JavaScript.info: Functions</a>
+                    </li>
                 </ul>
+
             </article>
         </main>
 
