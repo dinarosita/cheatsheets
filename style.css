@@ -316,6 +316,9 @@ table code {
     border: 0.25rem solid peachpuff;
 }
 
+.js-notes kbd {
+    border: 1px solid var(--title);
+}
 
 /* || Glossary */
 

@@ -387,7 +387,7 @@ greetings = function (userName) {
 greetings = userName => "Hello, " + userName + "!";
 </pre>                
         
-                <a href="#top"><hr></a>
+            <a href="#top"><hr></a>
             </article>
 
             <article id="return">
@@ -410,6 +410,166 @@ greetings = userName => "Hello, " + userName + "!";
                     <dt>Return without value</dt>
                     <dd>Return without value is possible. It exit the function immediately.</dd>
 
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="alert-prompt-confirm">
+                <h2>Modal interaction methods: Alert, Prompt, and Confirm</h2>
+                <dl>
+                    <dt>Modal</dt>
+                    <dd>
+                        <ul>
+                            <li>A modal: a dialog box/popup window that is displayed on top of the current page.</li>
+                            <li>Visitor can't interact with the rest of the page, press other buttons, etc, until they deal with the modal window.</li>
+                            <li>Alert, prompt, and confirm are 3 handy built-in interaction methods/functions displayed as a modal.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>alert</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                alert(<span class="variable">message</span>);
+                        </code>
+                        </div>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li>Shows a message</li>
+                            <li>1 parameter:
+                                <ul>
+                                    <li>Message</li>
+                                </ul>
+                            </li>
+                            <li>No return value.
+                                <code>
+                                    <ul>                                    
+                                        <li>let sam = alert("Sammy");</li>
+                                        <li>sam; // undefined</li>
+                                    </ul>
+                                </code>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>prompt</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                prompt(<span class="variable">title</span>, <span class="variable">[default]</span>);
+                        </code>
+                        </div>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li>Shows a message asking for a user input text.</li>
+                            <li>1 or 2 parameters:
+                                <ol>
+                                    <li>Title</li>
+                                    <li>Optional: default answer
+                                        <ul>
+                                            <li>In Internet Explorer, when default is not supplied, it will insert text "undefined" into the prompt. So better to supply a default. It can even be an empty string: <code>""</code></li>
+                                            <li><code>let name = prompt("Name:", "")</code></li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>Return values:
+                                <ul>
+                                    <li>User input
+                                        <ul>
+                                            <li>Typed text</li>
+                                            <li>Default</li>
+                                            <li>Empty string</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>null</code> if "Cancel" button or <kbd>Esc</kbd> is clicked.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>confirm</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                confirm(<span class="variable">question</span>);
+                            </code>
+                        </div>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li>Shows a question and gives 2 choices of answers: "OK" or "Cancel".</li>
+                            <li>1 parameter:
+                                <ul>
+                                    <li>Question</li>
+                                </ul>
+                            </li>
+                            <li>Return values:
+                                <ul>
+                                    <li><code>true</code> for "OK"</li>
+                                    <li><code>false</code> for "Cancel"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="function-expression">
+                <h2>Function Expression</h2>
+                <dl>
+
+                    <dt>Function declaration vs function expression</dt>
+
+                    <dd>
+                        <ul>
+                            <li>Function declaration:<br>
+                                <div class="formula">
+                                    <code>
+                                            function <span class="variable">sayHi</span>() {<span class="variable">alert("Hello");</span>}
+                                    </code>
+                                </div>
+                            </li>
+                            <li>Function expression:<br>
+                                <div class="formula">
+                                    <code>
+                                            let <span class="variable">sayHi</span> = function() {<span class="variable">alert("Hello");</span>};
+                                    </code>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>A function is a value</dt>
+                    <dd>
+                        <ul>
+                            <li>Meaning we can work it out just like a value.</li>
+                            <li>For example:
+                                <ul>
+                                    <code>
+                                        <li>
+                                            function sayHi() {alert("Hello");}
+                                            <ul>
+                                                <li>or: let sayHi = function() {alert("Hello");};</li>
+                                            </ul>
+                                            
+                                        </li>
+                                        <li>let func = sayHi;</li>
+                                        <li>func(); // Hello</li>
+                                        <li>sayHi(); // Hello</li>
+                                    </code>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
                 </dl>
 
                 <a href="#top"><hr></a>
