@@ -22,7 +22,7 @@
             <article id="introduction">
                 <h2>Functions: Reusable blocks of code</h2>
 
-                <p>Odin status: in the page <a href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/fundamentals-part-3" target="_blank">JS Foundations fundamental part 3</a>. Last finished reading: 4. Function article by javascript.info.</p>
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/fundamentals-part-3" target="_blank">JS Foundations fundamental part 3</a>. Current reading: 5-2. Arrow function basic article by javascript.info.</p>
 
                 <dl>
                     <dt>Function</dt>
@@ -423,6 +423,7 @@ greetings = userName => "Hello, " + userName + "!";
                         <ul>
                             <li>A modal: a dialog box/popup window that is displayed on top of the current page.</li>
                             <li>Visitor can't interact with the rest of the page, press other buttons, etc, until they deal with the modal window.</li>
+                            <li>Modal box's appearance and positioning are controled by the browser, not us.</li>
                             <li>Alert, prompt, and confirm are 3 handy built-in interaction methods/functions displayed as a modal.</li>
                         </ul>
                     </dd>
@@ -524,52 +525,221 @@ greetings = userName => "Hello, " + userName + "!";
             </article>
 
             <article id="function-expression">
-                <h2>Function Expression</h2>
+                <h2>Function Declaration vs Function Expression</h2>
                 <dl>
 
-                    <dt>Function declaration vs function expression</dt>
+                    <dt>Function declaration</dt>
 
                     <dd>
+                        <div class="formula">
+                            <code>
+                                function <span class="variable">sayHi</span>() {<span class="variable">alert("Hello");</span>}
+                            </code>
+                        </div>
+                    </dd>
+                    <dd>The function is declared as a separate statement in the main code flow.</dd>
+                    <dd>
                         <ul>
-                            <li>Function declaration:<br>
-                                <div class="formula">
-                                    <code>
-                                            function <span class="variable">sayHi</span>() {<span class="variable">alert("Hello");</span>}
-                                    </code>
-                                </div>
+                            <li>When Javascript run the script, it will first look for global function declaration and creates it. Think of "initialization stage". After all function declarations are processed, the code is executed.</li>
+                            <li>The consequence is, function declaration can be called earlier than it is defined</li>
+
+                        </ul>
+                    </dd>
+
+                    <dt>Function expression</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                let <span class="variable">sayHi</span> = function() {<span class="variable">alert("Hello");</span>};
+                            </code>
+                        </div>
+                    </dd>
+                    <dd>The function is created inside an expression or inside another syntax construct.</dd>
+                    <dd>
+                        <ul>
+                            <li>Function expression is created when code execution reaches it and it is only useable from that moment.</li>
+                        </ul>
+                    </dd>
+                    <dd>For examples:
+                        <ul>
+                            <li>
+                                As a variable value (the right side of assignment expression <code>=</code>)
+<pre class="js-codebox">
+let sum = function(a, b) {
+    return a + b;
+}</pre>
                             </li>
-                            <li>Function expression:<br>
-                                <div class="formula">
-                                    <code>
-                                            let <span class="variable">sayHi</span> = function() {<span class="variable">alert("Hello");</span>};
-                                    </code>
-                                </div>
-                            </li>
+                            <li>As an argument (check out following function callback subchapter)</li>
                         </ul>
                     </dd>
 
                     <dt>A function is a value</dt>
+                    <dd>Meaning we can work it out just like a value.</dd>
+
+                    <dt>Example with function declaration</dt>
+                    <dd>
+<pre class="js-codebox">
+function sayHi() {alert("Hello");}
+let func = sayHi;
+
+func(); // Hello
+sayHi(); // Hello
+</pre></dd>
+
+                    <dt>Example with function expression</dt>
+                    <dd>
+<pre class="js-codebox">
+let sayHi = function() {alert("Hello");};
+let func = sayHi;
+
+func(); // Hello
+sayHi(); // Hello
+</pre> 
+                    </dd>            
+
+                    <dt>Which one to use? Function declaration or expression?</dt>
                     <dd>
                         <ul>
-                            <li>Meaning we can work it out just like a value.</li>
-                            <li>For example:
-                                <ul>
-                                    <code>
-                                        <li>
-                                            function sayHi() {alert("Hello");}
-                                            <ul>
-                                                <li>or: let sayHi = function() {alert("Hello");};</li>
-                                            </ul>
-                                            
-                                        </li>
-                                        <li>let func = sayHi;</li>
-                                        <li>func(); // Hello</li>
-                                        <li>sayHi(); // Hello</li>
-                                    </code>
-                                </ul>
-                            </li>
+                            <li>In general, consider function declaration first. Because it can be called from everywhere, also have a better readability.</li>
+                            <li>Use function expression only when function declaration doesn't fit the task, like in the examples below.</li>
                         </ul>
                     </dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="function-inside-codeblock">
+                <h3>Function inside code block</h3>
+
+                <dl>
+                            
+                    <dt>Function declaration</dt>
+                    <dd>In strict mode, when a function declaration is within a code block, it's visible everywhere inside that block, but nout outside of it.</dd>
+                    <dd>
+<pre class="js-codebox">
+"use strict"
+let age = prompt ("Age:", 18);
+
+if (age < 18) {
+    function message() {
+        alert("Access denied.");
+    }
+} else {
+    function message() {
+        alert("Welcome!");
+    }
+}
+
+message(); // Error: message is not defined
+</pre>
+                    </dd>
+
+                    <dt>Function expression</dt>
+                    <dd>To make the function accessible from outside, we can use function expression instead, and declaring it globally.</dd>
+                    <dd>
+<pre class="js-codebox">
+"use strict"
+let age = prompt ("Age:", 18);
+let message;
+if (age < 18) {
+    message = function() {
+        alert("Access denied.");
+    }
+} else {
+    message = function() {
+        alert("Welcome!");
+    }
+}
+
+message(); // Now it works
+</pre>
+    
+                    </dd>
+
+                    <dt>Ternary with function expression</dt>
+                    <dd>
+<pre class="js-codebox">
+"use strict"
+let age = prompt ("Age:", 18);
+
+let message = (age < 18) ?
+    function() {alert("Access denied.");} : 
+    function() {alert("Welcome!");};
+
+message(); // It works
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="callback-function">
+                <h3>Callback Functions</h3>
+                <dl>
+
+                    <dt>Action based on true / false input</dt>
+                    <dd>
+                        <div class="formula">
+                                confirm: true / false
+                                <ul>
+                                    <li>If true: run function A</li>
+                                    <li>if false: run function B</li>
+                                </ul>
+                        </div>
+                    </dd>
+
+                    <dt>Callback functions / callbacks</dt>
+                    <dd>We can pass a function and expect it to be "called back" later if necessary. Like function A to be called in the case "OK" is pressed, and function B for "Cancel".</dd>
+
+                    <dt>Function scheme</dt>
+                    <dd>
+                        <div class="formula">
+<pre>
+<code>function <span class="variable">choice</span>(<span class="variable">question</span>, <span class="variable">yes</span>, <span class="variable">no</span>) {
+    if (confirm(<span class="variable">question</span>)) <span class="variable">yes</span>()
+    else <span class="variable">no</span>();
+}
+</code></pre>
+                        </div>
+                    </dd>
+
+                    <dt>With the callback functions</dt>
+                    <dd>Arguments <code>functionA</code> and <code>functionB</code> are called the callback functions, or in short, callbacks.</dd>
+                    <dd>
+                        <div class="formula">
+<pre>
+<code>function <span class="variable">choice</span>(<span class="variable">question</span>, <span class="variable">yes</span>, <span class="variable">no</span>) {
+    if (confirm(<span class="variable">question</span>)) <span class="variable">yes</span>()
+    else <span class="variable">no</span>();
+}
+
+function <span class="variable">functionA</span>() {<span class="variable">alert("You pressed 'OK'")</span>;}
+function <span class="variable">functionB</span>() {<span class="variable">alert("You pressed 'Cancel'")</span>;}
+
+<span class="variable">choice</span>(<span class="variable">"Which one will you press?"</span>, <span class="variable">functionA</span>, <span class="variable">functionB</span>);</code></pre>
+                        </div>
+                    </dd>
+
+                    <dt>Using function expressions</dt>
+                    <dd>We can use function expressions to express those callbacks directly as the arguments.</dd>
+                    <dd>
+                        <div class="formula">
+<pre>
+<code>function <span class="variable">choice</span>(<span class="variable">question</span>, <span class="variable">yes</span>, <span class="variable">no</span>) {
+    if (confirm(<span class="variable">question</span>)) <span class="variable">yes</span>()
+    else <span class="variable">no</span>();
+}
+
+<span class="variable">choice</span>(
+    <span class="variable">"Which one will you press?"</span>, 
+    function() {<span class="variable">alert("You pressed 'OK'")</span>;}, 
+    function() {<span class="variable">alert("You pressed 'Cancel'")</span>;}
+);</code></pre>
+                        </div>
+                    </dd>
+                    <dd>The functions are anonymous and can't be called with other ways. But sometimes this is just what we need and it provides a clear, short, to the point codes.</dd>
                 </dl>
 
                 <a href="#top"><hr></a>
@@ -581,6 +751,10 @@ greetings = userName => "Hello, " + userName + "!";
                     <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions" target="_blank">MDN: Functions — reusable blocks of code</a></li>
                     <li> <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Return_values" target="_blank">MDN: Function return value</a></li>
                     <li><a href="https://javascript.info/function-basics" target="_blank">JavaScript.info: Functions</a>
+                    </li>
+                    <li><a href="https://javascript.info/function-expressions" target="_blank">JavaScript.info: Function expressions</a>
+                    </li>
+                    <li><a href="https://javascript.info/alert-prompt-confirm" target="_blank">JavaScript.info: Interaction: alert, prompt, confirm</a>
                     </li>
                 </ul>
 

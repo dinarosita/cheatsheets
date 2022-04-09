@@ -317,7 +317,11 @@ table code {
 }
 
 .js-notes kbd {
-    border: 1px solid var(--title);
+    border: 1px solid var(--titlesc);
+}
+
+.js-notes .formula ul {
+    margin-bottom: 0;
 }
 
 /* || Glossary */
