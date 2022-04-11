@@ -248,6 +248,7 @@ h3 code, h4 code, h5 code, h6 code {
     border-radius: var(--bumper-half);
     margin: var(--bumper) 0 0 var(--bumper);
     font-weight: bold;
+    font-size: 0.9rem;
 }
 
 .formula code {

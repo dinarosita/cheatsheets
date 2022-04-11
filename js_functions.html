@@ -20,9 +20,9 @@
 
         <main class="js-notes">
             <article id="introduction">
-                <h2>Functions: Reusable blocks of code</h2>
+                <h2>Functions: Reusable Blocks of Code</h2>
 
-                <p>Odin status: in the page <a href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/fundamentals-part-3" target="_blank">JS Foundations fundamental part 3</a>. Current reading: 5-2. Arrow function basic article by javascript.info.</p>
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/fundamentals-part-3" target="_blank">JS Foundations fundamental part 3</a>. Current reading: <a href="https://www.javascripttutorial.net/javascript-call-stack/" target="_blank">6. Call Stack</a>.</p>
 
                 <dl>
                     <dt>Function</dt>
@@ -76,22 +76,19 @@
                             <dt>Parameters vs arguments</dt>
                             <dd>
                                 <ul>
-                                    <li><b>Parameters</b> are the <b>variables</b> listed inside the <code>()</code> in the function declaration.</li>
-                                    <li><b>Arguments</b> are the <b>values</b> that are passed to the function when it is called.</li>
-                                    <li>Function declaration, parameters are listed: 
-                                        <ul>
-                                            <li><code>function myFunction(parameter) {...};</code></li>
-                                        </ul>
-                                    </li>
-                                    <li>Function is called, arguments are passed: 
-                                        <ul>
-                                            <li>
-                                                <code>myFunction(argument);</code>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <li>Function declaration: Parameters are the variables listed.</li>
+                                    <li>Calling a function: Arguments are the values passed.</li>
                                 </ul>
                             </dd>
+                            <dd>
+<pre class="formula">
+function <span class="variable">func</span> (<span class="variable">param1, param2</span>) {
+    <span class="variable">codeblock</span>;
+}
+
+<span class="variable">func</span> (<span class="variable">arg1, arg2</span>); </pre>
+                            </dd>
+
 
                             <dt>Optional parameters</dt>
                             <dd>Sometimes parameters are optional. When it is not specified, it wil typically adopt some kind of default behaviour.</dd>
@@ -259,7 +256,7 @@ myFunction(); // "Hello, Kitten!"</code>
             </article>
 
             <article id="function-declaration">
-                <h2>Function declaration</h2>
+                <h2>Function Declaration</h2>
     
                 <div class="formula">
                     <code>
@@ -307,89 +304,6 @@ myFunction(); // "Hello, Kitten!"</code>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="arrow_function">
-                <h2>Arrow Function</h2>
-        
-                <div class="formula">
-                    <code>
-                        <span class="parameter">functionName</span> = function () {<br>
-                            <span class="parameter tab">code block</span>;<br>
-                            <span class="tab"></span>return <span class="parameter">returnValue</span>;<br>
-                        }
-                    </code>
-                </div>
-                <br>
-        
-                <div class="formula">
-                    <code>
-                        <span class="parameter">functionName</span> = () => {<br>
-                            <span class="parameter tab">code block</span>;<br>
-                            <span class="tab"></span>return <span class="parameter">returnValue</span>;<br>
-                        }
-                    </code>
-                </div>
-        
-                <p>Writing function can be shortened by using arrow function where <code>function () {}</code> is written as <code>() => {}</code>.</p>
-        
-                <div class="formula">
-                    <code>
-                        <span class="parameter">functionName</span> = () => <span class="parameter">returnValue</span>;
-                    </code>
-                </div>
-                
-                <p>If the code block only has the return value, it can be even shorter. No curly brackets <code>{}</code> and the word "<code>return</code>" to be used.</p>
-        
-<pre class="js-codebox">
-hello = function () {
-    return "Hi there!";
-}                           // same code
-
-hello = () => {
-    return "Hi there!";
-}                           // same code
-
-hello = () => "Hi there!";  // same code
-</pre>
-        
-                <div class="formula">
-                    <code>
-                        <span class="parameter">functionName</span> = (<span class="parameter">param1</span>, <span class="parameter">param2</span>) => <span class="parameter">returnValue</span>;
-                    </code>
-                </div>
-        
-                <p>Just like the a regular function, arguments/parameters are listed inside parentheses <code>()</code>.</p>
-        
-<pre class="js-codebox">
-multiply = function (a, b) {
-    return a*b;
-}                           // same code
-
-multiply = (a, b) => {
-    return a*b;
-}                           // same code
-
-multiply = (a, b) => a*b;   // same code
-</pre>
-        
-                <div class="formula">
-                    <code>
-                        <span class="parameter">functionName</span> = <span class="parameter">param1</span> => <span class="parameter">returnValue</span>;
-                    </code>
-                </div>
-        
-                <p>An exception, when there's only 1 parameter, the parentheses <code>()</code> are not needed. Remember when there's no parameter, the parentheses are needed.</p>
-        
-<pre class="js-codebox">
-greetings = function (userName) {
-    return "Hello, " + userName + "!";
-}
-
-greetings = userName => "Hello, " + userName + "!";
-</pre>                
-        
-            <a href="#top"><hr></a>
-            </article>
-
             <article id="return">
                 <h2>Return</h2>
                 <dl>
@@ -415,8 +329,8 @@ greetings = userName => "Hello, " + userName + "!";
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="alert-prompt-confirm">
-                <h2>Modal interaction methods: Alert, Prompt, and Confirm</h2>
+            <article id="modal">
+                <h2>Modal Interaction Methods: Alert, Prompt, and Confirm</h2>
                 <dl>
                     <dt>Modal</dt>
                     <dd>
@@ -525,7 +439,7 @@ greetings = userName => "Hello, " + userName + "!";
             </article>
 
             <article id="function-expression">
-                <h2>Function Declaration vs Function Expression</h2>
+                <h2>Function Expression</h2>
                 <dl>
 
                     <dt>Function declaration</dt>
@@ -609,8 +523,8 @@ sayHi(); // Hello
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="function-inside-codeblock">
-                <h3>Function inside code block</h3>
+            <article id="function-in-codeblock">
+                <h3>Function Expression: Inside Code Block</h3>
 
                 <dl>
                             
@@ -675,8 +589,8 @@ message(); // It works
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="callback-function">
-                <h3>Callback Functions</h3>
+            <article id="callback">
+                <h3>Function Expression: Callback Functions</h3>
                 <dl>
 
                     <dt>Action based on true / false input</dt>
@@ -745,6 +659,229 @@ function <span class="variable">functionB</span>() {<span class="variable">alert
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="arrow_function">
+                <h2>Arrow Function</h2>
+                
+                <dl>
+                    <dt>Function declaration</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                function <span class="variable">sayHi</span>() {<span class="variable">alert("Hello");</span>}
+                            </code>
+                        </div>
+                    </dd>
+
+                    <dt>Function expression</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                let <span class="variable">sayHi</span> = function() {<span class="variable">alert("Hello");</span>};
+                            </code>
+                        </div>
+                    </dd>
+
+                    <dt>Arrow function</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                let <span class="variable">sayHi</span> = () => {<span class="variable">alert("Hello")</span>};
+                            </code>
+                        </div>
+                    </dd>
+
+                    <dt>Codeblock only 1 line: curly brackets not necessary</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                let <span class="variable">sayHi</span> = () => <span class="variable">alert("Hello")</span>;
+                            </code>
+                        </div>
+                    </dd>
+
+                    <dt>Codeblock with return</dt>
+                    <dd>
+                        <ul>
+                            <li>Function expression<br>
+                                <div class="formula">
+                                    <code>
+                                        <span class="parameter">func</span> = function () {<br>
+                                            <span class="parameter tab">codeblock</span>;<br>
+                                            <span class="tab"></span>return <span class="parameter">value</span>;<br>
+                                        }
+                                    </code>
+                                </div>
+                            </li>
+                            <li>Arrow function<br>
+                                <div class="formula">
+                                    <code>
+                                        <span class="parameter">func</span> = () => {<br>
+                                            <span class="parameter tab">codeblock</span>;<br>
+                                            <span class="tab"></span>return <span class="parameter">value</span>;<br>
+                                        }
+                                    </code>
+                                </div>
+                            </li>
+                            <li>In multiline codeblock with return, the word "return" is necessary.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Codeblock with only return: curly brackets and "return" not necessary</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                <span class="parameter">func</span> = () => <span class="parameter">value</span>;
+                            </code>
+                        </div>
+                    </dd>
+
+                    <dt>Function with parameters</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                <span class="parameter">func</span> = (<span class="parameter">param1</span>, <span class="parameter">param2</span>) => <span class="parameter">value</span>;
+                            </code>
+                        </div>
+                    </dd>
+                    <dd>
+<pre class="js-codebox">
+    multiply = function (a, b) {
+        return a*b;
+    }                           // same code
+    
+    multiply = (a, b) => {
+        return a*b;
+    }                           // same code
+    
+    multiply = (a, b) => a*b;   // same code
+    </pre>
+                    </dd>
+
+                    <dt>Function with only 1 parameter: parentheses not necessary</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                <span class="parameter">func</span> = <span class="parameter">param1</span> => <span class="parameter">value</span>;
+                            </code>
+                        </div>
+                    </dd>
+                    <dd>
+<pre class="js-codebox">
+greetings = function (userName) {
+    return "Hello, " + userName + "!";
+}
+
+greetings = userName => "Hello, " + userName + "!";
+</pre>
+                    </dd>
+
+                    <dd>Remember: For function with no parameters, parentheses are necessary.</dd>
+                    <dt>Task on Javascript.info</dt>
+                    <dd>Replace function expression below with arrow function
+<pre class="js-codebox">
+function ask(question, yes, no) {
+    if (confirm(question)) yes();
+    else no();
+}
+    
+ask(
+    "Do you agree?",
+    function() { alert("You agreed."); },
+    function() { alert("You canceled the execution."); }
+);</pre>
+                    </dd>
+                    <dd>Arrow function:
+<pre class="js-codebox">let ask = (question, yes, no) => confirm(question)? yes() : no();</pre>
+                    </dd>   
+                </dl>
+                
+            <a href="#top"><hr></a>
+            </article>
+
+            <article id="call-stack">
+                <h2>Call Stack</h2>
+                <dl>
+                    <dt>JavaScript Call Stack</dt>
+                    <dd>
+                        <ul>
+                            <li>Javascript's mechanism to keep track of the function calls.</li>
+                            <li>JS engine uses a call stack to manage "execution context"</li>
+                        </ul>
+                    </dd>
+
+
+                    <dt>Execution context</dt>
+                    <dd>
+                        <ul>
+                            <li>Global execution context</li>
+                            <li>Function execution context</li>
+                        </ul>
+                    </dd>
+
+                    <dt>LIFO: Last In First Out</dt>
+                    <dd>
+                        <ul>
+                            <li>Script executed -> JS engine creates a global execution context and pushes it on the top of call stack.</li>
+                            <li>When a function is called -> JS engine creates a function execution context for that function and pushes it on top of the call stack, and starts executing the function.</li>
+                            <li>If that function calls another function, JS engine will creates a new function execution content for the new function and pushes it on the top of the call stack, and starts executing that new function.</li>
+                            <li>And this go as deep as needed.</li>
+                            <li>When the function execution is completed, JS engine pops it off the call stack.</li>
+                            <li>It resumes the execution in the parent function where it left off, end when it's done, the engine pops it off the call stack.</li>
+                            <li>At the end, script is finished, the global execution context is popped off too, call stack is empty, script stops executing.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="js-codebox">
+function add(a, b) {
+    return a + b;
+}
+
+function average(a, b) {
+    return add(a, b) / 2;
+}
+
+let x = average(10,20);
+</pre>
+                    </dd>
+                    <dd>
+                        <a href="https://www.javascripttutorial.net/javascript-call-stack/" target="_blank"><img src="./img/JavaScript-Call-Stack.png" alt="JavaScript Call Stack by JavaScript Tutorial"></a> 
+                    </dd>
+
+                    <dt>Stack Overflow</dt>
+                    <dd>
+                        <ul>
+                            <li>Call stack has a fixed size. It depends on the implementation by the host environment. Either web browser or Node.js.</li>
+                            <li>If number of the execution contexts exceeds the size of the stack, a stack overflow error will occur.</li>
+                            <li>An example is a recursive function that has no exit condition is executed. It keeps opening a new functino execution context without closing Any.
+<pre class="js-codebox">
+function fn() {
+    fn();
+}
+
+fn();
+</pre>
+                            </li>
+
+                        </ul>
+                    </dd>
+
+                    <dt>Asynchronous JavaScript</dt>
+                    <dd>
+                        <ul>
+                            <li>JS is a "single threaded" programming language. Meaning JS engine has only 1 call stack. Therefore it can only do 1 thing at a time.</li>
+                            <li>When executing script, JS executes code from top to bottom, line by line. This is "synchronous".</li>
+                            <li>Asynchronous means, Javascript engine can execute other task while waiting for another task to complete, using "event loop". For example:
+                                <ul>
+                                    <li>Request a data from a remote server</li>
+                                    <li>Display a spinner</li>
+                                    <li>When data is available, display it on the webpage.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </article>
+
             <article id="references">
                 <h2>References</h2>
                 <ul>
@@ -756,16 +893,11 @@ function <span class="variable">functionB</span>() {<span class="variable">alert
                     </li>
                     <li><a href="https://javascript.info/alert-prompt-confirm" target="_blank">JavaScript.info: Interaction: alert, prompt, confirm</a>
                     </li>
+                    <li><a href="https://www.javascripttutorial.net/javascript-call-stack/" target="_blank">JavaScript Tutorial: Call Stack</a></li>
                 </ul>
 
             </article>
         </main>
-
-
-
-
-
-
         <footer>
             <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
         </footer>
