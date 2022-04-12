@@ -13,30 +13,12 @@
     <body>
 
         <!--Clickable Page Title-->
-        <a href="./index.html"><h1>JavaScript: Sandbox</h1></a>
+        <a href="./index.html"><h1>JavaScript: FizzBuzz</h1></a>
         
-        <h2>Title placeholder</h2>
+        <h2>FizzBuzz</h2>
 
         <div class ="js-resultbox">
-            function fizzbuzz (n) {
-                let text = "";
-                for (let i = 1; i <= n; i++) {
-                    if (i%3 === 0 || i%5 === 0) {
-                        if (i%3 === 0) {
-                            text += "Fizz";
-                        }
-                        if (i%5 === 0) {
-                            text += "Buzz";
-                        }
-                    } else {
-                        text += i;
-                    }
-                    text += " ";
-                }
-                console.log (text);
-            }
-            number = prompt("Enter a number");
-            fizzbuzz(number);
+            <p>Using modal box. Refresh the page to enter different number.</p>
         </div>
 
         <script>
@@ -53,18 +35,35 @@
                     } else {
                         text += i;
                     }
-                    text += "\n";
+                    text += " ";
                 }
                 alert (`FizzBuzz of ${n}:\n${text}`);
             }
-            number = prompt("Enter a number to be FizzBuzzed");
+            number = prompt("Number to FizzBuzz:");
             fizzbuzz(number);
         </script>
 
 
 <pre class="js-codebox">
-Code placeholder
-</pre>
+function fizzbuzz (n) {
+    let text = "";
+    for (let i = 1; i <= n; i++) {
+        if (i%3 === 0 || i%5 === 0) {
+            if (i%3 === 0) {
+                text += "Fizz";
+            }
+            if (i%5 === 0) {
+                text += "Buzz";
+            }
+        } else {
+            text += i;
+        }
+        text += " ";
+    }
+    alert (`FizzBuzz of ${n}:\n${text}`);
+}
+let number = prompt("Number to FizzBuzz:");
+fizzbuzz(number);</pre>
                 
         <!--Footer, don't change below-->
         <a href="#top"><hr></a>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Errors | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Errors</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+            <article id="error-message">
+                <h2>Error Message</h2>
+                <p>Current learning: <a href="https://www.theodinproject.com/lessons/foundations-understanding-errors" target="_blank">Odin JS Understanding Errors</a>. Tips for resolving errors: 3. <a href="https://developer.chrome.com/docs/devtools/javascript/" target="_blank">Chrome Debugger</a></p>
+                <dl>
+                    <dt>Error messages parts:</dt>
+                    <dd>
+                        <ul>
+                            <li>Error type
+                                <ul>
+                                    <li><code>ReferenceError: var is not defined.</code></li>
+                                </ul>
+                            </li>
+                            <li>Error location: file name, line number, and sometimes column number
+                                <ul>
+                                    <li><code>at script.js:4</code></li>
+                                    <li><code>at script.js:4:13</code></li>
+                                </ul>
+                            </li>
+                            <li>Stack trace: trace the evolution of an error back to its origin.
+                                <ul>
+                                    <li>Code:
+<pre class="js-codebox">
+const a = 5;
+const b = 10;
+
+function add() {
+    return c;
+}
+
+function print() {
+    add();
+}
+
+print();
+</pre>
+                                    </li>
+                                    <li>Error message:
+<pre class="js-codebox">
+Uncaught ReferenceError: c is not defined       <u>script.js:5</u>
+    at add (<u>script.js:5</u>)
+    at print (<u>script.js:9</u>)
+    at <u>script.js:12</u>
+</pre>
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="types">
+                <h2>Error Types</h2>
+
+                <dl>
+                    <dt>Syntax Error</dt>
+                    <dd>Thrown when code being run is not written correctly.</dd>
+                    <dd>Examples:
+                        <ul>
+                            <li><code>Uncaught SyntaxError: Invalid or unexpected token</code>
+<pre class="js-codebox">
+function sayHi() {
+    console.log "Hi"
+}
+</pre>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Reference Error</dt>
+                    <dd>Thrown when code refers to a variable that is not declared and/or initialized within the current scope.</dd>
+                    <dd>Examples:
+                        <ul>
+                            <li><code>ReferenceError: c is not defined.</code>
+<pre class="js-codebox">
+const a = 5;
+const b = 10;
+
+function add() {
+    return c;
+}
+
+add();
+</pre>
+                            </li>
+                            <li><code>ReferenceError: can't access lexical declaration 'X' before initialization.</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Type Error</dt>
+                    <dd>Thrown when: 
+                        <ul>
+                            <li>An operand or argument passed to a function is incompatible with the type expected by the operator or function.</li>
+                            <li>Attempting to modify a value that can't be changed.</li>
+                            <li>Attempting to use a value in an inappropriate way.</li>
+                        </ul>
+                    </dd>
+                    <dd>Examples
+                        <ul>
+                            <li><code>TypeError: string1.push is not a function</code>
+<pre class="js-codebox">
+const string1 = "Hello ";
+const string2 = "Kitty!";
+const message = string1.push(string2);
+</pre>
+While <code>.push()</code> is a function, it's an array method, not a string method. The type is wrong. This will work just fine if we use the string method <code>.concat()</code>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.theodinproject.com/lessons/foundations-understanding-errors" target="_blank">The Odin Project: Understanding Errors</a></li>
+                    <li><a href="https://developer.chrome.com/docs/devtools/javascript/" target="_blank">Chrome Developers: Debug JavaScript</a></li>
+                    <li><a href="" target="_blank"></a></li>
+
+                </ul>
+
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+
