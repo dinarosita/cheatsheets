@@ -146,6 +146,68 @@ let <span class="variable">name</span> = <span class="variable">names</span>.uns
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="change-element">
+                <h2>Changing elements</h2>
+
+                <dl>
+                    <dt><code>[index]</code></dt>
+                    <dd>Changing an element can be done simply by accessing it using its index number.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+<span class="variable">names</span>[<span class="variable">1</span>] = <span class="variable">"Dodo"</span>;           <span class="comment">// 'Dodo'</span>
+
+<span class="variable">names</span>;<span class="comment">      // (3) ['Adam', 'Dodo', 'Chris']</span>
+</pre>
+                    </dd>
+                </dl>
+ 
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="array-length">
+                <h2>Array length</h2>
+
+                <dl>
+                    <dt><code>length</code> property</dt>
+                    <dd>Not just great to know the array's length (numbers of elements, but provides an easy way to add an element at the end of the array.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+<span class="variable">names</span>.length;                      <span class="comment">// 3</span>
+<span class="variable">names</span>[<span class="variable">names</span>.length] = <span class="variable">"Dodo"</span>;      <span class="comment">// 'Dodo'</span>
+
+<span class="variable">names</span>;<span class="comment">      // (4) ['Adam', 'Ben', 'Chris', 'Dodo']</span>
+<span class="variable">names</span>.length;                      <span class="comment">// 4</span>
+</pre>
+                    </dd>
+                </dl>
+ 
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="delete">
+                <h2>Operator delete</h2>
+
+                <dl>
+                    <dt><code>delete</code></dt>
+                    <dd>Operator <code>delete</code> only removes the content of an element, as addressed by the index number, without removing the spot itself. Leaving an <code>undefined</code> hole.</dd>
+                    <dd>For removing the first or the last element, using <code>pop()</code> and <code>shift()</code> is better.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+delete <span class="variable">names</span>[<span class="variable">1</span>];      <span class="comment">// true</span> 
+
+<span class="variable">names</span>;<span class="comment">          // (3) ['Adam', empty, 'Chris']</span>
+<span class="variable">names</span>[<span class="variable">1</span>];<span class="comment">       // undefined</span>
+</pre>
+                    </dd>
+                </dl>
+ 
+                <a href="#top"><hr></a>
+            </article>
+
+
             <article id="references">
                 <h2>References</h2>
                 <ul>
