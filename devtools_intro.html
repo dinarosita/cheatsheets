@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="dev-notes">
 
         <!--Clickable Page Title-->
         <a href="./index.html"><h1>DevTools</h1></a>
@@ -22,6 +22,7 @@
             <input type="button" name="console" id="console" value="Console" class="off"></input>
             <input type="button" name="sources" id="sources" value="Sources" class="off"></input>
             <input type="button" name="others" id="others" value="Other Tabs" class="off"></input>
+            <input type="button" name="references" id="references" value="References" class="off"></input>
         </div>
 
         <script src="./toggle.js"></script>
@@ -372,7 +373,17 @@ Kitten
             </ul>
         </div>
 
+        <div class="displaybox references" style="display: none">
+            <h3>References</h3>
+
+            <ul>
+                <li><a href="https://developer.chrome.com/docs/devtools/" target="_blank">Chrome DevTools
+                </a></li>
+                <li><a href="https://www.w3schools.com/jsref/obj_console.asp" target="_blank">Window Console Object</a></li>
+            </ul>
+        </div>
+
         <!--<div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>-->
-        
+        <script src="./hoverElement.js"></script>
     </body>
 </html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Array Methods | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Array Methods</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+            <article id="convert-to-string">
+                <h2>Converting arrays to strings</h2>
+
+                <dl>
+                    <dt><code>toString()</code></dt>
+                    <dd>Converts an array to a (comma separated) string.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+<span class="variable">names</span>.toString();           <span class="comment">// 'Adam,Ben,Chris'</span>
+</pre>
+                    </dd>
+                    <dd>Notes:
+                        <ul>
+                            <li>Can not change the separator this way:<br>
+                                <code>names.toString(" - ");  // 'Adam,Ben,Chris'</code>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt><code>join()</code></dt>
+                    <dd>Converts an array to a (chosen-separator separated) string. The default is comma.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+<span class="variable">names</span>.join(<span class="variable">" - "</span>);      <span class="comment">// 'Adam - Ben - Chris'</span>
+<span class="variable">names</span>.join();           <span class="comment">// 'Adam,Ben,Chris'</span>
+</pre>
+                    </dd>
+                </dl>
+ 
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="pop-and-push">
+                <h2>"Popping out" and "pushing in" elements at arrays' end</h2>
+
+                <dl>
+                    <dt><code>pop()</code></dt>
+                    <dd>Pops out the last element from an array.</dd>
+                    <dd><code>pop()</code> method returns the popped element.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+let <span class="variable">name</span> = <span class="variable">names</span>.pop();     <span class="comment">      // undefined</span>   
+
+<span class="variable">names</span>;<span class="comment">      // (2) ['Adam', 'Ben']</span>
+<span class="variable">name</span>;<span class="comment">       // 'Chris'</span>
+</pre>
+                    </dd>
+                    
+                    <dt><code>push()</code></dt>
+                    <dd>Pushes in a new element to the end of the array.</dd>
+                    <dd><code>push()</code> method returns the new array length.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+let <span class="variable">name</span> = <span class="variable">names</span>.push(<span class="variable">"Dodo"</span>);     <span class="comment">      // 4</span>
+
+<span class="variable">names</span>;<span class="comment">      // (4) ['Adam', 'Ben', 'Chris', 'Dodo']</span>
+<span class="variable">name</span>;<span class="comment">       // 4</span>
+</pre>
+                    </dd>
+                </dl>
+ 
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="shift-and-unshift">
+                <h2>"Shift out" and "unshift (back in)" elements at array's beginning</h2>
+                <h3>And doing so, shifting the rest of the elements</h3>
+
+                <dl>
+                    <dt><code>pop-push</code> vs <code>shift-unshift</code></dt>
+                    <dd>
+                        <ul>
+                            <li>Removal vs addition:
+                                <ul>
+                                    <li><code>pop()</code>: pop out an element, <code>push()</code>: push in an element.</li>
+                                    <li><code>shift()</code>: shift out an element, <code>unshift()</code>: unshift (back) in an element.</li>
+                                </ul>
+                            </li>
+                            <li>Location:
+                                <ul>
+                                    <li><code>pop-push</code>: Array's end.</li>
+                                    <li><code>shift-unshift</code>: Array's beginning.</li>
+                                </ul>
+                            </li>
+                            <li>Significance to the rest of the elements:
+                                <ul>
+                                    <li><code>pop-push</code>: Nothing, no position / index shifting</li>
+                                    <li><code>shift-unshift</code>: Their positions and indexes are all shifted, because removal/addition happens at index [0]. Because of this overall shifting effect, they called <code>shift-unshift</code>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt><code>shift()</code></dt>
+                    <dd>Shifts out the first element from an array.</dd>
+                    <dd><code>shift()</code> method returns the shifted out element.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+let <span class="variable">name</span> = <span class="variable">names</span>.shift();     <span class="comment">      // undefined</span>   
+
+<span class="variable">names</span>;<span class="comment">      // (2) ['Ben', 'Chris']</span>
+<span class="variable">name</span>;<span class="comment">       // 'Adam'</span>
+</pre>
+                    </dd>
+                    
+                    <dt><code>unshift()</code></dt>
+                    <dd>Unshift (back) in a new element to the beginning of the array.</dd>
+                    <dd><code>unshift()</code> method returns the new array length.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+let <span class="variable">name</span> = <span class="variable">names</span>.unshift(<span class="variable">"Dodo"</span>);     <span class="comment">      // 4</span>
+
+<span class="variable">names</span>;<span class="comment">      // (4) ['Dodo', 'Adam', 'Ben', 'Chris']</span>
+<span class="variable">name</span>;<span class="comment">       // 4</span>
+</pre>
+                    </dd>
+                </dl>
+ 
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">W3 Schools: JavaScript Array Methods
+                    </a></li>
+                    <li><a href="" target="_blank"></a></li>
+                </ul>
+
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a>. Next reading: <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">Array 2. W3Schools: JS Array Methods</a>.</p>
+
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

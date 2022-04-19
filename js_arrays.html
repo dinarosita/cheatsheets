@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Arrays | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Arrays</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+            <article id="declaring-array">
+                <h2>Declaring Array</h2>
+
+                <dl>
+                    <dt>Array can be declared using <code>[]</code> or array constructor <code>new Array()</code></dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                const <span class="variable">arrayName</span> = [<span class="variable">item1</span>, <span class="variable">item1</span>, <span class="variable">item1</span>];
+                            </code>
+                        </div>
+                    </dd>
+                    <dd>Using constructor <code>new Array()</code> is resulting exactly same thing (well, not really*). Therefore unnecessary. It's just reduce simplicity, readability, and execution speed.</dd>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                const <span class="variable">arrayName</span> = new Array(<span class="variable">item1</span>, <span class="variable">item1</span>, <span class="variable">item1</span>);
+                            </code>
+                        </div>
+                    </dd>
+                    
+                    <dd>* When the array only have 1 element and it happened to be a number, it can't be created using <code>new Array()</code> constructor, because that's the same with syntax to make an array with x number of elements.</dd>
+                    <dd>
+<pre class="js-codebox">
+const animals = new Array("Horse");
+animals;        // (1) ["Horse"]
+
+const numbers = new Array(3);
+numbers;        // (3) [empty x 3]
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="constant-array">
+                <h2>Constant Array</h2>
+
+                <dl>
+                    <dt>Array is usually declared as a constant.</dt>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+names = ["Don", "Edward", "Frank"];     // Error
+</pre>
+                    </dd>
+
+                    <dt>Elements can be reasigned.</dt>
+                    <dd>What's constant here is the reference to an array. It doesn't mean we can't change the elements of the array. 
+<pre class="js-codebox">
+names[1] = "Beth";      // Change an element
+names.push("Don")       // Add an element
+</pre>
+                    </dd>
+
+                    <dt>Spaces and line breaks are not important</dt>
+                    <dd>
+<pre class="js-codebox">
+const names = [
+    "Adam",
+    "Ben",
+    "Chris"
+];
+</pre>
+                    </dd>
+
+                    <dt>Const: Assigned when declared.</dt>
+                    <dd>Declaring with <code>const</code>, variable have to be initialized when declared. Using <code>const</code> without initializing results in a syntax error.
+<pre class="js-codebox">
+const names;
+names = ["Adam", "Ben", "Chris"];       // Doesn't work
+</pre>
+                    </dd>
+
+                    <dt>What need to be declared is the fact it is an array.</dt>
+                    <dd>It can be empty and filled later on.
+<pre class="js-codebox">
+const names = [];
+names[0] = "Adam";
+names[1] = "Ben";
+names[2] = "Chris";
+</pre>
+                    </dd>
+
+                    <dt>With var</dt>
+                    <dd>Meawhile while declaring with <code>var</code>, we can even assign the value prior to being declared.
+<pre class="js-codebox">
+names = ["Adam", "Ben", "Chris"];
+var names;                              // Works
+</pre>
+                    </dd>
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="block-scope">
+                <h2>Constant Arrays have Block Scopes</h2>
+
+                <dl>
+
+                    <dt>Const block scope</dt>
+                    <dd>Array declared with <code>const</code> has a block scope. 2 arrays with the same name, outside and inside a block, are not the same.
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+alert (names[0]);       // "Adam"
+
+{
+    const names = ["Don", "Edward", "Frank"];
+    alert (names[0]);   // "Don"
+}
+
+alert (names[0]);       // "Adam"
+</pre>                    
+                    </dd>
+                    <dd>Array declared with <code>var</code> doesn't have a block scope.
+<pre class="js-codebox">
+var names = ["Adam", "Ben", "Chris"];
+alert (names[0]);       // "Adam"
+
+{
+    var names = ["Don", "Edward", "Frank"];
+    alert (names[0]);   // "Don"
+}
+
+alert (names[0]);       // "Don"
+</pre>  
+                    </dd>
+
+                    <dt>Redeclaring an array with <code>const</code> vs <code>var</code></dt>
+                    <dd>Redeclaring an array with <code>const</code> is only allowed in different scope/block.
+
+<pre class="js-codebox">
+{
+    const names = ["Adam", "Ben", "Chris"]; 
+    const names = ["Adam", "Ben", "Chris"];     // Not allowed
+}
+const names = ["Adam", "Ben", "Chris"];         // Allowed
+const names = ["Adam", "Ben", "Chris"];         // Not allowed
+
+{
+    const names = ["Adam", "Ben", "Chris"];     // Allowed
+}
+</pre>
+                    </dd>
+
+                    <dd>Redeclaring and reassigning an array with <code>var</code> is allowed anywhere.
+<pre class="js-codebox">
+var names = ["Adam", "Ben", "Chris"];
+var names = ["Adam", "Ben", "Chris"];       // Allowed
+names = ["Adam", "Ben", "Chris"];           // Allowed
+</pre>
+                    </dd>
+                    <dd>Redeclaring an array previously declared with <code>var</code> and now with <code>const</code> not allowed.
+<pre class="js-codebox">
+var names = ["Adam", "Ben", "Chris"];
+const names = ["Adam", "Ben", "Chris"];         // Not allowed
+
+{
+    var names = ["Adam", "Ben", "Chris"];       // Allowed
+    const names = ["Adam", "Ben", "Chris"];     // Not allowed
+}
+</pre>
+                    </dd>
+                    <dd>Redeclaring an array previously declared with <code>const</code> and now with <code>var</code> not allowed.
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+const names = ["Adam", "Ben", "Chris"];     // Not allowed
+var names = ["Adam", "Ben", "Chris"];       // Not allowed
+names = ["Adam", "Ben", "Chris"];           // Not allowed
+
+{
+    const names = ["Adam", "Ben", "Chris"];     // Allowed
+    const names = ["Adam", "Ben", "Chris"];     // Not allowed
+    var names = ["Adam", "Ben", "Chris"];       // Not allowed
+    names = ["Adam", "Ben", "Chris"];           // Not allowed
+}
+</pre>
+                    </dd>
+
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="array-vs-object">
+                <h2>Arrays vs Objects</h2>
+
+                <dl>
+                    <dt>Array is a special type of object</dt>
+                    <dd><code>typeof</code> of an array will return <code>"object"</code>. But still, arrays are best described as arrays.
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+typeof names;       // "object"
+</pre>
+                    </dd>
+
+                    <dt>Arrays vs typical objects</dt>
+                    <dd>Arrays are special kind of object with numbered indexes.</dd>
+                    <dd>
+                        <ul>
+                            <li>Arrays use "numbered indexes" to access its "elements".</li>
+                            <li>Objects use "named indexes" to access its "members"</li>
+                        </ul>
+<pre class="js-codebox">
+const personArr = ["John", "Doe", 46];
+personArr[0];           // "John"
+
+const personObj = {firstName: "John", lastName: "Doe", age: 46};
+personObj.firstName;    // "John"
+</pre>
+                    </dd>
+
+                    <dt>Array elements can be objects</dt>
+                    <dd>They can be objects, they can be arrays, they can even be functions.
+<pre class="js-codebox">
+const myArray = [];
+myArray[0] = Date.now;      // 
+myArray[1] = myFunction;
+myArray[2] = myCars;
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="identifying-array">
+                <h2>Identifying Array</h2>
+
+                <dl>
+                    <dt><code>typeof</code></dt>
+                    <dd>It's not very informative since the result is just "object"</dd>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                typeof <span class="variable">arrayName</span>;
+                            </code>
+                        </div>
+                        <code class="variable">// "object"</code>
+                    </dd>
+
+                    <dt><code>Array.isArray()</code> method</dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                Array.isArray(<span class="variable">arrayName</span>);
+                            </code>
+                        </div>
+                        <code class="variable">// true</code>
+                    </dd>
+
+                    <dt><code>instanceof Array</code></dt>
+                    <dd>
+                        <div class="formula">
+                            <code>
+                                <span class="variable">arrayName</span> instanceof Array;
+                            </code>
+                        </div>
+                        <code class="variable">// true</code>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="properties-methods">
+                <h2>Array Properties and Methods</h2>
+
+                <dl>
+                    <dt>Built-in array properties and methods</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">myArray</span>.length      <span class="variable">// Length property: returns the number of elements</span>
+<span class="variable">myArray</span>.sort()      <span class="variable">// Sort method: sorts the array</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="accessing-elements">
+                <h2>Accessing Array Elements</h2>
+
+                <dl>
+                    <dt>Accessing first and last elements</dt>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+names[0];               // First element, "Adam"
+names[names.length-1]   // Last element, "Chris"
+</pre>
+                    </dd>
+
+                    <dt>Looping elements with <code>for</code> loop</dt>
+                    <dd>Using <code>for</code> loop to create html listing <code>ul</code> listing of the array.</dd>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let list = "&lt;ul&gt;";
+for (let i = 0; i &lt; names.length; i++) {
+    list += "&lt;li&gt;" + names[i] + "&lt;/li&gt;";
+}
+list += "&lt;/ul&gt;";
+
+list;
+// '&lt;ul&gt;&lt;li&gt;Adam&lt;/li&gt;&lt;li&gt;Ben&lt;/li&gt;&lt;li&gt;Chris&lt;/li&gt;&lt;/ul&gt;' 
+</pre>
+<pre class="js-resultbox"><ul><li>Adam</li><li>Ben</li><li>Chris</li></ul></pre>
+                    </dd>
+
+                    <dt>Looping elements with <code><span class="variable">myArray</span>.forEach()</code> function</dt>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let list = "&lt;ul&gt;";
+names.forEach(myFunction);
+list += "&lt;/ul&gt;";
+
+function myFunction(value) {
+    list += "&lt;li&gt;" + value + "&lt;/li&gt;";
+}
+
+list;
+// '&lt;ul&gt;&lt;li&gt;Adam&lt;/li&gt;&lt;li&gt;Ben&lt;/li&gt;&lt;li&gt;Chris&lt;/li&gt;&lt;/ul&gt;' 
+</pre>
+<pre class="js-resultbox"><ul><li>Adam</li><li>Ben</li><li>Chris</li></ul></pre>
+                    </dd>
+
+                    <dt>Adding elements with <code>push()</code> method</dt>
+                    <dd>It's adding at the end of the array.</dd>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+names.push("Don");
+
+names;      // (4) ['Adam', 'Ben', 'Chris', 'Don']
+</pre>
+                    </dd>
+
+                    <dt>Adding elements using <code>length</code> property</dt>
+                    <dd>It's adding at the end of the array.</dd>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+names[names.length] = "Don";
+
+names;      // (4) ['Adam', 'Ben', 'Chris', 'Don']
+</pre>
+                    </dd>
+
+                    <dt>Associative arrays / hashes: Arrays with named indexes</dt>
+                    <dd>Many programming languages support arrays with "named indexes". JavaScript doesn't. In JavaScript, arrays always use "numbered indexes".</dd>
+                    <dd>
+<pre class="js-codebox">
+const person = [];
+person[0] = "John";
+person[1] = "Doe";
+person[2] = 46;
+person;             // (3) ['John', 'Doe', 46]
+person.length;      // 3
+person[0];          // "John"
+</pre>
+                    </dd>
+                    <dd>If we assign named indexes to an array, JavaScript will redefine the array to an object. After that, some array methods and properties will not produced same result as before.</dd>
+                    <dd>
+<pre class="js-codebox">
+const person = [];
+person["firstName"] = "John";
+person["lastName"] = "Doe";
+person["age"] = 46;
+person;             // [firstName: 'John', lastName: 'Doe', age: 46]
+person.length;      // 0
+person[0];          // undefined
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.w3schools.com/js/js_arrays.asp" target="_blank">W3 Schools: JavaScript Arrays</a></li>
+                    <li><a href="https://www.w3schools.com/js/js_array_const.asp" target="_blank">W3 Schools: JavaScript Array Const</a></li>
+                    <li><a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">W3 Schools: JavaScript Array Reference</a></li>
+                    <li><a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">W3 Schools: JavaScript Array Methods
+                    </a></li>
+                    <li><a href="" target="_blank"></a></li>
+                </ul>
+
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a>. Next reading: <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">Array 2. W3Schools: JS Array Methods</a>.</p>
+
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

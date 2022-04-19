@@ -285,6 +285,15 @@ table code {
 
 /* JS notes */
 
+.js-notes .comment {
+    color: var(--code);
+    font-weight: normal;
+}
+
+/* .js-notes dd .js-codebox {
+    margin-top: 0;
+} */
+
 .js-notes ul {
     margin-top: 0;
 }
@@ -1069,6 +1078,13 @@ tbody th {
     font-style: none;
     font-size: 1.1rem;
     text-decoration: underline;
+}
+
+/* || Dev-notes */
+
+.dev-notes .element {
+    font-weight: inherit;
+    color: inherit;
 }
 
 /* || HTML-Notes: General: inline text */
