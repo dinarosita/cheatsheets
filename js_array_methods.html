@@ -19,35 +19,70 @@
         </header>
 
         <main class="js-notes">
+            
             <article id="convert-to-string">
                 <h2>Converting arrays to strings</h2>
 
-                <dl>
+                <dl>                    
                     <dt><code>toString()</code></dt>
                     <dd>Converts an array to a (comma separated) string.</dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
-<span class="variable">names</span>.toString();           <span class="comment">// 'Adam,Ben,Chris'</span>
+let <span class="variable">newString</span> = <span class="variable">names</span>.toString();      <span class="comment">// 'Adam,Ben,Chris'</span>
+
+<span class="variable">newString</span>;    <span class="comment">// 'Adam,Ben,Chris'</span>
+<span class="variable">names</span>;        <span class="comment">// (3) ['Adam', 'Ben', 'Chris']</span>
 </pre>
                     </dd>
                     <dd>Notes:
                         <ul>
-                            <li>Can not change the separator this way:<br>
-                                <code>names.toString(" - ");  // 'Adam,Ben,Chris'</code>
+                            <li>Separator is comma
+                                <ul>
+                                    <li>Can not change the separator the way <code>join()</code> can.<br>
+<pre class="formula">
+<span class="thin"><span class="variable">names</span>.toString(<span class="variable">" - "</span>);
+<span class="comment">// 'Adam,Ben,Chris'
+// (Changing separator doesn't work, still comma separated)</span>
+</span></pre>
+                                    </li>
+                                    <li>Changing the separator by changing rules around <code>toString()</code> is highly not recommended. Use <code>join()</code> instead.</li>
+                                </ul>
+                            </li>
+                            <li>Universal automatic <code>toString()</code> for objects.
+                                <ul>
+                                    <li>JavaScript automatically converts an array to comma separated string when a primitive value is expected.</li>
+                                    <li>All JavaScript objects have <code>toString()</code> method.</li>
+                                    <li>This method is used internally by JavaScript when an object needs to be displayed as a text, like in  HTML, or when an object needs to be used as a string.<br>
+<pre class="formula">
+<span class="thin">const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+
+document.getElementById(<span class="variable">"exampleId"</span>).innerHTML = <span class="variable">names</span>.toString();
+<span class="comment">// is identical to:</span>
+document.getElementById(<span class="variable">"exampleId"</span>).innerHTML = <span class="variable">names</span>;
+</span></pre>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </dd>
 
-                    <dt><code>join()</code></dt>
+                    <dt></dt>
+                    <dd></dd>
+
+                    <dt><code>join(<span class="variable">separator</span>)</code></dt>
                     <dd>Converts an array to a (chosen-separator separated) string. The default is comma.</dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
-<span class="variable">names</span>.join(<span class="variable">" - "</span>);      <span class="comment">// 'Adam - Ben - Chris'</span>
-<span class="variable">names</span>.join();           <span class="comment">// 'Adam,Ben,Chris'</span>
+let <span class="variable">newString</span> = <span class="variable">names</span>.join(<span class="variable">" - "</span>);      <span class="comment">// 'Adam - Ben - Chris'</span>
+
+<span class="variable">newString</span>;    <span class="comment">// 'Adam - Ben - Chris'</span>
+<span class="variable">names</span>;        <span class="comment">// (3) ['Adam', 'Ben', 'Chris']</span>
 </pre>
                     </dd>
+
+
                 </dl>
  
                 <a href="#top"><hr></a>
@@ -63,23 +98,33 @@ const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
-let <span class="variable">name</span> = <span class="variable">names</span>.pop();     <span class="comment">      // undefined</span>   
+let <span class="variable">popped</span> = <span class="variable">names</span>.pop();       <span class="comment">// undefined</span>   
 
 <span class="variable">names</span>;<span class="comment">      // (2) ['Adam', 'Ben']</span>
-<span class="variable">name</span>;<span class="comment">       // 'Chris'</span>
+<span class="variable">popped</span>;<span class="comment">     // 'Chris'</span>
 </pre>
                     </dd>
                     
-                    <dt><code>push()</code></dt>
-                    <dd>Pushes in a new element to the end of the array.</dd>
+                    <dt><code>push(<span class="variable">elements</span>)</code></dt>
+                    <dd>Pushes in new elements to the end of the array.</dd>
                     <dd><code>push()</code> method returns the new array length.</dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
-let <span class="variable">name</span> = <span class="variable">names</span>.push(<span class="variable">"Dodo"</span>);     <span class="comment">      // 4</span>
+let <span class="variable">pushed</span> = <span class="variable">names</span>.push(<span class="variable">"Dodo"</span>);      <span class="comment">// undefined</span>
 
 <span class="variable">names</span>;<span class="comment">      // (4) ['Adam', 'Ben', 'Chris', 'Dodo']</span>
-<span class="variable">name</span>;<span class="comment">       // 4</span>
+<span class="variable">pushed</span>;<span class="comment">     // 4</span>
+</pre>
+                    </dd>
+                    <dd>Pushing in several elements is possible</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+let <span class="variable">pushed</span> = <span class="variable">names</span>.push(<span class="variable">"Dodo", "Didi"</span>);  <span class="comment">// undefined</span>
+
+<span class="variable">names</span>;<span class="comment">      // (5) ['Adam', 'Ben', 'Chris', 'Dodo', 'Didi']</span>
+<span class="variable">pushed</span>;<span class="comment">     // 5</span>
 </pre>
                     </dd>
                 </dl>
@@ -122,23 +167,24 @@ let <span class="variable">name</span> = <span class="variable">names</span>.pus
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
-let <span class="variable">name</span> = <span class="variable">names</span>.shift();     <span class="comment">      // undefined</span>   
+let <span class="variable">shifted</span> = <span class="variable">names</span>.shift();     <span class="comment">// undefined</span>   
 
 <span class="variable">names</span>;<span class="comment">      // (2) ['Ben', 'Chris']</span>
-<span class="variable">name</span>;<span class="comment">       // 'Adam'</span>
+<span class="variable">shifted</span>;<span class="comment">    // 'Adam'</span>
 </pre>
                     </dd>
                     
-                    <dt><code>unshift()</code></dt>
+                    <dt><code>unshift(<span class="variable">elements</span>)</code></dt>
                     <dd>Unshift (back) in a new element to the beginning of the array.</dd>
                     <dd><code>unshift()</code> method returns the new array length.</dd>
+                    <dd>Unshifting multiple elements is possible.</dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
-let <span class="variable">name</span> = <span class="variable">names</span>.unshift(<span class="variable">"Dodo"</span>);     <span class="comment">      // 4</span>
+let <span class="variable">unshifted</span> = <span class="variable">names</span>.unshift(<span class="variable">"Dodo", "Didi"</span>);     <span class="comment">// undefined</span>
 
-<span class="variable">names</span>;<span class="comment">      // (4) ['Dodo', 'Adam', 'Ben', 'Chris']</span>
-<span class="variable">name</span>;<span class="comment">       // 4</span>
+<span class="variable">names</span>;<span class="comment">      // (5) ['Dodo', 'Didi', 'Adam', 'Ben', 'Chris']</span>
+<span class="variable">unshifted</span>;<span class="comment">  // 5</span>
 </pre>
                     </dd>
                 </dl>
@@ -155,7 +201,7 @@ let <span class="variable">name</span> = <span class="variable">names</span>.uns
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
-<span class="variable">names</span>[<span class="variable">1</span>] = <span class="variable">"Dodo"</span>;           <span class="comment">// 'Dodo'</span>
+<span class="variable">names</span>[<span class="variable">1</span>] = <span class="variable">"Dodo"</span>;    <span class="comment">// 'Dodo'</span>
 
 <span class="variable">names</span>;<span class="comment">      // (3) ['Adam', 'Dodo', 'Chris']</span>
 </pre>
@@ -177,8 +223,8 @@ const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben
 <span class="variable">names</span>.length;                      <span class="comment">// 3</span>
 <span class="variable">names</span>[<span class="variable">names</span>.length] = <span class="variable">"Dodo"</span>;      <span class="comment">// 'Dodo'</span>
 
-<span class="variable">names</span>;<span class="comment">      // (4) ['Adam', 'Ben', 'Chris', 'Dodo']</span>
-<span class="variable">names</span>.length;                      <span class="comment">// 4</span>
+<span class="variable">names</span>;<span class="comment">          // (4) ['Adam', 'Ben', 'Chris', 'Dodo']</span>
+<span class="variable">names</span>.length; <span class="comment">  // 4</span>
 </pre>
                     </dd>
                 </dl>
@@ -192,7 +238,13 @@ const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben
                 <dl>
                     <dt><code>delete</code></dt>
                     <dd>Operator <code>delete</code> only removes the content of an element, as addressed by the index number, without removing the spot itself. Leaving an <code>undefined</code> hole.</dd>
-                    <dd>For removing the first or the last element, using <code>pop()</code> and <code>shift()</code> is better.</dd>
+                    <dd>For removing elements without leaving holes, use other methods:
+                        <ul>
+                            <li><code>pop()</code> for removing the last element</li>
+                            <li><code>shift()</code> for removing the first element</li>
+                            <li><code>splice(index, number)</code> for removing a certain number of elements at a certain position.</li>
+                        </ul>
+                    </dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
@@ -207,16 +259,145 @@ delete <span class="variable">names</span>[<span class="variable">1</span>];    
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="concatenate">
+                <h2>Concatenate arrays</h2>
+
+                <dl>
+                    <dt><code>concat()</code></dt>
+                    <dd>Creates a new array by concatenating existing arrays.</dd>
+                    <dd>Notes: It creates a new array. It didn't change the original arrays.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">namesAB</span> = [<span class="variable">"Adam", "Ben"</span>];
+const <span class="variable">namesCD</span> = [<span class="variable">"Chris", "David"</span>];
+const <span class="variable">namesABCD</span> = <span class="variable">namesAB</span>.concat(<span class="variable">namesCD</span>);
+
+<span class="variable">namesABCD</span>;<span class="comment">      // (4) ['Adam', 'Ben', 'Chris', 'David']</span>
+<span class="variable">namesAB</span>;<span class="comment">        // (2) ['Adam', 'Ben']</span> 
+<span class="variable">namesCD</span>;<span class="comment">        // (2) ['Chris', 'David']</span>
+</pre>
+                    </dd>
+                    <dd>The method can take any number of array arguments.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">namesAB</span> = [<span class="variable">"Adam", "Ben"</span>];
+const <span class="variable">namesCD</span> = [<span class="variable">"Chris", "David"</span>];
+const <span class="variable">namesEF</span> = [<span class="variable">"Ed", "Frank"</span>];
+const <span class="variable">namesGH</span> = [<span class="variable">"Gerry", "Harry"</span>];
+const <span class="variable">namesAtoH</span> = <span class="variable">namesAB</span>.concat(<span class="variable">namesCD, namesEF, namesGH</span>);
+
+<span class="variable">namesAtoH</span>;<span class="comment">      // (8) ['Adam', 'Ben', 'Chris', 'David', 'Ed', 'Frank', 'Gerry', 'Harry']</span>
+</pre>
+                    </dd>
+                    <dd>The method also can take a string as an arguments.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">namesAC</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+const <span class="variable">namesABCD</span> = <span class="variable">namesAC</span>.concat(<span class="variable">"Dodo"</span>);
+
+<span class="variable">namesABCD</span>;<span class="comment">      // (4) ['Adam', 'Ben', 'Chris', 'Dodo']</span>
+</pre>
+                    </dd>
+                    <dd>Or multiple strings...</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">namesAC</span> = [<span class="variable">"Adam", "Ben", "Chris"</span>];
+const <span class="variable">namesABCD</span> = <span class="variable">namesAC</span>.concat(<span class="variable">"Dodo", "Didi"</span>);
+
+<span class="variable">namesABCD</span>;<span class="comment">      // (5) ['Adam', 'Ben', 'Chris', 'Dodo', 'Didi']</span>
+</pre>
+                    </dd>
+                    <dd>Or combinations</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">namesAB</span> = [<span class="variable">"Adam", "Ben"</span>];
+const <span class="variable">namesCD</span> = [<span class="variable">"Chris", "David"</span>];
+const <span class="variable">namesEF</span> = [<span class="variable">"Ed", "Frank"</span>];
+const <span class="variable">namesGH</span> = [<span class="variable">"Gerry", "Harry"</span>];
+const <span class="variable">namesAtoH</span> = <span class="variable">namesAB</span>.concat(<span class="variable">namesCD, "Dodo", "Didi", namesEF, namesGH</span>);
+
+<span class="variable">namesAtoH</span>;<span class="comment">      // (10) ['Adam', 'Ben', 'Chris', 'David', 'Dodo', 'Didi', 'Ed', 'Frank', 'Gerry', 'Harry']</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="splice-slice">
+                <h2>Splicing and slicing arrays</h2>
+
+                <dl>
+                    <dt><code>splice()</code></dt>
+                    <dd>Replaces (adds in and takes out) elements of array in certain position.</dd>
+                    <dd>Parameters:
+                        <ul>
+                            <li>1<sup>st</sup>: Position (index) of splice</li>
+                            <li>2<sup>nd</sup>: Number of elements taken out.</li>
+                            <li>The rest: The new elements to be added.</li>
+                        </ul>
+                    </dd>
+                    <dd>Returns: an array with taken out items.</dd>
+                    <dd>Original array is changed.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris", "Daniel", "Ed"</span>];
+let <span class="variable">newNames</span> = <span class="variable">names</span>.splice(<span class="variable">1, 3, "Dodo", "Puffin"</span>);      <span class="comment">// undefined</span>
+
+<span class="variable">newNames</span>;     <span class="comment">// (3) ['Ben', 'Chris', 'Daniel']</span>
+<span class="variable">names</span>;        <span class="comment">// (4) ['Adam', 'Dodo', 'Puffin', 'Ed']</span>
+</pre>
+                    </dd>
+
+                    <dt><code>slice()</code></dt>
+                    <dd>Slices out a piece of an array into a new array.</dd>
+                    <dd>Parameters:
+                        <ul>
+                            <li>1<sup>st</sup>: Marking the beginning of the slice. This is index of the the first element in the slice. "Start with this element."</li>
+                            <li>2<sup>nd</sup> (optional): Marking the end of the slice. This is index of the first element that is no longer part of the slice. "End before this element."</li>
+                        </ul>
+                    </dd>
+                    <dd>Original array is not changed</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">names</span> = [<span class="variable">"Adam", "Ben", "Chris", "Daniel", "Ed"</span>];
+let <span class="variable">slicedA</span> = <span class="variable">names</span>.slice(<span class="variable">2</span>);     <span class="comment">// undefined</span>
+let <span class="variable">slicedB</span> = <span class="variable">names</span>.slice(<span class="variable">2, 4</span>);  <span class="comment">// undefined</span>
+
+<span class="variable">slicedA</span>;      <span class="comment">// (3) ['Chris', 'Daniel', 'Ed']</span>
+<span class="variable">slicedB</span>;      <span class="comment">// (2) ['Chris', 'Daniel']</span>
+<span class="variable">names</span>;        <span class="comment">// (5) ['Adam', 'Ben', 'Chris', 'Daniel', 'Ed']</span>
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="others">
+                <h2>Other methods and properties</h2>
+
+                <dl>
+
+                    <dt>Sorting</dt>
+                    <dd><a href="https://www.w3schools.com/js/js_array_sort.asp" target="_blank">W3 Schools: JavaScript Sorting Arrays</a></dd>
+                    <dt>Finding max and min value</dt>
+                    <dd>No built-in functions</dd>
+                    <dd><a href="https://www.w3schools.com/js/js_array_sort.asp" target="_blank">W3 Schools: JavaScript Sorting Arrays</a></dd>
+                    <dt>Complete array reference</dt>
+                    <dd><a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">W3 Schools: JavaScript Array Reference</a></dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
 
             <article id="references">
                 <h2>References</h2>
                 <ul>
-                    <li><a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">W3 Schools: JavaScript Array Methods
-                    </a></li>
-                    <li><a href="" target="_blank"></a></li>
+                    <li><a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">W3 Schools: JavaScript Array Methods</a></li>
+                    <li><a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">W3 Schools: JavaScript Array Reference</a></li>
                 </ul>
-
-                <p>Odin status: in the page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a>. Next reading: <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">Array 2. W3Schools: JS Array Methods</a>.</p>
 
             </article>
         </main>

@@ -290,6 +290,9 @@ table code {
     font-weight: normal;
 }
 
+.js-notes .formula .thin {
+    font-weight: normal;
+}
 /* .js-notes dd .js-codebox {
     margin-top: 0;
 } */
