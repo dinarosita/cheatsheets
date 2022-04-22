@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Loop Collection | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Loops for Collection</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="for-of">
+                <h2>For...of loop</h2>
+
+                <dl>
+                    <dt><code>for(<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
+                    <dd>
+<pre class="formula">
+for (const <span class="variable">item</span> of <span class="variable">collection</span>) {}
+</pre>
+                    </dd>
+                    <dd>Used to loop through a collection, for example an array.</dd>
+                    <dd>
+<pre class="js-codebox">
+const <span class="variable">collection</span> = [<span class="variable">"dodo", "great auk", "woolly mammoth", "thylacine"</span>];
+
+for (const <span class="variable">item</span> of <span class="variable">collection</span>) {
+    <span class="variable">console.log(item);</span>
+}
+</pre>
+                    </dd>
+                    <dd>Console:</dd>
+                    <dd>
+<pre class="js-codebox">
+dodo
+great auk
+woolly mammoth
+thylacine
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="map">
+                <h2>Map loop</h2>
+                <dl>
+
+                    <dt><code>.map(<span class="variable">function</span>)</code></dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">new</span> = <span class="variable">arr</span>.map(<span class="variable">function</span>)
+</pre>
+                    </dd>
+                    <dd>To do something to each item in a collection and create a new collection containing the changed items. In other word, mapping.</dd>
+                    <dd>    
+<pre class="js-codebox">
+function makeUpper(text) {
+    return text.toUpperCase();
+}
+
+const animals = ["dodo", "great auk", "woolly mammoth", "thylacine"];
+const animalsUpper = animals.map(makeUpper);
+
+animalsUpper;       // (4) ['DODO', 'GREAT AUK', 'WOOLLY MAMMOTH', 'THYLACINE']
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="filter">
+                <h2>filter loop</h2>
+                <dl>
+
+                    <dt><code>.filter(<span class="variable">function</span>)</code></dt>
+                    
+                    <dd>
+<pre class="formula">
+const <span class="variable">new</span> = <span class="variable">arr</span>.filter(<span class="variable">function</span>)
+</pre>
+                    </dd>
+                    <dd>To create a new collection from items of an existing collection that fulfil some criteria.</dd>
+                    <dd>Function here needs to have boolean return. If the return is true, then the item is included in the new array. </dd>
+                    <dd>
+<pre class="js-codebox">
+function lCat(cat) {
+    return cat.startsWith("L");
+}
+
+const cats = ["Leopard", "Tiger", "Jaguar", "Lion"];
+const filtered = cats.filter(lCat);
+
+filtered;       // (2) ['Leopard', 'Lion']
+</pre>
+                    </dd>
+                        
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code" target="_blank">MDN: Looping code</a></li>
+                </ul>
+
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a>. Current reading: Loops <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">MDN: Looping code</a>.</p>
+
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Loops | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Loops</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="for">
+                <h2>Standard for-loop</h2>
+
+                <dl>
+                    <dt><code>for(){}</code></dt>
+                    <dd>
+<pre class="formula">
+for (<span class="variable">initializer</span>; <span class="variable">condition</span>; <span class="variable">final-expression</span>) {
+    <span class="variable">code block</span>
+}
+</pre>
+                    </dd>
+                    <dd>Consists of:
+                        <ul>
+                            <li><code>for</code> key word</li>
+                            <li>Parentheses <code>(<span class="variable">initializer</span>; <span class="variable">condition</span>; <span class="variable">final-expression</span>)</code>
+                                <ul>
+                                    <li>Initializer or counter variable</li>
+                                    <li>Condition</li>
+                                    <li>Final-expression: Usually an increment/decrement that bring the counter variable closer to the condition no longer true. Run each time loop has gone through a full iteration.</li>
+                                </ul>
+                            </li>
+                            <li>Curly braces <code>{<span class="variable">code block</span>}</code>
+                                <ul>
+                                    <li>Code block to run</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+
+                        </ul>
+                    </dd>
+                    <dd>Very common use:</dd>
+                    <dd>
+<pre class="formula">
+for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; upperLimit</span>; <span class="variable">i++</span>) {
+    <span class="variable">code block</span>
+}
+</pre>
+                    </dd>
+                    
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="for-collection">
+                <h2>Standard for-loop for collection.</h2>
+
+                <dl>
+                    <dt><code>for (<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
+                    <dd><code>{ <span class="variable">... member ...</span> }</code></dd>
+                    <dd><a href="file:///home/dina/code/codeyluwak/js_loop_collection.html">Codey Luwak: Loops for collection</a></dd>
+
+                    <dt><code>for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; collection.length</span>; <span class="variable">i++</span>)</code></dt>
+                    <dd><code>{ <span class="variable">... collection[i] ...</span> }</code></dd>
+
+                    <dt>Which one to use?</dt>
+                    <dd>If possible, for-of loop is preffered because the simplicity reduces chance of errors. However this is not a rule. Especially in the past, for-of loop was not even available.
+                    </dd>
+                    <dd>Common errors in standard for-loop for collection is usually introduced by forgetting index starts at <code>0</code> and ends at <code>length-1</code>.
+                        <ul>
+                            <li>Initializing: <code>i = 1</code> instead of <code>i = 0</code></li>
+                            <li>Condition: <code>i &lt;= collection.length</code> instead of <code>i &lt; collection.length</code></li>
+                            <li>Which is individually fine as long as addressing the member in the code block is adjusted too, for example by using <code>collection[i-1]</code> instead of <code>collection[i]</code>.</li>
+                            <li>But this is getting even more confusing. Especially when working with other people, it's important for our code to be as clear as possible.</li>
+                        </ul>
+                    </dd>
+                    <dd>Other common mistake: components inside parentheses is semicolon-separated (<code>;</code>), instead of comma.</dd>
+
+                    <dt>When to better use standard for loop?</dt>
+                    <dd>When we want to treat the members of the collection differently. It's often easier to achieve by putting rules around the index and applied it right away.</dd>
+                    <dd>Using for-of loop</dd>
+
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let students = "Students today are ";
+
+for (const name of names) {
+    students += `${name}, `;
+}
+
+students;
+// 'Students today are Adam, Ben, Chris, '
+</pre>
+                    </dd>
+                    <dd>Using standard for loop</dd>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let students = "Students today are ";
+
+for (let i = 0; i &lt; names.length; i++) {
+    if (i &lt; (names.length - 1)) {
+        students += `${names[i]}, `;
+    } else if (i === (names.length - 1)){
+        students += `and ${names[i]}.`;
+    }   
+}
+
+students;
+// 'Students today are Adam, Ben, and Chris.'
+</pre>
+                    </dd>
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code" target="_blank">MDN: Looping code</a></li>
+                </ul>
+
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a>. Current reading: Loops <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">MDN: Looping code</a>.</p>
+
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

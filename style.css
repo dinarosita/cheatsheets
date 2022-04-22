@@ -293,6 +293,14 @@ table code {
 .js-notes .formula .thin {
     font-weight: normal;
 }
+
+.js-notes dd + dd {
+    margin-top: 0.5rem;
+}
+
+.js-notes dd .js-codebox {
+    margin-top: 0.5rem;
+}
 /* .js-notes dd .js-codebox {
     margin-top: 0;
 } */
