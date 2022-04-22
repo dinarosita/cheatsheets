@@ -66,68 +66,108 @@ for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; uppe
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="for-collection">
-                <h2>Standard for-loop for collection.</h2>
+            <article id="collection">
+                <h2>For vs for-of loops for collection.</h2>
 
                 <dl>
                     <dt><code>for (<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
                     <dd><code>{ <span class="variable">... member ...</span> }</code></dd>
-                    <dd><a href="file:///home/dina/code/codeyluwak/js_loop_collection.html">Codey Luwak: Loops for collection</a></dd>
+                    
 
                     <dt><code>for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; collection.length</span>; <span class="variable">i++</span>)</code></dt>
                     <dd><code>{ <span class="variable">... collection[i] ...</span> }</code></dd>
 
                     <dt>Which one to use?</dt>
-                    <dd>If possible, for-of loop is preffered because the simplicity reduces chance of errors. However this is not a rule. Especially in the past, for-of loop was not even available.
-                    </dd>
-                    <dd>Common errors in standard for-loop for collection is usually introduced by forgetting index starts at <code>0</code> and ends at <code>length-1</code>.
+                    <dd>Read here: <a href="file:///home/dina/code/codeyluwak/js_loop_collection.html">Codey Luwak: Loops for collection</a></dd>
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="break">
+                <h2>Exiting loops with break</h2>
+
+                <dl>
+                    <dt><code>break</code></dt>
+                    <dd>
                         <ul>
-                            <li>Initializing: <code>i = 1</code> instead of <code>i = 0</code></li>
-                            <li>Condition: <code>i &lt;= collection.length</code> instead of <code>i &lt; collection.length</code></li>
-                            <li>Which is individually fine as long as addressing the member in the code block is adjusted too, for example by using <code>collection[i-1]</code> instead of <code>collection[i]</code>.</li>
-                            <li>But this is getting even more confusing. Especially when working with other people, it's important for our code to be as clear as possible.</li>
+                            <li>In <code>switch</code> statement: <code>break</code> statement immediately exits the switch statement and moves on to the code after it.</li>
+                            <li>In loops: <code>break</code> statement immediately exit the loop and move on to any code after it.</li>
                         </ul>
                     </dd>
-                    <dd>Other common mistake: components inside parentheses is semicolon-separated (<code>;</code>), instead of comma.</dd>
-
-                    <dt>When to better use standard for loop?</dt>
-                    <dd>When we want to treat the members of the collection differently. It's often easier to achieve by putting rules around the index and applied it right away.</dd>
-                    <dd>Using for-of loop</dd>
-
-                    <dd>
-<pre class="js-codebox">
-const names = ["Adam", "Ben", "Chris"];
-
-let students = "Students today are ";
-
-for (const name of names) {
-    students += `${name}, `;
-}
-
-students;
-// 'Students today are Adam, Ben, Chris, '
-</pre>
+                    <dt>Example: search function</dt>
+                    <dd>Usually quits with result upon first match. When there's no match, at the end of the run, ends with "not found" comment.</dd>
+                    <dd>Pseudocode:
+                        <ul>
+                            <li>Const list array</li>
+                            <li>User input: searched value</li>
+                            <li>Search function
+                                <ul>
+                                    <li>Run loop through the list
+                                        <ul>
+                                            <li>Match?
+                                                <ul>
+                                                    <li>Output result</li>
+                                                    <li>Break</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>"Not found" (This part can only be reached when loop is done running through all members but no match is found.</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </dd>
-                    <dd>Using standard for loop</dd>
                     <dd>
-<pre class="js-codebox">
-const names = ["Adam", "Ben", "Chris"];
 
-let students = "Students today are ";
-
-for (let i = 0; i &lt; names.length; i++) {
-    if (i &lt; (names.length - 1)) {
-        students += `${names[i]}, `;
-    } else if (i === (names.length - 1)){
-        students += `and ${names[i]}.`;
-    }   
-}
-
-students;
-// 'Students today are Adam, Ben, and Chris.'
-</pre>
                     </dd>
+                    <dd>
+                        <div class="figcode">
+                            <label for = "searchInput">Search by contact name:</label>
+                            <input id="searchInput" type="text">
+                            <button id="searchButton">Search</button>
+                            <p id="searchResult"></p>
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;label for = "searchInput"&gt;Search by contact name:&lt;/label&gt;
+&lt;input id="searchInput" type="text"&gt;
+&lt;button id="searchButton"&gt;Search&lt;/button&gt;
+&lt;p id="searchResult"&gt;&lt;/p&gt;    
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./search_contact.js">search_contact.js</a>)</summary>
+<pre>
+const contacts = ["Adam:121212", "Ben:343434", "Chris:565656", "Daniel:787878", "Ebert:909090"];
+const searchResult = document.getElementById("searchResult");
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
 
+searchButton.addEventListener("click", () => {
+    const searchName = searchInput.value.toLowerCase();
+    searchInput.value = "";
+    searchInput.focus();
+    if (searchName === "") {
+        searchResult.textContent = "Please enter a name.";
+    } else {
+        for (const contact of contacts) {
+            const splitContact = contact.split(":");
+            if (splitContact[0].toLowerCase() === searchName) {
+                searchResult.textContent = `${splitContact[0]}\'s number is ${splitContact[1]}.`;
+                break;
+            }
+            searchResult.textContent = "Contact not found.";
+        }
+    }    
+});
+</pre>
+                            </details>
+                        </div>
+                    </dd>
                 </dl>
 
                 <a href="#top"><hr></a>
@@ -148,6 +188,7 @@ students;
             <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
         </footer>
         <script src="./navArticle.js"></script>
+        <script src="./search_contact.js"></script>
     </body>
 </html>
 

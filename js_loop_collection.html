@@ -113,6 +113,73 @@ filtered;       // (2) ['Leopard', 'Lion']
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="standard-for">
+                <h2>Standard for-loop for collection</h2>
+
+                <dl>
+                    <dt><code>for (<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
+                    <dd><code>{ <span class="variable">... member ...</span> }</code></dd>
+                    <dd><a href="file:///home/dina/code/codeyluwak/js_loop_collection.html">Codey Luwak: Loops for collection</a></dd>
+
+                    <dt><code>for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; collection.length</span>; <span class="variable">i++</span>)</code></dt>
+                    <dd><code>{ <span class="variable">... collection[i] ...</span> }</code></dd>
+
+                    <dt>Which one to use?</dt>
+                    <dd>If possible, for-of loop is preffered because the simplicity reduces chance of errors. However this is not a rule. Especially in the past, for-of loop was not even available.
+                    </dd>
+                    <dd>Common errors in standard for-loop for collection is usually introduced by forgetting index starts at <code>0</code> and ends at <code>length-1</code>.
+                        <ul>
+                            <li>Initializing: <code>i = 1</code> instead of <code>i = 0</code></li>
+                            <li>Condition: <code>i &lt;= collection.length</code> instead of <code>i &lt; collection.length</code></li>
+                            <li>Which is individually fine as long as addressing the member in the code block is adjusted too, for example by using <code>collection[i-1]</code> instead of <code>collection[i]</code>.</li>
+                            <li>But this is getting even more confusing. Especially when working with other people, it's important for our code to be as clear as possible.</li>
+                        </ul>
+                    </dd>
+                    <dd>Other common mistake: components inside parentheses is semicolon-separated (<code>;</code>), instead of comma.</dd>
+
+                    <dt>When to better use standard for loop?</dt>
+                    <dd>When we want to treat the members of the collection differently. It's often easier to achieve by putting rules around the index and applied it right away.</dd>
+                    <dd>Using for-of loop</dd>
+
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let students = "Students today are ";
+
+for (const name of names) {
+    students += `${name}, `;
+}
+
+students;
+// 'Students today are Adam, Ben, Chris, '
+</pre>
+                    </dd>
+                    <dd>Using standard for loop</dd>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let students = "Students today are ";
+
+for (let i = 0; i &lt; names.length; i++) {
+    if (i &lt; (names.length - 1)) {
+        students += `${names[i]}, `;
+    } else if (i === (names.length - 1)){
+        students += `and ${names[i]}.`;
+    }   
+}
+
+students;
+// 'Students today are Adam, Ben, and Chris.'
+</pre>
+                    </dd>
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="references">
                 <h2>References</h2>
                 <ul>
