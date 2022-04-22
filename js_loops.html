@@ -21,7 +21,7 @@
         <main class="js-notes">
 
             <article id="for">
-                <h2>Standard for-loop</h2>
+                <h2>For loop</h2>
 
                 <dl>
                     <dt><code>for(){}</code></dt>
@@ -66,8 +66,8 @@ for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; uppe
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="collection">
-                <h2>For vs for-of loops for collection.</h2>
+            <article id="for-of">
+                <h2>For-of loop for collection.</h2>
 
                 <dl>
                     <dt><code>for (<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
@@ -120,9 +120,6 @@ for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; uppe
                         </ul>
                     </dd>
                     <dd>
-
-                    </dd>
-                    <dd>
                         <div class="figcode">
                             <label for = "searchInput">Search by contact name:</label>
                             <input id="searchInput" type="text">
@@ -143,9 +140,9 @@ for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; uppe
                                 <summary>JS codes (<a href="./search_contact.js">search_contact.js</a>)</summary>
 <pre>
 const contacts = ["Adam:121212", "Ben:343434", "Chris:565656", "Daniel:787878", "Ebert:909090"];
-const searchResult = document.getElementById("searchResult");
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
+const searchResult = document.getElementById("searchResult");
 
 searchButton.addEventListener("click", () => {
     const searchName = searchInput.value.toLowerCase();
@@ -173,6 +170,141 @@ searchButton.addEventListener("click", () => {
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="continue">
+                <h2>Skipping iteration with continue</h2>
+                <dl>
+                    <dt><code>continue</code></dt>
+                    <dd>Similar to <code>break</code>, but instead of leaving the loop entirely, it skips to the next iteration of the loop.</dd>
+
+                    <dt>Example: Square root number game</dt>
+                    <dd>Rule: 
+                        <ul>
+                            <li>Input: Positive integer. </li>
+                            <li>Output: integer square between 1 to the input number.</li>
+                        </ul>
+                    </dd>
+                    <dd>Pseudocode:
+                        <ul>
+                            <li>Get input number</li>
+                            <li>Run loop from 1 to input number
+                                <ul>
+                                    <li>if floor sqrt number is not sqrt number
+                                        <ul>
+                                            <li>continue to next iteration</li>
+                                        </ul>
+                                    </li>
+                                    <li>print number</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <div class="figcode">
+                            <b>Example: For loop with continue</b><br>
+                            <label for="squareInput">Max:</label>
+                            <input id="squareInput" type="text">
+                            <button id="squareButton">Find squares</button>
+                            <p id="squareResult"></p> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;label for="squareInput"&gt;Max:&lt;/label&gt;
+&lt;input id="squareInput" type="text"&gt;
+&lt;button id="squareButton"&gt;Find squares&lt;/button&gt;
+&lt;p id="squareResult"&gt;&lt;/p&gt; 
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./square_continue.js">square_continue.js</a>)</summary>
+<pre>
+const squareInput = document.getElementById("squareInput");
+const squareButton = document.getElementById("squareButton");
+const squareResult = document.getElementById("squareResult");
+
+squareButton.addEventListener("click", () =&gt; {
+    let max = squareInput.value;
+    squareInput.value = "";
+    squareInput.focus();
+    squareResult.textContent = `Squares up to ${max}: `;
+    if (max === "") {
+        squareResult.textContent = "Please enter a number.";
+    } else {
+        for (let i = 1; i &lt;= max; i++) {
+            let sqrtNum = Math.sqrt(i);
+            if (Math.floor(sqrtNum) !== sqrtNum) {
+                continue;
+            }
+            squareResult.textContent += `${i} `;
+        }
+    }
+});
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+                    <dd>Alternative without continue: I think it's faster to square a number from 1 to square root if input number than checking each number from 1 to input number if it an integer square. This is just a demonstration of <code>continue</code> keyword.
+                        <ul>
+                            <li>Get input number</li>
+                            <li>Calculate max = floor sqrt input number</li>
+                            <li>Run loop for (let i = 1; i &lt;= max; i++)
+                                <ul>
+                                    <li>Print square of i</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <div class="figcode">
+                            <b>Example: For loop without continue</b><br>
+                            <label for="squareInput2">Max:</label>
+                            <input id="squareInput2" type="text">
+                            <button id="squareButton2">Find squares</button>
+                            <p id="squareResult2"></p> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;label for="squareInput2"&gt;Max:&lt;/label&gt;
+&lt;input id="squareInput2" type="text"&gt;
+&lt;button id="squareButton2"&gt;Find squares&lt;/button&gt;
+&lt;p id="squareResult2"&gt;&lt;/p&gt; 
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./square_without_continue.js">square_without_continue.js</a>)</summary>
+<pre>
+const squareInput2 = document.getElementById("squareInput2");
+const squareButton2 = document.getElementById("squareButton2");
+const squareResult2 = document.getElementById("squareResult2");
+
+squareButton2.addEventListener("click", () =&gt; {
+    let max = squareInput2.value;
+    squareInput2.value = "";
+    squareInput2.focus();
+    squareResult2.textContent = `Squares up to ${max}: `;
+
+    if (max === "") {
+        squareResult2.textContent = "Please enter a number.";
+    } else {
+        let maxRoot = Math.floor(Math.sqrt(max));
+
+        for (let i = 1; i &lt;= maxRoot; i++) {
+            squareResult2.textContent += `${i*i} `;
+        }
+    }   
+});
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
 
             <article id="references">
                 <h2>References</h2>
@@ -189,6 +321,8 @@ searchButton.addEventListener("click", () => {
         </footer>
         <script src="./navArticle.js"></script>
         <script src="./search_contact.js"></script>
+        <script src="./square_continue.js"></script>
+        <script src="./square_without_continue.js"></script>
     </body>
 </html>
 

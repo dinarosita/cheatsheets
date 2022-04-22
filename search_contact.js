@@ -1,9 +1,9 @@
 // Learning JS Loop Break
 
 const contacts = ["Adam:121212", "Ben:343434", "Chris:565656", "Daniel:787878", "Ebert:909090"];
-const searchResult = document.getElementById("searchResult");
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
+const searchResult = document.getElementById("searchResult");
 
 searchButton.addEventListener("click", () => {
     const searchName = searchInput.value.toLowerCase();
