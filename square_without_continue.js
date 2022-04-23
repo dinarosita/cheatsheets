@@ -10,7 +10,7 @@ squareButton2.addEventListener("click", () => {
     squareInput2.focus();
     squareResult2.textContent = `Squares up to ${max}: `;
 
-    if (max === "") {
+    if ((max === "") || (isNaN(max) === true)) {
         squareResult2.textContent = "Please enter a number.";
     } else {
         let maxRoot = Math.floor(Math.sqrt(max));

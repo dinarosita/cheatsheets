@@ -9,7 +9,7 @@ squareButton.addEventListener("click", () => {
     squareInput.value = "";
     squareInput.focus();
     squareResult.textContent = `Squares up to ${max}: `;
-    if (max === "") {
+    if ((max === "") || (isNaN(max) === true)) {
         squareResult.textContent = "Please enter a number.";
     } else {
         for (let i = 1; i <= max; i++) {

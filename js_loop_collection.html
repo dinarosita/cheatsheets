@@ -20,7 +20,7 @@
 
         <main class="js-notes">
 
-            <article id="for-of">
+            <article id="for...of">
                 <h2>For...of loop</h2>
 
                 <dl>
@@ -114,7 +114,7 @@ filtered;       // (2) ['Leopard', 'Lion']
             </article>
 
             <article id="standard-for">
-                <h2>Standard for-loop for collection</h2>
+                <h2>Standard for loop for collection</h2>
 
                 <dl>
                     <dt><code>for (<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
@@ -125,9 +125,9 @@ filtered;       // (2) ['Leopard', 'Lion']
                     <dd><code>{ <span class="variable">... collection[i] ...</span> }</code></dd>
 
                     <dt>Which one to use?</dt>
-                    <dd>If possible, for-of loop is preffered because the simplicity reduces chance of errors. However this is not a rule. Especially in the past, for-of loop was not even available.
+                    <dd>If possible, <code>for...of</code> loop is preffered because the simplicity reduces chance of errors. However this is not a rule. Especially in the past, <code>for...of</code> loop was not even available.
                     </dd>
-                    <dd>Common errors in standard for-loop for collection is usually introduced by forgetting index starts at <code>0</code> and ends at <code>length-1</code>.
+                    <dd>Common errors in standard <code>for</code> loop for collection is usually introduced by forgetting index starts at <code>0</code> and ends at <code>length-1</code>.
                         <ul>
                             <li>Initializing: <code>i = 1</code> instead of <code>i = 0</code></li>
                             <li>Condition: <code>i &lt;= collection.length</code> instead of <code>i &lt; collection.length</code></li>
@@ -137,9 +137,9 @@ filtered;       // (2) ['Leopard', 'Lion']
                     </dd>
                     <dd>Other common mistake: components inside parentheses is semicolon-separated (<code>;</code>), instead of comma.</dd>
 
-                    <dt>When to better use standard for loop?</dt>
+                    <dt>When to better use standard <code>for</code> loop?</dt>
                     <dd>When we want to treat the members of the collection differently. It's often easier to achieve by putting rules around the index and applied it right away.</dd>
-                    <dd>Using for-of loop</dd>
+                    <dd>Using <code>for...of</code> loop</dd>
 
                     <dd>
 <pre class="js-codebox">
@@ -155,7 +155,7 @@ students;
 // 'Students today are Adam, Ben, Chris, '
 </pre>
                     </dd>
-                    <dd>Using standard for loop</dd>
+                    <dd>Using standard <code>for</code> loop</dd>
                     <dd>
 <pre class="js-codebox">
 const names = ["Adam", "Ben", "Chris"];
