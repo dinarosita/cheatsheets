@@ -59,9 +59,8 @@
                 <h2>Countdown</h2>
 
                 <dl>
-                    <dt>Countdown</dt>
-                    <dd>Task: Launch countdown from 10 to 0 blast off.</dd>
-                    <dd>Link: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#:~:text=an%20infinite%20loop.-,Active%20learning%3A%20Launch%20countdown,-In%20this%20exercise" target="_blank">MDN: Looping code: Active learning: Launch countdown</a></dd>
+                    <dt>Task: Launch countdown from 10 to 0 blast off</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#:~:text=an%20infinite%20loop.-,Active%20learning%3A%20Launch%20countdown,-In%20this%20exercise" target="_blank">MDN: Looping code: Active learning: Launch countdown</a></dd>
 
                     <dt>Using <code>for</code> loop</dt>
                     <dd>
@@ -225,8 +224,8 @@ dowhileCountdownButton.addEventListener("click", dowhileCountdown);
                 <h2>Guest List</h2>
 
                 <dl>
-                    <dt>Guest list with exception</dt>
-                    <dd>Task: Create guest list based on registration, with a little blacklist. </dd>
+                    <dt>Task: Create guest list by registration, with exception</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#:~:text=Copy%20to%20Clipboard-,Active%20learning%3A%20Filling%20in%20a%20guest%20list,-In%20this%20exercise" target="_blank">MDN: Looping code: Active learning: Filling in a guest list</a></dd>
                     <dd>The original task is more simple, however I want to exercise these as well:
                         <ul>
                             <li>HTML form</li>
@@ -234,7 +233,7 @@ dowhileCountdownButton.addEventListener("click", dowhileCountdown);
                             <li>DOM manipulation (creating list elements)</li>
                         </ul>
                     </dd>
-                    <dd>Link: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#:~:text=Copy%20to%20Clipboard-,Active%20learning%3A%20Filling%20in%20a%20guest%20list,-In%20this%20exercise" target="_blank">MDN: Looping code: Active learning: Filling in a guest list</a></dd>
+                    
 
                     <dt>Using <code>for</code> loop, lists displayed as joined string.</dt>
                     <dd>
@@ -476,9 +475,10 @@ guestButton2.addEventListener("click", processGuest2);
                 <h2>List elements</h2>
 
                 <dl>
-                    <dt>List elements</dt>
-                    <dd>Task: DOM manipulation: Loops 1: Creating list elements</dd>
-                    <dd>Link: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops#:~:text=Manipulating%20documents%20tutorial.-,Loops%201,-In%20our%20first" target="_blank">MDN: Test your skills: Loops: Loops 1 - Create bulleted list</a></dd>
+                    <dt>Task: Create list elements for array members</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops#loops_1" target="_blank">MDN: Test your skills: Loops: Loops 1 - Create bulleted list</a></dd>
+                    <dt>Additional study area: DOM manipulation</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents" target="_blank">MDN: DOM manipulation</a></dd>
 
                     <dt>Exercise page</dt>
                     <dd>
@@ -525,13 +525,145 @@ guestButton2.addEventListener("click", processGuest2);
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="phonebook">
+                <h2>Phone book</h2>
+
+                <dl>
+                    <dt>Task: Create phone book look up</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops#loops_2" target="_blank">MDN: Test your skills: Loops 2: Phonebook</a></dd>
+                    <dd>Using <code>break</code> to exercise it. As consequence though, the code can only display the first contact found.</dd>
+                    <dt>Additional study area: Array of objects</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics" target="_blank">MDN: JavaScript object basics</a></dd>
+
+                    <dt>Exercise page</dt>
+                    <dd>
+                        <div class="figcode">
+                            <a href="./mdn_loops2.html" target="_blank">mdn_loops2.html</a> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;body&gt;
+    &lt;section class="preview"&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes</summary>
+<pre>
+&lt;script&gt;
+    const name = 'Mustafa';
+    const para = document.createElement('p');
+
+    const phonebook = [
+        { name : 'Chris', number : '1549' },
+        { name : 'Li Kang', number : '9634' },
+        { name : 'Anne', number : '9065' },
+        { name : 'Francesca', number : '3001' },
+        { name : 'Mustafa', number : '6888' },
+        { name : 'Tina', number : '4312' },
+        { name : 'Bert', number : '7780' },
+        { name : 'Jada', number : '2282' },
+    ]
+
+    // Add your code here
+
+    for (contact of phonebook) {
+        if (contact.name === name) {
+            para.textContent = contact.number;
+            break;
+        }
+    }
+
+    // Don't edit the code below here!
+    const section = document.querySelector('section');
+    section.appendChild(para);
+&lt;/script&gt;
+</pre>
+                            </details>
+                        </div>
+
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="isprime">
+                <h2>isPrime</h2>
+
+                <dl>
+                    <dt>Task: isPrime game</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops#loops_3" target="_blank">MDN: Test your skills: Loops 3: isPrime</a></dd>
+
+                    <dt>Exercise page</dt>
+                    <dd>
+                        <div class="figcode">
+                            <a href="./mdn_loops3.html" target="_blank">mdn_loops3.html</a>                         </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;body&gt;
+    &lt;section class="preview"&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes</summary>
+<pre>
+&lt;script&gt;
+    let i = 500;
+    const para = document.createElement('p');
+
+    function isPrime(num) {
+    for(let i = 2; i < num; i++) {
+        if(num % i === 0) {
+        return false;
+        }
+    }
+
+    return true;
+    }
+
+    // Add your code here
+    let j = 500;
+
+    for (let j = 500; j > 1; j--) {
+        if (isPrime(j)) {
+            if (para.textContent === "") {
+                para.textContent += `Prime numbers from 500 to 1 are: ${j}`;
+            } else {
+                para.textContent += `, ${j}`;
+            }            
+        };
+    }
+
+    // Don't edit the code below here!
+    const section = document.querySelector('section');
+    section.appendChild(para);
+&lt;/script&gt;
+</pre>
+                            </details>
+                        </div>
+
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+            
             <article id="template">
                 <h2>template</h2>
 
                 <dl>
-                    <dt>template</dt>
-                    <dd>Task: template</dd>
-                    <dd>Link: <a href="template" target="_blank">MDN: Test your skills: Loops: template</a></dd>
+                    <dt>Task: Create ...</dt>
+                    <dd><a href="template" target="_blank">MDN: Test your skills: Loops: template</a></dd>
+                    <dt>Additional study area: ...</dt>
+                    <dd><a href="" target="_blank">MDN: </a></dd>
 
                     <dt>Exercise page</dt>
                     <dd>
@@ -573,19 +705,6 @@ guestButton2.addEventListener("click", processGuest2);
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="odin">
-                <h2>Odin learning here</h2> 
-                <ul>
-                    <li>Odin page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a></li>
-                    <li>Loops 1. <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code" target="_blank">MDN: Looping code</a></li>
-                    <li>Next:
-                        <ul>
-                            <li>Do loop exercise in: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops" target="_blank">Mdn: Test your skills: Loops</a></li>
-                            <li>Read and create it's own page: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents" target="_blank">DOM manipulation</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </article>
         </main>
         <footer>
             <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
