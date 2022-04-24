@@ -61,7 +61,55 @@ for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; uppe
 }
 </pre>
                     </dd>
-                    
+
+                    <dt>Loop body</dt>
+                    <dd>The code block inside loop's <code>{}</code></dd>
+
+                    <dt>Iteration</dt>
+                    <dd>A single execution of the loop body. A cycle.</dd>
+
+                    <dt>Inline variable declaration</dt>
+                    <dd>Declaration of a variable within <code>for</code> loop's braces.</dd>
+                    <dd>
+                        <ul>
+                            <li><code>for (let i = 0; ...)</code></li>
+                            <li>Such variables are visible only inside the loop.</li>
+                            <li>We can also use existing variable declared outside the loop: <code>let i = 0; for (i = 0;...)</code>.</li>
+                            <li>Such variables will be visible outside, off course.</li>
+                            <li>For just a counter, this is not desirable. Limiting scope as tight as possible is better.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Any part of <code>for</code> can be skipped.</dt>
+                    <dd>
+                        <ul>
+                            <li>2 semicolons <code>for(;;)</code> can't be omitted. Otherwise, syntax error.</li>
+                            <li>Skipping initializer
+<pre class="js-codebox">
+let i = 0;
+for (; i &lt; 3; i++) {
+    alert (i);
+}
+</pre>
+                            </li>
+                            <li>Skipping final-expression
+<pre class="js-codebox">
+let i = 0;
+for (; i &lt; 3;) {
+    alert (i++);
+}
+
+// compare to loop while(i &lt; 3)
+</pre>
+                            </li>
+                            <li>Now let's skip the condition. It can, it makes an infinite loop
+<pre class="js-codebox">
+for (;;) {
+}
+</pre>
+                            </li>
+                        </ul>
+                    </dd>
                     
                 </dl>
                 <a href="#top"><hr></a>
@@ -116,6 +164,28 @@ while (i &lt; animals.length) {
 }
 </pre>
                     </dd>
+                    <dt>Notes</dt>
+                    <dd>
+                        <ul>
+                            <li>Condition is a true/false comparison. For example, these are all the same:
+                                <ul>
+                                    <code>
+                                        <li>let i = 3; while (i &gt; 0) {...; i--}</li>
+                                        <li>let i = 3; while (i != 0) {...; i--}</li>
+                                        <li>let i = 3; while (i) {...; i--}</li>
+                                    </code>
+                                </ul>
+                            </li>
+                            <li>Curly braces not required when a loop body only has 1 single statement.
+                                <ul>
+                                    <code>
+                                        <li>let i = 3; while (i) {alert(i--)};</li>
+                                        <li>let i = 3; while (i) alert(i--);</li>
+                                    </code>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -138,7 +208,15 @@ while (i &lt; animals.length) {
                                     <li>The condition is read first before goes to the codeblock.</li>
                                     <li>It's possible that the codeblock never get run because never get read. If the condition is not met right away.</li>
                                 </ul>
-                        </ul></dd>
+                            </li>
+                            <li>Which one to use?
+                                <ul>
+                                    <li><code>for</code> and <code>while</code> are preferred.</li>
+                                    <li>Use <code>do...while</code> only when loop body must be executed at least once regardless the condition.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
 
                     <dd>
 <pre class="formula">
@@ -417,7 +495,7 @@ searchButton.addEventListener("click", () => {
 
             <article id="continue">
                 <h2>continue</h2>
-                <h3>Jump to the next cycle prematurely</h3>
+                <h3>Jump to the next iteration prematurely</h3>
                 <dl>
                     <dt><code>continue</code></dt>
                     <dd>Similar to <code>break</code>, but instead of leaving the loop entirely, it skips to the next iteration of the loop.</dd>
