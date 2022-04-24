@@ -21,7 +21,8 @@
         <main class="js-notes">
 
             <article id="for">
-                <h2>For loop</h2>
+                <h2>for</h2>
+                <h3>The standard for loop</h3>
 
                 <dl>
                     <dt><code>for(){}</code></dt>
@@ -66,27 +67,271 @@ for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; uppe
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="while">
+                <h2>while</h2>
+                <h3>The while loop</h3>
+                <dl>
+                    <dt><code>while () {}</code></dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">initializer</span>;
+while (<span class="variable">condition</span>) {
+    <span class="comment">...codeblock...</span>
+    <span class="variable">final-expression</span>
+}
+</pre>
+                    </dd>
+                    <dd>Similar to <code>for</code> loop, but:
+                        <ul>
+                            <li>Only condition, such as <code>i &lt; array.length</code>, is written between parentheses.</li>
+                            <li>Initializer, such as <code>let i = 0;</code>, is written before the loop</li>
+                            <li>Final expression that's usually increment or decrement, such as <code>i++</code>, is written at the end of the code block.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+let <span class="variable">i = 0</span>;
+while (<span class="variable">i &lt; array.length</span>) {
+    <span class="comment">...codeblock...</span>
+    <span class="variable">i++</span>
+}
+</pre>
+                    </dd>
+                    <dd>For example</dd>
+                    <dd>
+<pre class="js-codebox">
+const animals = ["dodo", "great auk", "thylacine"];
+
+let favAnimals = "Harry's favourite extinct animals are ";
+
+let i = 0;
+
+while (i &lt; animals.length) {
+    if (i === animals.length - 1) {
+        favAnimals += `and ${animals[i]}.`;
+    } else {
+        favAnimals += `${animals[i]}, `;
+    }
+    i++
+}
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="do...while">
+                <h2>do...while</h2>
+                <h3>Loop that executes at least once</h3>
+                <dl>
+                    <dt><code>do {} while ()</code></dt>
+                    <dd><code>do...while</code> is similar to <code>while</code> with one main difference:
+                        <ul>
+                            <li><code>do---while</code>:
+                                <ul>
+                                    <li>The codeblock is run before the condition is checked.</li>
+                                    <li>The codeblock gets run at least once.</li>
+                                </ul>
+                            </li>
+                            <li><code>while</code> and <code>for</code>:
+                                <ul>
+                                    <li>The condition is read first before goes to the codeblock.</li>
+                                    <li>It's possible that the codeblock never get run because never get read. If the condition is not met right away.</li>
+                                </ul>
+                        </ul></dd>
+
+                    <dd>
+<pre class="formula">
+<span class="variable">initializer</span>
+do {
+    <span class="comment">...codeblock...</span>
+    <span class="variable">final-expression</span>
+} while (<span class="variable">condition</span>)
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="for...of">
-                <h2>For...of loop for collection.</h2>
+                <h2>for...of</h2>
+                <h3>Special loop for collection</h3>
 
                 <dl>
-                    <dt><code>for (<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
-                    <dd><code>{ <span class="variable">... member ...</span> }</code></dd>
+                    <dt><code>for(<span class="variable">member</span> of <span class="variable">collection</span>)</code></dt>
+                    <dd>
+<pre class="formula">
+for (const <span class="variable">item</span> of <span class="variable">collection</span>) {}
+</pre>
+                    </dd>
+                    <dd>Used to loop through a collection, for example an array.</dd>
+                    <dd>
+<pre class="js-codebox">
+const <span class="variable">collection</span> = [<span class="variable">"dodo", "great auk", "woolly mammoth", "thylacine"</span>];
+
+for (const <span class="variable">item</span> of <span class="variable">collection</span>) {
+    <span class="variable">console.log(item);</span>
+}
+</pre>
+                    </dd>
+                    <dd>Console:</dd>
+                    <dd>
+<pre class="js-codebox">
+dodo
+great auk
+woolly mammoth
+thylacine
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="for-vs-for...of">
+                <h2>for vs for...of</h2>
+                <h3>Which one to use for collection?</h3>
+
+                <dl>
+                    <dt><code>for...of</code></dt>
+                    <dd>
+<pre class="formula">
+for (<span class="variable">member</span> of <span class="variable">collection</span>) {
+    <span class="variable">...member...</span>
+}
+</pre>
+                    </dd>
+                    <dd>When index doesn't make difference, use <code>for...of</code> for simplicity and readability. Simplicity reduces chance of errors.</dd>
+                    <dd>Common errors in standard <code>for</code> loop for collection:
+                        <ul>
+                            <li>Error introduced by forgetting index starts at <code>0</code> and ends at <code>length-1</code>.
+                                <ul>
+                                    <li>Initializing: <code>i = 1</code> instead of <code>i = 0</code></li>
+                                    <li>Condition: <code>i &lt;= collection.length</code> instead of <code>i &lt; collection.length</code></li>
+                                    <li>Which is individually fine as long as addressing the member in the code block is adjusted too, for example by using <code>collection[i-1]</code> instead of <code>collection[i]</code>.</li>
+                                    <li>But this is getting even more confusing. Especially when working with other people, it's important for our code to be as clear as possible.</li>
+                                </ul>
+                            </li>
+                            <li>Components inside parentheses is semicolon-separated (<code>;</code>), instead of comma.</li>
+                        </ul>
+                    </dd>
+
+                    <dt><code>for</code></dt>
+                    <dd>
+<pre class="formula">
+for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; collection.length</span>; <span class="variable">i++</span>) {
+    <span class="variable">...collection[i]...</span>
+}
+</pre>
+                    </dd>
+                    <dd>When index matter, using the standard <code>for</code> loop is more practical. Just use <code>if</code> condition to the index.
+                        <ul>
+                            <li>Example: When displaying comma-space separated list, usually the last item should not have the trailing comma. Even better, it should be preceeded with an and.</li>
+                        </ul>
+                    </dd>
+
+                    <dd>
+                        <pre class="js-codebox">
+                        const names = ["Adam", "Ben", "Chris"];
+                        
+                        let students = "Students today are ";
+                        
+                        for (const name of names) {
+                            students += `${name}, `;
+                        }
+                        
+                        students;
+                        // 'Students today are Adam, Ben, Chris, '
+                        </pre>
+                                            </dd>
+                                            <dd>Using standard <code>for</code> loop</dd>
+                                            <dd>
+                        <pre class="js-codebox">
+                        const names = ["Adam", "Ben", "Chris"];
+                        
+                        let students = "Students today are ";
+                        
+                        for (let i = 0; i &lt; names.length; i++) {
+                            if (i &lt; (names.length - 1)) {
+                                students += `${names[i]}, `;
+                            } else if (i === (names.length - 1)){
+                                students += `and ${names[i]}.`;
+                            }   
+                        }
+                        
+                        students;
+                        // 'Students today are Adam, Ben, and Chris.'
+                        </pre>
+                                            </dd>
+                </dl>
                     
+                <a href="#top"><hr></a>
+            </article>
 
-                    <dt><code>for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; collection.length</span>; <span class="variable">i++</span>)</code></dt>
-                    <dd><code>{ <span class="variable">... collection[i] ...</span> }</code></dd>
+            <article id="map">
+                <h2>map</h2>
+                <h3>Loop that maps of a collection</h3>
+                <dl>
 
-                    <dt>Which one to use?</dt>
-                    <dd>Read here: <a href="file:///home/dina/code/codeyluwak/js_loop_collection.html">Codey Luwak: Loops for collection</a></dd>
+                    <dt><code>.map(<span class="variable">function</span>)</code></dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">new</span> = <span class="variable">arr</span>.map(<span class="variable">function</span>)
+</pre>
+                    </dd>
+                    <dd>To do something to each item in a collection and create a new collection containing the changed items. In other word, mapping.</dd>
+                    <dd>    
+<pre class="js-codebox">
+function makeUpper(text) {
+    return text.toUpperCase();
+}
 
+const animals = ["dodo", "great auk", "woolly mammoth", "thylacine"];
+const animalsUpper = animals.map(makeUpper);
+
+animalsUpper;       // (4) ['DODO', 'GREAT AUK', 'WOOLLY MAMMOTH', 'THYLACINE']
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="filter">
+                <h2>filter</h2>
+                <h3>Loop that filters a collection</h3>
+                <dl>
+
+                    <dt><code>.filter(<span class="variable">function</span>)</code></dt>
+                    
+                    <dd>
+<pre class="formula">
+const <span class="variable">new</span> = <span class="variable">arr</span>.filter(<span class="variable">function</span>)
+</pre>
+                    </dd>
+                    <dd>To create a new collection from items of an existing collection that fulfil some criteria.</dd>
+                    <dd>Function here needs to have boolean return. If the return is true, then the item is included in the new array. </dd>
+                    <dd>
+<pre class="js-codebox">
+function lCat(cat) {
+    return cat.startsWith("L");
+}
+
+const cats = ["Leopard", "Tiger", "Jaguar", "Lion"];
+const filtered = cats.filter(lCat);
+
+filtered;       // (2) ['Leopard', 'Lion']
+</pre>
+                    </dd>
+                        
                 </dl>
 
                 <a href="#top"><hr></a>
             </article>
 
             <article id="break">
-                <h2>Exiting loops with break</h2>
+                <h2>break</h2>
+                <h3>Exit from the loop prematurely</h3>
 
                 <dl>
                     <dt><code>break</code></dt>
@@ -171,7 +416,8 @@ searchButton.addEventListener("click", () => {
             </article>
 
             <article id="continue">
-                <h2>Skipping iteration with continue</h2>
+                <h2>continue</h2>
+                <h3>Jump to the next cycle prematurely</h3>
                 <dl>
                     <dt><code>continue</code></dt>
                     <dd>Similar to <code>break</code>, but instead of leaving the loop entirely, it skips to the next iteration of the loop.</dd>
@@ -308,92 +554,9 @@ squareButton2.addEventListener("click", () =&gt; {
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="while">
-                <h2>while</h2>
-                <dl>
-                    <dt><code>while () {}</code></dt>
-                    <dd>
-<pre class="formula">
-<span class="variable">initializer</span>;
-while (<span class="variable">condition</span>) {
-    <span class="comment">...codeblock...</span>
-    <span class="variable">final-expression</span>
-}
-</pre>
-                    </dd>
-                    <dd>Similar to <code>for</code> loop, but:
-                        <ul>
-                            <li>Only condition, such as <code>i &lt; array.length</code>, is written between parentheses.</li>
-                            <li>Initializer, such as <code>let i = 0;</code>, is written before the loop</li>
-                            <li>Final expression that's usually increment or decrement, such as <code>i++</code>, is written at the end of the code block.</li>
-                        </ul>
-                    </dd>
-                    <dd>
-<pre class="formula">
-let <span class="variable">i = 0</span>;
-while (<span class="variable">i &lt; array.length</span>) {
-    <span class="comment">...codeblock...</span>
-    <span class="variable">i++</span>
-}
-</pre>
-                    </dd>
-                    <dd>For example</dd>
-                    <dd>
-<pre class="js-codebox">
-const animals = ["dodo", "great auk", "thylacine"];
-
-let favAnimals = "Harry's favourite extinct animals are ";
-
-let i = 0;
-
-while (i &lt; animals.length) {
-    if (i === animals.length - 1) {
-        favAnimals += `and ${animals[i]}.`;
-    } else {
-        favAnimals += `${animals[i]}, `;
-    }
-    i++
-}
-</pre>
-                    </dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
-
-            <article id="do...while">
-                <h2>do...while</h2>
-                <dl>
-                    <dt><code>do {} while ()</code></dt>
-                    <dd><code>do...while</code> is similar to <code>while</code> with one main difference:
-                        <ul>
-                            <li><code>do---while</code>:
-                                <ul>
-                                    <li>The codeblock is run before the condition is checked.</li>
-                                    <li>The codeblock gets run at least once.</li>
-                                </ul>
-                            </li>
-                            <li><code>while</code> and <code>for</code>:
-                                <ul>
-                                    <li>The condition is read first before goes to the codeblock.</li>
-                                    <li>It's possible that the codeblock never get run because never get read. If the condition is not met right away.</li>
-                                </ul>
-                        </ul></dd>
-
-                    <dd>
-<pre class="formula">
-<span class="variable">initializer</span>
-do {
-    <span class="comment">...codeblock...</span>
-    <span class="variable">final-expression</span>
-} while (<span class="variable">condition</span>)
-</pre>
-                    </dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
-
             <article id="infinite-loop">
                 <h2>Infinite loop</h2>
+                <h3>Loop that can't stop</h3>
 
                 <p>Remember to increment or decrement loop in such that it will hit the point condition is not met anymore. Otherwise loop with go forever. This is called an infinite loop. The browser will either force it to stop, or it will crash.</p>
                 <a href="#top"><hr></a>
