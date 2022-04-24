@@ -285,6 +285,11 @@ table code {
 
 /* JS notes */
 
+.js-notes ol {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
 .js-notes .comment {
     color: var(--code);
     font-weight: normal;
@@ -925,6 +930,8 @@ dl .html-codebox {
     margin: 0;
     font-size: 0.9rem;
 }
+
+
 
 .figcode figure + figure {
     margin-top: 1rem;

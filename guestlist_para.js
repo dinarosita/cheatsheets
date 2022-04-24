@@ -10,8 +10,10 @@ function processGuest () {
     const guestOutput = document.getElementById("guestOutput");
     const rejectOutput = document.getElementById("rejectOutput");
 
-    const rawName = guestInput.value;
-    const newApplicant = rawName[0].toUpperCase() + rawName.slice(1);
+    let newApplicant = guestInput.value;
+    newApplicant = newApplicant.trim();
+    newApplicant = newApplicant.toLowerCase();
+    newApplicant = newApplicant[0].toUpperCase() + newApplicant.slice(1);
 
     guestInput.value = "";
     guestInput.focus();
