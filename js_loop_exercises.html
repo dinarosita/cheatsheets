@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Loop Exercises | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Loop Exercies</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="About">
+                <h2>About</h2>
+
+                <dl>
+                    <dt>Exercises from various learning webpages</dt>
+                    <dd>This page is housing various loop exercises from various webpages recommended by the Odin project.</dd>
+                    <dd>
+                        <ul>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code" target="_blank">MDN: Looping code</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops" target="_blank">MDN: Test your skills: Loops</a></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Loops covered:</dt>
+                    <dd>
+                        <ul>
+                            <li><code>for</code></li>
+                            <li><code>for...of</code> for collection</li>
+                            <li><code>while</code></li>
+                            <li><code>do...while</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Codey Luwak's notes:</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="./js_loops">Loops</a></li>
+                            <li><a href="./js_loop_collection.html">Loop for collections</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="countdown">
+                <h2>Countdown</h2>
+
+                <dl>
+                    <dt>Countdown</dt>
+                    <dd>Task: Launch countdown from 10 to 0 blast off.</dd>
+                    <dd>Link: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#:~:text=an%20infinite%20loop.-,Active%20learning%3A%20Launch%20countdown,-In%20this%20exercise" target="_blank">MDN: Looping code: Active learning: Launch countdown</a></dd>
+
+                    <dt>Using <code>for</code> loop</dt>
+                    <dd>
+                        <div class="figcode">
+                            <button id="forCountdownButton">Start countdown</button>
+                            <div id="forCountdownOutput"></div> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;button id="forCountdownButton"&gt;Start countdown&lt;/button&gt;
+&lt;div id="forCountdownOutput"&gt;&lt;/div&gt; 
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./countdown_for.js">countdown_for.js</a>)</summary>
+<pre>
+function forCountdown () {
+    const output = document.getElementById("forCountdownOutput"); 
+    const button = document.getElementById("forCountdownButton");
+
+    if (output.textContent === "") {
+        for (let i = 10; i &gt;= 0; i--) {
+            const para = document.createElement("p");
+            const output = document.getElementById("forCountdownOutput");        
+    
+            if (i === 10) {
+                para.textContent = `Countdown ${i}`;
+            } else if (i === 0) {
+                para.textContent = "Blast off!";
+            } else {
+                para.textContent = i;
+            }
+    
+            output.appendChild(para);
+        }
+        button.textContent = "Close countdown";
+    } else {
+        output.textContent = "";
+        button.textContent = "Start countdown";
+    }
+}
+
+const forCountdownButton = document.getElementById("forCountdownButton");
+forCountdownButton.addEventListener("click", forCountdown);
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
+                    <dt>Using <code>while</code></dt>
+                    <dd>
+                        <div class="figcode">
+                            <button id="whileCountdownButton">Start countdown</button>
+                            <div id="whileCountdownOutput"></div> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;button id="whileCountdownButton"&gt;Start countdown&lt;/button&gt;
+&lt;div id="whileCountdownOutput"&gt;&lt;/div&gt; 
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./countdown_while.js">countdown_while.js</a>)</summary>
+<pre>
+function whileCountdown () {
+    const output = document.getElementById("whileCountdownOutput"); 
+    const button = document.getElementById("whileCountdownButton");
+
+    if (output.textContent === "") {
+        let i = 10;
+        while (i &gt;= 0) {
+            const para = document.createElement("p");
+            const output = document.getElementById("whileCountdownOutput");        
+    
+            if (i === 10) {
+                para.textContent = `Countdown ${i}`;
+            } else if (i === 0) {
+                para.textContent = "Blast off!";
+            } else {
+                para.textContent = i;
+            }
+    
+            output.appendChild(para);
+            i--;
+        }
+        button.textContent = "Close countdown";
+    } else {
+        output.textContent = "";
+        button.textContent = "Start countdown";
+    }
+}
+
+const whileCountdownButton = document.getElementById("whileCountdownButton");
+whileCountdownButton.addEventListener("click", whileCountdown);
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
+                    <dt>Using <code>do...while</code></dt>
+                    <dd>
+                        <div class="figcode">
+                            <button id="dowhileCountdownButton">Start countdown</button>
+                            <div id="dowhileCountdownOutput"></div> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;button id="dowhileCountdownButton"&gt;Start countdown&lt;/button&gt;
+&lt;div id="dowhileCountdownOutput"&gt;&lt;/div&gt; 
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./countdown_dowhile.js">countdown_dowhile.js</a>)</summary>
+<pre>
+function dowhileCountdown () {
+    const output = document.getElementById("dowhileCountdownOutput"); 
+    const button = document.getElementById("dowhileCountdownButton");
+
+    if (output.textContent === "") {
+        let i = 10;
+        do {
+            const para = document.createElement("p");
+            const output = document.getElementById("dowhileCountdownOutput");        
+    
+            if (i === 10) {
+                para.textContent = `Countdown ${i}`;
+            } else if (i === 0) {
+                para.textContent = "Blast off!";
+            } else {
+                para.textContent = i;
+            }
+    
+            output.appendChild(para);
+            i--;
+        } while (i &gt;= 0);
+        button.textContent = "Close countdown";
+    } else {
+        output.textContent = "";
+        button.textContent = "Start countdown";
+    }
+}
+
+const dowhileCountdownButton = document.getElementById("dowhileCountdownButton");
+dowhileCountdownButton.addEventListener("click", dowhileCountdown);
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+
+            </article>
+
+            <article id="guestlist">
+                <h2>Guest List</h2>
+
+                <dl>
+                    <dt>Guest list with exception</dt>
+                    <dd>Task: Create guest list based on registration, with a little blacklist. </dd>
+                    <dd>The original task is more simple, however I want to exercise these as well:
+                        <ul>
+                            <li>HTML form</li>
+                            <li>Webpage output</li>
+                            <li>DOM manipulation (creating list elements)</li>
+                        </ul>
+                    </dd>
+                    <dd>Link: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#:~:text=Copy%20to%20Clipboard-,Active%20learning%3A%20Filling%20in%20a%20guest%20list,-In%20this%20exercise" target="_blank">MDN: Looping code: Active learning: Filling in a guest list</a></dd>
+
+                    <dt>Using <code>for</code> loop, lists displayed as joined string.</dt>
+                    <dd>
+                        <div class="figcode">
+                            <h5>Guest Registration</h5>
+                            <p>Note for Phil and Lola: see Admin directly.</p>
+                            <label for="guestInput">Guest name:</label>
+                            <input id="guestInput" type="text">
+                            <button id="guestButton">Register</button>
+                            <p id="guestComment"></p>
+                            <p id="guestOutput"></p>
+                            <p id="rejectOutput"></p>
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;h5&gt;Guest Registration&lt;/h5&gt;
+&lt;p&gt;Note for Phil and Lola: see Admin directly.&lt;/p&gt;
+&lt;label for="guestInput"&gt;Guest name:&lt;/label&gt;
+&lt;input id="guestInput" type="text"&gt;
+&lt;button id="guestButton"&gt;Register&lt;/button&gt;
+&lt;p id="guestComment"&gt;&lt;/p&gt;
+&lt;p id="guestOutput"&gt;&lt;/p&gt;
+&lt;p id="rejectOutput"&gt;&lt;/p&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./guestlist_para.js">guestlist_para.js</a>)</summary>
+<pre>
+const guestList = [];
+const rejectList = [];
+
+function processGuest () {  
+    const guestInput = document.getElementById("guestInput");
+    const comment = document.getElementById("guestComment");
+    const guestOutput = document.getElementById("guestOutput");
+    const rejectOutput = document.getElementById("rejectOutput");
+
+    let newApplicant = guestInput.value;
+    newApplicant = newApplicant.trim();
+    newApplicant = newApplicant.toLowerCase();
+    newApplicant = newApplicant[0].toUpperCase() + newApplicant.slice(1);
+
+    guestInput.value = "";
+    guestInput.focus();
+    comment.textContent = "";
+
+    if ((newApplicant === "Lola") || (newApplicant === "Phil")) {
+        let addReject = true;
+        comment.textContent = `Sorry, ${newApplicant}, please see Admin to register.`;
+        for (reject of rejectList) {
+            if (newApplicant === reject) {
+                addReject = false;
+                break;
+            }
+        }
+        if (addReject) {
+            rejectList[rejectList.length] = newApplicant;
+        }
+    } else {
+        let addGuest = true;
+        for (guest of guestList) {
+            if (newApplicant === guest) {
+                comment.textContent = `Sorry, ${newApplicant}. That name has been registered.`;
+                addGuest = false;
+                break;
+            }
+        }
+        if (addGuest) {
+            guestList[guestList.length] = newApplicant;        
+            comment.textContent = `Hello, ${newApplicant}! Your request is approved.`;
+        }
+    }
+
+    if (guestList.length !== 0) {
+        guestList.sort();
+        guestOutput.textContent = `Registered guests: `
+        for (let i = 0; i &lt; guestList.length; i++) {
+            if (i === 0) {
+                guestOutput.textContent += guestList[i];
+            } else if (i === (guestList.length - 1)) {
+                if (guestList.length === 2) {
+                    guestOutput.textContent += ` and ${guestList[i]}.`;
+                } else {
+                    guestOutput.textContent += `, and ${guestList[i]}.`;
+                }
+            } else {
+                guestOutput.textContent += `, ${guestList[i]}`;
+            }
+        }
+    }
+
+    if (rejectList.length !== 0) {
+        rejectList.sort();
+        rejectOutput.textContent = `Please see Admin: `
+        for (let i = 0; i &lt; rejectList.length; i++) {
+            if (i === 0) {
+                rejectOutput.textContent += rejectList[i];
+            } else if (i === (rejectList.length - 1)) {
+                if (rejectList.length === 2) {
+                    rejectOutput.textContent += ` and ${rejectList[i]}.`;
+                } else {
+                    rejectOutput.textContent += `, and ${rejectList[i]}.`;
+                }
+            } else {
+                rejectOutput.textContent += `, ${rejectList[i]}`;
+            }
+        }
+    }
+}
+
+const guestButton = document.getElementById("guestButton");
+guestButton.addEventListener("click", processGuest);
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
+                    <dt>Using <code>for</code> loop, lists displayed as numbered list.</dt>
+                    <dd>
+                        <div class="figcode">
+                            <h5>Guest Registration</h5>
+                            <p>Note for Phil and Lola: see Admin directly.</p>
+                            <label for="guestInput2">Guest name:</label>
+                            <input id="guestInput2" type="text">
+                            <button id="guestButton2">Register</button>
+                            <p id="guestComment2"></p>
+                            <div id="guestOutput2"></div>
+                            <div id="rejectOutput2"></div>
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;h5&gt;Guest Registration&lt;/h5&gt;
+&lt;p&gt;Note for Phil and Lola: see Admin directly.&lt;/p&gt;
+&lt;label for="guestInput2"&gt;Guest name:&lt;/label&gt;
+&lt;input id="guestInput2" type="text"&gt;
+&lt;button id="guestButton2"&gt;Register&lt;/button&gt;
+&lt;p id="guestComment2"&gt;&lt;/p&gt;
+&lt;div id="guestOutput2"&gt;&lt;/div&gt;
+&lt;div id="rejectOutput2"&gt;&lt;/div&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./guestlist_ol.js">guestlist_ol.js</a>)</summary>
+<pre>
+const guestList2 = [];
+const rejectList2 = [];
+
+function processGuest2 () {  
+    const guestInput2 = document.getElementById("guestInput2");
+    const comment = document.getElementById("guestComment2");
+    const guestOutput2 = document.getElementById("guestOutput2");
+    const rejectOutput2 = document.getElementById("rejectOutput2");
+
+    let newApplicant = guestInput2.value;
+    newApplicant = newApplicant.trim();
+    newApplicant = newApplicant.toLowerCase();
+    newApplicant = newApplicant[0].toUpperCase() + newApplicant.slice(1);
+
+    guestInput2.value = "";
+    guestInput2.focus();
+    comment.textContent = "";
+
+    if ((newApplicant === "Lola") || (newApplicant === "Phil")) {
+        let addReject = true;
+        comment.textContent = `Sorry, ${newApplicant}, please see Admin to register.`;
+        for (reject of rejectList2) {
+            if (newApplicant === reject) {
+                addReject = false;
+                break;
+            }
+        }
+        if (addReject) {
+            rejectList2[rejectList2.length] = newApplicant;
+
+            if (rejectList2.length === 1) {
+                rejectOutput2.textContent = "Please see Admin:"
+
+                const newOl = document.createElement("ol");
+                newOl.setAttribute("id", "rejectOl");
+                rejectOutput2.appendChild(newOl);
+            }
+
+            const newLi = document.createElement("li");
+            newLi.textContent = rejectList2[rejectList2.length - 1];
+
+            const rejectOl = document.getElementById("rejectOl");
+            rejectOl.appendChild(newLi);
+        }
+
+    } else {
+        let addGuest = true;
+        for (guest of guestList2) {
+            if (newApplicant === guest) {
+                comment.textContent = `Sorry, ${newApplicant}. That name has been registered.`;
+                addGuest = false;
+                break;
+            }
+        }
+        if (addGuest) {
+            guestList2[guestList2.length] = newApplicant;        
+            comment.textContent = `Hello, ${newApplicant}! Your request is approved.`;
+
+            if (guestList2.length === 1) {
+                guestOutput2.textContent = "Registered guests:"
+
+                const newOl = document.createElement("ol");
+                newOl.setAttribute("id", "guestOl");
+                guestOutput2.appendChild(newOl);
+            }
+
+            const newLi = document.createElement("li");
+            newLi.textContent = guestList2[guestList2.length - 1];
+
+            const guestOl = document.getElementById("guestOl");
+            guestOl.appendChild(newLi);
+        }
+    }
+
+
+}
+
+const guestButton2 = document.getElementById("guestButton2");
+guestButton2.addEventListener("click", processGuest2);
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+
+            </article>
+
+            <article id="list-elements">
+                <h2>List elements</h2>
+
+                <dl>
+                    <dt>List elements</dt>
+                    <dd>Task: DOM manipulation: Loops 1: Creating list elements</dd>
+                    <dd>Link: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops#:~:text=Manipulating%20documents%20tutorial.-,Loops%201,-In%20our%20first" target="_blank">MDN: Test your skills: Loops: Loops 1 - Create bulleted list</a></dd>
+
+                    <dt>Exercise page</dt>
+                    <dd>
+                        <div class="figcode">
+                            <a href="./mdn_loops1.html" target="_blank">mdn_loops1.html</a> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;body&gt;
+    &lt;section class="preview"&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes</summary>
+<pre>
+&lt;script&gt;
+    const myArray = ['tomatoes', 'chick peas', 'onions', 'rice', 'black beans'];
+    const list = document.createElement('ul');
+
+    // Add your code here
+
+    for (item of myArray) {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        list.appendChild(listItem);
+    }
+
+    // Don't edit the code below here!
+
+    const section = document.querySelector('section');
+    section.appendChild(list);
+&lt;/script&gt;
+</pre>
+                            </details>
+                        </div>
+
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="template">
+                <h2>template</h2>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>Task: template</dd>
+                    <dd>Link: <a href="template" target="_blank">MDN: Test your skills: Loops: template</a></dd>
+
+                    <dt>Exercise page</dt>
+                    <dd>
+                        <div class="figcode">
+                            <a href="template" target="_blank">template</a> 
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;body&gt;
+    template
+&lt;/body&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes</summary>
+<pre>
+&lt;script&gt;
+    template
+&lt;/script&gt;
+</pre>
+                            </details>
+                        </div>
+
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code" target="_blank">MDN: Looping code</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops" target="_blank">MDN: Test your skills: Loops</a></li>
+                </ul>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="odin">
+                <h2>Odin learning here</h2> 
+                <ul>
+                    <li>Odin page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a></li>
+                    <li>Loops 1. <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code" target="_blank">MDN: Looping code</a></li>
+                    <li>Next:
+                        <ul>
+                            <li>Do loop exercise in: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops" target="_blank">Mdn: Test your skills: Loops</a></li>
+                            <li>Read and create it's own page: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents" target="_blank">DOM manipulation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+        <script src="./search_contact.js"></script>
+        <script src="./square_continue.js"></script>
+        <script src="./square_without_continue.js"></script>
+        <script src="./countdown_for.js"></script>
+        <script src="./countdown_while.js"></script>
+        <script src="./countdown_dowhile.js"></script>
+        <script src="./guestlist_para.js"></script>
+        <script src="./guestlist_ol.js"></script>
+
+    </body>
+</html>
+
