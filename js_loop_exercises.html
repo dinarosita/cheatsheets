@@ -656,6 +656,66 @@ guestButton2.addEventListener("click", processGuest2);
                 <a href="#top"><hr></a>
             </article>
             
+            <article id="prime-list">
+                <h2>Prime List</h2>
+
+                <dl>
+                    <dt>Task: Get input integer grater than 1, list all primes up to that number</dt>
+                    <dd><a href="https://javascript.info/while-for#output-prime-numbers" target="_blank">Javascript.info: While-for: Output prime numbers</a></dd>
+
+                    <dt>Exercise page</dt>
+                    <dd>
+                        <div class="figcode">
+                            <label for="primeListInput">Enter a number: </label>
+                            <input id="primeListInput" type="text">
+                            <button id="primeListButton">List Prime</button>
+                            <p id="primeListOutput"></p>
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;label for="primeListInput"&gt;Enter a number: &lt;/label&gt;
+&lt;input id="primeListInput" type="text"&gt;
+&lt;button id="primeListButton"&gt;List Prime&lt;/button&gt;
+&lt;p id="primeListOutput"&gt;&lt;/p&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes: <a href="./primeList.js">primeList.js</a></summary>
+<pre>
+function listPrime () {
+    const primeListInput = document.getElementById("primeListInput");
+    const max = primeListInput.value;
+
+    const output = document.getElementById("primeListOutput");
+    output.textContent = "";
+
+    primeListInput.value = "";
+    primeListInput.focus();
+
+    // assuming numbered entered is an integer >= 2
+
+    number: for (let n = 2; n &lt;= max; n++) {
+        for (let i = 2; i &lt; n; i++) {
+            if (n % i === 0) continue number;
+        }
+        output.textContent += n + " ";
+    }
+}
+
+const primeListButton = document.getElementById ("primeListButton");
+primeListButton.addEventListener("click", listPrime)
+</pre>
+                            </details>
+                        </div>
+
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="template">
                 <h2>template</h2>
 
@@ -695,7 +755,6 @@ guestButton2.addEventListener("click", processGuest2);
                 <a href="#top"><hr></a>
             </article>
 
-
             <article id="references">
                 <h2>References</h2>
                 <ul>
@@ -718,6 +777,8 @@ guestButton2.addEventListener("click", processGuest2);
         <script src="./countdown_dowhile.js"></script>
         <script src="./guestlist_para.js"></script>
         <script src="./guestlist_ol.js"></script>
+        <script src="./primeList.js"></script>
+
 
     </body>
 </html>

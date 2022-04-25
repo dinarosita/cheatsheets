@@ -231,6 +231,31 @@ do {
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="infinite-loop">
+                <h2>Infinite loop</h2>
+                <h3>Loop that can't stop</h3>
+
+                <dl>
+                    <dt>Infinite loop</dt>
+                    <dd>Examples:</dd>
+                    <dd>
+<pre class="formula">
+while (<span class="variable">true</span>) {<span class="variable">...</span>}
+
+for (<span class="variable">let i = 1</span>; <span class="variable">i &gt; 0</span>; <span class="variable">i++</span>) {<span class="variable">...</span>}
+</pre>
+                    </dd>
+                    <dt>Infinite loop can cause crash</dt>
+                    <dd>Remember to increment or decrement loop in such that it will hit the point condition is not met anymore. Otherwise loop with go forever. This is called an infinite loop. The browser will either force it to stop, or it will crash.</dd>
+
+                    <dt>Infinite loop can be useful:</dt>
+                    <dd>Loop until a <code>break</code> happens or program terminated.</dd>
+                </dl>
+                
+                <a href="#top"><hr></a>
+
+            </article>
+
             <article id="for...of">
                 <h2>for...of</h2>
                 <h3>Special loop for collection</h3>
@@ -309,38 +334,38 @@ for (<span class="variable">let i = 0</span>; <span class="variable">i &lt; coll
                     </dd>
 
                     <dd>
-                        <pre class="js-codebox">
-                        const names = ["Adam", "Ben", "Chris"];
-                        
-                        let students = "Students today are ";
-                        
-                        for (const name of names) {
-                            students += `${name}, `;
-                        }
-                        
-                        students;
-                        // 'Students today are Adam, Ben, Chris, '
-                        </pre>
-                                            </dd>
-                                            <dd>Using standard <code>for</code> loop</dd>
-                                            <dd>
-                        <pre class="js-codebox">
-                        const names = ["Adam", "Ben", "Chris"];
-                        
-                        let students = "Students today are ";
-                        
-                        for (let i = 0; i &lt; names.length; i++) {
-                            if (i &lt; (names.length - 1)) {
-                                students += `${names[i]}, `;
-                            } else if (i === (names.length - 1)){
-                                students += `and ${names[i]}.`;
-                            }   
-                        }
-                        
-                        students;
-                        // 'Students today are Adam, Ben, and Chris.'
-                        </pre>
-                                            </dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let students = "Students today are ";
+
+for (const name of names) {
+    students += `${name}, `;
+}
+
+students;
+// 'Students today are Adam, Ben, Chris, '
+</pre>
+                    </dd>
+                    <dd>Using standard <code>for</code> loop</dd>
+                    <dd>
+<pre class="js-codebox">
+const names = ["Adam", "Ben", "Chris"];
+
+let students = "Students today are ";
+
+for (let i = 0; i &lt; names.length; i++) {
+    if (i &lt; (names.length - 1)) {
+        students += `${names[i]}, `;
+    } else if (i === (names.length - 1)){
+        students += `and ${names[i]}.`;
+    }   
+}
+
+students;
+// 'Students today are Adam, Ben, and Chris.'
+</pre>
+                    </dd>
                 </dl>
                     
                 <a href="#top"><hr></a>
@@ -419,6 +444,125 @@ filtered;       // (2) ['Leopard', 'Lion']
                             <li>In loops: <code>break</code> statement immediately exit the loop and move on to any code after it.</li>
                         </ul>
                     </dd>
+                    
+                    <dd>
+<pre class="js-codebox">
+let pets = ["dog", "cat", "goldfish", "tarantula", "rabbit", "mouse"];
+let search = "tarantula";
+for (pet of pets) {
+    if (search === pet) {
+        alert (`It's a ${pet}!`);
+        break;
+    }
+    alert (`It's not a ${pet}...`);
+}
+</pre>
+<pre class="js-resultbox">
+Result in alert box:
+It's not a dog...
+It's not a cat...
+It's not a goldfish...
+It's a tarantula!
+
+(rabbit and mouse are skipped)
+</pre>
+                    </dd>
+                    <dd>Try:
+                        <div class="figcode">
+                            <p>Pet choice: dog, cat, goldfish, tarantula, rabbit, mouse.</p>
+                            <label for="petInput">Choose a pet:</label>
+                            <input id="petInput" type="text">
+                            <button id="petButton">Go!</button>
+                            <div id="petOutput"></div>
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;p&gt;Pet choice: dog, cat, goldfish, tarantula, rabbit, mouse.&lt;/p&gt;
+&lt;label for="petInput"&gt;Choose a pet:&lt;/label&gt;
+&lt;input id="petInput" type="text"&gt;
+&lt;button id="petButton"&gt;Go!&lt;/button&gt;
+&lt;div id="petOutput"&gt;&lt;/div&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./choose_pet.js">choose_pet.js</a>)</summary>
+<pre>
+function choosePet () {
+    const petInput = document.getElementById("petInput");
+    let search = petInput.value;
+    search = search.trim();
+    search = search.toLowerCase();
+    const petOutput = document.getElementById("petOutput");
+    petOutput.textContent = "";
+
+    let pets = ["dog", "cat", "goldfish", "tarantula", "rabbit", "mouse"];
+    for (pet of pets) {
+        if (search === pet) {
+            const newPara = document.createElement("p");
+            newPara.textContent = `It's a ${pet}!`;
+            petOutput.appendChild(newPara);
+            break;
+        }
+        const newPara = document.createElement("p");
+        newPara.textContent = `It's not a ${pet}...`;
+        petOutput.appendChild(newPara);
+    }
+}
+
+const petButton = document.getElementById("petButton");
+petButton.addEventListener("click", choosePet)
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
+                    <dt>Infinite loop + break combo: break as exit condition</dt>
+                    <dd>Create a simple sum function:
+                        <ul>
+                            <li>Function takes number inputed by user</li>
+                            <li>User inputed number once at a time</li>
+                            <li>Function sums up those numbers</li>
+                            <li><code>while</code> loop</li>
+                            <li>While condition is set to <code>true</code>. Meaning it will run forever unless something else stop it.</li>
+                            <li><code>break</code> statement is used to break out the while loop. It is set to break when no number is entered.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <div class="figcode">
+                            <button id="sumButton">Sum Numbers</button>
+                        </div>
+                        <div class="figcode">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
+&lt;button id="sumButton"&gt;Sum Numbers&lt;/button&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS codes (<a href="./sumNumbers.js">sumNumbers.js</a>)</summary>
+<pre>
+function sumNumbers () {
+    let sum = 0;
+    let statement = "";
+    while (true) {
+        const value = +prompt("Enter a non-zero number:");
+        if (!value) break;
+        sum += value;
+        if (statement) statement += " + ";
+        statement += value;
+    }
+    if (statement) alert (statement + " = " + sum);
+}
+
+const sumButton = document.getElementById("sumButton");
+sumButton.addEventListener("click", sumNumbers);
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
                     <dt>Example: search function</dt>
                     <dd>Usually quits with result upon first match. When there's no match, at the end of the run, ends with "not found" comment.</dd>
                     <dd>Pseudocode:
@@ -498,7 +642,29 @@ searchButton.addEventListener("click", () => {
                 <h3>Jump to the next iteration prematurely</h3>
                 <dl>
                     <dt><code>continue</code></dt>
-                    <dd>Similar to <code>break</code>, but instead of leaving the loop entirely, it skips to the next iteration of the loop.</dd>
+                    <dd>Similar to <code>break</code>, but instead of leaving the loop entirely, it stops the current iteration, skips directly to the next iteration of the loop.</dd>
+                    <dd>In this example, each loop includes an alert saying it's the pet. However when it's not actually the pet, the iteration is truncated using <code>continue</code> directive.
+<pre class="js-codebox">
+let pets = ["dog", "cat", "goldfish", "tarantula", "rabbit", "mouse"];
+let search = "tarantula";
+for (pet of pets) {
+    if (search !== pet) continue;
+    alert (`It's a ${pet}!`);
+}
+
+// It's a tarantula!
+</pre>
+                    </dd>
+                    <dd>Print only odd number. When the number is even, the iteration got truncated by <code>continue</code> directive.
+<pre class="js-codebox">
+let odd = "Odd numbers: "
+for (let i = 0; i &lt; 10; i++) {
+    if (i % 2 === 0) continue;
+    odd += i + " ";
+}
+odd;    // 'Odd numbers: 1 3 5 7 9 '
+</pre>
+                    </dd>
 
                     <dt>Example: Square root number game</dt>
                     <dd>Rule: 
@@ -632,13 +798,56 @@ squareButton2.addEventListener("click", () =&gt; {
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="infinite-loop">
-                <h2>Infinite loop</h2>
-                <h3>Loop that can't stop</h3>
+            <article id="label">
+                <h2>Label for break and continue</h2>
+                <h3>For nested loop</h3>
 
-                <p>Remember to increment or decrement loop in such that it will hit the point condition is not met anymore. Otherwise loop with go forever. This is called an infinite loop. The browser will either force it to stop, or it will crash.</p>
+                <dl>
+                    <dt>Label for <code>break</code></dt>
+                    <dd>A label is an identifier with a colon "<code>:</code>"  before a loop</dd>
+                    <dd><code>break</code> is used to get out of the immediate loop. If the loop is nesting, we can get out to where label is placed.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">labelName</span>: for (<span class="variable">...</span>) {
+    for (<span class="variable">...</span>) {
+        if (<span class="variable">...</span>) break <span class="variable">labelName</span>;
+        <span class="variable">codeblock</span>
+    }
+}
+</pre>
+                    </dd>
+                    <dd>Label can't just be placed anywhere relative to the <code>break</code>. Break has to be nested inside the codeblock labeled by it. The codeblock is usually a loop, even though it could be else.</dd>
+
+                    <dt>Label for <code>continue</code></dt>
+                    <dd>Very similar to break, just for the function of <code>continue</code>. It jumps execution to the next iteration of the labeled loop.</dd>
+                    <dd>In <code>continue</code>, the codeblock bust be a loop because <code>continue</code> is specific to loop.</dd>
+                </dl>
+
                 <a href="#top"><hr></a>
+            </article>
 
+            <article id="ternary">
+                <h2>In ternary?</h2>
+                <h3>Can't use break or continue</h3>
+                <dl>
+                    <dt>Don't use <code>break</code> or <code>continue</code> in ternary.</dt>
+                    <dd>Note: directives such as <code>break</code> and <code>continue</code> can't be used with ternary operator <code>...? ... : ...</code> because they are not expressions.</dd>
+
+                    <dd>
+<pre class="js-codebox">
+if (i &gt; 5) {
+    alert (i);
+} else {
+    continue;
+}
+
+// Can't be written as:
+(i &gt; 5) ? alert (i) : continue;      // syntax error
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
             </article>
 
             <article id="exercises">
@@ -661,21 +870,6 @@ squareButton2.addEventListener("click", () =&gt; {
                 <a href="#top"><hr></a>
             </article>
 
-
-            <article id="odin">
-                <h2>Odin learning here</h2> 
-                <ul>
-                    <li>Odin page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a></li>
-                    <li>Loops 2. <a href="https://javascript.info/while-for" target="_blank">JavaScript.info: Loops: while and for</a></li>
-                    <li>Sides:
-                        <ul>
-                            <li>Do loop exercise in: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops" target="_blank">Mdn: Test your skills: Loops</a></li>
-                            <li>Read: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents" target="_blank">MDN: DOM manipulation</a></li>
-                            <li>Read: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics" target="_blank">MDN: JavaScript object basics</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </article>
         </main>
         <footer>
             <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
@@ -684,6 +878,9 @@ squareButton2.addEventListener("click", () =&gt; {
         <script src="./search_contact.js"></script>
         <script src="./square_continue.js"></script>
         <script src="./square_without_continue.js"></script>
+        <script src="./sumNumbers.js"></script>
+        <script src="./choose_pet.js"></script>
+
 
     </body>
 </html>
