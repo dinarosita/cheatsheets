@@ -285,6 +285,10 @@ table code {
 
 /* JS notes */
 
+.js-notes dt + dt {
+    margin-top: 0;
+}
+
 .js-notes h2 + h3 {
     padding-top: 0;
     margin-top: -1rem;

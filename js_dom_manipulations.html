@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS DOM Manipulations | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: DOM Manipulations</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="dom">
+                <h2>DOM</h2>
+                <h3>Document Object Model</h3>
+
+                <dl>
+                    <dt>DOM - Document Object Model</dt>
+                    <dd>A tree of nodes. A tree-like representation of the content of a webpage. </dd>
+
+                    <dt>selectors</dt>
+                    <dd><code>div</code>, <code>.display</code>, <code>#container</code></dd>
+
+                    <dt>relationship properties</dt>
+                    <dd><code>&gt;</code>, <code>+</code></dd>
+
+                    <dt>relational selectors</dt>
+                    <dd><code>firstElementChild</code>, <code>lastElementChild</code>, <code>previousElementSibling</code></dd>
+                    <dd>eg. <code>container.firstElementChild</code> = first child of #container.</dd>
+
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>         
+
+            <article id="dom-methods">
+                <h2>DOM methods</h2>
+
+                <dl>
+                    <dt>Query Selectors</dt>
+                    <dd>
+                        <pre class="formula">
+<span class="variable">element</span>.querySelector(<span class="variable">selector</span>)
+<span class="variable">element</span>.querySelectorAll(<span class="variable">selector</span>)
+</pre>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>querySelector()</code></dt>
+                            <dd>Return the first match of selector</dd>
+                            <dt><code>querySelectorAll()</code></dt>
+                            <dd>Return a "nodelist" containing references to all matches of selector</dd>   
+                            <dd>
+                                <ul>
+                                    <li>Nodelist looks like an array, it behaves somewhat like an array, but it's a nodelist, not an array.</li>
+                                    <li>The biggest difference is that some array methods are not applicable to a nodelist.</li>
+                                    <li>If you do want to operate an array method that can't be used for a nodelist, you can first change the nodelist into an actual array using <code>Array.from()</code> or the spread operator (<code>...</code>).</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Create Elements</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">document</span>.createElement(<span class="variable">tagName, [options]</span>)
+
+<span class="variable">document</span>.createElement(<span class="variable">"div"</span>)       <span class="comment">// Example</span>
+</pre>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>createElement()</code></dt>
+                            <dd>It creates the element in memory, it doesn't put it in DOM until instructed.</dd>
+                            <dd>Do manipulation to the element suchs as adding id, class, text, styles, etc before placing it to the DOM.</dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Append Elements</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">parentNode</span>.appendChild(<span class="variable">childNode</span>)
+<span class="variable">parentNode</span>.insertBefore(<span class="variable">newNode</span>, <span class="variable">referenceNode</span>)
+</pre>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>appendChild()</code></dt>
+                            <dd>Appends childNode as the last child of parentNode</dd>
+                            <dt><code>insertBefore()</code></dt>
+                            <dd>Insert newNode into parentNode before referenceNode</dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Remove Elements</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">parentNode</span>.removeChild(<span class="variable">child</span>)
+</pre>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>removeChild()</code></dt>
+                            <dd>Removes child from parentNode on the DOM and returns a reference to child.</dd>
+                        </dl>
+                    </dd>
+
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="altering-element">
+                <h2>Altering elements</h2>
+
+                <dl>
+
+                    <dt>Altering Elements</dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">myDiv</span> = <span class="variable">document</span>.createElement(<span class="variable">"div"</span>)
+</pre>
+                    </dd>
+                    <dd>Reference to an element, "myDiv" in example above, allow us to alter element's properties, for example:
+                        <ul>
+                            <li>adding, removing, altering attributes</li>
+                            <li>changing classes</li>
+                            <li>adding inline style information</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Adding inline style</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">myDiv</span>.style.<span class="variable">color</span> = <span class="variable">"blue"</span>;
+<span class="variable">myDiv</span>.style.cssText = <span class="variable">"color: blue; background: white;"</span>;
+<span class="variable">myDiv</span>.setAttribute("style", <span class="variable">"color: blue; background: white;"</span>);
+</pre>
+                    </dd>
+                    <dd>For CSS rule in kebab-case like "background-color", we can't use it as is after a period. It needs to be changed into camelCase, or use bracket notation instead of dot notation. It can be used as is using quotation.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">myDiv</span>.style.<span class="variable">backgroundColor</span> = <span class="variable">"blue"</span>;
+<span class="variable">myDiv</span>.style[<span class="variable">"background-color"</span>] = <span class="variable">"blue"</span>;
+<span class="variable">myDiv</span>.style.cssText = <span class="variable">"background-color: blue;"</span>;
+</pre>
+                    </dd>
+                    <dd>Read more: <a href="http://domenlightenment.com/#6.2" target="_blank">DOM Enlightenment: 6.2 Getting, setting, & removing individual inline CSS properties</a></dd>
+
+                    <dt>Editing attributes</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">myDiv</span>.setAttribute(<span class="variable">id'</span>,<span class="variable">"myDiv"</span>);
+<span class="variable">myDiv</span>.getAttribute(<span class="variable">id'</span>);
+<span class="variable">myDiv</span>.removeAttribute(<span class="variable">id'</span>);
+</pre>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt><code>setAttribute()</code></dt>
+                            <dd>Create or update the specified attribute with the specified value.</dd>
+                            <dt><code>getAttribute()</code></dt>
+                            <dd>Returns value of the specified attribute.</dd>
+                            <dt><code>getAttribute()</code></dt>
+                            <dd>Removes the specified attribute.</dd>
+                        </dl>
+                    </dd>
+                    <dd>Read more: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes" target="_blank">MDN: HTML attribute reference</a></dd>
+
+
+                    <dt>Working with classes</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">myDiv</span>.classList.add(<span class="variable">"className"</span>);
+<span class="variable">myDiv</span>.classList.remove(<span class="variable">"className"</span>);
+<span class="variable">myDiv</span>.classList.toggle(<span class="variable">"className"</span>);
+</pre>
+                    </dd>
+                    <dd>
+                        <dd>
+                            <dl>
+                                <dt><code>classList.add()</code></dt>
+                                <dd>Add a class with the specified name.</dd>
+                                <dt><code>classList.remove()</code></dt>
+                                <dd>Remove a class with the specified name.</dd>
+                                <dt><code>classList.toggle()</code></dt>
+                                <dd>If the element doesn't have class with the specified name yet, add it. If it does, remove it.</dd>
+                                <dd>It's often standard and cleaner to toggle a css style rather than adding and removing inline CSS.</dd>
+                            </dl>
+                        </dd>
+                    </dd>
+
+                    <dt>Adding text content</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">myDiv</span>.textContent = <span class="variable">"Howdi!"</span>;
+
+<span class="comment">// before:  &lt;div id="myDiv"&gt;&lt;/div&gt;
+// after:   &lt;div id="myDiv"&gt;Howdy!&lt;/div&gt;</span>
+</pre>
+                    </dd>
+                    <dd>Creates a "text node" and insert it in the element.</dd>
+
+                    <dt>Adding HTML content</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">myDiv</span>.innerHTML = <span class="variable">"&lt;span&gt;Howdi!&lt;/span&gt;"</span>;
+
+<span class="comment">// before:  &lt;div id="myDiv"&gt;&lt;/div&gt;
+// after:   &lt;div id="myDiv"&gt;&lt;span&gt;Howdi!&lt;/span&gt;!&lt;/div&gt;</span>
+</pre>
+                    </dd>
+                    <dd>Renders HTML inside the element.</dd>
+                    <dd><code>textContent</code> is more preferable than <code>innerHTML</code> for adding text. <code>innerHTML</code> should be used only when needed and with caution because can create security risk if misused. Check out: <a href="https://www.youtube.com/watch?v=ns1LX6mEvyM" target="_blank">Script injection</a>.</dd>
+
+
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="placing-script">
+                <h2>Placing &lt;script&gt; element</h2>
+
+                <dl>
+                    <dt><code>&lt;script&gt;</code></dt>
+                    <dd>
+<pre class="formula">
+&lt;script src="<span class="variable">scriptFileName.js</span>" defer&gt;&lt;/script&gt;
+</pre>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li>Location: Inside the <code>head</code> or <code>body</code>. MDN prefers <code>head</code>.</li>
+                            <li><code>src</code>: the path to the JavaScript</li>
+                            <li><code>defer</code>: instructs the browser to load the JavaSript after the page has finished parsing the HTML.</li>
+                            <li>Closing tag: must be included. Even though it looks like an empty element, it is not.</li>
+                            <li>The script can be kept in external js file and addressed using <code>src</code>, or just written between the bracket.</li>
+                        </ul>
+                    </dd>
+
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="dom-exercise">
+                <h2>DOM Exercise</h2>
+
+                <dl>
+                
+                    <dt>Task</dt>
+                    <dd>Have a div container with id "container".</dd>
+                    <dd>Using script:
+                        <ul>
+                            <li>a &lt;p&gt; with red text that says “Hey I’m red!”
+                            </li>
+                            <li>an &lt;h3&gt; with blue text that says “I’m a blue h3!”</li>
+                            <li>a &lt;div&gt; with a black border and pink background color with the following elements inside of it:
+                                <ul>
+                                    <li>another &lt;h1&gt; that says “I’m in a div”</li>
+                                    <li>a &lt;p&gt; that says “ME TOO!”</li>
+                                    <li>Hint for this one: after creating the &lt;div&gt; with createElement, append the &lt;h1&gt; and &lt;p&gt; to it before adding it to the container.
+                                    </li>    
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Exercise container</dt>
+                    <dd>
+                        <div class="js-resultbox">
+                            <div id="container"></div>
+                            <script defer>
+                                const container = document.querySelector("#container");
+
+                                const para1 = document.createElement("p");
+                                para1.style.color = "red";
+                                para1.textContent = "Hey, I'm red!";
+                                container.appendChild(para1);
+
+                                const header3 = document.createElement("h3");
+                                header3.style.color = "blue";
+                                header3.textContent = "I'm a blue h3!";
+                                container.appendChild(header3);
+
+                                const div1 = document.createElement("div");
+                                div1.style.cssText = "border: solid 1px black; background-color: pink;";
+
+                                const header1 = document.createElement("h1");
+                                header1.textContent = "I'm in a div";
+                                div1.appendChild(header1);
+
+                                const para2 = document.createElement("p");
+                                para2.textContent = "ME TOO!";
+                                div1.appendChild(para2);
+
+                                container.appendChild(div1);
+                            </script>
+                        </div>
+                        
+                    </dd>
+                    <dd>Code:
+<pre class="js-codebox">
+&lt;div id="container"&gt;&lt;/div&gt;
+&lt;script defer&gt;
+    const container = document.querySelector("#container");
+
+    const para1 = document.createElement("p");
+    para1.style.color = "red";
+    para1.textContent = "Hey, I'm red!";
+    container.appendChild(para1);
+
+    const header3 = document.createElement("h3");
+    header3.style.color = "blue";
+    header3.textContent = "I'm a blue h3!";
+    container.appendChild(header3);
+
+    const div1 = document.createElement("div");
+    div1.style.cssText = "border: solid 1px black; background-color: pink;";
+
+    const header1 = document.createElement("h1");
+    header1.textContent = "I'm in a div";
+    div1.appendChild(header1);
+
+    const para2 = document.createElement("p");
+    para2.textContent = "ME TOO!";
+    div1.appendChild(para2);
+
+    container.appendChild(div1);
+&lt;/script&gt;
+</pre>
+                    </dd>
+
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="template">
+                <h2>template</h2>
+                <h3>template</h3>
+
+                <dl>
+                
+                    <dt>template</dt>
+                    <dd>template</dd>
+
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.theodinproject.com/lessons/foundations-dom-manipulation-and-events" target="_blank">Odin: DOM Manipulation and Events</a></li>
+                    <li><a href="http://domenlightenment.com/#6.2" target="_blank">DOM Enlightenment: 6.2 Getting, setting, & removing individual inline CSS properties</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes" target="_blank">MDN: HTML attribute reference</a></li>
+                    <li><a href="" target="_blank"></a></li>
+                </ul>
+                <a href="#top"><hr></a>
+            </article>
+
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+
+    </body>
+</html>
+
