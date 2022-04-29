@@ -494,7 +494,7 @@ const <span class="variable">button3</span> = document.querySelector(<span class
                     <dd>
                         <ul>
                             <li><code>function (e)</code> here is a <a href="https://dev.to/i3uckwheat/understanding-callbacks-2o9e" target="_blank">callback</a> from addEventListener. </li>
-                            <li><code>e</code> here is an object that references the event itself. Within this object we have access to many properties and functions. For examples:
+                            <li><code>e</code> is for "event": <code>e</code> here is an object that references the event itself. Within this object we have access to many properties and functions. For examples:
                                 <ul>
                                     <li>which mouse button or key was pressed</li>
                                     <li>information about the event's target (the DOM node/element that was clicked)</li>
@@ -584,9 +584,9 @@ const <span class="variable">groupName</span> = <span class="variable">divName</
 // JavaScript
 const <span class="variable">group</span> = <span class="variable">container2</span>.querySelectorAll(<span class="variable">"button"</span>);
 <span class="variable">group</span>.forEach(<span class="variable">btn</span>) = &gt; {
-    <span class="variable">btn</span>.addEventListener("click", (<span class="variable">b</span>) =&gt; {
+    <span class="variable">btn</span>.addEventListener("click", (<span class="variable">e</span>) =&gt; {
         <span class="variable">alert(`You pressed ${btn.id}`);
-        b.target.style.background = "pink";</span>
+        e.target.style.background = "pink";</span>
     });
 });
 </pre>
@@ -603,9 +603,9 @@ const <span class="variable">group</span> = <span class="variable">container2</s
 <script>
     const group = container2.querySelectorAll("button");
     group.forEach((btn) => {
-        btn.addEventListener("click", (b) => {
+        btn.addEventListener("click", (e) => {
             alert(`You pressed ${btn.id}`);
-            b.target.style.background = "pink";
+            e.target.style.background = "pink";
         });
     });
 </script>
