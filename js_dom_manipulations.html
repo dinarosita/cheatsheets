@@ -345,6 +345,275 @@ const <span class="variable">myDiv</span> = <span class="variable">document</spa
 
                 </dl>
           
+                <a href="#top"><hr></a
+            </article>
+
+            <article id="events">
+                <h2>Events</h2>
+
+                <dl>
+                    <dt>Event</dt>
+                    <dd>Examples:
+                        <ul>
+                            <li><code>click</code></li>
+                            <li><code>dblclick</code></li>
+                            <li><code>keydown</code></li>
+                            <li><code>keyup</code></li>
+                        </ul>
+                    </dd>
+                    <dd>More events: <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">w3schools: HTML DOM Events</a></dd>
+                    <dt>Handler</dt>
+                    <dd>A function that runs in case of an event.</dd>
+
+                    <dt>3 methods to assign event handlers:</dt>
+                    <dd>
+                        <ul>
+                            <li>HTML attribute</li>
+                            <li>DOM property</li>
+                            <li>Add event listener</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Method 1: Event as an HTML attribute</dt>
+                    <dd><code>HTML</code><br>
+<pre class="formula">
+<span class="comment">&lt;!-- Function call --&gt;</span>
+&lt;button onclick=<span class="variable">"funcName()"</span>&gt;<span class="variable">Click me</span>&lt;/button&gt;
+
+<span class="comment">&lt;!-- Method call --&gt;</span>
+&lt;button onclick=<span class="variable">"alert('Hi')"</span>&gt;<span class="variable">Click me</span>&lt;/button&gt;
+</pre>
+                            </dd>
+                            <dd>Example:</dd>
+                            <dd>
+<pre class="js-codebox">
+&lt;!-- HTML --&gt;
+&lt;button onclick=<span class="variable">"alert('Hello from Button 1')"</span>&gt;<span class="variable">Button 1</span>&lt;/button&gt;
+
+<button onclick="alert('Hello from Button 1')">Button 1</button></pre>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                    <dt>Method 2: Event as a DOM Property</dt>
+                    <dd><code>HTML</code><br>
+<pre class="formula">
+&lt;button id=<span class="variable">"idName"</span>&gt;<span class="variable">Click me</span>&lt;/button&gt;
+</pre>
+                    </dd>
+                    <dd><code>JavaScript</code><br>
+<pre class="formula">
+const <span class="variable">elName</span> = document.querySelector(<span class="variable">"idName"</span>);
+
+<span class="comment">&lt;!-- Function name --&gt;</span>
+<span class="variable">elName</span>.onclick = <span class="variable">funcName</span>;
+
+<span class="comment">&lt;!-- Function described on spot --&gt;</span>
+<span class="variable">elName</span>.onclick = <span class="variable">() => {alert("Hi")}</span>;
+</pre>
+                    </dd>
+                    <dd>Example:</dd>
+                    <dd>
+<pre class="js-codebox">
+&lt;!-- HTML --&gt;
+&lt;button id=<span class="variable">"button2"</span>&gt;<span class="variable">Button 2</span>&lt;/button&gt;
+
+// JavaScript
+const <span class="variable">button2</span> = document.querySelector(<span class="variable">"#button2"</span>);
+<span class="variable">button2</span>.onclick = <span class="variable">() => {alert("Hello from Button 2")}</span>;
+
+<button id="button2">Button 2</button>
+<script>
+    const button2 = document.querySelector("#button2");
+    button2.onclick = () => {alert("Hello from Button 2")};
+</script></pre>
+                    </dd>
+
+                    <dt>Method 3: Using event listener</dt>
+                    <dd>This is a main topic by itself. It's covered in the next section.</dd>
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="event-listener">
+                <h2>Event Listener</h2>
+
+                <dl>
+
+                    <dt><code>addEventListener()</code></dt>
+                    <dd><code>HTML</code><br>
+<pre class="formula">
+&lt;button id=<span class="variable">"idName"</span>&gt;<span class="variable">Click me</span>&lt;/button&gt;
+</pre>
+                    </dd>
+                    <dd><code>JavaScript</code><br>
+<pre class="formula">
+const <span class="variable">elName</span> = document.querySelector(<span class="variable">"idName"</span>);
+
+<span class="comment">&lt;!-- Function name --&gt;</span>
+<span class="variable">elName</span>.addEventListener("click", <span class="variable">funcName</span>);
+<span class="variable">elName</span>.removeEventListener("click", <span class="variable">funcName</span>);
+
+<span class="comment">&lt;!-- Function described on spot --&gt;</span>
+<span class="variable">elName</span>.addEventListener("click", <span class="variable">() => {alert("Hi")}</span>);
+</pre>
+                    </dd>
+                    <dd>Example:
+<pre class="js-codebox">
+&lt;!-- HTML --&gt;
+&lt;button id=<span class="variable">"button3"</span>&gt;<span class="variable">Button 3</span>&lt;/button&gt;
+
+// JavaScript
+const <span class="variable">button3</span> = document.querySelector(<span class="variable">"#button3"</span>);
+<span class="variable">button3</span>.addEventListener("click", <span class="variable">() => {alert("Hello from Button 3");}</span>);
+
+<button id="button3">Button 3</button>
+<script>
+    const button3 = document.querySelector("#button3");
+    button3.addEventListener("click", () => {alert("Hello from Button 3");});
+</script></pre>
+                    </dd>
+                    
+                    <dt><code>removeEventListener()</code></dt>
+                    <dd>
+                        <ul>
+                            <li><code>removeEventListener()</code> can remove functionName that is previously added using <code>addEventListener()</code>.</li>
+                            <li>It only works when function is addressed using a name in the addition. Removal is done by addressing this name.</li>
+                            <li><code>removeEventListener()</code> can't remove function description. Because it's not an entity.</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt>Event listener with function callback that refers itself</dt>
+                    <dd><code>JavaScript</code><br>
+<pre class="formula">
+<span class="variable">elName</span>.addEventListener("click", <span class="variable">function (e) {codeblock}</span>);
+<span class="variable">elName</span>.addEventListener("click", <span class="variable">(e) => {codeblock}</span>);
+</pre>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li><code>function (e)</code> here is a <a href="https://dev.to/i3uckwheat/understanding-callbacks-2o9e" target="_blank">callback</a> from addEventListener. </li>
+                            <li><code>e</code> here is an object that references the event itself. Within this object we have access to many properties and functions. For examples:
+                                <ul>
+                                    <li>which mouse button or key was pressed</li>
+                                    <li>information about the event's target (the DOM node/element that was clicked)</li>
+                                </ul>
+                            </li>
+                            <li>Event's target element <code>elName</code> can be addressed like this: <code>e.target</code></li>
+                        </ul>    
+                    </dd>
+                    <dd>Example:</dd>
+                    <dd>
+<pre class="js-codebox">
+&lt;!-- HTML --&gt;
+&lt;button id=<span class="variable">"button4"</span>&gt;<span class="variable">Button 4</span>&lt;/button&gt;
+
+// JavaScript
+const <span class="variable">button3</span> = document.querySelector(<span class="variable">"#button4"</span>);
+<span class="variable">button4</span>.addEventListener("click", <span class="variable">() => {alert("Hello from Button 4");}</span>);
+<span class="variable">button4</span>.addEventListener("click", <span class="variable">(e) => {alert(`This is an ${e}`);}</span>);
+<span class="variable">button4</span>.addEventListener("click", <span class="variable">function (e) {
+    alert("Your button will turn pink.");
+    e.target.style.background = 'pink';
+    e.target.textContent = "Pink Button";
+}</span>);
+
+// Note that e.target = button4
+
+<button id="button4">Button 4</button>
+<script>
+    const button4 = document.querySelector("#button4");
+    button4.addEventListener("click", () => {alert("Hello from Button 4");});
+    button4.addEventListener("click", (e) => {alert(`This is an ${e}.`);});
+    button4.addEventListener("click", function (e) {
+        alert("Your button will turn pink.");
+        e.target.style.background = 'pink';
+        e.target.textContent = "Pink Button";
+    });
+
+</script></pre>
+                    </dd>
+
+
+                </dl>
+          
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="selector-all">
+                <h2>Selector All</h2>
+                <h3>Using querySelectorAll() to create a group of nodes</h3>
+
+                <dl>
+                
+                    <dt>Group of nodes</dt>
+                    <dd><code>HTML</code><br>
+<pre class="formula">
+&lt;div id=<span class="variable">"divName"</span>&gt;
+    &lt;button id=<span class="variable">"button1"</span>&gt;<span class="variable">Click 1</span>&lt;/button&gt;
+    &lt;button id=<span class="variable">"button2"</span>&gt;<span class="variable">Click 2</span>&lt;/button&gt;
+    &lt;button id=<span class="variable">"button3"</span>&gt;<span class="variable">Click 3</span>&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+                    </dd>
+                    <dd><code>JavaScript</code><br>
+<pre class="formula">
+const <span class="variable">groupName</span> = <span class="variable">divName</span>.querySelectorAll(<span class="variable">"button"</span>);
+
+<span class="variable">groupName</span>.forEach((<span class="variable">member</span>) => {
+    <span class="variable">member</span>.addEventListener("click", (<span class="variable">e</span>) => {
+        <span class="variable">alert(member.id);
+        e.target.style.background = "pink";</span>
+    });
+});
+</pre>
+                    </dd>
+                    <dd>Example:
+<pre class="js-codebox">
+&lt;!-- HTML --&gt;
+&lt;div id=<span class="variable">"container2"</span> style=<span class="variable">"border: 3px solid silver; padding: 1rem;"</span>&gt;
+    &lt;p&gt;<span class="variable">Inside container2</span>&lt;/p&gt;
+    &lt;button id=<span class="variable">"button5"</span>&gt;<span class="variable">Button 5</span>&lt;/button&gt;
+    &lt;button id=<span class="variable">"button6"</span>&gt;<span class="variable">Button 6</span>&lt;/button&gt;
+    &lt;button id=<span class="variable">"button7"</span>&gt;<span class="variable">Button 7</span>&lt;/button&gt;
+&lt;/div&gt;
+&lt;p&gt;<span class="variable">Outside container2</span>&lt;/p&gt;
+&lt;button id=<span class="variable">"button8"</span>&gt;<span class="variable">Button 8</span>&lt;/button&gt;
+
+// JavaScript
+const <span class="variable">group</span> = <span class="variable">container2</span>.querySelectorAll(<span class="variable">"button"</span>);
+<span class="variable">group</span>.forEach(<span class="variable">btn</span>) = &gt; {
+    <span class="variable">btn</span>.addEventListener("click", (<span class="variable">b</span>) =&gt; {
+        <span class="variable">alert(`You pressed ${btn.id}`);
+        b.target.style.background = "pink";</span>
+    });
+});
+</pre>
+<div class="js-resultbox">
+    <div id="container2" style="border: 3px solid silver; padding: 1rem;">
+        <p>Inside container2</p>
+        <button id="button5">Button 5</button>
+        <button id="button6">Button 6</button>
+        <button id="button7">Button 7</button>
+    </div>
+    <p><code>Outside container2</code></p>
+    <button id="button8">Button 8</button>
+</div>
+<script>
+    const group = container2.querySelectorAll("button");
+    group.forEach((btn) => {
+        btn.addEventListener("click", (b) => {
+            alert(`You pressed ${btn.id}`);
+            b.target.style.background = "pink";
+        });
+    });
+</script>
+
+                    </dd>
+
+                </dl>
+          
                 <a href="#top"><hr></a>
             </article>
 
@@ -362,14 +631,14 @@ const <span class="variable">myDiv</span> = <span class="variable">document</spa
                 <a href="#top"><hr></a>
             </article>
 
-
             <article id="references">
                 <h2>References</h2>
                 <ul>
                     <li><a href="https://www.theodinproject.com/lessons/foundations-dom-manipulation-and-events" target="_blank">Odin: DOM Manipulation and Events</a></li>
                     <li><a href="http://domenlightenment.com/#6.2" target="_blank">DOM Enlightenment: 6.2 Getting, setting, & removing individual inline CSS properties</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes" target="_blank">MDN: HTML attribute reference</a></li>
-                    <li><a href="" target="_blank"></a></li>
+                    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">w3schools: HTML DOM Events</a>
+                    <li><a href="https://dev.to/i3uckwheat/understanding-callbacks-2o9e" target="_blank">Dev: Understanding Callbacks</a></li>
                 </ul>
                 <a href="#top"><hr></a>
             </article>

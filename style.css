@@ -285,6 +285,14 @@ table code {
 
 /* JS notes */
 
+.js-notes .js-codebox button {
+    margin: 0.5rem;
+}
+
+.js-notes dd + dt {
+    margin-top: 1.5rem;
+}
+
 .js-notes dt + dt {
     margin-top: 0;
 }
