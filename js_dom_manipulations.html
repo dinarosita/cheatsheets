@@ -500,7 +500,7 @@ const <span class="variable">button3</span> = document.querySelector(<span class
                                     <li>information about the event's target (the DOM node/element that was clicked)</li>
                                 </ul>
                             </li>
-                            <li>Event's target element <code>elName</code> can be addressed like this: <code>e.target</code></li>
+                            <li><code>this</code> = <code>e.target</code> = How to address event's target element <code>elName</code></li>
                         </ul>    
                     </dd>
                     <dd>Example:</dd>
@@ -516,10 +516,10 @@ const <span class="variable">button3</span> = document.querySelector(<span class
 <span class="variable">button4</span>.addEventListener("click", <span class="variable">function (e) {
     alert("Your button will turn pink.");
     e.target.style.background = 'pink';
-    e.target.textContent = "Pink Button";
+    this.textContent = "Pink Button";
 }</span>);
 
-// Note that e.target = button4
+// Note that <span class="variable">this</span> = <span class="variable">e.target</span> = addresing <span class="variable">button4</span>
 
 <button id="button4">Button 4</button>
 <script>
@@ -529,7 +529,7 @@ const <span class="variable">button3</span> = document.querySelector(<span class
     button4.addEventListener("click", function (e) {
         alert("Your button will turn pink.");
         e.target.style.background = 'pink';
-        e.target.textContent = "Pink Button";
+        this.textContent = "Pink Button";
     });
 
 </script></pre>
