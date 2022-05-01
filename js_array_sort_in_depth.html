@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Array.prototype.sort() | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Array.prototype.sort()</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="sort-basic">
+                <h2>Array.prototype.sort() Basic</h2>
+
+                <dl>
+                    <dt><code>sort()</code></dt>
+                    <dd>The <code>sort()</code> method sorts the elements of an array <b>in place</b> and returnes the sorted array.</dd>
+                    <dd>
+                        <div class="formula"><code>
+                        sort(<span class="variable">compareFn</span>)
+                        </code></div>
+                    </dd>
+
+                    <dd>
+                        <ul>
+                            <li><b>Sorting happens in original array</b><br>
+                                It doesn't create a new array. Original array got sorted.
+                            </li>
+                            <li><b>Sort according to compare function</b></li>
+                            
+                            <li><b>Return original sorted array</b><br>
+                                If assigned into a variable, be careful. The variable is only <b>a pointer</b> to the original array, not an actually new array. There's only 1 array by the end. The sorted original array.
+                            </li>
+                            <li><b>Variable assigned is only a pointer</b><br>
+                                Assigned sort result to a new variable? Be careful, the new variable is only a pointer to the original array. No more than that. It's not a checked out state of the array.
+                            </li>
+                        </ul>
+                    </dd>
+                    <dt>Syntax</dt>
+                   
+                    
+                    <dd><b>Parameter:</b> Compare function
+                    </dd>
+                    <dd>
+<pre class="formula">
+<span class="comment">// Functionless (default string sort)</span>
+sort()
+
+<span class="comment">// Compare function</span>
+sort(<span class="variable">compareFn</span>)
+
+<span class="comment">// Inline compare function</span>
+sort(<span class="variable">function compareFn(a, b) {...}</span>)
+
+<span class="comment">// Arrow function</span>
+sort(<span class="variable">(a, b) => {...}</span>)
+</pre>
+                    </dd>
+
+                    <dt>Functionless <code>sort()</code>: "string sort"</dt>
+                    <dd>When compare function omitted: <b>Sort according to UTF-16 code units order</b></dd>
+                    <dd>
+                        <ul>
+                            <li>Elements are converted to strings</li>
+                            <li>Strings are compared in UTF-16 code units order.</li>
+                            <li>In general: 0-9, to A-Z, to a-z.</li>
+                            <li>Element's convertion to string is only for sorting purpose. The actual array elements values remain whatever they were.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Compare function</dt>
+                    <dd>
+<pre class="formula">
+function <span class="variable">compareFn</span>(<span class="variable">a, b</span>) {
+    <span class="variable">...</span>
+    return <span class="variable">number</span>;
+}
+<span class="comment">// Switch elements if return is positive.</span>
+</pre>
+                    </dd>
+
+                    <dd>
+                        <dl>
+                            <dt>Parameters: <code>(a, b)</code></dt>
+                            <dd>
+                                <ul>
+                                    <li><b><code>a</code></b> = first element</li>
+                                    <li><b><code>b</code></b> = second element</li>
+                                </ul>
+                            </dd>
+ 
+                            <dt>Return values:</dt>
+                            <dd>
+                                <ul>
+                                    <li><b><code>&lt; 0</code></b> : sort a before b</li>
+                                    <li><b><code>&gt; 0</code></b> : sort b before a</li>
+                                    <li><b><code>= 0</code></b> : keep original order</li>
+                                </ul>
+                            </dd>      
+                            
+                            <dt>Remember:</dt>
+                            <dd>
+                                <ul>
+                                    <li><b>Switch if positive!</b></li>
+                                    <li>When it's negative or 0, it's already correct.</li>
+                                </ul>
+                            </dd>
+
+                        </dl>
+                    </dd>
+
+                    <dt>Ascending string sort <code>["a", "b", "c", ...]</code></dt>
+                    <dd>
+                        <div class="formula"><code>
+                        <span class="variable">array</span>.sort()
+                        </code></div>
+                    </dd>
+
+                    <dt>Descending string sort <code>["z", "y", "x", ...]</code>.</dt>
+                    <dd>
+                        <div class="formula"><code>
+                            <span class="variable">array</span>.sort().reverse()
+                        </code></div>
+                    </dd>
+
+
+                    <dt>Ascending numeric sort <code>[1, 2, 3, ...]</code></dt>
+                    <dd>
+                        <div class="formula"><code>
+                            <span class="variable">array</span>.sort(<span class="variable">(a, b)</span> => <span class="variable">a - b</span>)
+                        </code></div>
+                    </dd>
+                    <dd>Pseudocodes journey for <code>(a, b)</code>:
+                        <ul>
+                            <li>It needs switching only if b &lt; a</li>
+                            <li>If <code>b &lt; a</code>, switch. 
+                                <ul>
+                                    <li><code>if (b &lt; a) {return 1}</code></li>
+                                    <li><code>else {return -1}</code></li>
+                                </ul>
+                            </li>
+                            <li>In ternary:
+                                <ul>
+                                    <li><code>b &lt; a? 1 : -1</code></li>
+                                </ul>
+                            </li>
+                            <li>At this point, the code is becoming:<br>
+                                <div class="formula-thin"><code>
+                                    <span class="variable">array</span>.sort(<span class="variable">(a, b)</span> => <span class="variable">b &lt; a? 1 : -1</span>)
+                                </code></div>
+                            </li>
+                            <li>But really, we want to say: <b>switch if <code>b &lt; a</code></b>
+                                <ul>
+                                    <li>Switch = return positive.</li>
+                                    <li>How to make a positive value if <code>b &lt; a</code>? By returning <code>a - b</code>!</li>
+                                    <li>Returning <code>a - b</code> means:
+                                        <ul>
+                                            <li>When <code>a &lt; b</code>, no switching needed. Return value is <code>negative</code>, a is placed before b as before.</li>
+                                            <li>When <code>a = b</code>, no switching needed. Return value is <code>0</code>, a and b are put back as is.</li>
+                                            <li>When <code>b &lt; a</code>, then they need to be switched. Return value is <code>positive</code>, then the <code>switching</code> happened.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Therefore, the code:<br>
+                                <div class="formula-thin"><code>
+                                    <span class="variable">array</span>.sort(<span class="variable">(a, b)</span> => <span class="variable">a - b</span>)
+                                </code></div>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Descending numeric sort <code>[9, 8, 7, ...]</code></dt>
+                    <dd>
+                        <div class="formula"><code>
+                            <span class="variable">array</span>.sort(<span class="variable">(a, b)</span> => <span class="variable">b - a</span>)
+                        </code></div>
+                    </dd>
+                    <dd>Pseudocodes journey for <code>(a, b)</code>:
+                        <ul>
+                            <li>Similar, but now: <b>switch if <code>a &lt; b</code></b></li>
+                            <li>Switch is if return is positive.</li>
+                            <li>To make positive from a and b when a is smaller is: <code>b - a</code></li>
+                            <li>Therefore, the code.</li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <dl>
+                    <dd>
+
+
+<pre class="formula">
+
+const <span class="variable">catRhyme</span> = [<span class="variable">"rat", "bat", "mat", "cat", "hat"</span>];
+<span class="variable">catRhyme</span>.sort(<span class="variable"></span>);    <span class="comment">// (5) ['bat', 'cat', 'hat', 'mat', 'rat']</span>
+<span class="variable">catRhyme</span>;           <span class="comment">// (5) ['bat', 'cat', 'hat', 'mat', 'rat']</span>
+</pre>
+<pre class="formula">
+<span class="thin">const <span class="variable">numbers</span> = [<span class="variable">30, 5, 200, 3, 50</span>];
+<span class="variable">numbers</span>.sort();      <span class="comment">// (5) [200, 3, 30, 5, 50]</span></span>
+</pre>                    </dd>
+
+                   
+                    
+
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">MDN: Array.prototype.sort()
+                    </a></li>
+                </ul>
+
+                <p>Odin status: in the page <a href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-4" target="_blank">JS Foundations fundamental part 4</a>. Next reading: <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">Array 2. W3Schools: JS Array Methods</a>.</p>
+
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+
