@@ -109,14 +109,13 @@ function <span class="variable">callbcakFn</span>(<span class="variable">element
                 <h2>Example: simple filtering</h2>
 
                 <dl>
-                    <dt>Filtering out small values</dt>
+                    <dt>Find numbers above 50</dt>
                     <dd>Given: array with numbers 1-100</dd>
                     <dd>
 <pre class="formula-thin">
 const <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>];
 </pre>
                     </dd>
-                    <dd>Filter out small numbers: Only include numbers above 50</dd>
                     <dd>Using callback function</dd>
                     <dd>
 <pre class="formula">
@@ -145,6 +144,79 @@ const <span class="variable">largeNumbers</span> = <span class="variable">number
 // <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>]; (original array not changed)
 </pre>
                     </dd>
+
+                    <dt>Find all prime numbers in an array</dt>
+                    <dd>Given: array with numbers -3 to 13</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">numbers</span> = [<span class="variable">-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13</span>];
+</pre>
+                    </dd>
+                    <dd>Using callback function</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">isPrime</span> (<span class="variable">num</span>) {
+    <span class="comment">for (let i = 2; num > i; i++) {
+        if (num % i == 0) {</span>
+            return <span class="variable">false</span>;
+        <span class="comment">}
+    }</span>
+    return <span class="variable">num > 1</span>;
+}
+const <span class="variable">primeNum</span> = <span class="variable">numbers</span>.filter(<span class="variable">isPrime</span>);
+</pre>
+                    </dd>
+                    <dd>Result:</dd>
+                    <dd>
+<pre class="formula-thin">
+// <span class="variable">primeNum</span> = [<span class="variable">2, 3, 5, 7, 11, 13</span>]
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="example-json">
+                <h2>Example: Filtering invalid entries from JSON</h2>
+                <dl>
+                    <dt>Filtering out and counting invalid entries from JSON</dt>
+                    <dd>Given: array:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">array</span> = [
+<span class="variable">    { id: 15 },
+    { id: -1 },
+    { id: 0 },
+    { id: 3 },
+    { id: 12.2 },
+    { },
+    { id: null },
+    { id: NaN },
+    { id: 'undefined' }  
+</span>];
+</pre>
+                    </dd>
+                    <dd>Using callback function</dd>
+                    <dd>
+<pre class="formula">
+<span class="comment">let invalidEntries = 0;</span>
+function <span class="variable">isValid</span> (<span class="variable">item</span>) {
+    <span class="comment">if (Number.isFinite(item.id) && item.id !== 0) {</span>
+        return <span class="variable">true</span>;
+    <span class="comment">}
+    invalidEntries += 1;</span>
+    return <span class="variable">false</span>;
+}
+const <span class="variable">validArray</span> = <span class="variable">array</span>.filter(<span class="variable">isValid</span>);
+</pre>
+                    </dd>
+                    <dd>Result:</dd>
+                    <dd>
+<pre class="formula-thin">
+// <span class="variable">validArray</span> = [<span class="variable">{ id: 15 }, { id: -1 }, { id: 3 }, { id: 12.2 }</span>]
+// <span class="variable">invalidEntries</span> = <span class="variable">5</span>
+</pre>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -152,7 +224,7 @@ const <span class="variable">largeNumbers</span> = <span class="variable">number
             <article id="references">
                 <h2>References</h2>
                 <ul>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">MDN: Array.prototype.sort()</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">MDN: Array.prototype.filter()</a></li>
                 </ul>
             </article>
         </main>
