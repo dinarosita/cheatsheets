@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>JS Array.prototype.sort() | Codey Luwak</title>
+        <title>JS sort() | Codey Luwak</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
@@ -48,9 +48,7 @@
                         </ul>
                     </dd>
 
-                    <dt>Syntax</dt>                  
-                    <dd><b>Parameter:</b> Compare function
-                    </dd>
+                    <dt>Syntax of <code>sort()</code></dt>                  
                     <dd>
 <pre class="formula">
 <span class="comment">// Functionless (default string sort)</span>
@@ -66,6 +64,19 @@ sort(<span class="variable">function compareFn(a, b) {...}</span>)
 sort(<span class="variable">(a, b) => {...}</span>)
 </pre>
                     </dd>
+                    <dd>
+                        <dl>
+                            <dt>Parameter (1):</dt>
+                            <dd>Compare function (optional)</dd>
+
+                            <dt>Return value:</dt>
+                            <dd>Pointer to the sorted array</dd>
+
+                            <dt>Original array:</dt>
+                            <dd>Sorted</dd>
+                        </dl>
+                    </dd>
+
 
                     <dt>Compare function</dt>
                     <dd>
@@ -80,20 +91,20 @@ function <span class="variable">compareFn</span>(<span class="variable">a, b</sp
 
                     <dd>
                         <dl>
-                            <dt>Parameters: <code>(a, b)</code></dt>
+                            <dt>Parameters (2):</dt>
                             <dd>
                                 <ul>
-                                    <li><b><code>a</code></b> = first element</li>
-                                    <li><b><code>b</code></b> = second element</li>
+                                    <li><code>a</code> : first element to compare</li>
+                                    <li><code>b</code> : second element to compare</li>
                                 </ul>
                             </dd>
  
-                            <dt>Return values:</dt>
+                            <dt>Return values: Number</dt>
                             <dd>
                                 <ul>
-                                    <li><b><code>&lt; 0</code></b> : sort a before b</li>
-                                    <li><b><code>&gt; 0</code></b> : sort b before a</li>
-                                    <li><b><code>= 0</code></b> : keep original order</li>
+                                    <li><code>&lt; 0</code> : sort a before b</li>
+                                    <li><code>&gt; 0</code> : sort b before a</li>
+                                    <li><code>= 0</code> : keep original order</li>
                                 </ul>
                             </dd>      
                             
