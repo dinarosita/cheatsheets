@@ -257,7 +257,7 @@ h3 code, h4 code, h5 code, h6 code {
     padding: var(--bumper-quarter) var(--bumper);
     border: 2px solid moccasin;
     border-radius: var(--bumper-half);
-    margin: 0 0 0 var(--bumper);
+    margin: 0 0 0 var(--bumper-quarter);
     font-weight: normal;
     font-size: 0.9rem;
 }

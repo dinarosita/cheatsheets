@@ -110,38 +110,41 @@ function <span class="variable">callbcakFn</span>(<span class="variable">element
 
                 <dl>
                     <dt>Filtering out small values</dt>
+                    <dd>Given: array with numbers 1-100</dd>
                     <dd>
-                        <ul>
-                            <li>Given: array with numbers 1-100<br>
-                                <div class="formula-thin"><code>
-                                    const <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>];
-                                </code></div>
-                            </li>
-                            <li>Filter out small numbers: Only include numbers above 50</li>
-                            <li>Using callback function<br>
+<pre class="formula-thin">
+const <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>];
+</pre>
+                    </dd>
+                    <dd>Filter out small numbers: Only include numbers above 50</dd>
+                    <dd>Using callback function</dd>
+                    <dd>
 <pre class="formula">
 function <span class="variable">isBig</span> (<span class="variable">value</span>) {
     return <span class="variable">value > 50</span>;
 }
 const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.filter(<span class="variable">isBig</span>);
 </pre>
-                            </li>
-                            <li>Using inline callback function<br>
+                    </dd>
+                    <dd>Using inline callback function</dd>
+                    <dd>
 <pre class="formula">
 const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.filter(function (<span class="variable">value</span>) {return <span class="variable">value > 50</span>});
-</pre>
-                            </li>
-                            <li>Using arrow function<br>
+</pre>                       
+                    </dd>
+                    <dd>Using arrow function</dd>
+                    <dd>
 <pre class="formula">
 const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.filter(<span class="variable">value</span> => <span class="variable">value > 50</span>);
 </pre>
-                            </li>
-                        </ul>
+                    </dd>
                     <dd>All resulting in:</dd>
+                    <dd>
 <pre class="formula-thin">
 // <span class="variable">largeNumbers</span> = [<span class="variable">85, 52, 70</span>]
 // <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>]; (original array not changed)
 </pre>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
