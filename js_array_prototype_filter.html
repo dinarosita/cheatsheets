@@ -36,20 +36,20 @@
                     <dd>
 <pre class="formula">
 <span class="comment">// Callback function</span>
-sort(<span class="variable">callbackFn</span>)
-sort(<span class="variable">callbackFn</span>, <span class="variable">thisArg</span>)
+filter(<span class="variable">callbackFn</span>)
+filter(<span class="variable">callbackFn</span>, <span class="variable">thisArg</span>)
 
 
 <span class="comment">// Inline callback function</span>
-sort(<span class="variable">function (element) {...}</span>)
-sort(<span class="variable">function (element, index) {...}</span>)
-sort(<span class="variable">function (element, index, array) {...}</span>)
-sort(<span class="variable">function (element, index, array) {...}</span>, <span class="variable">thisArg</span>)
+filter(<span class="variable">function (element) {...}</span>)
+filter(<span class="variable">function (element, index) {...}</span>)
+filter(<span class="variable">function (element, index, array) {...}</span>)
+filter(<span class="variable">function (element, index, array) {...}</span>, <span class="variable">thisArg</span>)
 
 <span class="comment">// Arrow function</span>
-sort(<span class="variable">(element) => {...}</span>)
-sort(<span class="variable">(element, index) => {...}</span>)
-sort(<span class="variable">(element, index, array) => {...}</span>)
+filter(<span class="variable">(element) => {...}</span>)
+filter(<span class="variable">(element, index) => {...}</span>)
+filter(<span class="variable">(element, index, array) => {...}</span>)
 </pre>
                     </dd>
                     <dd>
@@ -73,7 +73,7 @@ sort(<span class="variable">(element, index, array) => {...}</span>)
                     <dt>Callback function</dt>
                     <dd>
 <pre class="formula">
-function <span class="variable">callbcakFn</span>(<span class="variable">element, index, array</span>) {
+function <span class="variable">callbackFn</span>(<span class="variable">element, index, array</span>) {
     <span class="variable">...</span>
     return <span class="variable">boolean</span>;
 }
@@ -105,8 +105,8 @@ function <span class="variable">callbcakFn</span>(<span class="variable">element
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="example-simple">
-                <h2>Example: simple filtering</h2>
+            <article id="simple-filter">
+                <h2>Example: Simple filter</h2>
 
                 <dl>
                     <dt>Find numbers above 50</dt>
@@ -176,11 +176,11 @@ const <span class="variable">primeNum</span> = <span class="variable">numbers</s
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="example-json">
-                <h2>Example: Filtering invalid entries from JSON</h2>
+            <article id="filter-json">
+                <h2>Example: Removing invalid entries in JSON</h2>
                 <dl>
                     <dt>Filtering out and counting invalid entries from JSON</dt>
-                    <dd>Given: array:</dd>
+                    <dd>Given: id array</dd>
                     <dd>
 <pre class="formula-thin">
 const <span class="variable">array</span> = [
@@ -218,6 +218,439 @@ const <span class="variable">validArray</span> = <span class="variable">array</s
 </pre>
                     </dd>
                 </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="search filter">
+                <h2>Example: search filter</h2>
+                <dl>
+                    <dt>Filter array based on search criteria (query).</dt>
+                    <dd>Given: fruit array</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">fruits</span> = [<span class="variable">'apple', 'banana', 'grapes', 'mango', 'orange'</span>];
+</pre>
+                    </dd>
+                    <dd>First step, we need to find out whether a fruit name containing the query string.</dd>
+                    <dd>Let's use:
+                        <ul>
+                            <li><code>indexOf()</code>: search string and return index from a searched element, or <code>-1</code> if not found.</li>
+<pre class="formula-thin">
+<span class="variable">fruits</span>.indexOf(<span class="variable">"banana"</span>)  <span class="comment">// 1</span>
+<span class="variable">fruits</span>.indexOf(<span class="variable">"strawberries"</span>)  <span class="comment">// -1</span>
+<span class="variable">fruits[2]</span> <span class="comment">// grapes</span>
+<span class="variable">fruits[2]</span>.indexOf(<span class="variable">"ap"</span>)  <span class="comment">// 2</span>
+<span class="variable">fruits[2]</span>.indexOf(<span class="variable">"es"</span>)  <span class="comment">// 4</span>
+<span class="variable">fruits[2]</span>.indexOf(<span class="variable">"on"</span>)  <span class="comment">// -1</span>
+</pre>
+                        </ul>
+                    </dd>
+                    <dd>We don't care about the found index. What we care is, if it's not found, it will give <code>-1</code> as the return value. We want only fruits that don't return <code>-1</code>.</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">el</span>.indexOf(<span class="variable">query</span>) !== <span class="variable">-1</span>
+</pre>                        
+                    </dd>
+                    <dd>This is the filter condition of the elements. Filter only elements containing the query keyword.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">fruits</span>.filter(<span class="variable">el</span> => <span class="variable">el.indexOf(query) !== -1</span>)
+</pre>
+                    </dd>
+                    <dd>This works well.</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">fruits</span> = [<span class="variable">'apple', 'banana', 'grapes', 'mango', 'orange'</span>];
+const <span class="variable">query</span> = <span class="variable">"ap"</span>;
+
+const <span class="variable">apFruit</span> = <span class="variable">fruits</span>.filter(<span class="variable">el</span> => <span class="variable">el.indexOf(query) !== -1</span>)
+<span class="variable">apFruit</span>; <span class="comment">// (2) ['apple', 'grapes']</span>
+</pre>
+                    </dd>
+                    <dd>Next step is making this a function, that can work universally for any array and any query string.</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">filterItem</span> (<span class="variable">arr, query</span>) {
+    return <span class="variable">arr</span>.filter(<span class="variable">el</span> => <span class="variable">el.indexOf(query) !== -1</span>);
+}
+</pre>
+                    </dd>
+                    <dd>Result:</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">str</span> = <span class="variable">"ap"</span>;
+filterItem(<span class="variable">fruits, str</span>)     <span class="comment">// (2) ['apple', 'grapes']</span>
+filterItem(<span class="variable">fruits, "an"</span>)    <span class="comment">// (3) ['banana', 'mango', 'orange']</span>
+</pre>
+                    </dd>
+                    <dd>Last, if we want to make the search case insensitive, we only need to change both array elements and query to lowercase. Or both to uppercase also works, but I like lowercase better.</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">filterItem</span> (<span class="variable">arr, query</span>) {
+    return <span class="variable">arr</span>.filter(<span class="variable">el</span> => <span class="variable">el.toLowerCase().indexOf(query.toLowerCase()) !== -1</span>);
+}
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">names</span> = [<span class="variable">'Marianne', 'Andrew', 'Kelly', 'Rose', 'DuriaN'</span>];
+filterItem(<span class="variable">names, "an"</span>)     <span class="comment">// (3) ['Marianne', 'Andrew', 'DuriaN']</span>
+filterItem(<span class="variable">names, "R"</span>)      <span class="comment">// (4) ['Marianne', 'Andrew', 'Rose', 'DuriaN']</span>
+</pre>
+                    </dd>
+
+                    <dt>Filter elements start with a particular letter or string.</dt>
+                    <dd>Very similar logic, but the criteria is a match starting characters. If query is limited to 1 character, we can use <code>element[0] === query</code>. However, when we deal with large amount of data, many times we want to include the second letter too, and so on. Index can't handle this. So we will use <code>startsWith(query)</code>.</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">nameStart</span> (<span class="variable">arr, query</span>) {
+    return <span class="variable">arr</span>.filter(<span class="variable">el</span> => <span class="variable">el.toLowerCase().startsWith(query.toLowerCase())</span>);
+}
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">names</span> = [<span class="variable">'Marianne', 'Andrew', 'Kelly', 'Rose', 'DuriaN'</span>];
+nameStart(<span class="variable">names, "mar"</span>)     <span class="comment">// ['Marianne']</span>
+nameStart(<span class="variable">names, "el"</span>)      <span class="comment">// []</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="param-array-index">
+                <h2>Parameter: array and index</h2>
+                <h3>Modifying, appending, and deleting elements of original array while filtering</h3>
+                <dl>
+                    <dt>Parameters <code>array</code> and <code>index</code> of callback function</dt>
+                    <dd>Used to access and modify the original array and elements while filtering.</dd>
+                    <dd>
+<pre class="formula">
+<span class="comment">// Callback function</span>
+filter(<span class="variable">callbackFn</span>)
+function <span class="variable">callbackFn</span>(<span class="variable">element, index, array</span>) {<span class="variable">...</span>}
+
+<span class="comment">// Inline callback function</span>
+filter(<span class="variable">function (element, index, array) {...}</span>)
+
+<span class="comment">// Arrow function</span>
+filter(<span class="variable">(element, index, array) => {...}</span>)
+</pre>
+                    </dd>
+                    <dd>Some examples. These codes can be added to the body of the callback function.
+                        <ul>
+                            <li>Appending new elements: <code>array.push(newEl);</code></li>
+                            <li>Deleting elements: <code>array.pop();</code></li>
+                            <li>Modifying current elements: <code>array[index] += string</code></li>
+                            <li>Modifying next elements: <code>array[index+1] += string</code></li>
+                        </ul>
+                    </dd>
+                    <dd>Important: In using this note, remember to always re-entering the original array. Since we are playing with modification of original array.</dd>
+
+                    <dt>Modifying element while filtering: toLowerCase</dt>
+                    <dd>Given: array of animals</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'VELOCIRAPTOR', 'DODO', 'GREAT AUK', 'OX', 'THYLACINE', 'DOG'</span>];
+</pre>
+                    </dd>
+                    <dd>Task:
+                        <ul>
+                            <li>Filter short name animals (max 6 characters).</li>
+                            <li>Lowercase the content as we go.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterLC</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr[idx] = arr[idx].toLowerCase();</span>
+    return <span class="variable">animal.length &lt;= 6</span>;
+});
+
+<span class="comment">// Also works: arr[idx] = animal.toLowerCase();</span>
+<span class="comment">// Won't work: animal = animal.toLowerCase();</span>
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterLC</span>; <span class="comment">// (3) ['DODO', 'OX', 'DOG']</span>
+<span class="variable">animals</span>;  <span class="comment">// (6) ['velociraptor', 'dodo', 'great auk', 'ox', 'thylacine', 'dog']</span>
+</pre>
+                    </dd>
+                    <dd>Note: For each test to the array's cell, the array's cell value is recorded first to be passed to the new array in the case test returns true. This happen even before the codeblock is run. Modification didn't affect this value.</dd>
+
+                    <dt>Modifying element while filtering: add text</dt>
+                    <dd>Given: array of animals</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'velociraptor', 'dodo', 'great auk', 'ox', 'thylacine', 'dog'</span>];
+</pre>
+                    </dd>
+                    <dd>Task:
+                        <ul>
+                            <li>Filter short name animals (max 6 characters).</li>
+                            <li>Add "My " in the beginning of each element.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterMy</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr[idx] = "My " + animal;</span>
+    return <span class="variable">animal.length &lt;= 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterMy</span>; <span class="comment">// (3) ['dodo', 'ox', 'dog']</span>
+<span class="variable">animals</span>;  <span class="comment">// (6) ['My velociraptor', 'My dodo', 'My great auk', 'My ox', 'My thylacine', 'My dog']
+</pre>
+                    </dd>
+                    <dd>Note: Even though the value spitted out to the new array is taken in the beginning of each cell test, the value itself can be processed and taken account into the filter condition.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterMy2</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr[idx] = "My " + animal;</span>
+    return <span class="variable">arr[idx].length &lt;= 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterMy2</span>; <span class="comment">// (3) ['ox', 'dog']</span>
+<span class="variable">animals</span>;   <span class="comment">// (6) ['My velociraptor', 'My dodo', 'My great auk', 'My ox', 'My thylacine', 'My dog']
+<span class="comment">// 'dodo' is eliminated because 'My dodo' length is over 6.</span>
+</pre>
+                    </dd>                   
+
+                    <dt>Modifying "the next" element while filtering: add text</dt>
+                    <dd>Given: array of animals</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'velociraptor', 'dodo', 'great auk', 'ox', 'thylacine', 'dog'</span>];
+</pre>
+                    </dd>
+                    <dd>Task:
+                        <ul>
+                            <li>Filter short name animals (max 6 characters).</li>
+                            <li>Add "My " in the beginning of "next" element.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterNext</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr[idx+1] = "My " + arr[idx+1];</span>
+    return <span class="variable">animal.length &lt;= 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterNext</span>; <span class="comment">// (2) ['My ox', 'My dog']</span>
+<span class="variable">animals</span>;  <span class="comment">// (7) ['velociraptor', 'My dodo', 'My great auk', 'My ox', 'My thylacine', 'My dog', 'My undefined']
+</pre>
+                    </dd>
+                    <dd>Note: 
+                        <ul>
+                            <li>Remember: Cell initial value is taken and this value is to be included in the new result array in the case test is positive.</li>
+                            <li>So for the first cell, the value will be the original value.</li>
+                            <li>However the value of second cell is changed during the first cell test run. Therefore, by the time the second cell test is started, the cell value has changed. Therefore this new value is what going to be included in the new array in the case test result is true.</li>
+                            <li>Filter function counting the length of array and/or creating the pointer to each cell to later be tested in the beginning of the run. New cells created after that point will not even get tested.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterNext2</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr[idx+1] = "My " + arr[idx+1];</span>
+    return <span class="variable">animal.length &gt; 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterNext2</span>; <span class="comment">// (4) ['velociraptor', 'My dodo', 'My great auk', 'My thylacine']</span>
+<span class="variable">animals</span>;  <span class="comment">// (7) ['velociraptor', 'My dodo', 'My great auk', 'My ox', 'My thylacine', 'My dog', 'My undefined']
+</pre>
+                    </dd>
+                    <dd>See that the newly generated element cell doesn't get tested.</dd>
+
+                    <dt>Appending elements</dt>
+                    <dd>Given: array of animals</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'velociraptor', 'dodo', 'great auk', 'ox', 'thylacine', 'dog'</span>];
+</pre>
+                    </dd>
+                    <dd>Task:
+                        <ul>
+                            <li>Filter short name animals (max 6 characters).</li>
+                            <li>Add new elements as we go</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterAppend</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr.push("new");</span>
+    return <span class="variable">animal.length &lt;= 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterAppend</span>; <span class="comment">// (3) ['dodo', 'ox', 'dog']</span>
+<span class="variable">animals</span>;  <span class="comment">// (12) ['velociraptor', 'dodo', 'great auk', 'ox', 'thylacine', 'dog', 'new', 'new', 'new', 'new', 'new', 'new']</span>
+</pre>
+                    </dd>
+                    <dd>Note: Newly created element cells don't get tested.</dd>
+
+                    <dt>Appending elements in between</dt>
+                    <dd>Given: array of animals</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'velociraptor', 'dodo', 'great auk', 'ox', 'thylacine', 'dog'</span>];
+</pre>
+                    </dd>
+                    <dd>Task:
+                        <ul>
+                            <li>Filter short name animals (max 6 characters).</li>
+                            <li>Add new elements "in next cell" as we go</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterAppend</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr.splice(idx + 1, 0, "new");</span>
+    return <span class="variable">animal.length &lt;= 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterAppend</span>; <span class="comment">// (5) ['new', 'new', 'new', 'new', 'new']</span>
+<span class="variable">animals</span>;      <span class="comment">// (12) ['velociraptor', 'new', 'new', 'new', 'new', 'new', 'new', 'dodo', 'great auk', 'ox', 'thylacine', 'dog']</span>
+</pre>
+                    </dd>
+                    <dd>Note: See the originally existing cells get tested. That it's "new", only in our mind it is new element. What actually happens in array is, the new one is the cell. Contents are merely assigned, reassigned, or deleted.</dd>
+                    <dd>Let's see similar but asking for more than 6 characters</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterAppend</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr.splice(idx + 1, 0, "new");</span>
+    return <span class="variable">animal.length &gt; 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterAppend</span>; <span class="comment">// ['velociraptor']</span>
+<span class="variable">animals</span>;      <span class="comment">// (12) ['velociraptor', 'new', 'new', 'new', 'new', 'new', 'new', 'dodo', 'great auk', 'ox', 'thylacine', 'dog']</span>
+</pre>
+                    </dd>
+
+                    <dt>Removing elements</dt>
+                    <dd>Given: array of animals</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'velociraptor', 'dodo', 'great auk', 'ox', 'thylacine', 'dog'</span>];
+</pre>
+                    </dd>
+                    <dd>Task:
+                        <ul>
+                            <li>Filter short name animals (max 6 characters).</li>
+                            <li>Remove elements as we go</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterRemove</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">arr.pop();</span>
+    return <span class="variable">animal.length &lt;= 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterRemove</span>; <span class="comment">// ['dodo']</span>
+<span class="variable">animals</span>;      <span class="comment">// (3) ['velociraptor', 'dodo', 'great auk']</span>
+</pre>
+                    </dd>
+                    <dd>It never reached ox, let alone dog. Because by the time the test of cell 3 is done, cell 4, 5, and 6 are already gone.</dd>
+
+                    <dt>Deleting next element as filter go</dt>
+                    <dd>Given: array of animals</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'velociraptor', 'dodo', 'great auk', 'ox', 'dog', 'thylacine'</span>];
+</pre>
+                    </dd>
+                    <dd>Task:
+                        <ul>
+                            <li>Filter short name animals (max 6 characters).</li>
+                            <li>Delete next elements as we go. Deletion works differently from popping. Deletion only delete the content, it doesn't remove the cell. When a test reaching an empty cell, it skipped it entirely. Not merely failed, the code is not run at all.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">filterDel</span> = <span class="variable">animals</span>.filter((<span class="variable">animal, idx, arr</span>) => {
+    <span class="variable">delete arr[idx + 1];</span>
+    return <span class="variable">animal.length &lt;= 6</span>;
+});
+</pre>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">filterDel</span>; <span class="comment">// ['dog']</span>
+<span class="variable">animals</span>;      <span class="comment">// (6) ['velociraptor', empty, 'great auk', empty, 'dog', empty]</span>
+</pre>
+                    </dd>
+                    <dd>Cell 2, 4, and 6 is not even run. Evident is, "greak auk" and "dog" didn't get erased. The whole test for those cells are skipped.</dd>
+                    <dd>Remember: value of an empty cell is <code>undefined</code>.</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [<span class="variable">'velociraptor', empty, 'great auk', empty, 'dog', empty</span>];
+
+<span class="variable">animals</span>.filter(<span class="variable">el</span> => <span class="variable">el !== undefined</span>)
+<span class="variable">animals</span>;      <span class="comment">// (3) ['velociraptor', 'great auk', 'dog']</span>
+
+<span class="comment">// Doesn't work: animals.filter(el => el !== empty)</span>
+</pre>
+                    </dd>
+                    
+
+                    <dt>What and when actually happen during filtration</dt>
+                    <dd>
+                        <ol>
+                            <li>When filter method is run, array and the length are noticed. Individual pointer to each cell are taken. Let's call it "test cells"</li>
+                            <li>Testing will be conducted to those test cells, regardless any addition, deletion, and shifting of the array. If the initial length is 6, then cell number 0-5 will be tested. At this point though, only cell address is taken. not the value.</li>
+                            <li>When the test is run to a cell, the initial value of the cell is taken. This is the value that will be pushed to the new result array. Modification can be done however we like to the array, but the initial value of this cell has been checked out and to be used if the test returns true.</li>
+                            <li>When test moved on to the next cell, it records the current element value. It depends on the manipulation in previous test runs. The content might have been modified, a new element might have replaced the initial, or it could have been gone by deletion. If the cell is empty, then the test is just not run to that cell altoghether. Skipped. Not just the test criteria will be failed, but the codeblock is not even entered, any modification within will not be read.</li>
+                            <li>For easy remembering:<br>
+                                <span class="formula">If in the beginning there are <em>n</em> cells of array:<br>
+                                <em>Only to those n number of cells</em>, test going to be conducted.</span></li><br>
+                                <span class="formula">For each cell test run, initial value is "saved" before the code is run.<br>
+                                In the case test is true, this saved initial value is pushed to the new array.<br>
+                                Modification during the test run didn't affect this.<br>
+                                However the modification affects next cells' initial value.</span>
+                        </ol>
+                    </dd>
+                </dl>
+
+
+
+
                 <a href="#top"><hr></a>
             </article>
 
