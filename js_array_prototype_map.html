@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS map() | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Array.prototype.map()</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="filter-basic">
+                <h2>Array.prototype.map() Basic</h2>
+
+                <dl>
+                    <dt><code>map()</code></dt>
+                    <dd>Creates a new array from the original array as a result of each element going through one same callback function.</dd>
+                    <dd>In other word: The new array consists of the callback function result on each of the element.</dd>
+                    <dd>
+                        <div class="formula"><code>
+                        map(<span class="variable">...</span>)
+                        </code></div>
+                    </dd>
+
+                    <dt>Syntax</dt>                  
+                    <dd>
+<pre class="formula">
+<span class="comment">// Callback function</span>
+map(<span class="variable">callbackFn</span>)
+map(<span class="variable">callbackFn</span>, <span class="variable">thisArg</span>)
+
+
+<span class="comment">// Inline callback function</span>
+map(<span class="variable">function (element) {...}</span>)
+map(<span class="variable">function (element, index) {...}</span>)
+map(<span class="variable">function (element, index, array) {...}</span>)
+map(<span class="variable">function (element, index, array) {...}</span>, <span class="variable">thisArg</span>)
+
+<span class="comment">// Arrow function</span>
+map(<span class="variable">(element) => {...}</span>)
+map(<span class="variable">(element, index) => {...}</span>)
+map(<span class="variable">(element, index, array) => {...}</span>)
+</pre>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt>Parameters (2):</dt>
+                            <dd>
+                                <ul>
+                                    <li>Callback function</li>
+                                    <li>thisArg (optional) : Value to use as <code>this</code> when running callback function. <code>undefined</code> is assigned if not provided.</li>
+                                </ul>
+                            </dd>
+
+                            <dt>Return value:</dt>
+                            <dd>New array with each element being the result of the callback function.</dd>
+
+                            <dt>Original array:</dt>
+                            <dd>No change</dd>
+                        </dl>
+                    </dd>    
+
+                    <dt>Callback function</dt>
+                    <dd>
+<pre class="formula">
+function <span class="variable">callbackFn</span>(<span class="variable">element, index, array</span>) {
+    <span class="variable">...</span>
+    return <span class="variable">boolean</span>;
+}
+<span class="comment">// Element is pushed to the new array if return is true.</span>
+</pre>
+                    </dd>
+
+                    <dd>
+                        <dl>
+                            <dt>Parameters (3):</dt>
+                            <dd>
+                                <ul>
+                                    <li><code>element</code> : Current element being process</li>
+                                    <li><code>index</code> (optional): index of current element being process</li>
+                                    <li><code>array</code> (optional): The original array</li>
+                                </ul>
+                            </dd>
+ 
+                            <dt>Return values:</dt>
+                            <dd>
+                                <ul>
+                                    <li>New element value for the new array.</li>
+                                </ul>
+                            </dd>       
+                        </dl>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="simple-filter">
+                <h2>Example: Simple filter</h2>
+
+                <dl>
+                    <dt>Find numbers above 50</dt>
+                    <dd>Given: array with numbers 1-100</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>];
+</pre>
+                    </dd>
+                    <dd>Using callback function</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">isBig</span> (<span class="variable">value</span>) {
+    return <span class="variable">value > 50</span>;
+}
+const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.map(<span class="variable">isBig</span>);
+</pre>
+                    </dd>
+                    <dd>Using inline callback function</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.map(function (<span class="variable">value</span>) {return <span class="variable">value > 50</span>});
+</pre>                       
+                    </dd>
+                    <dd>Using arrow function</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.map(<span class="variable">value</span> => <span class="variable">value > 50</span>);
+</pre>
+                    </dd>
+                    <dd>All resulting in:</dd>
+                    <dd>
+<pre class="formula-thin">
+// <span class="variable">largeNumbers</span> = [<span class="variable">85, 52, 70</span>]
+// <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>]; (original array not changed)
+</pre>
+                    </dd>
+
+                    <dt>Find all prime numbers in an array</dt>
+                    <dd>Given: array with numbers -3 to 13</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">numbers</span> = [<span class="variable">-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13</span>];
+</pre>
+                    </dd>
+                    <dd>Using callback function</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">isPrime</span> (<span class="variable">num</span>) {
+    <span class="comment">for (let i = 2; num > i; i++) {
+        if (num % i == 0) {</span>
+            return <span class="variable">false</span>;
+        <span class="comment">}
+    }</span>
+    return <span class="variable">num > 1</span>;
+}
+const <span class="variable">primeNum</span> = <span class="variable">numbers</span>.map(<span class="variable">isPrime</span>);
+</pre>
+                    </dd>
+                    <dd>Result:</dd>
+                    <dd>
+<pre class="formula-thin">
+// <span class="variable">primeNum</span> = [<span class="variable">2, 3, 5, 7, 11, 13</span>]
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">MDN: Array.prototype.map()</a></li>
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

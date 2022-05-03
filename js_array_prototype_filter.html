@@ -617,18 +617,234 @@ const <span class="variable">filterDel</span> = <span class="variable">animals</
 </pre>
                     </dd>
                     <dd>Cell 2, 4, and 6 is not even run. Evident is, "greak auk" and "dog" didn't get erased. The whole test for those cells are skipped.</dd>
-                    <dd>Remember: value of an empty cell is <code>undefined</code>.</dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="empty-vs-undefined">
+                <h2>Empty vs undefined</h2>  
+                <dl>
+                    <dt><code>empty</code> vs <code>undefined</code></dt>
+                    <dd>Even though value <code>undefined</code> is assigned to an empty cell, they are essentially different and <code>filter()</code> method behave differently to them.</dd>
+
+                    <dd>Examples of <code>empty</code> element: 
+                        <ul>
+                            <li>cell never filled</li>
+                            <li>cell content deleted by <code>delete</code> operator</li>
+                        </ul>
+                    </dd>
+                    <dd>Examples of undefined value:
+                        <ul>
+                            <li>cell value listed as <code>undefined</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>When they are the same:</dt>
                     <dd>
 <pre class="formula-thin">
-const <span class="variable">animals</span> = [<span class="variable">'velociraptor', empty, 'great auk', empty, 'dog', empty</span>];
+array = ["a", undefined, , "b", "c", "d"];
+array;              // (6) ['a', undefined, empty, 'b', 'c', 'd']
 
-<span class="variable">animals</span>.filter(<span class="variable">el</span> => <span class="variable">el !== undefined</span>)
-<span class="variable">animals</span>;      <span class="comment">// (3) ['velociraptor', 'great auk', 'dog']</span>
+delete array[4];    // true
+array;              // (6) ['a', undefined, empty, 'b', empty, 'd']
 
-<span class="comment">// Doesn't work: animals.filter(el => el !== empty)</span>
+array[1];           // undefined
+array[2];           // undefined
+array[4];           // undefined
+
+"Hi " + array[1];       // 'Hi undefined'
+"Hi " + array[2];       // 'Hi undefined'
+"Hi " + array[4];       // 'Hi undefined'
+
+array[1] === array[2];   // true
+array[1] !== array[2];   // false
+
+array[1] === array[4];   // true
+array[1] !== array[4];   // false
 </pre>
                     </dd>
-                    
+
+                    <dt>Filter test function is called for <code>undefined</code>. It skips <code>empty</code>.</dt>
+                    <dd>
+                        <dl>
+                            <dt><code>empty</code></dt>
+                            <dd>Callback function skips <code>empty</code> entirely. The function is not even called. Test is not initiated.</dd>
+        
+                            <dt><code>undefined</code></dt>
+                            <dd>Callback function runs for <code>undefined</code> values. Test is conducted. And of course return value can even be true and element is included in the new result array.</dd>
+                        </dl>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+array;  // (6) ['a', undefined, empty, 'b', empty, 'd']
+let counter = 0;
+const validArray = array.filter(el => {
+    counter ++;
+    return el;
+});
+
+counter;    // 4
+validArray; // (3) ['a', 'b', 'd']
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+array;  // (6) ['a', undefined, empty, 'b', empty, 'd']
+let counter = 0;
+const undefArray = array.filter(el => {
+    counter ++;
+    return el === undefined;
+});
+
+counter;            // 4
+undefArray;         // [undefined]
+undefArray.length;  // 1
+</pre>
+                    </dd>
+                    <dd>Don't get confused with return value formulation and code <code>return undefined</code> instead.</dd>
+                    <dd>
+<pre class="formula-thin">
+array;  // (6) ['a', undefined, empty, 'b', empty, 'd']
+let counter = 0;
+const undefArray2 = array.filter(el => {
+    counter ++;
+    return undefined;
+});
+
+counter;            // 4
+undefArray2;        // []
+undefArray2.length; // 0
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="NaN-null">
+                <h2>NaN and null</h2>  
+                <dl>
+                    <dt><code>NaN</code></dt>
+                    <dd><code>NaN</code> is not assigned as <code>undefined</code> the same way <code>empty</code> does.</dd>
+                    <dd>Value of a <code>NaN</code> is NaN-ish, but not really <code>NaN</code></dd>
+                    <dd>
+<pre class="formula-thin">
+array = [1, 2, NaN, 3, undefined];
+array[2];           // NaN
+array[2] + "cy";    // "NaNcy"
+array[2] === NaN;   // false
+array[2] == NaN;    // false
+array[2] === "NaN"; // false
+array[2] == "NaN";  // false
+</pre>
+                    </dd>
+                    <dd>Filter callback test function will run on it just like in the case of <code>undefined</code></dd>
+                    <dd>But the element can't pass <code>el => el === NaN</code>.</dd>
+                    <dd>
+<pre class="formula-thin">
+array = [1, 2, NaN, 3, undefined];
+let counter = 0;
+const nanArray = array.filter(el => {
+    counter ++;
+    return el === NaN;
+});
+
+counter;            // 5
+nanArray;           // []
+nanArray.length;    // 0
+</pre>
+                    </dd>
+                    <dd>How to catch this <code>NaN</code> then? Using <code>!el</code>. It will return el that is not el</dd>
+                    <dd>
+<pre class="formula-thin">
+array = [1, 2, NaN, 3, undefined];
+let counter = 0;
+const nanArray = array.filter(el => {
+    counter ++;
+    return !el;
+});
+
+counter;            // 5
+nanArray;           // (2) [NaN, undefined]
+nanArray.length;    // 2
+</pre>
+                    </dd>
+                    <dd>Let's be silly. We just want NaN, but don't want undefined.</dd>
+                    <dd>
+<pre class="formula-thin">
+array = [1, 2, NaN, 3, undefined];
+let counter = 0;
+const nanOnlyArray = array.filter(el => {
+    counter ++;
+    return !el && (el !== undefined);
+});
+
+counter;            // 5
+nanArray;           // [NaN]
+nanArray.length;    // 1
+</pre>
+                    </dd>
+                    <dd>Yay!</dd>
+                    <dd>Well, actually <code>typeof</code> a <code>NaN</code> is <code>"number"</code>. It can be filtered together with other numbers</dd>
+                    <dd>
+<pre class="formula-thin">
+array = [1, 2, NaN, 3, undefined, , true, false, true];
+let counter = 0;
+const numArray = array.filter(el => {
+    counter ++;
+    return typeof el === "number";
+});
+
+counter;            // 8
+numArray;           // (4) [1, 2, NaN, 3]
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+array = [1, 2, NaN, 3, undefined, , true, false, true];
+let counter = 0;
+const notNumArray = array.filter(el => {
+    counter ++;
+    return typeof el !== "number";
+});
+
+counter;            // 8
+notNumArray;        // (4) [undefined, true, false, true]
+</pre>
+                    </dd>
+                    <dd>Not going to talk about filtering <code>boolean</code> because they are regular normal valid exist data.</dd>
+
+                    <dt><code>null</code></dt>
+                    <dd>Might as well checking out <code>null</code></dd>
+                    <dd>
+<pre class="formula-thin">
+typeof undefined;   // "undefined"
+typeof empty;       // "undefined"
+typeof NaN;         // "number"
+typeof null;        // "object"
+</pre>
+                    </dd>
+                    <dd>In filter, it can be caught by <code>typeof el === "object"</code></dd>
+                    <dd>
+<pre class="formula-thin">
+array = [1, 2, NaN, 3, null, undefined, , null];
+let counter = 0;
+const nullArray = array.filter(el => {
+    counter ++;
+    return typeof el === "object";
+});
+
+counter;        // 7
+nullArray;      // (2) [null, null]
+</pre>
+                    </dd>
+                    <dd>Of course it will include other objects. But let's learn about these special values some other time.</dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="how-filter-works">
+                <h2>How filter works</h2>                    
 
                     <dt>What and when actually happen during filtration</dt>
                     <dd>
@@ -637,20 +853,25 @@ const <span class="variable">animals</span> = [<span class="variable">'velocirap
                             <li>Testing will be conducted to those test cells, regardless any addition, deletion, and shifting of the array. If the initial length is 6, then cell number 0-5 will be tested. At this point though, only cell address is taken. not the value.</li>
                             <li>When the test is run to a cell, the initial value of the cell is taken. This is the value that will be pushed to the new result array. Modification can be done however we like to the array, but the initial value of this cell has been checked out and to be used if the test returns true.</li>
                             <li>When test moved on to the next cell, it records the current element value. It depends on the manipulation in previous test runs. The content might have been modified, a new element might have replaced the initial, or it could have been gone by deletion. If the cell is empty, then the test is just not run to that cell altoghether. Skipped. Not just the test criteria will be failed, but the codeblock is not even entered, any modification within will not be read.</li>
-                            <li>For easy remembering:<br>
-                                <span class="formula">If in the beginning there are <em>n</em> cells of array:<br>
-                                <em>Only to those n number of cells</em>, test going to be conducted.</span></li><br>
-                                <span class="formula">For each cell test run, initial value is "saved" before the code is run.<br>
-                                In the case test is true, this saved initial value is pushed to the new array.<br>
-                                Modification during the test run didn't affect this.<br>
-                                However the modification affects next cells' initial value.</span>
+                            
                         </ol>
+                    </dd>  
+                    <dd>      
+                        <div class="formula">
+                            <p>If in the beginning there are <em>n</em> cells of array:</p>
+                            <p><em>Only to those n number of cells</em>, test going to be conducted.</li>
+                            <li>For each cell test run, initial value is "saved" before the code is run.</p>
+                        </div>
                     </dd>
+                    <dd>
+                        <div class="formula">
+                            <p>In the case test is true, this saved initial value is pushed to the new array.</p>
+                            <p>Modification during the test run didn't affect this.</p> 
+                            <p>However the modification affects next cells' initial value.</p>
+                        </div>
+                    </dd>            
+                                
                 </dl>
-
-
-
-
                 <a href="#top"><hr></a>
             </article>
 
