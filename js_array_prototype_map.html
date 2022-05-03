@@ -25,8 +25,9 @@
 
                 <dl>
                     <dt><code>map()</code></dt>
-                    <dd>Creates a new array from the original array as a result of each element going through one same callback function.</dd>
+                    <dd>Calls one same provided callback function once for each element in original array and constructs a new array from the results.</dd>
                     <dd>In other word: The new array consists of the callback function result on each of the element.</dd>
+                    <dd>Just think the new array is a map image of the original.</dd>
                     <dd>
                         <div class="formula"><code>
                         map(<span class="variable">...</span>)
@@ -76,9 +77,9 @@ map(<span class="variable">(element, index, array) => {...}</span>)
 <pre class="formula">
 function <span class="variable">callbackFn</span>(<span class="variable">element, index, array</span>) {
     <span class="variable">...</span>
-    return <span class="variable">boolean</span>;
+    return <span class="variable">new element value</span>;
 }
-<span class="comment">// Element is pushed to the new array if return is true.</span>
+<span class="comment">// Element is pushed to the new array. It will occupy the same index.</span>
 </pre>
                     </dd>
 
@@ -98,80 +99,135 @@ function <span class="variable">callbackFn</span>(<span class="variable">element
                                 <ul>
                                     <li>New element value for the new array.</li>
                                 </ul>
-                            </dd>       
+                            </dd> 
+                            
+                            <dt>Map function is not called for missing elements of the array</dt>
+                            <dd>
+                                <ul>
+                                    <li>Indexes that have never been set</li>
+                                    <li>Indexes which have been deleted</li>
+                                </ul>
+                            </dd>
+                            <dt>What about <code>empty</code> cell?</dt>
+                            <dd>It's included in the new array, but map function is not called. I guess, it could have been merely "nothing is put in that cell" and the next element will go to the subsequent index.</dd>
+                            <dd>
+<pre class="formula-thin">
+const array = [1, "a", , undefined, null, NaN, true, false];
+
+const map1 = array.map(el => el);
+const map2 = array.map(el => !el);
+const map3 = array.map(el => "cat");
+
+array;  // (8) [1, 'a', empty, undefined, null, NaN, true, false]
+map1;   // (8) [1, 'a', empty, undefined, null, NaN, true, false]
+map2;   // (8) [false, false, empty, true, true, true, false, true]
+map3;   // (8) ['cat', 'cat', empty, 'cat', 'cat', 'cat', 'cat', 'cat']
+
+let counter = 0;
+const map4 = array.map(el => {counter++; return el});
+counter;    // 7
+map4;       // (8) ['z', 'z', empty, 'z', 'z', 'z', 'z', 'z']
+</pre>
+                            </dd>
+                            <dd>See that <code>empty</code> is included in the result list, but map function is not called. Evidence: empty spot, and counter is only 7.</dd>
+                            <dd>Let's compare with similar operations in filter.</dd>
+                            <dd>
+<pre class="formula-thin">
+const array = [1, "a", , undefined, null, NaN, true, false];
+
+const filter1 = array.filter(el => el);
+const filter2 = array.filter(el => !el);
+const filter3 = array.filter(el => el || !el);
+
+array;  // (8) [1, 'a', empty, undefined, null, NaN, true, false]
+filter1;   // (3) [1, 'a', true]
+filter2;   // (4) [undefined, null, NaN, false]
+filter3;   // (7) [1, 'a', undefined, null, NaN, true, false]
+
+let counter = 0;
+const filter4 = array.filter(el => {counter++; return el || !el});
+counter;    // 7
+filter4;    // (7) [1, 'a', undefined, null, NaN, true, false]
+</pre>
+                        </dd>
+                        <dd>See that the function is not called for empty cell either. Counter is also only 7. Also in the result array, at most we get 7 elements.</dd>
                         </dl>
                     </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="simple-filter">
-                <h2>Example: Simple filter</h2>
+            <article id="template1">
+                <h2>template</h2>
+                <h3>template</h3>
 
                 <dl>
-                    <dt>Find numbers above 50</dt>
-                    <dd>Given: array with numbers 1-100</dd>
+                    <dt>template</dt>
+                    <dd>template</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">template</span>
+<span class="comment">template</span>
+</pre>
+                    </dd>
+                    <dd>template</dd>
                     <dd>
 <pre class="formula-thin">
-const <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>];
+<span class="variable">template</span>
+<span class="comment">template</span>
 </pre>
                     </dd>
-                    <dd>Using callback function</dd>
-                    <dd>
-<pre class="formula">
-function <span class="variable">isBig</span> (<span class="variable">value</span>) {
-    return <span class="variable">value > 50</span>;
-}
-const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.map(<span class="variable">isBig</span>);
-</pre>
-                    </dd>
-                    <dd>Using inline callback function</dd>
-                    <dd>
-<pre class="formula">
-const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.map(function (<span class="variable">value</span>) {return <span class="variable">value > 50</span>});
-</pre>                       
-                    </dd>
-                    <dd>Using arrow function</dd>
-                    <dd>
-<pre class="formula">
-const <span class="variable">largeNumbers</span> = <span class="variable">numbers</span>.map(<span class="variable">value</span> => <span class="variable">value > 50</span>);
-</pre>
-                    </dd>
-                    <dd>All resulting in:</dd>
-                    <dd>
-<pre class="formula-thin">
-// <span class="variable">largeNumbers</span> = [<span class="variable">85, 52, 70</span>]
-// <span class="variable">numbers</span> = [<span class="variable">5, 14, 85, 52, 70, 25</span>]; (original array not changed)
-</pre>
-                    </dd>
+                    <dd>template</dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="template2">
+                <h2>template</h2>
+                <h3>template</h3>
 
-                    <dt>Find all prime numbers in an array</dt>
-                    <dd>Given: array with numbers -3 to 13</dd>
-                    <dd>
-<pre class="formula-thin">
-const <span class="variable">numbers</span> = [<span class="variable">-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13</span>];
-</pre>
-                    </dd>
-                    <dd>Using callback function</dd>
+                <dl>
+                    <dt>template</dt>
+                    <dd>template</dd>
                     <dd>
 <pre class="formula">
-function <span class="variable">isPrime</span> (<span class="variable">num</span>) {
-    <span class="comment">for (let i = 2; num > i; i++) {
-        if (num % i == 0) {</span>
-            return <span class="variable">false</span>;
-        <span class="comment">}
-    }</span>
-    return <span class="variable">num > 1</span>;
-}
-const <span class="variable">primeNum</span> = <span class="variable">numbers</span>.map(<span class="variable">isPrime</span>);
+<span class="variable">template</span>
+<span class="comment">template</span>
 </pre>
                     </dd>
-                    <dd>Result:</dd>
+                    <dd>template</dd>
                     <dd>
 <pre class="formula-thin">
-// <span class="variable">primeNum</span> = [<span class="variable">2, 3, 5, 7, 11, 13</span>]
+<span class="variable">template</span>
+<span class="comment">template</span>
 </pre>
                     </dd>
+                    <dd>template</dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="template3">
+                <h2>template</h2>
+                <h3>template</h3>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>template</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">template</span>
+<span class="comment">template</span>
+</pre>
+                    </dd>
+                    <dd>template</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">template</span>
+<span class="comment">template</span>
+</pre>
+                    </dd>
+                    <dd>template</dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
