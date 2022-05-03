@@ -20,8 +20,8 @@
 
         <main class="js-notes">
 
-            <article id="filter-basic">
-                <h2>Array.prototype.map() Basic</h2>
+            <article id="map-method">
+                <h2>Array.prototype.map()</h2>
 
                 <dl>
                     <dt><code>map()</code></dt>
@@ -68,7 +68,8 @@ map(<span class="variable">(element, index, array) => {...}</span>)
                             <dd>New array with each element being the result of the callback function.</dd>
 
                             <dt>Original array:</dt>
-                            <dd>No change</dd>
+                            <dd>In general: not changed.</dd>
+                            <dd>Unless manipulated during the map-callback function run, through access to the original array using array and index parameters. This is generally avoided, except in some special cases.</dd>
                         </dl>
                     </dd>    
 
@@ -101,14 +102,15 @@ function <span class="variable">callbackFn</span>(<span class="variable">element
                                 </ul>
                             </dd> 
                             
-                            <dt>Map function is not called for missing elements of the array</dt>
+                            <dt>Map function is invoked only for cells with assigned values, including <code>undefined</code>.</dt>
+                            <dd>It is not called for missing elements of the array.</dd>
                             <dd>
                                 <ul>
                                     <li>Indexes that have never been set</li>
                                     <li>Indexes which have been deleted</li>
                                 </ul>
                             </dd>
-                            <dt>What about <code>empty</code> cell?</dt>
+                            <dt><code>empty</code> cell?</dt>
                             <dd>It's included in the new array, but map function is not called. I guess, it could have been merely "nothing is put in that cell" and the next element will go to the subsequent index.</dd>
                             <dd>
 <pre class="formula-thin">
@@ -153,46 +155,228 @@ filter4;    // (7) [1, 'a', undefined, null, NaN, true, false]
                         <dd>See that the function is not called for empty cell either. Counter is also only 7. Also in the result array, at most we get 7 elements.</dd>
                         </dl>
                     </dd>
+                    <dt>When to not use <code>map()</code>?</dt>
+                    <dd>When we are not going to use the new array</li>
+                    <dd>Example of good use:
+                        <ul>
+                            <li>When the new array is needed as an input for other function/request with certain value/format.</li>
+                            <li>When array is to be sent out to a third party and they don't need / should not see the complete information.</li>
+                        </ul>
+                    </dd>
+                    <dt>What actually happen when <code>map()</code> is called</dt>
+                    <dd>
+                        <ul>
+                            <li>Very similar to <code>filter()</code> except it creates new array of new values according to callback function.</li>
+                            <li>When <code>map</code> is called, it sees the cells that are there. Only to those cells, the callback function will be called.
+                                <ul>
+                                    <li>New future cells created during the callback function run will be ignored</li>
+                                    <li>If content is shifted or changed, then whatever new value populate the cell will be used.</li>
+                                </ul>
+                            </li>
+                            <li>It doesn't call the callback function when the cell is empty or not existing. But even when the callback function is not called, the cell with the same index is already assigned in the new array. They will be left empty as well.
+                                <ul>
+                                    <li>Cells that are empty because the value is never assigned. This cells marked as <code>empty</code> in the array.
+                                        <ul>
+                                            <li>Remember, <code>undefined</code> is an assigned value.</li>
+                                            <li>As well as <code>null</code> and <code>NaN</code>. Well, <code>NaN</code>'s type is actually <code>number</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>Cells that are empty upon deletion (like with <code>delete</code> operator).</li>
+                                    <li>Cells that are removed after <code>map()</code> is called, for example by <code>pop()</code> method from callback function.</li>
+                                </ul><br>
+                                So these <code>empty</code> cells are mapped <code>empty</code> too in the new array.
+                            </li>
+                            <li>For each cell, callback function is called. Current cell value of the original array is used. This could be different from original array value when <code>map()</code> is initiated, if previous cell run changed the value of the consequent one.Callback function results in a value. This value is added to the new array cell with the same index.</li>
+                            <li>New array has the same length as the original array. Each cell value is transformed from the original cell value of the same index. Empty stays empty.</li>
+                            <li>In the end, we have 2 array. Original and map result.</li>
+                        </ul>
+                    </dd>
+
+
                 </dl>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="template1">
-                <h2>template</h2>
-                <h3>template</h3>
+            <article id="simpel-map">
+                <h2>Example: Simple map</h2>
 
                 <dl>
-                    <dt>template</dt>
-                    <dd>template</dd>
-                    <dd>
-<pre class="formula">
-<span class="variable">template</span>
-<span class="comment">template</span>
-</pre>
-                    </dd>
-                    <dd>template</dd>
+                    <dt>Map numbers to their square roots</dt>
+                    <dd>Given: array of numbers</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">template</span>
-<span class="comment">template</span>
+const <span class="variable">numberArray</span> = [<span class="variable">1, 2, 3, 4, 5</span>];
 </pre>
                     </dd>
-                    <dd>template</dd>
+                    <dd>Map to the square root</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">rootArray</span> = <span class="variable">numberArray</span>.map(<span class="variable">num</span> => <span class="variable">Math.sqrt(num)</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">numberArray</span>;    <span class="comment">// (5) [1, 2, 3, 4, 5]</span>
+<span class="variable">rootArray</span>;      <span class="comment">// (5) [1, 1.4142135623730951, 1.7320508075688772, 2, 2.23606797749979]</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="reformat-array">
+                <h2>Example: Reformat array</h2>
+
+                <dl>
+                    <dt>Common map use is to create array with a certain format. In this example, remove the property names.</dt>
+                    <dd>Given: an object array</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">keyData</span> = [<span class="variable">
+    { key: 1, value: 10 },
+    { key: 2, value: 20 },
+    { key: 3, value: 30 }
+</span>];
+</pre>
+                    </dd>
+                    <dd>Map to plain object array without property names</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">keyReady</span> = <span class="variable">keyData</span>.map(<span class="variable">({ key, value })</span> => <span class="variable">({ [key]: value })</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">keyReady</span>;
+<span class="comment">/* [{ 1: 10 },
+    { 2: 20 },
+    { 3: 30 }]; */</span>
+
+<span class="comment">// keyData remains unchanged</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="map-call">
+                <h2>map.call()</h2>
+                <h3>Using map generically</h3>
+
+                <dl>
+                    <dt><code>Function.prototype.call()</code></dt>
+                    <dd><code>call()</code> method allows a function or method belonging to one object to be assigned and called for a different object.</dd>
+                    <dd>It provides a new value <code>this</code> to the function/method.</dd>
+                    <dd>With <code>call()</code>, we can write a method once, then inherit it in another object without having to rewrite the method for the new object.</dd>
+                    <dd>It's similar to <code>apply()</code> method, with fundamental difference:
+                        <ul>
+                            <li><code>apply()</code> accepts a single array of arguments.</li>
+                            <li><code>call()</code> accepts an argument list.</li>
+                        </ul>
+                    </dd>
+                    <dd>Syntax</dd>                  
+                    <dd>
+<pre class="formula">
+call()
+call(<span class="variable">thisArg</span>)
+call(<span class="variable">thisArg</span>, <span class="variable">arg1</span>)
+call(<span class="variable">thisArg</span>, <span class="variable">arg1, arg2</span>)
+call(<span class="variable">thisArg</span>, <span class="variable">arg1, ..., argN</span>)
+</pre>
+                    </dd>
+                    <dd>Parameters
+                        <ul>
+                            <li><code>thisArg</code> (optional): The value to use as <code>this</code> when calling function. Check reference for further explanation.</li>
+                            <li><code>arg1, arg2, ..., argN</code> (optional): Arguments for the function</li>
+                        </ul>
+                    </dd>
+                    <dd>Return value:
+                        <ul>
+                            <li>The result of calling the function with the specified <code>this</code> value and arguments.</li>
+                        </ul>
+                    </dd>
+                   
+                    <dt><code>map.call()</code>: Using map generically</dt>
+                    <dd>Task: map a text string into array of the charcode</dd>
+                    <dd>Given: a string</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">text</span> = <span class="variable">"Hello Kitty"</span>;
+</pre>
+                    </dd>
+                    <dd>Make a constant form of <code>Array.prototype.map</code>
+                        <ul>
+                            <li>Don't get confused with the <code>map</code> as the constant name here.</li>
+                            <li>The constant can be named anything really, doesn't have to be map. "mappo", "dodo", "donkey", or "whatever" even.</li>
+                            <li>It's just neater, and convey the role nicely, naming it <code>map</code>. Maybe a convention too.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">map</span> = <span class="variable">Array.prototype.map</span>;
+</pre>
+                    </dd>
+                    <dd>Calling const <code>map</code> with <code>call()</code> method</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">charCodes</span> = map.call(<span class="variable">text, (c)</span> => <span class="variable">c.charCodeAt(0)</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">template</span>;    <span class="comment">// template</span>
+<span class="variable">template</span>;      <span class="comment">// template</span>
+</pre>
+                    </dd>
+                    
                 </dl>
                 <a href="#top"><hr></a>
             </article>
             
+            <article id="template">
+                <h2>template</h2>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>Given: array</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">template</span> = [<span class="variable">template</span>];
+</pre>
+                    </dd>
+                    <dd>Map</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">template</span> = <span class="variable">template</span>.map(<span class="variable">template</span> => <span class="variable">template</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">template</span>;    <span class="comment">// template</span>
+<span class="variable">template</span>;      <span class="comment">// template</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="template2">
                 <h2>template</h2>
                 <h3>template</h3>
 
                 <dl>
                     <dt>template</dt>
-                    <dd>template</dd>
+                    <dd>Given: array</dd>
                     <dd>
-<pre class="formula">
-<span class="variable">template</span>
-<span class="comment">template</span>
+<pre class="formula-thin">
+const <span class="variable">numbers</span> = [<span class="variable"></span>];
 </pre>
                     </dd>
                     <dd>template</dd>
@@ -207,35 +391,14 @@ filter4;    // (7) [1, 'a', undefined, null, NaN, true, false]
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="template3">
-                <h2>template</h2>
-                <h3>template</h3>
-
-                <dl>
-                    <dt>template</dt>
-                    <dd>template</dd>
-                    <dd>
-<pre class="formula">
-<span class="variable">template</span>
-<span class="comment">template</span>
-</pre>
-                    </dd>
-                    <dd>template</dd>
-                    <dd>
-<pre class="formula-thin">
-<span class="variable">template</span>
-<span class="comment">template</span>
-</pre>
-                    </dd>
-                    <dd>template</dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
+           
 
             <article id="references">
                 <h2>References</h2>
                 <ul>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">MDN: Array.prototype.map()</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank">MDN: Function.prototype.call()</a></li>
+
                 </ul>
             </article>
         </main>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS call() | Codey Luwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Function.prototype.call()</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+
+            <article id="call-method">
+                <h2>Function.prototype.call()</h2>
+
+                <dl>
+                    <dt><code>call()</code></dt>
+                    <dd><code>call()</code> method allows a function or method belonging to one object to be assigned and called for a different object.</dd>
+                    <dd>It provides a new value <code>this</code> to the function/method.</dd>
+                    <dd>With <code>call()</code>, we can write a method once, then inherit it in another object without having to rewrite the method for the new object.</dd>
+                    <dd>It's similar to <code>apply()</code> method, with fundamental difference:
+                        <ul>
+                            <li><code>apply()</code> accepts a single array of arguments.</li>
+                            <li><code>call()</code> accepts an argument list.</li>
+                        </ul>
+                    </dd>
+                    <dd>Syntax</dd>                  
+                    <dd>
+<pre class="formula">
+call()
+call(<span class="variable">thisArg</span>)
+call(<span class="variable">thisArg</span>, <span class="variable">arg1</span>)
+call(<span class="variable">thisArg</span>, <span class="variable">arg1, arg2</span>)
+call(<span class="variable">thisArg</span>, <span class="variable">arg1, ..., argN</span>)
+</pre>
+                    </dd>
+                    <dd>Parameters
+                        <ul>
+                            <li><code>thisArg</code> (optional): The value to use as <code>this</code> when calling function. Check reference for further explanation.</li>
+                            <li><code>arg1, arg2, ..., argN</code> (optional): Arguments for the function</li>
+                        </ul>
+                    </dd>
+                    <dd>Return value:
+                        <ul>
+                            <li>The result of calling the function with the specified <code>this</code> value and arguments.</li>
+                        </ul>
+                    </dd>
+                   
+                    <dt><code>map.call()</code>: Using map generically</dt>
+                    <dd>Task: map a text string into array of the charcode</dd>
+                    <dd>Given: a string</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">text</span> = <span class="variable">"Hello Kitty"</span>;
+</pre>
+                    </dd>
+                    <dd>Make a constant form of <code>Array.prototype.map</code>
+                        <ul>
+                            <li>Don't get confused with the <code>map</code> as the constant name here.</li>
+                            <li>The constant can be named anything really, doesn't have to be map. "mappo", "dodo", "donkey", or "whatever" even.</li>
+                            <li>It's just neater, and convey the role nicely, naming it <code>map</code>. Maybe a convention too.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">map</span> = <span class="variable">Array.prototype.map</span>;
+</pre>
+                    </dd>
+                    <dd>Calling const <code>map</code> with <code>call()</code> method</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">charCodes</span> = map.call(<span class="variable">text, (c)</span> => <span class="variable">c.charCodeAt(0)</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">template</span>;    <span class="comment">// template</span>
+<span class="variable">template</span>;      <span class="comment">// template</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="template">
+                <h2>template</h2>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>Given: array</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">template</span> = [<span class="variable">template</span>];
+</pre>
+                    </dd>
+                    <dd>Map</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">template</span> = <span class="variable">template</span>.map(<span class="variable">template</span> => <span class="variable">template</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">template</span>;    <span class="comment">// template</span>
+<span class="variable">template</span>;      <span class="comment">// template</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="template2">
+                <h2>template</h2>
+                <h3>template</h3>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>Given: array</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">numbers</span> = [<span class="variable"></span>];
+</pre>
+                    </dd>
+                    <dd>template</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">template</span>
+<span class="comment">template</span>
+</pre>
+                    </dd>
+                    <dd>template</dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+           
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">MDN: Array.prototype.map()</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank">MDN: Function.prototype.call()</a></li>
+
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

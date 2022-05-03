@@ -20,8 +20,8 @@
 
         <main class="js-notes">
 
-            <article id="filter-basic">
-                <h2>Array.prototype.filter() Basic</h2>
+            <article id="filter method">
+                <h2>Array.prototype.filter()</h2>
 
                 <dl>
                     <dt><code>filter()</code></dt>
@@ -66,7 +66,8 @@ filter(<span class="variable">(element, index, array) => {...}</span>)
                             <dd>New array with elements that pass the test. If no elements pass the test, an empty array is returned.</dd>
 
                             <dt>Original array:</dt>
-                            <dd>No change</dd>
+                            <dd>In general: not changed.</dd>
+                            <dd>Unless manipulated during the map-callback function run, through access to the original array using array and index parameters. This is generally avoided, except in some special cases.</dd>
                         </dl>
                     </dd>    
 
