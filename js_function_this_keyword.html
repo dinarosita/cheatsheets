@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>this | JS CodeyLuwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Function "this" keyword</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">                  
+            <article id="this">
+                <h2>This</h2>
+                <dl>
+                    <dt><code>this</code></dt>
+                    <dd><code>this</code> keyword <b>refers</b> to an <b>object</b>.</dd>
+                    <dd><b>Which object?</b> Depends on how <code>this</code> is being invoked/used/called.
+                        <ul>
+                            <li>In an object method: <code>this</code> refers to the <b>object</b>.</li>
+                            <li>Alone: <code>this</code> refers to the <b>global object</b>.</li>
+                            <li>In a function: <code>this</code> refers to the <b>global object</b>.</li>
+                            <li>In a function in strict mode: <code>this</code> is <code>undefined</code>.</li>
+                            <li>inan event: <code>this</code> refers to the <b>element</b> that received the event.</li>
+                            <li>Methods like <code>call()</code>, <code>apply()</code>, and <code>bind()</code> can refer <code>this</code> to <b>any object</b>.</li>
+                        </ul>
+                    </dd>
+                    <dd><code>this</code> is not a variable, it is a keyword. The value can't be changed.</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">template</span> = [<span class="variable">template</span>];
+</pre>
+                    </dd>                                        
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="method-this">
+                <h2>"this" in a method</h2>
+
+                <dl>
+                    <dt>In an object method:</dt>
+                    <dd><code>this</code> refers to the <b>object</b>.</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">person</span> = {
+    <span class="variable">firstName</span>   : <span class="variable">"John"</span>,
+    <span class="variable">lastName</span>    : <span class="variable">"Doe"</span>,
+    <span class="variable">id</span>          : <span class="variable">1234</span>,
+    <span class="variable">fullName</span>    : function() {return <b>this</b>.<span class="variable">firstName + " " + </span><b>this</b>.<span class="variable">lastName</span>;}
+};
+</pre>
+                    </dd>
+                    <dd>In here: 
+                        <ul>
+                            <li><span class="variable">person</span> is an <b>object</b>.</li>
+                            <li><span class="variable">fullName</span> is a method of the <span class="variable">person</span> <b>object</b>.</li>
+                            <li><code>this</code> refers to the <span class="variable">person</span> <b>object</b>.</li>
+                        </ul>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">person</span>;    <span class="comment">// {firstName: 'John', lastName: 'Doe', id: 5566, fullName: ƒ}</span>
+<span class="variable">person.fullName()</span>;      <span class="comment">// 'John Doe'</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="alone-this">
+                <h2>"this" alone</h2>
+
+                <dl>
+                    <dt>Alone:</dt>
+                    <dd><code>this</code> refers to the <b>global object</b>.</dd>
+                    <dd>
+                        <ul>
+                            <li>Alone is when <code>this</code> is in global scope.</li>
+                            <li>The global object of browser window is <code>[object Window]</code></li>
+                            <li>This is the same for strict and non-strict mode.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">x</span> = <b>this</b>;
+<span class="variable">x</span>;      <span class="comment">// Window</span>
+</pre>
+                    </dd>
+                    <dd>Strict mode</dd>
+                    <dd>
+<pre class="formula-thin">
+<b>"use strict"</b>
+let <span class="variable">x</span> = <b>this</b>;
+<span class="variable">x</span>;      <span class="comment">// Window</span>
+</pre>
+                    </dd>                   
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            <article id="function-this">
+                <h2>"this" in a function</h2>
+
+                <dl>
+                    <dt>In a function: </dt>
+                    <dd>
+                        <ul>
+                            <li><b>Default</b> binding for <code>this</code> is to the <b>global object</b>
+                                <ul>
+                                    <li>The global object of browser window is <code>[object Window]</code></li>
+                                </ul>
+                            </li>
+                            <li><b>Strict mode</b> doesn't allow default binding: <code>this</code> is <code>undefined</code>.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">defaultF</span> () { return <b>this</b>; }
+<span class="variable">defaultF()</span>;   <span class="comment">// Window</span>
+</pre>
+                    </dd>
+                    <dd>Strict mode</dd>
+                    <dd>
+<pre class="formula-thin">
+<b>"use strict"</b>
+function <span class="variable">strictF</span> () { return <b>this</b>; }
+<span class="variable">strictF()</span>;    <span class="comment">// undefined</span>
+</pre>
+                    </dd>                   
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="event-handler-this">
+                <h2>"this" in HTML event handlers</h2>
+
+                <dl>
+                    <dt>In HTML event handlers: </dt>
+                    <dd><code>this</code> refers to the <b>HTML element</b> that received the event.</dd>
+                    <dd>
+                        <button onclick="this.style.backgroundColor='pink'">
+                            Pink me up!
+                        </button>
+                    </dd>
+                    <dd>Code</dd>
+                    <dd>
+<pre class="formula-thin">
+&lt;button onclick="<b>this</b>.style.backgroundColor='pink'"&gt;
+    Pink me up!
+&lt;/button&gt;
+</pre>
+                    </dd>    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="object-method-binding">
+                <h2>Object method binding</h2>
+
+                <dl>
+                    <dt>Object method binding</dt>                    <dd>Back to the example above: <code>this</code> is the <b>person object</b>.</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">person</span> = {
+    <span class="variable">firstName</span>   : <span class="variable">"John"</span>,
+    <span class="variable">lastName</span>    : <span class="variable">"Doe"</span>,
+    <span class="variable">id</span>          : <span class="variable">1234</span>,
+    <span class="variable">whatIsThis</span>  : function() {return <b>this</b>;},
+    <span class="variable">fullName</span>    : function() {return <b>this</b>.<span class="variable">firstName + " " + </span><b>this</b>.<span class="variable">lastName</span>;}
+};
+</pre>
+                    </dd>
+                    <dd><b>this</b>.<span class="variable">firstName</span> is the <span class="variable">firstName</span> property of <b>this</b> (the person object).</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">person</span>;               <span class="comment">// {firstName: 'John', lastName: 'Doe', id: 1234, whatIsThis: ƒ, fullName: ƒ}</span>
+<span class="variable">person.whatIsThis()</span>;  <span class="comment">// {firstName: 'John', lastName: 'Doe', id: 1234, whatIsThis: ƒ, fullName: ƒ}</span>
+<span class="variable">person.fullName()</span>;    <span class="comment">// 'John Doe'</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="explicit-function-binding">
+                <h2>Explicit function binding</h2>
+
+                <dl>
+                    <dt>Explicit function binding</dt>
+                    <dd>
+                        <ul>
+                            <li><code>call()</code></li>
+                            <li><code>apply()</code></li>
+                            <li>Both call and apply methods can be used to call an object method with another object as argument.</li>
+                            <li>Check as well <code>bind()</code></li>
+                        </ul>
+                    </dd>   
+
+                    <dt><code>call()</code></dt>
+                    <dd>
+<pre class="formula">
+call(<span class="variable">newThisObject</span>)
+</pre>
+                    <dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">person1</span> = {
+    <span class="variable">fullName</span>: function() {
+        return <b>this</b>.<span class="variable">firstName + " " +</span> <b>this</b>.<span class="variable">lastName</span>;
+    }
+}
+
+const <span class="variable">person2</span> = {
+    <span class="variable">firstName</span>: <span class="variable">"John"</span>,
+    <span class="variable">lastName</span>: <span class="variable">"Doe"</span>,
+}
+</pre>
+                    </dd>            
+                    <dd>In previous example when the data and and the function are in the same person object, we use: <code>person.fullName()</code> to get the full name.</dd>
+                    <dd>But here since they are located in different object, the function has to be redirected. This can be done using: <code>call(<span class="variable">newThisObject</span>)</code>.</dd>
+                    <dd>
+
+<pre class="formula-thin">
+// <span class="variable">person1.fullName</span><b>()</b>
+//                  <b>.call(</b><span class="variable">person2</span><b>)</b>
+
+<span class="variable">person1.fullName</span><b>.call(</b><span class="variable">person2</span><b>);</b>     <span class="comment">// "John Doe"</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="template">
+                <h2>template</h2>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>Given: array</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">template</span> = [<span class="variable">template</span>];
+</pre>
+                    </dd>
+                    <dd>Map</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">template</span> = <span class="variable">template</span>.map(<span class="variable">template</span> => <span class="variable">template</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">template</span>;    <span class="comment">// template</span>
+<span class="variable">template</span>;      <span class="comment">// template</span>
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.w3schools.com/js/js_this.asp" target="_blank">w3schools: JS this</a></li>
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+
