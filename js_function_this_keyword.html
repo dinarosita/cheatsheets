@@ -347,29 +347,18 @@ let <span class="variable">fullName2</span> = <span class="variable">person1.ful
             </article>
             
             
-            <article id="template">
-                <h2>template</h2>
+            <article id="this-precedence">
+                <h2>this precedence</h2>
 
                 <dl>
-                    <dt>template</dt>
-                    <dd>Given: array</dd>
+                    <dt>Which object <code>this</code> refers to? Use this order of precedence</dt>
                     <dd>
-<pre class="formula-thin">
-const <span class="variable">template</span> = [<span class="variable">template</span>];
-</pre>
-                    </dd>
-                    <dd>Map</dd>
-                    <dd>
-<pre class="formula">
-const <span class="variable">template</span> = <span class="variable">template</span>.map(<span class="variable">template</span> => <span class="variable">template</span>);
-</pre>
-                    </dd>
-                    <dd>Results</dd>
-                    <dd>
-<pre class="formula-thin">
-<span class="variable">template</span>;    <span class="comment">// template</span>
-<span class="variable">template</span>;      <span class="comment">// template</span>
-</pre>
+                        <ol>
+                            <li><code>bind()</code></li>
+                            <li><code>call()</code> and <code>apply()</code></li>
+                            <li>Object method</li>
+                            <li>Global scope</li>
+                        </ol>
                     </dd>
                     
                 </dl>
