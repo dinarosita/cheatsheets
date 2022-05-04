@@ -193,8 +193,9 @@ const <span class="variable">person</span> = {
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="explicit-function-binding">
+            <article id="call-method">
                 <h2>Explicit function binding</h2>
+                <h3>Call and apply methods</h3>
 
                 <dl>
                     <dt>Explicit function binding</dt>
@@ -202,9 +203,83 @@ const <span class="variable">person</span> = {
                         <ul>
                             <li><code>call()</code></li>
                             <li><code>apply()</code></li>
-                            <li>Both call and apply methods can be used to call an object method with another object as argument.</li>
-                            <li>Check as well <code>bind()</code></li>
+                            <li>These methods call an object method and use it with another object as argument.</li>
                         </ul>
+                    </dd>   
+
+                    <dt><code>call()</code></dt>
+                    <dd>It calls an object method and use it with another object as argument.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">objectMethod</span>.call(<span class="variable">newObject</span>)
+</pre>
+                    </dd>
+                    <dd>Breakdown:</dd>
+                    <dd>
+<pre class="formula">
+<span class="comment">// call method-1 of object-1</span>
+<span class="variable">object1.method1</span>()    
+
+<span class="comment">// Want to call above method, but on object-2 values</span>
+<span class="variable">object1.method1</span>.call(<span class="variable">object2</span>)
+</pre>
+                    </dd>
+                    <dd>Example:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">person1</span> = {
+    <span class="variable">fullName</span>: function() {
+        return <b>this</b>.<span class="variable">firstName + " " +</span> <b>this</b>.<span class="variable">lastName</span>;
+    }
+}
+
+const <span class="variable">person2</span> = {
+    <span class="variable">firstName</span>: <span class="variable">"John"</span>,
+    <span class="variable">lastName</span>: <span class="variable">"Doe"</span>,
+}
+</pre>
+                    </dd>    
+                    <dd>Example breakdown:
+                        <ul>
+                            <li><code class="formula-thin">person1.fullName()</code>
+                                <ul>
+                                    <li><code>this</code> refers to <code><span class="variable">person1</span></code> object.</li>
+                                    <li><code>this.<span class="variable">firstName</span></code> and <code>this.<span class="variable">lastName</span></code>
+                                        <ul>
+                                    <li><code>this</code> refers to <code><span class="variable">person1</span></code> object.</li>
+                                            <li><code><span class="variable">person1</span></code> object doesn't have <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
+                                            <li><code><span class="variable">person2</span></code> object <b>does</b> have the <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
+                                            <li><code><span class="variable">person2</span></code> object has to be called: <code class="formula-thin">.call(<span class="variable">person2</span>)</code>, replacing <code class="formula-thin">()</code></li>
+
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>Results:</dd>
+                    <dd>
+
+
+<pre class="formula-thin">
+// <span class="variable">person1.fullName</span><b>()</b>
+//                  <b>.call(</b><span class="variable">person2</span><b>)</b>
+
+<span class="variable">person1.fullName</span><b>.call(</b><span class="variable">person2</span><b>);</b>     <span class="comment">// "John Doe"</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="bind-method">
+                <h2>Function borrowing</h2>
+                <h3>Bind methods</h3>
+
+                <dl>
+                    <dt><code>bind()</code></dt>
+                    <dd>With bind method, an object can borrow a method from another object.
                     </dd>   
 
                     <dt><code>call()</code></dt>
@@ -226,10 +301,28 @@ const <span class="variable">person2</span> = {
     <span class="variable">lastName</span>: <span class="variable">"Doe"</span>,
 }
 </pre>
-                    </dd>            
-                    <dd>In previous example when the data and and the function are in the same person object, we use: <code>person.fullName()</code> to get the full name.</dd>
-                    <dd>But here since they are located in different object, the function has to be redirected. This can be done using: <code>call(<span class="variable">newThisObject</span>)</code>.</dd>
+                    </dd>    
+                    <dd>Breakdown
+                        <ul>
+                            <li><code class="formula-thin">person1.fullName()</code>
+                                <ul>
+                                    <li><code>this</code> refers to <code><span class="variable">person1</span></code> object.</li>
+                                    <li><code>this.<span class="variable">firstName</span></code> and <code>this.<span class="variable">lastName</span></code>
+                                        <ul>
+                                    <li><code>this</code> refers to <code><span class="variable">person1</span></code> object.</li>
+                                            <li><code><span class="variable">person1</span></code> object doesn't have <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
+                                            <li><code><span class="variable">person2</span></code> object <b>does</b> have the <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
+                                            <li><code><span class="variable">person2</span></code> object has to be called: <code class="formula-thin">.call(<span class="variable">person2</span>)</code>, replacing <code class="formula-thin">()</code></li>
+
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
                     <dd>
+
 
 <pre class="formula-thin">
 // <span class="variable">person1.fullName</span><b>()</b>
@@ -241,6 +334,7 @@ const <span class="variable">person2</span> = {
                 </dl>
                 <a href="#top"><hr></a>
             </article>
+            
             
             <article id="template">
                 <h2>template</h2>
