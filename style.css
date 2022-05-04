@@ -296,6 +296,10 @@ table code {
 
 /* JS notes */
 
+.js-notes i {
+    color: inherit
+}
+
 .js-notes .js-codebox button {
     margin: 0.5rem;
 }

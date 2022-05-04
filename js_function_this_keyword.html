@@ -211,20 +211,11 @@ const <span class="variable">person</span> = {
                     <dd>It calls an object method and use it with another object as argument.</dd>
                     <dd>
 <pre class="formula">
-<span class="variable">objectMethod</span>.call(<span class="variable">newObject</span>)
+<span class="variable">object1.method1</span>()                 <span class="comment">// Calling function 1</span>    
+<span class="variable">object1.method1</span>.call(<span class="variable">object2</span>)     <span class="comment">// Calling function 1 but on object 2</span>
 </pre>
-                    </dd>
-                    <dd>Breakdown:</dd>
-                    <dd>
-<pre class="formula">
-<span class="comment">// call method-1 of object-1</span>
-<span class="variable">object1.method1</span>()    
-
-<span class="comment">// Want to call above method, but on object-2 values</span>
-<span class="variable">object1.method1</span>.call(<span class="variable">object2</span>)
-</pre>
-                    </dd>
-                    <dd>Example:</dd>
+                    </dd>       
+                    <dt><code>call()</code> example:</dt>
                     <dd>
 <pre class="formula-thin">
 const <span class="variable">person1</span> = {
@@ -237,9 +228,11 @@ const <span class="variable">person2</span> = {
     <span class="variable">firstName</span>: <span class="variable">"John"</span>,
     <span class="variable">lastName</span>: <span class="variable">"Doe"</span>,
 }
+
+<span class="variable">person1.fullName</span><b>.call(</b><span class="variable">person2</span><b>);</b>     <span class="comment">// "John Doe"</span>
 </pre>
                     </dd>    
-                    <dd>Example breakdown:
+                    <dd>Breakdown and result:
                         <ul>
                             <li><code class="formula-thin">person1.fullName()</code>
                                 <ul>
@@ -247,9 +240,9 @@ const <span class="variable">person2</span> = {
                                     <li><code>this.<span class="variable">firstName</span></code> and <code>this.<span class="variable">lastName</span></code>
                                         <ul>
                                     <li><code>this</code> refers to <code><span class="variable">person1</span></code> object.</li>
-                                            <li><code><span class="variable">person1</span></code> object doesn't have <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
-                                            <li><code><span class="variable">person2</span></code> object <b>does</b> have the <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
-                                            <li><code><span class="variable">person2</span></code> object has to be called: <code class="formula-thin">.call(<span class="variable">person2</span>)</code>, replacing <code class="formula-thin">()</code></li>
+                                    <li><code><span class="variable">person1</span></code> object doesn't have <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
+                                    <li><code><span class="variable">person2</span></code> object <b>does</b> have the <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
+                                    <li><code><span class="variable">person2</span></code> object has to be called: <code class="formula-thin">.call(<span class="variable">person2</span>)</code>, replacing <code class="formula-thin">()</code></li>
 
 
                                         </ul>
@@ -258,15 +251,11 @@ const <span class="variable">person2</span> = {
                             </li>
                         </ul>
                     </dd>
-                    <dd>Results:</dd>
                     <dd>
-
-
 <pre class="formula-thin">
 // <span class="variable">person1.fullName</span><b>()</b>
-//                  <b>.call(</b><span class="variable">person2</span><b>)</b>
-
-<span class="variable">person1.fullName</span><b>.call(</b><span class="variable">person2</span><b>);</b>     <span class="comment">// "John Doe"</span>
+//                 <b>.call(</b><span class="variable">person2</span><b>)</b>
+// <span class="variable">person1.fullName</span><b>.call(</b><span class="variable">person2</span><b>);</b>     <span class="comment">// "John Doe"</span>
 </pre>
                     </dd>
                 </dl>
@@ -280,55 +269,77 @@ const <span class="variable">person2</span> = {
                 <dl>
                     <dt><code>bind()</code></dt>
                     <dd>With bind method, an object can borrow a method from another object.
-                    </dd>   
-
-                    <dt><code>call()</code></dt>
+                    </dd>
                     <dd>
 <pre class="formula">
-call(<span class="variable">newThisObject</span>)
+<span class="variable">object1.method1</span>                 <span class="comment">// is function 1</span>    
+<span class="variable">object1.method1</span>.bind(<span class="variable">object2</span>)   <span class="comment">// is function 1 bound to object 2</span>
 </pre>
+                    </dd>
+                    
+                    <dd>Getting the function and return value:</dd>
                     <dd>
+<pre class="formula">
+<span class="variable">object1.method1</span>()     <span class="comment">// Calling function 1</span>
+
+const <span class="variable">method2</span> = <span class="variable">object1.method1</span>.bind(<span class="variable">object2</span>);
+<span class="comment">// Assigning function 1 that is bound to object 2 into a new function</span>
+
+<span class="variable">method2</span>               <span class="comment">// is function 2</span>
+<span class="variable">method2</span>()             <span class="comment">// Calling function 2</span>
+</pre>
+                    </dd>
+                    
+                    <dt><code>call()</code> vs <code>bind()</code></dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">object1.method1</span>      <span class="comment">// is function 1</span>
+<span class="variable">object1.method1</span>()    <span class="comment">// Calling function 1</span>
+
+<span class="variable">object1.method1</span>.call(<span class="variable">object2</span>)  <span class="comment">// Calling function 1 on object 2</span>
+<span class="variable">object1.method1</span>.bind(<span class="variable">object2</span>)  <span class="comment">// is function 1 bound to object 2</span>
+
+let <span class="variable">method2</span> = <span class="variable">object1.method1</span>.bind(<span class="variable">object2</span>);
+<span class="comment">// Assigning function 1 that is bound to object 2 into a new function</span>
+
+<span class="variable">method2</span>      <span class="comment">// is function 2</span>
+<span class="variable">method2</span>()    <span class="comment">// Calling function 2</span>
+</pre>
+                    </dd>
+                    <dd>Similarities:
+                        <ul>
+                            <li>Allowing a method of an object to be used with a <b>different object</b></li>
+                        </ul>
+                    </dd>
+
+                    
+                    <dd>Differences:
+                        <ul>
+                            <li><code>call</code>: <b>Calling</b> a method to be <b>executed</b>. Result: the <b>return value</b> and other consequences of the code being executed.</li>
+                            <li><code>bind</code>: <b>Creating</b> a new method, but <b>not to execute</b>. Result: a <b>new function</b>.</li>
+                        </ul>
+                    </dd>
+
+                    <dt><code>bind()</code> example</dt>
                     <dd>
 <pre class="formula-thin">
 const <span class="variable">person1</span> = {
+    <span class="variable">firstName</span>: <span class="variable">"John"</span>,
+    <span class="variable">lastName</span>: <span class="variable">"Doe"</span>,
     <span class="variable">fullName</span>: function() {
         return <b>this</b>.<span class="variable">firstName + " " +</span> <b>this</b>.<span class="variable">lastName</span>;
     }
 }
 
 const <span class="variable">person2</span> = {
-    <span class="variable">firstName</span>: <span class="variable">"John"</span>,
-    <span class="variable">lastName</span>: <span class="variable">"Doe"</span>,
+    <span class="variable">firstName</span>: <span class="variable">"Michael"</span>,
+    <span class="variable">lastName</span>: <span class="variable">"Scott"</span>,
 }
-</pre>
-                    </dd>    
-                    <dd>Breakdown
-                        <ul>
-                            <li><code class="formula-thin">person1.fullName()</code>
-                                <ul>
-                                    <li><code>this</code> refers to <code><span class="variable">person1</span></code> object.</li>
-                                    <li><code>this.<span class="variable">firstName</span></code> and <code>this.<span class="variable">lastName</span></code>
-                                        <ul>
-                                    <li><code>this</code> refers to <code><span class="variable">person1</span></code> object.</li>
-                                            <li><code><span class="variable">person1</span></code> object doesn't have <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
-                                            <li><code><span class="variable">person2</span></code> object <b>does</b> have the <code><span class="variable">firstName</span></code> and <code><span class="variable">lastName</span></code> properties.</li>
-                                            <li><code><span class="variable">person2</span></code> object has to be called: <code class="formula-thin">.call(<span class="variable">person2</span>)</code>, replacing <code class="formula-thin">()</code></li>
 
+let <span class="variable">fullName2</span> = <span class="variable">person1.fullName</span><b>.bind(</b><span class="variable">person2</span><b>);</b>
 
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </dd>
-                    <dd>
-
-
-<pre class="formula-thin">
-// <span class="variable">person1.fullName</span><b>()</b>
-//                  <b>.call(</b><span class="variable">person2</span><b>)</b>
-
-<span class="variable">person1.fullName</span><b>.call(</b><span class="variable">person2</span><b>);</b>     <span class="comment">// "John Doe"</span>
+<span class="variable">person1.fullName</span>();     <span class="comment">// "John Doe"</span>  
+<span class="variable">fullName2</span>();            <span class="comment">// "Michael Scott"</span>
 </pre>
                     </dd>
                 </dl>
