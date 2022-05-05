@@ -297,7 +297,7 @@ table code {
 /* JS notes */
 
 .js-notes i {
-    color: inherit
+    color: inherit;
 }
 
 .js-notes .js-codebox button {

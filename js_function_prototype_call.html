@@ -57,6 +57,50 @@ call(<span class="variable">thisArg</span>, <span class="variable">arg1, ..., ar
                             <li>The result of calling the function with the specified <code>this</code> value and arguments.</li>
                         </ul>
                     </dd>
+                    <dd>Example</dd>
+                    <dd>
+<pre class="formula-thin">
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+}
+    
+function Food(name, price) {
+    Product.call(this, name, price);
+    this.category = 'food';
+}
+
+console.log(new Food('cheese', 5).name);
+</pre>
+                    </dd>
+                    <dd>Breakdown:
+                        <ul>
+                            <li>Let's start with <code class="formula-thin">function Product(name, price) {...}</code></li>
+                            <li>function <code>Product</code> is a function that's taking 2 arguments: <code>name</code> and <code>price</code>.</li>
+                            <li><code>this</code> inside the function shows that the function is an object method. A mthod own by the object. And <code>this</code> refers to that object.</li>
+                            <li><code class="formula-thin">this.name = name;</code> instructs the <code>name</code> argument to be put in the <code>name</code> property of the object. Same deal with <code>price</code>.</li>
+                            <li>The function creates:<br>
+                                <code class="formula-thin">{ name: argName, price: argPrice }</code>
+                            </li>
+                            <li>Now the <b>missing</b> piece is, what's this very <b>object</b> we are talking about? Function is not positioned inside an object already. We need to find away for an object to be called in place to <b>house</b> this function.</li>
+                            <li>This is were <code>call()</code> is needed. Remember the syntax: <br>
+                                <code class="formula">call(<span class="variable">thisArg</span>, <span class="variable">arg1, arg2</span>)</code>
+                            </li>
+                            <li>Let's look up again the discussion on <code>this</code> page on <code>call()</code></li>
+<pre class="formula">
+<span class="variable">object1.method1</span>()                 <span class="comment">// Calling function 1</span>    
+<span class="variable">object1.method1</span>.call(<span class="variable">object2</span>)     <span class="comment">// Calling function 1 but on object 2</span>
+</pre>
+                            <li>Then:
+                                <ul>
+                                    <li><code>Product(name, price)</code> becomes something like:</li>
+                                    <li><code>Product.call(object2, name, price)</code>, and object2 will be referred with <code>this</code>:</li>
+                                    <li><code class="formula-thin">Product.call(this, name, price)</code></li>
+                                </ul>
+                            </li>
+                            <li></li>
+                        </ul>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>

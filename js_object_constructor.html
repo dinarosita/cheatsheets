@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Object constructor | JS CodeyLuwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Object Constructor</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">                  
+            <article id="new">
+                <h2>Object constructor</h2>
+                <dl>
+                    <dt><code>Constructor function</code></dt>
+                    <dd>Let's using example to learn the syntax</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">Person</span>(<span class="variable">first, last, year, place</span>) {
+    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
+    this.<span class="variable">lastName</span> = <span class="variable">last</span>;
+    this.<span class="variable">birthYear</span> = <span class="variable">year</span>;
+    this.<span class="variable">location</span> = <span class="variable">place</span>;
+};
+</pre>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt>Constructor function</dt>
+                            <dd>
+                                <ul>
+                                    <li>In example above: <code>Person</code></li>
+                                    <li>Constructor functions is commonly named with an uppercase first later.</li>
+                                </ul>
+                            </dd>
+                            <dt>Arguments: object property values</dt>
+                            <dd>
+                                <ul>
+                                    <li>In example above: <code>first</code>, <code>last</code>, <code>year</code>, and <code>place</code>.</li>
+                                    <li>To be placed in corresponded object properties.</li>
+                                </ul>
+                            </dd>
+                            <dt>Object property</dt>
+                            <dd>
+                                <ul>
+                                    <li>In example above: <code>this.firstName</code>, <code>this.lasName</code>, <code>this.birthYear</code>, and <code>this.location</code></li>
+                                </ul>
+                            </dd>
+                            <dt><code>this</code></dt>
+                            <dd>
+                                <ul>
+                                    <li>In a construction function, <code>this</code> doesn't have a value. It's <b>substitute</b> for a new object.</li>
+                                    <li>The value of <code>this</code> will become the <b>new object</b> when a new object is created using the constructor function.</li>
+                                </ul>
+                            </dd>
+
+                        </dl>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="object-types">
+                <h2>Object types (blueprints) (classes)</h2>
+
+                <dl>
+                    <dt>Object types. Blueprint, classes</dt>
+                    <dd>
+                        <ul>
+                            <li>Think of <b>blueprint</b>. How to create many objects of the same <b>type</b>.</li>
+                            <li><b>Object type</b> can be created using <b> object constructor function</b>, like <code>function Person()</code> above.</li>
+                            <li>Objects of the same type are created by <b>calling</b> the constructor function with the <code>new</code> keyword.</li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                    <dd>
+<pre class="formula-thin">
+function <span class="object">Person</span>(<span class="variable">first, last, year, place</span>) {
+    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
+    this.<span class="variable">lastName</span> = <span class="variable">last</span>;
+    this.<span class="variable">birthYear</span> = <span class="variable">year</span>;
+    this.<span class="variable">location</span> = <span class="variable">place</span>;
+};
+
+const <span class="variable">father</span> = new <span class="object">Person</span>(<span class="variable">"Bruce", "Lee", 1950, "Toronto"</span>);
+
+<span class="variable">father</span>;  <span class="comment">// Person {firstName: 'Bruce', lastName: 'Lee', birthYear: 1950, location: 'Toronto'}
+</pre>
+                    </dd>   
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="blueprint">
+                <h2>Blueprint</h2>
+                <dl>
+                    <dt>Creating many objects of the same type</dt>
+                    <dd>With object constructor function, coupled with <code>new</code> keyword to call the function, we can create many objects of the same type. Object constructor function is the blueprint or "object type".</dd>
+                    <dd>Examples using object constructor function above</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">father</span>  = new <span class="object">Person</span>(<span class="variable">"Bruce", "Lee", 1950, "Toronto"</span>);
+const <span class="variable">mother</span>  = new <span class="object">Person</span>(<span class="variable">"Maria", "Santa", 1951, "Toronto"</span>);
+const <span class="variable">sister</span>  = new <span class="object">Person</span>(<span class="variable">"Puff", "Tail", 1985, "Niagara"</span>);
+const <span class="variable">brother</span> = new <span class="object">Person</span>(<span class="variable">"Dodo", "Bird", 1983, "Chatham"</span>);
+
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'Bruce', lastName: 'Lee', birthYear: 1950, location: 'Toronto'}
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Maria', lastName: 'Santa', birthYear: 1951, location: 'Toronto'}
+<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birthYear: 1985, location: 'Niagara'}
+<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birthYear: 1983, location: 'Chatham'}
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="this">
+                <h2>"this" keyword</h2>
+                <p>Full note: <a href="./js_function_this_keyword.html">CodeyLuwak: JS this</a></p>
+                <a href="#top"><hr></a>
+
+            </article>
+
+            <article id="add-property">
+                <h2>Adding property to an object</h2>
+                
+                <dl>
+                    <dt>Adding a new property to an existing object</dt>
+                    <dd>syntax</dd>
+                    <dd>
+<pre class="formula">
+    <span class="object">objectName.propertyName = value;
+</pre>
+                    </dd>
+                </dl>
+            </article>
+
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.w3schools.com/js/js_object_constructors.asp" target="_blank">w3schools: JavaScript Object Constructors</a></li>
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+
