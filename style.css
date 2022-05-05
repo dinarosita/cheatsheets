@@ -27,6 +27,7 @@ figure {
 
 :root {
     --border:rgb(243, 196, 205);
+    --hr: rgb(255, 223, 229);
     --borderfill:rgb(250, 242, 243);
     --borderdark:rgb(212, 154, 165);
     --title: cadetblue;
@@ -156,8 +157,10 @@ strong {
 }
 
 hr {
-    border: 3px solid var(--border);
-    margin: var(--bumper-double) 0 var(--bumper);
+    border: 7px double var(--hr);
+    margin: var(--bumper-double) auto var(--bumper);
+    height: 1rem;
+    max-width: 95%;
 }
 
 table {

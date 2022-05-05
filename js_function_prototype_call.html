@@ -40,10 +40,10 @@
                     <dd>
 <pre class="formula">
 call()
-call(<span class="variable">thisArg</span>)
-call(<span class="variable">thisArg</span>, <span class="variable">arg1</span>)
-call(<span class="variable">thisArg</span>, <span class="variable">arg1, arg2</span>)
-call(<span class="variable">thisArg</span>, <span class="variable">arg1, ..., argN</span>)
+call(<span class="type">thisArg</span>)
+call(<span class="type">thisArg</span>, <span class="variable">arg1</span>)
+call(<span class="type">thisArg</span>, <span class="variable">arg1, arg2</span>)
+call(<span class="type">thisArg</span>, <span class="variable">arg1, ..., argN</span>)
 </pre>
                     </dd>
                     <dd>Parameters
@@ -57,50 +57,150 @@ call(<span class="variable">thisArg</span>, <span class="variable">arg1, ..., ar
                             <li>The result of calling the function with the specified <code>this</code> value and arguments.</li>
                         </ul>
                     </dd>
-                    <dd>Example</dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+
+            </article>
+            <article id="nesting-constructor">
+                <h2>Using call() in nesting object constructor</h2>
+                <dl>
+                    <dt>Example: Create object constructor for products, grouped by categories</dt>
+                    <dd>
+                        <ul>
+                            <li>Generic object "Product" constructor</li>
+                            <li>Specific object "Category" constructor: Food, Toy, etc</li>
+                        </ul>
+                    </dd>
+                    
+                    
+                    <dt>Generic object "Product" constructor</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="type">Product</span>(<span class="variable">name, price</span>) {
+    <b>this</b>.<span class="variable">name</span> = <span class="variable">name</span>;
+    <b>this</b>.<span class="variable">price</span> = <span class="variable">price</span>;
+}
+</pre>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li>Each product has same basic properties: name and price</li>
+                            <li>There's only 1 of <b>this</b>.</li>
+                            <li>Used in each specific object category constructor.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Specific object "Category" constructor: Food, Toy, etc</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="type">Food</span>(<span class="variable">name, price</span>) {
+    <span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">name, price</span>);
+    <b>this</b>.<span class="variable">categeory</span> = <span class="variable">"food"</span>;
+}
+</pre>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li>Each product will be grouped based on the category. This category name will be each product's object type. Each project will be bearing the generic properties listed in the generic "Product" constructor, with addition property "category" that's set with category name as the value.</li>
+                            <li>There are going to be bunch of this. 1 for each category.</li>
+                            <li>Each of them having the generic constructor within the function, along with the category specific property.</li>
+                        </ul>
+                    </dd>
+                    <dd>Understanding the nesting formula</dd>
+                    <dd>                        
+<pre class="formula">
+<span class="type">method1</span>.call(<span class="type">object2</span>, <span class="variable">args</span>)
+</pre>
+                    </dd>
+                    <dd></dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="type">Food</span>(<span class="variable">args</span>) {
+    <span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">args</span>)
+}
+</pre>
+                    </dd>
+                    <dd>Meaning: Calling method "Product" but using "this" as the object. Since the "this" is located inside "Food" constructor, the object will refer to the "food object" later created when "Food" constructor is called using "new" keyword. In other word, the "Product" function is now adapted to "Food" function. Product constructor is a template for the beginning part of Food constructor. All arguments are passed accordingly.</dd>
+                    <dd>Transformation:</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="type">Food</span>(<span class="variable">name</span>, <span class="variable">price</span>) {
+    <span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">name</span>, <span class="variable">price</span>);
+    <b>this</b>.<span class="variable">category</span> = "<span class="type">Food</span>";
+}
+
+function <span class="type">Product</span>(<span class="variable">name</span>, <span class="variable">price</span>) {
+    <b>this</b>.<span class="variable">name</span> = <span class="variable">name</span>;
+    <b>this</b>.<span class="variable">price</span> = <span class="variable">price</span>;
+}
+</pre> 
+                    </dd>
+                    <dd>Above is essentially the same as:</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="type">Food</span>(<span class="variable">name</span>, <span class="variable">price</span>) {
+    <b>this</b>.<span class="variable">name</span> = <span class="variable">name</span>;
+    <b>this</b>.<span class="variable">price</span> = <span class="variable">price</span>;
+    <b>this</b>.<span class="variable">category</span> = "<span class="type">Food</span>";
+}
+</pre> 
+                    </dd>
+                    <dd>Why bother create it nesting way? Because the Product constructor is a blueprint of all product of any category. We want to keep consistency as much as we can by not repeating coding manually.</dd>
+                    <dd>
+
+                    <dt>Complete coding</dt>
+                    <dd>General "Product" constructor</dd>
                     <dd>
 <pre class="formula-thin">
 function Product(name, price) {
     this.name = name;
     this.price = price;
-}
-    
+};
+</pre>
+                    </dd>
+                    <dd>Category constructors</dd>
+                    <dd>
+<pre class="formula-thin">
 function Food(name, price) {
     Product.call(this, name, price);
     this.category = 'food';
-}
+};
 
-console.log(new Food('cheese', 5).name);
+function Toy(name, price) {
+    Product.call(this, name, price);
+    this.category = 'toy';
+};
+
+function Furniture(name, price) {
+    Product.call(this, name, price);
+    this.category = 'furniture';
+};
 </pre>
                     </dd>
-                    <dd>Breakdown:
-                        <ul>
-                            <li>Let's start with <code class="formula-thin">function Product(name, price) {...}</code></li>
-                            <li>function <code>Product</code> is a function that's taking 2 arguments: <code>name</code> and <code>price</code>.</li>
-                            <li><code>this</code> inside the function shows that the function is an object method. A mthod own by the object. And <code>this</code> refers to that object.</li>
-                            <li><code class="formula-thin">this.name = name;</code> instructs the <code>name</code> argument to be put in the <code>name</code> property of the object. Same deal with <code>price</code>.</li>
-                            <li>The function creates:<br>
-                                <code class="formula-thin">{ name: argName, price: argPrice }</code>
-                            </li>
-                            <li>Now the <b>missing</b> piece is, what's this very <b>object</b> we are talking about? Function is not positioned inside an object already. We need to find away for an object to be called in place to <b>house</b> this function.</li>
-                            <li>This is were <code>call()</code> is needed. Remember the syntax: <br>
-                                <code class="formula">call(<span class="variable">thisArg</span>, <span class="variable">arg1, arg2</span>)</code>
-                            </li>
-                            <li>Let's look up again the discussion on <code>this</code> page on <code>call()</code></li>
-<pre class="formula">
-<span class="variable">object1.method1</span>()                 <span class="comment">// Calling function 1</span>    
-<span class="variable">object1.method1</span>.call(<span class="variable">object2</span>)     <span class="comment">// Calling function 1 but on object 2</span>
+                    <dd>Create product objects</dd>
+                    <dd>
+<pre class="formula-thin">
+const cheese = new Food("feta", 5);
+const bread = new Food("muffin", 3);
+const fun = new Toy("robot", 12);
+const ocean = new Toy("figurine", 2);
+const elegance = new Furniture("table", 30);
+const cheerful = new Furniture("kid's chair", 12);
 </pre>
-                            <li>Then:
-                                <ul>
-                                    <li><code>Product(name, price)</code> becomes something like:</li>
-                                    <li><code>Product.call(object2, name, price)</code>, and object2 will be referred with <code>this</code>:</li>
-                                    <li><code class="formula-thin">Product.call(this, name, price)</code></li>
-                                </ul>
-                            </li>
-                            <li></li>
-                        </ul>
                     </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+cheese;     // Food {name: 'feta', price: 5, category: 'food'}
+bread;      // Food {name: 'muffin', price: 3, category: 'food'}
+fun;        // Toy {name: 'robot', price: 12, category: 'toy'}
+ocean;      // Toy {name: 'figurine', price: 2, category: 'toy'}
+elegance;   // Furniture {name: 'table', price: 30, category: 'furniture'}
+cheerful;   // Furniture {name: "kid's chair", price: 12, category: 'furniture'}
+</pre>
+                    </dd>
+                   
                 </dl>
                 <a href="#top"><hr></a>
             </article>
