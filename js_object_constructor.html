@@ -19,132 +19,335 @@
         </header>
 
         <main class="js-notes">                  
-            <article id="new">
-                <h2>Object constructor</h2>
-                <dl>
-                    <dt><code>Constructor function</code></dt>
-                    <dd>Let's using example to learn the syntax</dd>
-                    <dd>
-<pre class="formula">
-function <span class="variable">Person</span>(<span class="variable">first, last, year, place</span>) {
-    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
-    this.<span class="variable">lastName</span> = <span class="variable">last</span>;
-    this.<span class="variable">birthYear</span> = <span class="variable">year</span>;
-    this.<span class="variable">location</span> = <span class="variable">place</span>;
-};
-</pre>
-                    </dd>
-                    <dd>
-                        <dl>
-                            <dt>Constructor function</dt>
-                            <dd>
-                                <ul>
-                                    <li>In example above: <code>Person</code></li>
-                                    <li>Constructor functions is commonly named with an uppercase first later.</li>
-                                </ul>
-                            </dd>
-                            <dt>Arguments: object property values</dt>
-                            <dd>
-                                <ul>
-                                    <li>In example above: <code>first</code>, <code>last</code>, <code>year</code>, and <code>place</code>.</li>
-                                    <li>To be placed in corresponded object properties.</li>
-                                </ul>
-                            </dd>
-                            <dt>Object property</dt>
-                            <dd>
-                                <ul>
-                                    <li>In example above: <code>this.firstName</code>, <code>this.lasName</code>, <code>this.birthYear</code>, and <code>this.location</code></li>
-                                </ul>
-                            </dd>
-                            <dt><code>this</code></dt>
-                            <dd>
-                                <ul>
-                                    <li>In a construction function, <code>this</code> doesn't have a value. It's <b>substitute</b> for a new object.</li>
-                                    <li>The value of <code>this</code> will become the <b>new object</b> when a new object is created using the constructor function.</li>
-                                </ul>
-                            </dd>
-
-                        </dl>
-                    </dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
-
-            <article id="object-types">
-                <h2>Object types (blueprints) (classes)</h2>
-
-                <dl>
-                    <dt>Object types. Blueprint, classes</dt>
-                    <dd>
-                        <ul>
-                            <li>Think of <b>blueprint</b>. How to create many objects of the same <b>type</b>.</li>
-                            <li><b>Object type</b> can be created using <b> object constructor function</b>, like <code>function Person()</code> above.</li>
-                            <li>Objects of the same type are created by <b>calling</b> the constructor function with the <code>new</code> keyword.</li>
-                        </ul>
-                    </dd>
-                </dl>
-
-                    <dd>
-<pre class="formula-thin">
-function <span class="object">Person</span>(<span class="variable">first, last, year, place</span>) {
-    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
-    this.<span class="variable">lastName</span> = <span class="variable">last</span>;
-    this.<span class="variable">birthYear</span> = <span class="variable">year</span>;
-    this.<span class="variable">location</span> = <span class="variable">place</span>;
-};
-
-const <span class="variable">father</span> = new <span class="object">Person</span>(<span class="variable">"Bruce", "Lee", 1950, "Toronto"</span>);
-
-<span class="variable">father</span>;  <span class="comment">// Person {firstName: 'Bruce', lastName: 'Lee', birthYear: 1950, location: 'Toronto'}
-</pre>
-                    </dd>   
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
-
-            <article id="blueprint">
-                <h2>Blueprint</h2>
-                <dl>
-                    <dt>Creating many objects of the same type</dt>
-                    <dd>With object constructor function, coupled with <code>new</code> keyword to call the function, we can create many objects of the same type. Object constructor function is the blueprint or "object type".</dd>
-                    <dd>Examples using object constructor function above</dd>
-                    <dd>
-<pre class="formula-thin">
-const <span class="variable">father</span>  = new <span class="object">Person</span>(<span class="variable">"Bruce", "Lee", 1950, "Toronto"</span>);
-const <span class="variable">mother</span>  = new <span class="object">Person</span>(<span class="variable">"Maria", "Santa", 1951, "Toronto"</span>);
-const <span class="variable">sister</span>  = new <span class="object">Person</span>(<span class="variable">"Puff", "Tail", 1985, "Niagara"</span>);
-const <span class="variable">brother</span> = new <span class="object">Person</span>(<span class="variable">"Dodo", "Bird", 1983, "Chatham"</span>);
-
-<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'Bruce', lastName: 'Lee', birthYear: 1950, location: 'Toronto'}
-<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Maria', lastName: 'Santa', birthYear: 1951, location: 'Toronto'}
-<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birthYear: 1985, location: 'Niagara'}
-<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birthYear: 1983, location: 'Chatham'}
-</pre>
-                    </dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
-
-            <article id="this">
-                <h2>"this" keyword</h2>
-                <p>Full note: <a href="./js_function_this_keyword.html">CodeyLuwak: JS this</a></p>
-                <a href="#top"><hr></a>
-
-            </article>
-
-            <article id="add-property">
-                <h2>Adding property to an object</h2>
+            <article id="object">
+                <h2>Object</h2>
                 
                 <dl>
-                    <dt>Adding a new property to an existing object</dt>
-                    <dd>syntax</dd>
+                    <dt>Object</dt>                    
+                    <dd>An object consists of its properties and their values.</dd>
                     <dd>
 <pre class="formula">
-    <span class="object">objectName.propertyName = value;
+<span class="variable">object</span>;  <span class="comment">// {property1: 'value 1', property2: 'value 2'}</span>
+</pre>
+                    </dd>
+
+
+                    <dt>Creating object</dt>
+                    <dd>By declaring object defined by its properties and values.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">object</span> = {
+    <span class="variable">property1</span>: <span class="variable">"value 1"</span>,
+    <span class="variable">property2</span>: <span class="variable">"value 2"</span>,
+};
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">object</span>;  <span class="comment">// {property1: 'value 1', property2: 'value 2'}</span>
+</pre>
+                    </dd>
+
+                    <dt>Accessing object property's value</dt>
+                    <dd>An object and its property are dot-separated.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">object</span>.<span class="variable">property</span> 
+</pre>
+                    </dd>
+
+                    <dt>Changing property value</dt>
+                    <dd>By assigning the new value to property's dot-separated notation.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">object</span>.<span class="variable">property1</span> = <span class="variable">"new value"</span>;
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">object</span>;  <span class="comment">// {property1: 'new value', property2: 'value 2'}</span>
+</pre>
+                    </dd>
+                                       
+                    <dt>Adding a new value to a new property</dt>
+                    <dd>By assigning a value to a new property's dot-separated notation.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">object</span>.<span class="variable">newProperty</span> = <span class="variable">"value 3"</span>;
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">object</span>;  <span class="comment">// {property1: 'new value', property2: 'value 2', newProperty: 'value 3'}</span>
 </pre>
                     </dd>
                 </dl>
+                <a href="#top"><hr></a>
             </article>
+
+            <article id="object-constructor">
+                <h2>Object constructor</h2>
+                <dl>
+                    <dt>Object type</dt>
+                    <dd>We usually have <b>multiple objects</b> following <b>similar structure</b>. This is called <b>object type</b>.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">objectA</span>;  <span class="comment">// TypeName {property1: 'value A1', property2: 'value A2'}</span>
+<span class="variable">objectB</span>;  <span class="comment">// TypeName {property1: 'value B1', property2: 'value B2'}</span>
+</pre>
+                    </dd>
+
+                    <dt>Creating objects of the same type</dt>
+                    <dd>2 steps:
+                        <ul>
+                            <li>Create an <b>object constructor function</b> as the <b>blueprint</b>.</li>
+                            <li>Create each <b>new object</b> by calling the function using <code><b>new</b></code>keyword.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Object constructor function</dt>
+                    <dd>Objects with certain object type can be created using an <b>object constructor function</b> that works like a <b>blueprint</b> or a template.</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">TypeName</span>(<span class="variable">value1, value2</span>) {
+    this.<span class="variable">property1</span> = <span class="variable">value1</span>;
+    this.<span class="variable">property2</span> = <span class="variable">value2</span>;
+};
+</pre>
+                    </dd>
+                    <dd>Note: It's a good practise to name the object type with an uppercase first letter.</dd>
+                    <dd>
+                        <dl>
+                            <dt><code>this</code> keyword</dt>
+                            <dd>Within the constructor function, the <b>object</b> is addressed with keyword <code><b>this</b></code>.</dd>
+                            <dd>Inside the constructor function, <code>this</code> is not referring to any particular object. It doesn't have a value yet. It's a substitute for the new object that's later created when the function is called using <code>new</code> keyword.</dd>
+                        </dl>
+                    </dd>
+
+                    <dt><code>new</code> keyword</dt>
+                    <dd>To <b>create</b> each <b>new object</b>, <code><b>new</b></code> keyword is used to <b>call</b> the constructor function.</dd>
+                    <dd>Create each <b>new objects</b> using by calling the constructor function with <code>new</code> keyword</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">objectA</span> = new <span class="variable">TypeName</span>(<span class="variable">"value A1", "value A2"</span>);
+const <span class="variable">objectB</span> = new <span class="variable">Type</span>(<span class="variable">"value B1", "value B2"</span>);
+</pre>
+                    </dd>
+                    <dd>Enjoy your new objects</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">objectA</span>;  <span class="comment">// Type {property1: 'value A1', property2: 'value A2'}</span>
+<span class="variable">objectB</span>;  <span class="comment">// Type {property1: 'value B1', property2: 'value B2'}</span>
+</pre>
+                    </dd>
+
+                    <dt>Example: Person objects</dt>
+                    <dd>Creating Person object constructor function</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">Person</span>(<span class="variable">first, last, year</span>) {
+    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
+    this.<span class="variable">lastName</span>  = <span class="variable">last</span>;
+    this.<span class="variable">birth</span>     = <span class="variable">year</span>;
+};
+</pre>
+                    </dd>
+                    <dd>Creating new Person objects</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">father</span>  = new <span class="variable">Person</span>(<span class="variable">"John", "Doe", 1950</span>);
+const <span class="variable">mother</span>  = new <span class="variable">Person</span>(<span class="variable">"Sally", "Mae", 1955</span>);
+const <span class="variable">sister</span>  = new <span class="variable">Person</span>(<span class="variable">"Puff", "Tail", 1985</span>);
+const <span class="variable">brother</span> = new <span class="variable">Person</span>(<span class="variable">"Dodo", "Bird", 1980</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birth: 1985}</span>
+<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birth: 1980}</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="adding-to-object">
+                <h2>Adding property and method to object</h2>
+                <dl>
+                    <dt>Adding a property to an object</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">object</span>.<span class="variable">newProperty</span> = <span class="variable">"value"</span>;
+</pre>
+                    </dd>
+                    <dd>Example</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>.<span class="variable">location</span> = <span class="variable">"Bali"</span>;
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950, location: 'Bali'}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">father.location</span>;   <span class="comment">// 'Bali'</span>
+<span class="variable">mother.location</span>;   <span class="comment">// undefined</span>
+</pre>
+                    </dd>
+
+                    <dt>Adding a method to an object</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">object</span>.<span class="variable">methodName</span> = function () {<span class="variable">...; return ...;</span>};
+</pre>
+                    </dd>
+                    <dd>Example</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>.<span class="variable">name</span> = function() {<span class="variable">return this.firstName + " " + this.lastName;</span>};
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950, location: 'Bali', name: ƒ}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">father.name</span>;      <span class="comment">// ƒ () {return this.firstName + " " + this.lastName;}</span>
+<span class="variable">father.name()</span>;    <span class="comment">// 'John Doe'</span>
+<span class="variable">mother.name</span>;      <span class="comment">// undefined</span>
+<span class="variable">mother.name()</span>;    <span class="comment">// TypeError: mother.name is not a function</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="adding-to-constructor">
+                <h2>Adding property and method to constructor</h2>
+                <dl>
+                    <dt>Not with dot-separated property notation</dt>
+                    <dd>Adding peroperty or method to constructor is not as simple as to the indivial objects.</dd>
+                    <dd>The property dot-separated notation is for individual object, not for the object type.</dd>    
+                                    
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>.<span class="variable">location</span> = <span class="variable">"Bali"</span>;     // works
+<span class="variable">Person</span>.<span class="variable">location</span> = <span class="variable">"Bali"</span>;     // <b>doesn't work</b>
+</pre>
+                    </dd>
+                    <dd><code>Person.location </code>will give the value as the comment just like <code>father.location</code> as if it works, but if you check the constructor function amd individual objects, you'll see it doesn't get added anywhere.
+                    </dd>
+
+                    <dt>A new property needs to be added directly to the constructor function</dt>
+                    <dd>Existing Person constructor</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">Person</span>(<span class="variable">first, last, year</span>) {
+    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
+    this.<span class="variable">lastName</span>  = <span class="variable">last</span>;
+    this.<span class="variable">birth</span>     = <span class="variable">year</span>;
+};
+</pre>
+                    </dd>
+                    <dd>Created objects</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">father</span>  = new <span class="variable">Person</span>(<span class="variable">"John", "Doe", 1950</span>);
+const <span class="variable">mother</span>  = new <span class="variable">Person</span>(<span class="variable">"Sally", "Mae", 1955</span>);
+</pre>
+                    </dd>
+                    <dd>Add new property with default value to the constructor</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">Person</span>(<span class="variable">first, last, year</span>) {
+    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
+    this.<span class="variable">lastName</span>  = <span class="variable">last</span>;
+    this.<span class="variable">birth</span>     = <span class="variable">year</span>;
+    this.<span class="variable">location</span>  = <span class="variable">"Bali"</span>;
+};
+</pre>
+                    </dd>
+                    <dd>Let's create object using the constructor again</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">sister</span>  = new <span class="variable">Person</span>(<span class="variable">"Puff", "Tail", 1985</span>);
+const <span class="variable">brother</span> = new <span class="variable">Person</span>(<span class="variable">"Dodo", "Bird", 1980</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birth: 1985, location: 'Bali'}</span>
+<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birth: 1980, location: 'Bali'}</span>
+</pre>
+                    </dd>
+                    <dd>Note that the new property only added to newly created objects after the addition, doesn't affect the previously made objects.</dd>
+
+                    <dt>Similarly, a new method needs to be added directly to the constructor function</dt>
+                    <dd>Existing Person constructor</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">Person</span>(<span class="variable">first, last, year</span>) {
+    this.<span class="variable">firstName</span> = <span class="variable">first</span>;
+    this.<span class="variable">lastName</span>  = <span class="variable">last</span>;
+    this.<span class="variable">birth</span>     = <span class="variable">year</span>;
+};
+</pre>
+                    </dd>
+                    <dd>Created objects</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">father</span>  = new <span class="variable">Person</span>(<span class="variable">"John", "Doe", 1950</span>);
+</pre>
+                    </dd>
+                    <dd>Adding a function to the constructor</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">Person</span>(<span class="variable">first, last, year</span>) {
+    this.<span class="variable">firstName</span>  = <span class="variable">first</span>;
+    this.<span class="variable">lastName</span>   = <span class="variable">last</span>;
+    this.<span class="variable">birth</span>      = <span class="variable">year</span>;
+    this.<span class="variable">changeName</span> = function (<span class="variable">name</span>) {
+        this.<span class="variable">lastName = name</span>;
+    };
+};
+</pre>
+                    </dd>
+                    <dd>It takes effect only to objects created after the constructor update.</dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">father</span>;                     <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+<span class="variable">father.changeName("Smith")</span>; <span class="comment">// TypeError</span>
+<span class="variable">father</span>;                     <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+
+const <span class="variable">mother</span>  = new <span class="variable">Person</span>(<span class="variable">"Sally", "Mae", 1955</span>);
+<span class="variable">mother</span>;                     <span class="comment">// Person {firstName: 'Sally', lastName: <b>'Mae'</b>, birth: 1955, changeName: ƒ}</span>
+<span class="variable">mother.changeName("Doe")</span>    <span class="comment">// undefined</span>
+<span class="variable">mother</span>;                     <span class="comment">// Person {firstName: 'Sally', lastName: <b>'Doe'</b>, birth: 1955, changeName: ƒ}</span>
+</pre>
+                    </dd>
+
+
+
+                    </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="template">
+                <h2>template</h2>
+                <dl>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
 
 
             <article id="references">

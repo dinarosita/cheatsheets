@@ -893,7 +893,8 @@ input.invalid + p {
     margin: 0; 
 }
 
-dd .formula {
+dd .formula,
+dd .formula-thin {
     margin: 0;
 }
 
