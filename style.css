@@ -296,6 +296,10 @@ table code {
 
 /* JS notes */
 
+.js-notes .type {
+    color: var(--valuecolor);
+    font-weight: bold;
+}
 .js-notes i {
     color: inherit;
 }

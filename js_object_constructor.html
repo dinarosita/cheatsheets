@@ -92,8 +92,8 @@ const <span class="variable">object</span> = {
                     <dd>We usually have <b>multiple objects</b> following <b>similar structure</b>. This is called <b>object type</b>.</dd>
                     <dd>
 <pre class="formula">
-<span class="variable">objectA</span>;  <span class="comment">// TypeName {property1: 'value A1', property2: 'value A2'}</span>
-<span class="variable">objectB</span>;  <span class="comment">// TypeName {property1: 'value B1', property2: 'value B2'}</span>
+<span class="variable">objectA</span>;  <span class="comment">// TypeName {property1: 'value A1', property2: 'value A2'}</span>
+<span class="variable">objectB</span>;  <span class="comment">// TypeName {property1: 'value B1', property2: 'value B2'}</span>
 </pre>
                     </dd>
 
@@ -136,8 +136,8 @@ const <span class="variable">objectB</span> = new <span class="variable">Type</s
                     <dd>Enjoy your new objects</dd>
                     <dd>
 <pre class="formula">
-<span class="variable">objectA</span>;  <span class="comment">// Type {property1: 'value A1', property2: 'value A2'}</span>
-<span class="variable">objectB</span>;  <span class="comment">// Type {property1: 'value B1', property2: 'value B2'}</span>
+<span class="variable">objectA</span>;  <span class="comment">// Type {property1: 'value A1', property2: 'value A2'}</span>
+<span class="variable">objectB</span>;  <span class="comment">// Type {property1: 'value B1', property2: 'value B2'}</span>
 </pre>
                     </dd>
 
@@ -164,10 +164,10 @@ const <span class="variable">brother</span> = new <span class="variable">Person<
                     <dd>Results</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
-<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
-<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birth: 1985}</span>
-<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birth: 1980}</span>
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birth: 1985}</span>
+<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birth: 1980}</span>
 </pre>
                     </dd>
                 </dl>
@@ -192,8 +192,8 @@ const <span class="variable">brother</span> = new <span class="variable">Person<
                     <dd>Result</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950, location: 'Bali'}</span>
-<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950, location: 'Bali'}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
 <span class="variable">father.location</span>;   <span class="comment">// 'Bali'</span>
 <span class="variable">mother.location</span>;   <span class="comment">// undefined</span>
 </pre>
@@ -208,14 +208,14 @@ const <span class="variable">brother</span> = new <span class="variable">Person<
                     <dd>Example</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">father</span>.<span class="variable">name</span> = function() {<span class="variable">return this.firstName + " " + this.lastName;</span>};
+<span class="variable">father</span>.<span class="variable">name</span> = <span class="type">Function</span>() {<span class="variable">return this.firstName + " " + this.lastName;</span>};
 </pre>
                     </dd>
                     <dd>Result</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950, location: 'Bali', name: ƒ}</span>
-<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950, location: 'Bali', name: ƒ}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
 <span class="variable">father.name</span>;      <span class="comment">// ƒ () {return this.firstName + " " + this.lastName;}</span>
 <span class="variable">father.name()</span>;    <span class="comment">// 'John Doe'</span>
 <span class="variable">mother.name</span>;      <span class="comment">// undefined</span>
@@ -281,10 +281,10 @@ const <span class="variable">brother</span> = new <span class="variable">Person<
                     <dd>Results</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
-<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
-<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birth: 1985, location: 'Bali'}</span>
-<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birth: 1980, location: 'Bali'}</span>
+<span class="variable">father</span>;   <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+<span class="variable">mother</span>;   <span class="comment">// Person {firstName: 'Sally', lastName: 'Mae', birth: 1955}</span>
+<span class="variable">sister</span>;   <span class="comment">// Person {firstName: 'Puff', lastName: 'Tail', birth: 1985, location: 'Bali'}</span>
+<span class="variable">brother</span>;  <span class="comment">// Person {firstName: 'Dodo', lastName: 'Bird', birth: 1980, location: 'Bali'}</span>
 </pre>
                     </dd>
                     <dd>Note that the new property only added to newly created objects after the addition, doesn't affect the previously made objects.</dd>
@@ -323,20 +323,118 @@ function <span class="variable">Person</span>(<span class="variable">first, last
                     <dd>Results</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">father</span>;                     <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+<span class="variable">father</span>;                     <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
 <span class="variable">father.changeName("Smith")</span>; <span class="comment">// TypeError</span>
-<span class="variable">father</span>;                     <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
+<span class="variable">father</span>;                     <span class="comment">// Person {firstName: 'John', lastName: 'Doe', birth: 1950}</span>
 
 const <span class="variable">mother</span>  = new <span class="variable">Person</span>(<span class="variable">"Sally", "Mae", 1955</span>);
-<span class="variable">mother</span>;                     <span class="comment">// Person {firstName: 'Sally', lastName: <b>'Mae'</b>, birth: 1955, changeName: ƒ}</span>
+<span class="variable">mother</span>;                     <span class="comment">// Person {firstName: 'Sally', lastName: <b>'Mae'</b>, birth: 1955, changeName: ƒ}</span>
 <span class="variable">mother.changeName("Doe")</span>    <span class="comment">// undefined</span>
-<span class="variable">mother</span>;                     <span class="comment">// Person {firstName: 'Sally', lastName: <b>'Doe'</b>, birth: 1955, changeName: ƒ}</span>
+<span class="variable">mother</span>;                     <span class="comment">// Person {firstName: 'Sally', lastName: <b>'Doe'</b>, birth: 1955, changeName: ƒ}</span>
 </pre>
                     </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
 
+            <article id="built-in-constructors">
+                <h2>Built-in constructors</h2>
+                <dl>
+                    <dt>Built-in constructors for native objects</dt>
+                    <dd>
+<pre class="formula">
+new <span class="type">String</span>()    <span class="comment">// A new String object</span>
+new <span class="type">Number</span>()    <span class="comment">// A new Number object</span>
+new <span class="type">Boolean</span>()   <span class="comment">// A new Boolean object</span>
+new <span class="type">Object</span>()    <span class="comment">// A new Object object</span>
+new <span class="type">Array</span>()     <span class="comment">// A new Array object</span>
+new <span class="type">RegExp</span>()    <span class="comment">// A new RegExp object</span>
+new <span class="type">Function</span>()  <span class="comment">// A new Function object</span>
+new <span class="type">Date</span>()      <span class="comment">// A new Date object</span>
+</pre>
+                    </dd>
+                    
+                    <dd>Despite so, using their primitive data types are better than create complex objects.Primitive values are much faster.
+                        <ul>
+                            <li>string literal <code>""</code></li>
+                            <li>number literal <code>123</code></li>
+                            <li>boolean literal <code>true / false</code></li>
+                            <li>object literal <code>{}</code></li>
+                            <li>array literal <code>[]</code></li>
+                            <li>pattern literal <code>/()/</code></li>
+                            <li>function expression <code>() {}</code></li>
+                        </ul>
+                    </dd>
+                    <dd>Examples
+                        <ul>
+                            <li>String object</li>
+                            <li>
+                                <ul>
+                                    <li>Creating string as a primitive: <code>name = "John"</code> </li>
+                                    <li>Creating string as an object: <code>name = new String("John")</code></li>
+                                    <li>Other than complicate the code and slow down execution, it also have unexpected results.</li>
+<pre class="js-codebox">
+x = "John";               // "John"
+y = new String("John");   // String {'John'}
+z = new String("John"); 
 
+typeof x;   // string
+typeof y;   // object
 
-                    </dl>
+x == y;     // true
+x === y;    // false
+y == z;     // false
+y === z;    // false
+</pre>
+                                </ul>
+                            </li>
+                            <li>Number object</li>
+                            <li>
+                                <ul>
+                                    <li>Creating string as a primitive: <code>x = 30</code> </li>
+                                    <li>Creating string as an object: <code>x = new Number(30)</code></li>
+                                    <li>Similarly, number should not be created as an object.</li>
+<pre class="js-codebox">
+x = 123;                // 123
+y = new Number(123);    // Number {123}
+z = new Number(123);
+
+typeof x;   // number
+typeof y;   // object
+
+x == y;     // true
+x === y;    // false
+y == z;     // false
+y === z;    // false
+</pre>
+                                </ul>
+                            </li>
+                            <li>Boolean object</li>
+                            <li>
+                                <ul>
+                                    <li>Creating string as a primitive: <code>x = false</code> </li>
+                                    <li>Creating string as an object: <code>x = new Boolean(false)</code></li>
+                                    <li>Similarly, boolean should not be created as an object.</li>
+<pre class="js-codebox">
+x = true;               // true
+y = new Boolean(true);  // Boolean {true}
+z = new Boolean(true);
+
+typeof x;   // boolean
+typeof y;   // object
+
+x == y;     // true
+x === y;    // false
+y == z;     // false
+y === z;    // false
+</pre>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </dd>
+                    <dd>Note: <code>Math()</code> is a global object. The <code>new</code> keyword can't be used on <code>Math</code></dd>
+                </dl>
                 <a href="#top"><hr></a>
             </article>
 
@@ -347,8 +445,6 @@ const <span class="variable">mother</span>  = new <span class="variable">Person<
                 </dl>
                 <a href="#top"><hr></a>
             </article>
-
-
 
             <article id="references">
                 <h2>References</h2>
