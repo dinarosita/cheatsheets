@@ -14,7 +14,7 @@
     <body>
 
         <header>
-            <a href="./index.html"><h1>JavaScript: Function.prototype.call()</h1></a>
+            <a href="./index.html"><h1>JavaScript: call()</h1></a>
             <nav id="navMenu"></nav>
         </header>
 
@@ -26,6 +26,12 @@
 
                 <dl>
                     <dt><code>call()</code></dt>
+
+                    <dd>
+<pre class="formula">
+<span class="variable">functionName</span>.call(<span class="variable">thisObject</span>, <span class="variable">args</span>)
+</pre>
+                    </dd>
                     <dd>This method allows a function or method belonging to one object to be assigned and called for a different object.</dd>
                     <dd>It provides a new value <code>this</code> to the function/method.</dd>
                     <dd>With <code>call()</code>, we can write a method once, then inherit it in another object without having to rewrite the method for the new object.</dd>
@@ -62,175 +68,313 @@ call(<span class="type">thisArg</span>, <span class="variable">arg1, ..., argN</
                 <a href="#top"><hr></a>
 
             </article>
-            <article id="nesting-constructor">
-                <h2>Using call() in nesting object constructor</h2>
+            <article id="chaining-constructor">
+                <h2>Using call() to chain constructors</h2>
                 <dl>
-                    <dt>Example: Create object constructor for products, grouped by categories</dt>
+                    <dt>Chaining constructors</dt>
+
+                    <dd>Task: Chaining generic <code>Product</code> constructor with specialized constructors <code>Food</code> and <code>Toy</code>.</dd>
+                    
+                    <dt>Generic <code>Product</code> object constructor</dt>
+                    
                     <dd>
                         <ul>
-                            <li>Generic object "Product" constructor</li>
-                            <li>Specific object "Category" constructor: Food, Toy, etc</li>
+                            <li>Defined with 2 parameters: <code>name</code> and <code>price</code>.</li>
                         </ul>
                     </dd>
-                    
-                    
-                    <dt>Generic object "Product" constructor</dt>
                     <dd>
 <pre class="formula-thin">
 function <span class="type">Product</span>(<span class="variable">name, price</span>) {
-    <b>this</b>.<span class="variable">name</span> = <span class="variable">name</span>;
+    <b>this</b>.<span class="variable">name</span>  = <span class="variable">name</span>;
     <b>this</b>.<span class="variable">price</span> = <span class="variable">price</span>;
 }
 </pre>
                     </dd>
+                    <dt>Specialized <code>Food</code> and <code>Toy</code> object constructors</dt>
                     <dd>
                         <ul>
-                            <li>Each product has same basic properties: name and price</li>
-                            <li>There's only 1 of <b>this</b>.</li>
-                            <li>Used in each specific object category constructor.</li>
-                        </ul>
-                    </dd>
-
-                    <dt>Specific object "Category" constructor: Food, Toy, etc</dt>
+                            <li>Invoke Product using <code>call()</code>, passing <code>this</code>, <code>name</code>, and <code>price</code>.</li>
+                            <li><code>Product</code> initializes the properties <code>name</code> and <code>price</code>, then the specialized constructor define the <code>category</code>.</li>
+                        </ul>                            
+                    </dd>                    
                     <dd>
 <pre class="formula-thin">
 function <span class="type">Food</span>(<span class="variable">name, price</span>) {
-    <span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">name, price</span>);
+  <span class="formula-thin"><span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">name, price</span>);</span>
     <b>this</b>.<span class="variable">categeory</span> = <span class="variable">"food"</span>;
 }
-</pre>
-                    </dd>
-                    <dd>
-                        <ul>
-                            <li>Each product will be grouped based on the category. This category name will be each product's object type. Each project will be bearing the generic properties listed in the generic "Product" constructor, with addition property "category" that's set with category name as the value.</li>
-                            <li>There are going to be bunch of this. 1 for each category.</li>
-                            <li>Each of them having the generic constructor within the function, along with the category specific property.</li>
-                        </ul>
-                    </dd>
-                    <dd>Understanding the nesting formula</dd>
-                    <dd>                        
-<pre class="formula">
-<span class="type">method1</span>.call(<span class="type">object2</span>, <span class="variable">args</span>)
-</pre>
-                    </dd>
-                    <dd></dd>
-                    <dd>
-<pre class="formula-thin">
-function <span class="type">Food</span>(<span class="variable">args</span>) {
-    <span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">args</span>)
+
+function <span class="type">Toy</span>(<span class="variable">name, price</span>) {
+    <span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">name, price</span>);
+    <b>this</b>.<span class="variable">categeory</span> = <span class="variable">"toy"</span>;
 }
 </pre>
                     </dd>
-                    <dd>Meaning: Calling method "Product" but using "this" as the object. Since the "this" is located inside "Food" constructor, the object will refer to the "food object" later created when "Food" constructor is called using "new" keyword. In other word, the "Product" function is now adapted to "Food" function. Product constructor is a template for the beginning part of Food constructor. All arguments are passed accordingly.</dd>
-                    <dd>Transformation:</dd>
+                    
+                    <dt>Create objects with <code>new</code> keyword</dt>
                     <dd>
 <pre class="formula-thin">
-function <span class="type">Food</span>(<span class="variable">name</span>, <span class="variable">price</span>) {
-    <span class="type">Product</span>.call(<span class="type">this</span>, <span class="variable">name</span>, <span class="variable">price</span>);
-    <b>this</b>.<span class="variable">category</span> = "<span class="type">Food</span>";
-}
-
-function <span class="type">Product</span>(<span class="variable">name</span>, <span class="variable">price</span>) {
-    <b>this</b>.<span class="variable">name</span> = <span class="variable">name</span>;
-    <b>this</b>.<span class="variable">price</span> = <span class="variable">price</span>;
-}
-</pre> 
-                    </dd>
-                    <dd>Above is essentially the same as:</dd>
-                    <dd>
-<pre class="formula-thin">
-function <span class="type">Food</span>(<span class="variable">name</span>, <span class="variable">price</span>) {
-    <b>this</b>.<span class="variable">name</span> = <span class="variable">name</span>;
-    <b>this</b>.<span class="variable">price</span> = <span class="variable">price</span>;
-    <b>this</b>.<span class="variable">category</span> = "<span class="type">Food</span>";
-}
-</pre> 
-                    </dd>
-                    <dd>Why bother create it nesting way? Because the Product constructor is a blueprint of all product of any category. We want to keep consistency as much as we can by not repeating coding manually.</dd>
-                    <dd>
-
-                    <dt>Complete coding</dt>
-                    <dd>General "Product" constructor</dd>
-                    <dd>
-<pre class="formula-thin">
-function Product(name, price) {
-    this.name = name;
-    this.price = price;
-};
+const <span class="variable">cheese</span> = new <span class="type">Food</span>(<span class="variable">"feta", 5</span>);
+const <span class="variable">bread</span> = new <span class="type">Food</span>(<span class="variable">"muffin", 3</span>);
+const <span class="variable">fun</span> = new <span class="type">Toy</span>(<span class="variable">"robot", 12</span>);
+const <span class="variable">ocean</span> = new <span class="type">Toy</span>(<span class="variable">"figurine", 2</span>);
 </pre>
                     </dd>
-                    <dd>Category constructors</dd>
+                    <dt>Results</dt>
                     <dd>
 <pre class="formula-thin">
-function Food(name, price) {
-    Product.call(this, name, price);
-    this.category = 'food';
-};
-
-function Toy(name, price) {
-    Product.call(this, name, price);
-    this.category = 'toy';
-};
-
-function Furniture(name, price) {
-    Product.call(this, name, price);
-    this.category = 'furniture';
-};
-</pre>
-                    </dd>
-                    <dd>Create product objects</dd>
-                    <dd>
-<pre class="formula-thin">
-const cheese = new Food("feta", 5);
-const bread = new Food("muffin", 3);
-const fun = new Toy("robot", 12);
-const ocean = new Toy("figurine", 2);
-const elegance = new Furniture("table", 30);
-const cheerful = new Furniture("kid's chair", 12);
-</pre>
-                    </dd>
-                    <dd>Results</dd>
-                    <dd>
-<pre class="formula-thin">
-cheese;     // Food {name: 'feta', price: 5, category: 'food'}
-bread;      // Food {name: 'muffin', price: 3, category: 'food'}
-fun;        // Toy {name: 'robot', price: 12, category: 'toy'}
-ocean;      // Toy {name: 'figurine', price: 2, category: 'toy'}
-elegance;   // Furniture {name: 'table', price: 30, category: 'furniture'}
-cheerful;   // Furniture {name: "kid's chair", price: 12, category: 'furniture'}
+<span class="variable">cheese</span>;     // <span class="type">Food</span> {<span class="variable">name: 'feta', price: 5, category: 'food'</span>}
+<span class="variable">bread</span>;      // <span class="type">Food</span> {<span class="variable"><span class="variable"><span class="variable">name: "muffin", price: 3, category: 'food'</span></span></span>}
+<span class="variable">fun</span>;        // <span class="type">Toy</span> {<span class="variable">name: 'robot', price: 12, category: 'toy'</span>}
+<span class="variable">ocean</span>;      // <span class="type">Toy</span> {<span class="variable">name: 'figurine', price: 2, category: 'toy'</span>}
 </pre>
                     </dd>
                    
                 </dl>
                 <a href="#top"><hr></a>
-            </article>
-                   
+            </article>                   
             
-            <article id="template">
-                <h2>template</h2>
+            <article id="anonymous-function-and-direct-call">
+                <h2>Anonymous function and direct call()</h2>
 
                 <dl>
-                    <dt>template</dt>
-                    <dd>Given: array</dd>
-                    <dd>
-<pre class="formula-thin">
-const <span class="variable">template</span> = [<span class="variable">template</span>];
-</pre>
-                    </dd>
-                    <dd>Map</dd>
+                    <dt>Anonymous function and direct calling</dt>
+                    <dd><code>call()</code> can be used to invoke anonymous function directly after stating it.</dd>
                     <dd>
 <pre class="formula">
-const <span class="variable">template</span> = <span class="variable">template</span>.map(<span class="variable">template</span> => <span class="variable">template</span>);
+<span class="variable">(<b>function</b>() {...})</span>.<b>call</b>(<span class="variable">thisArg</span>)
 </pre>
                     </dd>
-                    <dd>Results</dd>
+                    <dt>For each items in an object array</dt>
+                    <dd>
+<pre class="formula">
+for (<span class="variable">let i = 0; i < arr.length; i++</span>) {
+    <span <span class="variable">(<b>function</b>() {...})</span>.<b>call</b>(<span class="variable">arr[i]</span>)
+};
+</pre>
+                    </dd>
+                    <dd>Don't forget keyword <code>this</code></dd>
+
+                    <dt>Task</dt>
+                    <dd>Create anonymous function for printing content of each properties in an object array, with index numbering but starting from 1.</dd>
+                    
+                    <dt>Basic way</dt>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">template</span>;    <span class="comment">// template</span>
-<span class="variable">template</span>;      <span class="comment">// template</span>
+const <span class="variable">animals</span> = [
+    {<span class="variable">species: "Dodo", name: "Dottie"</span>},
+    {<span class="variable">species: "Flummel", name: "Op"</span>},
+    {<span class="variable">species: "Flummel", name: "Ed"</span>}
+];
+
+for (<span class="variable">let i = 0; i < animals.length; i++</span>) {    
+    <span class="variable">console.log(`#${i+1} ${animals[i].species}: ${animals[i].name}`);</span>
+};
+
+<span class="comment">----------------
+#1 Dodo: Dottie
+#2 Flummel: Op
+#3 Flummel: Ed
+----------------</span>
 </pre>
                     </dd>
-                    
+
+                    <dt>Using function</dt>                    
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [
+    {<span class="variable">species: "Dodo", name: "Dottie"</span>},
+    {<span class="variable">species: "Flummel", name: "Op"</span>},
+    {<span class="variable">species: "Flummel", name: "Ed"</span>}
+];
+
+function print(arr, i) {
+    <span class="variable">console.log(`#${i+1} ${arr[i].species}: ${arr[i].name}`);</span>
+}
+
+for (<span class="variable">let i = 0; i < animals.length; i++</span>) {
+    print(animals, i)
+};
+
+<span class="comment">----------------
+#1 Dodo: Dottie
+#2 Flummel: Op
+#3 Flummel: Ed
+----------------</span>
+</pre>
+                    </dd>
+
+                    <dt>Using anonymous function and direct <code>call()</code></dt>
+                    <dd>Working from the <code>print</code> function above</dd>
+                    <dd>
+                        <ul>
+                            <li>The <code>this</code> is <code>animals[i]</code></li>
+                            <li>Then the call: <code>call(animals[i], i)</code></li>
+                            <li>And inside the function: <code>this.species</code> and <code>this.name</code></li>
+                            <li>Parameters <code>arr</code> and <code>i</code> are not necessary</li>
+                        </ul>
+                    </dd>
+                    <dd>From this:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [
+    {<span class="variable">species: "Dodo", name: "Dottie"</span>},
+    {<span class="variable">species: "Flummel", name: "Op"</span>},
+    {<span class="variable">species: "Flummel", name: "Ed"</span>}
+];
+
+for (<span class="variable">let i = 0; i < animals.length; i++</span>) {
+    (function (arr, i) {
+        <span class="variable">console.log(`#${i+1} ${arr[i].species}: ${arr[i].name}`);</span>
+    }).call(animals[i], animals, i)
+};
+
+<span class="comment">----------------
+#1 Dodo: Dottie
+#2 Flummel: Op
+#3 Flummel: Ed
+----------------</span>
+</pre>
+                    </dd>
+                    <dd>To this:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">animals</span> = [
+    {<span class="variable">species: "Dodo", name: "Dottie"</span>},
+    {<span class="variable">species: "Flummel", name: "Op"</span>},
+    {<span class="variable">species: "Flummel", name: "Ed"</span>}
+];
+
+for (<span class="variable">let i = 0; i < animals.length; i++</span>) {
+    (function () {
+        <span class="variable">console.log(`#${i+1} ${this.species}: ${this.name}`);</span>
+    }).call(animals[i])
+};
+
+<span class="comment">----------------
+#1 Dodo: Dottie
+#2 Flummel: Op
+#3 Flummel: Ed
+----------------</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="invoke-function-containing-this">
+                <h2>Invoke object functions and give context to "this"</h2>
+                
+                <dl>
+                    <dt>Invoke object functions and give context to "this"</dt>
+                    <dd>Functions can be made for use in object. Inside function, the object is refered as <code>this</code>. Function then could be invoke conveniently using <code>call(object)</code>.</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">func</span> () { <span class="variable">this.property...</span> }
+
+const <span class="variable">obj</span> = { <span class="variable">property1: "value1", property2: "value2", ...</span> }
+
+<span class="variable">func</span>.call(<span class="variable">obj</span>)
+</pre>
+                    </dd>
+                    <dt>Example</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">dimension</span> () {
+    <span class="variable">console.log(`The ${this.type} paper size is ${this.width} inch by ${this.length} inch.`)</span>;
+};
+
+const <span class="variable">letter</span> = { 
+    <span class="variable">type:   "letter", 
+    width:  8.5, 
+    length: 11</span> 
+};
+
+<span class="variable">dimension</span>.call(<span class="variable">letter</span>);
+
+<span class="comment">// The letter paper size is 8.5 inch by 11 inch.</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="blank-call-invokes-global-object">
+                <h2>Blank call() to invoke global value</h2>
+                
+                <dl>
+                    <dt>Blank <code>call()</code> to invoke global value</dt>
+                    <dd>When <code>thisArg</code> is not given, global value is used. Because without context, <code>this</code> referes to the global object.</dd>
+                    <dd>We can set a global values as default <code>this.property</code> values. This will be used when the <code>thisArg</code> is not given as an argument when calling.</dd>
+<pre class="formula">
+function <span class="variable">func</span> () { <span class="variable">this.property...</span> }
+
+const <span class="variable">obj</span> = { <span class="variable">property1: "value1", property2: "value2", ...</span> }
+
+<span class="variable">func</span>.call(<span class="variable">obj</span>)
+</pre>
+                    </dd>
+                    <dt>Task</dt>
+                    <dd>Create <code>welcome</code> function that can send welcome message to name within an object, to all objects in an array (through a for function), and give default <code>Guest</code> for use when there's no specific object.</dd>
+                    <dd>
+<pre class="formula-thin">
+var <span class="variable">name</span> = <span class="variable">"Guest"</span>;
+
+function <span class="variable">welcome</span>() {
+    <span class="variable">console.log(`Welcome, ${this.name}!`);</span>
+};
+
+const <span class="variable">son</span> = { <span class="variable">name: "Dodo", age: 5</span> };
+
+const <span class="variable">children</span> = [
+    { <span class="variable">name: "Dottie", age: 5</span> },
+    { <span class="variable">name: "Ed", age: 3</span> },
+    { <span class="variable">name: "Op", age: 2</span> }
+]; 
+</pre>
+                    </dd>    
+                    <dt>One function for all</dt>
+                    <dd>Just the one function can suit default, single object, and array of objects:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">welcome</span>.<b>call</b>();
+<span class="comment">// Welcome, Guest!</span>
+
+<span class="variable">welcome</span>.<b>call</b>(<span class="variable">son</span>);
+<span class="comment">// Welcome, Dodo!</span>
+
+<span class="variable">children</span>.<b>forEach</b>(<span class="variable">el</span> <b>=&gt;</b> <span class="variable">welcome</span>.<b>call</b>(<span class="variable">el</span>));<span class="comment">
+// Welcome, Dottie!
+// Welcome, Ed!
+// Welcome, Op!</span>
+</pre>
+                    </dd>     
+                    <dd>Other outcomes:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">welcome</span>();
+<span class="variable">welcome</span>(<span class="variable">son</span>);
+<span class="variable">welcome</span>(<span class="variable">children</span>);
+<span class="comment">// Welcome, Guest!</span>
+
+<span class="variable">welcome</span>.<b>call</b>(<span class="variable">children</span>);
+<span class="comment">// Welcome, undefined!</span>
+</pre>
+                    </dd>  
+                    <dt>Doesn't work on strict mode <code>"use strict"</code></dt>   
+                    <dd>
+<pre class="formula-thin">
+<b>"use strict"</b>
+var <span class="variable">name</span> = <span class="variable">"Guest"</span>;
+
+function <span class="variable">welcome</span>() {
+    <span class="variable">console.log(`Welcome, ${this.name}!`);</span>
+};
+
+<span class="variable">welcome</span>();
+<span class="variable">welcome</span>.call();
+<span class="comment">// Uncaught TypeError...</span>
+</pre>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
