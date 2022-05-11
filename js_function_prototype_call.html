@@ -26,36 +26,29 @@
 
                 <dl>
                     <dt><code>call()</code></dt>
-
                     <dd>
-<pre class="formula">
-<span class="variable">functionName</span>.call(<span class="variable">thisObject</span>, <span class="variable">args</span>)
-</pre>
+                        <code class="formula-thin">function <span class="variable">func</span>(<span class="variable">args</span>) {<span class="variable">...</span>}</code>
                     </dd>
-                    <dd>This method allows a function or method belonging to one object to be assigned and called for a different object.</dd>
-                    <dd>It provides a new value <code>this</code> to the function/method.</dd>
-                    <dd>With <code>call()</code>, we can write a method once, then inherit it in another object without having to rewrite the method for the new object.</dd>
-                    <dd>It's similar to <code>apply()</code> method, with fundamental difference:
-                        <ul>
-                            <li><code>apply()</code> accepts a single array of arguments.</li>
-                            <li><code>call()</code> accepts an argument list.</li>
-                        </ul>
+                    <dd>
+                        <code class="formula"><span class="variable">func</span>.call(<span class="variable">obj</span>, <span class="variable">args</span>)</code>
                     </dd>
+                    <dd><code>call()</code> allows an <b>object's function</b> to be called for a <b>different object</b>. It provides a new value <code>this</code> to the function.</dd>
 
-                    <dt>Syntax</dt>                  
+                    <dd>Or it can be a <b>generic object function</b> altogether, created independent of any existing object, but for object use. In this case, the <code>this</code> keyword inside the function will refert to the <code>global</code> if it's not in strict mode.</dd>
+
+                    <dt>Syntax</dt>
                     <dd>
 <pre class="formula">
 call()
-call(<span class="type">thisArg</span>)
-call(<span class="type">thisArg</span>, <span class="variable">arg1</span>)
-call(<span class="type">thisArg</span>, <span class="variable">arg1, arg2</span>)
-call(<span class="type">thisArg</span>, <span class="variable">arg1, ..., argN</span>)
+call(<span class="variable">obj</span>)
+call(<span class="variable">obj</span>, <span class="variable">args</span>)
 </pre>
                     </dd>
+
                     <dd>Parameters
                         <ul>
-                            <li><code>thisArg</code> (optional): The value to use as <code>this</code> when calling function. Check reference for further explanation.</li>
-                            <li><code>arg1, arg2, ..., argN</code> (optional): Arguments for the function</li>
+                            <li><code>obj</code>: The object the function is being called to. Refered as <code>this</code> from inside the function.</li>
+                            <li><code>args</code>: comma separated arguments for the function</li>
                         </ul>
                     </dd>
                     <dd>Return value:
@@ -63,6 +56,26 @@ call(<span class="type">thisArg</span>, <span class="variable">arg1, ..., argN</
                             <li>The result of calling the function with the specified <code>this</code> value and arguments.</li>
                         </ul>
                     </dd>
+
+                    <dt><code>call()</code> vs <code>apply()</code></dt>
+                    <dd><code>call()</code><br>
+                        <code class="formula"><span class="variable">func</span>.call(<span class="variable">obj</span>, <span class="variable">arg1, arg2, ..., argN</span>)</code>
+                    </dd>
+                    <dd><code>apply()</code><br>
+                        <code class="formula"><span class="variable">func</span>.apply(<span class="variable">obj</span>, [<span class="variable">arg1, arg2, ..., argN</span>])</code>
+                    </dd>
+                    <dd>Similarities: 
+                        <ul>
+                            <li>Both are for calling a function to operate on an object.</li>
+                        </ul>
+                    </dd>
+                    <dd>Differences:
+                        <ul>
+                            <li><code>apply()</code>: Function's arguments are given as an array.</li>
+                            <li><code>call()</code>: Function's arguments are given as a comma separated list.</li>
+                        </ul>
+                    </dd>
+
                     
                 </dl>
                 <a href="#top"><hr></a>

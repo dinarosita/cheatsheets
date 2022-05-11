@@ -263,75 +263,148 @@ const <span class="variable">keyReady</span> = <span class="variable">keyData</s
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="map-call">
-                <h2>map.call()</h2>
-                <h3>Using map generically</h3>
+            <article id="string-map-call">
+                <h2>stringMap.call()</h2>
+                <h3>Creating map-like function for string use</h3>
 
-                <dl>
-                    <dt><code>Function.prototype.call()</code></dt>
-                    <dd><code>call()</code> method allows a function or method belonging to one object to be assigned and called for a different object.</dd>
-                    <dd>It provides a new value <code>this</code> to the function/method.</dd>
-                    <dd>With <code>call()</code>, we can write a method once, then inherit it in another object without having to rewrite the method for the new object.</dd>
-                    <dd>It's similar to <code>apply()</code> method, with fundamental difference:
-                        <ul>
-                            <li><code>apply()</code> accepts a single array of arguments.</li>
-                            <li><code>call()</code> accepts an argument list.</li>
-                        </ul>
-                    </dd>
-                    <dd>Syntax</dd>                  
+                <dl>                                      
+                    <dt><code>map.call()</code> for string manipulation</dt>
+                    <dd>String can be seen as an array of characters. With a little modification, we can adapt array's <code>map()</code> functionality for a string use. Let's call this string map mimic <code>stringMap</code>.</dd>
+                    <dd><b>Creating <code>stringMap</code></b></dd>
                     <dd>
-<pre class="formula">
-call()
-call(<span class="variable">thisArg</span>)
-call(<span class="variable">thisArg</span>, <span class="variable">arg1</span>)
-call(<span class="variable">thisArg</span>, <span class="variable">arg1, arg2</span>)
-call(<span class="variable">thisArg</span>, <span class="variable">arg1, ..., argN</span>)
-</pre>
+                        <code class="formula">const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map;</span></code>
                     </dd>
-                    <dd>Parameters
+                    
+                    <dd><b>Calling <code>stringMap</code></b></dd>
+                    <dd>
+                        <code class="formula"><span class="variable">stringMap</span>.call(<span class="variable">text</span>, <span class="variable">charFunc</span>);</code>
+                    </dd>
+
+                    <dt>String mapping example</dt>
+                    <dd>Task: Create an array from character code of each characters from a text.</dd>
+                    <dd>Remember summary above:</dd>
+                    <dd>
                         <ul>
-                            <li><code>thisArg</code> (optional): The value to use as <code>this</code> when calling function. Check reference for further explanation.</li>
-                            <li><code>arg1, arg2, ..., argN</code> (optional): Arguments for the function</li>
+                            <li>Creating <code>stringMap</code><br>
+                                <code class="formula-thin">const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map;</span></code>
+                            </li>
+                            <li>Calling <code>stringMap</code><br>
+                                <code class="formula-thin"><span class="variable">stringMap</span>.call(<span class="variable">text</span>, <span class="variable">charFunc</span>);</code>                    
+                            </li>
                         </ul>
                     </dd>
-                    <dd>Return value:
+                    
+                    <dd>We only need to prepare the character function <code>charFunc</code>.</dd>
+                    <dd>
                         <ul>
-                            <li>The result of calling the function with the specified <code>this</code> value and arguments.</li>
-                        </ul>
+                            <li>We can use handy string prototype <code>charCodeAt(index)</code>. Since it's already run for each character, index will be <code>0</code>.</li>
+                        <li>Since character function is short, it can be written as unnamed as an arrow function<br>                        
+                            <code class="formula-thin"><span class="variable">char</span> =&gt; <span class="variable">char</span>.charCodeAt(0);</code></li>
+                        </ul>                
                     </dd>
-                   
-                    <dt><code>map.call()</code>: Using map generically</dt>
-                    <dd>Task: map a text string into array of the charcode</dd>
-                    <dd>Given: a string</dd>
+
+                    <dd>Then let's try:</dd>
                     <dd>
 <pre class="formula-thin">
-const <span class="variable">text</span> = <span class="variable">"Hello Kitty"</span>;
+const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map;</span>
+
+<span class="variable">stringMap</span>.call(<span class="variable">"Hello World"</span>, <span class="variable">char => char.charCodeAt(0)</span>)
+<span class="comment">// (11) [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]</span>
 </pre>
                     </dd>
-                    <dd>Make a constant form of <code>Array.prototype.map</code>
-                        <ul>
-                            <li>Don't get confused with the <code>map</code> as the constant name here.</li>
-                            <li>The constant can be named anything really, doesn't have to be map. "mappo", "dodo", "donkey", or "whatever" even.</li>
-                            <li>It's just neater, and convey the role nicely, naming it <code>map</code>. Maybe a convention too.</li>
-                        </ul>
-                    </dd>
+                    
+                    <dt>Breakdown</dt>
                     <dd>
-<pre class="formula">
-const <span class="variable">map</span> = <span class="variable">Array.prototype.map</span>;
-</pre>
-                    </dd>
-                    <dd>Calling const <code>map</code> with <code>call()</code> method</dd>
-                    <dd>
-<pre class="formula">
-const <span class="variable">charCodes</span> = map.call(<span class="variable">text, (c)</span> => <span class="variable">c.charCodeAt(0)</span>);
-</pre>
-                    </dd>
-                    <dd>Results</dd>
-                    <dd>
-<pre class="formula-thin">
-<span class="variable">template</span>;    <span class="comment">// template</span>
-<span class="variable">template</span>;      <span class="comment">// template</span>
-</pre>
+                        <dl>
+                            <dt>Array <code>map()</code> syntax:</dt>
+                            <dd>
+                                <code class="formula-thin"><span class="variable">arr</span>.map(<span class="variable">elementFunc</span>)</code>
+                            </dd>
+                            <dd>Here we have:
+                                <ul>
+                                    <li><code>map()</code>: The map method for array</li>
+                                    <li><code>arr</code>: The array needs to be operated.</li>
+                                    <li><code>elementFunc</code>: Operation function for each element of the array.</li>
+                                </ul>
+                            </dd>
+
+                            <dt><code>stringMap</code></dt>
+                            <dd><code>stringMap</code> will take <b>a string</b> as the object, and apply <b>a function</b> to each of the characters of the text, and create a new text from the sequence of the results.</dd>
+                            <dd>Let's name the string "<code>text</code>" and the character function "<code>charFunc</code>".</dd>
+                            <dd>Now we have:
+                                <ul>
+                                    <li><code>stringMap</code>: The map-mimic for string</li>
+                                    <li><code>text</code>: The string needs to be operated.</li>
+                                    <li><code>charFunc</code>: Operation function for each character of the string.</li>
+                                </ul>
+                            </dd>
+                            <dd>But right now coining them into <code>text.stringMap(charFunc)</code> won't work.</dd>
+                            <dd><code>stringMap</code> doesn't even exist yet. We first need to define it and unfortunately it's not going to be the same syntax since it's not a string prototype.</dd>
+                            <dd>We are going to use <code>call()</code> to coin them together.</dd>
+
+                            <dt>General <code>call()</code> syntax:</dt>                    
+                            <dd>
+                                <code class="formula-thin">function <span class="variable">func</span>(<span class="variable">args</span>) {<span class="variable">...</span>}</code>
+                            </dd>
+                            <dd>
+                                <code class="formula"><span class="variable">func</span>.call(<span class="variable">obj</span>, <span class="variable">args</span>)</code>
+                            </dd>   
+                            <dd>Parameters:
+                                <ul>
+                                    <li><code>obj</code>: Object to which the function is to be operated.</li>
+                                    <li><code>args</code>: Is a comma-separated list of arguments for the original function.                                 
+                                        <ul>
+                                            <li>In <code>map()</code>, this will be the <code>elementFunc</code>.</li>
+                                            <li>For our <code>stringMap</code>, let's call it <code>charFunc</code>.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </dd>
+                            
+                            <dt>Creating <code>stringMap</code> function for <code>call()</code> use</dt>   
+                            <dd>The <code>func</code> function to be called here is <code>stringMap</code></dd>
+                            <dd>
+        <pre class="formula">
+        const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map</span>
+
+        <span class="comment">// Taking a character-function as argument.</span>
+        </pre> 
+                            </dd>
+                            <dd>Breakdown:
+                                <ul>
+                                    <li>Imagine we need function <code>stringMap</code> like this:<br>
+                                        <code class="formula-thin">function <span class="variable">stringMap</span>(<span class="variable">args</span>) {<span class="variable">...</span>}</code>
+                                    </li>
+                                    <li>But it's created from <code>Array.prototype.map</code> directly.<br>
+                                        <code class="formula-thin">const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map</span></code>
+
+                                    </li>
+                                    <li>Remember, even though it's not listed here, <code>map()</code> is taking the <code>elementFunc</code> as argument.<br>
+                                        
+                                        <code class="formula-thin"><span class="variable">arr</span>.map(<span class="variable">elementFunc</span>)</code>
+                                    </li>
+                                    <li>For <code>stringMap</code>, that's <code>charFunc</code>. Imagine:<br>
+                                        <code class="formula-thin">function <span class="variable">stringMap</span>(<span class="variable">charFunc</span>) {<span class="variable">...</span>}</code>
+                                    </li>
+                                </ul>
+                            </dd>
+                            
+                            <dt>Constructing <code>stringMap.call()</code></dt>
+
+                            <dd>Now <code>stringMap</code> is in the right format to be called using <code>call()</code>.<br>
+                                <code class="formula-thin"><span class="variable">stringMap</span>.call(<span class="variable">obj</span>, <span class="variable">args</span>)</code>
+                            </dd>
+                            <dd>Parameters for <code>stringMap</code>:
+                                <ul>
+                                    <li><code>obj</code> is the object to which function <code>stringMap</code> is operated, that is <code>text</code> (the string).</li>
+                                    <li><code>args</code> is the arguments to the function <code>stringMap</code> which is <code>charFunc</code> (function for each character).</li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <code class="formula"><span class="variable">stringMap</span>.call(<span class="variable">text</span>, <span class="variable">charFunc</span>)</code>
+                            </dd>
+                            <dd>That's it</dd>
+                        </dl>
                     </dd>
                     
                 </dl>
