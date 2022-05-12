@@ -49,9 +49,9 @@ map(<span class="variable">function (element, index, array) {...}</span>)
 map(<span class="variable">function (element, index, array) {...}</span>, <span class="variable">thisArg</span>)
 
 <span class="comment">// Arrow function</span>
-map(<span class="variable">(element) => {...}</span>)
-map(<span class="variable">(element, index) => {...}</span>)
-map(<span class="variable">(element, index, array) => {...}</span>)
+map(<span class="variable">(element) </span> => <span class="variable">{...}</span>)
+map(<span class="variable">(element, index) </span> => <span class="variable">{...}</span>)
+map(<span class="variable">(element, index, array) </span> => <span class="variable">{...}</span>)
 </pre>
                     </dd>
                     <dd>
@@ -217,8 +217,8 @@ const <span class="variable">rootArray</span> = <span class="variable">numberArr
                     <dd>Results</dd>
                     <dd>
 <pre class="formula-thin">
-<span class="variable">numberArray</span>;    <span class="comment">// (5) [1, 2, 3, 4, 5]</span>
-<span class="variable">rootArray</span>;      <span class="comment">// (5) [1, 1.4142135623730951, 1.7320508075688772, 2, 2.23606797749979]</span>
+<span class="variable">numberArray</span>;    <span class="comment">// (5) [1, 2, 3, 4, 5]</span>
+<span class="variable">rootArray</span>;      <span class="comment">// (5) [1, 1.4142135623730951, 1.7320508075688772, 2, 2.23606797749979]</span>
 </pre>
                     </dd>
                     
@@ -263,208 +263,225 @@ const <span class="variable">keyReady</span> = <span class="variable">keyData</s
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="string-map-call">
-                <h2>stringMap.call()</h2>
-                <h3>Creating map-like function for string use</h3>
+            <article id="array.prototype.map.call">
+                <h2>Mapping non-array collections</h2>
+                <h3>With Array.prototype.map.call()</h3>
 
-                <dl>                                      
-                    <dt><code>map.call()</code> for string manipulation</dt>
-                    <dd>String can be seen as an array of characters. With a little modification, we can adapt array's <code>map()</code> functionality for a string use. Let's call this string map mimic <code>stringMap</code>.</dd>
-                    <dd><b>Creating <code>stringMap</code></b></dd>
-                    <dd>
-                        <code class="formula">const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map;</span></code>
-                    </dd>
-                    
-                    <dd><b>Calling <code>stringMap</code></b></dd>
-                    <dd>
-                        <code class="formula"><span class="variable">stringMap</span>.call(<span class="variable">text</span>, <span class="variable">charFunc</span>);</code>
-                    </dd>
+                <dl>
+                    <dt>Mapping for non-array collections</dt>
+                    <dd><code>map()</code> is an array prototype method and it works only for array. However it can be adapted to array like object like a <code>string</code> or a <code>nodelist</code> by calling the <code>Array.prototype.map()</code>.</dd>
 
-                    <dt>String mapping example</dt>
-                    <dd>Task: Create an array from character code of each characters from a text.</dd>
-                    <dd>Remember summary above:</dd>
+                    <dt>Non-array collection examples:</dt>
                     <dd>
                         <ul>
-                            <li>Creating <code>stringMap</code><br>
-                                <code class="formula-thin">const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map;</span></code>
-                            </li>
-                            <li>Calling <code>stringMap</code><br>
-                                <code class="formula-thin"><span class="variable">stringMap</span>.call(<span class="variable">text</span>, <span class="variable">charFunc</span>);</code>                    
-                            </li>
+                            <li><code>string</code>: a collection of characters</li>
+                            <li><code>nodelist</code>: a collection of nodes, usually returned by properties such as <code>Node.childNodes</code> or methods such as <code>document.querySelectorAll()</code></li>
                         </ul>
                     </dd>
-                    
-                    <dd>We only need to prepare the character function <code>charFunc</code>.</dd>
-                    <dd>
-                        <ul>
-                            <li>We can use handy string prototype <code>charCodeAt(index)</code>. Since it's already run for each character, index will be <code>0</code>.</li>
-                        <li>Since character function is short, it can be written as unnamed as an arrow function<br>                        
-                            <code class="formula-thin"><span class="variable">char</span> =&gt; <span class="variable">char</span>.charCodeAt(0);</code></li>
-                        </ul>                
-                    </dd>
 
-                    <dd>Then let's try:</dd>
+                    <dt>Syntax</dt>
                     <dd>
-<pre class="formula-thin">
-const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map;</span>
+                        <code class="formula">Array.prototype.map.call(<span class="variable">theCollection</span>, <span class="variable">elFunction</span>);<br>
+                            Array.prototype.map.call(<span class="variable">theCollection</span>, <span class="variable">el</span> => <span class="variable">...el...</span>);</code>
+                    </dd>                  
 
-<span class="variable">stringMap</span>.call(<span class="variable">"Hello World"</span>, <span class="variable">char => char.charCodeAt(0)</span>)
-<span class="comment">// (11) [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]</span>
-</pre>
-                    </dd>
-                    
                     <dt>Breakdown</dt>
                     <dd>
                         <dl>
-                            <dt>Array <code>map()</code> syntax:</dt>
+                            <dt><code>call()</code> syntax</dt>
                             <dd>
-                                <code class="formula-thin"><span class="variable">arr</span>.map(<span class="variable">elementFunc</span>)</code>
+                                <code class="formula">function <span class="variable">elFunction</span>(<span class="variable">arg1-n</span>)<br>
+                                <span class="variable">elFunction</span>.call(<span class="variable">theObject</span>, <span class="variable">arg1-n</span>)</code>
                             </dd>
-                            <dd>Here we have:
+                            <dd>Parameters of <code>call()</code>:
                                 <ul>
-                                    <li><code>map()</code>: The map method for array</li>
-                                    <li><code>arr</code>: The array needs to be operated.</li>
-                                    <li><code>elementFunc</code>: Operation function for each element of the array.</li>
+                                    <li>First: <code>theObject</code> aka <code>thisArg</code>. The object to which the function is being called. Keyword <code>this</code> inside the function will refer to this object.</li>
+                                    <li>Rest (optional): <code>arg1-n</code>. Collection of parameters required by original function.</li>
                                 </ul>
                             </dd>
-
-                            <dt><code>stringMap</code></dt>
-                            <dd><code>stringMap</code> will take <b>a string</b> as the object, and apply <b>a function</b> to each of the characters of the text, and create a new text from the sequence of the results.</dd>
-                            <dd>Let's name the string "<code>text</code>" and the character function "<code>charFunc</code>".</dd>
-                            <dd>Now we have:
-                                <ul>
-                                    <li><code>stringMap</code>: The map-mimic for string</li>
-                                    <li><code>text</code>: The string needs to be operated.</li>
-                                    <li><code>charFunc</code>: Operation function for each character of the string.</li>
+                            <dd>For example:<br>
+                                <code class="formula-thin">
+                                    function <span class="variable">Person</span>(<span class="variable">name, age, location</span>) {<span class="variable">...</span>}<br>
+                                    <span class="variable">Person</span>.<b>call</b>(<span class="variable">dad</span>, <span class="variable">name, age, location</span>)</code></li>
                                 </ul>
                             </dd>
-                            <dd>But right now coining them into <code>text.stringMap(charFunc)</code> won't work.</dd>
-                            <dd><code>stringMap</code> doesn't even exist yet. We first need to define it and unfortunately it's not going to be the same syntax since it's not a string prototype.</dd>
-                            <dd>We are going to use <code>call()</code> to coin them together.</dd>
-
-                            <dt>General <code>call()</code> syntax:</dt>                    
+        
+                            <dt><code>map()</code> syntax for array</dt>
                             <dd>
-                                <code class="formula-thin">function <span class="variable">func</span>(<span class="variable">args</span>) {<span class="variable">...</span>}</code>
+                                <code class="formula"><span class="variable">theArray</span>.map(<span class="variable">elFunction</span>)<br>
+                                <span class="variable">theArray</span>.map(<span class="variable">el</span> => <span class="variable">...el...</span>)</code>
                             </dd>
-                            <dd>
-                                <code class="formula"><span class="variable">func</span>.call(<span class="variable">obj</span>, <span class="variable">args</span>)</code>
-                            </dd>   
-                            <dd>Parameters:
+                            <dd>Required parameter: <code>elFunction</code>
                                 <ul>
-                                    <li><code>obj</code>: Object to which the function is to be operated.</li>
-                                    <li><code>args</code>: Is a comma-separated list of arguments for the original function.                                 
+                                    <li>Function for each element.</li>
+                                    <li>Often written as an anonymous arrow function when short.</li>
+                                </ul>
+                            </dd>
+                            <dd>Return: <code>[]</code>
+                                <ul>
+                                    <li>Return from each of the <code>elFunction</code> call to each element, assembled into an array.</li>
+                                </ul>
+                            </dd>
+                            <dd>The prototype:<br>
+                                <code class="formula">Array.prototype.map(<span class="variable">elFunction</span>)</code>
+                            </dd>        
+        
+                            <dt><code>Array.prototype.map.call()</code></dt>
+                            <dd><code>map()</code> adapted for non-array collection is modified from its prototype form. By as simple as calling it with <code>call()</code></dd>
+                            <dd>
+                                <code class="formula">Array.prototype.map.call(<span class="variable">theCollection</span>, <span class="variable">elFunction</span>);</code>                            
+                            </dd>
+                            <dd>The parameters are the <b>calling parameters</b>:
+                                <ul>
+                                    <li>First parameter is <code>theCollection</code></li>
+                                    <li>The rest of parameters are the <b>mapping parameters</b>:
                                         <ul>
-                                            <li>In <code>map()</code>, this will be the <code>elementFunc</code>.</li>
-                                            <li>For our <code>stringMap</code>, let's call it <code>charFunc</code>.</li>
+                                            <li>First and mandatory is <code>elFunction</code></li>
+                                            <li>Rest are optional</li>
                                         </ul>
                                     </li>
                                 </ul>
                             </dd>
-                            
-                            <dt>Creating <code>stringMap</code> function for <code>call()</code> use</dt>   
-                            <dd>The <code>func</code> function to be called here is <code>stringMap</code></dd>
+                            <dt>Map prototype as a function constant</dt>
+                            <dd>It can also be broken down into 2 lines. Unnecessary though, I think.</dd>
                             <dd>
-        <pre class="formula">
-        const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map</span>
+                                <code class="formula">const <span class="variable">collectionMap</span> = Array.prototype.map;<br>
+                                <span class="variable">collectionMap</span>.call(<span class="variable">theCollection</span>, <span class="variable">elFunction</span>);</code>
+                            </dd>
 
-        <span class="comment">// Taking a character-function as argument.</span>
-        </pre> 
-                            </dd>
-                            <dd>Breakdown:
-                                <ul>
-                                    <li>Imagine we need function <code>stringMap</code> like this:<br>
-                                        <code class="formula-thin">function <span class="variable">stringMap</span>(<span class="variable">args</span>) {<span class="variable">...</span>}</code>
-                                    </li>
-                                    <li>But it's created from <code>Array.prototype.map</code> directly.<br>
-                                        <code class="formula-thin">const <span class="variable">stringMap</span> = <span class="variable">Array.prototype.map</span></code>
-
-                                    </li>
-                                    <li>Remember, even though it's not listed here, <code>map()</code> is taking the <code>elementFunc</code> as argument.<br>
-                                        
-                                        <code class="formula-thin"><span class="variable">arr</span>.map(<span class="variable">elementFunc</span>)</code>
-                                    </li>
-                                    <li>For <code>stringMap</code>, that's <code>charFunc</code>. Imagine:<br>
-                                        <code class="formula-thin">function <span class="variable">stringMap</span>(<span class="variable">charFunc</span>) {<span class="variable">...</span>}</code>
-                                    </li>
-                                </ul>
-                            </dd>
-                            
-                            <dt>Constructing <code>stringMap.call()</code></dt>
-
-                            <dd>Now <code>stringMap</code> is in the right format to be called using <code>call()</code>.<br>
-                                <code class="formula-thin"><span class="variable">stringMap</span>.call(<span class="variable">obj</span>, <span class="variable">args</span>)</code>
-                            </dd>
-                            <dd>Parameters for <code>stringMap</code>:
-                                <ul>
-                                    <li><code>obj</code> is the object to which function <code>stringMap</code> is operated, that is <code>text</code> (the string).</li>
-                                    <li><code>args</code> is the arguments to the function <code>stringMap</code> which is <code>charFunc</code> (function for each character).</li>
-                                </ul>
-                            </dd>
-                            <dd>
-                                <code class="formula"><span class="variable">stringMap</span>.call(<span class="variable">text</span>, <span class="variable">charFunc</span>)</code>
-                            </dd>
-                            <dd>That's it</dd>
                         </dl>
                     </dd>
-                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            <article id="array.from">
+                <h2>Array.from()</h2>
+                <h3>Creating array from another array or any collection</h3>
+
+                <dl>
+                    <dt><code>Array.from()</code></dt>
+                    <dd>There's actually an already <b>built-in method</b> for creating an array, from <b>any collection</b>, whether it is an array or a non-array collection.</dd>
+
+                    <dd>
+                        <code class="formula">
+                            Array.from(<span class="variable">theCollection</span>);<br>
+                            Array.from(<span class="variable">theCollection</span>, <span class="variable">elFunction</span>);<br>
+                            Array.from(<span class="variable">theCollection</span>, <span class="variable">el</span> => <span class="variable">...el...</span>);
+                        </code>
+                    </dd>
+                    <dd>Syntax is similar, but <b>element function can be omitted</b>. Include <b>element function</b> when there's element manipulation.</dd>        
                 </dl>
                 <a href="#top"><hr></a>
             </article>
             
-            <article id="template">
-                <h2>template</h2>
+            
+            <article id="string-mapping">
+                <h2>String mapping</h2>
+                <h3>With Array.prototype.map.call()</h3>
 
                 <dl>
-                    <dt>template</dt>
-                    <dd>Given: array</dd>
-                    <dd>
-<pre class="formula-thin">
-const <span class="variable">template</span> = [<span class="variable">template</span>];
-</pre>
-                    </dd>
-                    <dd>Map</dd>
+                    <dt>String mapping</dt>
+                    <dd>String is a collection of characters.</dd>
+   
+
+                    <dt>Task</dt>
+                    <dd>Create array from string. With and without character manipulation.</dd>
+
+                    <dt>Using <code>Array.from()</code></dt>                    
+                    <dd>Code:</dd>
                     <dd>
 <pre class="formula">
-const <span class="variable">template</span> = <span class="variable">template</span>.map(<span class="variable">template</span> => <span class="variable">template</span>);
+<span class="variable">plainArray</span>    = Array.from(<span class="variable">"Hello Kitty!"</span>);
+<span class="variable">copyArray</span>     = Array.from(<span class="variable">"Hello Kitty!"</span>, <span class="variable">char</span> => <span class="variable">char</span>);
+<span class="variable">capitalArray</span>  = Array.from(<span class="variable">"Hello Kitty!"</span>, <span class="variable">char</span> => <span class="variable">char.toUpperCase()</span>);
+<span class="variable">codeArray</span>     = Array.from(<span class="variable">"Hello Kitty!"</span>, <span class="variable">char</span> => <span class="variable">char.charCodeAt(0)</span>);
 </pre>
                     </dd>
-                    <dd>Results</dd>
+
+                    <dt>Using <code>Array.prototype.map.call()</code></dt>                    
+                    <dd>Code:</dd>
                     <dd>
-<pre class="formula-thin">
-<span class="variable">template</span>;    <span class="comment">// template</span>
-<span class="variable">template</span>;      <span class="comment">// template</span>
+<pre class="formula">
+<span class="variable">copyArray</span>     = Array.prototype.map.call(<span class="variable">"Hello Kitty!"</span>, <span class="variable">char</span> => <span class="variable">char</span>);
+<span class="variable">capitalArray</span>  = Array.prototype.map.call(<span class="variable">"Hello Kitty!"</span>, <span class="variable">char</span> => <span class="variable">char.toUpperCase()</span>);
+<span class="variable">codeArray</span>     = Array.prototype.map.call(<span class="variable">"Hello Kitty!"</span>, <span class="variable">char</span> => <span class="variable">char.charCodeAt(0)</span>);
 </pre>
                     </dd>
+                    <dt>Results are the same when element function is given</dt>
                     
+                    <dd>
+<pre class="formula">
+<span class="variable">plainArray</span>; 
+<span class="comment">// (12) ['H', 'e', 'l', 'l', 'o', ' ', 'K', 'i', 't', 't', 'y', '!']</span>
+
+<span class="variable">copyArray</span>; 
+<span class="comment">// (12) ['H', 'e', 'l', 'l', 'o', ' ', 'K', 'i', 't', 't', 'y', '!']</span>
+
+<span class="variable">capitalArray</span>; 
+<span class="comment">// (12) ['H', 'E', 'L', 'L', 'O', ' ', 'K', 'I', 'T', 'T', 'Y', '!']</span>
+
+<span class="variable">codeArray</span>; 
+<span class="comment">// (12) [72, 101, 108, 108, 111, 32, 75, 105, 116, 116, 121, 33]</span>
+</pre>
+                    </dd>
+                    <dd>Note: Calling map must have element function. Without it, it will be a <code>typeError</code>
+                        <ul>
+                            <li><code><span class="variable">plainArray</span> = Array.prototype.map.call(<span class="variable">"Hello Kitty!"</span>); <span class="comment">// typeError</span></code></li>
+                        </ul>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
-
-            <article id="template2">
-                <h2>template</h2>
-                <h3>template</h3>
+            
+            <article id="nodelist-mapping">
+                <h2>NodeList mapping</h2>
+                <h3>With Array.prototype.map.call()</h3>
 
                 <dl>
-                    <dt>template</dt>
-                    <dd>Given: array</dd>
+                    <dt>NodeList mapping</dt>
+                    <dd>NodeList is a collection of nodes.</dd>
+                    <dd>NodeList is depicted in array format. Superficially it looks like an array, but it's not actually an array. Check the prototypes it has. It's limited, not that many, while array's prototype are many. One of the array prototype a nodelist doesn't have is mapping.</dd>
+                  
+                    <dt>Task</dt>
                     <dd>
-<pre class="formula-thin">
-const <span class="variable">numbers</span> = [<span class="variable"></span>];
+                        <ul>
+                            <li>Create array of NodeList of article elements.</li>
+                            <li>Create array of just the ids.</li>
+                        </ul>
+                    </dd>
+                    <dt>Using <code>Array.from()</code></dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">theNodeList</span> = document.querySelectorAll(<span class="variable">"article"</span>);
+const <span class="variable">nodeArray</span> = Array.from(<span class="variable">theNodeList</span>);
+const <span class="variable">idArray</span> = Array.from(<span class="variable">theNodeList</span>, <span class="variable">el</span> => <span class="variable">el.id</span>);
 </pre>
                     </dd>
-                    <dd>template</dd>
+
+                    <dt>Using <code>Array.prototype.map()</code></dt>
                     <dd>
-<pre class="formula-thin">
-<span class="variable">template</span>
-<span class="comment">template</span>
+<pre class="formula">
+const <span class="variable">theNodeList</span> = document.querySelectorAll(<span class="variable">"article"</span>);
+const <span class="variable">nodeArray</span> = Array.prototype.map.call(<span class="variable">theNodeList</span>, <span class="variable">el</span> => <span class="variable">el</span>);
+const <span class="variable">idArray</span> = Array.prototype.map.call(<span class="variable">theNodeList</span>, <span class="variable">el</span> => <span class="variable">el.id</span>);
 </pre>
                     </dd>
-                    <dd>template</dd>
+                    <dd>Results are the same:</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">theNodeList</span>; 
+<span class="comment">// NodeList(7) [article#map-method, article#simpel-map, article#reformat-array, article#array.prototype.map.call, article#string-mapping, article#nodelist-mapping, article#references]</span>
+
+<span class="variable">nodeArray</span>; 
+<span class="comment">// (7) [article#map-method, article#simpel-map, article#reformat-array, article#array.prototype.map.call, article#string-mapping, article#nodelist-mapping, article#references]</span>
+
+<span class="variable">idArray</span>; 
+<span class="comment">// (7) ['map-method', 'simpel-map', 'reformat-array', 'array.prototype.map.call', 'string-mapping', 'nodelist-mapping', 'references']</span>
+</pre>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
-
-           
 
             <article id="references">
                 <h2>References</h2>
