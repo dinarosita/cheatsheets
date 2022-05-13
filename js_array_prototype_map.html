@@ -483,6 +483,91 @@ const <span class="variable">idArray</span> = Array.prototype.map.call(<span cla
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="tricky-mapping-parseint">
+                <h2>Tricky mapping example: parseInt</h2>
+                <dl>
+                    <dt><code>parseInt()</code></dt>
+                    <dd>
+                        <code class="formula">
+                            parseInt(<span class="variable">numStr</span>, <span class="variable">radix</span>)
+                        </code>
+                    </dd>
+                    <dd><b>2 parameters:</b>
+                        <ul>
+                            <li><code>numStr</code>: The number in the radix system</li>
+                            <li><code>radix</code> (optional): The radix/base</li>
+                        </ul>
+                    </dd>
+                    <dd><b>Return:</b> the radix-10 value (type number), including <code>NaN</code></dd>          
+                    
+                    <dd><b>Explanations:</b>
+                        <ul>
+                            <li><b><code>numStr</code>: The number in the radix system</b>
+                                <ul>
+                                    <li><b>Valid numbers:</b>
+                                        <ul>
+                                            <li>Regular numbers (type number or a string)</li>
+                                            <li>Octal (0 leading), hex (0x leading), and is there more? (type number)</li>
+                                            <li>Alphanumeric numbers (type string)</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>Any strings are actually operable (even symbols):</b>
+                                        <ul>
+                                            <li>String is processed digit by digit from the start to the next. Conversion per digit are assembled back by concatenation, then returned as number.</li>
+                                            <li>For the conversion to happen, the digit must be a valid number of the radix.<br>
+                                                Non-valid digit includes:
+                                                <ul>
+                                                    <li>alphanumeric larger than the radix</li>
+                                                    <li>symbols</li>
+                                                </ul>
+                                            </li>
+                                            <li>When it encounters non-valid digit, the operation is stopped, and the rest of the digits are not even visited.<br>
+                                            It returns whatever collected already:
+                                                <ul>
+                                                    <li>If it happens in the first digit: return <code>NaN</code>, since there's nothing in the reservoir.</li>
+                                                    <li>If it happens later: return whatever value have been concatenated from previous digits.</li>
+                                                </ul>
+                                            </li>
+                                            <li>Note that either way it returns a number data.</li>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b><code>radix</code> (optional): The radix/base</b>
+                                <ul>
+                                    <li><b>Valid radix:</b> <code>2-36</code></li>
+                                    <li><b>Considered <code>base 10</code>:</b>
+                                        <ul>
+                                            <li><code>0</code></li>
+                                            <li>Non number string: Alphabet, alphanumeric, symbols, or any combinations</li>
+                                            <li>Octal as string. (But hex as string will be considered hex. See explanation on type below).</li>
+                                            <li>Second argument not given</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>Any other numbers: Return <code>NaN</code></b>
+                                        <ul>
+                                            <li><code>-1 and under</code></li>
+                                            <li><code>1</code></li>
+                                            <li><code>37 and above</code></li>
+                                        </ul>
+                                    </li>
+                                    <li><b>Decimals:</b> accepted. They are floored or rounded to 0 for 0's negative decimal.</li>
+                                    <li><b>Type:</b>
+                                        <ul>
+                                            <li>Type number: accepted, including octal, hex numbers (don't quote)</li>
+                                            <li>Type string: accepted. Will first tried to be converted to number. But... Careful with string to number conversion rule. Octal and hex are best given as number type. Octal's leading zero will be removed and now considered base ten number. While hex's leading 0x will stay, and considered as hex.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="references">
                 <h2>References</h2>
                 <ul>
