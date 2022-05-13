@@ -483,7 +483,7 @@ const <span class="variable">idArray</span> = Array.prototype.map.call(<span cla
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="tricky-mapping-parseint">
+            <article id="tricky-parseint-mapping">
                 <h2>Tricky mapping example: parseInt</h2>
                 <dl>
                     <dt><code>parseInt()</code></dt>
@@ -498,71 +498,72 @@ const <span class="variable">idArray</span> = Array.prototype.map.call(<span cla
                             <li><code>radix</code> (optional): The radix/base</li>
                         </ul>
                     </dd>
-                    <dd><b>Return:</b> the radix-10 value (type number), including <code>NaN</code></dd>          
+                    <dd><b>Return:</b>integer-radix10 value or <code>NaN</code> (type number)</dd>          
                     
-                    <dd><b>Explanations:</b>
+                    <dd>Read more: <a href="./js_function_parseint">CodeyLuwak: parseInt()</a></dd>
+
+                    <dt>Task</dt>
+                    <dd>Map an array of integer strings into integer numbers</dd>
+
+                    <dt>Using <code>parseInt()</code> with caution</dt>
+                    <dd><code>parseInt()</code> is one of common way used to change data type of number strings into integer numbers
                         <ul>
-                            <li><b><code>numStr</code>: The number in the radix system</b>
+                            <li><code>parseInt("5"); // 5</code></li>
+                        </ul>
+                    </dd>
+                    <dd><code>parseInt()</code> can take 1 or 2 arguments. The first and mandatory argument is the number value. In <code>map()</code>, such values are the elements of an array, written at front.
+                        <ul>
+                            <li><code>parseInt(el)</code></li>
+                            <li><code>[el1, el2, el3].map()</code></li>
+                        </ul>
+                    </dd>
+                    <dd>It's tempting to write it as
+                        <ul>
+                            <li><code>[el1, el2, el3].map(parseInt)</code></li>
+                        </ul>
+                    </dd>
+                    <dd>Give the array real values:
+                        <ul>
+                            <li><code>["1", "2", "3"].map(parseInt)</code></li>
+                        </ul>
+                    </dd>
+                    <dd>We are expecting <code>[1, 2, 3]</code> as result, but we will get <code>[1, NaN, NaN]</code> instead.</dd>
+                    <dd>The problem is, <code>parseInt()</code>, while often only written with 1 argument, actually takes 2. The second one being the <b>radix</b> to the callback function. Now going back to the <code>map()</code>, it takes 3 arguments: the element, the index, and the array. The first argument is already in tune. <code>parseInt</code> will ignore the third argument. But it will take the second argument, the index, as the radix. The code above is read as:
+                        <ul>
+                            <li><code>["1", "2", "3"].map(parseInt(el,index))</code>
                                 <ul>
-                                    <li><b>Valid numbers:</b>
-                                        <ul>
-                                            <li>Regular numbers (type number or a string)</li>
-                                            <li>Octal (0 leading), hex (0x leading), and is there more? (type number)</li>
-                                            <li>Alphanumeric numbers (type string)</li>
-                                        </ul>
-                                    </li>
-                                    <li><b>Any strings are actually operable (even symbols):</b>
-                                        <ul>
-                                            <li>String is processed digit by digit from the start to the next. Conversion per digit are assembled back by concatenation, then returned as number.</li>
-                                            <li>For the conversion to happen, the digit must be a valid number of the radix.<br>
-                                                Non-valid digit includes:
-                                                <ul>
-                                                    <li>alphanumeric larger than the radix</li>
-                                                    <li>symbols</li>
-                                                </ul>
-                                            </li>
-                                            <li>When it encounters non-valid digit, the operation is stopped, and the rest of the digits are not even visited.<br>
-                                            It returns whatever collected already:
-                                                <ul>
-                                                    <li>If it happens in the first digit: return <code>NaN</code>, since there's nothing in the reservoir.</li>
-                                                    <li>If it happens later: return whatever value have been concatenated from previous digits.</li>
-                                                </ul>
-                                            </li>
-                                            <li>Note that either way it returns a number data.</li>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><b><code>radix</code> (optional): The radix/base</b>
-                                <ul>
-                                    <li><b>Valid radix:</b> <code>2-36</code></li>
-                                    <li><b>Considered <code>base 10</code>:</b>
-                                        <ul>
-                                            <li><code>0</code></li>
-                                            <li>Non number string: Alphabet, alphanumeric, symbols, or any combinations</li>
-                                            <li>Octal as string. (But hex as string will be considered hex. See explanation on type below).</li>
-                                            <li>Second argument not given</li>
-                                        </ul>
-                                    </li>
-                                    <li><b>Any other numbers: Return <code>NaN</code></b>
-                                        <ul>
-                                            <li><code>-1 and under</code></li>
-                                            <li><code>1</code></li>
-                                            <li><code>37 and above</code></li>
-                                        </ul>
-                                    </li>
-                                    <li><b>Decimals:</b> accepted. They are floored or rounded to 0 for 0's negative decimal.</li>
-                                    <li><b>Type:</b>
-                                        <ul>
-                                            <li>Type number: accepted, including octal, hex numbers (don't quote)</li>
-                                            <li>Type string: accepted. Will first tried to be converted to number. But... Careful with string to number conversion rule. Octal and hex are best given as number type. Octal's leading zero will be removed and now considered base ten number. While hex's leading 0x will stay, and considered as hex.</li>
-                                        </ul>
-                                    </li>
+                                    <li>Element 1: <code>parseInt("1", 0); // 1 because radix 0 operates as if 10.</code></li>
+                                    <li>Element 2: <code>parseInt("2", 1); // NaN because radix can't be 1.</code></li>
+                                    <li>Element 3: <code>parseInt("3", 2); // NaN because 3 isn ot a valid number for radix 2.</code></li>
+
                                 </ul>
                             </li>
                         </ul>
                     </dd>
+                    <dd>Solution? Rather than calling function parseInt directly, use it as return for map's callback function.
+                        <ul>
+                            <li><code>["1", "2", "3"].map(el => parseInt(el));<br>
+                                // (3) [1, 2, 3]</code>
+                            </li>
+                            <li><code>["1", "2", "3"].map(el => parseInt(el, 10));<br>
+                                // (3) [1, 2, 3]</code>
+                            </li>
+                            <li><code>["1.1", "2.2", "3.3"].map(el => parseInt(el));<br>
+                                // (3) [1, 2, 3]</code>
+                            </li>
+
+                        </ul>
+                    </dd>
+                    <dd>If we want floats and exponential notation stay the same, we can use <code>Number(value)</code>
+                        <ul>
+                            <li><code>['1', '2', '3'].map(Number); <br>
+                                // (3) [1.1, 2.2, 3.3]</code></li>
+                            <li><code>["1.1", "2.2", "3.3"].map(Number); <br>
+                                // (3) [1.1, 2.2, 3.3]</code></li>
+
+                        </ul>
+                    </dd>
+
 
                 </dl>
                 <a href="#top"><hr></a>
