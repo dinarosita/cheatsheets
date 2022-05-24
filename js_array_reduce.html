@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>reduce() | JS CodeyLuwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Array.prototype.reduce()</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="reduce-method">
+                <h2>Array.prototype.reduce()</h2>
+
+                <dl>
+                    <dt><code>reduce()</code></dt>
+                    <dd>This method executes a given "reducer" callback function on each element of array in order with a twist: Each return value is an input for the next element. It's accumulative. 
+                        <ul>
+                            <li>The return value from an element operation will be passed to the next element as an argument.
+                                <ul>
+                                    <li>An initial value can be given to be used as the previous value for the first element.</li>
+                                </ul>
+                            </li>
+                            <li>So the return value of each element along the way represent an accumulative value.</li>
+                            <li>Meanwhile, the previous value doesn't need to be in the array anymore since its value has been represented in the accumulative result. Therefore, "reduced".</li>
+                            <li>The final result is a single value.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <div class="formula"><code>
+                        reduce(<span class="variable">...</span>)
+                        </code></div>
+                    </dd>
+
+                    <dt>Syntax</dt>                  
+                    <dd>
+<pre class="formula">
+<span class="comment">// Callback function</span>
+reduce(<span class="variable">reducerFn</span>)
+reduce(<span class="variable">reducerFn</span>, <span class="variable">initialValue</span>)
+
+<span class="comment">// Inline callback function</span>
+reduce(<span class="variable">function (prev, val) {...}</span>)
+reduce(<span class="variable">function (prev, val, index) {...}</span>)
+reduce(<span class="variable">function (prev, val, index, array) {...}</span>)
+reduce(<span class="variable">function (prev, val, index, array) {...}</span>, <span class="variable">initialValue</span>)
+
+<span class="comment">// Arrow function</span>
+reduce(<span class="variable">(prev, val) </span> => <span class="variable">{...}</span>)
+reduce(<span class="variable">(prev, val, index) </span> => <span class="variable">{...}</span>)
+reduce(<span class="variable">(prev, val, index, array) </span> => <span class="variable">{...}</span>)
+reduce(<span class="variable">(prev, val, index, array) </span> => <span class="variable">{...}</span>, <span class="variable">initialValue</span>)
+</pre>
+                    </dd>                   
+                    
+                    <dd>
+                        <dl>
+                            <dt>Parameters (2):</dt>
+                            <dd>
+                                <ul>
+                                    <li><code>reducerFn</code>: The reducer function </li>
+                                    <li><code>initialValue</code> (optional):
+                                        <ul>
+                                            <li>If specified: It will be used as the <code>prev</code> for the first element.</li>
+                                            <li>If not specified, the first element run will be skipped, and the first element value is used as the <code>prev</code> for the second element run.</li>
+                                </ul>
+                            </dd>
+
+                            <dt>Return value:</dt>
+                            <dd>The final accumulative value</dd>
+
+                            <dt>Original array:</dt>
+                            <dd>Not changed (unless manipulated by accessing the array during callback)</dd>
+                        </dl>
+                    </dd>
+                    
+
+                    <dt>Reducer function</dt>
+                    <dd>
+<pre class="formula">
+function <span class="variable">reducerFn</span>(<span class="variable">prev, val, index, array</span>) {
+    <span class="variable">...</span>
+    return <span class="variable">newValue</span>;
+}
+<span class="comment">// "newValue" is the "prev" for the next element.</span>
+</pre>
+                    </dd>
+
+                    <dd>
+                        <dl>
+                            <dt>Parameters (4):</dt>
+                            <dd>
+                                <ul>
+                                    <li><code>prev</code>: The return value of the previous element run, aka the accumulative value. For the first element, will use the <code>initialValue</code> if supplied.</li>
+                                    <li><code>val</code>: The current element's value.</li>
+                                    <li><code>index</code>: The index of current element.</li>
+                                    <li><code>array</code>: The array being worked on.</li>
+                                </ul>
+                            </dd>
+ 
+                            <dt>Return values:</dt>
+                            <dd>The accumulative value up to current element.</dd>
+                        </dl>
+                    </dd>
+                    <dt>Example: sum</dt>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">nums</span> = [1,2,3,4,5];
+<b>const <span class="variable">sum</span> = <span class="variable">nums</span>.reduce(<span class="variable">(prev, val)</span> => <span class="variable">prev + val</span>);</b>
+
+<span class="variable">sum</span>;  <span class="comment">// 15</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="edge-cases">
+                <h2>Edge cases</h2>
+
+                <dl>          
+                    <dt>Array with 1 element value and an initial value</dt>
+                    <dd>Reducer function can run</dd>
+                    <dd>
+<pre class="formula-thin">
+[2].reduce((prev, val) => prev + val*val, 0);        // 4
+[,,2,,].reduce((prev, val) => prev + val*val, 0);    // 4
+</pre>
+                    </dd>
+
+                    <dt>Array with 1 element value and no initial value</dt>
+                    <dd>Reducer function can't run. That value will be taken as the reduce return value.</dd>
+                    <dd>
+<pre class="formula-thin">
+[2].reduce((prev, val) => prev + val*val);        // 2
+[,,2,,].reduce((prev, val) => prev + val*val);    // 2
+</pre>
+                    </dd>
+
+                    <dt>Array with 0 element value and an initial value</dt>
+                    <dd>Reducer function can't run. That value will be taken as the reduce return value.</dd>
+                    <dd>
+<pre class="formula-thin">
+[].reduce((prev, val) => prev + val*val, 0);        // 0
+[,,,,].reduce((prev, val) => prev + val*val, 0);    // 0
+</pre>
+                    </dd>
+
+                    <dt>Array with 0 element value and no initial value</dt>
+                    <dd>Will give <code>TypeError</code></dd>
+                    <dd>
+<pre class="formula-thin">
+[].reduce((prev, val) => prev + val*val);        
+// Uncaught TypeError: Reduce of empty array with no initial value
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+
+            <article id="initial-value">
+                <h2>Importance of Initial Value</h2>
+
+                <dl>
+                    <dt>Simple operation</dt>
+                    <dd>When <code>val</code> is simply operated directly to the <code>prev</code>, perhaps specifying <code>initialValue</code> is not important.</dd>
+
+                    <dt>Not so simple operation</dt>
+                    <dd>However when <code>val</code> is "processed" prior to be operated to the <code>prev</code>, not giving the <code>initialValue</code> means such process for the first element is skipped, since without an initial value, first element run is skipped and the element value is used directly as the second run's <code>prev</code></dd>
+
+                    <dt>Impact</dt>
+                    <dd>
+                        <ul>
+                            <li><b>First element callback</b>
+                                <ul>
+                                    <li>With <code>initialValue</code>: run
+                                        <ul>
+                                            <li><code>prev</code> = <code>initialValue</code></li>
+                                            <li>returning a return value</li>
+                                        </ul>
+                                    </li>
+                                    <li>Without <code>initialValue</code>: skipped</li>
+                                </ul>
+                            </li>
+                            <li><b>Second element callback</b>
+                                <ul>
+                                    <li>With <code>initialValue</code>, since first element is operated and giving return value, this return value is used as the <code>prev</code></li>
+                                    <li>Without <code>initialValue</code>, since first element is skipped and therefore no return value, the original element value is used as the <code>prev</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Example: sums of squares</dt>
+                    <dd>Unfortunately when elements is processed prior to operated to the previous accumulative result. without initial value, this process is skipped for the first element.</dd>
+                    <dd>Say, the reducer is to sum up squares of each element of an array. The squaring operation happens in each callback. Without initial value, such process never happen to the first element because the process is skipped entirely. the non-squared value will be fed to the  round.</dd>
+                    <dd>
+                        <dl>
+                            <dt>Reducer</dt>
+                            <dd>
+<pre class="formula-thin">
+<b>function <span class="variable">sumSquare</span>(<span class="variable">prev</span>, <span class="variable">val</span>, <span class="variable">index</span>) {</b>
+    <span class="variable">counter</span> ++;
+    const <span class="variable">sum</span> = <span class="variable">prev</span> + <span class="variable">val</span>*<span class="variable">val</span>;
+    console.log(`Run ${<span class="variable">counter</span>}: index = ${<span class="variable">index</span>}, prev = ${<span class="variable">prev</span>}, val = ${<span class="variable">val</span>}, sum = ${<span class="variable">sum</span>}`);
+    <b>return <span class="variable">sum</span>;
+};</b>
+</pre>
+                            </dd>
+
+                            <dt>No initial value</dt>
+                            <dd>
+<pre class="formula-thin">
+const <span class="variable">nums</span> = [2,3,4,5];
+let <span class="variable">counter</span> = 0;
+<b>const <span class="variable">squaresNoInit</span> = <span class="variable">nums</span>.reduce(<span class="variable">sumSquare</span>);</b>
+
+<span class="comment">In console:
+Run 1: index = 1, prev = 2, val = 3, sum = 11
+Run 2: index = 2, prev = 11, val = 4, sum = 27
+Run 3: index = 3, prev = 27, val = 5, sum = 52</span>
+</pre>
+                            </dd>
+
+                            <dt>With initial value</dt>
+                            <dd>
+<pre class="formula-thin">
+const <span class="variable">nums</span> = [2,3,4,5];
+let <span class="variable">counter</span> = 0;
+<b>const <span class="variable">squaresWithInit</span> = <span class="variable">nums</span>.reduce(<span class="variable">sumSquare</span>, <span class="variable">0</span>);</b>
+
+<span class="comment">In console:
+Run 1: index = 0, prev = 0, val = 2, sum = 4
+Run 2: index = 1, prev = 4, val = 3, sum = 13
+Run 3: index = 2, prev = 13, val = 4, sum = 29
+Run 4: index = 3, prev = 29, val = 5, sum = 54</span>
+</pre>
+                            </dd>
+
+                            <dt>Results</dt>
+                            <dd>
+<pre class="formula-thin">
+<span class="variable">nums</span>;             <span class="comment">// (4) [2, 3, 4, 5]</span>
+<span class="variable">squaresNoInit</span>;    <span class="comment">// 52</span>
+<span class="variable">squaresWithInit</span>;  <span class="comment">// 54</span>
+</pre>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                   
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+
+
+            
+            <article id="mutation">
+                <h2>Behaviour during array mutation</h2>
+
+                <dl>
+                    <dt>Behaviour of <code>reduce()</code></dt>
+                    <dd>
+                        <ul>
+                            <li>Only original length of array is processed
+                                <ul>
+                                    <li>If new elements added to the end of the array, they are ignored.</li>
+                                </ul>
+                            </li>
+                            <li>The value of each element are taken right at the beginning of individual reducer function call
+                                <ul>
+                                    <li>If element value is changed before the reducer reaches it, new value is used. For example, when value is changed by direct manipulation, or the elements are shifted.</li>
+                                </ul>
+                            </li>
+                            <li>Empty element is skipped. Either by popping, shifting, or deleting.</li>
+                        </ul>
+                    </dd>
+                    <dt>Function: space-separated concatenator</dt>
+                    <dd>
+<pre class="formula-thin">
+<b>function <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>) {</b>
+    counter ++;
+    const text = prev + " " + val;
+    console.log(`Run ${counter}: index = ${idx}, array = ${arr}, text = ${text}`);
+    <b>return <span class="variable">text</span>;
+}</b>
+</pre>
+                    </dd>
+
+                    <dt><code>reduce()</code> with no mutation</dt>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">strings</span> = ["AA", "BB", "CC"];
+let <span class="variable">counter</span> = 0;
+<b>const <span class="variable">noMutation</span> = <span class="variable">strings</span>.reduce(</b><span class="variable">concat</span>, <span class="variable">''</span>);
+
+<span class="comment">Console:
+Run 1: index = 0, array = AA,BB,CC, text =  AA
+Run 2: index = 1, array = AA,BB,CC, text =  AA BB
+Run 3: index = 2, array = AA,BB,CC, text =  AA BB CC</span>
+
+<span class="variable">noMutation</span>;   <span class="comment">// ' AA BB CC'</span>
+<span class="variable">strings</span>;      <span class="comment">// (3) ['AA', 'BB', 'CC']</span>
+</pre>
+                    </dd>
+
+                    <dt>Mutation 1: New elements pushed to the end -> Ignored</dt>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">strings</span> = ["AA", "BB", "CC"];
+let <span class="variable">counter</span> = 0;
+<b>const <span class="variable">newElements</span> = <span class="variable">strings</span>.reduce((<span class="variable">prev, val, idx, arr</span>) => {
+    <span class="variable">arr</span>.push(<span class="variable">val</span>.toLowerCase());
+    return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
+}, <span class="variable">''</span>);</b>
+
+<span class="comment">Console:
+Run 1: index = 0, array = AA,BB,CC, text =  AA
+Run 2: index = 1, array = AA,BB,CC, text =  AA BB
+Run 3: index = 2, array = AA,BB,CC, text =  AA BB CC</span>
+
+<span class="variable">newElements</span>;  <span class="comment">// ' AA BB CC'</span>
+<span class="variable">strings</span>;      <span class="comment">// (6) ['AA', 'BB', 'CC', 'aa', 'bb', 'cc']</span>
+</pre>
+                    </dd>
+
+                    <dt>Mutation 2: Element value got changed prior to callback -> used</dt>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">strings</span> = ["AA", "BB", "CC"];
+let <span class="variable">counter</span> = 0;
+<b>const <span class="variable">newValueue</span> = <span class="variable">strings</span>.reduce((<span class="variable">prev, val, idx, arr</span>) => {
+    <span class="variable">arr</span>.splice(<span class="variable">idx+1, 0, val.toLowerCase()</span>);
+    return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
+}, <span class="variable">''</span>);</b>
+
+<span class="comment">Console:
+Run 1: index = 0, array = AA,BB,CC, text =  AA
+Run 2: index = 1, array = AA,BB,CC, text =  AA aa
+Run 3: index = 2, array = AA,BB,CC, text =  AA aa aa</span>
+
+<span class="variable">newValueue</span>;     <span class="comment">// ' AA aa aa'</span>
+<span class="variable">strings</span>;      <span class="comment">// (6) ['AA', 'aa', 'aa', 'aa', 'BB', 'CC']</span>
+</pre>
+                    </dd>
+
+                    <dt>Mutation 3: Element popped (array shortened)</dt>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">strings</span> = ["AA", "BB", "CC"];
+let <span class="variable">counter</span> = 0;
+<b>const <span class="variable">popped</span> = <span class="variable">strings</span>.reduce((<span class="variable">prev, val, idx, arr</span>) => {
+    <span class="variable">arr</span>.pop();
+    return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
+}, <span class="variable">''</span>);</b>
+
+<span class="comment">Console:
+Run 1: index = 0, array = AA,BB, text =  AA
+Run 2: index = 1, array = AA, text =  AA BB</span>
+
+<span class="variable">popped</span>;       <span class="comment">// ' AA BB'</span>
+<span class="variable">strings</span>;      <span class="comment">// ['AA']</span>
+</pre>
+                    </dd>
+
+                    <dt>Mutation 4: Element deleted (leaving empty cell)</dt>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">strings</span> = ["AA", "BB", "CC"];
+let <span class="variable">counter</span> = 0;
+<b>const <span class="variable">deleted</span> = <span class="variable">strings</span>.reduce((<span class="variable">prev, val, idx, arr</span>) => {
+    delete <span class="variable">arr</span>[idx+1];
+    return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
+}, <span class="variable">''</span>);</b>
+
+<span class="comment">Console:
+Run 1: index = 0, array = AA,,CC, text =  AA
+Run 2: index = 2, array = AA,,CC, text =  AA CC</span>
+
+<span class="variable">deleted</span>;      <span class="comment">// ' AA CC'</span>
+<span class="variable">strings</span>;      <span class="comment">// (3) ['AA', empty, 'CC']</span>
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" target="_blank">MDN: Array.prototype.reduce()</a></li>
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

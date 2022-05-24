@@ -1157,6 +1157,11 @@ tbody th {
     color: (--attributecolor);
 }
 
+.error {
+    color: rgb(238, 93, 93);
+    font-weight: normal;
+}
+
 .variable,
 .sampledata,
 .value {
