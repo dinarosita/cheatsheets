@@ -568,26 +568,205 @@ const <span class="variable">nameTags</span> = <span class="variable">students</
                 <h2>Grouping objects by property</h2>
 
                 <dl>
-                    <dt></dt>
+                    <dt>Given an array of objects, classify based on chosen property</dt>
+                    <dt>Example: students data</dt>
+                    <dd>
 <pre class="formula-thin">
-const people = [
-    { name: 'Alice', age: 21 },
-    { name: 'Max', age: 20 },
-    { name: 'Jane', age: 20 }
+const classA = [
+    { name: 'Alice',    age: 21,    activity: 'swimming'    },
+    { name: 'Max',      age: 20,    activity: 'piano'       },
+    { name: 'Jane',     age: 20,    activity: 'ballet'      },
+    { name: 'Kitty',    age: 19,    activity: 'swimming'    },
+    { name: 'Dodo',     age: 21,    activity: 'ballet'      }
 ];
-
-const grouped =  people.reduce(function (acc, obj) {
-        let key = obj["age"]
-        if (!acc[key]) {
-        acc[key] = []
-        }
-        acc[key].push(obj)
-        return acc
-    }, {})
-
-let groupedPeople = groupBy(people, 'age')   
 </pre>
+                    </dd>
+                    <dt>Goal: classify by any chosen property</dt>
+                    <dd>For example: age</dd>
+                    <dd>
+<pre class="formula-thin">
+ageGroup = {
+    19: [
+        { name: 'Kitty',    age: 19,    activity: 'swimming'    }
+    ],
+    20: [
+        { name: 'Max',      age: 20,    activity: 'piano'       },
+        { name: 'Jane',     age: 20,    activity: 'ballet'      }
+    ],
+    21: [
+        { name: 'Alice',    age: 21,    activity: 'swimming'    },
+        { name: 'Dodo',     age: 21,    activity: 'ballet'      }
+    ]
+}
+</pre>
+                    </dd>
+                    <dt>How</dt>
+                    <dd>
+                        <ul>
+                            <li>First, we need a function that takes the collection and the chosen property as arguments.</li>
+                            <li>Inside it, use reducer to create an object of the classification.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+function classify(collection, property) {
+    return collection.reduce(
+        (cluster, element) => {
+            let key = element[property];
+            if (!cluster[key]) {
+                cluster[key] = [];
+            }
+            cluster[key].push(element);
+            return cluster;
+        },
+        {}
+    );
+}
+</pre>
+                    </dd>
+                    <dt>Results</dt>
+                    <dd>Age group
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+classify(classA, "age");
+
+Result:
+{19: Array(1), 20: Array(2), 21: Array(2)}
+
+Expanded:
+{
+    19: [
+        {name: 'Kitty', age: 19, activity: 'swimming'}
+    ],
+    20: [
+        {name: 'Max', age: 20, activity: 'piano'},
+        {name: 'Jane', age: 20, activity: 'ballet'}
+    ],
+    21: [
+        {name: 'Alice', age: 21, activity: 'swimming'},
+        {name: 'Dodo', age: 21, activity: 'ballet'}
+    ]
+}
+</pre>
+                    </dd>
+                    <dd>Activity group
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+classify(classA, "activity");
+
+Result:
+{swimming: Array(2), piano: Array(1), ballet: Array(2)}
+
+Expanded:
+{
+    ballet: [
+        {name: 'Jane', age: 20, activity: 'ballet'},
+        {name: 'Dodo', age: 21, activity: 'ballet'}
+    ],
+    piano: [
+        {name: 'Max', age: 20, activity: 'piano'}
+    ],
+    swimming: [
+        {name: 'Alice', age: 21, activity: 'swimming'},
+        {name: 'Kitty', age: 19, activity: 'swimming'}
+    ]
+}
+</pre>
+                    </dd>
                 </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="gathering-elements">
+                <h2>Gathering elements of arrays of the same property in nesting array-object-array</h2>
+                <dl>
+                    <dt>Given an array of objects, with property containing array</dt>
+                    <dd>
+<pre class="formula-thin">
+const plants = [{
+    location    : "patio",
+    type        : "outdoor",
+    collection  : ["tomatoes", "cucumbers"]
+}, {
+    location    : "bedroom",
+    type        : "indoor",
+    collection  : ["african violet", "asparagus fern"]
+}, {
+    location    : "livingroom",
+    type        : "indoor",
+    collection  : ["coleus", "mini rose"]
+}]
+</pre>
+                    </dd>
+                    <dt>Make a list of all collections combined into an array. Initialized with a collection.</dt>
+                    <dd>
+<pre class="formula-thin">
+let newPlants = ["sunflowers", "beans"];
+
+const allPlants = plants.reduce(
+    (gathered, element) => [...gathered, ...element.collection],
+    newPlants
+)
+</pre>
+                    </dd>
+                    <dt>Result</dt>
+                    <dd>
+<pre class="formula-thin">
+allPlants;  // (8) ['sunflowers', 'beans', 'tomatoes', 'cucumbers', 'african violet', 'asparagus fern', 'coleus', 'mini rose']
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="remove-duplication">
+                <h2>Remove duplication in an array</h2>
+
+                <dl>
+                    <dt>Use: <code>includes()</code></dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">array</span>.includes(<span class="variable">element</span>)     <span class="comment">// boolean</span>
+</pre>
+                    </dd>
+                    <dt>Example</dt>
+                    <dd>
+<pre class="formula-thin">
+const collection = ['sunflowers', 'beans', 'tomatoes', 'cucumbers', 'african violet', 'asparagus fern', 'coleus', 'mini rose', 'sunflowers', 'asparagus fern', 'beans', 'tomatoes', 'mini rose', 'sunflowers', 'asparagus fern', 'asparagus fern'];
+
+const plantTypes = collection.reduce(
+    (cluster, element) => {
+        if (!cluster.includes(element)) {
+            cluster.push(element);
+        }
+        return cluster;
+    }, []
+);
+
+plantTypes;     // (8) ['sunflowers', 'beans', 'tomatoes', 'cucumbers', 'african violet', 'asparagus fern', 'coleus', 'mini rose']
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="replace-filter-map">
+                <h2>Replace .filter().map with .reduce()</h2>
+
+                <dl>
+                    <dt><code>.filter().map()</code></dt>
+                    <dd>Example: double all positive numbers in a number array</dd>
+                    <dd>
+<pre class="formula-thin">
+const numbers = [3, 8, 0, -3, , -6, 9];
+const doublePlus = numbers.filter(el => el > 0).map(el => el*2);
+</pre>
+                    </dd>
+                </dl>
+
 
                 <a href="#top"><hr></a>
             </article>
