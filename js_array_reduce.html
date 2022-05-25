@@ -400,6 +400,112 @@ Run 2: index = 2, array = AA,,CC, text =  AA CC</span>
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="object-array">
+                <h2>Object Array</h2>
+                <dl>
+                    <dt>Sum of values in object array</dt>
+                    <dt>Must supply <code>initialValue</code></dt>
+                    <dd>Because the value is processed before summed up to the previous value: <code>val.x</code></dd>
+                    <dd>
+<pre class="formula-thin">
+const objArray = [{x: 1}, {x: 2}, {x: 3}];
+const initialValue = 0;
+
+const sum = objArray.reduce((prev, val) => prev + val.x, initialValue);
+sum;    // 6
+</pre>
+                    </dd>
+                    <dt>Without <code>initialValue</code></dt>
+                    <dd>
+<pre class="formula-thin">
+const objArray = [{x: 1}, {x: 2}, {x: 3}];
+
+const sum = objArray.reduce((prev, val) => prev + val.x);
+sum;    // '[object Object]23'
+</pre>
+                    </dd>
+                    <dt>What happens?</dt>
+                    <dd>Without initial value, the first run is between element 1 value as the <code>prev</code>, and the element 2 value as the <code>val</code>. Element 1's value is <code>[object Object]</code>. it is the <code>val.x</code> that is meaningful.</dd>
+                    <dd>
+<pre class="formula-thin">
+const objArray = [{x: 1}, {x: 2}, {x: 3}];
+let counter = 0;
+
+const sum = objArray.reduce((prev, val) => {
+    counter ++;
+    let tempSum = prev + val.x;
+    console.log(`Run ${counter}: prev = ${prev}, val.x = ${val.x}, sum = ${tempSum}`);
+    return tempSum;
+});
+
+Console:
+Run 1: prev = [object Object], val.x = 2, sum = [object Object]2
+Run 2: prev = [object Object]2, val.x = 3, sum = [object Object]23
+
+sum;    // '[object Object]23'
+</pre>
+                    </dd>
+                    <dt>Now let's see when initialValue is given.</dt>
+                    <dd>Then the first run is between that initial value as <code>prev</code>, and the <code>val</code> will go inside the equation and processed into <code>val.x</code> is coded.</dd>
+                    <dd>
+<pre class="formula-thin">
+const objArray = [{x: 1}, {x: 2}, {x: 3}];
+let counter = 0;
+let initialValue = 0;
+
+const sum = objArray.reduce((prev, val) => {
+    counter ++;
+    let tempSum = prev + val.x;
+    console.log(`Run ${counter}: prev = ${prev}, val.x = ${val.x}, sum = ${tempSum}`);
+    return tempSum;
+}, initialValue);
+
+Console:
+Run 1: prev = 0, val.x = 1, sum = 1
+Run 2: prev = 1, val.x = 2, sum = 3
+Run 3: prev = 3, val.x = 3, sum = 6
+
+sum;    // '[object Object]23'
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="flatten-array-of-array">
+                <h2>Flattening Array of Array</h2>
+                <dl>
+                    <dt>By concatenating each array of array elements.</dt>
+                    <dt>Basic array concatenation</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">[1, 2]</span>.concat(<span class="variable">[3, 4]</span>)       <span class="comment">// (4) [1, 2, 3, 4]</span>
+</pre>
+                    </dd>
+                    <dt>Flattening array</dt>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">arrayOfArray</span>  = [[<span class="variable">1, 2</span>], [<span class="variable">3, 4</span>], [<span class="variable">5, 6</span>]]; 
+
+Make it into:
+<span class="variable">flatArray</span>     = [<span class="variable">1, 2, 3, 4, 5, 6</span>];
+</pre>
+                    </dd>
+                    <dt>Use <code>reduce()</code></dt>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">arrayOfArray</span>  = [[<span class="variable">1, 2</span>], [<span class="variable">3, 4</span>], [<span class="variable">5, 6</span>]]; 
+let <span class="variable">flatArray</span> = <span class="variable">arrayOfArray</span>.reduce(<span class="variable">(prev,val)</span> => <span class="variable">prev.concat(val)</span>);
+
+<span class="variable">flatArray</span>;  <span class="comment">//  (6) [1, 2, 3, 4, 5, 6]</span>
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="references">
                 <h2>References</h2>
                 <ul>
