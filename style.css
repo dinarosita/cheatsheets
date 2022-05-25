@@ -299,6 +299,14 @@ table code {
 
 /* JS notes */
 
+.js-notes table {
+    border-spacing: 1rem 0;
+}
+/* 
+.js-notes th {
+    font-weight: normal;
+} */
+
 .js-notes .type {
     color: var(--valuecolor);
     font-weight: bold;

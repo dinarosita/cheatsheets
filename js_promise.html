@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Promise | JS CodeyLuwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Promise</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="promise">
+                <h2>Promise</h2>
+
+                <dl>
+                    <dt>Producing code</dt>
+                    <dd>Code that can take some time (imagine: the singer)</dd>
+
+                    <dt>Consuming code</dt>
+                    <dd>Code that must wait for the result (imagine: the fans)</dd>
+
+                    <dt>Promise</dt>
+                    <dd>Object that links producing code and consuming code</dd>
+                    <dd>What is being promised? A result.</dd>
+                       
+                    <dt>Syntax</dt>
+                    <dd>
+<pre class="formula">
+new Promise(<span class="variable">promiseFn</span>)
+</pre>
+                    </dd>                   
+                            
+
+                    <dt>Promise object constructor syntax</dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">myPromise</span> = new Promise(<span class="weaker">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>) => {
+
+    <span class="comment">// "Producing code" (may take some time)</span>
+    <span class="variable">myResolve();</span>  <span class="comment">// When succesful</span>
+    <span class="variable">myReject();</span>   <span class="comment">// When error</span>
+
+}</span>);
+
+<span class="comment">// "Consuming code" (must wait for a fulfilled Promise)</span>
+<span class="variable">myPromise</span>.then(<span class="weaker">
+    (<span class="variable">value</span>) => { <span class="comment">/* code if succesful */</span>  },
+    (<span class="variable">error</span>) => { <span class="comment">/* code if some error */</span> }
+</span>);
+
+</pre>
+                    </dd>
+                    <dt>Producing code</dt>
+                    <dd>When producing code obtains the result, it should call one of the two callbacks:
+                        <ul>
+                            <li>Result is success, call: myResolve(result value)</li>
+                            <li>Result is error, call: myReject(error object)</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="properties">
+                <h2>Promise Object Properties</h2>
+                <dl>                   
+
+                    <dt>The Promise object supports 2 properties:</dt>
+                    <dd>
+                        <ul>
+                            <li><code>state</code></li>
+                            <li><code>result</code></li>
+                        </ul>
+                    </dd>
+                    <dt>The 3 states and their results:</dt>
+                    <dd>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><code>myPromise.state</code></th>
+                                    <th><code>myPromise.result</code></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>"pending"</code></td>
+                                    <td><code>undefined</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>"fulfilled"</code></td>
+                                    <td>a result value</td>
+                                </tr>
+                                <tr>
+                                    <td><code>"rejected"</code></td>
+                                    <td>an error object</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </dd>
+
+                    <dt>Access</dt>
+                    <dd>Promise properties <code>state</code> and <code>result</code> can't be accessed. <code>Promise</code> method must be used to handle this.</dd>
+                    
+                </dl>
+            
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://javascript.info/promise-basics" target="_blank">Javascript.info: Promise</a></li>
+                    <li><a href="https://www.w3schools.com/js/js_promise.asp" target="_blank">W3schools: JavaScript Promises</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">MDN: Promise</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">MDN: Using Promises</a></li>
+
+
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

@@ -758,11 +758,28 @@ plantTypes;     // (8) ['sunflowers', 'beans', 'tomatoes', 'cucumbers', 'africa
 
                 <dl>
                     <dt><code>.filter().map()</code></dt>
-                    <dd>Example: double all positive numbers in a number array</dd>
+                    <dd>Chained <code>filter()</code> and <code>map()</code> traverses the array twice.</dd>
+                    <dd>Example: square all positive numbers in a number array</dd>
                     <dd>
 <pre class="formula-thin">
 const numbers = [3, 8, 0, -3, , -6, 9];
-const doublePlus = numbers.filter(el => el > 0).map(el => el*2);
+const positiveSquare = numbers.filter(el => el > 0).map(el => el*el);
+</pre>
+                    </dd>
+                    <dt><code>.reduce()</code></dt>
+                    <dd><code>reduce()</code> only traverses the array once. Could be a big time and space saving for large complicated data.</dd>
+                    <dd>
+<pre class="formula-thin">
+const numbers = [3, 8, 0, -3, , -6, 9];
+const positiveSquare = numbers.reduce(
+    (arr, el) => {
+        if (el > 0) {
+            arr.push(el*el);
+        };
+        return arr;
+    },
+    []
+);
 </pre>
                     </dd>
                 </dl>
