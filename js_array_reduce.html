@@ -228,7 +228,7 @@ const <span class="variable">nums</span> = [2,3,4,5];
 let <span class="variable">counter</span> = 0;
 <b>const <span class="variable">squaresNoInit</span> = <span class="variable">nums</span>.reduce(<span class="variable">sumSquare</span>);</b>
 
-<span class="comment">In console:
+<span class="comment">In log:
 Run 1: index = 1, prev = 2, val = 3, sum = 11
 Run 2: index = 2, prev = 11, val = 4, sum = 27
 Run 3: index = 3, prev = 27, val = 5, sum = 52</span>
@@ -242,7 +242,7 @@ const <span class="variable">nums</span> = [2,3,4,5];
 let <span class="variable">counter</span> = 0;
 <b>const <span class="variable">squaresWithInit</span> = <span class="variable">nums</span>.reduce(<span class="variable">sumSquare</span>, <span class="variable">0</span>);</b>
 
-<span class="comment">In console:
+<span class="comment">In log:
 Run 1: index = 0, prev = 0, val = 2, sum = 4
 Run 2: index = 1, prev = 4, val = 3, sum = 13
 Run 3: index = 2, prev = 13, val = 4, sum = 29
@@ -308,7 +308,7 @@ const <span class="variable">strings</span> = ["AA", "BB", "CC"];
 let <span class="variable">counter</span> = 0;
 <b>const <span class="variable">noMutation</span> = <span class="variable">strings</span>.reduce(</b><span class="variable">concat</span>, <span class="variable">''</span>);
 
-<span class="comment">Console:
+<span class="comment">Log:
 Run 1: index = 0, array = AA,BB,CC, text =  AA
 Run 2: index = 1, array = AA,BB,CC, text =  AA BB
 Run 3: index = 2, array = AA,BB,CC, text =  AA BB CC</span>
@@ -328,7 +328,7 @@ let <span class="variable">counter</span> = 0;
     return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
 }, <span class="variable">''</span>);</b>
 
-<span class="comment">Console:
+<span class="comment">Log:
 Run 1: index = 0, array = AA,BB,CC, text =  AA
 Run 2: index = 1, array = AA,BB,CC, text =  AA BB
 Run 3: index = 2, array = AA,BB,CC, text =  AA BB CC</span>
@@ -348,7 +348,7 @@ let <span class="variable">counter</span> = 0;
     return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
 }, <span class="variable">''</span>);</b>
 
-<span class="comment">Console:
+<span class="comment">Log:
 Run 1: index = 0, array = AA,BB,CC, text =  AA
 Run 2: index = 1, array = AA,BB,CC, text =  AA aa
 Run 3: index = 2, array = AA,BB,CC, text =  AA aa aa</span>
@@ -368,7 +368,7 @@ let <span class="variable">counter</span> = 0;
     return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
 }, <span class="variable">''</span>);</b>
 
-<span class="comment">Console:
+<span class="comment">Log:
 Run 1: index = 0, array = AA,BB, text =  AA
 Run 2: index = 1, array = AA, text =  AA BB</span>
 
@@ -387,7 +387,7 @@ let <span class="variable">counter</span> = 0;
     return <span class="variable">concat</span>(<span class="variable">prev, val, idx, arr</span>);
 }, <span class="variable">''</span>);</b>
 
-<span class="comment">Console:
+<span class="comment">Log:
 Run 1: index = 0, array = AA,,CC, text =  AA
 Run 2: index = 2, array = AA,,CC, text =  AA CC</span>
 
@@ -438,7 +438,7 @@ const sum = objArray.reduce((prev, val) => {
     return tempSum;
 });
 
-Console:
+Log:
 Run 1: prev = [object Object], val.x = 2, sum = [object Object]2
 Run 2: prev = [object Object]2, val.x = 3, sum = [object Object]23
 
@@ -460,7 +460,7 @@ const sum = objArray.reduce((prev, val) => {
     return tempSum;
 }, initialValue);
 
-Console:
+Log:
 Run 1: prev = 0, val.x = 1, sum = 1
 Run 2: prev = 1, val.x = 2, sum = 3
 Run 3: prev = 3, val.x = 3, sum = 6
@@ -501,6 +501,92 @@ let <span class="variable">flatArray</span> = <span class="variable">arrayOfArra
 <span class="variable">flatArray</span>;  <span class="comment">//  (6) [1, 2, 3, 4, 5, 6]</span>
 </pre>
                     </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="counting-instances">
+                <h2>Counting instances of values in an object</h2>
+
+                <dl>
+                    <dt><code>in</code> operator</dt>
+                    <dd>This operator is for checking whether a property name exist in an object. It returns boolean.</dd>
+                    <dd>
+<pre class="formula">
+"<span class="variable">propName</span>" in <span class="variable">obj</span>;    <span class="comment">// true or false</span>
+</pre>
+                    </dd>
+                    <dd>Example</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">pet</span> = {name: <span class="variable">"Kitty"</span>, type: <span class="variable">"cat"</span>, age: <span class="variable">2</span>};
+<span class="variable">"name"</span> in <span class="variable">pet</span>;          <span class="comment">// true</span>
+<span class="variable">"color"</span> in <span class="variable">pet</span>;         <span class="comment">// false</span>
+</pre>
+                    </dd>
+                    <dt>Array <code>reduce()</code> with <code>in</code> operator for counting instances of values</dt>
+                    <dd>How?
+                        <ul>
+                            <li>Reduce is initialized with an empty object.</li>
+                            <li>When a new element value is encountered, initialize property with the element's value as the property name and 1 is the property value.</li>
+                            <li>When an element value has already been listed, add 1 to the property's value.</li>
+                            <li>The result is, an object, with element values as the properties, and number represent how many times such value appears in the array.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">students</span> = [<span class="variable">"Abe", "Ben", "Chris", "Dodo", "Kelly", "Ben", "Dodo", "Dodo"</span>];
+
+const <span class="variable">nameTags</span> = <span class="variable">students</span>.reduce((<span class="variable">nameSummary, name</span>) => {
+    if (<span class="variable">name</span> in <span class="variable">nameSummary</span>) {
+        <span class="variable">nameSummary</span>[<span class="variable">name</span>] += 1;
+    } else {
+        <span class="variable">nameSummary</span>[<span class="variable">name</span>] = 1;
+    }
+    console.log(<span class="variable">nameSummary</span>);
+    return <span class="variable">nameSummary</span>;
+}, <span class="variable">{}</span>)
+
+<span class="comment">Log:
+{Abe: 1}
+{Abe: 1, Ben: 1}
+{Abe: 1, Ben: 1, Chris: 1}
+{Abe: 1, Ben: 1, Chris: 1, Dodo: 1}
+{Abe: 1, Ben: 1, Chris: 1, Dodo: 1, Kelly: 1}
+{Abe: 1, Ben: 2, Chris: 1, Dodo: 1, Kelly: 1}
+{Abe: 1, Ben: 2, Chris: 1, Dodo: 2, Kelly: 1}
+{Abe: 1, Ben: 2, Chris: 1, Dodo: 3, Kelly: 1}</span>
+
+<span class="variable">nameTags</span>;   <span class="comment">// {Abe: 1, Ben: 2, Chris: 1, Dodo: 3, Kelly: 1}</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="grouping-objects">
+                <h2>Grouping objects by property</h2>
+
+                <dl>
+                    <dt></dt>
+<pre class="formula-thin">
+const people = [
+    { name: 'Alice', age: 21 },
+    { name: 'Max', age: 20 },
+    { name: 'Jane', age: 20 }
+];
+
+const grouped =  people.reduce(function (acc, obj) {
+        let key = obj["age"]
+        if (!acc[key]) {
+        acc[key] = []
+        }
+        acc[key].push(obj)
+        return acc
+    }, {})
+
+let groupedPeople = groupBy(people, 'age')   
+</pre>
                 </dl>
 
                 <a href="#top"><hr></a>
