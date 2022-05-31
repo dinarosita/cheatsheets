@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>setTimeout() | JS CodeyLuwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: setTimeout()</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+        <article id="settimeout">
+                <h2>setTimeout()</h2>
+                <dl>
+                    <dt><code>setTimeout()</code></dt>
+                    <dd>
+<pre class="formula">
+setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>, <span class="variable">...</span>)
+</pre>
+                    </dd>
+                    <dd>This method calls a function after a number of milliseconds.</dd>
+
+                    <dt>Arguments:</dt>
+                    <dd>
+                        <ul>
+                            <li>The function to execute (required)</li>
+                            <li>The milliseconds (optional)</li>
+                            <li>Other parameters need to be passed in (optional)</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Return value:</dt>
+                    <dd>Id of the timer. Id is for use in <code>clearTimeout(id)</code> to cancel the timer.</dd>
+
+                    <dt><code>clearTimeout()</code></dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">idName</span> = setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>);
+clearTimeout(<span class="variable">idName</span>);
+</pre>
+                    </dd>
+
+                    <dt><code>setInterval()</code></dt>
+                    <dd><code>setTimeout()</code> only run the function once. If repeated action needed, use <code>setInterval()</code> instead.</dd>
+
+                    <dt>Example: Display greeting after 5 seconds</dt>
+                    <dd>The greeting</dd>
+                    <dd>
+<pre class="formula-thin">
+function myGreeting() {
+    console.log("Hello Jello!");
+} 
+</pre>
+
+                    </dd>
+                    <dd><code>setTimeout()</code></dd>
+                    <dd>
+<pre class="formula-thin">
+const timerHello = setTimeout(myGreeting, 5000);
+
+// After 5 seconds: "Hello Jello!"
+</pre>
+                    </dd>
+                    <dd>Use <code>clearTimeout()</code> to interupt above from running.</dd>
+                    <dd>
+<pre class="formula-thin">
+const timerHello = setTimeout(myGreeting, 5000);
+
+function stopHello() {
+    clearTimeout(timerHello);
+  }
+  
+stopHello();
+// After 5 seconds: nothing
+</pre>
+                    </dd>
+                </dl>
+            
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://javascript.info/promise-basics" target="_blank">Javascript.info: Promise</a></li>
+                    <li><a href="https://www.w3schools.com/js/js_promise.asp" target="_blank">W3schools: JavaScript Promises</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">MDN: Promise</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">MDN: Using Promises</a></li>
+
+
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+

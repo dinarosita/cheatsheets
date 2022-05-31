@@ -564,7 +564,7 @@ const <span class="variable">nameTags</span> = <span class="variable">students</
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="grouping-objects">
+            <article id="grouping-by-object-property">
                 <h2>Grouping objects by property</h2>
 
                 <dl>
@@ -679,8 +679,8 @@ Expanded:
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="gathering-elements">
-                <h2>Gathering elements of arrays of the same property in nesting array-object-array</h2>
+            <article id="spread-operator">
+                <h2>Gathering elements using spread operator (and initial value)</h2>
                 <dl>
                     <dt>Given an array of objects, with property containing array</dt>
                     <dd>
@@ -783,6 +783,41 @@ const positiveSquare = numbers.reduce(
 </pre>
                     </dd>
                 </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="stock-game">
+                <h2>Stock Game</h2>
+
+                <dl>
+                    <dt>Best Time to Buy and Sell Stock</dt>
+                    <dd>Given: array of stock price. Find max profit from buying at any time and then selling at any time. Selling must happen after buying. If there's no profit, return 0 (in some game rule, return -1).</dd>
+                    <dd><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">Rule in leetcode</a></dd>
+                    <dd><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/">My leetcode submission</a></dd>
+                    <dd>
+<pre class="formula-thin">
+    const maxProfit = function (prices) {   
+        let priceLowest = prices[0];
+        let profitMax = 0;
+        let profitToday;
+    
+        for (let i = 1; i < prices.length; i++) {
+            
+            if (prices[i-1] < priceLowest) {
+                priceLowest = prices[i-1];
+            }
+            profitToday = prices[i] - priceLowest;
+            
+            if (profitToday > profitMax) {
+                profitMax = profitToday;
+            }
+        }
+        return profitMax;
+    };
+</pre>
+                    </dd>
+                </dl>
+
 
 
                 <a href="#top"><hr></a>

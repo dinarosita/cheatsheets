@@ -14,105 +14,146 @@
     <body>
 
         <header>
-            <a href="./index.html"><h1>JavaScript: Promise</h1></a>
+            <a href="./index.html"><h1>JavaScript: Promise Object</h1></a>
             <nav id="navMenu"></nav>
         </header>
 
         <main class="js-notes">
-
-            <article id="promise">
+            <article id="about-promise">
                 <h2>Promise</h2>
-
                 <dl>
-                    <dt>Producing code</dt>
-                    <dd>Code that can take some time (imagine: the singer)</dd>
-
-                    <dt>Consuming code</dt>
-                    <dd>Code that must wait for the result (imagine: the fans)</dd>
-
-                    <dt>Promise</dt>
-                    <dd>Object that links producing code and consuming code</dd>
-                    <dd>What is being promised? A result.</dd>
-                       
-                    <dt>Syntax</dt>
+                    <dt>About promise</dt>
+                    <dd>Imagine we promise something will happen/completed in the future. There are 2 outcome from it: Fulfilled, or failed to fulfil it. What will happen next will depend on it. For example if fulfilled, we go ahead continuing the plan. If failed, then we will repeat some action to achieve it first, or goes to the plan B. But for now, we don't know which one we are going to do yet, since we don't know the promise will be fulfilled or not. We are planning ahead for both scenario for the future.</dd>
+                    <dt>2 parts</dt>
                     <dd>
-<pre class="formula">
-new Promise(<span class="variable">promiseFn</span>)
-</pre>
-                    </dd>                   
-                            
+                        <ul>
+                            <li><b>Promise</b>
+                                <ul>
+                                    <li>Pending...</li>
+                                    <li>Outcome:
+                                        <ul>
+                                            <li>Fulfilled</li>
+                                            <li>failed</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Then</b>
+                                <ul>
+                                    <li>If fulfilled
+                                        <ul>
+                                            <li>Do this plan</li>
+                                        </ul>
+                                    </li>
+                                    <li>If failed
+                                        <ul>
+                                            <li>Do different plan</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
 
-                    <dt>Promise object constructor syntax</dt>
+                        </ul>
+                    </dd>
+                       
+                    <dt>Syntax-ish</dt>
                     <dd>
 <pre class="formula">
 let <span class="variable">myPromise</span> = new Promise(<span class="weaker">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>) => {
-
-    <span class="comment">// "Producing code" (may take some time)</span>
-    <span class="variable">myResolve();</span>  <span class="comment">// When succesful</span>
-    <span class="variable">myReject();</span>   <span class="comment">// When error</span>
-
+    <span class="comment">...</span>
+    <span class="variable">myResolve();</span> 
+    <span class="variable">myReject();</span> 
 }</span>);
 
-<span class="comment">// "Consuming code" (must wait for a fulfilled Promise)</span>
-<span class="variable">myPromise</span>.then(<span class="weaker">
-    (<span class="variable">value</span>) => { <span class="comment">/* code if succesful */</span>  },
-    (<span class="variable">error</span>) => { <span class="comment">/* code if some error */</span> }
-</span>);
+<span class="variable">myPromise</span>.then(<span class="variable">ResolvedFn</span>).catch(<span class="variable">FailedFn</span>);
 
 </pre>
-                    </dd>
-                    <dt>Producing code</dt>
-                    <dd>When producing code obtains the result, it should call one of the two callbacks:
-                        <ul>
-                            <li>Result is success, call: myResolve(result value)</li>
-                            <li>Result is error, call: myReject(error object)</li>
-                        </ul>
                     </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
+           
             
-            <article id="properties">
-                <h2>Promise Object Properties</h2>
-                <dl>                   
-
-                    <dt>The Promise object supports 2 properties:</dt>
+            
+            <article id="simple-example">
+                <h2>Simple Example</h2>
+                <dl>
+                    <dt></dt>
                     <dd>
+<pre class="formula-thin">
+let <span class="variable">myPromise</span> = <b>new Promise(</b><span class="codeblock">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>)</span> => <span class="codeblock">{
+    <span class="variable">myResolve</span>let a = 1 + 1;  <span class="comment">// always success</span>
+    if (a == 2) {
+        <span class="variable">myResolve</span>("Success");
+    } else {
+        <span class="variable">myReject</span>("Failed");
+    }
+}</span><b>)</b>
+
+<span class="variable">myPromise</span><b>.then(</b><span class="codeblock">(<span class="variable">msg</span>)</span> => <span class="codeblock">{
+    console.log("'Then' display message: " + <span class="variable">msg</span>)
+}<b>).catch(</b>(<span class="variable">msg</span>) => {
+    console.log("'Catch' display message: " + <span class="variable">msg</span>)
+}</span><b>)</b>
+
+<span class="comment">// 'Then' display message: Success</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+           
+            
+            
+            <article id="settimeout">
+                <h2>setTimeout()</h2>
+                <dl>
+                    <dt><code>setTimeout()</code></dt>
+                    <dd>
+<pre class="formula">
+setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>, <span class="variable">...</span>)
+</pre>
+                    </dd>
+                    <dd>This method calls a function after a number of milliseconds.</dd>
+                    <dd>Arguments:
                         <ul>
-                            <li><code>state</code></li>
-                            <li><code>result</code></li>
+                            <li>The function to execute (required)</li>
+                            <li>The milliseconds (optional)</li>
+                            <li>Other parameters need to be passed in (optional)</li>
                         </ul>
                     </dd>
-                    <dt>The 3 states and their results:</dt>
+                    <dd>Return value: id of the timer. Id is for use in <code>clearTimeout(id)</code> to cancel the timer.</dd>
                     <dd>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><code>myPromise.state</code></th>
-                                    <th><code>myPromise.result</code></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>"pending"</code></td>
-                                    <td><code>undefined</code></td>
-                                </tr>
-                                <tr>
-                                    <td><code>"fulfilled"</code></td>
-                                    <td>a result value</td>
-                                </tr>
-                                <tr>
-                                    <td><code>"rejected"</code></td>
-                                    <td>an error object</td>
-                                </tr>
-                            </tbody>
-                            
-                        </table>
+<pre class="formula">
+<span class="variable">idName</span> = setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>);
+clearTimeout(<span class="variable">idName</span>);
+</pre>
                     </dd>
+                    <dd></dd>
+                    <dd>
+<pre class="formula-thin">
+const wait = time => new Promise((resolve) => setTimeout(resolve, time));
 
-                    <dt>Access</dt>
-                    <dd>Promise properties <code>state</code> and <code>result</code> can't be accessed. <code>Promise</code> method must be used to handle this.</dd>
-                    
+wait(3000).then(() => console.log('Hello!')); // 'Hello!'
+</pre>
+                    </dd>
+                    <dt></dt>
+                    <dd>
+<pre class="formula-thin">
+
+function promiseFn(myResolve) {}
+    
+function wait(time) {
+    return new Promise(
+        (resolve) => setTimeout(resolve,time)
+    )
+};
+
+wait(3000).then(
+    console.log("Hello!")
+)
+</pre>
+                    </dd>
                 </dl>
             
                 <a href="#top"><hr></a>
