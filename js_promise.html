@@ -19,6 +19,7 @@
         </header>
 
         <main class="js-notes">
+            
             <article id="about-promise">
                 <h2>Promise</h2>
                 <dl>
@@ -71,18 +72,46 @@ let <span class="variable">myPromise</span> = new Promise(<span class="weaker">(
                     </dd>
                 </dl>
                 <a href="#top"><hr></a>
-            </article>
-           
+            </article>          
+            
+            
+            <article id="javascript-info">
+                <h2>Promise by Javascript-info</h2>
+                <dl>
+                    <dt>Producing code</dt>
+                    <dd>A code that takes sometimes, might ends up succesful or failed.</dd>
+
+                    <dt>Consuming code</dt>
+                    <dd>Wants the result of the "producing code" once it's ready. Many functions may need that results.</dd>
+
+                    <dt>Promise</dt>
+                    <dd>A special Javascript object that links the "producing code" and the "consuming code".</dd>
+
+                    <dt>How they are connected</dt>
+                    <dd>Producing code takes whatever time it needs to produced the promised result.</dd>
+                    <dd>Promise makes the result availlable to all the subscribed code when it's ready.</dd>
+
+                    <dt>Constructor syntax for a promise object</dt>
+                    <dd>
+<pre class="formula">
+<span class="thin">let <span class="variable">myPromise</span> = </span>new Promise(<span class="thin">function(<span class="variable">myResolve</span>, <span class="variable">myReject</span>) {<span class="variable">...</span>}</span>)
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>          
             
             
             <article id="simple-example">
                 <h2>Simple Example</h2>
                 <dl>
-                    <dt></dt>
+                    <dt>Very simple example</dt>
+                    <dd>Fulfilled promise</dd>
                     <dd>
+
 <pre class="formula-thin">
 let <span class="variable">myPromise</span> = <b>new Promise(</b><span class="codeblock">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>)</span> => <span class="codeblock">{
-    <span class="variable">myResolve</span>let a = 1 + 1;  <span class="comment">// always success</span>
+    let a = 1 + 1;  <span class="comment">// always success</span>
     if (a == 2) {
         <span class="variable">myResolve</span>("Success");
     } else {
@@ -99,11 +128,238 @@ let <span class="variable">myPromise</span> = <b>new Promise(</b><span class="co
 <span class="comment">// 'Then' display message: Success</span>
 </pre>
                     </dd>
+                    <dd>Failed promise</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">myPromise</span> = <b>new Promise(</b><span class="codeblock">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>)</span> => <span class="codeblock">{
+    let a = 1 + 2;  <span class="comment">// always fail</span>
+    if (a == 2) {
+        <span class="variable">myResolve</span>("Success");
+    } else {
+        <span class="variable">myReject</span>("Failed");
+    }
+}</span><b>)</b>
+
+<span class="variable">myPromise</span><b>.then(</b><span class="codeblock">(<span class="variable">msg</span>)</span> => <span class="codeblock">{
+    console.log("'Then' display message: " + <span class="variable">msg</span>)
+}<b>).catch(</b>(<span class="variable">msg</span>) => {
+    console.log("'Catch' display message: " + <span class="variable">msg</span>)
+}</span><b>)</b>
+
+<span class="comment">// 'Catch' display message: Failed</span>
+</pre>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
            
             
+            
+            <article id="tutorial-video-example">
+                <h2>Tutorial video example</h2>
+                <dl>
+                    <dt>Promise: Use watching tutorial video to the end</dt>
+                    <dd>
+                        <ul>
+                            <li>Success if: User watches to the end.</li>
+                            <li>Failed if:
+                                <ul>
+                                    <li>User left,</li>
+                                    <li>User watching cat meme.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Using callbacks</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">watchTutorialCallback</span>(<span class="variable">callback</span>, <span class="variable">errorCallback</span>) {
+    <span class="codeblock">if (<span class="variable">userLeft</span>) {
+        <span class="variable">errorCallback</span>({
+            name: "User Left",
+            message: ":("
+        });
+    } else if (<span class="variable">userWatchingCatMeme</span>) {
+        <span class="variable">errorCallback</span>({
+            name:"User Watching Cat Meme",
+            message: "Cat over learning :("
+        });
+    } else {
+        <span class="variable">callback</span>("Thumbs up and Subscribe")
+    };</span>
+};
+</pre>
+                    </dd>
+                    <dd><b>User ends up watching to the end</b></dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">userLeft</span> = false;
+let <span class="variable">userWatchingCatMeme</span> = false;
+
+<span class="variable">watchTutorialCallback</span>((<span class="variable">message</span>) => {
+    console.log("Success: " + <span class="variable">message</span>);
+}, (<span class="variable">error</span>) => {
+    console.log(<span class="variable">error.name</span> + ": " + <span class="variable">error.message</span>);
+});
+
+<span class="comment">// Success: Thumbs up and Subscribe</span>
+</pre>
+                    </dd>
+                    <dd><b>If user left early</b></dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">userLeft</span> = true;
+<span class="variable">userWatchingCatMeme</span> = false;
+
+<span class="comment">// Call the function, and result is:</span>
+<span class="comment">// User Left: :(</span>
+</pre>
+                    </dd>
+
+
+                    <dd><b>If user watches cat meme instead</b></dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">userLeft</span> = false;
+<span class="variable">userWatchingCatMeme</span> = true;
+
+<span class="comment">// Call the function, and result is:</span>
+<span class="comment">// User Watching Cat Meme: Cat over learning :(</span>
+</pre>
+
+                    </dd>
+
+                    <dt>Using Promise function</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">watchTutorialPromise</span>() {
+    <span class="codeblock">return</span> <b>new Promise(</b>(<span class="variable">resolve</span>, <span class="variable">reject</span>) => {
+        <span class="codeblock">if (<span class="variable">userLeft</span>) {
+            <span class="variable">reject</span>({
+                name: "User Left",
+                message: ":("
+            });
+        } else if (<span class="variable">userWatchingCatMeme</span>) {
+            <span class="variable">reject</span>({
+                name:"User Watching Cat Meme",
+                message: "Cat over learning :("
+            });
+        } else {
+            <span class="variable">resolve</span>("Thumbs up and Subscribe")
+        };</span>
+    }<b>)</b>;
+};
+</pre>
+                    </dd>
+                    <dd><b>The <code>then</code> and <code>catch</code> function</b></dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">watchTutorialPromise()</span><b>.then(</b>(<span class="variable">message</span>) => {
+    <span class="codeblock">console.log("Success: " + <span class="variable">message</span>);</span>
+}<b>).catch(</b>(<span class="variable">error</span>) => {
+    <span class="codeblock">console.log(<span class="variable">error.name</span> + ": " + <span class="variable">error.message</span>);</span>
+}<b>)</b>;
+</pre>
+                    </dd>
+
+                    <dd><b>User ends up watching to the end</b></dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">userLeft</span> = false;
+<span class="variable">userWatchingCatMeme</span> = false;
+
+<span class="comment">// Call the function, and result is:</span>
+<span class="comment">// Success: Thumbs up and Subscribe</span>
+</pre>
+                    </dd>
+
+                    <dd><b>If user left early</b></dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">userLeft</span> = true;
+<span class="variable">userWatchingCatMeme</span> = false;
+
+<span class="comment">// Call the function, and result is:</span>
+<span class="comment">// User Left: :(</span>
+</pre>
+                    </dd>
+
+                    <dd><b>If user watches cat meme instead</b></dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">userLeft</span> = false;
+<span class="variable">userWatchingCatMeme</span> = true;
+
+<span class="comment">// Call the function, and result is:</span>
+<span class="comment">// User Watching Cat Meme: Cat over learning :(</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>           
+            
+            <article id="promise-all">
+                <h2>Promise.all()</h2>
+                <dl>
+                    <dt>Running multiple promises is possible</dt>
+                    <dt><code>Promise.all()</code></dt>
+                    <dd>For when all of individual promises are fulfilled.</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">recordVideoOne</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
+    <span class="codeblock">resolve("Video 1 Recorded");</span>
+});
+
+const <span class="variable">recordVideoTwo</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
+    <span class="codeblock">resolve("Video 2 Recorded");</span>
+});
+
+const <span class="variable">recordVideoThree</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
+    <span class="codeblock">resolve("Video 3 Recorded");</span>
+});
+
+Promise.all([
+    <span class="variable">recordVideoOne</span>,
+    <span class="variable">recordVideoTwo</span>,
+    <span class="variable">recordVideoThree</span>
+]).then((<span class="variable">messages</span>) => {
+    console.log(<span class="variable">messages</span>);
+});
+
+<span class="comment">// (3) ['Video 1 Recorded', 'Video 2 Recorded', 'Video 3 Recorded']</span>
+</pre>
+                    </dd>
+                    <dt><code>Promise.race()</code></dt>
+                    <dd>For when any of the promise is fulfilled.</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">recordVideoOne</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
+    <span class="codeblock">resolve("Video 1 Recorded");</span>
+});
+
+const <span class="variable">recordVideoTwo</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
+    <span class="codeblock">resolve("Video 2 Recorded");</span>
+});
+
+const <span class="variable">recordVideoThree</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
+    <span class="codeblock">resolve("Video 3 Recorded");</span>
+});
+
+Promise.race([
+    <span class="variable">recordVideoOne</span>,
+    <span class="variable">recordVideoTwo</span>,
+    <span class="variable">recordVideoThree</span>
+]).then((<span class="variable">message</span>) => {
+    console.log(<span class="variable">message</span>);
+});
+
+<span class="comment">// Video 1 Recorded</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
             
             <article id="settimeout">
                 <h2>setTimeout()</h2>
@@ -166,7 +422,7 @@ wait(3000).then(
                     <li><a href="https://www.w3schools.com/js/js_promise.asp" target="_blank">W3schools: JavaScript Promises</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">MDN: Promise</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">MDN: Using Promises</a></li>
-
+                    <li><a href="https://www.youtube.com/watch?v=DHvZLI7Db8E" target="_blank">Web Dev Simplified (YouTube): JavaScript Promises In 10 Minutes</a></li>
 
                 </ul>
             </article>
