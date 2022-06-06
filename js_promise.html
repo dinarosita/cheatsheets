@@ -290,10 +290,10 @@ function <span class="variable">watchTutorialPromise</span>() {
                     <dt>Multiple promises</dt>
                     <dd>Running multiple promises is possible.</dd>
 
-                    <dt>Success trigger options</dt>
+                    <dt>Success/failed trigger options</dt>
                     <dd>
                         <ul>
-                            <li><b>All</b>: <code>Promise.all()</code>
+                            <li><b>All success</b>: <code>Promise.all()</code>
                                 <ul>
                                     <li>All promises must be fulfilled to be  succesful
                                         <ul>
@@ -307,11 +307,11 @@ function <span class="variable">watchTutorialPromise</span>() {
                                     </li>
                                 </ul>
                             </li>
-                            <li><b>Any</b>: <code>Promise.race()</code>
+                            <li><b>Any success/failed</b>: <code>Promise.race()</code>
                                 <ul>
-                                    <li>Any 1 of the promises is fulfilled
+                                    <li>Any 1 of the promises produce outcome, whether it's succesfull or failed:
                                         <ul>
-                                            <li>Success parameter passed is the first success promise value</li>
+                                            <li>Success/failed parameter passed is that first success/failed value</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -348,17 +348,13 @@ Promise.race([<span class="variable">promise1</span>, <span class="variable">pro
 
                     <dt><code>Promise.all()</code></dt>
                     <dt>Example: Recording 3 videos. All 3 must be recorded.</dt>
-                    <dd>Given: All video recorded</dd>
+                    <dd>Scenario: All video recorded</dd>
                     <dd>
 <pre class="formula-thin">
 const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 1 Recorded"</span>)});
 const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 2 Recorded"</span>)});
 const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 3 Recorded"</span>)});
-</pre>
-                    </dd>
-                    <dd>The promise</dd>
-                    <dd>
-<pre class="formula-thin">
+
 Promise.all([<span class="variable">record1</span>, <span class="variable">record2</span>, <span class="variable">record3</span>]).then((<span class="variable">messages</span>) => {
     console.log(<span class="comment">"Recording succesful. All videos recorded."</span>);
     console.log(<span class="variable">messages</span>);</span>
@@ -371,7 +367,7 @@ Promise.all([<span class="variable">record1</span>, <span class="variable">recor
 // (3) ['Video 1 Recorded', 'Video 2 Recorded', 'Video 3 Recorded']</span>
 </pre>
                     </dd>
-                    <dd>Given: 1 of the video not recorded:</dd>
+                    <dd>Scenario: 1 of the video not recorded:</dd>
                     <dd>
 <pre class="formula-thin">
 const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 1 Recorded"</span>)});
@@ -384,7 +380,7 @@ const <span class="variable">record3</span> = new Promise((<span class="variable
 </pre>
                     </dd>
 
-                    <dd>Given: none of the videos recorded:</dd>
+                    <dd>Scenario: none of the videos recorded:</dd>
                     <dd>
 <pre class="formula-thin">
 const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 1 Not Recorded"</span>)});
@@ -399,54 +395,51 @@ const <span class="variable">record3</span> = new Promise((<span class="variable
                     
                     <dt><code>Promise.race()</code></dt>
                     <dt>Example: Recording 3 videos. Only need 1 to be recorded.</dt>
-                    <dd>Given: All videos recorded</dd>
+                    <dd>Scenario: All videos recorded, but 2 resolved first.</dd>
                     <dd>
 <pre class="formula-thin">
-const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 1 Recorded"</span>)});
-const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 2 Recorded"</span>)});
-const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 3 Recorded"</span>)});
-</pre>
-                    </dd>
-                    <dd>The promise</dd>
-                    <dd>
-<pre class="formula-thin">
-Promise.race([<span class="variable">record1</span>, <span class="variable">record2</span>, <span class="variable">record3</span>]).then((<span class="variable">messages</span>) => {
-    console.log(<span class="comment">"Recording succesful. First succesful recording:"</span>);
-    console.log(<span class="variable">messages</span>);</span>
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">resolve</span>, 500, <span class="comment">"Video 1 Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">resolve</span>, 100, <span class="comment">"Video 2 Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">resolve</span>, 800, <span class="comment">"Video 3 Recorded"</span>)});
+
+Promise.race([<span class="variable">record1</span>, <span class="variable">record2</span>, <span class="variable">record3</span>]).then((<span class="variable">message</span>) => {
+    console.log(<span class="comment">"First outcome: Success!"</span>);
+    console.log(<span class="variable">message</span>);</span>
 }, (<span class="variable">error</span>) => {
-    console.log(<span class="comment">"Recording failed. None of the videos recorded."</span>);
+    console.log(<span class="comment">"First outcome: Failure!"</span>);
     console.log(<span class="variable">error</span>);
 });
 
-<span class="comment">// Recording succesful. All videos recorded.
-// (3) ['Video 1 Recorded', 'Video 2 Recorded', 'Video 3 Recorded']</span>
+<span class="comment">// First outcome: Success!
+// Video 2 Recorded</span>
 </pre>
                     </dd>
-                    <dd>Given: Only 1 video recorded:</dd>
+                    <dd>Scenario: Some recorded, some failed. But 2 failure comes first</dd>
                     <dd>
 <pre class="formula-thin">
-const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 1 Not Recorded"</span>)});
-const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 2 Not Recorded"</span>)});
-const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 3 Recorded"</span>)});
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">resolve</span>, 500, <span class="comment">"Video 1 Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">reject</span>, 100, <span class="comment">"Video 2 Not Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">resolve</span>, 800, <span class="comment">"Video 3 Recorded"</span>)});
 
 <span class="comment"><i>Running code</i>
-//
-//</span>
+// First outcome: Failure!
+// Video 2 Not Recorded</span>
 </pre>
                     </dd>
 
-                        <dd>Given: none of the videos recorded:</dd>
-                        <dd>
-    <pre class="formula-thin">
-    const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 1 Not Recorded"</span>)});
-    const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 2 Not Recorded"</span>)});
-    const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 3 Not Recorded"</span>)});
-    
-    <span class="comment"><i>Running code</i>
-    //
-    //</span>
-    </pre>
-                        </dd>
+                    <dd>Scenario: Some recorded, some failed. But 2 failure comes first</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">resolve</span>, 500, <span class="comment">"Video 1 Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">reject</span>, 100, <span class="comment">"Video 2 Not Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {setTimeout(<span class="variable">resolve</span>, 800, <span class="comment">"Video 3 Recorded"</span>)});
+
+<span class="comment"><i>Running code</i>
+// First outcome: Failure!
+// Video 2 Not Recorded</span>
+</pre>
+                    </dd>
+
                 </dl>
                 <a href="#top"><hr></a>
             </article>
