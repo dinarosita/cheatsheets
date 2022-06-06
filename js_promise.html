@@ -19,146 +19,130 @@
         </header>
 
         <main class="js-notes">
-            
-            <article id="about-promise">
-                <h2>Promise</h2>
+            <article id="understanding-promise">
+                <h2>Understanding Promise</h2>
                 <dl>
-                    <dt>About promise</dt>
-                    <dd>Imagine we promise something will happen/completed in the future. There are 2 outcome from it: Fulfilled, or failed to fulfil it. What will happen next will depend on it. For example if fulfilled, we go ahead continuing the plan. If failed, then we will repeat some action to achieve it first, or goes to the plan B. But for now, we don't know which one we are going to do yet, since we don't know the promise will be fulfilled or not. We are planning ahead for both scenario for the future.</dd>
-                    <dt>2 parts</dt>
-                    <dd>
+                    <dt>Structure</dt>
+                    <dd>Promise consists of 2 parts:
                         <ul>
-                            <li><b>Promise</b>
+                            <li><b><code>new Promise()</code></b>: A promise something will be fulfilled in the future. 2 possible outcome:
                                 <ul>
-                                    <li>Pending...</li>
-                                    <li>Outcome:
-                                        <ul>
-                                            <li>Fulfilled</li>
-                                            <li>failed</li>
-                                        </ul>
-                                    </li>
+                                    <li>Promise is fulfilled</li>
+                                    <li>Promise is failed</li>
                                 </ul>
                             </li>
-                            <li><b>Then</b>
+                            <li><b><code>.then()</code></b>: Future actions to take for each possible outcome:
                                 <ul>
-                                    <li>If fulfilled
-                                        <ul>
-                                            <li>Do this plan</li>
-                                        </ul>
-                                    </li>
-                                    <li>If failed
-                                        <ul>
-                                            <li>Do different plan</li>
-                                        </ul>
-                                    </li>
+                                    <li>Function for fulfilled promise</li>
+                                    <li>Function for failed promise</li>
                                 </ul>
                             </li>
-
                         </ul>
                     </dd>
-                       
-                    <dt>Syntax-ish</dt>
+                    <dt>Syntax condensed</dt>
                     <dd>
 <pre class="formula">
-let <span class="variable">myPromise</span> = new Promise(<span class="weaker">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>) => {
-    <span class="comment">...</span>
-    <span class="variable">myResolve();</span> 
-    <span class="variable">myReject();</span> 
-}</span>);
+<span class="thin">const</span> <span class="variable">promiseName</span> = new Promise(<span class="variable">promiseFunction</span>)
 
-<span class="variable">myPromise</span>.then(<span class="variable">ResolvedFn</span>).catch(<span class="variable">FailedFn</span>);
-
+<span class="variable">promiseName</span>.then(<span class="variable">successFunction</span>, <span class="variable">failedFunction</span>)
 </pre>
                     </dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>          
-            
-            
-            <article id="javascript-info">
-                <h2>Promise by Javascript-info</h2>
-                <dl>
-                    <dt>Producing code</dt>
-                    <dd>A code that takes sometimes, might ends up succesful or failed.</dd>
 
-                    <dt>Consuming code</dt>
-                    <dd>Wants the result of the "producing code" once it's ready. Many functions may need that results.</dd>
-
-                    <dt>Promise</dt>
-                    <dd>A special Javascript object that links the "producing code" and the "consuming code".</dd>
-
-                    <dt>How they are connected</dt>
-                    <dd>Producing code takes whatever time it needs to produced the promised result.</dd>
-                    <dd>Promise makes the result availlable to all the subscribed code when it's ready.</dd>
-
-                    <dt>Constructor syntax for a promise object</dt>
+                     <dt>Functions details</dt>
                     <dd>
 <pre class="formula">
-<span class="thin">let <span class="variable">myPromise</span> = </span>new Promise(<span class="thin">function(<span class="variable">myResolve</span>, <span class="variable">myReject</span>) {<span class="variable">...</span>}</span>)
+<span class="thin">function</span> <span class="variable">promiseFunction</span> (<span class="thin">(<span class="variable">success</span>, <span class="variable">failed</span>) => {
+    <span class="comment"><i>Success condition</i></span> {return <span class="variable">success</span>(<span class="variable">successValue</span>)}
+    <span class="comment"><i>Failed condition</i></span>  {return <span class="variable">failed</span>(<span class="variable">failedValue</span>)}
+}</span>)
+
+<span class="thin">function</span> <span class="variable">successFunction</span> (<span class="thin">(<span class="variable">successParam</span>, <span class="variable">errorParam</span>) => {
+    <span class="comment"><i>Actions for succesful promise
+    successParam value = successValue</i></span> 
+}</span>)
+
+<span class="thin">function</span> <span class="variable">promiseFunction</span> (<span class="thin">(<span class="variable">success</span>, <span class="variable">failed</span>) => {
+    <span class="comment"><i>Actions for failed promise
+    errorParam value = failedValue</i></span> 
+}</span>)
 </pre>
                     </dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>          
-            
-            
-            <article id="simple-example">
-                <h2>Simple Example</h2>
-                <dl>
-                    <dt>Very simple example</dt>
-                    <dd>Fulfilled promise</dd>
+
+                    <dt>Syntax with functions extended</dt>
                     <dd>
+<pre class="formula">
+<span class="variable">promiseName</span> = new Promise(<span class="thin">(<span class="variable">success</span>, <span class="variable">failed</span>) => {
+    <span class="comment"><i>Success condition</i></span> {return <span class="variable">success</span>(<span class="variable">successValue</span>)}
+    <span class="comment"><i>Failed condition</i></span>  {return <span class="variable">failed</span>(<span class="variable">failedValue</span>)}
+}</span>)
 
-<pre class="formula-thin">
-let <span class="variable">myPromise</span> = <b>new Promise(</b><span class="codeblock">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>)</span> => <span class="codeblock">{
-    let a = 1 + 1;  <span class="comment">// always success</span>
-    if (a == 2) {
-        <span class="variable">myResolve</span>("Success");
-    } else {
-        <span class="variable">myReject</span>("Failed");
-    }
-}</span><b>)</b>
-
-<span class="variable">myPromise</span><b>.then(</b><span class="codeblock">(<span class="variable">msg</span>)</span> => <span class="codeblock">{
-    console.log("'Then' display message: " + <span class="variable">msg</span>)
-}<b>).catch(</b>(<span class="variable">msg</span>) => {
-    console.log("'Catch' display message: " + <span class="variable">msg</span>)
-}</span><b>)</b>
-
-<span class="comment">// 'Then' display message: Success</span>
+<span class="variable">promiseName</span>.then(<span class="thin">(<span class="variable">successParam</span>) => { 
+    <span class="comment"><i>Actions for succesful promise
+    successParam value = successValue</i></span> 
+}</span>, <span class="thin">(<span class="variable">errorParam</span>) => {
+    <span class="comment"><i>Actions for failed promise
+    errorParam value = failedValue</i></span> 
+}</span>)
 </pre>
                     </dd>
-                    <dd>Failed promise</dd>
+
+                    <dt>Example: Promise to learn promise</dt>
+                    <dd>Given: failed promise</dd>
                     <dd>
 <pre class="formula-thin">
-let <span class="variable">myPromise</span> = <b>new Promise(</b><span class="codeblock">(<span class="variable">myResolve</span>, <span class="variable">myReject</span>)</span> => <span class="codeblock">{
-    let a = 1 + 2;  <span class="comment">// always fail</span>
-    if (a == 2) {
-        <span class="variable">myResolve</span>("Success");
+var <span class="variable">understandPromise</span> = <span class="comment">false</span>;
+</pre>
+                    </dd>
+                    <dd>The promise</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">promiseToLearnPromise</span> = new Promise((<span class="variable">success</span>, <span class="variable">failed</span>) => {
+    if (<span class="variable">understandPromise</span>) {
+        return <span class="variable">success</span>(<span class="comment">"Done!"</span>);
     } else {
-        <span class="variable">myReject</span>("Failed");
+        return <span class="variable">failed</span>(<span class="comment">"Not yet..."</span>);
     }
-}</span><b>)</b>
+});
+</pre>
+                    </dd>
+                    <dd>The then actions</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">promiseToLearnPromise</span>.then((<span class="variable">done</span>) => {
+    console.log(<span class="variable">done</span>);
+    console.log(<span class="comment">"Next: Learn setTimeout"</span>);
+}, (<span class="variable">notyet</span>) => {
+    console.log(<span class="variable">notyet</span>);
+    console.log(<span class="comment">"Keep learning Promise"</span>)
+})
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="comment">// Not yet...
+// Keep learning Promise</span>
+</pre>
+                    </dd>
+                    <dd>Given: fulfilled promise. The result becomes:</dd>
+                    <dd>
+<pre class="formula-thin">
+var <span class="variable">understandPromise</span> = <span class="comment">true</span>;
 
-<span class="variable">myPromise</span><b>.then(</b><span class="codeblock">(<span class="variable">msg</span>)</span> => <span class="codeblock">{
-    console.log("'Then' display message: " + <span class="variable">msg</span>)
-}<b>).catch(</b>(<span class="variable">msg</span>) => {
-    console.log("'Catch' display message: " + <span class="variable">msg</span>)
-}</span><b>)</b>
-
-<span class="comment">// 'Catch' display message: Failed</span>
+<span class="comment"><i>Re-runnning code</i></span>
+<span class="comment">// Done!
+// Next: Learn setTimeout</span>
 </pre>
                     </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
-           
-            
             
             <article id="tutorial-video-example">
                 <h2>Tutorial video example</h2>
                 <dl>
                     <dt>Promise: Use watching tutorial video to the end</dt>
+                    <dd>From: <a href="https://www.youtube.com/watch?v=DHvZLI7Db8E" target="_blank">Web Dev Simplified (YouTube): JavaScript Promises In 10 Minutes</a></dd>
                     <dd>
                         <ul>
                             <li>Success if: User watches to the end.</li>
@@ -191,7 +175,7 @@ function <span class="variable">watchTutorialCallback</span>(<span class="variab
 };
 </pre>
                     </dd>
-                    <dd><b>User ends up watching to the end</b></dd>
+                    <dd>User ends up watching to the end</dd>
                     <dd>
 <pre class="formula-thin">
 let <span class="variable">userLeft</span> = false;
@@ -206,7 +190,7 @@ let <span class="variable">userWatchingCatMeme</span> = false;
 <span class="comment">// Success: Thumbs up and Subscribe</span>
 </pre>
                     </dd>
-                    <dd><b>If user left early</b></dd>
+                    <dd>If user left early</dd>
                     <dd>
 <pre class="formula-thin">
 <span class="variable">userLeft</span> = true;
@@ -218,7 +202,7 @@ let <span class="variable">userWatchingCatMeme</span> = false;
                     </dd>
 
 
-                    <dd><b>If user watches cat meme instead</b></dd>
+                    <dd>If user watches cat meme instead</dd>
                     <dd>
 <pre class="formula-thin">
 <span class="variable">userLeft</span> = false;
@@ -252,7 +236,7 @@ function <span class="variable">watchTutorialPromise</span>() {
 };
 </pre>
                     </dd>
-                    <dd><b>The <code>then</code> and <code>catch</code> function</b></dd>
+                    <dd>The <code>then</code> and <code>catch</code> function</dd>
                     <dd>
 <pre class="formula-thin">
 <span class="variable">watchTutorialPromise()</span><b>.then(</b>(<span class="variable">message</span>) => {
@@ -263,7 +247,7 @@ function <span class="variable">watchTutorialPromise</span>() {
 </pre>
                     </dd>
 
-                    <dd><b>User ends up watching to the end</b></dd>
+                    <dd>User ends up watching to the end</dd>
                     <dd>
 <pre class="formula-thin">
 <span class="variable">userLeft</span> = false;
@@ -274,7 +258,7 @@ function <span class="variable">watchTutorialPromise</span>() {
 </pre>
                     </dd>
 
-                    <dd><b>If user left early</b></dd>
+                    <dd>If user left early</dd>
                     <dd>
 <pre class="formula-thin">
 <span class="variable">userLeft</span> = true;
@@ -285,7 +269,7 @@ function <span class="variable">watchTutorialPromise</span>() {
 </pre>
                     </dd>
 
-                    <dd><b>If user watches cat meme instead</b></dd>
+                    <dd>If user watches cat meme instead</dd>
                     <dd>
 <pre class="formula-thin">
 <span class="variable">userLeft</span> = false;
@@ -299,67 +283,175 @@ function <span class="variable">watchTutorialPromise</span>() {
                 <a href="#top"><hr></a>
             </article>           
             
-            <article id="promise-all">
-                <h2>Promise.all()</h2>
+            <article id="multiple-promises">
+                <h2>Multiple promises</h2>
+                <h3>Promise.all() and Promise.race()</h3>
                 <dl>
-                    <dt>Running multiple promises is possible</dt>
+                    <dt>Multiple promises</dt>
+                    <dd>Running multiple promises is possible.</dd>
+
+                    <dt>Success trigger options</dt>
+                    <dd>
+                        <ul>
+                            <li><b>All</b>: <code>Promise.all()</code>
+                                <ul>
+                                    <li>All promises must be fulfilled to be  succesful
+                                        <ul>
+                                            <li>Success parameter passed is an array of individual success promise value</li>
+                                        </ul>
+                                    </li>
+                                    <li>It's not succesful as soon as the first error is found
+                                        <ul>
+                                            <li>Error parameter passed is the first failed promise value</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Any</b>: <code>Promise.race()</code>
+                                <ul>
+                                    <li>Any 1 of the promises is fulfilled
+                                        <ul>
+                                            <li>Success parameter passed is the first success promise value</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </dd>
+
+                    <dt>Syntax</dt>
+                    <dd>The promises are still written normal way individually.</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">promise1</span> = new Promise(<span class="variable">promiseFunction1</span>);
+const <span class="variable">promise2</span> = new Promise(<span class="variable">promiseFunction2</span>);
+const <span class="variable">promise3</span> = new Promise(<span class="variable">promiseFunction3</span>);
+</pre>
+                    </dd>
+                    <dd>The <code>then</code> statement becoming:</dd>
+                    <dd>                            
+<pre class="formula">
+Promise.all(<span class="variable">promiseArray</span>).then(<span class="variable">successFunction</span>);
+<span class="comment"><i>or</i></span>
+Promise.race(<span class="variable">promiseArray</span>).then(<span class="variable">successFunction</span>);
+</pre>
+                    </dd>
+                    <dd>Array extended:</dd>
+                    <dd>
+<pre class="formula">
+Promise.all([<span class="variable">promise1</span>, <span class="variable">promise2</span>, <span class="variable">promise3</span>]).then(<span class="variable">successFunction</span>);
+<span class="comment"><i>or</i></span>
+Promise.race([<span class="variable">promise1</span>, <span class="variable">promise2</span>, <span class="variable">promise3</span>]).then(<span class="variable">successFunction</span>);
+</pre>
+                    </dd>
+
                     <dt><code>Promise.all()</code></dt>
-                    <dd>For when all of individual promises are fulfilled.</dd>
+                    <dt>Example: Recording 3 videos. All 3 must be recorded.</dt>
+                    <dd>Given: All video recorded</dd>
                     <dd>
 <pre class="formula-thin">
-const <span class="variable">recordVideoOne</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
-    <span class="codeblock">resolve("Video 1 Recorded");</span>
-});
-
-const <span class="variable">recordVideoTwo</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
-    <span class="codeblock">resolve("Video 2 Recorded");</span>
-});
-
-const <span class="variable">recordVideoThree</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
-    <span class="codeblock">resolve("Video 3 Recorded");</span>
-});
-
-Promise.all([
-    <span class="variable">recordVideoOne</span>,
-    <span class="variable">recordVideoTwo</span>,
-    <span class="variable">recordVideoThree</span>
-]).then((<span class="variable">messages</span>) => {
-    console.log(<span class="variable">messages</span>);
-});
-
-<span class="comment">// (3) ['Video 1 Recorded', 'Video 2 Recorded', 'Video 3 Recorded']</span>
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 1 Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 2 Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 3 Recorded"</span>)});
 </pre>
                     </dd>
+                    <dd>The promise</dd>
+                    <dd>
+<pre class="formula-thin">
+Promise.all([<span class="variable">record1</span>, <span class="variable">record2</span>, <span class="variable">record3</span>]).then((<span class="variable">messages</span>) => {
+    console.log(<span class="comment">"Recording succesful. All videos recorded."</span>);
+    console.log(<span class="variable">messages</span>);</span>
+}, (<span class="variable">error</span>) => {
+    console.log(<span class="comment">"Recording failed. First failure found:"</span>);
+    console.log(<span class="variable">error</span>);
+});
+
+<span class="comment">// Recording succesful. All videos recorded.
+// (3) ['Video 1 Recorded', 'Video 2 Recorded', 'Video 3 Recorded']</span>
+</pre>
+                    </dd>
+                    <dd>Given: 1 of the video not recorded:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 1 Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 2 Not Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 3 Recorded"</span>)});
+
+<span class="comment"><i>Running code</i>
+// Recording failed. First failure found:
+// Video 2 Not Recorded</span>
+</pre>
+                    </dd>
+
+                    <dd>Given: none of the videos recorded:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 1 Not Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 2 Not Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 3 Not Recorded"</span>)});
+
+<span class="comment"><i>Running code</i>
+// Recording failed. First failure found:
+// Video 1 Not Recorded</span>
+</pre>
+                    </dd>
+                    
                     <dt><code>Promise.race()</code></dt>
-                    <dd>For when any of the promise is fulfilled.</dd>
+                    <dt>Example: Recording 3 videos. Only need 1 to be recorded.</dt>
+                    <dd>Given: All videos recorded</dd>
                     <dd>
 <pre class="formula-thin">
-const <span class="variable">recordVideoOne</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
-    <span class="codeblock">resolve("Video 1 Recorded");</span>
-});
-
-const <span class="variable">recordVideoTwo</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
-    <span class="codeblock">resolve("Video 2 Recorded");</span>
-});
-
-const <span class="variable">recordVideoThree</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {
-    <span class="codeblock">resolve("Video 3 Recorded");</span>
-});
-
-Promise.race([
-    <span class="variable">recordVideoOne</span>,
-    <span class="variable">recordVideoTwo</span>,
-    <span class="variable">recordVideoThree</span>
-]).then((<span class="variable">message</span>) => {
-    console.log(<span class="variable">message</span>);
-});
-
-<span class="comment">// Video 1 Recorded</span>
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 1 Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 2 Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 3 Recorded"</span>)});
 </pre>
                     </dd>
+                    <dd>The promise</dd>
+                    <dd>
+<pre class="formula-thin">
+Promise.race([<span class="variable">record1</span>, <span class="variable">record2</span>, <span class="variable">record3</span>]).then((<span class="variable">messages</span>) => {
+    console.log(<span class="comment">"Recording succesful. First succesful recording:"</span>);
+    console.log(<span class="variable">messages</span>);</span>
+}, (<span class="variable">error</span>) => {
+    console.log(<span class="comment">"Recording failed. None of the videos recorded."</span>);
+    console.log(<span class="variable">error</span>);
+});
+
+<span class="comment">// Recording succesful. All videos recorded.
+// (3) ['Video 1 Recorded', 'Video 2 Recorded', 'Video 3 Recorded']</span>
+</pre>
+                    </dd>
+                    <dd>Given: Only 1 video recorded:</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 1 Not Recorded"</span>)});
+const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 2 Not Recorded"</span>)});
+const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">resolve</span>(<span class="comment">"Video 3 Recorded"</span>)});
+
+<span class="comment"><i>Running code</i>
+//
+//</span>
+</pre>
+                    </dd>
+
+                        <dd>Given: none of the videos recorded:</dd>
+                        <dd>
+    <pre class="formula-thin">
+    const <span class="variable">record1</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 1 Not Recorded"</span>)});
+    const <span class="variable">record2</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 2 Not Recorded"</span>)});
+    const <span class="variable">record3</span> = new Promise((<span class="variable">resolve</span>,<span class="variable">reject</span>) => {<span class="variable">reject</span>(<span class="comment">"Video 3 Not Recorded"</span>)});
+    
+    <span class="comment"><i>Running code</i>
+    //
+    //</span>
+    </pre>
+                        </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
+            
+            
             
             <article id="settimeout">
                 <h2>setTimeout()</h2>
