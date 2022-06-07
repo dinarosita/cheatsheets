@@ -19,14 +19,28 @@
         </header>
 
         <main class="js-notes">
+            
+            <article id="scheduling">
+                <h2>Scheduling a call</h2>
+                <dl>
+                    <dt>2 methods:</dt>
+                    <dd>
+                        <ul>
+                            <li><code>setTimeout()</code>: Run a function once after the time interval</li>
+                            <li><code>setInterval()</code>: Run a function repeatedly. Starting after the time interval, and repeating with that time interval.</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
 
-        <article id="settimeout">
+            <article id="set-timeout">
                 <h2>setTimeout()</h2>
                 <dl>
                     <dt><code>setTimeout()</code></dt>
                     <dd>
 <pre class="formula">
-setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>, <span class="variable">...</span>)
+setTimeout(<span class="variable">function</span>, <span class="variable">delayMs</span>, <span class="variable">...</span>)
 </pre>
                     </dd>
                     <dd>This method calls a function after a number of milliseconds.</dd>
@@ -34,15 +48,75 @@ setTimeout(<span class="variable">function</span>, <span class="variable">millis
                     <dt>Arguments:</dt>
                     <dd>
                         <ul>
-                            <li>The function to execute (required)</li>
-                            <li>The milliseconds (optional)</li>
-                            <li>Other parameters need to be passed in (optional)</li>
+                            <li><b>Function</b> to execute (required). It can be a quoted code instead.
+                                <ul>
+                                    <li>Remember: Don't write the function with brackets <code>funcName()</code>, because it will run the code right away.</li>   
+                                    <li>For function with parameters, how to include the parameters then if bracket not the way to go? List them as a comma-separated list after the time delay. See "other parameters" below.</li>                                 
+                                </ul>
+                            </li>
+                            <li><b>Delay</b> in milliseconds (optional)</li>
+                            <li><b>Other parameters</b> need to be passed to the function (optional). For example:
+                                <ul>
+                                    <li><code>function <span class="variable">greetName</span>(<span class="variable">phrase</span>, <span class="variable">name</span>) {...}</code></li>
+                                    <li><code>setTimeout(<span class="variable">greetName</span>, 5000, <span class="variable">"The phrase"</span>, <span class="variable">"The name"</span>)</code></li>
+                                </ul>
+                            </li>
                         </ul>
                     </dd>
 
                     <dt>Return value:</dt>
                     <dd>Id of the timer. Id is for use in <code>clearTimeout(id)</code> to cancel the timer.</dd>
 
+                    <dt><code>setTimeout</code> with function</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">greetJello</span>() {
+    <span class="codeblock">console.log("Hello, Jello!");</span>
+} 
+
+<b>setTimeout(</b><span class="variable">greetJello</span>, <span class="variable">5000</span><b>)</b>;
+
+<span class="comment">// After 5 seconds: "Hello Jello!"</span>
+</pre>
+                    </dd>
+
+                    <dt><code>setTimeout</code> with function and extra parameters</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">greetName</span>(<span class="variable">phrase</span>, <span class="variable">name</span>) {
+    <span class="codeblock">console.log(phrase + ", " + name + "!");</span>
+} 
+
+<b>setTimeout(</b><span class="variable">greetName</span>, <span class="variable">5000</span>, <span class="variable">"Hi"</span>, <span class="variable">"Kitty"</span><b>)</b>;
+
+<span class="comment">// After 5 seconds: "Hi, Kitty!"</span>
+</pre>
+                    </dd>
+
+                    <dt><code>setTimeout</code> with code: Not recommended</dt>
+                    <dd>It needs to be quoted <code>"alert('Hi')"</code>. Without it, it will run right away. But this is not recommended anyway.</dd>
+                    <dd>
+<pre class="formula-thin">
+<b>setTimeout(</b><span class="variable">"alert('Hi!')"</span>, <span class="variable">5000</span><b>)</b>;
+
+<span class="comment">// After 5 seconds: "Hi!"</span>
+</pre>
+                    </dd>
+                    <dd>Avoid writing quoted code. Write it as anonymous function <code>() => alert("Hi")</code> instead.</dd>
+                    <dd>
+<pre class="formula-thin">
+<b>setTimeout(</b><span class="variable">() => alert('Hi!')</span>, <span class="variable">5000</span><b>)</b>;
+
+<span class="comment">// After 5 seconds: "Hi!"</span>
+</pre>
+                    </dd>
+                </dl> 
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="clear-timeout">
+                <h2>clearTimeout</h2>
+                <dl>
                     <dt><code>clearTimeout()</code></dt>
                     <dd>
 <pre class="formula">
@@ -51,27 +125,7 @@ clearTimeout(<span class="variable">idName</span>);
 </pre>
                     </dd>
 
-                    <dt><code>setInterval()</code></dt>
-                    <dd><code>setTimeout()</code> only run the function once. If repeated action needed, use <code>setInterval()</code> instead.</dd>
-
-                    <dt>Example: Display greeting after 5 seconds</dt>
-                    <dd>The greeting</dd>
-                    <dd>
-<pre class="formula-thin">
-function myGreeting() {
-    console.log("Hello Jello!");
-} 
-</pre>
-
-                    </dd>
-                    <dd><code>setTimeout()</code></dd>
-                    <dd>
-<pre class="formula-thin">
-const timerHello = setTimeout(myGreeting, 5000);
-
-// After 5 seconds: "Hello Jello!"
-</pre>
-                    </dd>
+                    <dt>Example</dt>
                     <dd>Use <code>clearTimeout()</code> to interupt above from running.</dd>
                     <dd>
 <pre class="formula-thin">
@@ -86,10 +140,8 @@ stopHello();
 </pre>
                     </dd>
                 </dl>
-            
                 <a href="#top"><hr></a>
             </article>
-            
             <article id="references">
                 <h2>References</h2>
                 <ul>
