@@ -54,7 +54,11 @@ setTimeout(<span class="variable">function</span>, <span class="variable">delayM
                                     <li>For function with parameters, how to include the parameters then if bracket not the way to go? List them as a comma-separated list after the time delay. See "other parameters" below.</li>                                 
                                 </ul>
                             </li>
-                            <li><b>Delay</b> in milliseconds (optional)</li>
+                            <li><b>Delay</b> in milliseconds (optional)
+                                <ul>
+                                    <li>Default value is 0</li>
+                                </ul>
+                            </li>
                             <li><b>Other parameters</b> need to be passed to the function (optional). For example:
                                 <ul>
                                     <li><code>function <span class="variable">greetName</span>(<span class="variable">phrase</span>, <span class="variable">name</span>) {...}</code></li>
@@ -65,9 +69,9 @@ setTimeout(<span class="variable">function</span>, <span class="variable">delayM
                     </dd>
 
                     <dt>Return value:</dt>
-                    <dd>Id of the timer. Id is for use in <code>clearTimeout(id)</code> to cancel the timer.</dd>
+                    <dd>A number, which is the id of the timer. Id is for use in <code>clearTimeout(id)</code> to cancel the timer.</dd>
 
-                    <dt><code>setTimeout</code> with function</dt>
+                    <dt>Simplest example:</dt>
                     <dd>
 <pre class="formula-thin">
 function <span class="variable">greetJello</span>() {
@@ -75,12 +79,30 @@ function <span class="variable">greetJello</span>() {
 } 
 
 <b>setTimeout(</b><span class="variable">greetJello</span>, <span class="variable">5000</span><b>)</b>;
-
 <span class="comment">// After 5 seconds: "Hello Jello!"</span>
 </pre>
                     </dd>
 
-                    <dt><code>setTimeout</code> with function and extra parameters</dt>
+                    <dt>Example inside function:</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">greetLater</span>() {
+    <span class="codeblock">setTimeout(greetNow, 5000);</span>
+} 
+
+function <span class="variable">greetNow</span>() {
+    <span class="codeblock">alert("Greetings!");</span>
+} 
+
+greetNow();
+<span class="comment">// Right away: "Greetings!"</span>
+
+greetLater();
+<span class="comment">// After 5 seconds: "Greetings!"</span>
+</pre>
+                    </dd>
+
+                    <dt>Example with extra parameters:</dt>
                     <dd>
 <pre class="formula-thin">
 function <span class="variable">greetName</span>(<span class="variable">phrase</span>, <span class="variable">name</span>) {
@@ -88,25 +110,117 @@ function <span class="variable">greetName</span>(<span class="variable">phrase</
 } 
 
 <b>setTimeout(</b><span class="variable">greetName</span>, <span class="variable">5000</span>, <span class="variable">"Hi"</span>, <span class="variable">"Kitty"</span><b>)</b>;
-
 <span class="comment">// After 5 seconds: "Hi, Kitty!"</span>
 </pre>
                     </dd>
 
-                    <dt><code>setTimeout</code> with code: Not recommended</dt>
-                    <dd>It needs to be quoted <code>"alert('Hi')"</code>. Without it, it will run right away. But this is not recommended anyway.</dd>
+                    <dt>Don't use brackets: <code>setTimeout(<span class="variable">myFunction()</span>, 5000)</code></dt>
+                    <dd>It's the same with calling a function. Function will be executed immediately instead of delayed.</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">greetJello</span>() {
+    <span class="codeblock">console.log("Hello, Jello!");</span>
+} 
+
+<b>setTimeout(</b><span class="variable">greetJello</span>, <span class="variable">5000</span><b>)</b>;
+<span class="comment">// After 5 seconds: "Hello Jello!"</span>
+
+<b>setTimeout(</b><span class="variable">greetJello()</span>, <span class="variable">5000</span><b>)</b>;
+<span class="comment">// Right away: "Hello Jello!"</span>
+</pre>
+                    </dd>
+                    </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="example-alert-timer">
+                <h2>Example: Simple alert timer</h2>
+                <dl>     
+                    <dt>Result</dt>   
+                    <dd>
+                        <div class="js-resultbox">
+                            <label for="timeInput">Enter time (seconds): </label>
+                            <input type="text" id="timeInput" value="3">
+                            <input type="submit" id="timerButton" value="Start timer" >
+                            <script>   
+                                function timerFunction() {
+                                    const timeLimit = document.getElementById("timeInput").value;
+                                    setTimeout(() => alert("Ring ring ring!"), timeLimit*1000);
+                                }
+                                document.getElementById("timerButton").addEventListener("click", timerFunction);
+                            </script>
+                        </div>    
+                    </dd>   
+
+                    <dt>Codes</dt>                   
+                    <dd>                        
+<pre class="formula-thin">
+&lt;label for="timeInput"&gt;Enter time (seconds): &lt;/label&gt;
+&lt;input type="text" id="timeInput" value="3"&gt;
+&lt;input type="submit" id="timerButton" value="Start timer" &gt;
+
+&lt;script&gt;   
+    function timerFunction() {
+        const timeLimit = document.getElementById("timeInput").value;
+        setTimeout(() =&gt; alert("Ring ring ring!"), timeLimit*1000);
+    }
+
+    document.getElementById("timerButton").addEventListener("click", timerFunction);
+&lt;/script&gt;
+</pre>  
+                    </dd>                      
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="quoted-code">
+                <h2>setTimeout with quoted code (not recommended)</h2>
+                <dl>                    
+
+                    <dt><code>setTimeout</code> can be written with a quoted code directly</dt>
+                    <dd>Syntax</dd>
+                    <dd>
+<pre class="formula">
+setTimeout("<span class="variable">code</span>", <span class="variable">delayMS</span>, <span class="variable">...</span>)
+</pre>
+                    </dd>
+                    <dt>Code must be quoted</dt>
+                    <dd>
+                        <ul>
+                            <li>Why? <code>setTimeout</code> needs a reference to the code, not the code directly.</li>
+                            <li>Without quotation, it's a code call. Will be executed right away.</li>
+                            <li>Similarly, when function is use, we can't write the function with the brackets, because it will be a function call.</li>
+                        </ul>
+                    </dd>
+                    <dt>Compare the wrong way</dt>
+                    <dd>No delay. Code/function is called and executed right away.</dd>
+                    <dd>
+                        <ul>
+                            <li><code>setTimeout(<span class="variable">alert("Hi")</span>, 5000)</code></li>
+                            <li><code>setTimeout(<span class="variable">myFunction()</span>, 5000)</code></li>
+                        </ul>
+                    </dd>
+                    <dt>Compare the right way</dt>
+                    <dd>Code/function is referred.</dd>
+                    <dd>
+                        <ul>
+                            <li><code>setTimeout(<span class="variable">"alert('Hi')"</span>, 5000)</code></li>
+                            <li><code>setTimeout(<span class="variable">myFunction</span>, 5000)</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Example</dt>
                     <dd>
 <pre class="formula-thin">
 <b>setTimeout(</b><span class="variable">"alert('Hi!')"</span>, <span class="variable">5000</span><b>)</b>;
-
 <span class="comment">// After 5 seconds: "Hi!"</span>
 </pre>
                     </dd>
-                    <dd>Avoid writing quoted code. Write it as anonymous function <code>() => alert("Hi")</code> instead.</dd>
+                    <dt>Quoted code not recommended: Use function</dt>
+                    <dd>As an anonymous arrow function</dd>
                     <dd>
 <pre class="formula-thin">
 <b>setTimeout(</b><span class="variable">() => alert('Hi!')</span>, <span class="variable">5000</span><b>)</b>;
-
 <span class="comment">// After 5 seconds: "Hi!"</span>
 </pre>
                     </dd>
@@ -139,6 +253,180 @@ stopHello();
 // After 5 seconds: nothing
 </pre>
                     </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="example-cancel-timer">
+                <h2>Example: Timer with counter and cancel button</h2>
+                <dl>     
+
+                    <dt>Result</dt>   
+                    <dd>
+                        <div class="js-resultbox">    
+                            <div>
+                                <label for="timeInput2">Enter time (0-60 seconds): </label>
+                                <input type="text" id="timeInput2" value="3" size="2">
+                                <input type="submit" id="timerButton2" value="Start timer">
+                            </div>  
+                            <p id="timerPar" style="display: none;"></p>
+                            <p id="counterPar" style="display: none;"></p>
+                            <p id="ringerPar" style="display: none;">Ring Ring Ring!</p>
+
+                            <div id="cancelBox" style="display: none">
+                                <input type="submit" id="cancelButton" value="Cancel timer">
+                            </div>
+                            <p id="cancelComment" style="display: none;">Timer cancelled.</p>
+                            <div id="refreshBox" style="display: none">
+                                <input type="submit" id="refreshButton" value="Refresh timer">
+                            </div>
+                            <script>   
+                                let myTimer;
+                                let myInterval;
+
+                                function timerFunction2() {
+                                    refreshTimer();                                    
+                                    const timeLimit2 = document.getElementById("timeInput2").value;                                    
+
+                                    if (timeLimit2 >= 0 && timeLimit2 <= 60) {
+                                        let counterText = "";
+                                        let counter = 0;
+                                        document.getElementById("timerButton2").disabled = true;
+                                        document.getElementById("timerPar").textContent = `Timer is set for ${timeLimit2} seconds.`;
+                                        document.getElementById("timerPar").style.display = "block";
+                                        document.getElementById("counterPar").textContent = counterText;
+                                        document.getElementById("counterPar").style.display = "block";
+                                        document.getElementById("cancelBox").style.display = "block";
+
+                                        myInterval = setInterval(() => {
+                                            counter ++;
+                                            counterText += `${counter} `;
+                                            document.getElementById("counterPar").textContent = counterText;
+                                        }, 1000)
+
+                                        myTimer = setTimeout(() => {
+                                            clearInterval(myInterval);
+                                            document.getElementById("ringerPar").style.display = "block";
+                                            document.getElementById("cancelBox").style.display = "none";
+                                            document.getElementById("refreshBox").style.display = "block";
+                                            document.getElementById("timerButton2").disabled = false;
+                                        }, timeLimit2*1000);
+                                    } 
+                                }
+
+                                function cancelTimer() {
+                                    clearTimeout(myTimer);
+                                    clearInterval(myInterval);
+                                    document.getElementById("cancelBox").style.display = "none";
+                                    document.getElementById("cancelComment").style.display = "block";
+                                    document.getElementById("refreshBox").style.display = "block";
+                                    document.getElementById("timerButton2").disabled = false;
+                                }
+
+                                function refreshTimer() {
+                                    document.getElementById("counterPar").textContent = "";
+                                    document.getElementById("timerPar").textContent = "";
+                                    document.getElementById("cancelBox").style.display = "none";
+                                    document.getElementById("refreshBox").style.display = "none";
+                                    document.getElementById("timerPar").style.display = "none";
+                                    document.getElementById("counterPar").style.display = "none";
+                                    document.getElementById("cancelComment").style.display = "none";
+                                    document.getElementById("ringerPar").style.display = "none";
+                                    document.getElementById("timerButton2").disabled = false;
+                                }
+
+                                document.getElementById("timerButton2").addEventListener("click", timerFunction2);
+                                document.getElementById("cancelButton").addEventListener("click", cancelTimer);
+                                document.getElementById("refreshButton").addEventListener("click", refreshTimer);
+                            </script>
+                        </div>
+                    </div>     
+                    <dt>HTML codes</dt>                   
+                    <dd>                        
+<pre class="formula-thin">
+&lt;div&gt;
+    &lt;label for="timeInput2"&gt;Enter time (0-60 seconds): &lt;/label&gt;
+    &lt;input type="text" id="timeInput2" value="3" size="2"&gt;
+    &lt;input type="submit" id="timerButton2" value="Start timer"&gt;
+&lt;/div&gt;  
+&lt;p id="timerPar" style="display: none;"&gt;&lt;/p&gt;
+&lt;p id="counterPar" style="display: none;"&gt;&lt;/p&gt;
+&lt;p id="ringerPar" style="display: none;"&gt;Ring Ring Ring!&lt;/p&gt;
+
+&lt;div id="cancelBox" style="display: none"&gt;
+    &lt;input type="submit" id="cancelButton" value="Cancel timer"&gt;
+&lt;/div&gt;
+&lt;p id="cancelComment" style="display: none;"&gt;Timer cancelled.&lt;/p&gt;
+&lt;div id="refreshBox" style="display: none"&gt;
+    &lt;input type="submit" id="refreshButton" value="Refresh timer"&gt;
+&lt;/div&gt;
+</pre>
+                    </dd>
+                    <dt>JS codes</dt>
+                    <dd>
+<pre class="formula-thin">        
+let myTimer;
+let myInterval;
+
+function timerFunction2() {
+    refreshTimer();                                    
+    const timeLimit2 = document.getElementById("timeInput2").value;                                    
+
+    if (timeLimit2 >= 0 && timeLimit2 <= 60) {
+        let counterText = "";
+        let counter = 0;
+        document.getElementById("timerButton2").disabled = true;
+        document.getElementById("timerPar").textContent = `Timer is set for ${timeLimit2} seconds.`;
+        document.getElementById("timerPar").style.display = "block";
+        document.getElementById("counterPar").textContent = counterText;
+        document.getElementById("counterPar").style.display = "block";
+        document.getElementById("cancelBox").style.display = "block";
+
+        myInterval = setInterval(() => {
+            counter ++;
+            counterText += `${counter} `;
+            document.getElementById("counterPar").textContent = counterText;
+        }, 1000)
+
+        myTimer = setTimeout(() => {
+            clearInterval(myInterval);
+            document.getElementById("ringerPar").style.display = "block";
+            document.getElementById("cancelBox").style.display = "none";
+            document.getElementById("refreshBox").style.display = "block";
+            document.getElementById("timerButton2").disabled = false;
+        }, timeLimit2*1000);
+    } 
+}
+
+function cancelTimer() {
+    clearTimeout(myTimer);
+    clearInterval(myInterval);
+    document.getElementById("cancelBox").style.display = "none";
+    document.getElementById("cancelComment").style.display = "block";
+    document.getElementById("refreshBox").style.display = "block";
+    document.getElementById("timerButton2").disabled = false;
+}
+
+function refreshTimer() {
+    document.getElementById("counterPar").textContent = "";
+    document.getElementById("timerPar").textContent = "";
+    document.getElementById("cancelBox").style.display = "none";
+    document.getElementById("refreshBox").style.display = "none";
+    document.getElementById("timerPar").style.display = "none";
+    document.getElementById("counterPar").style.display = "none";
+    document.getElementById("cancelComment").style.display = "none";
+    document.getElementById("ringerPar").style.display = "none";
+    document.getElementById("timerButton2").disabled = false;
+}
+
+document.getElementById("timerButton2").addEventListener("click", timerFunction2);
+document.getElementById("cancelButton").addEventListener("click", cancelTimer);
+document.getElementById("refreshButton").addEventListener("click", refreshTimer);
+</pre>
+                               
+                    </dd>  
+                             
+                   
                 </dl>
                 <a href="#top"><hr></a>
             </article>

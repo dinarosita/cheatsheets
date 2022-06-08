@@ -299,6 +299,12 @@ table code {
 
 /* JS notes */
 
+.js-notes input:disabled,
+input[disabled]{
+    border-color: rgb(210, 210, 210);
+    color: rgb(173, 171, 171);
+}
+
 .js-notes table {
     border-spacing: 1rem 0;
 }
