@@ -37,7 +37,7 @@
             <article id="set-timeout">
                 <h2>setTimeout()</h2>
                 <dl>
-                    <dt><code>setTimeout()</code></dt>
+                    <dt><code>setTimeout()</code> syntax</dt>
                     <dd>
 <pre class="formula">
 setTimeout(<span class="variable">function</span>, <span class="variable">delayMs</span>, <span class="variable">...</span>)
@@ -129,46 +129,48 @@ function <span class="variable">greetJello</span>() {
 <span class="comment">// Right away: "Hello Jello!"</span>
 </pre>
                     </dd>
-                    </dl>
+                </dl>
                 <a href="#top"><hr></a>
             </article>
+            
+            <article id="set-interval">
+                <h2>setInterval</h2>
+                <dl>       
+                    <dt><code>setInterval()</code></dt>
+                    <dd>Executing a function repeatedly with a given interval.</dd>
+                    <dd>The first function execution is after the time interval.</dd>
 
-            <article id="example-alert-timer">
-                <h2>Example: Simple alert timer</h2>
-                <dl>     
-                    <dt>Result</dt>   
+                    <dt><code>setInterval()</code> syntax</dt>
+                    <dd>Very similar to <code>setTimeout()</code></dd>
                     <dd>
-                        <div class="js-resultbox">
-                            <label for="timeInput">Enter time (seconds): </label>
-                            <input type="text" id="timeInput" value="3">
-                            <input type="submit" id="timerButton" value="Start timer" >
-                            <script>   
-                                function timerFunction() {
-                                    const timeLimit = document.getElementById("timeInput").value;
-                                    setTimeout(() => alert("Ring ring ring!"), timeLimit*1000);
-                                }
-                                document.getElementById("timerButton").addEventListener("click", timerFunction);
-                            </script>
-                        </div>    
-                    </dd>   
+<pre class="formula">
+setInterval(<span class="variable">function</span>, <span class="variable">intervalMs</span>, <span class="variable">...</span>)
+</pre>
+                    </dd>
+                    <dd>Check out <code>setTimeout()</code> for further arguments and return value.</dd>
 
-                    <dt>Codes</dt>                   
-                    <dd>                        
+                    <dt>Example: counter</dt>
+                    <dd>
 <pre class="formula-thin">
-&lt;label for="timeInput"&gt;Enter time (seconds): &lt;/label&gt;
-&lt;input type="text" id="timeInput" value="3"&gt;
-&lt;input type="submit" id="timerButton" value="Start timer" &gt;
+let <span class="variable">counter</span> = 0;
+function <span class="variable">counterFn</span>() {
+    counter++;
+    console.log(counter);
+}
 
-&lt;script&gt;   
-    function timerFunction() {
-        const timeLimit = document.getElementById("timeInput").value;
-        setTimeout(() =&gt; alert("Ring ring ring!"), timeLimit*1000);
-    }
+const <span class="variable">myCounter</span> = setInterval(<span class="variable">counterFn</span>, <span class="variable">1000</span>);
 
-    document.getElementById("timerButton").addEventListener("click", timerFunction);
-&lt;/script&gt;
-</pre>  
-                    </dd>                      
+<span class="comment">// 1 
+// 2
+// 3
+// 4
+// 5 (run continuously until cleared</span>
+
+clearInterval(<span class="variable">myCounter</span>);   <span class="comment">// Execution cleared</span>
+</pre>
+                    </dd>
+
+
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -227,29 +229,88 @@ setTimeout("<span class="variable">code</span>", <span class="variable">delayMS<
                 </dl> 
                 <a href="#top"><hr></a>
             </article>
-
-            <article id="clear-timeout">
-                <h2>clearTimeout</h2>
+            <article id="clear-timeout-interval">
+                <h2>clearTimeout and clearInterval</h2>
                 <dl>
-                    <dt><code>clearTimeout()</code></dt>
+                    <dt><code>clearTimeout()</code> and <code>clearInterval()</code></dt>
+                    <dd>These commands stops a running <b>timeout</b> or <b>interval</b>.</dd>
+                    <dd>In the case of <b>timeout</b>, if it's run before the time delay is reached, it's essentially cancelling the <code>timeoutFn</code> from running.</dd>
+
+                    <dt><code>clearTimeout()</code> syntax</dt>
                     <dd>
 <pre class="formula">
-<span class="variable">idName</span> = setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>);
-clearTimeout(<span class="variable">idName</span>);
+const <span class="variable">timeoutId</span> = setTimeout(<span class="variable">timeoutFn</span>, <span class="variable">ms</span>)
+<span class="comment">// return an id number, for example 1</span>
+
+clearTimeout(<span class="variable">timeoutId</span>);
+clearTimeout(<span class="variable">1</span>);
 </pre>
                     </dd>
 
+                    <dt><code>clearInterval()</code> syntax</dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">intervalId</span> = setInterval(<span class="variable">intervalFn</span>, <span class="variable">ms</span>)
+<span class="comment">// return an id number, for example 2</span>
+
+clearInterval(<span class="variable">intervalId</span>);
+clearInterval(<span class="variable">2</span>);
+</pre>
+                    </dd>
+
+                    <dt>ID number</dt>
+                    <dd>When a <code>setTimeout()</code> or <code>setInterval()</code> is run, it returns an <b>id</b>.</dd>
+                    <dd>In most cases, this <b>id</b> is a consecutive <b>integer</b> start from <b>1</b>, give according to the order of the timeout/interval call.</dd>
+                    <dd>This id number is what's used to clear the timeout/interval</dd>
+
+                    <dt>Same ID pooling for both <code>setTimeout()</code> and <code>setInterval()</code></dt>
+                    <dd>Example: when a webpage is opened:
+                        <ul>
+                            <li>First a <code>setTimeout()</code> is run. It gets id <code>1</code>.</li>
+                            <li>Then a <code>setInterval()</code> is run. it gets id <code>2</code> eventhough it's the first interval to be run, because of the same numbering pooling with timeout counterpart.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Assigned a constant for each id</dt>
+                    <dd>Problem in using the id number directly:
+                        <ul>
+                            <li>Some browser gives different numbering system.
+                                <ul>
+                                    <li>Some starts from 2 (Firefox, Opera)</li>
+                                    <li>Some gives random 6-digit number (IE)</li>
+                                    <li>Some starts over when a new tab is opened (Opera), and some have a global count acrross the tabs opened (Safari).</li>
+                                </ul>
+                            </li>
+                            <li>It's hard to know which one running first. Also when we tweak the code, we have to adjust all numbering accordingly? That's a very dangerous practise.</li>
+                            <li>But even when we know exactly order of running. Or even more sure, we only have exactly 1 timeout/interval running. We still can't use it directly.</li>
+                        </ul>
+                    </dd>
+                    <dd>What to do, then?
+                        <ul>
+                            <li>Assign a constant to the timeout and interval when we run it. As simple as:
+                                <ul>
+                                    <li><code>const timeoutId = setTimeout(fn, ms)</code></li>
+                                    <li><code>const intervalId = setInterval(fn, ms)</code></li>
+                                </ul>
+                            </li>
+                            <li>This way, those numbers, <code>1</code>, <code>2</code>, or even whatever random 6 digit number can be addressed as the constant name safely. We don't care the exact number. We refer it using the constant name.</li>
+                        </ul>
+                    </dd>
+
+                    <dt><code>clearTimeout()</code> and <code>clearInterval()</code> are interchangable</dt>
+                    <dd>Both can be used to clear both timeout and interval. However don't do this. It's a bad practise, it makes the code less readable.</dd>
+
                     <dt>Example</dt>
-                    <dd>Use <code>clearTimeout()</code> to interupt above from running.</dd>
+                    <dd>Use <code>clearTimeout()</code> to cancel a timeout function from running.</dd>
                     <dd>
 <pre class="formula-thin">
-const timerHello = setTimeout(myGreeting, 5000);
+const <span class="variable">timeoutId</span> = setTimeout(<span class="variable">() => console.log("Hello!")</span>, <span class="variable">5000</span>);
 
-function stopHello() {
-    clearTimeout(timerHello);
-  }
+function <span class="variable">stopGreeting</span>() {
+    clearTimeout(<span class="variable">timeoutId</span>);
+}
   
-stopHello();
+<span class="variable">stopGreeting</span>();
 // After 5 seconds: nothing
 </pre>
                     </dd>
@@ -257,11 +318,16 @@ stopHello();
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="example-cancel-timer">
+            <article id="example-timer">
                 <h2>Example: Timer with counter and cancel button</h2>
                 <dl>     
+                    <dt>About</dt>
+                    <dd>Timer with counter and cancel button</dd>
 
-                    <dt>Result</dt>   
+                    <dt>Methods featured</dt>
+                    <dd><code>setTimeout</code>, <code>setInterval</code>, <code>clearTimeout</code>, <code>clearInterval</code></dd>
+
+                    <dt>Codes and result</dt>   
                     <dd>
                         <div class="js-resultbox">    
                             <div>
@@ -340,10 +406,10 @@ stopHello();
                                 document.getElementById("refreshButton").addEventListener("click", refreshTimer);
                             </script>
                         </div>
-                    </div>     
-                    <dt>HTML codes</dt>                   
-                    <dd>                        
-<pre class="formula-thin">
+                        <div class="js-resultbox">
+                            <details>
+                                <summary>HTML codes</summary>
+<pre>
 &lt;div&gt;
     &lt;label for="timeInput2"&gt;Enter time (0-60 seconds): &lt;/label&gt;
     &lt;input type="text" id="timeInput2" value="3" size="2"&gt;
@@ -361,10 +427,10 @@ stopHello();
     &lt;input type="submit" id="refreshButton" value="Refresh timer"&gt;
 &lt;/div&gt;
 </pre>
-                    </dd>
-                    <dt>JS codes</dt>
-                    <dd>
-<pre class="formula-thin">        
+                            </details>
+                            <details>
+                                <summary>JS Codes</summary>
+<pre>        
 let myTimer;
 let myInterval;
 
@@ -423,13 +489,272 @@ document.getElementById("timerButton2").addEventListener("click", timerFunction2
 document.getElementById("cancelButton").addEventListener("click", cancelTimer);
 document.getElementById("refreshButton").addEventListener("click", refreshTimer);
 </pre>
+                            </details>
+                        </div>
+                    </div>
+                    <dd>
+
                                
                     </dd>  
-                             
-                   
                 </dl>
                 <a href="#top"><hr></a>
             </article>
+
+            <article id="example-counter">
+                <h2>Example: Counter</h2>
+                <dl>     
+                    <dt>About</dt>
+                    <dd>Counter with start and stop button</dd>
+                    <dt>Codes and result</dt>
+                    <dd>
+                        <div class="js-resultbox">
+                            <div>
+                                <input type="button" id="startCounter" value="Start counting">
+                                <input type="button" id="stopCounter" value="Stop counting">
+                                <input type="button" id="backToZero" value="Back to Zero">
+                            </div>                            
+                            <div id="counterBox" size="5" style="font-size:2rem; color: pink;">0</div>
+                            <script>
+                                let coolCounter;
+                                let number = 0;
+                                let counterOn = false;
+
+                                function startCount() {
+                                    if (!counterOn) {
+                                        coolCounter = setInterval(() => {
+                                        number ++;
+                                        document.getElementById("counterBox").textContent = number;
+                                    }, 1000)
+                                    }                                    
+                                    counterOn = true;
+                                }
+
+                                function stopCount() {
+                                    clearInterval(coolCounter);
+                                    counterOn = false;
+                                }
+
+                                function zeroNumber() {
+                                    clearInterval(coolCounter);
+                                    counterOn = false;
+                                    number = 0;
+                                    document.getElementById("counterBox").textContent = number;
+                                }
+
+                                document.getElementById("startCounter").addEventListener("click", startCount);
+                                document.getElementById("stopCounter").addEventListener("click", stopCount);
+                                document.getElementById("backToZero").addEventListener("click", zeroNumber);
+                            </script>
+                        </div>
+                        <div class="js-resultbox">
+                            <details>
+                                <summary>HTML Codes</summary>
+<pre>
+&lt;div&gt;
+    &lt;input type="button" id="startCounter" value="Start counting"&gt;
+    &lt;input type="button" id="stopCounter" value="Stop counting"&gt;
+    &lt;input type="button" id="backToZero" value="Back to Zero"&gt;
+&lt;/div&gt;                            
+&lt;div id="counterBox" size="5" style="font-size:2rem; color: pink;"&gt;0&lt;/div&gt;
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS Codes</summary>
+<pre>
+let coolCounter;
+let number = 0;
+let counterOn = false;
+
+function startCount() {
+    if (!counterOn) {
+        coolCounter = setInterval(() => {
+        number ++;
+        document.getElementById("counterBox").textContent = number;
+    }, 1000)
+    }                                    
+    counterOn = true;
+}
+
+function stopCount() {
+    clearInterval(coolCounter);
+    counterOn = false;
+}
+
+function zeroNumber() {
+    clearInterval(coolCounter);
+    counterOn = false;
+    number = 0;
+    document.getElementById("counterBox").textContent = number;
+}
+
+document.getElementById("startCounter").addEventListener("click", startCount);
+document.getElementById("stopCounter").addEventListener("click", stopCount);
+document.getElementById("backToZero").addEventListener("click", zeroNumber);
+</pre>
+                            </details>
+                        </div>
+                    </dd>
+
+                </dl> 
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="example-calendar">
+                <h2>Calendar date and time</h2>
+                <dl>
+                    <dt>Calender updated each second</dt>
+                    <dd>
+                        <div class="js-resultbox">
+                            <div class="calendar">
+                                <span id="currentDay" style="margin: auto;"></span>
+                            </div>
+                            <div class="calendar">
+                                <span id="currentDate"></span> <span id="currentMonth"></span> <span id="currentYear"></span>
+                            </div>
+                            <div class="calendar">
+                                <span id="currentHour"></span> : <span id="currentMinute"></span> : <span id="currentSecond"></span>
+                            </div>
+                        </div>
+                        <script>    
+                            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+                            function getName (array, index) {
+                                return array[index];
+                            }
+
+                            function updateDisplay1() {
+                                const timeStamp = new Date();
+                                document.getElementById("currentSecond").textContent = timeStamp.getSeconds();
+                                document.getElementById("currentMinute").textContent = timeStamp.getMinutes();
+                                document.getElementById("currentHour").textContent = timeStamp.getHours();
+                                document.getElementById("currentDate").textContent = timeStamp.getDate();
+                                document.getElementById("currentMonth").textContent = getName(months, timeStamp.getMonth());
+                                document.getElementById("currentYear").textContent = timeStamp.getFullYear();
+                                document.getElementById("currentDay").textContent = getName(days, timeStamp.getDay());
+                            }
+
+                            const calendarDisplay = [
+                                { id: "currentSecond", content: (timeStamp) => timeStamp.getSeconds()},
+                                { id: "currentMinute", content: (timeStamp) => timeStamp.getMinutes()},
+                                { id: "currentHour", content: (timeStamp) => timeStamp.getHours()},
+                                { id: "currentDate", content: (timeStamp) => timeStamp.getDate()},
+                                { id: "currentMonth", content: (timeStamp) => getName(months, timeStamp.getMonth())},
+                                { id: "currentYear", content: (timeStamp) => timeStamp.getFullYear()},
+                                { id: "currentDay", content: (timeStamp) => getName(days, timeStamp.getDay())},
+                            ]
+
+                            function updateDisplay2() {
+                                const timeStamp = new Date();
+                                calendarDisplay.forEach(element => {
+                                    document.getElementById(element.id).textContent = element.content(timeStamp);
+                                })
+                            }
+
+                            updateDisplay2();
+                            setInterval(updateDisplay2, 1000);
+                        </script>
+                        <div class="js-resultbox">
+                            <details>
+                                <summary>HTML Codes</summary>
+<pre>
+&lt;div class="calendar"&gt;
+    &lt;span id="currentDay" style="margin: auto;"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="calendar"&gt;
+    &lt;span id="currentDate"&gt;&lt;/span&gt; &lt;span id="currentMonth"&gt;&lt;/span&gt; &lt;span id="currentYear"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="calendar"&gt;
+    &lt;span id="currentHour"&gt;&lt;/span&gt; : &lt;span id="currentMinute"&gt;&lt;/span&gt; : &lt;span id="currentSecond"&gt;&lt;/span&gt;
+&lt;/div&gt;  
+</pre>
+                            </details>
+                            <details>
+                                <summary>JS Codes</summary>
+<pre>
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+function getName (array, index) {
+    return array[index];
+}
+
+<b>Alternative 1: Direct HTML element assignments</b>
+function updateDisplay1() {
+    const timeStamp = new Date();
+    document.getElementById("currentSecond").textContent = timeStamp.getSeconds();
+    document.getElementById("currentMinute").textContent = timeStamp.getMinutes();
+    document.getElementById("currentHour").textContent = timeStamp.getHours();
+    document.getElementById("currentDate").textContent = timeStamp.getDate();
+    document.getElementById("currentMonth").textContent = getName(months, timeStamp.getMonth());
+    document.getElementById("currentYear").textContent = timeStamp.getFullYear();
+    document.getElementById("currentDay").textContent = getName(days, timeStamp.getDay());
+}
+
+updateDisplay1();
+setInterval(updateDisplay1, 1000);
+
+<b>Alternative 2: HTML element assignments through array</b>
+const calendarDisplay = [
+    { id: "currentSecond", content: (timeStamp) => timeStamp.getSeconds()},
+    { id: "currentMinute", content: (timeStamp) => timeStamp.getMinutes()},
+    { id: "currentHour", content: (timeStamp) => timeStamp.getHours()},
+    { id: "currentDate", content: (timeStamp) => timeStamp.getDate()},
+    { id: "currentMonth", content: (timeStamp) => getName(months, timeStamp.getMonth())},
+    { id: "currentYear", content: (timeStamp) => timeStamp.getFullYear()},
+    { id: "currentDay", content: (timeStamp) => getName(days, timeStamp.getDay())},
+]
+
+function updateDisplay2() {
+    const timeStamp = new Date();
+    calendarDisplay.forEach(element => {
+        document.getElementById(element.id).textContent = element.content(timeStamp);
+    })
+}
+
+updateDisplay2();
+setInterval(updateDisplay2, 1000);
+</pre>
+                            </details>
+                            
+                        </div>
+                    </dd>
+                </dl> 
+                <a href="#top"><hr></a>
+            </article>
+
+
+
+            <article id="example-promise-timer">
+                <h2>Example: Promise timer</h2>
+                <dl>     
+                    <dt>About</dt>
+                    <dd>Timer with counter and cancel button. Promise is used to allow ringer alert appears after counter result.</dd>
+
+                    <dt>Why promise?</dt>
+                    <dd>In previous example, the ringer can't be delivered using <code>alert</code> box because in Javascript, there's a priority for alert box over HTML manipulation. Resulting in the last counter result didn't appear in the paragraph, despite counter coded prior to alert. To force alert to wait, we are going to use <code>promise</code> method.
+                        <ul>
+                            <li>Promise: <code>setInterval</code> is finished.</li>
+                            <li>Then: alert can run.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Methods featured</dt>
+                    <dd>
+                        <ul>
+                            <li><code>Promise</code></li>
+                            <li><code>setTimeout</code></li>
+                            <li><code>setInterval</code></li>
+                            <li><code>clearTimeout</code></li>
+                            <li><code>clearInterval</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Leave this for future work</dt>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="references">
                 <h2>References</h2>
                 <ul>

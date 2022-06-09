@@ -305,8 +305,32 @@ input[disabled]{
     color: rgb(173, 171, 171);
 }
 
+.js-notes details {
+    color: var(--code);
+}
+.js-notes details summary {
+    color: var(--title);
+    font-weight: bold;
+}
+
+.js-notes details + details {
+    margin-top: 1rem;
+}
+
 .js-notes table {
     border-spacing: 1rem 0;
+}
+
+.js-notes .calendar {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    margin: 0.5rem;
+
+    color: cadetblue; 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    display: inline-block;
 }
 /* 
 .js-notes th {
