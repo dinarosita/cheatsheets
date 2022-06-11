@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>setTimeout() | JS CodeyLuwak</title>
+        <title>setTimeout() and setInterval() | JS CodeyLuwak</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
@@ -14,7 +14,7 @@
     <body>
 
         <header>
-            <a href="./index.html"><h1>JavaScript: setTimeout()</h1></a>
+            <a href="./index.html"><h1>JavaScript: setTimeout() and setInterval()</h1></a>
             <nav id="navMenu"></nav>
         </header>
 
@@ -56,7 +56,15 @@ setTimeout(<span class="variable">function</span>, <span class="variable">delayM
                             </li>
                             <li><b>Delay</b> in milliseconds (optional)
                                 <ul>
-                                    <li>Default value is 0</li>
+                                    <li>Default value is 0 (no delay)</li>
+                                    <li>Exact delay is not guaranteed
+                                        <ul>
+                                            <li>CPU overloaded</li>
+                                            <li>Browser tab is in background mode</li>
+                                            <li>laptop is on battery</li>
+                                            <li>etc</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li><b>Other parameters</b> need to be passed to the function (optional). For example:
@@ -132,48 +140,6 @@ function <span class="variable">greetJello</span>() {
                 </dl>
                 <a href="#top"><hr></a>
             </article>
-            
-            <article id="set-interval">
-                <h2>setInterval</h2>
-                <dl>       
-                    <dt><code>setInterval()</code></dt>
-                    <dd>Executing a function repeatedly with a given interval.</dd>
-                    <dd>The first function execution is after the time interval.</dd>
-
-                    <dt><code>setInterval()</code> syntax</dt>
-                    <dd>Very similar to <code>setTimeout()</code></dd>
-                    <dd>
-<pre class="formula">
-setInterval(<span class="variable">function</span>, <span class="variable">intervalMs</span>, <span class="variable">...</span>)
-</pre>
-                    </dd>
-                    <dd>Check out <code>setTimeout()</code> for further arguments and return value.</dd>
-
-                    <dt>Example: counter</dt>
-                    <dd>
-<pre class="formula-thin">
-let <span class="variable">counter</span> = 0;
-function <span class="variable">counterFn</span>() {
-    counter++;
-    console.log(counter);
-}
-
-const <span class="variable">myCounter</span> = setInterval(<span class="variable">counterFn</span>, <span class="variable">1000</span>);
-
-<span class="comment">// 1 
-// 2
-// 3
-// 4
-// 5 (run continuously until cleared</span>
-
-clearInterval(<span class="variable">myCounter</span>);   <span class="comment">// Execution cleared</span>
-</pre>
-                    </dd>
-
-
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
 
             <article id="quoted-code">
                 <h2>setTimeout with quoted code (not recommended)</h2>
@@ -229,6 +195,54 @@ setTimeout("<span class="variable">code</span>", <span class="variable">delayMS<
                 </dl> 
                 <a href="#top"><hr></a>
             </article>
+
+            <article id="set-interval">
+                <h2>setInterval</h2>
+                <dl>       
+                    <dt><code>setInterval()</code></dt>
+                    <dd>Executing a function repeatedly with a given interval.</dd>                    
+
+                    <dt>Syntax</dt>
+                    <dd>Very similar to <code>setTimeout()</code></dd>
+                    <dd>
+<pre class="formula">
+setInterval(<span class="variable">function</span>, <span class="variable">intervalMs</span>, <span class="variable">...</span>)
+</pre>
+                    </dd>
+                    <dd>Check out <code>setTimeout()</code> for further arguments and return value.</dd>
+
+                    <dt>First call</dt>
+                    <dd>The first function call happened after the first time delay instead of before. This is like doing <code>setTimeout</code> but again and again.</dd>
+
+                    <dt>Time goes on</dt>
+                    <dd>Time goes on when running setInterval. The delay time marking the starting point of function call. In a run where user respond is required like alert, confirm, and prompt, it didn't wait for the user response to click to start delay count. The delay is to the start of the function call, not to the end of the function run.</dd>
+
+                    <dt>Example: counter</dt>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">counter</span> = 0;
+function <span class="variable">counterFn</span>() {
+    counter++;
+    console.log(counter);
+}
+
+const <span class="variable">myCounter</span> = setInterval(<span class="variable">counterFn</span>, <span class="variable">1000</span>);
+
+<span class="comment">// 1 
+// 2
+// 3
+// 4
+// 5 (run continuously until cleared</span>
+
+clearInterval(<span class="variable">myCounter</span>);   <span class="comment">// Execution cleared</span>
+</pre>
+                    </dd>
+
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="clear-timeout-interval">
                 <h2>clearTimeout and clearInterval</h2>
                 <dl>
@@ -314,6 +328,138 @@ function <span class="variable">stopGreeting</span>() {
 // After 5 seconds: nothing
 </pre>
                     </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="nested-timeout">
+                <h2>Nested timeout</h2>
+                <dl>       
+                    <dt>Set interval with nested <code>setTimeout()</code></dt>
+                    <dd>Timeout function is called from within the function itself.</dd>
+
+                    <dt>Advantage over <code>setInterval</code></dt>
+                    <dd>
+                        <ul>
+                            <li>Time delay can be manipulated</li>
+                            <li>Delay is more realistic. It starts after the execution is finished instead of just working periodically. For a function that takes a long time to run, or waiting for user feedback for completion, this will be prominent.</li>
+                        </ul>
+                    </dd>
+
+                    <dt><code>setInterval</code></dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">idName</span> = setInterval(<span class="variable">() => alert("Next alert in 2 seconds. Agree?")</span>, <span class="variable">2000</span>);
+</pre>
+                    </dd>
+
+                    <dt>Nesting <code>setTimeout()</code></dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">idName</span> = setTimeout(<span class="thin">function <span class="variable">fnName</span>() {
+    alert("Next alert in 2 seconds. Agree?");    
+    <b style="border: 2px solid palegoldenrod;"><span class="variable">idName</span> = setTimeout(<span class="variable">fnName</span>, <span class="variable">2000</span>);</b>
+}</span>, <span class="variable">2000</span>);</span>
+</pre>
+                    </dd>
+
+                    <dt>Compare the two above</dt>
+                    <dd>Try to wait for 10 seconds to click the <b>OK</b>.
+                        <ul>
+                            <li><code>setInterval</code>: jammed. Alert messages have been waiting.</li>
+                            <li>Nested <code>setTimeout</code>: Nicely distanced 2 seconds apart from clicking.</li>
+
+                        </ul>
+                    </dd>
+
+                    <dt>User can even decide the delay in nesting <code>setTimeout()</code></dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">idName</span> = setTimeout(<span class="thin">function <span class="variable">fnName</span>() {
+    let delay = prompt(`Next alert in how many seconds?
+Max = 5s
+Default = 1s`);
+    if (delay === null) {
+        return;
+    } else if (!(delay &gt;= 0 && delay &lt;= 5)) {
+        delay = 1;
+    }
+    <b style="border: 2px solid palegoldenrod;"><span class="variable">idName</span> = setTimeout(<span class="variable">fnName</span>, <span class="variable">delay*1000</span>);</b>
+}</span>, <span class="variable">1000</span>);</span>
+</pre>
+                    </dd>
+
+                    <dt>Example with time delay manipulation</dt>
+                    <dd>Fire request every 1 second. But if request is rejected due to server overload, double the time delay from the last. Give up if delay is larger than 2 minutes.</dd>
+                    <dd>
+<pre class="formula-thin">
+let delay = 0;
+let reject = true;
+let maxDelay = 15000;
+
+let requestId = setTimeout(function request() {
+    if (reject) {
+        console.log(`Request rejected. Last waiting time: ${delay/1000} s.`)
+        if (delay &lt; maxDelay) {
+            delay = delay + 5000;
+            console.log(`Resend request in ${delay/1000} s.`);
+            let counter = 0;
+            let counterId = setInterval(() => {
+                counter ++;
+                console.log(counter);
+            }, 1000)
+            let stopCount = setTimeout(() => {
+                clearInterval(counterId);
+            }, delay)
+            requestId = setTimeout(request, delay);
+        } else {
+            console.log(`Max waiting time ${maxDelay/1000} s. Request cancelled. `);
+            clearTimeout(requestId);
+        } 
+        
+    } else {
+        console.log("Request fulfilled. Request function is stopped.");
+        clearTimeout(requestId);
+    }
+}, delay);
+</pre>
+                    </dd>
+                    <dd>For fun, interject with:
+                        <ul>
+                            <li><code>reject = false;</code></li>
+                            <li><code>maxDelay = 10000;</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Nested timeout get closed properly? No</dt>
+                    <dd><b>Uncaught RangeError: Maximum call stack size exceeded</b></dd>
+                    <dd>Let's do simple "Hi" with zero delay to be extreme</dd>
+                    <dd>
+<pre class="formula-thin">
+let nestLimit = setTimeout(function hi() {
+    console.log(`Hi`);
+    nestLimit = setTimeout(hi())
+})
+
+let intLimit = setInterval(function hi() {
+    console.log(`Hi`);
+})
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+<b>Nested setTimeout</b>
+// (10296) Hi
+// <b>Uncaught RangeError: Maximum call stack size exceeded</b>
+
+<b>Regular setInterval</b>
+// (100K) Hi 
+// ... and still going
+</pre>
+                    </dd>
+                    <dd>Same result with delay 1ms, 2ms, 5ms, 10ms. Didn't try longer delay, do not want to wait longer.</dd>
+
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -496,6 +642,197 @@ document.getElementById("refreshButton").addEventListener("click", refreshTimer)
 
                                
                     </dd>  
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="delay-0">
+                <h2>Delay 0</h2>
+                <dl>
+                    <dt>Delay 0 (default)</dt>
+                    <dd>It's possible to have delay = 0 ms. In fact, that's the default when delay parameter is not given. In this case, it will be running immediately without delay.</dd>
+
+                    <dt><code>setTimeout(fn)</code></dt>
+                    <dd>
+<pre class="formula-thin">
+setTimeout(() => console.log("Timeout with 0 delay"));
+</pre>
+                    </dd>
+
+                    <dt><code>setInterval(fn)</code></dt>
+                    <dd>Get ready for interval running very quicly and forever. Terminate with <code>clearInterval(id)</code></dd>
+                    <dd>
+<pre class="formula-thin">
+let intZero = setInterval(() => {
+    console.log("Interval with 0 delay. Terminate: clearInterval(intZero)");
+});
+</pre>
+                    </dd>
+                    <dt><code>setInterval(fn)</code> with auto-termination: internal counter</dt>
+<dd>
+<pre class="formula-thin">
+let counter = 0;
+let intZeroCount = setInterval(() => {
+    counter ++;
+    console.log("Interval with 0 delay. Auto-termination at 1000th run.");
+    if (counter === 1000) {
+        clearInterval(intZeroCount);
+    }
+});
+</pre>
+                    </dd>
+                    <dt><code>setInterval(fn)</code> with auto-termination: external <code>setTimeout</code></dt>
+                    <dd>
+<pre class="formula-thin">
+let intZeroTimed = setInterval(() => {
+    console.log("Interval with 0 delay. Auto-termination at 2s with external setTimeout");
+});
+
+setTimeout(() => {
+    clearInterval(intZeroTimed);
+}, 2000)
+</pre>
+                    </dd>
+                    <dt>4 milliseconds in browser</dt>
+                    <dd>Timers can be nested; five and above such nested timers, however, the interval is forced to be at least four milliseconds.</dd>
+                    <dd>Same true for setInterval</dd>
+                    <dd>Why? Limitation happens on earlier time, and many scripts rely on it. So it is kept this way.</dd>
+                    <dd>Such limitation doesn't exist in server-side Javascript. For doing proper <b>immediate asynchronous</b> job though, use other method, that's unfortunately rather browser-specific. Like <code>setImmediate</code> for <code>Node.js</code></dd>
+                    <dd>
+<pre class="formula-thin">
+let start = Date.now();
+let counter = 0;
+let timeoutArray = [];
+setTimeout(function check() {
+    timeoutArray.push(Date.now() - start);
+    start = Date.now();
+    counter ++;
+    if (counter < 20) {setTimeout(check)}
+});
+
+timeoutArray;
+// (20) [2, 1, 1, 1, 4, 4, 5, 4, 4, 4, 5, 4, 4, 4, 5, 4, 4, 4, 5, 4]
+</pre>
+                    </dd>
+                    <dd>Interval counterpart: similar</dd>
+                    <dd>
+<pre class="formula-thin">
+let start = Date.now();
+let counter = 0;
+let intervalArray = [];
+let intCheck = setInterval(function check() {
+    intervalArray.push(Date.now() - start);
+    counter ++;
+    if (counter === 20) {clearInterval(intCheck)}
+});
+
+intervalArray;
+// (20) [2, 0, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="invocation-time">
+                <h2>Invocation time</h2>
+                <dl>
+
+                    <dt>Invoked after current script execution is finished.</dt>
+                    <dd>Whether the delay is zero or not, <code>setTimeout</code> and <code>setInterval</code> invocations are after the current script execution is finished.</dd>
+                    
+                    <dt>Consequence:</dt>
+                    <dd>Even when <code>setTimeout</code> and <code>setInterval</code> are written first, it will have to wait the codes after to run.</dd>
+                    
+                    <dt>Simple example</dt>
+                    <dd>
+<pre class="formula-thin">
+setTimeout(() => alert("Timeout"));
+alert("Current script");
+</pre>
+                    </dd>
+
+                    <dt>Fun example</dt>
+                    <dd>See how <code>setTimeout</code> and <code>setInterval</code> are written first but run last.</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">// Code 1: setTimeout</span>
+setTimeout(() => console.log("Code 1: Timeout set at 5000."),5000);
+
+<span class="variable">// Code 2: setInterval</span>
+counter = 0;
+let intervalId = setInterval(() => {
+    counter++;
+    console.log("Code 2: Interval " + counter);
+    if (counter === 10) {
+        clearInterval(intervalId);
+    }
+}, 1000)
+
+<span class="variable">// Code 3: plain console log</span>
+console.log("Code 3: Plain console log run.");
+
+<span class="variable">// Code 4: for-loop and result</span>
+let i = 1;
+for(i; i &lt;= 1000; i++) {
+    i *= i
+};
+console.log("Code 4: For-loop multiplication = " + i);
+
+<span class="variable">//Code 5: function</span>
+function multiply(a, b) {
+    return a*b;
+}
+console.log("Code 5: function multiply = " + multiply(100, 100))
+</pre>
+                    </dd>
+                    <dd>Order of result in console:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="comment">Code 3: Plain console log run.
+Code 4: For-loop multiplication = 458330
+Code 5: function multiply = 10000
+Code 2: Interval 1
+Code 2: Interval 2
+Code 2: Interval 3
+Code 2: Interval 4
+Code 1: Timeout set at 5000.
+Code 2: Interval 5
+Code 2: Interval 6
+Code 2: Interval 7
+Code 2: Interval 8
+Code 2: Interval 9
+Code 2: Interval 10</span>
+</pre>
+                    </dd>
+                    <dd>If we switch code 1 and 2, into interval first, then in the result, timeout will appear after interval 5 as expected.</dd>
+
+                    <dt>Compare: <code>setTimeout</code> outside function, inside function, and function without timeout</dt>
+                    <dd>
+<pre class="formula-thin">
+setTimeout("console.log('Timeout outside function')", 5000);
+function funcTimey() {
+    setTimeout("console.log('Function with timeout inside')", 5000)
+};
+funcTimey();
+function funcLoggy() {
+    console.log('Function without timeout')
+};
+funcLoggy();
+</pre>
+                    </dd>
+                    <dd>Order of result in console:</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="comment">// Immediately</span>
+Function without timeout  
+
+<span class="comment">// The same time, after 5 seconds:</span>
+Timeout outside function
+Function with timeout inside
+</pre>
+                    </dd>
+
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -723,6 +1060,41 @@ setInterval(updateDisplay2, 1000);
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="example-print-number">
+                <h2>Print number every second</h2>
+                <dl>
+                    <dt><code>printNumber(from, to)</code></dt>
+                    <dd>Output: a number every second starting from  <code>from</code> ending with <code>to</code></dd>
+                    <dd>
+<pre class="formula-thin">
+function printNumbers(from, to) {
+    let interId = setInterval(() => {
+        console.log(from);
+        from++;
+        if (from > to) {
+            clearInterval(interId);
+        }
+    }, 1000)
+};
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+printNumbers(154647, 154651);
+
+154647
+154648
+154649
+154650
+154651
+</pre>  
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
 
 
             <article id="example-promise-timer">
@@ -758,10 +1130,11 @@ setInterval(updateDisplay2, 1000);
             <article id="references">
                 <h2>References</h2>
                 <ul>
-                    <li><a href="https://javascript.info/promise-basics" target="_blank">Javascript.info: Promise</a></li>
-                    <li><a href="https://www.w3schools.com/js/js_promise.asp" target="_blank">W3schools: JavaScript Promises</a></li>
+                    <li><a href="https://javascript.info/settimeout-setinterval" target="_blank">Javascript.info: Scheduling: setTimeout and setInterval</a></li>
+                    <li><a hreef="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers" target="_blank">HTML: 8.6 Timers</a></li>
+                    <!-- <li><a href="https://www.w3schools.com/js/js_promise.asp" target="_blank">W3schools: JavaScript Promises</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">MDN: Promise</a></li>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">MDN: Using Promises</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">MDN: Using Promises</a></li> -->
 
 
                 </ul>
