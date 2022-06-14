@@ -34,6 +34,39 @@
                 <a href="#top"><hr></a>
             </article>
 
+
+            <article id="asynchronous">
+                <h2>Asynchronous</h2>
+                <dl>
+                    <dt>Asynchronous function</dt>
+                    <dd>Both are asynchronous functions. Meaning: the timer function will not pause execution of other functions in the function stack. It doesn't delay the start of the next timeout/interval.</dd>
+                    <dd>
+<pre class="formula-thin">
+setInterval(() => {console.log("Tic")}, 1000)
+setTimeout(() => {console.log("Message 1")}, 2000);
+setTimeout(() => {console.log("Message 2")}, 4000);
+setTimeout(() => {console.log("Message 3")}, 6000);
+</pre>
+                    </dd>
+                    <dd>The message 1, 2, and 3 will appear at second 2, 4, and 6. Instead of 2, 6, and 12.</dd>
+                    <dd>
+<pre class="formula-thin">
+Results:
+Second 1: Tic
+Second 2: Tic, Message 1
+Second 3: Tic
+Second 4: Tic, Message 2
+Second 5: Tic
+Second 6: Tic, Message 2
+Second 7: Tic
+Second 8: Tic (until cleared)
+</pre>
+                    </dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="set-timeout">
                 <h2>setTimeout()</h2>
                 <dl>
@@ -56,7 +89,7 @@ setTimeout(<span class="variable">function</span>, <span class="variable">delayM
                             </li>
                             <li><b>Delay</b> in milliseconds (optional)
                                 <ul>
-                                    <li>Default value is 0 (no delay)</li>
+                                    <li>Default value is 0. To be executed immediately (the next event cycle).</li>
                                     <li>Exact delay is not guaranteed
                                         <ul>
                                             <li>CPU overloaded</li>
@@ -64,6 +97,26 @@ setTimeout(<span class="variable">function</span>, <span class="variable">delayM
                                             <li>laptop is on battery</li>
                                             <li>etc</li>
                                         </ul>
+                                    </li>
+                                    <li>Minimum delay time if 4 ms is enforced for 5th and above nested timeout and interval.</li>
+                                    <li>If the delay is not in number, type coercion will be done to convert it.
+                                                <ul>
+                                                    <li><code>"1000"</code> is coerced into <code>1000</code></li>
+                                                </ul>
+                                            </li>
+                                            <li>Don't rely on type coercion though.
+                                                <ul>
+                                                    <li><code>"1 second"</code> is coerced into 0</li>
+                                                </ul>
+                                            </li>
+                                            <li>Just use number.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Maximum delay value
+                                        <ul>
+                                            <li>Browsers store delay as 32 bit signed integer internally. Interger above 2,147,483,647 ms (about 24.8 days) will cause integer overflow and as result, timeout will be executed immediately.</li>
+                                        </ul>
+                                        
                                     </li>
                                 </ul>
                             </li>
@@ -79,6 +132,48 @@ setTimeout(<span class="variable">function</span>, <span class="variable">delayM
                     <dt>Return value:</dt>
                     <dd>A number, which is the id of the timer. Id is for use in <code>clearTimeout(id)</code> to cancel the timer.</dd>
 
+                    <dt>Extended delays</dt>
+                    
+                    <dd>
+                        <ul>
+                            <li>Nested timeout/setinterval: minimum 4ms for 5th call and above</li>
+                            <li>Timeout in inactive tabs</li>
+                            <li>Throttling of tracking scripts</li>
+                            <li>Late timeout</li>
+                            <li>Deferral of timeouts during pageload</li>
+                        </ul>
+                    </dd>
+                    <dd>Read more: <a href="https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified:~:text=Timeouts%20in%20inactive%20tabs">MDN: Timeout in inactive tabs and more</a></dd>
+
+                    <dt>Maximum delay value</dt>
+                    <dd>Browsers store delay as 32 bit signed integer internally. Interger above 2,147,483,647 ms (about 24.8 days) will cause integer overflow and as result, timeout will be executed immediately.</dd>
+                    <dd>
+<pre class="formula-thin">
+let counter = 0;
+let tic = setInterval(() => {
+counter ++;
+console.log(counter);
+}, 1000);
+let underLimit = setTimeout(() => {
+console.log("Under limit");
+}, 2147483647)
+let overLimit = setTimeout(() => {
+console.log("Over limit");
+}, 2147483648);
+console.log(counter); 
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+Result:
+0
+Over limit
+1
+2
+3
+... // the underlimit will get executed in 24-25 days if doesn't get truncated.
+</pre>
+                    </dd>
                     <dt>Simplest example:</dt>
                     <dd>
 <pre class="formula-thin">
@@ -1132,11 +1227,7 @@ printNumbers(154647, 154651);
                 <ul>
                     <li><a href="https://javascript.info/settimeout-setinterval" target="_blank">Javascript.info: Scheduling: setTimeout and setInterval</a></li>
                     <li><a hreef="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers" target="_blank">HTML: 8.6 Timers</a></li>
-                    <!-- <li><a href="https://www.w3schools.com/js/js_promise.asp" target="_blank">W3schools: JavaScript Promises</a></li>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">MDN: Promise</a></li>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">MDN: Using Promises</a></li> -->
-
-
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/setTimeout" target="_blank">MDN: setTimeout()</a></li>
                 </ul>
             </article>
         </main>
