@@ -56,14 +56,14 @@
     <span class="comment"><i>Failed condition</i></span>  {return <span class="variable">failed</span>(<span class="variable">failedValue</span>)}
 }</span>)
 
-<span class="thin">function</span> <span class="variable">successFunction</span> (<span class="thin">(<span class="variable">successParam</span>, <span class="variable">errorParam</span>) => {
+<span class="thin">function</span> <span class="variable">successFunction</span> (<span class="thin">(<span class="variable">successParam</span>) => {
     <span class="comment"><i>Actions for succesful promise
     successParam value = successValue</i></span> 
 }</span>)
 
-<span class="thin">function</span> <span class="variable">promiseFunction</span> (<span class="thin">(<span class="variable">success</span>, <span class="variable">failed</span>) => {
+<span class="thin">function</span> <span class="variable">failedFunction</span> (<span class="thin">(<span class="variable">errorParam</span>) => {
     <span class="comment"><i>Actions for failed promise
-    errorParam value = failedValue</i></span> 
+    errorParam value = failedValue </i></span> 
 }</span>)
 </pre>
                     </dd>
@@ -446,53 +446,14 @@ const <span class="variable">record3</span> = new Promise((<span class="variable
             
             
             
-            <article id="settimeout">
-                <h2>setTimeout()</h2>
+            <article id="Timer-using-settimeout">
+                <h2>Timer using setTimeout() and Promise</h2>
                 <dl>
-                    <dt><code>setTimeout()</code></dt>
-                    <dd>
-<pre class="formula">
-setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>, <span class="variable">...</span>)
-</pre>
-                    </dd>
-                    <dd>This method calls a function after a number of milliseconds.</dd>
-                    <dd>Arguments:
-                        <ul>
-                            <li>The function to execute (required)</li>
-                            <li>The milliseconds (optional)</li>
-                            <li>Other parameters need to be passed in (optional)</li>
-                        </ul>
-                    </dd>
-                    <dd>Return value: id of the timer. Id is for use in <code>clearTimeout(id)</code> to cancel the timer.</dd>
-                    <dd>
-<pre class="formula">
-<span class="variable">idName</span> = setTimeout(<span class="variable">function</span>, <span class="variable">milliseconds</span>);
-clearTimeout(<span class="variable">idName</span>);
-</pre>
-                    </dd>
-                    <dd></dd>
+                    <dt>Use setTimeout to delay the success result</dt>
                     <dd>
 <pre class="formula-thin">
-const wait = time => new Promise((resolve) => setTimeout(resolve, time));
-
-wait(3000).then(() => console.log('Hello!')); // 'Hello!'
-</pre>
-                    </dd>
-                    <dt></dt>
-                    <dd>
-<pre class="formula-thin">
-
-function promiseFn(myResolve) {}
-    
-function wait(time) {
-    return new Promise(
-        (resolve) => setTimeout(resolve,time)
-    )
-};
-
-wait(3000).then(
-    console.log("Hello!")
-)
+const <span class="variable">wait</span> = <span class="variable">(time) => new Promise(<span class="comment">(success) => setTimeout(success, time)</span>)</span>;
+<span class="variable">wait</span>(<span class="variable">3000</span>).then(<span class="variable">() => console.log("Bip Bip Bip")</span>);
 </pre>
                     </dd>
                 </dl>

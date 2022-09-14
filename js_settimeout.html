@@ -1186,11 +1186,56 @@ printNumbers(154647, 154651);
 </pre>  
                     </dd>
                 </dl>
-
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="this">
+                <h2>"this"</h2>
+                <dl>    
+                    <dt><code>this</code> context</dt>
+                    <dd>Code executed by <code>setTimeout()</code> is called from an execution context separate from the function from which <code>setTimeout</code> was called.</dd>
+                    <dd><code>this</code> keyword mut be set in the call or with <code>bind</code>, ot it will default to the <code>window</code> (or <code>global</code>) object. It will not be the same as the <code>this</code> value for function that called <code>setTimeout</code></dd>
+                    <dd>Also can't pass <code>thisArg</code> like in array methods like <code>forEach()</code> and <code>reduce().</code></dd>
 
+                    <dd><code>this</code> in usual situation</dd>
+                    <dd>
+<pre class="formula-thin">
+const students = ['Abe', 'Ben', 'Che'];
+students.printName = function (el) {
+  console.log(arguments.length > 0 ? this[el] : this);
+};
+
+students.printName();    // (3) ['Abe', 'Ben', 'Che', printName: ƒ]
+students.printName(0);   // Abe
+
+</pre>
+                    </dd>
+
+                    <dd><code>this</code> in <code>setTimeout</code></dd>
+                    <dd>
+<pre class="formula-thin">
+setTimeout(students.printName, 1000);
+setTimeout(students.printName, 2000, 0);
+setTimeout(students.printName, 3000, "0");
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+After 1 second:  object Window {window: Window, ...
+After 2 seconds: undefined
+After 3 seconds: undefined
+</pre>
+                    </dd>
+                    <dd>Because when it's called, <code>this</code> is not set, so the default (window) is used.</dd>
+                    
+                    <dt>Leave this for future work</dt>
+
+                    <dd>Continue reading: <a href="https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#:~:text=Copy%20to%20Clipboard-,Solutions,-USE%20A%20WRAPPER" target="_blank">MDN</a></dd>
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
 
             <article id="example-promise-timer">
                 <h2>Example: Promise timer</h2>
