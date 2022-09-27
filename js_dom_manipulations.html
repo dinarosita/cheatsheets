@@ -617,16 +617,124 @@ const <span class="variable">group</span> = <span class="variable">container2</s
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="template">
-                <h2>template</h2>
-                <h3>template</h3>
+            <article id="capture_propagation_bubbling">
+                <h2>Event capture, propagation, and bubbling</h2>
+                <p>Check out WesBos video on the topic: <a href="https://www.youtube.com/watch?v=F1anRyL37lE" target="_blank">Youtube: JS Event Capture, Propagation, and Bubbling</a></p>
 
+                <p>An element is contained inside their parents elements. It could be directly the <code>body</code>, or could be deeply nested within a structure of elements. When we clicked an element in a webpage, really we actually also clicked on all those ancestor elements wrapped around it. We don't usually see this effect because in most use, we don't attach an event listener to those wrapping elements. This is bubbling concept. The browser see the click not just in the very element, but it is bubbling up. It ripples all the way to the outter most element. To the top of the document. </p>
+
+                <div class="one" style="background-color: thistle; padding: 1rem;">
+                    one
+                    <div class="two" style="background-color: mistyrose; padding: 1rem;">
+                        two
+                        <div class="three" style="background-color: cornsilk; padding: 1rem;">
+                           three
+                        </div>
+
+                    </div>
+                </div>
+                <script>
+                    const divs = document.querySelectorAll("div");
+                    const buttonOnce = document.querySelectorAll("button");
+                
+                    function logText(e) {
+                        console.log(this.classList.value);
+                        e.stopPropagation();
+                    }
+                
+                    divs.forEach(div => div.addEventListener("click", logText, {
+                        capture: true, 
+                        once: true
+                    }));
+                                
+                </script>
+
+<pre class="js-codebox">
+&lt;body&gt;
+    &lt;div class="one"&gt;
+        &lt;div class="two"&gt;
+            &lt;div class="three"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</pre>
+
+<pre class="js-codebox">
+&lt;script&gt;
+    const divs = document.querySelectorAll("div");
+    function logText(e) {
+        console.log(this.classList.value);
+    }
+    divs.forEach(div => div.addEventListener("click", logText));
+&lt;/script&gt;
+</pre>
+
+                <h4>How does it actually work in Javascript/modern browser?</h4>
+                <dl>
+                    <dt>Capturing in</dt>
+                    <dd>The browser is first doing what is called capture. When you click on the element, it will ripple down from the outter most element inward all the way to the bottom or inner most element, capturing all the events.</dd>
+                    <dd><code>body &gt; div 1 &gt; div 2 &gt; div 3</code></dd>
+                    <dd>At that moment, the events are not fired yet. Just captured.</dd>
+                    <dd>Console log: (none)</dd>
+
+                    <dt>Bubbling out</dt>
+                    <dd>From the bottom, it will start bubbling out, firing the event from innermost element outward.</dd>
+                    <dd><code>div 3 &lt; div 2 &lt; div 1 &lt; body</code></dd>
+                    <dd>This is the default behaviour. This is expressed (commonly omitted) in the third argument of the <code>addEventListener</code> function as <code>{capture: false}</code>. It doesn't need to be written down because already assumed as default.</dd>
+                    <dd><code>el.addEventListener('click', fn, {capture: false})</code></dd>
+                    <dd><code>el.addEventListener('click', fn)</code></dd>
+                    <dd>Console log:
+                        <ul>
+                            <li>three</li>
+                            <li>two</li>
+                            <li>one</li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <h4>Manipulations</h4>
                 <dl>
                 
-                    <dt>template</dt>
-                    <dd>template</dd>
+                    <dt>Capture: true</dt>
+                    <dd>If we want to reverse the order of event firing, we can make the event actually fired as capturing actually happening, from outward in.</dd>                    <dd><code>el.addEventListener('click', fn, {capture: true})</code></dd>
+                    <dd>Console log:
+                        <ul>
+                            <li>one</li>
+                            <li>two</li>
+                            <li>three</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Once: true</dt>
+                    <dd>An event can be listened and fired as many times as as being triggered. This default (commonly omitted) is expressed in the third parameter as <code>{once: false}</code>. If we only want to listen it once, we can set it to <code>true</code></dd>
+                    <dd><code>el.addEventListener('click', fn, {once: true})</code></dd>
+                    <dd><code>once</code> is a new property. Other way to make an event only listened once is by removing the event listener: <code>removeEventListener</code></dd>
+
+                    <dt>Stop Propagation</dt>
+                    <dd>Propagation refers to reading the nesting containers involved. When we only want to read just one, use <code>el.stopPropagation()</code>. It will stop once a container is read. It can be used in conjunction with <code>capture: true</code> to make the read container is the widest scope one.</dd>
+
+                    <dt>Examples - check the youtube video</dt>
+                    <dd>
+<pre class="js-codebox">
+&lt;script&gt;
+    const divs = document.querySelectorAll("div");
+
+    function logText(e) {
+        console.log(this.classList.value);
+        e.stopPropagation();
+    }
+
+    divs.forEach(div => div.addEventListener("click", logText, {
+        capture: true, 
+        once: true
+    }));
+&lt;/script&gt;
+</pre>
+                    </dd>
 
                 </dl>
+                
           
                 <a href="#top"><hr></a>
             </article>
