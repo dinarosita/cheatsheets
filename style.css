@@ -1488,3 +1488,7 @@ a[href^="tel"]::before {
     background-color: var(--border);
 }
 
+
+.git_notes h3 {
+    text-align: left;
+}

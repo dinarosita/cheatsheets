@@ -16,89 +16,105 @@
             <a href="./index.html"><h1>Git Cheatsheet</h1></a>
         </header>
         
-        <main class="html_notes">
-            <h2>Initiate repo locally</h2>
-            <ul>
-                <li><code>git init</code></li>
-                <li><code>git add --all</code></li>
-                <li><code>git commit -m "Initial commit"</code></li>
-            </br>
-                <li><code>git remote add origin <em>[SSH link]</em></code></li>
-                <li><code>git branch -M main</code></li>
-                <li><code>git push -u origin main</code></li>
-            </ul>
+        <main class="html_notes git_notes">
+            <section>
+                <h2>Initiate repo locally</h2>
+                <ul>
+                    <li><code>git init</code></li>
+                    <li><code>git add --all</code></li>
+                    <li><code>git commit -m "Initial commit"</code></li>
+                </br>
+                    <li><code>git remote add origin <em>[SSH link]</em></code></li>
+                    <li><code>git branch -M main</code></li>
+                    <li><code>git push -u origin main</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Pushing to GitHub</h2>
+                <ul>
+                    <li><code>git add --all</code></li>
+                    <li><code>git commit -m "state changes made"</code></li>
+                    <li><code>git push origin main</code></li>
+                </ul>
+            </section>
+                
+            
+            <section>
+                <h2>Checking status</h2>
+                <ul>
+                    <li><code>git status</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Some useful repo commands</h2>
+                <ul>
+                    <li><code>git clone <em>[SSH link]</em></code> - Cloning GitHub repo to local computer</li>
+                    <li><code>rm -rf .git</code> - Make a local repo into non-repo directory</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Undo changes</h2>
+                <h3>Discard changes</h3>
+                <ul>
+                    <li><strong>Warning: Be very careful, it's final.</strong></li>
+                    <li><code>git restore .</code> - Undo all current changes. Discard all saved but not pushed files.</li>
+                    <li><code>git clean -f</code> - Remove all new (untracked) files</li>
+                </ul>
+                <h3>Stash changes</h3>
+                <ul>
+                    <li><code>git stash --include--untracked</code> - Stash  changes for later use. Working copy will be "clean" and the not-so-wanted changes are stashed.</li>
+                    <li><code>git stash pop</code> - Reapply the last saved state and also delete and clean it from the Stash</li>
+                </ul>
 
-            <h2>Cloning GitHub repo to local computer</h2>
-            <ul>
-                <li><code>git clone <em>[SSH link]</em></code></li>
-            </ul>
+                <h3>Also read</h3>
+                <li><a href="https://www.cloudbees.com/blog/git-undo-commit" target="_blank">Time Travel in Your Project: Undo Changes with Git</a></li>
+            </section>
+            <section>
+                <h2>Changing repo folder name</h2>
+                <ul>
+                    <li>After repo name is changed, for example from cheatsheets to codingnotes and then into codeyluwak, even though local can track and update the remote correctly, we should still changing the link into the new correct URL.</li>
+                    <li><code>git remote set-url</code> (existing remote name) (the new URL)</li>
+                    <li>Existing remote name: <code>origin</code>, <code>upstream</code>, etc. Check it at .git configuration.</li>
+                    <li>URL: SSH or HTTPS. Check it out at the github page.</li>
+                    <li>In the case of this Codey Luwak, remote name is <code>origin</code> and it is using SSH link.</li>
+                    <li>Terminal commands:
+                        <ul>
+                            <li><code>cd .git</code></li>
+                            <li><code>less config</code> or <code>more config</code></li>
+                            <li><code>git remote set-url origin git@github.com:dinarosita/codeyluwak.git</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>     
+            <section>
+                <h2>Branch</h2>
+                <h3>Organizing a project with branches</h3>
+                <ul>
+                    <li><b><code>main</code> branch</b> - Keep only finished features here.</li>
+                    <li><b>feature branches</b> - Where we are developing each feature to the project. When we are done, we "merge" it to the main branch</li>
+                </ul>
 
-            <h2>Pushing to GitHub</h2>
-            <ul>
-                <li><code>git add --all</code></li>
-                <li><code>git commit -m "state changes made"</code></li>
-                <li><code>git push origin main</code></li>
-            </ul>
-
-            <h2>Checking status</h2>
-            <ul>
-                <li><code>git status</code></li>
-            </ul>
-
-            <h2>Make a local repo into non-repo directory</h2>
-            <ul>
-                <li><code>rm -rf .git</code></li>
-            </ul>
-
-            <h2>Undo changes with Git</h2>
-            <p><a href="https://www.cloudbees.com/blog/git-undo-commit" target="_blank">Time Travel in Your Project: Undo Changes with Git</a></p>
-
-            <h2>Changing repo folder name</h2>
-            <ul>
-                <li>After repo name is changed, for example from cheatsheets to codingnotes and then into codeyluwak, even though local can track and update the remote correctly, we should still changing the link into the new correct URL.</li>
-                <li><code>git remote set-url</code> (existing remote name) (the new URL)</li>
-                <li>Existing remote name: <code>origin</code>, <code>upstream</code>, etc. Check it at .git configuration.</li>
-                <li>URL: SSH or HTTPS. Check it out at the github page.</li>
-                <li>In the case of this Codey Luwak, remote name is <code>origin</code> and it is using SSH link.</li>
-                <li>Terminal commands:
-                    <ul>
-                        <li><code>cd .git</code></li>
-                        <li><code>less config</code> or <code>more config</code></li>
-                        <li><code>git remote set-url origin git@github.com:dinarosita/codeyluwak.git</code></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h2>Branch</h2>
-            <h4>Organizing a project with branches</h4>
-            <ul>
-                <li><b><code>main</code> branch</b> - Keep only finished features here.</li>
-                <li><b>feature branches</b> - Where we are developing each feature to the project. When we are done, we "merge" it to the main branch</li>
-            </ul>
-
-            <h4>Commands</h4>
-            <ul>
-                <li><code>git branch</code> - See all branches. Current location is marked by <code>*</code>.</li>
-                <li><code>git branch [branchName]</code> - Make a new branch.</li>
-                <li><code>git checkout [branchName]</code> - Change to a branch.</li>
-                <li><code>git checkout main</code> - Change back to "main" branch. Remember that "main" is a branch name too.</li>
-                <li><code>git checkout -b [branchName]</code> - Make a branch and change to it.</li>
-                <li><code>git merge [branchName]</code> - Take the changes have been committed in <code>branchName</code> and add them to the current branch.</li>
-                <li><code>git branch -d [branchName]</code> - Delete branch that's already been merged into <code>main</code>. If it hasn't been merged, it will be refused.</li>
-                <li><code>git branch -D [branchName]</code> - Force deletion of a branch that hasn't been merged into <code>main</code>.</li>
-                <li><code>git push --delete origin [branchName]</code> - delete the branch located in the remote repo on GitHub</li>
+                <h3>Commands</h3>
+                <ul>
+                    <li><code>git branch</code> - See all branches. Current location is marked by <code>*</code>.</li>
+                    <li><code>git branch [branchName]</code> - Make a new branch.</li>
+                    <li><code>git checkout [branchName]</code> - Change to a branch.</li>
+                    <li><code>git checkout main</code> - Change back to "main" branch. Remember that "main" is a branch name too.</li>
+                    <li><code>git checkout -b [branchName]</code> - Make a branch and change to it.</li>
+                    <li><code>git merge [branchName]</code> - Take the changes have been committed in <code>branchName</code> and add them to the current branch.</li>
+                    <li><code>git branch -d [branchName]</code> - Delete branch that's already been merged into <code>main</code>. If it hasn't been merged, it will be refused.</li>
+                    <li><code>git branch -D [branchName]</code> - Force deletion of a branch that hasn't been merged into <code>main</code>.</li>
+                    <li><code>git push --delete origin [branchName]</code> - delete the branch located in the remote repo on GitHub</li>
 
 
-            </ul>
+                </ul>
 
-            <h4>Merging conflict</h4>
-            <ul>
-                <li>Happens when a line in a file is changed in 2 different branches. When occured, merging can't be finished.</li>
-                <li>To finish the merging, first we have to <b>resolve</b> the conflict</li>
-                <li>W</li>
-            </ul>
-
-
+                <h3>Merging conflict</h3>
+                <ul>
+                    <li>Happens when a line in a file is changed in 2 different branches. When occured, merging can't be finished.</li>
+                    <li>To finish the merging, first we have to <b>resolve</b> the conflict</li>
+                </ul>
+            </section>     
         </main>
         <footer>
             <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
