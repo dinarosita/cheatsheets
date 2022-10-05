@@ -13,21 +13,116 @@
 
     <body>
 
-        <!--Clickable Page Title-->
-        <a href="./index.html"><h1>JavaScript</h1></a>
+        <header>
+            <a href="./index.html"><h1>JavaScript: Objects</h1></a>
+            <nav id="navMenu"></nav>
+        </header>        
 
-        <h2>Objects</h2>
+        <main class="js-notes">
+            <article id="data-types">
+                <h2>Data Types</h2>
 
-        <div class="formula">
-            <code>
-                    function <span class="variable">functionName</span>() {<span class="variable">code block</span>}
-            </code>
-        </div>
-        
-        
-        <!--Footer - don't change below-->
-        <a href="#top"><hr></a>
-        <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+                <dl>
+                    <dt>Data types in JavaScript</dt>
+                    <dd>There are 8 data types in JavaScript.</dd>
+                    <dt>7 data types are primitives</dt>
+                    <dd>
+                        <ul>
+                            <li>undefined</li>
+                            <li>null</li>
+                            <li>boolean</li>
+                            <li>number</li>
+                            <li>bigint</li>
+                            <li>string</li>
+                            <li>symbol</li>
+                        </ul>
+                    </dd>
+                    <dd>They are called primitives because they can only contain a single thing.</dd>
+                </dl>
+
+                <dt>8th data type: Object</dt>
+                <dd>Object is not a primitive.</dd>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="object">
+                <h2>Object</h2>
+
+                <dl>
+                    <dt>Not a primitive</dt>
+                    <dd>It is used to store <strong>keyed</strong> collections of carious data and more complex entities.</dd>
+
+                    <dt>Object structure</dt>                         
+                    <dd>Imagine object as a box with a list of informations inside. Each information is stored inside a labeled folder.</dd>
+                    <dd>
+<pre class="formula">user
+<div class="formula-thin"><span class="inlinebox">name </span> kitty</div>
+<div class="formula-thin"><span class="inlinebox">id   </span> 101</div>
+<div class="formula-thin"><span class="inlinebox">age  </span> 3</div>
+</pre>
+                    </dd>       
+                    
+                    <dd>
+                        <ul>
+                            <li>Object: the box</li>
+                            <li>Property: the folder name - information combo</li>
+                            <li>Property name / key: the folder name</li>
+                            <li>Property value: the information inside</li>
+                        </ul>
+                    </dd>      
+
+                    <dt>Creating object with properties</dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">name</span>: <span class="variable">"Kitty",</span>
+    <span class="variable">id</span>  : <span class="variable">101</span>
+    <span class="variable">age</span> : <span class="variable">3</span>
+};
+</pre>
+                    </dd>
+                    <dd>A figure bracket <code class="inlinebox"><strong>{...}</strong></code> containing an optional list of properties.
+                    </dd>
+                    <dd>A <code>property</code> is a <code class="inlinebox"><strong>key: value</strong></code> pair
+                        <ul>
+                            <li><code>key</code> - property name (a string)</li>
+                            <li><code>value</code> - the value (can be anything)</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Creating empty object</dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">user</span> = new Object(); <span class="comment">// "Object constructor" syntax</span>
+let <span class="variable">user</span> = {};           <span class="comment">// "Object literal" syntax - commonly used</span></pre>
+                    </dd>
+                    
+                    
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="template">
+                <h2>...</h2>
+
+                <dl>
+                    <dt>...</dt>
+                    <dd>...</dd>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://javascript.info/object" target="_blank">javascript.info: Objects</a></li>
+                </ul>
+
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
     </body>
 </html>
 
