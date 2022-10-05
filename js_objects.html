@@ -56,13 +56,18 @@
                     <dt>Object structure</dt>                         
                     <dd>Imagine object as a box with a list of informations inside. Each information is stored inside a labeled folder.</dd>
                     <dd>
-<pre class="formula">user
-<div class="formula-thin"><span class="inlinebox">name </span> kitty</div>
-<div class="formula-thin"><span class="inlinebox">id   </span> 101</div>
-<div class="formula-thin"><span class="inlinebox">age  </span> 3</div>
+<pre class="formula">object
+<div class="formula-thin"><span class="inlinebox">label</span> value</div>
+<div class="formula-thin"><span class="inlinebox">label</span> value</div>
+<div class="formula-thin"><span class="inlinebox">label</span> value</div>
 </pre>
-                    </dd>       
                     
+<pre class="formula">user
+<div class="formula-thin"><span class="inlinebox">name  </span> kitty</div>
+<div class="formula-thin"><span class="inlinebox">id    </span> 101  </div>
+<div class="formula-thin"><span class="inlinebox">age   </span> 3    </div>
+</pre>
+                    </dd>   
                     <dd>
                         <ul>
                             <li>Object: the box</li>
@@ -75,9 +80,17 @@
                     <dt>Creating object with properties</dt>
                     <dd>
 <pre class="formula">
+let <span class="variable">obj</span> = {</span>
+    <span class="variable">propName1</span>: <span class="variable">propVal1</span>,
+    <span class="variable">propName2</span>: <span class="variable">propVal2</span>,
+    <span class="variable">propName3</span>: <span class="variable">propVal3</span>
+};
+</pre>
+
+<pre class="formula-thin">
 let <span class="variable">user</span> = {</span>
-    <span class="variable">name</span>: <span class="variable">"Kitty",</span>
-    <span class="variable">id</span>  : <span class="variable">101</span>
+    <span class="variable">name</span>: <span class="variable">"Kitty"</span>,
+    <span class="variable">id</span>  : <span class="variable">101</span>,
     <span class="variable">age</span> : <span class="variable">3</span>
 };
 </pre>
@@ -94,9 +107,43 @@ let <span class="variable">user</span> = {</span>
                     <dt>Creating empty object</dt>
                     <dd>
 <pre class="formula">
-let <span class="variable">user</span> = new Object(); <span class="comment">// "Object constructor" syntax</span>
-let <span class="variable">user</span> = {};           <span class="comment">// "Object literal" syntax - commonly used</span></pre>
+let <span class="variable">obj</span> = new Object(); <span class="comment">// "Object constructor" syntax</span>
+let <span class="variable">obj</span> = {};           <span class="comment">// "Object literal" syntax - commonly used</span></pre>
                     </dd>
+
+                    <dt>Accessing property values</dt>
+                    <dd>Using dot notation</dd>
+                    <dd><pre class="formula">var <span class="variable">val</span> = <span class="variable">obj</span>.<span class="variable">propName</span>       <span class="comment">// prop value</span></pre></dd>
+
+
+                    <dd><pre class="formula-thin">var <span class="variable">userName</span> = <span class="variable">user</span>.<span class="variable">name</span>     <span class="comment">// "Kitty"</span></pre></dd>
+
+                    <dt>Add property values</dt>
+                    <dd>By accessing, using dot notation. The folder doesn't need to preexist.</dd>
+                    <dd><pre class="formula"><span class="variable">obj</span>.<span class="variable">propName</span> = </span><span class="variable">propVal</span>;</pre></dd>
+
+
+                    <dd><pre class="formula-thin"><span class="variable">user</span>.<span class="variable">isAdmin</span> = </span><span class="variable">true</span>;</pre></dd>
+
+                    <dt>Delete properties</dt>
+                    <dd>By using delete operator.</dd>
+                    <dd><pre class="formula">delete <span class="variable">obj</span>.<span class="variable">propName</span>;</pre></dd>
+
+
+                    <dd><pre class="formula-thin">delete <span class="variable">user</span>.<span class="variable">age</span>;</pre></dd>
+                    
+                    <dt>Multiple words as property name</dt>
+                    <dd>It's possible. The name must be quoted. To access, use <code>[]</code> brackets instead of dot notation.</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">name</span>      : <span class="variable">"Kitty"</span>,
+    <span class="variable">"is cat"</span>  : <span class="variable">true</span>,
+};</pre>
+                    </dd>
+                    <dd><pre class="formula-thin">var <span class="variable">isCat</span> = <span class="variable">user</span>[<span class="variable">"is cat"</span>]     <span class="comment">// true</span></pre></dd>
+                    
+
                     
                     
                 <a href="#top"><hr></a>
