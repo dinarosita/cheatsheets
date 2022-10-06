@@ -64,8 +64,8 @@
                     
 <pre class="formula">user
 <div class="formula-thin"><span class="inlinebox">name  </span> kitty</div>
-<div class="formula-thin"><span class="inlinebox">id    </span> 101  </div>
 <div class="formula-thin"><span class="inlinebox">age   </span> 3    </div>
+<div class="formula-thin"><span class="inlinebox">is cat</span> true   </div>
 </pre>
                     </dd>   
                     <dd>
@@ -76,22 +76,50 @@
                             <li>Property value: the information inside</li>
                         </ul>
                     </dd>      
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="object-literal">
+                <h2>Object Literal</h2>
+                <dl>
+                    <dt>Object literal</dt>
+                    <dd>Object literal notation is a comma separated list of <code>key: value</code> pairs.</dd>
+                    <dd>Below is how it looks, also when it is empty.</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">name</span>    : <span class="variable">"Kitty"</span>,
+    <span class="variable">age</span>     : <span class="variable">3</span>,
+};
+
+let <span class="variable">user</span> = {};
+</pre>
+                    </dd>
+
+                    <dt>Creating empty object</dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">obj</span> = {};             <span class="comment">// "Object literal" syntax - commonly used</span>
+let <span class="variable">obj</span> = new Object();   <span class="comment">// "Object constructor" syntax</span>
+</pre>
+                    </dd>
 
                     <dt>Creating object with properties</dt>
                     <dd>
 <pre class="formula">
 let <span class="variable">obj</span> = {</span>
-    <span class="variable">propName1</span>: <span class="variable">propVal1</span>,
-    <span class="variable">propName2</span>: <span class="variable">propVal2</span>,
-    <span class="variable">propName3</span>: <span class="variable">propVal3</span>
+    <span class="variable">propName1</span>   : <span class="variable">propVal1</span>,
+    <span class="variable">propName2</span>   : <span class="variable">propVal2</span>,
+    <span class="variable">"prop name3"</span>: <span class="variable">propVal3</span>
 };
 </pre>
 
 <pre class="formula-thin">
 let <span class="variable">user</span> = {</span>
-    <span class="variable">name</span>: <span class="variable">"Kitty"</span>,
-    <span class="variable">id</span>  : <span class="variable">101</span>,
-    <span class="variable">age</span> : <span class="variable">3</span>
+    <span class="variable">name</span>    : <span class="variable">"Kitty"</span>,
+    <span class="variable">age</span>     : <span class="variable">3</span>,
+    <span class="variable">"is cat"</span>: <span class="variable">true</span>
 };
 </pre>
                     </dd>
@@ -99,62 +127,305 @@ let <span class="variable">user</span> = {</span>
                     </dd>
                     <dd>A <code>property</code> is a <code class="inlinebox"><strong>key: value</strong></code> pair
                         <ul>
-                            <li><code>key</code> - property name (a string)</li>
+                            <li><code>key/identifier</code> - property name (a string)</li>
                             <li><code>value</code> - the value (can be anything)</li>
                         </ul>
                     </dd>
-
-                    <dt>Creating empty object</dt>
+                    <dd>Multiple words as property name
+                        <ul>
+                            <li>Property name can be mutiple words.</li>
+                            <li>The multiple words must be quoted: <code>"prop name"</code></li>
+                        </ul>
+                    </dd>
+                    <dd>Hanging / trailing comma
+                        <ul>
+                            <li>Last property in the list might end with a comma even though it's not separating.
+                            </li>
+                            <li>It makes it easier to add/remove/move around properties because all the lines are alike.
+                            </li>
+                        </ul>
+                    </dd>
                     <dd>
 <pre class="formula">
-let <span class="variable">obj</span> = new Object(); <span class="comment">// "Object constructor" syntax</span>
-let <span class="variable">obj</span> = {};           <span class="comment">// "Object literal" syntax - commonly used</span></pre>
-                    </dd>
-
-                    <dt>Accessing property values</dt>
-                    <dd>Using dot notation</dd>
-                    <dd><pre class="formula">var <span class="variable">val</span> = <span class="variable">obj</span>.<span class="variable">propName</span>       <span class="comment">// prop value</span></pre></dd>
-
-
-                    <dd><pre class="formula-thin">var <span class="variable">userName</span> = <span class="variable">user</span>.<span class="variable">name</span>     <span class="comment">// "Kitty"</span></pre></dd>
-
-                    <dt>Add property values</dt>
-                    <dd>By accessing, using dot notation. The folder doesn't need to preexist.</dd>
-                    <dd><pre class="formula"><span class="variable">obj</span>.<span class="variable">propName</span> = </span><span class="variable">propVal</span>;</pre></dd>
-
-
-                    <dd><pre class="formula-thin"><span class="variable">user</span>.<span class="variable">isAdmin</span> = </span><span class="variable">true</span>;</pre></dd>
-
-                    <dt>Delete properties</dt>
-                    <dd>By using delete operator.</dd>
-                    <dd><pre class="formula">delete <span class="variable">obj</span>.<span class="variable">propName</span>;</pre></dd>
-
-
-                    <dd><pre class="formula-thin">delete <span class="variable">user</span>.<span class="variable">age</span>;</pre></dd>
-                    
-                    <dt>Multiple words as property name</dt>
-                    <dd>It's possible. The name must be quoted. To access, use <code>[]</code> brackets instead of dot notation.</dd>
-                    <dd>
-<pre class="formula-thin">
-let <span class="variable">user</span> = {</span>
-    <span class="variable">name</span>      : <span class="variable">"Kitty"</span>,
-    <span class="variable">"is cat"</span>  : <span class="variable">true</span>,
-};</pre>
-                    </dd>
-                    <dd><pre class="formula-thin">var <span class="variable">isCat</span> = <span class="variable">user</span>[<span class="variable">"is cat"</span>]     <span class="comment">// true</span></pre></dd>
-                    
-
-                    
-                    
+let <span class="variable">obj</span> = {</span>
+    <span class="variable">propName1</span>: <span class="variable">propVal1</span>,
+    <span class="variable">propName2</span>: <span class="variable">propVal2</span>,
+};
+</pre>
+                    </dd>           
+                </dl>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="template">
-                <h2>...</h2>
+            <article id="accessing-object">
+                <h2>Accessing object: dot notation and square brackets</h2>   
+                <dl>  
+                    <dt>Accessing property values</dt>
+                    <dd>2 ways:
+                        <ul>
+                            <li>dot notation
+                                <ul>
+                                    <li>The key must be a valid variable identifier: contains no spaces, doesn't start with a digit, doesn't include special characters ($ and _ are allowed).</li>
+                                </ul>
+                            </li>
+                            <li>square <code>[]</code> bracket notation
+                                <ul>
+                                    <li>The key can be any string. It must be written within quotation marks.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>Multiple words property name
+                        <ul>
+                            <li> must use <code>[]</code> brackets and quotation marks, instead of dot notation.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">obj</span>.<span class="variable">propName</span>        <span class="comment">// prop value</span>
+<span class="variable">obj</span>[<span class="variable">"propName"</span>]     <span class="comment">// prop value</span>
+<span class="variable">obj</span>[<span class="variable">"prop name"</span>]    <span class="comment">// prop value</span>
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">user</span>.<span class="variable">name</span>       <span class="comment">// "Kitty"</span>
+<span class="variable">user</span>[<span class="variable">"name"</span>]    <span class="comment">// "Kitty"</span>
+<span class="variable">user</span>[<span class="variable">"is cat"</span>]  <span class="comment">// true</span>
+</pre>
+                    </dd>
+                    <dd>Don't forget the quotation mark when using the square brackets even property name is 1 word. Without, it won't work. The use without quotation mark is for variable names, not object property name.</dd>
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">user</span>[<span class="variable">"name"</span>]    <span class="comment">// "Kitty"</span>
+<span class="variable">user</span>[<span class="variable">name</span>]      <span class="comment">// undefined</span>
+</pre>
+                    </dd>
+
+                    <dt>Add property values</dt>
+                    <dd>By accessing, using dot notation. The folder doesn't need to preexist.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">obj</span>.<span class="variable">propName</span> = </span><span class="variable">propVal</span>;
+<span class="variable">obj</span>[<span class="variable">"propName"</span>] = </span><span class="variable">propVal</span>;
+</pre>
+                    </dd>
+
+
+                    <dd>
+<pre class="formula-thin">
+<span class="variable">user</span>.<span class="variable">isAdmin</span> = </span><span class="variable">true</span>;
+<span class="variable">user</span>[<span class="variable">"is admin"</span>] = </span><span class="variable">true</span>;
+</pre>
+                    </dd>
+
+                    <dt>Delete properties</dt>
+                    <dd>By using delete operator.</dd>
+                    <dd>
+<pre class="formula">
+delete <span class="variable">obj</span>.<span class="variable">propName</span>;
+delete <span class="variable">obj</span>[<span class="variable">"propName"</span>];
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+delete <span class="variable">user</span>.<span class="variable">age</span>;
+delete <span class="variable">user</span>[<span class="variable">"is cat"</span>];
+</pre>
+                    </dd>
+
+                    <dt>Dot notation vs square brackets notation, which one to choose</dt>
+                    <dd>
+                        <ul>
+                            <li>Square brackets offers much more manipulations, but dot notation is very simple and clear.</li>
+                            <li>Use dot notation for simple uses.</li>
+                            <li>Use square brackets for more complex purposes.</li>
+                            <li>And obviously use swuare brackets when the property name is multiple words.</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+            <article id="square-brackets">
+                <h2>Square brackets</h2>
+                <dl>                    
+                    <dt>Square brackets <code>[]</code> notation</dt>
+                    <dd><code>[]</code> can take 2 forms of property name.
+                        <ul>
+                            <li><code>["prop name"]</code> - Property name itself (quoted string literal) </li>
+                            <li><code>[key]</code> - Key variable (not quoted) </li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">key</span> = <span class="variable">"is cat"</span>;
+<span class="variable">user</span>[<span class="variable">key</span>] = <span class="variable">true</span>;
+
+<span class="comment">// The same as:</span>
+<span class="variable">user</span>[<span class="variable">"is cat"</span>] = <span class="variable">true</span>;
+</pre>
+                    </dd>
+                    <dd>As a variable key
+                        <ul>
+                            <li>Therefore <code>[]</code> provides a way to give a slot in the code, to be filled with chosen property name at a later time.</li>
+                            <li>Since <code>.</code> can only take 1 form: <code>.propName</code>, it doesn't provide similar role. It doesn't have a way to attach a variable name. Must be the property name itself.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">name</span>    : <span class="variable">"Kitty"</span>,
+    <span class="variable">age</span>     : <span class="variable">3</span>,
+    <span class="variable">"is cat"</span>: <span class="variable">true</span>
+};
+
+let <span class="variable">key</span> = prompt(<span class="variable">"What do you want to know about the user?"</span>, <span class="variable">"name"</span>);
+
+<span class="comment">// if "name" is entered</span>
+<span class="variable">user</span>[<span class="variable">key</span>]   <span class="comment">// "Kitty"</span>
+<span class="variable">user</span>.<span class="variable">key</span>    <span class="comment">// undefined</span>
+</pre>
+                    </dd>
+                </dl>
+
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="computed-properties">
+                <h2>Computed properties</h2>
 
                 <dl>
-                    <dt>...</dt>
-                    <dd>...</dd>
+                    <dt>Computed properties</dt>
+                    <dd>Using <code>[]</code> in an object literal when creating an object.</dd>
+                    <dd>
+<pre class="formula">
+let <span class="variable">key</span> = prompt(<span class="variable">"Enter key name:"</span>, <span class="variable">"keyName"</span>);
+
+let <span class="variable">obj</span> = {
+    [<span class="variable">key</span>]: <span class="variable">value</span>,
+}
+
+<span class="variable">obj</span>.<span class="variable">keyName</span>     <span class="comment">// value</span>
+</pre>
+                    </dd>
+                    <dd>For example</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">fruit</span> = prompt(<span class="variable">"Which fruit to buy"</span>, <span class="variable">"apple"</span>);
+
+let <span class="variable">bag</span> = {
+    [<span class="variable">fruit</span>]: <span class="variable">5</span>,
+}
+
+<span class="variable">bag</span>;         <span class="comment">// {apple: 5}</span>
+<span class="variable">bag</span>.<span class="variable">apple</span>;   <span class="comment">// 5</span>   
+</pre>
+                    </dd>
+                    <dd>It's the same with</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">fruit</span> = prompt(<span class="variable">"Which fruit to buy"</span>, <span class="variable">"apple"</span>);
+let <span class="variable">bag</span> = {};
+bag[fruit] = 5;
+
+<span class="variable">bag</span>;         <span class="comment">// {apple: 5}</span>
+</pre>
+                    </dd>
+                    <dd>We can modify the name further</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">fruit</span> = prompt(<span class="variable">"Which fruit to buy"</span>, <span class="variable">"apple"</span>);
+
+let <span class="variable">bag</span> = {
+    [<span class="variable">fruit + "Local"</span>]: <span class="variable">5</span>,
+}
+
+<span class="variable">bag</span>;         <span class="comment">// {appleLocal: 5}</span>
+</pre>
+                    </dd>
+                    
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="shorthand">
+                <h2>Property value shorthand</h2>
+
+                <dl>
+                    <dt>Making a property from a variable</dt>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">makeUser</span>(<span class="variable">name</span>, <span class="variable">age</span>) {
+    return {
+        <span class="variable">name</span>: <span class="variable">name</span>,
+        <span class="variable">age</span>: <span class="variable">age</span>,
+    };
+}
+
+let <span class="variable">user</span> = <span class="variable">makeUser</span>(<span class="variable">"Kitty"</span>, <span class="variable">3</span>);
+<span class="variable">user</span>;  <span class="comment">// {name: "Kitty", age: 3}</span>
+</pre>
+                    </dd>
+
+                    <dt>Property value shorthand</dt>
+                    <dd>It's very common, it has a shorthand</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">makeUser</span>(<span class="variable">name</span>, <span class="variable">age</span>) {
+    return {
+        <span class="variable">name</span>,     <span class="comment">// same as name:name</span>
+        <span class="variable">age</span>,      <span class="comment">// same as age:age</span>
+    };
+}
+
+let <span class="variable">user</span> = <span class="variable">makeUser</span>(<span class="variable">"Kitty"</span>, <span class="variable">3</span>);
+<span class="variable">user</span>;  <span class="comment">// {name: "Kitty", age: 3}</span>
+</pre>
+                    </dd>
+                    <dt>Normal properties and shorthands can be used at the same time</dt>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {
+    <span class="variable">name</span>,       <span class="comment">// same as name:name</span>
+    <span class="variable">age</span>: <span class="variable">3</span>
+};
+
+<span class="variable">user</span>;  <span class="comment">// {name: "", age: 3}</span>
+</pre>
+                    </dd>
+                    <dd>If variable name has been filled, then it will be included in the object user.</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">name</span> = <span class="variable">"Kila"</span>;
+let <span class="variable">user</span> = {
+    <span class="variable">name</span>,       <span class="comment">// same as name:name</span>
+    <span class="variable">age</span>: <span class="variable">3</span>
+};
+
+<span class="variable">user</span>;  <span class="comment">// {name: "Kila", age: 3}</span>
+</pre>
+                    </dd>
+                    
+           
+
+                <a href="#top"><hr></a>
+
+            </article>
+
+            <article id="template">
+                <h2>template</h2>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>template</dd>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="template">
+                <h2>template</h2>
+
+                <dl>
+                    <dt>template</dt>
+                    <dd>template</dd>
                 <a href="#top"><hr></a>
             </article>
 
