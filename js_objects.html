@@ -19,8 +19,8 @@
         </header>        
 
         <main class="js-notes">
-            <article id="data-types">
-                <h2>Data Types</h2>
+            <article id="non-primitive">
+                <h2>Object: a non-primitive data type</h2>
 
                 <dl>
                     <dt>Data types in JavaScript</dt>
@@ -38,19 +38,8 @@
                         </ul>
                     </dd>
                     <dd>They are called primitives because they can only contain a single thing.</dd>
-                </dl>
 
-                <dt>8th data type: Object</dt>
-                <dd>Object is not a primitive.</dd>
-
-                <a href="#top"><hr></a>
-            </article>
-
-            <article id="object">
-                <h2>Object</h2>
-
-                <dl>
-                    <dt>Not a primitive</dt>
+                    <dt>Object: 8th data type - Not a primitive</dt>
                     <dd>It is used to store <strong>keyed</strong> collections of carious data and more complex entities.</dd>
 
                     <dt>Object structure</dt>                         
@@ -157,7 +146,7 @@ let <span class="variable">obj</span> = {</span>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="accessing-object">
+            <article id="dot-notation">
                 <h2>Accessing object: dot notation and square brackets</h2>   
                 <dl>  
                     <dt>Accessing property values</dt>
@@ -411,6 +400,45 @@ let <span class="variable">user</span> = {
 
             </article>
 
+            <article id="name-limitation">
+                <h2>Property name limitations</h2>
+
+                <dl>
+                    <dt>Variable name limitation</dt>
+                    <dd>
+                        <ul>
+                            <li>Can't be language-reserved words, eg: for, let, return</li>
+                        </ul>
+                    </dd>
+
+                    <dt>Property name limitation</dt>
+                    <dd>
+                        <ul>
+                            <li>Can be language-reserved words, eg: for, let, return</li>
+                            <li>Can be any strings or symbols</li>
+                            <li>Other types can be used but automatically converted to strings. eg: number <code>0</code> becomes string <code>"0"</code></li>
+                            <li>Restriction: <code>__proto__</code> can't be set to a non-object value.
+<pre class="formula-thin">
+let obj = {};
+obj.__proto__ = 5;      // assign a number
+obj.__proto__;          // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …} 
+</pre>
+                            </li>
+                        </ul>
+                    </dd>
+                <a href="#top"><hr></a>
+            </article>
+            
+            <article id="in-operator">
+                <h2>"In" operator</h2>
+
+                <dl>
+                    <dt>Property doesn't exist</dt>
+                    <dd>In JavaScript (not in many other languages), it's possible to access any property, there's no error if the property doesn't even exist.</dd>
+                    <dd>Non-existing property: <code>undefined</code></dd>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="template">
                 <h2>template</h2>
 
@@ -419,7 +447,7 @@ let <span class="variable">user</span> = {
                     <dd>template</dd>
                 <a href="#top"><hr></a>
             </article>
-            
+
             <article id="template">
                 <h2>template</h2>
 
