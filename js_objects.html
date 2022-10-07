@@ -625,12 +625,72 @@ for (let <span class="variable">key</span> in <span class="variable">user</span>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="template">
-                <h2>template</h2>
+            <article id="exercises">
+                <h2>Exercises</h2>
 
                 <dl>
-                    <dt>template</dt>
-                    <dd>template</dd>
+                    <dt>isEmpty</dt>
+                    <dd>
+<pre class="formula-thin">
+let schedule = {};
+
+function isEmpty(obj) {
+    for (let key in obj) {
+        return false;
+    }
+    return true;
+}
+
+isEmpty(schedule);  // true
+
+schedule["8:30"] = "get up";
+isEmpty(schedule);  // false
+</pre>
+                    </dd>
+
+                    <dt>Sum salaries</dt>
+                    <dd>
+<pre class="formula-thin">
+let salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+};
+
+function sumVal(obj) {
+    let sum = 0;
+    for (let key in obj) {
+        sum += obj[key];
+    }
+    return sum;
+}
+
+let sum = sumVal(salaries);
+sum;        // 390
+</pre>
+                    </dd>
+
+                    <dt>Multiply numeric by 2</dt>
+                    <dd>
+<pre class="formula-thin">
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+
+function multiply(obj){
+    for (let key in obj) {
+        if (!isNaN(obj[key])) {
+            obj[key] = obj[key] *2;
+        }
+    }
+}
+
+multiply(menu);
+menu;       // {width: 400, height: 600, title: 'My menu'}
+</pre>
+                    </dd>
                 <a href="#top"><hr></a>
             </article>
 
