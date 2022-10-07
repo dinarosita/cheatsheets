@@ -19,9 +19,8 @@
         </header>        
 
         <main class="js-notes">
-            <article id="non-primitive">
-                <h2>Object: a non-primitive data type</h2>
-
+            <article id="object-literal">
+                <h2>Object Literal</h2>
                 <dl>
                     <dt>Data types in JavaScript</dt>
                     <dd>There are 8 data types in JavaScript.</dd>
@@ -52,7 +51,7 @@
                     </dd>
                     <dd>Some people will there are date type and array type. But they don't formally have their own data type. they are object</dd>
 
-                    <dt>Object structure</dt>                         
+                    <dt>Object literal</dt>
                     <dd>Imagine object as a box with a list of informations inside. Each information is stored inside a labeled folder.</dd>
                     <dd>
 <pre class="formula">object
@@ -74,26 +73,25 @@
                             <li>Property name / key: the folder name</li>
                             <li>Property value: the information inside</li>
                         </ul>
-                    </dd>      
+                    </dd>    
                 </dl>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="object-literal">
-                <h2>Object Literal</h2>
-                <dl>
-                    <dt>Object literal</dt>
-                    <dd>Object literal notation is a comma separated list of <code>key: value</code> pairs.</dd>
-                    <dd>Below is how it looks, also when it is empty.</dd>
+            <article id="object-property">
+                <h2>Object Property</h2>
+                <dl>                    
+                    <dt>Object property</dt>
                     <dd>
-<pre class="formula-thin">
-let <span class="variable">user</span> = {</span>
-    <span class="variable">name</span>    : <span class="variable">"Kitty"</span>,
-    <span class="variable">age</span>     : <span class="variable">3</span>,
-};
-
-let <span class="variable">user</span> = {};
+<pre class="formula">
+<span class="variable">key</span>: <span class="variable">value</span>,
 </pre>
+                    </dd>
+                    <dd>A <code>property</code> is a <code class="inlinebox"><strong>key: value</strong></code> pair
+                        <ul>
+                            <li><code>key/identifier</code> - property name (a string)</li>
+                            <li><code>value</code> - the value (can be anything)</li>
+                        </ul>
                     </dd>
 
                     <dt>Creating empty object</dt>
@@ -124,19 +122,17 @@ let <span class="variable">user</span> = {</span>
                     </dd>
                     <dd>A figure bracket <code class="inlinebox"><strong>{...}</strong></code> containing an optional list of properties.
                     </dd>
-                    <dd>A <code>property</code> is a <code class="inlinebox"><strong>key: value</strong></code> pair
-                        <ul>
-                            <li><code>key/identifier</code> - property name (a string)</li>
-                            <li><code>value</code> - the value (can be anything)</li>
-                        </ul>
-                    </dd>
-                    <dd>Multiple words as property name
+                    
+                    <dt>Multiple words as property name</dt>
+                    <dd>
                         <ul>
                             <li>Property name can be mutiple words.</li>
                             <li>The multiple words must be quoted: <code>"prop name"</code></li>
                         </ul>
                     </dd>
-                    <dd>Hanging / trailing comma
+
+                    <dt>Hanging / trailing comma</dt>
+                    <dd>
                         <ul>
                             <li>Last property in the list might end with a comma even though it's not separating.
                             </li>
@@ -152,6 +148,7 @@ let <span class="variable">obj</span> = {</span>
 };
 </pre>
                     </dd>
+                    <dt>Key is unique, use only once</dt>
                     <dd>If the same key used more than once: the last value overrides the previous ones.</dd>
                     <dd>
 <pre class="formula-thin">
@@ -165,6 +162,86 @@ let <span class="variable">user</span> = {</span>
 </pre>
                     </dd>
                     
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="object-methods">
+                <h2>Object methods</h2>
+                <dl>
+                    <dt>Object properties vs object methods</dt>
+                    <dd>An object is a collection of related data and/or functionality. They consisted of several variables and functions. Inside an object:
+                        <ul>
+                            <li>Variables are called <strong>object properties</strong></li>
+                            <li>Functions are called <strong>object methods</strong></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Object property</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">propName</span>: <span class="variable">value</span>,
+</pre>
+                    </dd>
+
+                    <dt>Object method</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">methodName</span>: function() {<span class="commment">...</span><span class="variable">this.key</span><span class="commment">...</span>},
+<span class="comment">// or</span>
+<span class="variable">methodName</span>() {<span class="commment">...</span><span class="variable">this.key</span><span class="commment">...</span>},
+</pre>
+                    </dd>
+
+                    <dt><code>this.key</code></dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">this</span>.<span class="variable">key</span>
+</pre>
+                    </dd>
+                    <dd><code>this.key</code> is used to access data property from inside the function formula.</dd>
+
+                    <dt>Inside an object</dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">obj</span> = {
+    <span class="variable">propName</span>: <span class="variable">value</span>,
+    <span class="variable">method1</span>: function() {<span class="comment">...</span><span class="variable">this</span>.<span class="variable">propName</span><span class="comment">...</span></span>},
+    <span class="variable">method2</span>() {<span class="comment">...</span><span class="variable">this</span>.<span class="variable">propName</span><span class="comment">...</span></span>}
+}
+</pre>
+                    </dd>
+                    
+                    <dt>Object method example</dt>
+                    <dd></dd>
+                    
+                    <dd>
+<pre class="formula-thin">
+let user = {
+    name: ["Bob", "Smith"],
+    age: 15,
+    fullName: function () {
+        return `${this.name[0]} ${this.name[1]}`;
+    },
+    fakeAge() {
+        return this.age + 5;
+    },
+}
+
+user;               // {name: Array(2), age: 15, fullName: ƒ, fakeAge: ƒ}
+user.name;          // (2) ['Bob', 'Smith']
+user.name[0]        // 'Bob'
+user.fullname;      // ƒ () {return `${this.name[0]} ${this.name[1]}`;}
+user.fullname();    // 'Bob Smith'
+user.fakeAge;       // ƒ fakeAge() {return this.age + 5;}
+user.fakeAge();     // 20
+</pre>
+                    </dd>
+
+                    <dt>Object literal</dt>
+                    <dd>We called this kind of object <strong>object literal</strong>: we literally write out the object contents as we create it.</dd>
+                    <dd>This is different from objects instantiated from classes. Will learn about it later.</dd>
+
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -258,6 +335,7 @@ delete <span class="variable">user</span>[<span class="variable">"is cat"</span>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
+
             <article id="square-brackets">
                 <h2>Square brackets</h2>
                 <dl>                    
@@ -299,13 +377,11 @@ let <span class="variable">key</span> = prompt(<span class="variable">"What do y
 </pre>
                     </dd>
                 </dl>
-
                 <a href="#top"><hr></a>
             </article>
 
             <article id="computed-properties">
                 <h2>Computed properties</h2>
-
                 <dl>
                     <dt>Computed properties</dt>
                     <dd>Using <code>[]</code> in an object literal when creating an object.</dd>
@@ -355,13 +431,12 @@ let <span class="variable">bag</span> = {
 <span class="variable">bag</span>;         <span class="comment">// {appleLocal: 5}</span>
 </pre>
                     </dd>
-                    
+                </dl>
                 <a href="#top"><hr></a>
             </article>
             
             <article id="shorthand">
                 <h2>Property value shorthand</h2>
-
                 <dl>
                     <dt>Making a property from a variable</dt>
                     <dd>
@@ -416,16 +491,12 @@ let <span class="variable">user</span> = {
 <span class="variable">user</span>;  <span class="comment">// {name: "Kila", age: 3}</span>
 </pre>
                     </dd>
-                    
-           
-
+                </dl>       
                 <a href="#top"><hr></a>
-
             </article>
 
             <article id="name-limitation">
                 <h2>Property name limitations</h2>
-
                 <dl>
                     <dt>Variable name limitation</dt>
                     <dd>
@@ -449,12 +520,12 @@ obj.__proto__;          // {constructor: ƒ, __defineGetter__: ƒ, __defineSette
                             </li>
                         </ul>
                     </dd>
+                </dl>
                 <a href="#top"><hr></a>
             </article>
             
             <article id="in-operator">
                 <h2>"In" operator</h2>
-
                 <dl>
                     <dt>Non-existing property: <code>undefined</code></dt>
                     <dd>In JavaScript (not in many other languages), it's possible to access any property, there's no error if the property doesn't even exist.</dd>
@@ -521,7 +592,6 @@ let <span class="variable">pet</span> = { <span class="variable">type</span>: <s
 
             <article id="for-in-loop">
                 <h2>The "for..in" loop</h2>
-
                 <dl>
                     <dt><code>for..in</code> syntax</dt>
                     
@@ -558,12 +628,12 @@ for (let <span class="variable">key</span> in <span class="variable">user</span>
 <span class="variable">valArr</span>;     <span class="comment">// (2) ['Kitty', 3]</span>
 </pre>
                     </dd>
+                </dl>
                 <a href="#top"><hr></a>
             </article>
 
             <article id="integer-order">
                 <h2>Object: integer keys are ordered</h2>
-
                 <dl>
                     <dt>There are some ordering happening in object</dt>
                     <dd>
@@ -622,12 +692,12 @@ for (let <span class="variable">key</span> in <span class="variable">user</span>
 <span class="variable">valArr</span>;   <span class="comment">// (5) ['2 cats', '3 cats', '4 cats', '+3 cats', '3.2 cats']</span>
 </pre>
                     </dd>
+                </dl>
                 <a href="#top"><hr></a>
             </article>
 
             <article id="exercises">
-                <h2>Exercises</h2>
-
+                <h2>Exercises from JavascriptInfo</h2>
                 <dl>
                     <dt>isEmpty</dt>
                     <dd>
@@ -691,8 +761,11 @@ multiply(menu);
 menu;       // {width: 400, height: 600, title: 'My menu'}
 </pre>
                     </dd>
+                </dl>
                 <a href="#top"><hr></a>
             </article>
+
+
 
             <article id="template">
                 <h2>template</h2>
@@ -700,6 +773,7 @@ menu;       // {width: 400, height: 600, title: 'My menu'}
                 <dl>
                     <dt>template</dt>
                     <dd>template</dd>
+                </dl>
                 <a href="#top"><hr></a>
             </article>
 
@@ -707,6 +781,7 @@ menu;       // {width: 400, height: 600, title: 'My menu'}
                 <h2>References</h2>
                 <ul>
                     <li><a href="https://javascript.info/object" target="_blank">javascript.info: Objects</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics" target="_blank">MDN: Object Basics</a></li>
                 </ul>
 
             </article>
