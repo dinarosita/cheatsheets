@@ -380,6 +380,57 @@ let <span class="variable">key</span> = prompt(<span class="variable">"What do y
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="object-as-property">
+                <h2>Object as an object property</h2>
+
+                <dl>
+                    <dt>Object as a property value</dt>
+                    <dd>Property can be any value including an object</dd>
+                    <dd>
+<pre class="formula">
+let <span class="variable">obj</span> = {
+    <span class="variable">key1</span>: {
+        <span class="variable">key1A</span>: <span class="variable">valueA</span>,
+        <span class="variable">key1B</span>: <span class="variable">valueB</span>,
+    },
+    <span class="variable">key2</span>: <span class="variable">value2</span>
+}
+</pre>
+                    </dd>
+
+                    <dt>Compare: Property is an array</dt>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {
+    <span class="variable">name</span>: <span class="variable">["Jane", "Doe"]</span>,
+}
+
+<span class="variable">user</span>;               <span class="comment">// {name: (2) ['Jane', 'Doe']}</span>
+<span class="variable">user</span>.<span class="variable">name</span>;          <span class="comment">// (2) ['Jane', 'Doe']</span>
+<span class="variable">user</span>.<span class="variable">name</span>[<span class="variable">0</span>];       <span class="comment">// 'Jane'</span>
+<span class="variable">user</span>[<span class="variable">'name'</span>][<span class="variable">0</span>]     <span class="comment">// 'Jane'</span>
+</pre>
+                    </dd>
+                    <dt>Compare: Property is an object</dt>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {
+    <span class="variable">name</span>: {
+        <span class="variable">first</span>: <span class="variable">"Jane"</span>,
+        <span class="variable">last</span>: <span class="variable">"Doe"</span>,
+    }
+}
+
+<span class="variable">user</span>;                   <span class="comment">// {name: {first: 'Jane', last: 'Doe'}}</span>
+<span class="variable">user</span>.<span class="variable">name</span>;              <span class="comment">// {first: 'Jane', last: 'Doe'}</span>
+<span class="variable">user</span>.<span class="variable">name</span>.<span class="variable">first</span>;        <span class="comment">// 'Jane'</span>
+<span class="variable">user</span>[<span class="variable">'name'</span>][<span class="variable">'first'</span>]   <span class="comment">// 'Jane'</span>
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
             <article id="computed-properties">
                 <h2>Computed properties</h2>
                 <dl>
