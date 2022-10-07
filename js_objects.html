@@ -74,6 +74,10 @@
                             <li>Property value: the information inside</li>
                         </ul>
                     </dd>    
+
+                    <dt>Object literal</dt>
+                    <dd>We called this kind of object <strong>object literal</strong>: we literally write out the object contents as we create it.</dd>
+                    <dd>This is different from objects instantiated from classes. Will learn about it later.</dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -166,86 +170,6 @@ let <span class="variable">user</span> = {</span>
                 <a href="#top"><hr></a>
             </article>
 
-            <article id="object-methods">
-                <h2>Object methods</h2>
-                <dl>
-                    <dt>Object properties vs object methods</dt>
-                    <dd>An object is a collection of related data and/or functionality. They consisted of several variables and functions. Inside an object:
-                        <ul>
-                            <li>Variables are called <strong>object properties</strong></li>
-                            <li>Functions are called <strong>object methods</strong></li>
-                        </ul>
-                    </dd>
-
-                    <dt>Object property</dt>
-                    <dd>
-<pre class="formula">
-<span class="variable">propName</span>: <span class="variable">value</span>,
-</pre>
-                    </dd>
-
-                    <dt>Object method</dt>
-                    <dd>
-<pre class="formula">
-<span class="variable">methodName</span>: function() {<span class="commment">...</span><span class="variable">this.key</span><span class="commment">...</span>},
-<span class="comment">// or</span>
-<span class="variable">methodName</span>() {<span class="commment">...</span><span class="variable">this.key</span><span class="commment">...</span>},
-</pre>
-                    </dd>
-
-                    <dt><code>this.key</code></dt>
-                    <dd>
-<pre class="formula">
-<span class="variable">this</span>.<span class="variable">key</span>
-</pre>
-                    </dd>
-                    <dd><code>this.key</code> is used to access data property from inside the function formula.</dd>
-
-                    <dt>Inside an object</dt>
-                    <dd>
-<pre class="formula">
-let <span class="variable">obj</span> = {
-    <span class="variable">propName</span>: <span class="variable">value</span>,
-    <span class="variable">method1</span>: function() {<span class="comment">...</span><span class="variable">this</span>.<span class="variable">propName</span><span class="comment">...</span></span>},
-    <span class="variable">method2</span>() {<span class="comment">...</span><span class="variable">this</span>.<span class="variable">propName</span><span class="comment">...</span></span>}
-}
-</pre>
-                    </dd>
-                    
-                    <dt>Object method example</dt>
-                    <dd></dd>
-                    
-                    <dd>
-<pre class="formula-thin">
-let user = {
-    name: ["Bob", "Smith"],
-    age: 15,
-    fullName: function () {
-        return `${this.name[0]} ${this.name[1]}`;
-    },
-    fakeAge() {
-        return this.age + 5;
-    },
-}
-
-user;               // {name: Array(2), age: 15, fullName: ƒ, fakeAge: ƒ}
-user.name;          // (2) ['Bob', 'Smith']
-user.name[0]        // 'Bob'
-user.fullname;      // ƒ () {return `${this.name[0]} ${this.name[1]}`;}
-user.fullname();    // 'Bob Smith'
-user.fakeAge;       // ƒ fakeAge() {return this.age + 5;}
-user.fakeAge();     // 20
-</pre>
-                    </dd>
-
-                    <dt>Object literal</dt>
-                    <dd>We called this kind of object <strong>object literal</strong>: we literally write out the object contents as we create it.</dd>
-                    <dd>This is different from objects instantiated from classes. Will learn about it later.</dd>
-
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
-
             <article id="dot-notation">
                 <h2>Accessing object: dot notation and square brackets</h2>   
                 <dl>  
@@ -326,10 +250,9 @@ delete <span class="variable">user</span>[<span class="variable">"is cat"</span>
                     <dt>Dot notation vs square brackets notation, which one to choose</dt>
                     <dd>
                         <ul>
-                            <li>Square brackets offers much more manipulations, but dot notation is very simple and clear.</li>
-                            <li>Use dot notation for simple uses.</li>
-                            <li>Use square brackets for more complex purposes.</li>
-                            <li>And obviously use swuare brackets when the property name is multiple words.</li>
+                            <li>Dot notation looks simpler and cleaner. It's preffered when possible.</li>
+                            <li>Square brackets offers much more manipulations, for example when the property name will be assigned in the future. Use when needed.</li>
+                            <li>Use square brackets when the property name is multiple words.</li>
                         </ul>
                     </dd>
                 </dl>
@@ -369,11 +292,9 @@ let <span class="variable">user</span> = {</span>
     <span class="variable">"is cat"</span>: <span class="variable">true</span>
 };
 
-let <span class="variable">key</span> = prompt(<span class="variable">"What do you want to know about the user?"</span>, <span class="variable">"name"</span>);
+let <span class="variable">key</span> = prompt(<span class="variable">"Get name or age?"</span>, <span class="variable">"name"</span>);
 
-<span class="comment">// if "name" is entered</span>
-<span class="variable">user</span>[<span class="variable">key</span>]   <span class="comment">// "Kitty"</span>
-<span class="variable">user</span>.<span class="variable">key</span>    <span class="comment">// undefined</span>
+alert(<span class="variable">user</span>[<span class="variable">key</span>]);   <span class="comment">// "Kitty" (if "name" is entered)</span>
 </pre>
                     </dd>
                 </dl>
@@ -385,7 +306,7 @@ let <span class="variable">key</span> = prompt(<span class="variable">"What do y
 
                 <dl>
                     <dt>Object as a property value</dt>
-                    <dd>Property can be any value including an object</dd>
+                    <dd>Property can be any value including an object.</dd>
                     <dd>
 <pre class="formula">
 let <span class="variable">obj</span> = {
@@ -407,11 +328,14 @@ let <span class="variable">user</span> = {
 
 <span class="variable">user</span>;               <span class="comment">// {name: (2) ['Jane', 'Doe']}</span>
 <span class="variable">user</span>.<span class="variable">name</span>;          <span class="comment">// (2) ['Jane', 'Doe']</span>
+
 <span class="variable">user</span>.<span class="variable">name</span>[<span class="variable">0</span>];       <span class="comment">// 'Jane'</span>
 <span class="variable">user</span>[<span class="variable">'name'</span>][<span class="variable">0</span>]     <span class="comment">// 'Jane'</span>
 </pre>
                     </dd>
                     <dt>Compare: Property is an object</dt>
+                    <dd>Accessing the value can be done using chained dot notation or square brackets. Even combination.</dd>
+
                     <dd>
 <pre class="formula-thin">
 let <span class="variable">user</span> = {
@@ -423,10 +347,22 @@ let <span class="variable">user</span> = {
 
 <span class="variable">user</span>;                   <span class="comment">// {name: {first: 'Jane', last: 'Doe'}}</span>
 <span class="variable">user</span>.<span class="variable">name</span>;              <span class="comment">// {first: 'Jane', last: 'Doe'}</span>
+
 <span class="variable">user</span>.<span class="variable">name</span>.<span class="variable">first</span>;        <span class="comment">// 'Jane'</span>
-<span class="variable">user</span>[<span class="variable">'name'</span>][<span class="variable">'first'</span>]   <span class="comment">// 'Jane'</span>
+<span class="variable">user</span>[<span class="variable">'name'</span>][<span class="variable">'first'</span>];  <span class="comment">// 'Jane'</span>
+
+<span class="variable">user</span>.<span class="variable">name</span>[<span class="variable">'first'</span>];     <span class="comment">// 'Jane'</span>
+<span class="variable">user</span>[<span class="variable">'name'</span>].<span class="variable">first</span>;     <span class="comment">// 'Jane'</span>
 </pre>
                     </dd>
+
+                    <dt>Associative arrays</dt>
+                    <dd>Accessing object value using <code>[]</code> looks like accessing array. Instead of using <code>index</code>, object is using <code>"key"</code>.</dd>
+                    <dd>
+                        <pre class="formula"><span class="variable">arr</span>[<span class="variable">0</span>]</pre>
+                        <pre class="formula"><span class="variable">obj</span>[<span class="variable">"key"</span>]</pre>
+                    </dd>
+                    <dd>This is why sometimes objects are called associative array.</dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -747,8 +683,196 @@ for (let <span class="variable">key</span> in <span class="variable">user</span>
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="object-methods">
+                <h2>Object methods</h2>
+                <dl>
+                    <dt>Object properties vs object methods</dt>
+                    <dd>An object is a collection of related data and/or functionality. They consisted of several variables and functions. Inside an object:
+                        <ul>
+                            <li>Variables are called <strong>object properties</strong></li>
+                            <li>Functions are called <strong>object methods</strong></li>
+                        </ul>
+                    </dd>
+
+                    <dt>Object property</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">propName</span>: <span class="variable">value</span>,
+</pre>
+                    </dd>
+
+                    <dt>Object method</dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">methodName</span>: function() {<span class="commment">...</span><span class="variable">this.key</span><span class="commment">...</span>},
+<span class="comment">// or</span>
+<span class="variable">methodName</span>() {<span class="commment">...</span><span class="variable">this.key</span><span class="commment">...</span>},
+</pre>
+                    </dd>
+
+                    <dt><code>this.key</code></dt>
+                    <dd>
+<pre class="formula">
+<span class="variable">this</span>.<span class="variable">key</span>
+</pre>
+                    </dd>
+                    <dd><code>this.key</code> is used to access data property from inside the function formula.</dd>
+
+                    <dt>Inside an object</dt>
+                    <dd>
+<pre class="formula">
+let <span class="variable">obj</span> = {
+    <span class="variable">propName</span>: <span class="variable">value</span>,
+    <span class="variable">method1</span>: function() {<span class="comment">...</span><span class="variable">this</span>.<span class="variable">propName</span><span class="comment">...</span></span>},
+    <span class="variable">method2</span>() {<span class="comment">...</span><span class="variable">this</span>.<span class="variable">propName</span><span class="comment">...</span></span>}
+}
+</pre>
+                    </dd>
+                    
+                    <dt>Object method example</dt>
+                    <dd></dd>
+                    
+                    <dd>
+<pre class="formula-thin">
+let user = {
+    name: ["Bob", "Smith"],
+    age: 15,
+    fullName: function () {
+        return `${this.name[0]} ${this.name[1]}`;
+    },
+    fakeAge() {
+        return this.age + 5;
+    },
+}
+
+user;               // {name: Array(2), age: 15, fullName: ƒ, fakeAge: ƒ}
+user.name;          // (2) ['Bob', 'Smith']
+user.name[0]        // 'Bob'
+user.fullname;      // ƒ () {return `${this.name[0]} ${this.name[1]}`;}
+user.fullname();    // 'Bob Smith'
+user.fakeAge;       // ƒ fakeAge() {return this.age + 5;}
+user.fakeAge();     // 20
+</pre>
+                    </dd>
+
+
+
+                    <dt>Adding object method</dt>
+                    <dd>It can be done similar way as adding object property, using dot or <code>[]</code> notation</dd>
+                    <dd>
+<pre class="formula">
+let <span class="variable">obj</span> = {};
+<span class="variable">obj</span>.<span class="variable">propName</span> = <span class="variable">value</span>;
+<span class="variable">obj</span>.<span class="variable">methodName</span> = function () {<span class="variable">...</span>};
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {};
+<span class="variable">user</span>.<span class="variable">name</span> = <span class="variable">{first: "John", last: "Doe"}</span>;
+<span class="variable">user</span>.<span class="variable">fullname</span> = function () {<span class="variable">return `${this.name.first} ${this.name.last}`</span>};
+
+<span class="variable">user</span>.<span class="variable">fullname</span>();    <span class="comment">// 'John Doe'</span>
+</pre>
+                    </dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="constructor">
+                <h2>Constructor</h2>
+
+                <dl>
+                    <dt>Automatizing object creation</dt>
+                    <dd>A function blueprint/template can be used to create multiple object of similar structure.</dd>
+                    <dd>Without learning about constructor, this can be done using simple function.</dd>
+                    <dd>However since this is a very typical operation, <strong>Constructors</strong> exist to make this routine even more simple and easy.</dd>
+
+                    <dt>Creating objects using function without constructor</dt>
+                    <dd>The creator function</dd>
+                    <dd>
+<pre class="formula-thin">
+function <span class="variable">createPerson</span>(<span class="variable">name</span>, <span class="variable">age</span>) {
+    const <span class="variable">obj</span> = {};
+    <span class="variable">obj</span>.<span class="variable">name</span> = <span class="variable">name</span>;
+    <span class="variable">obj</span>.<span class="variable">age</span> = <span class="variable">age</span>;
+    <span class="variable">obj</span>.<span class="variable">greeting</span> = function() {
+        <span class="variable">console.log(`Hi! I'm ${this.name}, ${this.age} years old.`);</span>
+    }
+    return <span class="variable">obj</span>;
+}
+</pre>
+                    </dd>
+                    <dd>Entering the people</dd>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">yudi</span> = createPerson(<span class="variable">"Yudi"</span>, <span class="variable">35</span>);
+const <span class="variable">bobo</span> = createPerson(<span class="variable">"Bobo"</span>, <span class="variable">15</span>);
+const <span class="variable">mira</span> = createPerson(<span class="variable">"Mira"</span>, <span class="variable">20</span>);
+</pre>
+                    </dd>
+
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+yudi;   // {name: 'Yudi', age: 35, greeting: ƒ}
+bobo;   // {name: 'Bobo', age: 15, greeting: ƒ}
+mira;   // {name: 'Mira', age: 20, greeting: ƒ}
+
+yudi.greeting();   // Hi! I'm Yudi, 35 years old.
+bobo.greeting();   // Hi! I'm Bobo, 15 years old.
+mira.greeting();   // Hi! I'm Mira, 20 years old.
+</pre>
+                    </dd>
+
+                    <dt>Constructor</dt>
+                    <dd>
+                        <ul>
+                            <li>Constructors named for the type of object we create and started with a capital letter.</li>
+                            <li>Use <code>this</code> keyword to address the object.</li>
+                            <li>Use <code>new</code> to call the function as a constructor.</li>
+                        </ul>
+                    </dd>
+                    <dd>Create the constructor</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">Person</span>(<span class="variable">name</span>, <span class="variable">age</span>) {
+    <span class="variable">this</span>.<span class="variable">name</span> = <span class="variable">name</span>;
+    <span class="variable">this</span>.<span class="variable">age</span> = <span class="variable">age</span>;
+    <span class="variable">this</span>.<span class="variable">greeting</span> = function() {
+        <span class="variable">console.log(`Hi! I'm ${this.name}, ${this.age} years old.`);</span>
+    }
+}
+</pre>
+                    </dd>
+                    <dd>Calling the constructor</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">yudi</span> = new Person(<span class="variable">"Yudi"</span>, <span class="variable">65</span>);
+const <span class="variable">bobo</span> = new Person(<span class="variable">"Bobo"</span>, <span class="variable">35</span>);
+const <span class="variable">mira</span> = new Person(<span class="variable">"Mira"</span>, <span class="variable">77</span>);
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+yudi;   // {name: 'Yudi', age: 65, greeting: ƒ}
+bobo;   // {name: 'Bobo', age: 35, greeting: ƒ}
+mira;   // {name: 'Mira', age: 77, greeting: ƒ}
+
+yudi.greeting();   // Hi! I'm Yudi, 65 years old.
+bobo.greeting();   // Hi! I'm Bobo, 35 years old.
+mira.greeting();   // Hi! I'm Mira, 77 years old.
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+
             <article id="exercises">
-                <h2>Exercises from JavascriptInfo</h2>
+                <h2>Exercises</h2>
                 <dl>
                     <dt>isEmpty</dt>
                     <dd>
@@ -812,11 +936,62 @@ multiply(menu);
 menu;       // {width: 400, height: 600, title: 'My menu'}
 </pre>
                     </dd>
+
+                    <dt>Create object from user input</dt>
+                    <dd>
+<pre class="formula-thin">
+let key1 = prompt("Enter first key: ");
+let val1 = prompt("Enter first value: ");
+let key2 = prompt("Enter second key: ");
+let val2 = prompt("Enter second value: ");
+
+let user = {};
+user[key1] = val1;
+user[key2] = val2;
+
+user;       // {name: 'John', age: '24'}
+</pre>
+                    </dd>
+
+                    <dt>Band Info</dt>
+                    <dd>
+<pre class="formula-thin">
+let band = {
+    name: "Bon Jovi",
+    nationality: "USA",
+    genre: "rock",
+    members: 5,
+    formed: 1983,
+    split: false,
+    album: [{
+        name: "Slippery When Wet",
+        released: 1986,
+    }, {
+        name: "Crush",
+        released: 2000,
+    }]
+};
+function isEnd(split) {
+    if (split === false) {
+        return ["s", "now"];
+    } else {
+        return ["d", split];
+    }
+}
+
+const bandInfo = `${band.name} is a ${band.genre} band from ${band.nationality}. This ${band.members} members band active${isEnd(band.split)[0]} from ${band.formed} until ${isEnd(band.split)[1]}. Their succesful albums include ${band.album[0].name}, released ${band.album[0].released}, and ${band.album[1].name}, released ${band.album[1].released}.`
+
+bandInfo;
+// 'Bon Jovi is a rock band from USA. This 5 members band actives from 1983 until now. Their succesful albums include Slippery When Wet, released 1986, and Crush, released 2000.'
+
+// If band.split = 2021, the bandInfo becoming:
+// 'Bon Jovi is a rock band from USA. This 5 members band actived from 1983 until 2021. Their succesful albums include Slippery When Wet, released 1986, and Crush, released 2000.'
+</pre>
+                    </dd>
+
                 </dl>
                 <a href="#top"><hr></a>
             </article>
-
-
 
             <article id="template">
                 <h2>template</h2>
