@@ -41,6 +41,16 @@
 
                     <dt>Object: 8th data type - Not a primitive</dt>
                     <dd>It is used to store <strong>keyed</strong> collections of carious data and more complex entities.</dd>
+                    <dt>There are many kinds of objects.</dt>
+                    <dd>For example:
+                        <ul>
+                            <li>Plain object, or just <code>Object</code> (this chapter)</li>
+                            <li><code>Array</code></li>
+                            <li><code>Date</code></li>
+                            <li><code>Error</code></li>
+                        </ul>
+                    </dd>
+                    <dd>Some people will there are date type and array type. But they don't formally have their own data type. they are object</dd>
 
                     <dt>Object structure</dt>                         
                     <dd>Imagine object as a box with a list of informations inside. Each information is stored inside a labeled folder.</dd>
@@ -141,7 +151,20 @@ let <span class="variable">obj</span> = {</span>
     <span class="variable">propName2</span>: <span class="variable">propVal2</span>,
 };
 </pre>
-                    </dd>           
+                    </dd>
+                    <dd>If the same key used more than once: the last value overrides the previous ones.</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">name</span>: <span class="variable">"Kitty"</span>,
+    <span class="variable">age</span>: <span class="variable">3</span>,
+    <span class="variable">name</span>: <span class="variable">"Doggie"</span>,
+};
+
+<span class="variable">user</span>;       <span class="comment">// {name: 'Doggie', age: 3}</span>
+</pre>
+                    </dd>
+                    
                 </dl>
                 <a href="#top"><hr></a>
             </article>
@@ -433,9 +456,172 @@ obj.__proto__;          // {constructor: ƒ, __defineGetter__: ƒ, __defineSette
                 <h2>"In" operator</h2>
 
                 <dl>
-                    <dt>Property doesn't exist</dt>
+                    <dt>Non-existing property: <code>undefined</code></dt>
                     <dd>In JavaScript (not in many other languages), it's possible to access any property, there's no error if the property doesn't even exist.</dd>
-                    <dd>Non-existing property: <code>undefined</code></dd>
+                    <dd>Non-existing property will return <code>undefined</code>. We can use this to identify if property exists.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">obj</span>.<span class="variable">propName</span> === undefined;
+
+<span class="comment">// true means property doesn't exist
+// false means property exists</span>
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">pet</span> = { <span class="variable">name</span>: <span class="variable">"Kitten"</span> }
+<span class="variable">pet</span>.<span class="variable">name</span> === undefined;     <span class="comment">// false</span>
+<span class="variable">pet</span>.<span class="variable">type</span> === undefined;     <span class="comment">// true</span>
+</pre>
+                    </dd>
+
+                    <dt>"<code>in</code>" operator</dt>
+                    <dd><code>in</code> is used to check whether there's property <code>"key"</code> inside an object.</dd>
+                    <dd>
+<pre class="formula">
+<span class="variable">"key"</span> in <span class="variable">obj</span>
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">pet</span> = { <span class="variable">name</span>: <span class="variable">"Kitten"</span> };
+<span class="variable">"name"</span> in <span class="variable">pet</span>     <span class="comment">// true</span>
+<span class="variable">"type"</span> in <span class="variable">pet</span>     <span class="comment">// false</span>
+</pre>
+                    </dd>
+                    <dd>Be aware with the use of the quotation mark</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">pet</span> = { <span class="variable">name</span>: <span class="variable">"Kitten"</span> };
+let <span class="variable">prop</span> = <span class="variable">"name"</span>;
+
+<span class="variable">"name"</span> in <span class="variable">pet</span>   <span class="comment">// true</span>
+<span class="variable">name</span> in <span class="variable">pet</span>     <span class="comment">// false</span>
+<span class="variable">prop</span> in <span class="variable">pet</span>     <span class="comment">// true</span>
+<span class="variable">"prop"</span> in <span class="variable">pet</span>   <span class="comment">// false</span>
+</pre>
+                    </dd>
+
+                    <dt>Why <code>in</code> exists? Isn't using <code> === undefined</code> enough?</dt>
+                    <dd>Sometimes a property value is actually <code>undefined</code>. The property does exist.</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">pet</span> = { <span class="variable">type</span>: <span class="variable">undefined</span> };
+
+<span class="variable">pet</span>.<span class="variable">type</span>;               <span class="comment">// undefined (as if property type doesn't exist)</span>
+<span class="variable">pet</span>.<span class="variable">type</span> === undefined  <span class="comment">// true (as if property type doesn't exist)</span>
+<span class="variable">"type"</span> in <span class="variable">pet</span>           <span class="comment">// true (not ambiguos)</span>
+</pre>
+                    </dd>
+                    <dd>However this situation actually quote rare, because <code>undefined</code> should not be explicitely assigned. Instead of <code>undefined</code>, we are usually use <code>null</code> for unknown or empty values. So in practise maybe <code>in</code> is not often seen since <code>=== undefined</code> is adequate.</dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="for-in-loop">
+                <h2>The "for..in" loop</h2>
+
+                <dl>
+                    <dt><code>for..in</code> syntax</dt>
+                    
+                    <dd>
+<pre class="formula">
+for (<span class="variable">key</span> in <span class="variable">obj</span>) {
+    ... <span class="variable">key</span> ...         <span class="comment">// property name</span>
+    ... <span class="variable">obj</span>[<span class="variable">key</span>] ...    <span class="comment">// property value</span>
+}
+</pre>
+                    </dd>
+                    <dd>
+                        <ul>
+                            <li>Common looping variable used: <code>key</code>, <code>prop</code></li>
+                            <li>The looping variable can be declared inside the loop</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">name</span>: <span class="variable">"Kitty"</span>,
+    <span class="variable">age</span>: <span class="variable">3</span>,
+};
+
+let <span class="variable">keyArr</span> = [];
+let <span class="variable">valArr</span> = [];
+
+for (let <span class="variable">key</span> in <span class="variable">user</span>) {
+    <span class="variable">keyArr</span>.push(<span class="variable">key</span>);
+    <span class="variable">valArr</span>.push(<span class="variable">user</span>[<span class="variable">key</span>]);
+}
+
+<span class="variable">keyArr</span>;     <span class="comment">// (2) ['name', 'age']</span>
+<span class="variable">valArr</span>;     <span class="comment">// (2) ['Kitty', 3]</span>
+</pre>
+                    </dd>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="integer-order">
+                <h2>Object: integer keys are ordered</h2>
+
+                <dl>
+                    <dt>There are some ordering happening in object</dt>
+                    <dd>
+                        <ul>
+                            <li>Integers are sorted</li>
+                            <li>Others are in creation order</li>
+                            <li>Integers are placed ahead of the others</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">2</span>: <span class="variable">"2 cats"</span>,
+    <span class="variable">name</span>: <span class="variable">"Kitty"</span>,
+    <span class="variable">"1"</span>: <span class="variable">"1 cat"</span>,
+    <span class="variable">3</span>: <span class="variable">"3 cats"</span>,
+};
+
+<span class="variable">user</span>[<span class="variable">"0"</span>] = <span class="variable">"no cat"</span>;
+<span class="variable">user</span>.<span class="variable">age</span> = <span class="variable">3</span>;
+
+let <span class="variable">keyArr</span> = [];
+let <span class="variable">valArr</span> = [];
+
+for (let <span class="variable">key</span> in <span class="variable">user</span>) {
+    <span class="variable">keyArr</span>.push(<span class="variable">key</span>);
+    <span class="variable">valArr</span>.push(<span class="variable">user</span>[<span class="variable">key</span>]);
+}
+
+<span class="variable">user</span>;     <span class="comment">// {0: 'no cat', 1: '1 cat', 2: '2 cats', 3: '3 cats', name: 'Kitty', age: 3}</span>
+<span class="variable">keyArr</span>;   <span class="comment">// (6) ['0', '1', '2', '3', 'name', 'age']</span>
+<span class="variable">valArr</span>;   <span class="comment">// (6) ['no cat', '1 cat', '2 cats', '3 cats', 'Kitty', 3]</span>
+</pre>
+                    </dd>
+                    <dd>Positive sign or decimal doesn't qualify for this integer order.</dd>
+                    <dd>
+<pre class="formula-thin">
+let <span class="variable">user</span> = {</span>
+    <span class="variable">"4"</span>: <span class="variable">"4 cats"</span>,
+    <span class="variable">"2"</span>: <span class="variable">"2 cats"</span>,
+    <span class="variable">"+3"</span>: <span class="variable">"+3 cats"</span>,
+    <span class="variable">"3.2"</span>: <span class="variable">"3.2 cats"</span>,
+    <span class="variable">"3"</span>: <span class="variable">"3 cats"</span>,
+};
+
+let <span class="variable">keyArr</span> = [];
+let <span class="variable">valArr</span> = [];
+
+for (let <span class="variable">key</span> in <span class="variable">user</span>) {
+    <span class="variable">keyArr</span>.push(<span class="variable">key</span>);
+    <span class="variable">valArr</span>.push(<span class="variable">user</span>[<span class="variable">key</span>]);
+}
+
+<span class="variable">user</span>;     <span class="comment">// {2: '2 cats', 3: '3 cats', 4: '4 cats', +3: '+3 cats', 3.2: '3.2 cats'}</span>
+<span class="variable">keyArr</span>;   <span class="comment">// (5) ['2', '3', '4', '+3', '3.2']</span>
+<span class="variable">valArr</span>;   <span class="comment">// (5) ['2 cats', '3 cats', '4 cats', '+3 cats', '3.2 cats']</span>
+</pre>
+                    </dd>
                 <a href="#top"><hr></a>
             </article>
 
