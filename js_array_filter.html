@@ -880,7 +880,8 @@ nullArray;      // (2) [null, null]
                 <h2>Wesbos Javascript30: 04 Array Cardio Practice</h2>
                 
                 <dl>
-                    <dt>Given: array of inventor objects</dt>
+                    <dt>Task: 1. Filter the list of inventors for those who were born in the 1500's</dt>
+                    <dd>Given</dd>
                     <dd>
 <pre class="formula-thin">
 const inventors = [
@@ -899,7 +900,7 @@ const inventors = [
 ];
 </pre>
                     </dd>
-                    <dt>Task: 1. Filter the list of inventors for those who were born in the 1500's</dt>
+                    <dd>Solution</dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">inv15</span> = <span class="variable">inventors</span>.filter(<span class="variable">inv</span> => <span class="variable">inv.year >= 1500 && inv.year < 1600</span>);
@@ -915,6 +916,37 @@ inv15;
     1: {first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630}
 </pre>
                     </dd>
+
+                    <dt>6. create a list of Boulevards in Paris that contain 'de' anywhere in the name</dt>
+                    <dd>Given: <a href="https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris" target="_blank">https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris</a></dd>
+                    <dd>Copy the solution to the link's console.</dd>
+                    <dd>After inspect the elements, it's found that all the boulevard names are contained in:
+                        <ul>
+                            <li>Class mw-category (a unique category) - target with querySelector instead of querySelectorAll</li>
+                            <li>As a text context of links elements (Pretty much no other links other than for boulevard list)</li>
+                        </ul>
+                    </dd>
+                    <dd>Solution</dd>
+
+                    <dd>
+                        
+<pre class="formula-thin">
+const container = document.querySelector(".mw-category");
+
+const collection = Array.from(container.querySelectorAll("a"));
+
+const boulevardDe = collection
+                        .map(link => link.textContent)
+                        .filter(boulevard => boulevard.includes("de"));
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+boulevardDe;
+// (12) ["Boulevard de l'Amiral-Bruix", 'Boulevard des Capucines', 'Boulevard de la Chapelle', 'Boulevard de Clichy', "Boulevard de l'Hôpital", 'Boulevard des Italiens', 'Boulevard de la Madeleine', 'Boulevard de Magenta', 'Boulevard Marguerite-de-Rochechouart', 'Boulevard de Sébastopol', 'Boulevard de Strasbourg', 'Boulevard de la Zone']</pre>
+                    </dd>
+                    <dd>Check out other solution using map and filter</dd>
                 </dl>
             </article>
 

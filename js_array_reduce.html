@@ -823,8 +823,9 @@ const positiveSquare = numbers.reduce(
             <article id="wesbos">
                 <h2>Wesbos Javascript30: 04 Array Cardio Practice</h2>
                 
-                <dl>
-                    <dt>Given: array of inventor objects</dt>
+                <dl>                    
+                    <dt>Task: 4. How many years did all the inventors live all together?</dt>
+                    <dd>Given</dd>
                     <dd>
 <pre class="formula-thin">
 const inventors = [
@@ -843,7 +844,7 @@ const inventors = [
 ];
 </pre>
                     </dd>
-                    <dt>Task: 4. How many years did all the inventors live all together?</dt>
+                    <dd>Solution</dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">invSum</span> = <span class="variable">inventors</span>.reduce(<span class="variable">(total, inv)</span> => <span class="variable">total + (inv.passed - inv.year)</span>, <span class="variable">0</span>);
@@ -856,13 +857,15 @@ invSum;     // 861
 </pre>
                     </dd>
 
-                    <dt>Given: vehicle data</dt>
+                    
+                    <dt>8. Sum up the instances of each of each vehicle</dt>
+                    <dd>Given</dd>
                     <dd>
 <pre class="formula-thin">
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 </pre>
                     </dd>
-                    <dt>8. Sum up the instances of each of each vehicle</dt>
+                    <dd>Solution</dd>
                     <dd>
 <pre class="formula">
 const <span class="variable">vehicle</span> = <span class="variable">data</span>.reduce(<span class="variable">(summary, val)</span> => {
