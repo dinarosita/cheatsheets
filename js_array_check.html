@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>some() every() | JS CodeyLuwak</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <a href="./index.html"><h1>JavaScript: Array checking methods: some() and every()</h1></a>
+            <nav id="navMenu"></nav>
+        </header>
+
+        <main class="js-notes">
+
+            <article id="some-method">
+                <h2>Array.prototype.some()</h2>
+
+                <dl>
+                    <dt>some() method</dt>
+                    <dd>
+                        <pre class="formula"><span class="variable">arr</span>.some(<span class="variable">testFn</span>)</pre>
+                    </dd>
+                    <dd><code>some()</code> method tests whether at least 1 element in the array passes the test implemented by provided function.</dd>
+                    <dd>Returns:
+                        <ul>
+                            <li><code>true</code>: when it finds an element returning <code>true</code> when tested. It doesn't check the rest of the elements.</li>
+                            <li><code>false</code>: if by the end of the element tests, none returning <code>true</code>.</dd>
+                        </ul>
+                    </dd>
+                    <dd>It doesn't modify the array.</dd>
+
+                    
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="every-method">
+                <h2>Array.prototype.every()</h2>
+
+                <dl>
+                    <dt>every() method</dt>
+                    <dd>
+                        <pre class="formula"><span class="variable">arr</span>.every(<span class="variable">testFn</span>)</pre>
+                    </dd>
+                    <dd><code>every()</code> method tests whether every elements in the array pass the test implemented by provided function.</dd>
+                    <dd>Returns:
+                        <ul>
+                            <li><code>false</code>: when it finds an element returning <code>false</code>when tested. It doesn't check the rest of the elements.
+                            </li>
+                            <li><code>true</code>: if by the end of the element tests, none returning <code>false</code>.</dd>
+                        </ul>
+                    </dd>
+                    <dd>It doesn't modify the array.</dd>
+
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="test-critera">
+                <h2>Test criteria</h2>
+
+                <dl>
+
+                    <dt>We only need to state the <code>true</code> condition of the test.</dt>
+                    <dd>The <code>false</code> condition doesn't have to be stated (and returned <code>false</code>). Why?
+                        <ul>
+                            <li>When it doesn't return anything, the return value will be <code>undefined</code>.</li>
+                            <li>Remember, Boolean of <code>undefined</code>, along with <code>null</code>, <code>0</code>, and <code>""</code> are <code>false</code> already.</li>
+                            <li>Meanwhile, empty array element will be skipped.</li>
+                        </ul>
+                    </dd>
+                    <dt>Fun experiment 1</dt>
+                    <dd>
+<pre class="formula-thin">
+const test = el => el;
+
+const num = [3, 0, 5];
+num.some(test);     // true
+num.every(test);    // false
+
+const str = ["a", "", "c"];
+str.some(test);     // true
+str.every(test);    // false
+
+const empty = [1, , 3];
+empty.some(test);   // true
+empty.every(test);  // true
+
+const undef = [1, undefined, 3];
+undef.some(test);   // true
+undef.every(test);  // false
+</pre>
+                    </dd>
+
+                    <dt>Fun experiment 2</dt>
+                    <dd>
+<pre class="formula-thin">
+const test1 = el => 1;
+const test0 = el => 0;
+
+const num = [3, 0, 5];
+
+num.some(test1);    // true
+num.every(test1);   // true
+
+num.some(test0);    // false
+num.every(test0);   // false
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="arrow-function">
+                <h2>Test arrow function</h2>
+
+                <dl>
+                    <dt>Test function</dt>
+                    <dd>
+<pre class="formula-thin">
+const <span class="variable">testFunction</span> = (<span class="variable">el</span>) => {
+    if (<span class="comment">test criteria</span>) {
+        return <span class="variable">true</span>;
+    }
+};
+</pre>
+                    </dd>
+                    <dd>
+<pre class="formula">
+const testFunction = el => test criteria;
+</pre>
+                    </dd>
+                    <dd>Test criteria = code statement that equals to <code>true</code> when the statement is true, and <code>false</code> when the statement is false.</dd>
+                    <dd>Even slimmer: the element bracket <code>()</code> on the left side of the arrow can be omitted when it only has 1 parameter, which is the case here.</dd>
+
+                    <dt>Example test: Is the number even?</dt>
+                    <dd>
+                        <ul>
+                            <li>Test criteria is "Is the number even?"</li>
+                            <li>Then the code statement is <code>num % 2 === 0</code>, because:</li>
+                            <li>It will equal to <code>true</code> when the number is even.</li>
+                            <li>It will equal to <code>false</code> when the number is odd.</li>
+                            <li>Putting the code statement at the right side of the function arrow is enough to make the function spits out the needed <code>true</code> or <code>false</code>.</li>
+                        </ul>
+                    </dd>
+
+
+
+
+                    <dt>Just a little looking back at the arrow function</dt>
+                    <dd>Function expression</dd>
+                    <dd>
+<pre class="formula-thin">
+function isEven(num) {
+    if (num % 2 === 0) {
+        return true;
+    }
+};
+</pre>
+                    </dd>
+                    <dd>Arrow function</dd>
+                    <dd>
+<pre class="formula-thin">
+const isEven = (num) => {
+    if (num % 2 === 0) {
+        return true;
+    }
+};
+</pre>
+                    </dd>
+                    <dd>Omit <code>{}</code> brackets and <code>return</code> word: if codeblock only 1 line and it's the return value.
+                    <dd>In this case:
+                        <ul>
+                            <li>We only need an element to return <code>true</code> or <code>false</code>.</li>
+                            <li>If even: <code>num % 2 === 0</code> is <code>true</code></li>
+                            <li>If odd: <code>num % 2 === 0</code> is <code>false</code></li>
+                            <li>Therefore, putting the <strong>test criteria as return value</strong> is enough to create desired <code>true</code> or <code>false</code> return.</li>
+                        </ul>
+                    </dd>
+                    <dd>
+<pre class="formula-thin">
+const isEven = num => num % 2 === 0;
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="example-iseven">
+                <h2>Example: isEven</h2>
+
+                <dl>
+                    <dt>Example: check if numbers in the array are even: any, or all of them</dt>
+                    <dd>
+<pre class="formula-thin">
+const num = [1, 2, 3, 4, 5, 6];
+
+const isEven = num => num % 2 === 0;
+
+const numSomeEven = num.some(isEven);
+numSomeEven;    // true
+
+const numAllEven = num.every(isEven);
+numAllEven;     // false
+</pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+
+
+            <article id="template">
+                <h2></h2>
+
+                <dl>
+                    <dt></dt>
+                    <dd></dd>
+                    <dd>
+                        <pre class="formula"></pre>
+                    </dd>
+                </dl>
+                <a href="#top"><hr></a>
+            </article>
+
+            <article id="wesbos">
+                <h2>Wesbos Javascript30: 07 Array Cardio Practice Day 2</h2>
+                
+                <dl></dl>
+            </article>
+
+            <article id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">MDN: Array.prototype.filter()</a></li>
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <div class="nav-bar"><a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a></div>
+        </footer>
+        <script src="./navArticle.js"></script>
+    </body>
+</html>
+
