@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>some() every() | JS CodeyLuwak</title>
+        <title>Array search methods | JS CodeyLuwak</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
@@ -14,51 +14,83 @@
     <body>
 
         <header>
-            <a href="./index.html"><h1>JavaScript: Array checking methods: some() and every()</h1></a>
+            <a href="./index.html"><h1>JavaScript: Array search methods</h1></a>
             <nav id="navMenu"></nav>
         </header>
 
         <main class="js-notes">
 
-            <article id="some-method">
-                <h2>Array.prototype.some()</h2>
+            <article id="array-searches">
+                <h2>Various array search methods</h2>
 
                 <dl>
-                    <dt>some() method</dt>
+                    <dt>Based on test function</dt>
                     <dd>
-                        <pre class="formula"><span class="variable">arr</span>.some(<span class="variable">testFn</span>)</pre>
-                    </dd>
-                    <dd><code>some()</code> method tests whether at least 1 element in the array passes the test implemented by provided function.</dd>
-                    <dd>Returns:
                         <ul>
-                            <li><code>true</code>: when it finds an element returning <code>true</code> when tested. It doesn't check the rest of the elements.</li>
-                            <li><code>false</code>: if by the end of the element tests, none returning <code>true</code>.</dd>
+                            <li><code>some()</code> returns <code>true</code> if any element satisfy the test function.</li>
+                            <li><code>every()</code> returns <code>true</code> if all elements satisfy the test function.</li>
+                            <li><code>findIndex()</code> returns the index of the first element that satisty the test function</li>
+                            <li><code>find()</code> returns the first element that satisfy the test function</li>
+
                         </ul>
                     </dd>
-                    <dd>It doesn't modify the array.</dd>
-
                     
+                    <dt>Based on value</dt>
+                    <dd>
+                        <ul>
+                            <li><code>includes()</code> returns <code>true</code> if any element match the value</li>
+                            <li><code>indexOf()</code> returns the index of the first element match the value</li>
+                        </ul>
+                    </dd>
                 </dl>
                 <a href="#top"><hr></a>
             </article>
-
-            <article id="every-method">
-                <h2>Array.prototype.every()</h2>
-
+            <article id="the-methods">
+                <h2>The methods</h2>
                 <dl>
-                    <dt>every() method</dt>
+                    <dt>some()</dt>
+                    <dd>
+                        <pre class="formula"><span class="variable">arr</span>.some(<span class="variable">testFn</span>)</pre>
+                    </dd>
+                    <dd>Returns:
+                        <ul>
+                            <li><code>true</code>: when it encounters an element that satisfy the test function. It doesn't check the rest of the elements.</li>
+                            <li><code>false</code>: if none satisfy the test function.</dd>
+                        </ul>
+                    </dd>
+                    
+                    <dt>every()</dt>
                     <dd>
                         <pre class="formula"><span class="variable">arr</span>.every(<span class="variable">testFn</span>)</pre>
                     </dd>
-                    <dd><code>every()</code> method tests whether every elements in the array pass the test implemented by provided function.</dd>
                     <dd>Returns:
                         <ul>
-                            <li><code>false</code>: when it finds an element returning <code>false</code>when tested. It doesn't check the rest of the elements.
+                            <li><code>false</code>: when it encounters an element that doesn't satisfy the test function. It doesn't check the rest of the elements.
                             </li>
-                            <li><code>true</code>: if by the end of the element tests, none returning <code>false</code>.</dd>
+                            <li><code>true</code>: if by the end of run, all satisfy the test function.</dd>
                         </ul>
                     </dd>
-                    <dd>It doesn't modify the array.</dd>
+                    
+                    <dt>find()</dt>
+                    <dd>
+                        <pre class="formula"><span class="variable">arr</span>.find(<span class="variable">testFn</span>)</pre>
+                    </dd>
+                    <dd>Returns:
+                        <ul>
+                            <li>The first element that satisfy the test function.</li>
+                            <li><code>undefined</code> if none of the element satisfy the test function</li>
+                        </ul>
+                    </dd>
+                    <dt>findIndex()</dt>
+                    <dd>
+                        <pre class="formula"><span class="variable">arr</span>.findIndex(<span class="variable">testFn</span>)</pre>
+                    </dd>
+                    <dd>Returns:
+                        <ul>
+                            <li>The index of first element that satisfy the test function.</li>
+                            <li><code>-1</code> if none of the element satisfy the test function</li>
+                        </ul>
+                    </dd>
 
                 </dl>
                 <a href="#top"><hr></a>
@@ -216,31 +248,77 @@ numAllEven;     // false
                 <a href="#top"><hr></a>
             </article>
 
-
-
-            <article id="template">
-                <h2></h2>
-
-                <dl>
-                    <dt></dt>
-                    <dd></dd>
-                    <dd>
-                        <pre class="formula"></pre>
-                    </dd>
-                </dl>
-                <a href="#top"><hr></a>
-            </article>
-
             <article id="wesbos">
                 <h2>Wesbos Javascript30: 07 Array Cardio Practice Day 2</h2>
                 
-                <dl></dl>
+                <dl>
+                    <dt>People array</dt>
+                    <dd>
+<pre class="formula-thin">
+const people = [
+    { name: 'Wes', year: 1988 },
+    { name: 'Kait', year: 1986 },
+    { name: 'Irv', year: 1970 },
+    { name: 'Lux', year: 2015 }
+];
+</pre>
+                    </dd>
+                    <dt>People: Is at least one person 19 or older? Is everyone 19 or older?</dt>
+
+                    <dd>
+<pre class="formula-thin">
+const grownUp = el => (new Date().getFullYear() - el.year) >= 19;
+people.some(grownUp);   // true
+people.every(grownUp);  // false
+
+// or:
+
+people.some(el => (new Date().getFullYear() - el.year) >= 19);  // true
+people.every(el => (new Date().getFullYear() - el.year) >= 19); // false
+</pre>
+                    </dd>   
+
+                    <dt>Comments array</dt>
+                    <dd>
+<pre class="formula-thin">
+const comments = [
+    { text: 'Love this!', id: 523423 },
+    { text: 'Super good', id: 823423 },
+    { text: 'You are the best', id: 2039842 },
+    { text: 'Ramen is my fav food ever', id: 123523 },
+    { text: 'Nice Nice Nice!', id: 542328 }
+];
+</pre>
+                    </dd>
+
+                    <dt>Comments: Find the comment with the ID of 823423. Find the index.</dt>
+                    <dd>
+<pre class="formula-thin">
+comments.find(el => el.id === 823423);          // {text: 'Super good', id: 823423}
+comments.findIndex(el => el.id === 823423);     // 1
+</pre>
+                    </dd>
+
+                    <dt>Comments: Delete the comment with ID of 823423</dt>
+                    <dd>
+<pre class="formula-thin">
+const index = comments.findIndex(el => el.id === 823423);     // 1
+comments.splice(index, 1);
+
+// or just:
+
+comments.splice(comments.findIndex(el => el.id === 823423), 1);
+</pre>
+                    </dd>
+                </dl>
             </article>
 
             <article id="references">
                 <h2>References</h2>
                 <ul>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">MDN: Array.prototype.filter()</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some" target="_blank">MDN: Array.prototype.some()</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every" target="_blank">MDN: Array.prototype.every()</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find" target="_blank">MDN: Array.prototype.find()</a></li>
                 </ul>
             </article>
         </main>
