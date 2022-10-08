@@ -363,6 +363,146 @@ array;
                 <a href="#top"><hr></a>
             </article>
 
+            <article id="wesbos">
+                <h2>Wesbos Javascript30: 04 Array Cardio Practice</h2>
+                
+                <dl>
+                    <dt>Given: array of inventor objects</dt>
+                    <dd>
+<pre class="formula-thin">
+const inventors = [
+    { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+    { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+    { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+    { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+    { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+    { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+    { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+    { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+    { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+    { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+    { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+    { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+];
+</pre>
+                    </dd>
+                    <dt>Task: 3. Sort the inventors by birthdate, oldest to youngest</dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">invBirth</span> = <span class="variable">inventors</span>.sort(<span class="variable">(a, b)</span> => <span class="variable">a.year - b.year</span>)
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+invBirth;
+// (12) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+    0: {first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543}
+    1: {first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642}
+    2: {first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630}
+    3: {first: 'Isaac', last: 'Newton', year: 1643, passed: 1727}
+    4: {first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852}
+    5: {first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909}
+    6: {first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905}
+    7: {first: 'Max', last: 'Planck', year: 1858, passed: 1947}
+    8: {first: 'Marie', last: 'Curie', year: 1867, passed: 1934}
+    9: {first: 'Lise', last: 'Meitner', year: 1878, passed: 1968}
+    10: {first: 'Albert', last: 'Einstein', year: 1879, passed: 1955}
+    11: {first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979}
+</pre>
+                    </dd>
+
+                    <dt>5. Sort the inventors by years lived</dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">invAscending</span> = <span class="variable">inventors</span>.sort(<span class="variable">(a, b)</span> => <span class="variable">(a.passed - a.year) - (b.passed - b.year)</span>);
+
+const <span class="variable">invDescending</span> = <span class="variable">inventors</span>.sort(<span class="variable">(a, b)</span> => <span class="variable">(b.passed - b.year) - (a.passed - a.year)</span>);
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+invAscending;
+// (12) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+    0: {first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852}
+    1: {first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905}
+    2: {first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630}
+    3: {first: 'Marie', last: 'Curie', year: 1867, passed: 1934}
+    4: {first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543}
+    5: {first: 'Albert', last: 'Einstein', year: 1879, passed: 1955}
+    6: {first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642}
+    7: {first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909}
+    8: {first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979}
+    9: {first: 'Isaac', last: 'Newton', year: 1643, passed: 1727}
+    10: {first: 'Max', last: 'Planck', year: 1858, passed: 1947}
+    11: {first: 'Lise', last: 'Meitner', year: 1878, passed: 1968}
+
+invDescending;
+// (12) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+    0: {first: 'Lise', last: 'Meitner', year: 1878, passed: 1968}
+    1: {first: 'Max', last: 'Planck', year: 1858, passed: 1947}
+    2: {first: 'Isaac', last: 'Newton', year: 1643, passed: 1727}
+    3: {first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979}
+    4: {first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909}
+    5: {first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642}
+    6: {first: 'Albert', last: 'Einstein', year: 1879, passed: 1955}
+    7: {first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543}
+    8: {first: 'Marie', last: 'Curie', year: 1867, passed: 1934}
+    9: {first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630}
+    10: {first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905}
+    11: {first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852}
+</pre>
+                    </dd>
+
+                    <dt>Given</dt>
+                    <dd>
+<pre class="formula-thin">
+const people = [
+    'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
+    'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
+    'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
+    'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
+    'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
+];
+</pre>
+                    </dd>
+
+                    <dt>7. Sort the people alphabetically by last name</dt>
+                    <dd>Sort based on the last name</dd>
+                    <dd>
+<pre class="formula">
+const <span class="variable">sortLastname</span> = <span class="variable">people</span>.sort();
+</pre>
+                    </dd>
+                    <dd>Sort based on the first name</dd>
+                    <dd>
+<pre class="formula">
+function <span class="variable">switchName</span>(<span class="variable">name</span>) {
+    const <span class="variable">nameArr</span> = <span class="variable">name</span>.split(", ");
+    return <span class="variable">`${nameArr[1]} ${nameArr[0]}`</span>;
+}
+
+const <span class="variable">sortFirstname</span> = <span class="variable">people</span>.sort(<span class="variable">(a, b)</span> => {
+    <span class="variable">const switchedA = switchName(a);
+    const switchedB = switchName(b);</span>
+    return <span class="variable">(switchedA > switchedB)</span>? <span class="variable">1</span> : <span class="variable">-1</span>;
+})
+</pre>
+                    </dd>
+                    <dd>Results</dd>
+                    <dd>
+<pre class="formula-thin">
+sortLastname;
+// (41) ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Ben-Gurion, David', 'Benchley, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William']
+
+sortFirstname;
+// (41) ['Bierce, Ambrose', 'Bevan, Aneurin', 'Birrell, Augustine', 'Becker, Carl', 'Bennington, Chester', 'Ben-Gurion, David', 'Black, Elk', 'Berne, Eric', 'Bethea, Erin', 'Biondo, Frank', 'Beck, Glenn', 'Berry, Halle', 'Beecher, Henry', 'Belloc, Hilaire', 'Bergman, Ingmar', 'Berlin, Irving', 'Biden, Joseph', 'Billings, Josh', 'Bevel, Ken', 'Benson, Leana', 'Bentsen, Lloyd', 'Berio, Luciano', 'Beethoven, Ludwig', 'Begin, Menachem', 'Beddoes, Mick', 'Berle, Milton', 'Benenson, Peter', 'Berger, Ric', 'Benchley, Robert', 'Blair, Robert', 'Beckett, Samuel', 'Bernhard, Sandra', 'Bellow, Saul', 'Bent, Silas', 'Biko, Steve', 'Benn, Tony', 'Blair, Tony', 'Benjamin, Walter', 'Berry, Wendell', 'Blake, William', 'Berra, Yogi']
+</pre>
+                    </dd>
+                </dl>
+            </article>
+
             <article id="references">
                 <h2>References</h2>
                 <ul>

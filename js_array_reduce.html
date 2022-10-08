@@ -817,11 +817,72 @@ const positiveSquare = numbers.reduce(
 </pre>
                     </dd>
                 </dl>
-
-
-
                 <a href="#top"><hr></a>
             </article>
+
+            <article id="wesbos">
+                <h2>Wesbos Javascript30: 04 Array Cardio Practice</h2>
+                
+                <dl>
+                    <dt>Given: array of inventor objects</dt>
+                    <dd>
+<pre class="formula-thin">
+const inventors = [
+    { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+    { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+    { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+    { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+    { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+    { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+    { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+    { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+    { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+    { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+    { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+    { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+];
+</pre>
+                    </dd>
+                    <dt>Task: 4. How many years did all the inventors live all together?</dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">invSum</span> = <span class="variable">inventors</span>.reduce(<span class="variable">(total, inv)</span> => <span class="variable">total + (inv.passed - inv.year)</span>, <span class="variable">0</span>);
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+invSum;     // 861
+</pre>
+                    </dd>
+
+                    <dt>Given: vehicle data</dt>
+                    <dd>
+<pre class="formula-thin">
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+</pre>
+                    </dd>
+                    <dt>8. Sum up the instances of each of each vehicle</dt>
+                    <dd>
+<pre class="formula">
+const <span class="variable">vehicle</span> = <span class="variable">data</span>.reduce(<span class="variable">(summary, val)</span> => {
+    <span class="variable">if (!(val in summary)) {
+        summary[val] = 0;
+    } 
+    summary[val] += 1;</span>
+    return <span class="variable">summary</span>;
+}, <span class="variable">{}</span>)
+</pre>
+                    </dd>
+                    <dd>Result</dd>
+                    <dd>
+<pre class="formula-thin">
+vehicle;     // {car: 5, truck: 3, bike: 2, walk: 2, van: 2}
+</pre>
+                    </dd>
+                </dl>
+            </article>
+
 
             <article id="references">
                 <h2>References</h2>
