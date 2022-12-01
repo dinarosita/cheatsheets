@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React useHistory</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React: useHistory</h1></a>
+    </header>
+
+    <main class="html_notes git_notes">
+      <section>
+        <h2>Navigate away upon submitting</h2>
+        <ul>
+          <li>
+            We want to give feedback to the user once the form is submitted,
+            that it is work. One way to do it is to navigate away from the page
+            once the request is sent.
+          </li>
+          <li>
+            We can navigate programatically, once we are done with certain task.
+            In this case, once we are done with sending an http request.
+          </li>
+          <li>
+            React router can implement this easily. Using built in "hook" called
+            <code>useHistory</code>. Other third party packages also can provide
+            their own hook. Or we can build our on hook.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>useHistory</h2>
+        <p><code>NewMeetup.js</code></p>
+        <pre class="formula-thin">
+<span class="variable"><b>import { useHistory } from "react-router-dom";</b></span>
+...
+
+function NewMeetupPage() {
+    <span class="variable"><b>const history = useHistory();</b></span>
+
+    function addMeetupHandler(meetupData) {
+        fetch(
+            "https://react-getting-started-4bb5a-default-rtdb.firebaseio.com/meetups.json",
+            {
+                method: "POST",
+                body: JSON.stringify(meetupData),
+                headers: { "Content-Type": "application/json" },
+            }
+        )<span class="variable"><b>.then(() =&gt; {
+            history.replace("/");
+        });</b></span>
+
+        return (
+            &lt;section&gt;
+                    &lt;h1&gt;Add New Meetup&lt;/h1&gt;
+                    &lt;NewMeetupForm onAddMeetup={addMeetupHandler} /&gt;
+            &lt;/section&gt;
+        )
+    }
+}
+</pre>
+            <ul>
+                <li>We can call the hook <code>useHistory</code> from inside the function where we sent the <code>POST</code> http request.</li>
+                <li>That gives us a history object, an object that exposes certain method to us that allow us to manipulate the browser history. For example, to navigate away.</li>
+            </ul>
+            <h3>fetch().then()</h3>
+            <ul>
+                <li><code>fetch()</code> returns a promise, which resolve as soon as it's done</li>
+                <li>Then we can add the <code>.then(...)</code> block on the <code>fetch()</code>. It's in the <code>then</code> function we want to execute the history and some method to navigate away.</li>
+                <li><code>history.push()</code> method: to push a new page onto the stack of pages, in that case we could then use back button to back to the previous page - Doesn't suit our purpose here.</li>
+                <li><code>history.replace()</code> method: will navigate us away, but won't allow us to use the back button to go back to the previous page.</li>
+                <li>Pass the target path as argument:
+                    <ul><li><code>('/')</code> Navigate to the starting page.</li></ul>
+                </li>
+            </ul>
+      </section>
+      <section>
+        <h2>Resources</h2>
+        <ul>
+            <li><a href="https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146676#overview" target="_blank">Udemy - Navigating programatically</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+  </body>
+</html>

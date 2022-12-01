@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Route and Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <header>
+            <a href="./index.html"><h1>React: Routing and Page Component</h1></a>
+        </header>
+        
+        <main class="html_notes git_notes">
+            <section>
+                <h2>Installation</h2>
+                <ul>
+                    <li>npm install --save react-router-dom@5
+                        <ul>
+                            <li>Install new dependency, intall new third party package into this project. Using npm install with package name added. the @5 at the end ensure the correct version is used</li>
+                            <li>allow us to add routing functionality to react. Handle url and change what's visible on the screen without fetching new html pages.</li>
+                        </ul>
+                    </li>
+                    <li>package.json: new entry was automatically updated with:
+                        <ul>
+                            <li>"dependencies": { ... "react-router-dom": "^5.3.4", ...}</li>                            
+                        </ul>
+                    </li>
+                    <li>Now if project is closed and open again and npm install is triggered again, router will automatically be installed as well because it's now a part of the project. (We don't need to do npm install separately from the moment earlier with router mentioning</li>
+                    <li>npm start
+                        <ul>
+                            <li>to bring up development server</li>
+
+                        </ul><li>Now we can add routing. what does it mean exactly? we can add routing tool to our to our code we can have the thing watching url changes and we need to let this tool know which component should be loaded as a page for which route/url.</li>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Organizing</h2>
+                <ul>
+                    <li>src &#128449;
+                        <ul><li>components &#128449;</li>
+                            <li>pages &#128449;
+                                <ul>
+                                    <li>AllMeetups.js</li>
+                                    <li>NewMeetup.js</li>
+                                    <li>Favourites.js</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Starting files</h2>
+                <h3>index.js</h3>
+                <p>Import BrowserRouter component from react-router-dom. This is initializing the router package and make the project awares of this app and  ensure it watches out URL. Next step is to define the URL we want to support and which component  chould be loaded for different url. We do that in app.js</p>
+<pre class="formula-thin">
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from "react-router-dom";
+
+import './index.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    &lt;BrowserRouter&gt;
+        &lt;App /&gt;
+    &lt;/BrowserRouter&gt;
+);
+</pre>
+                <h3>App.js</h3>
+                <ul>
+                    <li>Import Route component from react-router-dom. Role: define different paths in the URL we want to listen to and which component should be loaded for these different paths</li>
+                    <li>Import all the page components. Remember that js extension can be omitted.</li>
+                    <li>Inside the div returned by function App, we can use Route component with attribute/prop "path" which taking a string of the path of the URL after the domain URL. Example of the domain path:
+                        <ul>
+                            <li>localhost:3000</li>
+                            <li>my-page.com</li>
+                        </ul>
+                    Example path:
+                        <ul>
+                            <li>/ (no path at all)</li>
+                            <li>/favourites</li>
+                            <li>/products</li>
+                        </ul>
+                    </li>
+                </ul>
+<pre class="formula-thin">
+import { Route, Switch } from 'react-router-dom';
+
+import AllMeetupsPage from './pages/AllMeetups';
+import NewMeetupPage from './pages/NewMeetup';
+import FavouritesPage from './pages/Favourites'; 
+
+function App() {
+    return (
+        &lt;div&gt;
+            &lt;Switch&gt;
+                &lt;Route path="/"&gt;
+                    &lt;AllMeetupsPage / exact={true}&gt;
+                &lt;/Route&gt;
+                &lt;Route path="/new-meetup"&gt;
+                    &lt;NewMeetupPage /&gt;
+                &lt;/Route&gt;
+                &lt;Route path="/favourites"&gt;
+                    &lt;FavouritesPage. /&gt;
+                &lt;/Route&gt;
+            &lt;/Switch&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default App;
+</pre>
+            </section>
+
+            <section>
+                <h2>Basic page file</h2>
+                <h3>Example: AllMeetups.js</h3>
+<pre class="formula-thin">
+function AllMeetupsPage() {
+    return &lt;div&gt;All Meetups Page&lt;/div&gt;
+}
+
+export default AllMeetupsPage;
+</pre>
+            </section>
+            <section>
+                <h2>Rendering</h2>
+                
+                <ul>
+                    <li>import { Route } from 'react-router-dom';
+                        <ul>
+                            <li>The standard rendering of react: All correct parts of path will be rendered. Which mean child path will include the parent path:</li>
+                            <li>localhost:3000
+                                <ul>
+                                    <li>All Meetups Page</li>
+                                </ul>
+                            </li>
+                            <li>localhost:3000/favourites
+                                <ul>
+                                    <li>All Meetups Page</li>
+                                    <li>Favourites Page</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>import { Route, Switch } from 'react-router-dom';
+                        <ul>
+                            <li>Often this is not desired. Use component Switch.Now only one will be rendered.</li>
+                            <li>In the function, use component Switch to wrapp all the component Route</li>
+                            <li>This will read from the top and render the first match. If it's the parent route at the top, it will be used.</li>
+                            <li>localhost:3000/favourites
+                                <ul>
+                                    <li>All Meetups Page</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Props "exact" is added to prevent above
+                        <ul>
+                            <li><code>exact={true}</code> or just <code>exact</code></li>
+                            <li>localhost:3000/favourites
+                                <ul>
+                                    <li>Favourites Page</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <p></p>
+
+            </section>
+           
+
+            <section>
+
+                <h2>Sources</h2>
+                <ul>
+                    <li><a href="https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146630#content" target="_blank">Udemy - NextJS - ReactJS - Adding Routing</a></li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
+    </body>
+</html>

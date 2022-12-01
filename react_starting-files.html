@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Starting Files</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <header>
+            <a href="./index.html"><h1>React: Starting Files</h1></a>
+        </header>
+        
+        <main class="html_notes git_notes">
+
+            <section>
+                <h2>index.html</h2>
+                <p>Just leave it alone as is and exist in public folder. Basically empty to be taken over by index.js</p>
+<pre class="formula-thin">
+...
+&LT;body&GT;
+    &LT;noscript&GT;You need to enable JavaScript to run this app.&LT;/noscript&GT;
+    &LT;div id="root"&GT;&LT;/div&GT;
+    &LT;!--
+        This HTML file is a template. ...
+    --&GT;
+&LT;/body&GT;
+...
+</pre>
+            </section>
+
+
+            <section>
+                <h2>index.js</h2>
+<pre class="formula-thin">
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import './index.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;App /&gt;);
+</pre>
+            </section>
+
+            <section>
+                <h2>index.css</h2>
+                <p>Delete all, will entirely replaced by different css.</p>
+            </section>
+
+            <section>                     
+                <h2>App.js</h2>
+<pre class="formula-thin">
+function App() {
+    return &lt;div&gt;Dina&lt;/div&gt;;
+}
+
+export default App;
+</pre>
+            </section>  
+
+            <section>                     
+                <h2>Component1.js</h2>
+<pre class="formula-thin">
+function Component1() {
+    return &lt;div&gt;A component&lt;/div&gt;;
+}
+
+export default Component1;
+</pre>
+            </section>  
+            <section>                     
+                <h2>Page1.js</h2>
+<pre class="formula-thin">
+function Page1Page() {
+    return &lt;div&gt;A Page&lt;/div&gt;;
+}
+
+export default Page1;
+</pre>
+            </section>  
+            
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
+    </body>
+</html>

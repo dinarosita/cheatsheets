@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Firebase & React fetch</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>Firebase and React fetch</h1></a>
+    </header>
+
+    <main class="html_notes git_notes">
+      <section>
+        <h2>Using Firebase as Backend</h2>
+        <h3>Setting up Firebase database and API</h3>
+        <ul>
+          <li>
+            Open
+            <a href="http://firebase.google.com/" target="_blank">firebase</a>
+            <ul>
+              <li>Login with google account</li>
+            </ul>
+          </li>
+          <li>
+            Create new project
+            <ul>
+              <li><code>react-getting-started</code></li>
+              <li>Disable analytics for now</li>
+              <li>Click <code>Create Project</code></li>
+            </ul>
+          </li>
+          <li>
+            Create database inside the project
+            <ul>
+              <li>
+                Choose <code>Realtime Database</code> - Find it in the left nav
+                bar, under <code>build</code> tab.
+              </li>
+              <li>
+                Click <code>Create Database</code> button
+                <ul>
+                  <li>Leave it at the default region</li>
+                  <li>
+                    Choose <code>Start in Test Mode</code>
+                    <ul>
+                      <li>Test mode: Able to send request.</li>
+                      <li>Locked mode: Not able to send request.</li>
+                    </ul>
+                  </li>
+
+                  <li>Click <code>enable</code></li>
+                  <li>
+                    This sets up a database and an API, to which we can send
+                    request.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Realtime Database and API</h3>
+        <ul>
+          <li>
+            The API is the URL at the top of the consule. We can use that to
+            send request to
+            <ul>
+              <li>
+                Example:
+                https://react-getting-started-4bb5a-default-rtdb.firebaseio.com
+              </li>
+            </ul>
+          </li>
+          <li>
+            Behind the scene on Firebase server, the URL will be parsed.
+            Depending on the which kind of request we send, data attached to the
+            request will be extracted and stored in database automatically.
+            Therefore what look like we direct our request to database, is
+            actually sending request to API which behind the scene stores them
+            into database.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Storing new data to Firebase's database</h2>
+        <h3>Packing data</h3>
+        <ul>
+          <li>
+            In <code>react-course</code> we will send the request from
+            <code>newMeetupPage</code> component. We can also do it from , but
+            since it's already a long file, will do it on the former one.
+          </li>
+          <li>
+            A new meetup data is gathered in <code>newMeetupForm</code> and
+            packaged neatly as <code>meetupData</code> const.
+          </li>
+          <li>
+            Since we are going to send the API request through the parent
+            component <code>newMeetupPage</code>, we need to inlcude argument
+            <code>props</code> in the <code>newMeetupForm</code> component to be
+            passed to the parent.
+          </li>
+          <li>
+            On <code>props</code>, we can have a prop that function as a value.
+            A function that then we can call from inside here. We'll name it
+            <code>onAddMeetup</code> prop. Pass the
+            <code>meetupData</code> const as an argument.
+            <ul>
+              <li><code>props.onAddMeetup(meetupData);</code></li>
+            </ul>
+          </li>
+          <li>
+            Add the prop <code>onAddMeetup</code> as the prop to
+            <code>NewMeetupForm</code> in <code>NewMeetupPage</code> function.
+            The value (what's inside the <code>{}</code>) is a function. We'll
+            name it <code>addMeetupHandler</code>. Write it without calling
+            (without <code>()</code>), just pointing at it.
+          </li>
+        </ul>
+
+        <h3>Alternative ways to send http request</h3>
+        <ul>
+          <li>
+            <code>fetch()</code>: a default standard JS function (not made by
+            react) to send an http request. Supported in modern browsers.
+          </li>
+          <li>
+            A third party packages like <code>Axios</code>, a popular library
+            for sending HTTP requests.
+          </li>
+        </ul>
+        </section>
+        <section>
+
+        <h2>fetch()</h2>
+        <p>Place <code>fetch()</code> inside Inside
+            <code>addMeetupHandler(meetupData)</code> function</p>
+        </ul>
+        <p><code>NewMeetup.js</code></p>
+<pre class="formula-thin">
+import <span class="variable">NewMeetupForm</span> from "../components/meetups/NewMeetupForm";
+
+function <span class="variable">NewMeetupPage</span>() {
+    function <span class="variable">addMeetupHandler</span>(<span class="variable">meetupData</span>) {
+        <span class="variable"><b>fetch(
+            "https://react-getting-started-4bb5a-default-rtdb.firebaseio.com/meetups.json",
+            {
+                method: "POST",
+                body: JSON.stringify(<span class="variable">meetupData</span>),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );</b></span>
+    }
+
+    return (
+        &lt;section&gt;
+            &lt;h1&gt;Add New Meetup&lt;/h1&gt;
+            &lt;<span class="variable">NewMeetupForm</span> <span class="variable">onAddMeetup</span>={<span class="variable">addMeetupHandler</span>} /&gt;
+        &lt;/section&gt;
+    );
+}
+
+export default <span class="variable">NewMeetupPage</span>;
+</pre>
+    <h3>Arguments</h3>
+
+        <ol>
+            <li><code
+                >"https://react-getting-started-4bb5a-default-rtdb.firebaseio.com/meetups.json"</code
+              ><br>The API URL string
+                <ol><li>
+                        Plain URL: <code
+                          >https://react-getting-started-4bb5a-default-rtdb.firebaseio.com</code
+                        >
+                      </li></li>
+                  <li>
+                    With extra segments <code>/meetups</code>that's
+                    translated into folders/tables/collection in the database.
+                  </li>
+                  <li>
+                    Need to add <code>.json</code> to the end. Not React
+                    specific, it's Firebase required.
+                  </li>
+                </ol>
+            </li>
+            <li><code>{...}</code><br>An object detailing the configuration of the fetch function call / http request
+                <ol>
+                    <li><code>method: "POST",</code>
+                    <ul>
+                        <li>Most API requires <code>POST</code> request for storing data (there are some exceptions).
+                        </li>
+                        <li>By default, <code>fetch</code> sends a <code>GET</code> request.</li>
+                        <li>We can specify which html method we want to use in <code>method</code> property of the configuration object.</li>
+                    </ul></li>
+                    <li>
+                        <code>body: JSON.stringify(meetupData),</code>
+                        <ul>
+                            <li>When we send a post request, we need to specify which data we want to store. For that we are using <code>body</code> field.</li>
+                            <li>The data should typically be in json format. The most popular data format for transfering data in http requests.</li>
+                            <li>In js, we can create json by using built in json object and calling stringify method. For the argument, we can pass js object or arrays, or value, and it will be converted to json.</li>
+                        </ul>
+                    </li>
+                    <li><code>headers: { "Content-Type: "application/json"}</code>
+                    <ul>
+                        <li>Add metada to the outgoing request. Making it clear that this request carries json data. Some API requires this.</li>
+                    </ul></li>
+                </ol>
+            </li>
+        </ol>
+      </section>
+      <section>Adding data through browser</section>
+      <ul>
+        <li>Fill in the form, click submit.</li>
+        <li>Result:
+            <ul>
+                <li>No change in the screen (yet)</li>
+                <li>Realtime database at Firebase is updated!</li>
+            </ul></li>
+      </ul>
+      <p><code>At firebase</code></p>
+<pre class="formula-thin">
+https://react-getting-started-4bb5a-default-rtdb.firebaseio.com/
+<span class="variable">&#9660; meetups</span>
+    <span class="variable">&#9660; -NHtvll1hWqqqH2B7M-n</span>
+        address:"World"
+        description:"Meet Dina around the world."
+        image:"https://www.whiteboardjournal.com/wp-content/uploads/2014/09/duaransel071.jpg"
+        title:"Meet Dina"
+    <span class="variable">&#9660; -NHtw09CbQW8mveTH1P0</span>
+        address:"Under Basketball Ring"
+        description:"Meet Ryan under basketball ring"
+        image:"https://www.whiteboardjournal.com/wp-content/uploads/2014/09/duaransel071.jpg"
+        title:"Meet Ryan"
+</pre>
+      <section>
+        <h2>Resources</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146672#overview"
+              target="_blank"
+              >Udemy - React Firebase</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+  </body>
+</html>

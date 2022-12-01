@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React Fetch</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React: Fetch</h1></a>
+    </header>
+
+    <main class="html_notes git_notes">
+      <section>
+        <h2>Fetch</h2>
+        <h3>response.json()</h3>
+
+<pre class="formula">
+fetch(
+    <span class="variable">"...api url..."</span>
+).then(
+    <span class="variable">response</span> => <span class="variable">{return response.json)();}</span>
+).then(
+    <span class="variable">data</span> => <span class="variable">{...}</span>
+)</pre>
+
+        <ul>
+          <li>
+            By default, <code>fetch</code> http request is executing <code>GET</code> method. So the second parameter, configuration object, is not needed. Simply first argument of API URL is enough.
+          </li>
+          <li>Since <code>fetch</code> returns a promise, we can use <code>then</code> method to handle the respond.</li>
+          <li>The Response interface of the Fetch API represents the response to a request.<code>response</code> object is used as argument.</li>
+          <li><code>response.json()</code> - Returns a promise that resolves with the result of parsing the response body text as JSON.
+            <ul>
+                <li><code>response.json()</code> method to read the data. It gives us access to the data, automatically convert it from json to a plain js object.</li>
+                <li><code>response.json()</code> will actually returns a promise as well, so we need to wait this promise to resolve. That's why it has to be coded as a return first, the <code>data</code> is processed further.</li>
+            </ul>
+        </li>
+    </ul>
+    <h3>useState hook</h3>
+    <ul>
+        <li>We can't simply code <code>return</code> after the fetch codes though, because the return is not going to wait until the promises are fullfilled to execute.</li>
+        <li>Typically <code>async</code> and <code>await</code> can be used.However we can't use it in React, because it's turning the component to a promise (that's what <code>async</code> does), and the component is no longer valid React component. Because React component function must be synchronous and must not return a promise. They have to directly return a <code>jsx</code>.<br>
+<pre class="formula-thin">
+<b>async</b> function AllMeetupPage() {
+    <b>await</b> fetch(...).then(...).then(...);
+    <b>return</b> (...);
+};
+</pre>
+               </li>
+               <li>Instead we can return a temporary <code>jsx</code> code, for example a loading spinner, and once we have the response, we can update the returned <code>jsx</code>. To change what's visibe on the screen, use "state". We use state to choose what's visible on the screen when certain condition changed. </li>
+            </ul>
+
+            <h3>useEffect hook</h3>
+            <ul>
+                <li>To prevent the eternal loop</li>
+                <li>2 arguments:
+                    <ol>
+                        <li>arrow function - Please the fetch here.</li>
+                        <li>array of dependencies</li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+          
+        </ul>
+        
+        <p><code>AllMeetup.js</code></p>
+<pre class="formula-thin">
+import MeetupList from "../components/meetups/MeetupList";
+
+function AllMeetupsPage() {
+    return (
+        fetch(
+            "https://react-getting-started-4bb5a-default-rtdb.firebaseio.com/meetups.json"
+          );
+        <section>
+        <h1>All Meetups</h1>
+        <MeetupList meetups={DUMMY_DATA} />
+        </section>
+    );
+}
+    
+export default AllMeetupsPage;
+    
+</pre>
+      </section>
+      <section>
+        <h2>Resources</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146676#overview"
+              target="_blank"
+              >Udemy - Navigating programatically</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Response"
+              target="_blank"
+              >MDN - API Response</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+  </body>
+</html>

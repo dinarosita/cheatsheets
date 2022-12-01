@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Links and Navigation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <header>
+            <a href="./index.html"><h1>React: Links and Navigation</h1></a>
+        </header>
+        
+        <main class="html_notes git_notes">
+
+            <section>
+                <h2>Organizing</h2>
+                    <ul>                        
+                        <li>src &#128449;
+                            <ul><li>components &#128449;
+                                <ul>
+                                    <li>layout &#128449;
+                                        <ul>
+                                            <li>MainNavigation.js</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                                <li>pages &#128449;
+                                    <ul>
+                                        <li>AllMeetups.js</li>
+                                        <li>NewMeetup.js</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+            </section>
+            <section>
+                <h2>Link component</h2>
+                <p>Provided by react dom package</p>
+                <ul>
+                    <li>import { Link } from "react-router-dom";</li>
+                    <li>The regular anchor tag "a href" link html element actually work, but has one big disadvantage. Upon clicking, new request will be sent to server. The server is the one hosting react application and the server will reply with our application and the router will figure out which page to render. So it will work too. However it will be redundant. We already are in our running react application. It will be great if we don't leave it just because we want to navigate somewhere. Also sometimes sending extra request is not something we neccesarily want to do.</li>
+                    <li>Link component can be wrapped around our link text just like anchor tag and render our anchor tag in the end but internally react router dom attaches a click listener to the anchor tag and when we click on it, it will prevent browser default of sending request and instead parse the URL, change the browser url bar, but not sendign request, instead load the appropriate component onto the screen just with react and js. We stayed on the already loaded page. No extra request sent.</li>
+                    <li>"to" prop for the path</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Starting files</h2>
+                <h3>MainNavigation.js</h3>
+                <p>Import Link component from react-router-dom. </p>
+<pre class="formula-thin">
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from "react-router-dom";
+
+import './index.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    &lt;BrowserRouter&gt;
+        &lt;App /&gt;
+    &lt;/BrowserRouter&gt;
+);
+</pre>
+                <h3>App.js</h3>
+                <ul>
+                    <li>Import MainNavigation component from components/layout</li>
+                    <li>Add component above the switch statement (as self closing tag)</li>
+                    </li>
+                </ul>
+<pre class="formula-thin">
+import { Route, Switch } from 'react-router-dom';
+
+import AllMeetupsPage from './pages/AllMeetups';
+import NewMeetupPage from './pages/NewMeetup';
+import FavouritesPage from './pages/Favourites'; 
+
+function App() {
+    return (
+        &lt;div&gt;
+            &lt;Switch&gt;
+                &lt;Route path="/"&gt;
+                    &lt;AllMeetupsPage / exact={true}&gt;
+                &lt;/Route&gt;
+                &lt;Route path="/new-meetup"&gt;
+                    &lt;NewMeetupPage /&gt;
+                &lt;/Route&gt;
+                &lt;Route path="/favourites"&gt;
+                    &lt;FavouritesPage. /&gt;
+                &lt;/Route&gt;
+            &lt;/Switch&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default App;
+</pre>
+            </section>
+
+            <section>
+                <h2>Basic page file</h2>
+                <h3>Example: AllMeetups.js</h3>
+<pre class="formula-thin">
+function AllMeetupsPage() {
+    return &lt;div&gt;All Meetups Page&lt;/div&gt;
+}
+
+export default AllMeetupsPage;
+</pre>
+            </section>
+            <section>
+                <h2>Rendering</h2>
+                
+                <ul>
+                    <li>import { Route } from 'react-router-dom';
+                        <ul>
+                            <li>The standard rendering of react: All correct parts of path will be rendered. Which mean child path will include the parent path:</li>
+                            <li>localhost:3000
+                                <ul>
+                                    <li>All Meetups Page</li>
+                                </ul>
+                            </li>
+                            <li>localhost:3000/favourites
+                                <ul>
+                                    <li>All Meetups Page</li>
+                                    <li>Favourites Page</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>import { Route, Switch } from 'react-router-dom';
+                        <ul>
+                            <li>Often this is not desired. Use component Switch.Now only one will be rendered.</li>
+                            <li>In the function, use component Switch to wrapp all the component Route</li>
+                            <li>This will read from the top and render the first match. If it's the parent route at the top, it will be used.</li>
+                            <li>localhost:3000/favourites
+                                <ul>
+                                    <li>All Meetups Page</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Props "exact" is added to prevent above
+                        <ul>
+                            <li><code>exact={true}</code> or just <code>exact</code></li>
+                            <li>localhost:3000/favourites
+                                <ul>
+                                    <li>Favourites Page</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <p></p>
+
+            </section>
+           
+
+            <section>
+
+                <h2>Sources</h2>
+                <ul>
+                    <li><a href="https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146634#content" target="_blank">Udemy - NextJS - ReactJS - Adding Links and navigation bar</a></li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
+    </body>
+</html>

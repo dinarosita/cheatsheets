@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React CSS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <header>
+            <a href="./index.html"><h1>React: CSS Modules</h1></a>
+        </header>
+        
+        <main class="html_notes git_notes">
+            <section>
+                <h2>Background</h2>
+                <p>It will be nice...</p>
+                <ul>
+                    <li>Typically each component has their own css</li>
+                    <li>CSS will be styled in a file then scoped into the component.</li>
+                </ul>
+                <p>Something like this:</p>
+                <ul>
+                    <code>
+                        <li>components &#128449; &gt; layout &#128449;
+                            <ul>
+                                <li>MainNavigation.css</li>
+                                <li>MainNavigation.js</li>
+                            </ul>
+                        </li>
+                    </code>
+                </ul>
+            </section>
+            <section>
+                <h2>CSS Modules of Create-React-App</h2>
+                <p>CSS Modules:</p>
+                <ul>
+                    <li>Create-React-App's built-in feature that allows us to scope styles into components. Behind the scene code transformation that allow us to attach css file to specific components.</li>
+                    <li>File extension: <code>module.css</code></li>
+                </ul>
+                <p>Becoming like this:</p>
+                <ul>
+                    <code>
+                        <li>components &#128449; &gt; layout &#128449;
+                            <ul>
+                                <li>MainNavigation.module.css</li>
+                                <li>MainNavigation.js</li>
+                            </ul>
+                        </li>
+                    </code>
+                </ul>
+            </section>
+            <section>
+                <h2>Steps</h2>
+                <ul>
+                    <li>To the folder of <code>ComponentName.js</code> file, add: <code>ComponentName.module.css</code></li>
+                    <li>Import css file to the js file: <code>import classes from "./MainNavigation.module.css";</code></li>
+                    <li>Add <code>classname</code> started with <code>classes.</code> for example <code>className = {classes.header}</code> to the element/component.</li>
+                    <li>Style it in the <code>module.css</code> file like this: <code>.header { color: red; }</code>. This header styling will only affect the class header within the MainNavigation component.</li>
+                    <li>If the <code>module.css</code> is given by a third party, just adapt the <code>js</code> file by adding respective class names.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Coding</h2>
+                <p>&#128449; src &gt; components &gt; layout</p>
+                <ul>
+                    <li>MainNavigation.css<br>
+<pre class="formula-thin">
+<span class="variable">.header</span> {
+    color: red;
+}
+</pre>
+                    </li>
+                    <li>MainNavigation.js<br>
+<pre class="formula-thin">
+import { Link } from "react-router-dom";
+<span class="variable">import classes from "./MainNavigation.module.css";</span>
+
+function MainNavigation() {
+    return (
+    &lt;header <span class="variable">className={classes.header}</span>&gt;
+        ...
+</pre>
+                    </li>
+                </ul>
+            </section>
+            <section>
+
+                <h2>Resources</h2>
+                <ul>
+                    <li><a href="https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146640#overview" target="_blank">Udemy - React CSS</a></li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
+    </body>
+</html>

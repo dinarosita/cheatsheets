@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React useState</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React Hook: useState</h1></a>
+      <nav id="navMenu"></nav>
+    </header>
+
+    <main class="js_notes">
+        <article id="rules">
+
+            <h2>useState rules</h2>
+            <ul>
+                <li>
+                    Must be used directly in the main body in component function. Top
+                    level.
+                </li>
+                <li>
+                    Multiple useState can be used, but must be in the same order of
+                    calling each time.
+                </li>
+                <li>Can't be called conditionally</li>
+                <li>Can't be inside class.</li>
+                <li>Can't be nested or put in any wrapper.</li>
+            </ul>
+            <a href="#top"><hr></a>
+        </article>
+        <article id="syntax">
+
+            <h2>Syntax</h2>
+
+            <ul>
+            <li>
+                Don't forget to import fom <code>react</code>
+                <ul>
+                <li><code>import { useState } from react;</code></li>
+                </ul>
+            </li>
+            <li><code>useState()</code> is a function</li>
+            <li>
+                What will be passed to <code>usestate</code> (in the parenthesis) is
+                the "default state"
+                <ul>
+                <li><code>useState(4)</code></li>
+                <li>
+                    Meaning the default state is 4. In our counter example, it wll
+                    start at 4.
+                </li>
+                </ul>
+            </li>
+            <li>
+                <code>useState()</code> always returns an array with 2 values:
+                <ol>
+                <li>The current state</li>
+                <li>
+                    The function that will allow us to update the current state.
+                </li>
+                </ol>
+            </li>
+            <li>
+                So usually the return values are not caught as an array, but
+                destructured in line:
+                <ul>
+                <li>Not like this: <code>const arr = useState(4);</code></li>
+                <li>
+                    But like this:
+                    <code>const [count, setCount] = useState(4)</code>
+                </li>
+                </ul>
+            </li>
+            <li>Everytime we call the <code>setCount</code>, that happens upon clicking the + or - button, that trigger calling the decrement or increment function, where inside <code>setCount</code> will be called,  essentially our update function, we rerender our component, with the new value of our count. Just likewhat happen with <code>setState</code> inside a class component.     
+            </li>       
+            </ul>
+            
+            <p><code>app.js</code></p>
+<pre class="formula-thin">
+<span class="variable">import React, { <b>useState</b> } from "react";</span>
+
+function App() {
+    <span class="variable">const [<b>count</b>, <b>setCount</b>] = <b>useState(4)</b>;
+
+    function <b>decrementCount</b>() {
+        <b>setCount</b>(prevCount => prevCount - 1);
+    }
+
+    function <b>incrementCount</b>() {
+        <b>setCount</b>(prevCount => prevCount + 1);
+    }</span>
+
+    return (
+        &lt;div&gt;
+            &lt;button <span class="variable">onClick={<b>decrementCount</b>}</span>&gt;-&lt;/button&gt;
+            &lt;span&gt;<span class="variable"><b>{count}</b></span>&lt;/span&gt;
+            &lt;button <span class="variable">onClick={<b>incrementCount</b>}</span>&gt;+&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default App;
+</pre>
+            
+            <p><code>Rendering (initial state only)</code></p>
+<pre class="formula-thin" style="font-size: 2rem;">
+<button style="font-size: 2rem;">-</button>4<button style="font-size: 2rem;">+</button>
+</pre>
+            <p>Explanations</p>
+        <ul>
+          <li>Use <code>onClick</code> on the buttons, with functions describe what the buttons need to do.</li>
+          <li>If <code>setCount</code> will be used more than once and each time the new count value will be used in the next one, be sure to use  the "function version" in the <code>setCount</code>. the function within will take those intermediary values, instead of the original count value. The same with setting state inside class.
+            <ul>
+                <li>Rather than: <br>
+<pre class="formula-thin">
+function decrementCount() { 
+    setCount(count - 1) 
+}</pre></li>
+                <li>Write it like this: <br>
+<pre class="formula-thin">
+function decrementCount() { 
+    setCount(prevCount => prevCount - 1) 
+}</pre></li>
+                <li>Why? In above, the count value doesn't get updated while still inside the operation. in the case setCount is conducted twice in row, each time it will recall initial count value.</li>
+                <li>For example if we want to trigger 2 decrements each time button is clicked.</li>
+                <li>This will decrement by only 1<br>
+<pre class="formula-thin">
+function decrementCount() { 
+    setCount(count - 1) 
+    setCount(count - 1) 
+}</pre></li>
+                <li>This will decrement by 2<br>
+<pre class="formula-thin">
+function decrementCount() { 
+    setCount(prevCount => prevCount - 1) 
+    setCount(prevCount => prevCount - 1) 
+}</pre></li>
+            </ul>
+            </li>          
+        </ul>
+
+        <a href="#top"><hr></a>
+        </article>
+        <article id="initial_value">
+
+        <h2>The initial value</h2>
+        <ul>
+            <li>Directly
+                <ul>                   
+                    <li>If we hardcode it, it will run every single time we run our function. Every time we render our component. Not much matter if it's "4". But if it's a complex math, for example fib, it can slow down performance of our app.</li>
+                    <li><code>const [count, setCount] = useState(4)</code></li>
+                    <li><code>const [count, setCount] = useState(fibb)</code></li>
+                </ul>
+            </li>
+            <li>As an arrow function
+                <ul>
+                    <li>If it is written as an arrow function, it will be executed only once. This is the best way.
+                        <ul>
+                            <li><code>const [count, setCount] = useState(() => {...code...})</code></li>
+                            <li>or</li>
+                            <li><code>function countInitial() {...code...}</code><br>
+                            <code>const [count, setCount] = useState(() => countInitial())</code></li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+                    
+                    <li>If the function code is written separately and called instead, it will be like the first case. It will run every single time and if this is a long complicated execution, it might slow down the performance.
+                        <ul>                            
+                            <li><code>const [count, setCount] = useState(countInitial())</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <a href="#top"><hr></a>
+        </article>
+        <article id="object_initial_value">
+
+        <h2>Initial value is an object</h2>
+        <p>In class component, if we are updating just 1 property of the initial value, we only need to return that property. The other property that's not updated will still be there. In function component, if we return only some in our <code>useState</code> function, then the whole object is turning into only have those properties. The rest will be missing. So make sure to include the unchanged properties too, even when the value is the same. Easiest way to include all properties is to return <code>{ ...prevState, changedProp: newVal }</code></p>
+<pre class="formula-thin">
+import React, { useState } from "react";
+
+function App() {
+  const [state, setState] = useState({ count: 4, theme: "blue" });
+  const count = state.count;
+  const theme = state.theme;
+
+  function decrementCount() {
+    <b>setState(prevState =&gt; {        
+      return { ...prevState, count: prevState.count - 1 };
+    });</b>
+  }
+
+  function incrementCount() {
+    <b>setState(prevState =&gt; {
+        return { ...prevState, count: prevState.count - 1 };</b>
+    });
+  }
+
+  return (
+    &lt;div&gt;
+      &lt;button onClick={decrementCount}&gt;-&lt;/button&gt;
+      &lt;span&gt;{count} {theme}&lt;/span&gt;
+      &lt;button onClick={incrementCount}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+
+        </pre>
+        <a href="#top"><hr></a>
+        </article>
+        <article id="multiple_hooks">
+            <h2>Multiple hooks</h2>
+
+        <p>Better way to approach this is, by using multiple <code>useState</code> hooks for individual changed properties.</p>
+
+<pre class="formula-thin">
+import React, { useState } from "react";
+
+function App() {
+    const [count, setCount] = useState({ 4 });
+    const [theme, setTheme] = useState({ "blue" });
+
+    function decrementCount() {
+        <b>setCount(prevCount =&gt; prevCount - 1 )</b>
+    }
+
+    function incrementCount() {
+        <b>setCount(prevCount =&gt; prevCount + 1 )</b>
+        <b>setTheme("red")</b>
+    }
+
+    return (
+    &lt;div&gt;
+        &lt;button onClick={decrementCount}&gt;-&lt;/button&gt;
+        &lt;span&gt;{count} {theme}&lt;/span&gt;
+        &lt;button onClick={incrementCount}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+    );
+}
+
+export default App;
+
+</pre>
+<p>This is a grat feature of <code>useState</code>. Making it easy to manage.</p>
+
+        </article>
+ 
+        <article id="webdev">
+            <h2>Based on webdev</h2>
+            <ul>
+                <li>
+                        <a
+                        href="https://www.youtube.com/watch?v=O6P86uwfdR0&list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h"
+                        target="_blank"
+                        >Web Dev: Learn useState In 15 Minutes - React Hooks Explained</a
+                        >
+                </li>
+                <li>Project in React subfolder webdev-react-hooks</li>
+            </ul>
+            </article>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+    <script src="./navArticle.js"></script>
+  </body>
+</html>

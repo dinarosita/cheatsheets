@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Scheme</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <header>
+            <a href="./index.html"><h1>React: Scheme</h1></a>
+        </header>
+        
+        <main class="html_notes git_notes">
+            <section>
+                <h2>Organizing project</h2>
+                <h3>react-course</h3>
+                    <ul>
+                        <li>&#128449; <code>node_modules</code>  - Not modified so far</li>
+                        <li>&#128449; <code>public </code> - Not modified so far
+                            <ul>
+                                <li><code>index.html</code></li>
+                                <li>And other supporting files for <code>index.html</code></li>
+                            </ul>
+                        </li>
+                        <li>&#128449; <code>src</code>
+                            <ul>
+                                <li>&#128449; <code>components</code>  - Folder for components that are embedded in other upper components
+                                    <ul>
+                                        <li>&#128449; <code>layout</code>
+                                            <ul>
+                                                <li><code>MainNavigation.css</code></li>
+                                                <li><code>MainNavigation.js</code></li>
+                                            </ul>
+                                        </li>
+                                        <li>&#128449; <code>meetups</code>
+                                            <ul>
+                                                <li><code>MeetupItem.js</code></li>
+                                                <li><code>MeetupList.js</code></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>&#128449; <code>pages</code> - Folder for components that be loaded as pages
+                                    <ul>
+                                        <li><code>AllMeetups.js</code></li>
+                                        <li><code>Favourites.js</code></li>
+                                        <li><code>NewMeetup.js</code></li>
+                                    </ul>
+                                </li>
+                                <li><code>App.js</code></li>
+                                <li><code>index.css</code></li>
+                                <li><code>index.js</code></li>
+                            </ul>
+                        </li>
+                        <li><code>.gitignore</code></li>
+                        <li><code>{} package-lock.json</code></li>
+                        <li><code>{} package.json</code> - Dependencies organized here. Automatically get changed</li>
+                        <li><code>README.md</code></li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+
+                <h2>Notes</h2>
+                <ul>
+                    <li>Components and pages folders are both containing components, but the one that will be loaded as pages is organized under folder pages for keeping files tidy and easier to work with. They are actually built the same way because both are components. Components in pages are those will be loaded by router when certain url are visited.</li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
+    </body>
+</html>

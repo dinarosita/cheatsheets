@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React Conf2018</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React Hooks: Conf 2018</h1></a>
+    </header>
+
+    <main class="html_notes git_notes">
+
+      <section>
+        <h2>React Conf 2018</h2>
+        <p>
+          Source:
+          <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank"
+            >ReactJS - Introducing Hooks</a
+          >
+        </p>
+        <h3>New features</h3>
+        <ul>
+          <li>Hooks</li>
+          <li>refractor</li>
+        </ul>
+        <h3>Under construction at that time:</h3>
+        <ul>
+          <li>Suspense: pause any state update until the state is ready</li>
+          <li>Time slicing: React doesn't block the thread while rendering.</li>
+          <li>
+            Profiler: React dev tools extension to help debug react problem.
+            It's under React, beside element tab.
+          </li>
+        </ul>
+        <h3>Problems with current react (2018)</h3>
+        <ul>
+          <li>Reusing logic - Beacuse you often end up with wrapper hell</li>
+          <li>
+            Giant components - Because you have logic split up across different
+            life(?) cycle
+          </li>
+          <li>Confusing classes for butoh humans and machines.</li>
+        </ul>
+        <p>
+          Rather than 3 different problems, these are actually 3 symptoms of one
+          problem: React doesn't provide a <b>stateful primitive</b> simpler
+          than a <b>class component</b>.
+        </p>
+
+        <h3>Hooks</h3>
+        <p>The 3 things above</p>
+      </section>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+  </body>
+</html>

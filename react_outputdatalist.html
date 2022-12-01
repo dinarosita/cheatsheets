@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Output Data List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <header>
+            <a href="./index.html"><h1>React: Output a Data List</h1></a>
+        </header>
+        
+        <main class="html_notes git_notes">
+
+            <section>
+                <h2>Manual listing</h2>
+                
+                <p><code>AllMeetups.js</code></p>
+<pre class="formula-thin">
+function AllMeetupsPage() {
+    return (
+        &lt;section&gt;
+        &lt;h1&gt;All Meetups&lt;/h1&gt;
+        <span class="variable">{[&lt;li&gt;Item1&lt;/li&gt;, &lt;li&gt;Item2&lt;/li&gt;]}</span>
+        &lt;/section&gt;
+    );
+}
+</pre>
+                <p>Rendering</p>
+<pre class="formula-thin">
+All Meetups
+- Item1
+- Item2
+</pre>
+            </section>
+            <section>
+                <h2>Array listing</h2>
+                <p>notes</p></
+                <ul>
+                    <li>Each child in a list should have a unique key</li>
+                </ul>
+                <p><code>AllMeetups.js</code></p>
+<pre class="formula-thin">
+<span class="variable">const DUMMY_DATA = [</span>
+  {
+    id: "m1",
+    title: "This is a first meetup",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+    address: "Meetupstreet 5, 12345 Meetup City",
+    description:
+      "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+  },
+  {
+    id: "m2",
+    title: "This is a second meetup",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+    address: "Meetupstreet 5, 12345 Meetup City",
+    description:
+      "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+  },
+<span class="variable">];</span>
+
+function AllMeetupsPage() {
+    return (
+        &lt;section&gt;
+        &lt;h1&gt;All Meetups&lt;/h1&gt;
+        <span class="variable">{DUMMY_DATA.map((meetup) => {
+          return &lt;li key={meetup.id}&gt;{meetup.title}&lt;/li&gt;;
+        })}</span>
+        &lt;/section&gt;
+    );
+}
+</pre>
+                <p>Rendering</p>
+<pre class="formula-thin">
+All Meetups
+- This is a first meetup
+- This is a second meetup
+</pre>
+            </section>
+            <section>
+                <h2>Outsourced list</h2>
+                <p>In real situation, we want to outsource both the list as well as individual list item.</p>
+                <p>We need to structure the code differently and add styling. Creating component and adding component specific styling.</p>
+                <p>Create subfolder <code>meetups</code> for meetup specific codes</p>
+                <ul>
+                    <code>
+                        <li>&#128449; src &gt; components
+                            <ul>
+                                <li>&#128449; layout
+                                    <ul>
+                                        <li>MainNavigation.js</li>
+                                        <li>Main Navigation.css</li>
+                                    </ul>
+                                </li>
+                                <li class="variable">&#128449; meetups
+                                    <ul>
+                                        <li>MeetupItem.css</li>
+                                        <li>MeetupItem.js</li>
+                                        <li>MeetupList.css</li>
+                                        <li>MeetupList.js</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </code>
+                </ul>
+                <p><code>MeetupList.js</code></p>
+<pre class="formula-thin">
+<span class="variable">
+import MeetupItem from "./MeetupItem";
+import classes from "./MeetupList.module.css";</span>
+
+function MeetupList(props) {
+  return (
+    &lt;ul className={classes.list}&gt;
+      {props.meetups.map((meetup) =&gt; (
+        &lt;MeetupItem
+          key={meetup.id}
+          id={meetup.id}
+          image={meetup.image}
+          title={meetup.title}
+          address={meetup.address}
+          description={meetup.description}
+        /&gt;
+      ))}
+      &lt;/ul&gt;
+  );
+}
+
+export default MeetupList;
+
+</pre>
+                <p><code>MeetupItem.js</code></p>
+<pre class="formula-thin">
+<span class="variable">import classes from "./MeetupItem.module.css";</span>
+
+function MeetupItem(props) {
+    return &lt;li className={classes.item}&gt;
+        &lt;div className={classes.image}&gt;
+            &lt;img src={props.image} alt={props.title} /&gt;
+        &lt;/div&gt;
+        &lt;div className={classes.content}&gt;
+            &lt;h3&gt;{props.title}&lt;/h3&gt;
+            &lt;address&gt;{props.address}&lt;/address&gt;
+            &lt;p&gt;{props.description}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div className={classes.action}&gt;
+            &lt;button&gt;To Favourites&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+}
+
+export default MeetupItem;
+</pre>
+
+                <p><code>AllMeetups.js</code></p>
+<pre class="formula-thin">
+<span class="variable">
+import MeetupList from "../components/meetups/MeetupList";
+
+const DUMMY_DATA = [</span>
+  {
+    id: "m1",
+    title: "This is a first meetup",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+    address: "Meetupstreet 5, 12345 Meetup City",
+    description:
+      "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+  },
+  {
+    id: "m2",
+    title: "This is a second meetup",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+    address: "Meetupstreet 5, 12345 Meetup City",
+    description:
+      "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+  },
+<span class="variable">];</span>
+
+function AllMeetupsPage() {
+    return (
+        &lt;section&gt;
+            &lt;h1&gt;All Meetups&lt;/h1&gt;
+            <span class="variable">&lt;MeetupList meetups={DUMMY_DATA} /&gt;</span>
+        &lt;/section&gt;
+    );
+}
+</pre>
+                <p>Rendering</p>
+<pre class="formula-thin">
+All Meetups
+- This is a first meetup
+- This is a second meetup
+</pre>
+            </section>
+            
+            <section>
+                <h3>Glossary / Terminologies / Notes</h3>
+                <p>Dinamic data vs hard code</p>
+                <ul>
+                    <li>Dynamic data <code>{...}</code>
+                        <ul>
+                            <li><code>&lt;h3&gt;{props.title}&lt;/h3&gt;</code></li>
+                        </ul>
+                    </li>
+                    <li>Hard code <code>"..."</code>
+                        <ul>
+                            <li><code>&lt;h3&gt;TITLE&lt;/h3&gt;</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
+    </body>
+</html>

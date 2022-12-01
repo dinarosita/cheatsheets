@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Installation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    </head>
+    <body>
+
+        <!--Clickable Page Title-->
+        <header>    
+            <a href="./index.html"><h1>React: Installation</h1></a>
+        </header>
+        
+        <main class="html_notes git_notes">
+           
+            <section>
+                <h2>Installation</h2>
+
+                <p>Req: NodeJS</p>
+                <ul>
+                    <li><code>node -v (Checking node version, v19.1.0)</code></li>
+                </ul>
+
+                <p>VSCode</p>
+                <ul>
+                    <li>Default formatter: prettier<code>(ctrl-shift-I)</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Start project</h2>
+
+                <p>Terminal, target folder</p>
+                <ul>
+                    <li><code>npx create-react-app <span class="variable">app-name</span></code> - This will create the react folder</li>
+                    <li><code>cd <span class="variable">app-name</span></code></li>
+                    <li><code>npm start</code>
+                        <ul>
+                            <li>This will open browser at localhost:3000</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Open project folder in vscode and do <code>src</code> folder clean up into:</p>
+                <ul>                            
+                    <code>
+                        <li>src
+                            <ul>
+                                <li>App.js</li>
+                                <li>index.css</li>
+                                <li>index.js</li>
+                            </ul>
+                        </li>
+                    </code>
+                </ul>
+                <p>Trim codes in files into:</p>
+            
+                <ul>
+                    <li><code>index.js</code><br>
+<pre class="formula-thin">
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import './index.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;App /&gt;);
+</pre>
+                    </li>
+                    <li><code>App.js</code><br>
+<pre class="formula-thin">
+function App() {
+    return &lt;div&gt;Dina&lt;/div&gt;;
+}
+
+export default App;
+</pre>
+                    </li>
+                    <li><code>index.css</code> - Delete all, will entirely replaced by different css.</li>
+                </ul>
+
+                <p>Open terminal inside vscode, in the project folder</p>
+                <ul>
+                    <li><code>npm install</code>
+                        <ul>
+                            <li>This downloads all dependencies listed in package.json</li>
+                        </ul>
+                    </li>
+                    <li><code>npm start</code>
+                        <ul>
+                            <li>To bring up development server again</li>
+                            <li> keep it up and running, don't press ctrl-C</li>
+                        </ul>
+                    </li>
+                    <li><code>ctrl-C</code>
+                        <ul>
+                            <li>To close when done</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Routing</h2>
+                <ul>
+                    <li><code>npm install --save react-router-dom@5</code>
+                        <ul>
+                            <li>Install new dependency, intall new third party package into this project. Using npm install with package name added. the <code>@5</code> at the end ensure the correct version is used</li>
+                            <li>allow us to add routing functionality to react. Handle url and change what's visible on the screen without fetching new html pages.</li>
+                        </ul>
+                    </li>
+                    <li><code>package.json</code>: new entry was automatically updated with:
+                        <ul>
+                            <li><code>"dependencies": { ... "react-router-dom": "^5.3.4", ...}</code></li>                            
+                        </ul>
+                    </li>
+                    <li>Now if project is closed and open again and npm install is triggered again, router will automatically be installed as well because it's now a part of the project. (We don't need to do npm install separately from the moment earlier with router mentioning</li>
+                    <li><code>npm start</code>
+                        <ul>
+                            <li>to bring up development server</li>
+
+                        </ul><li>Now we can add routing. what does it mean exactly? we can add routing tool to our to our code we can have the thing watching url changes and we need to let this tool know which component should be loaded as a page for which route/url.</li>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+
+                <h2>Sources</h2>
+                <ul>
+                    <li><a href="https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146570#content" target="_blank">Udemy - NextJS - ReactJS - Starting new React project</a></li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+            <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+            <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+        </footer>      
+    </body>
+</html>
