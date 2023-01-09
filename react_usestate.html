@@ -20,23 +20,11 @@
       <nav id="navMenu"></nav>
     </header>
 
-    <main class="js_notes">
-        <article id="links">
-            <h2>Links</h2>
-            <ul>
-                <li>
-                        <a
-                        href="https://www.youtube.com/watch?v=O6P86uwfdR0"
-                        target="_blank"
-                        >Web Dev: Learn useState In 15 Minutes</a
-                        >
-                </li>
-                <li><a href="https://dinarosita.github.io/react-hooks" target="_blank">My learning</a></li>
-            </ul>
-            </article>
-        <article id="rules">
+    <main class="react_notes">
+        
+        <article id="basics">
 
-            <h2>useState rules</h2>
+            <h2>Basics</h2>
             <ul>
                 <li>
                     Must be used directly in the main body in component function. Top
@@ -50,86 +38,106 @@
                 <li>Can't be inside class.</li>
                 <li>Can't be nested or put in any wrapper.</li>
             </ul>
+            
+            <h3>My learning project</h3>
+            <ul>
+                <li>
+                        <ahref="https://www.youtube.com/watch?v=O6P86uwfdR0"
+                        target="_blank">Web Dev: Learn useState In 15 Minutes</a>
+                </li>
+                <li><a href="https://dinarosita.github.io/react-hooks" target="_blank">My learning</a></li>
+            </ul>
             <a href="#top"><hr></a>
-        </article>
+            </article>
         <article id="syntax">
 
             <h2>Syntax</h2>
 
+            <h3>Import from react</h3>
+            <pre class="formula">import <span class="variable">{ useState }</span> from <span class="variable">react</span>;</pre>    
+            
+            <h3>Function useState</h3>
+
+            <p><code>useState()</code> is a function.</p>
+            <pre class="formula">const [<span class="variable">state</span>, <span class="variable">setState</span>] = useState(<span class="variable">defaultState</span>)</pre>
+
+            <h4>Argument</h4>
+            <p>Argument: <code>(defaultState)</code></p>
+            
+            <p>Meaning the default state is 4. In our counter example, it will start at 4.</p>
+
+            <h4>Returns</h4>
+            <p>Always returns 2 values: <code>[state, setState]</code></p>
             <ul>
-            <li>
-                Don't forget to import fom <code>react</code>
-                <ul>
-                <li><code>import { useState } from react;</code></li>
-                </ul>
-            </li>
-            <li><code>useState()</code> is a function</li>
-            <li>
-                What will be passed to <code>usestate</code> (in the parenthesis) is
-                the "default state"
-                <ul>
-                <li><code>useState(4)</code></li>
-                <li>
-                    Meaning the default state is 4. In our counter example, it wll
-                    start at 4.
+                <li><code>state</code>: The <strong>current state</strong> at every iteration of our render function.</li>
+                <li><code>setState</code>: The <strong>function that updates</strong> the current state.
                 </li>
-                </ul>
-            </li>
-            <li>
-                <code>useState()</code> always returns an array with 2 values:
-                <ol>
-                <li>The current state</li>
-                <li>
-                    The function that will allow us to update the current state.
-                </li>
-                </ol>
-            </li>
-            <li>
-                So usually the return values are not caught as an array, but
-                destructured in line:
-                <ul>
-                <li>Not like this: <code>const arr = useState(4);</code></li>
-                <li>
-                    But like this:
-                    <code>const [count, setCount] = useState(4)</code>
-                </li>
-                </ul>
-            </li>
-            <li>Everytime we call the <code>setCount</code>, that happens upon clicking the + or - button, that trigger calling the decrement or increment function, where inside <code>setCount</code> will be called,  essentially our update function, we rerender our component, with the new value of our count. Just likewhat happen with <code>setState</code> inside a class component.     
-            </li>       
             </ul>
             
-            <p><code>app.js</code></p>
+            <p>Not caught as an array, but destructured in line.</p>
+                
+            <ul>
+                <li>Don't write: <code>const arr = useState(4);</code></li>
+                <li>
+                    Write:
+                    <code>const [count, setCount] = useState(4)</code>
+                </li>
+            </ul>
+
+            <h3>Trigger function</h3>
+
+<pre class="formula">
+function <span class="variable">triggerFn</span>() {
+    <span class="variable">setState</span>(<span class="variable">prevState</span> => <span class="variable"> ... prevState ... </span>);
+}
+</pre>
+            <p>Include trigger function for calling the <code>setState</code> function. Essentialy trigerring the rerendering of the component.</p>
+
+            <h3>Calling the trigger function</h3>
+<pre class="formula">
+return (
+    ...
+    &lt;button onclick={<span class="variable">triggerFn</span>}&gt;<span class="variable">Text</span>&lt;/button&gt;
+    ...
+)
+</pre>
+            <p>Make the function available for trigerring. For example, if it's a button, by using <code>onclick</code> on the html side.</p>
+                        
+            <h3>Example app.js</h3>
 <pre class="formula-thin">
-<span class="variable">import React, { <b>useState</b> } from "react";</span>
+import <span class="variable">React, { useState }</span> from <span class="variable">"react"</span>;
 
-function App() {
-    <span class="variable">const [<b>count</b>, <b>setCount</b>] = <b>useState(4)</b>;
+function <span class="variable">App</span>() {
+    const [<span class="variable"><b>count</b></span>, <span class="variable"><b>setCount</b></span>] = <span class="variable"><b>useState</b></span>(<span class="variable">4</span>);
 
-    function <b>decrementCount</b>() {
-        <b>setCount</b>(prevCount => prevCount - 1);
+    function <span class="variable">decrementCount</span>() {
+        <span class="variable"><b>setCount</b></span>(prevCount => prevCount - 1);
     }
 
-    function <b>incrementCount</b>() {
-        <b>setCount</b>(prevCount => prevCount + 1);
+    function <span class="variable">incrementCount</span>() {
+        <span class="variable"><b>setCount</b></span>(prevCount => prevCount + 1);
     }</span>
 
     return (
         &lt;div&gt;
-            &lt;button <span class="variable">onClick={<b>decrementCount</b>}</span>&gt;-&lt;/button&gt;
-            &lt;span&gt;<span class="variable"><b>{count}</b></span>&lt;/span&gt;
-            &lt;button <span class="variable">onClick={<b>incrementCount</b>}</span>&gt;+&lt;/button&gt;
+            &lt;button onClick={<span class="variable">decrementCount</span>}</span>&gt;<span class="variable">-</span>&lt;/button&gt;
+            &lt;span&gt;{<span class="variable"><b>count</b></span>}&lt;/span&gt;
+            &lt;button onClick={<span class="variable">incrementCount</span>}</span>&gt;<span class="variable">+</span>&lt;/button&gt;
         &lt;/div&gt;
     );
 }
 
-export default App;
+export default <span class="variable">App</span>;
 </pre>
-            
-            <p><code>Rendering (initial state only)</code></p>
+            <p>Life rendering: <a href="https://dinarosita.github.io/react-hooks" target="_blank">My learning project</a>. Initial state looks like this:</p>
 <pre class="formula-thin" style="font-size: 2rem;">
 <button style="font-size: 2rem;">-</button>4<button style="font-size: 2rem;">+</button>
 </pre>
+
+<p>Everytime we click <code>+</code> or <code>-</code> button, we call <code>incrementCount</code> or <code>decrementCount</code> function. From inside either function, <code>setCount</code> function is called. Essentialy this is our update state function. our component is rerendered with the new value of our count.</p>
+
+<p>In class component, same thing happens with <code>setState</code>.</p>
+
             <p>Explanations</p>
         <ul>
           <li>Use <code>onClick</code> on the buttons, with functions describe what the buttons need to do.</li>
