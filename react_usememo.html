@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React useMemo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React useMemo</h1></a>
+      <nav id="navMenu"></nav>
+    </header>
+
+    <main class="js_notes">
+      <article id="usememo">
+        <h2>useMemo</h2>
+
+        <p>
+          In component function, everything got rerendered when there's a
+          change. Including those which are not affected. This can create
+          unnecessary extra work, time, and memory. Hook <code>useMemo</code>,
+          with memo is a short of memoization, can cache values (for example
+          computed value and reference) from the last rendering. When there's no
+          change, the stored value will be used.
+        </p>
+
+        <p>This can be useful in 2 cases:</p>
+        <ul>
+          <li>Slow function</li>
+          <li>Reference based variables</li>
+        </ul>
+
+        <p>
+            Should I use it everytime? No, because it does open a new
+            function to be run each time and it takes memory to store the
+            data. Not a big deal when there's not many of it, but if it's
+            becoming habit to use everytime, it will burden overall operation
+            instead of being useful. Use it when needed.
+          </p>  
+        <p>
+            To use, don't forget to import <code>useMemo</code> from <code>react</code>.
+        </p>
+        <pre class="formula-thin">
+import { useState, useMemo } from "react";</pre
+        >
+
+        <a href="#top"><hr /></a>
+      </article>
+
+      <article id="slow-function">
+        <h2>Slow Function</h2>
+
+        <p>
+          Say there's a slow function in the function component. Even though
+          nothing changed related to the function, since every rendering
+          everything got rerendered, it will still be called and cause any
+          unrelated rendering slow.
+        </p>
+        <p>
+          Check
+          <a href="https://dinarosita.github.io/react-hooks" target="_blank"
+            >example page</a
+          >
+          for the results.
+        </p>
+        <pre class="formula-thin">
+<b>function UseMemoPage() {</b>
+    const [number, setNumber] = useState(0)
+    const [dark, setDark] = useState(false)
+    <b>const doubleNumber = slowFunction(number)</b>
+    const themeStyles = {
+        backgroundColor: dark ? "black" : "white",
+        color: dark ? "white" : "black"
+    }
+    return (...)
+<b>}</b>
+
+<b>function slowFunction(num) {</b>
+    console.log("Calling slow function")
+    for (let i = 0; i <= 2000000000; i++) {}
+    return num*2
+<b>}</b>
+</pre>
+        <p>
+          When <code>number</code> state is changed, it make sense for the
+          <code>slowFunction</code> is run, because it has to recalculate. But
+          when it's only the <code>dark</code> state is changed, the
+          <code>slowFunction</code> will run as well and slows down everything.
+        </p>
+
+        <p>Hook <code>useMemo</code> solve this problem. Instead of this:</p>
+        <pre class="formula-thin">
+const doubleNumber = slowFunction(number)
+</pre
+        >
+
+        <p>Use the <code>useMemo</code> like this:</p>
+        <ul>
+          <li>
+            <code>const doubleNumber</code> is a <code>useMemo</code> function
+          </li>
+          <li>
+            Write the slow function call as return:
+            <code>return slowFunction(number)</code>
+          </li>
+          <li>
+            Include the <code>number</code> as a dependancy:
+            <code>[number]</code>
+          </li>
+        </ul>
+
+        <pre class="formula-thin">
+const doubleNumber = useMemo(() => {
+    return slowFunction(number)
+}, [number])
+</pre
+        >
+        <p>Now changing theme works instantly.</p>
+        <a href="#top"><hr /></a>
+      </article>
+
+      <article id="referential-variable">
+        <h2>Referential variables like objects and arrays</h2>
+
+        <p>
+          Remember value vs reference in JS. When we compare object and array
+          variables in JS, we essentially compare their references instead of
+          their value. So even if they have same values, they won't be equal
+          since it's their references that get looked up. If we create them as a
+          constant in the component function, each run will regard them as
+          different new variable. In the case the value is actually changed than
+          that's how we want it. But in the case that there's no change
+          (rerendering is for other part of the component), we want no new
+          variable created. Hook <code>useMemo</code> can be used to helpl with
+          this.
+        </p>
+
+        <a href="#top"><hr /></a>
+      </article>
+
+      <article id="resources">
+        <h2>Resources</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=THL1OPn72vo"
+              target="_blank"
+              >Web Dev: Learn useMemo In 10 Minutes</a
+            >
+          </li>
+          <li>
+            <a href="https://dinarosita.github.io/react-hooks" target="_blank"
+              >Example page</a
+            >
+          </li>
+        </ul>
+      </article>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+    <script src="./navArticle.js"></script>
+  </body>
+</html>

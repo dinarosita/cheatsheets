@@ -73,13 +73,22 @@ function <span class="variable">functionName ()</span> {
 </pre>
                 </li>
             </ul>
+            <a href="#top"><hr></a>
+        </article>
+        <article id="types">
+            <h2>Types</h2>
 
-           <h3>__ hooks</h3>
-           <p>There are __ types of hooks:</p>
-           <ul>
-                <li><a href="./react_usestate.html">useState</a></li>
-                <li><a href="./react_useeffect.html">useEffect</a></li>
-            </ul>
+            <h3><a href="./react_usestate.html">useState</a></h3>
+
+            <p>When there's certain state that applies within a rendered page, and the state can be changed around, hook <code>useState</code> is used to manage this. <code>useState</code> always return 2 values in an array format: the current state and a function to change the state. An initial state can be included as a parameter.</p>
+
+            <h3><a href="./react_useeffect.html">useEffect</a></h3>
+
+            <p>When something is changed and that triggers something else to happen in respond of that, it's called side effect. Something that happen in respond of something. Hook <code>useEffect</code> function is used to handle this.</p>
+
+            <h3><a href="./react_usememo.html">useMemo</a></h3>
+
+            <p>In a function component, everything gets rerendered including those that doesn't need to change. If we have a slow but rarely used function, it will get rerendered as well each time, causing every render becoming slow unnecessarily. In this situation, we use hook <code>useMemo</code> (memoization). It's caching the computed value. Hook <code>useMemo</code> will only recompute the memoized value when one of the <code>deps</code> (dependancies) has changed. Otherwise, it will use the memoized value.</p>
 
             <a href="#top"><hr></a>
         </article>
