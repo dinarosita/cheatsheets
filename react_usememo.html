@@ -40,14 +40,15 @@
         </ul>
 
         <p>
-            Should I use it everytime? No, because it does open a new
-            function to be run each time and it takes memory to store the
-            data. Not a big deal when there's not many of it, but if it's
-            becoming habit to use everytime, it will burden overall operation
-            instead of being useful. Use it when needed.
-          </p>  
+          Should I use it everytime? No, because it does open a new function to
+          be run each time and it takes memory to store the value. Not a big
+          deal when there's not many of it, but if it's becoming habit to use
+          everytime, it will burden overall operation instead of being useful.
+          Use it when needed.
+        </p>
         <p>
-            To use, don't forget to import <code>useMemo</code> from <code>react</code>.
+          To use, don't forget to import <code>useMemo</code> from
+          <code>react</code>.
         </p>
         <pre class="formula-thin">
 import { useState, useMemo } from "react";</pre
@@ -132,16 +133,11 @@ const doubleNumber = useMemo(() => {
         <h2>Referential variables like objects and arrays</h2>
 
         <p>
-          Remember value vs reference in JS. When we compare object and array
-          variables in JS, we essentially compare their references instead of
-          their value. So even if they have same values, they won't be equal
-          since it's their references that get looked up. If we create them as a
-          constant in the component function, each run will regard them as
-          different new variable. In the case the value is actually changed than
-          that's how we want it. But in the case that there's no change
-          (rerendering is for other part of the component), we want no new
-          variable created. Hook <code>useMemo</code> can be used to helpl with
-          this.
+          An object/array variable which contain a reference instead of the
+          value itself. It is regarded as changing each rendering because a new reference is created each time even though the value within is
+          identical. Hook <code>useMemo</code> can be used to avoid this. Wrap
+          the whole object in useMemo's return, use the affecting variable as
+          dependency. As long as the depended variable hold the same value, the object/array variable will not be updated and creating different reference.
         </p>
 
         <a href="#top"><hr /></a>
