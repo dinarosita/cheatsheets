@@ -21,26 +21,127 @@
     </header>
 
     <main class="js_notes">
-      <article id="usecontext">
-        <h2>useContext</h2>
+      <article id="react-context">
+        <h2>React Context</h2>
+        <p>In React, <b>context</b> allowing a value to be made "global" to all their descendents.</p>
+        <p>Context can be made this way:</p>
+        <pre class="formula">const <span class="variable">ThemeContext</span> = React.createContext();</pre>
 
-        <p>
-          Explanation
-        </p>
+        <p>It can be made available throughout the app by exporting:</p>
+        <pre class="formula">export const <span class="variable">ThemeContext</span> = React.createContext();</pre>
 
-        <pre class="formula-thin">
-import { useState, useContext } from "react";</pre
-        >
+        <p>Using it as a "global" parent:</p>
+        <ul>
+            <li>Use <code>&lt;ContextName.Provider value=...&gt;</code> to wrap all the descendants</li>
+            <li>The provider has a single prop called <code>value</code>, that is the value that will be seen "globally" by all the descendants.</li>
+        </ul>
 
+<pre class="formula">
+return (
+    &lt;<span class="variable">ThemeContext</span>.Provider value={<span class="variable">darkTheme</span>}&gt;
+        ...
+    &lt;<span class="variable">ThemeContext</span>.Provider&gt;
+)
+</pre>
+
+        <p>Of course, don't forget to import the hook.</p>
+
+        <pre class="formula">
+import { <span class="variable">useContext</span> } from <span class="variable">"react"</span>;</pre>
+
+            <p>Overall, the js file will look like this:</p>
+<pre class="formula-thin">
+import <span class="variable">React</span>, { <span class="variable">useState</span> } from <span class="variable">"react"</span>;
+import <span class="variable">FunctionContextComponent</span> from <span class="variable">"./FunctionContextComponent"</span>;
+import <span class="variable">ClassContextComponent</span> from <span class="variable">"./ClassContextComponent"</span>;
+
+<b>export const <span class="variable">ThemeContext</span> = React.createContext();</b>
+
+<b>function <span class="variable">ThemeCase</span>() {</b>
+    const [<span class="variable">darkTheme</span>, <span class="variable">setDarkTheme</span>] = useState(true);
+
+    function <span class="variable">toggleTheme</span>() {
+        <span class="variable">setDarkTheme</span>((prevDarkTheme) => !prevDarkTheme);
+    }
+
+    <b>return (
+        &lt;<span class="variable">ThemeContext</span>.Provider value={<span class="variable">darkTheme</span>}&gt;</b>
+            &lt;p&gt;Theme: {<span class="variable">darkTheme</span> ? "Black" : "Gray"}&lt;/p&gt;
+            &lt;button onClick={<span class="variable">toggleTheme</span>}&gt;Toggle Theme&lt;/button&gt;
+            &lt;<span class="variable">FunctionContextComponent</span> /&gt;
+            &lt;<span class="variable">ClassContextComponent</span> /&gt;
+        <b>&lt;/<span class="variable">ThemeContext</span>.Provider&gt;
+    );
+}</b>
+
+<b>export default <span class="variable">ThemeCase</span>;</b>
+
+</pre>
+        
+        
         <a href="#top"><hr /></a>
       </article>
+      <article id="class-vs-function-component">
+        <h2>Class VS Function Context Component</h2>
+        <p>Both class component and function component can adopt the parental context. However using function component is much more simple.</p>
+        <ul>
+            <li>In function component, use <code>useContext</code> hook.</li>
+            <li>In class component, use <code>&lt;ContextName.Consumer&gt;</code> to wrap all the descendants. It's multilayer and more complex coding.</li>
+        </ul>
 
-      <article id="case1">
-        <h2>Case 1</h2>
+<p>Function Context Component:</p>
+<pre class="formula-thin">
+import <span class="variable">React</span>, { <span class="variable"><b>useContext</b></span> } from <span class="variable">"react"</span>;
+import { <span class="variable">ThemeContext</span> } from <span class="variable">"./ThemeCase"</span>;
 
-        <p>
-          Explanation
-        </p>
+<b>function <span class="variable">FunctionContextComponent</span>() {</b>
+    <b>const <span class="variable">darkTheme</span> = useContext(<span class="variable">ThemeContext</span>);</b>
+    const <span class="variable">themeStyles</span> = {
+        backgroundColor: <span class="variable">darkTheme</span> ? "#333" : "#CCC",
+        color: <span class="variable">darkTheme</span> ? "#CCC" : "#333",
+        padding: "2rem",
+    };
+    <b>return</b> &lt;div style={<span class="variable">themeStyles</span>}&gt;Function Theme&lt;/div&gt;;
+<b>}</b>
+
+export default <span class="variable">FunctionContextComponent</span>;
+</pre>
+
+<p>Class Context Component:</p>
+<pre class="formula-thin">
+import <span class="variable">React</span>, { <span class="variable"><b>Component</b></span> } from <span class="variable">"react"</span>;
+import { <span class="variable">ThemeContext</span> } from <span class="variable">"./ThemeCase"</span>;
+
+<b>class <span class="variable">ClassContextComponent</span> extends Component {</b>
+    <span class="variable">themeStyles</span>(<span class="variable">dark</span>) {
+        return {
+            backgroundColor: <span class="variable">dark</span> ? "#333" : "#CCC",
+            color: <span class="variable">dark</span> ? "#CCC" : "#333",
+            padding: "2rem"
+        }
+    }
+    <b>render() {
+        return (
+            &lt;<span class="variable">ThemeContext</span>.Consumer&gt;</b>
+                {<span class="variable">darkTheme</span> =&gt; {
+                    <b>return</b> &lt;div style={this.<span class="variable">themeStyles</span>(<span class="variable">darkTheme</span>)}&gt;Class Theme&lt;/div&gt;
+                }}
+            <b>&lt;/<span class="variable">ThemeContext</span>.Consumer&gt;
+        )
+    }
+}</b>
+
+export default ClassContextComponent;
+</pre>
+ 
+            <a href="#top"><hr /></a>
+        </article>
+
+        
+
+      <article id="resources">
+        <h2>Resources</h2>
+
         <p>
           Check
           <a href="https://dinarosita.github.io/react-hooks" target="_blank"
