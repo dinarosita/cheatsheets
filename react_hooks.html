@@ -21,6 +21,50 @@
     </header>
 
     <main class="react_notes">
+        <article id="types">
+            <h2>Types of React Hooks</h2>
+
+            By React version 18, there are 15 hooks. With these 15 hooks we can achieve similar functionality to a class-based component.
+
+            <h3><a href="./react_usestate.html">useState</a>: manage states</h3>
+
+            <p>When there's certain state that applies within a rendered page, and the state can be changed around, hook <code>useState</code> is used to manage this. <code>useState</code> always return 2 values in an array format: the current state and a function to change the state. An initial state can be included as a parameter.</p>
+
+            <h3><a href="./react_useeffect.html">useEffect</a>: perform side effects</h3>
+
+            <p>When something is changed and that triggers something else to happen in respond of that, it's called side effect. Something that happen in respond of something. Hook <code>useEffect</code> function is used to handle this.</p>
+
+            <h3><a href="./react_usememo.html">useMemo</a>: memoize last values for next rendering</h3>
+
+            <p>In a function component, everything gets rerendered including those that doesn't need to change. If we have a slow but rarely used function, it will get rerendered as well each time, causing every render becoming slow unnecessarily. In this situation, we use hook <code>useMemo</code> (memoization). It's caching the computed value. Hook <code>useMemo</code> will only recompute the memoized value when one of the <code>deps</code> (dependancies) has changed. Otherwise, it will use the memoized value.</p>
+
+            <h3><a href="./react_useref.html">useRef</a>: Persist values between renders</h3>
+            
+            <h3><a href="./react_usecontext.html">useContext</a>: Pass data and states through component tree</h3>
+
+            <h3><a href="./react_usereducer.html">useReducer</a>: Store and update states</h3>
+            <p><code>useReducer</code> is like <code>useState</code>, that it manages states and rerender component whenever the state changes. <code>useReducer</code> gives more concrete way to handle more complex function.  <code>useReducer</code> has very similar pattern and use with <code>redux</code>, but it takes away a lot of boiler plate from <code>redux</code>.</p>
+
+            <h3><a href="./react_usecallback.html">useCallback</a>: Cache function between rerendering. Like <code>useMemo</code>, but for functions.</h3>
+
+            <h3><a href="./react_uselayouteffect.html">useLayoutEffect</a>: </h3>
+
+            <h3><a href="./react_usetransition.html">useTransition</a>: </h3>
+
+            <h3><a href="./react_usedeferredvalue.html">useDeferredValue</a>: </h3>
+
+            <h3><a href="./react_useimperativehandle.html">useImperativeHandle</a>: </h3>
+            
+            <h3><a href="./react_usedebugvalue.html">useDebugValue</a>: </h3>
+
+            <h3><a href="./react_useid.html">useId</a>: </h3>
+
+            <h3><a href="./react_useinsertioneffect.html">useInsertionEffect</a>: </h3>
+
+            <h3><a href="./react_usesyncexternalstore.html">useSyncExternalStore</a>: </h3>
+
+            <a href="#top"><hr></a>
+        </article>
         <article id="basics">
 
             <h2>Basics</h2>
@@ -75,23 +119,7 @@ function <span class="variable">functionName ()</span> {
             </ul>
             <a href="#top"><hr></a>
         </article>
-        <article id="types">
-            <h2>Types</h2>
-
-            <h3><a href="./react_usestate.html">useState</a></h3>
-
-            <p>When there's certain state that applies within a rendered page, and the state can be changed around, hook <code>useState</code> is used to manage this. <code>useState</code> always return 2 values in an array format: the current state and a function to change the state. An initial state can be included as a parameter.</p>
-
-            <h3><a href="./react_useeffect.html">useEffect</a></h3>
-
-            <p>When something is changed and that triggers something else to happen in respond of that, it's called side effect. Something that happen in respond of something. Hook <code>useEffect</code> function is used to handle this.</p>
-
-            <h3><a href="./react_usememo.html">useMemo</a></h3>
-
-            <p>In a function component, everything gets rerendered including those that doesn't need to change. If we have a slow but rarely used function, it will get rerendered as well each time, causing every render becoming slow unnecessarily. In this situation, we use hook <code>useMemo</code> (memoization). It's caching the computed value. Hook <code>useMemo</code> will only recompute the memoized value when one of the <code>deps</code> (dependancies) has changed. Otherwise, it will use the memoized value.</p>
-
-            <a href="#top"><hr></a>
-        </article>
+        
         <article id="project">
             <h2>My Learning Project</h2>
             <ul>

@@ -133,9 +133,62 @@ import { <span class="variable">ThemeContext</span> } from <span class="variable
 
 export default ClassContextComponent;
 </pre>
- 
-            <a href="#top"><hr /></a>
+
+        <a href="#top"><hr /></a>
         </article>
+
+        
+
+      <article id="how-to">
+        <h2>How To</h2>
+        <p>One of many ways.</p>
+
+        <p>Start with 3 js files:</p>
+        <ul>
+            <li><code>TheApp.js</code>: The client
+                <ul>
+                    <li>This will be function component ready to be placed in HTML body.</li>
+                </ul>            
+            </li>
+            <li><code>ContextProvider.js</code>: The context provider. The context's mechanism.
+                <ul>
+                    <li>This will provide the context functionality. Imagine a switch button before get connected to anything.</li>
+                    <li>What's inside:
+                        <ul>
+                            <li>Create React context<br>
+                                <pre class="formula-thin">const ThemeContext = React.createContext()</pre>
+                                <ul>
+                                    <li>state context</li>
+                                    <li>update context</li>
+                                </ul>
+                            </li>
+                            <li>Create custom hook for easy use by context consumer
+                                <pre class="formula-thin">export function useTheme() {return useContext(ThemeContext)}</pre>
+                                <ul>
+                                    <li>state context</li>
+                                    <li>update context</li>
+                                </ul>
+                            </li>
+                            <li>Main provider function
+                                <ul>
+                                    <li>Creating state using <code>useState</code></li>
+                                    <li>Function to update the state</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Creating context state</li>
+                            <li>Updating the context state</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><code>ContextConsumer.js</code>: The context consumer. The context details.</li>
+        </ul>
+
+ 
+        <a href="#top"><hr /></a>
+    </article>
 
         
 

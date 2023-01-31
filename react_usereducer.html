@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React useReducer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React Hook: useReducer</h1></a>
+      <nav id="navMenu"></nav>
+    </header>
+
+    <main class="react_notes">
+      <article id="useReducer">
+        <h2>useReducer</h2>
+        <p>Hook <code>useReducer</code> is like <code>useState</code>, that it manages states and rerender component whenever the state changes. <code>useReducer</code> gives more concrete way to handle more complex function.  <code>useReducer</code> has very similar pattern and use with <code>redux</code>, but it takes away a lot of boiler plate from <code>redux</code>.</p>
+        <p>The coding is more complex   , but it gives a lot of control to the state. Changes can occur only in listed type of actions.</p>
+
+        <a href="#top"><hr /></a>
+    </article>
+
+    <article id="using-useReducer">
+        <h2>Using useReducer</h2>
+        <h3>Example: CountApp.js</h3>
+
+<pre class="formula-thin">
+import <span class="variable">React</span>, { <span class="variable">useReducer</span> } from "<span class="variable">react</span>";
+
+const <span class="variable">ACTIONS</span> = {
+    <span class="variable">INCREMENT</span>: "<span class="variable">increment</span>",
+    <span class="variable">DECREMENT</span>: "<span class="variable">decrement</span>"
+}
+
+function <span class="variable">reducer</span>(<span class="variable">state</span>, <span class="variable">action</span>) {
+  switch (<span class="variable">action.type</span>) {
+    case <span class="variable">ACTIONS.INCREMENT</span>:
+      return { <span class="variable">count: state.count + 1</span> };
+    case <span class="variable">ACTIONS.DECREMENT</span>:
+      return { <span class="variable">count: state.count - 1</span> };
+    default:
+      return <span class="variable">state</span>;
+  }
+}
+
+<b>function <span class="variable">CountApp</span>() {</b>
+  const [<span class="variable">state</span>, <span class="variable">dispatch</span>] = useReducer(<span class="variable">reducer</span>, <span class="variable">{ count: 0 }</span>);
+
+  function <span class="variable">increment</span>() {
+    <span class="variable">dispatch</span>({ <span class="variable">type: ACTIONS.INCREMENT</span> });
+  }
+
+  function <span class="variable">decrement</span>() {
+    dispatch({ <span class="variable">type: ACTIONS.DECREMENT</span> });
+  }
+
+  return (
+    &lt;div&gt;
+      &lt;button onClick={<span class="variable">decrement</span>}&gt;<span class="variable">-</span>&lt;/button&gt;
+      {<span class="variable">state.count</span>}
+      &lt;button onClick={<span class="variable">increment</span>}&gt;<span class="variable">+</span>&lt;/button&gt;
+    &lt;/div&gt;
+  );
+<b>}</b>
+
+export default <span class="variable">CountApp</span>;
+</pre>
+
+        <a href="#top"><hr /></a>
+    </article>
+    <article id="breakdown">
+        <h2>Breakdown</h2>           
+        <h3>Hook useReducer</h3>
+
+<pre class="formula">const [<span class="variable">state</span>, <span class="variable">dispatch</span>] = useReducer(<span class="variable">reducer</span>, <span class="variable">{ count: 0 }</span>)</pre>
+
+            <p>Hook <code>useReducer</code> takes 2 parameters:<p>
+
+            <ul>
+                <li><code>reducer</code> function that we perform to our state to get a new state</li>
+                <li>Initial value. Typically written as an object because typically reducer is used for a complex operation.<br>
+                    <pre class="formula-thin">useReducer(<span class="variable">reducer</span>, <span class="variable">0</span>)</pre></li>
+            </ul>
+
+            <p>Hook <code>useReducer</code> returns 2 values:<p>
+
+            <ul>
+                <li><code>state</code>
+                    <ul>
+                        <li>If initial value is the direct value, use the state name such as <code>count</code></li>
+                    </ul>
+                </li>
+                <li><code>dispatch</code> function: Function that we call to update our state. It will call the <code>reducer</code> function (first parameter of the hook) given certain parameters.</li>
+            </ul>
+
+            <h3>Function reducer</h3>
+
+<pre class="formula">
+function <span class="variable">reducer</span>(<span class="variable">state</span>, <span class="variable">action</span>) {
+    <span class="variable">... switch cases...</span>
+}
+</pre>
+            <p>Function reducer takes 2 parameters:</p>
+            <ul>
+                <li>Current <code>state</code></li>
+                <li><code>action</code>, which what we pass to dispatch function</li>
+            </ul>
+
+            <p>Function reducer codes:</p>
+            <ul>
+                <li>In typical use, there will be more than one type of action we can choose to perform. We can organize this using <code>switch</code>-<code>case</code> statements.</li>
+                <li>Each <code>case</code> represent one action type, written as:
+                    <ul>
+                        <li><code>case ACTIONS.INCREMENT</code> - if the action types are organized as an object</li>
+                        <li><code>case "increment"</code> - if the action types are left as their string variable names </li>
+                    </ul>
+            </ul>
+
+<pre class="formula-thin">
+function <span class="variable">reducer</span>(<span class="variable">state</span>, <span class="variable">action</span>) {
+  switch (<span class="variable">action.type</span>) {
+    case <span class="variable">ACTIONS.INCREMENT</span>:
+      return { <span class="variable">count: state.count + 1</span> };
+    case <span class="variable">ACTIONS.DECREMENT</span>:
+      return { <span class="variable">count: state.count - 1</span> };
+    default:
+      return <span class="variable">state</span>;
+  }
+}
+</pre>
+
+<pre class="formula-thin">
+function <span class="variable">reducer</span>(<span class="variable">state</span>, <span class="variable">action</span>) {
+  switch (<span class="variable">action.type</span>) {
+    case "<span class="variable">increment</span>":
+      return { <span class="variable">count: state.count + 1</span> };
+    case "<span class="variable">decrement</span>":
+      return { <span class="variable">count: state.count - 1</span> };
+    default:
+      return <span class="variable">state</span>;
+  }
+}
+</pre>
+
+            <h3>Action types</h3>
+            <p>In our example, there are 2 actions: <code>"increment"</code> and <code>"decrement"</code>. We can leave the variable name as strings like in the <code>useState</code> example. However for the typical and more complex use, rather than hardcode the variable here and there, action types should be organized tidily in an object. This will make it very clear what our options are, nothing mysterious, and not prone to typing error.</p>
+
+            <pre class="formula">
+const <span class="variable">ACTIONS</span> = {
+    <span class="variable">INCREMENT</span>: "<span class="variable">increment</span>",
+    <span class="variable">DECREMENT</span>: "<span class="variable">decrement</span>"
+}
+</pre>
+
+            <h3>Dispatch function</h3>
+
+            <p>This hook is typically used to handle more than 1 type of action. When we call the dispatch function, what we call it with, will be set as <code>action</code> variable for function reducer. Current <code>state</code> will be used as state variable, and dispatch function will return new current state.</p>
+            <p>
+<pre class="formula">
+function <span class="variable">increment</span>() {
+    <span class="variable">dispatch</span>({ <span class="variable">type: ACTIONS.INCREMENT</span> });
+}
+</pre>
+<pre class="formula">
+function <span class="variable">increment</span>() {
+    <span class="variable">dispatch</span>({ <span class="variable">type: "increment"</span> });
+}
+</pre>
+        <a href="#top"><hr /></a>
+    </article>
+    <article id="compare-useState">
+        <h2>Comparison with useState</h2>
+<pre class="formula-thin">
+function <span class="variable">IncrementUseState</span>() {
+  const [<span class="variable">number</span>, <span class="variable">setNumber</span>] = useState(<span class="variable">0</span>);
+    
+  function <span class="variable">increment</span>() {
+    <span class="variable">setNumber</span>((prevNumber) => prevNumber + 1);
+  }
+    
+  function <span class="variable">decrement</span>() {
+    <span class="variable">setNumber</span>((prevNumber) => prevNumber - 1);
+  }
+    
+  return (
+    &lt;div&gt;
+      &lt;button onClick={<span class="variable">decrement</span>}&gt;-&lt;/button&gt;
+      {<span class="variable">number</span>}
+      &lt;button onClick={<span class="variable">increment</span>}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</pre>
+
+<a href="#top"><hr /></a>
+</article>
+<article id="todo-app">
+    <h2>Todo App</h2>      
+    
+    <h3>Input box</h3>
+    <p>First, we are creating an <code>input</code> box that's capturing user's typing. Using <code>useState</code> hook, the text typed in the box is kept as a <code>state</code>, initialized with <code>""</code>. Input box's <code>onChange</code> is used to detect each keystroke, and <code>setState</code> function update the state dinamically, each keystrokeas change detected. At this stage, the text are only prepared, but not stored yet, in the actually todo list.</p>
+
+<pre class="formula-thin">
+<b>function</b> <span class="variable">App</span>() {
+  const [<span class="variable">task</span>, <span class="variable">setTask</span>] = <b>useState</b>("");
+  ...
+  <b>return</b> (
+    &lt;form ...&gt;
+      &lt;<b>input</b> 
+        type="<span class="variable">text</span>"
+        value={<span class="variable">task</span>}
+        onChange={<span class="variable">(e) =&gt; setTask(e.target.value)</span>}
+      /&gt;
+    &lt;/form&gt;
+  );
+}
+</pre>
+
+    <h3>Submit form</h3>
+    <p>Place <code>onSubmit</code> functionality in the <code>form</code> element. Pressing enter upon typing in the <code>input</code> box triggers this. Say the onSubmit function name is <code>handleSubmit</code>.</p>
+    <ul>
+        <li>Include <code>dispatch</code> function call inside this function. Pass the action type for the dispatch as <code>type</code> and arguments as an propName: value object in <code>payload</code>.</li>
+        <li>Prevent default of refreshing the whole page (then list will be gone). Include <code>e</code> as the function parameter.</li>
+        <li>Set task back to <code>""</code>.</li>
+    </ul>
+
+<pre class="formula-thin">
+<b>function</b> <span class="variable">App</span>() {
+  ...
+  <b>function</b> <span class="variable">handleSubmit</span>(<span class="variable">e</span>) {
+    e.preventDefault();
+    <b>dispatch</b>({ type: <span class="variable">ACTIONS.ADD_TODO</span>, payload: <span class="variable">{item: item}</span> });
+    setItem("");
+  }
+  <b>return</b> (
+    &lt;<b>form onSubmit</b>={<span class="variable">handleSubmit</span>}&gt;
+      &lt;input ... /&gt;
+    &lt;/form&gt;
+  );
+}
+</pre>
+
+<h3>Create and manage todo list with useReducer</h3>
+<p>Use <code>useReducer</code> to create and manage <code>todos</code>, the array of the task list.</p>
+<ul>
+    <li>Use <code>useReducer</code> to create and manage todo list array</li>
+    <li>Const <code>ACTIONS</code> to organize types of actions</li>
+    <li>Function <code>reducer</code> with <code>state</code> and <code>action</code> property
+        <ul>
+            <li>Organize the type of actions using <code>switch case</code> system.</li>
+            <li>Don't forget <code>default</code> returning <code>state</code>.</li>
+        </ul>
+    </li>    
+</ul>
+
+<pre class="formula-thin">
+const <span class="variable">ACTIONS</span> = {
+    <span class="variable">ADD_TODO: "add-todo"</span>,
+    ...
+}
+
+function <span class="variable">reducer</span>(<span class="variable">todos</span>, <span class="variable">action</span>) {
+    switch(<span class="variable">action.type</span>) {
+        case <span class="variable">ACTIONS.ADD_TODO</span>:
+            return ...;
+        default:
+            return <span class="variable">todos</span>;
+    }
+}
+
+function <span class="variable">App</span>(){
+    const [<span class="variable">todos</span>, <span class="variable">dispatch</span>] = useReducer(<span class="variable">reducer</span>, <span class="variable">[]</span>)
+    ...
+    return (
+        ...
+    )
+}
+</pre>
+
+<h3>Action 1: Add new task to the todo list</h3>
+<p>Make case 1 of the reducer action type functioning. In this case, <code>return</code> an array with:</p>
+<ul>
+    <li>Existing array items</li>
+    <li>New array item created using a create item function, taking the task name passed as payload as argument. The function is returning an object with at least 2 properties:
+        <ul>
+            <li>id, generated from date now. Id is important for future identifier for handling array items</li>
+            <li>task name, using the value of the passed payload</li>
+            <li>additional properties such as complete marking to identify which task is completed.</li>
+        </ul>
+    </li>
+</ul>
+
+<pre class="formula-thin">
+function <span class="variable">reducer</span>(<span class="variable">todos</span>, <span class="variable">action</span>) {
+    switch(<span class="variable">action.type</span>) {
+        case <span class="variable">ACTIONS.ADD_TODO</span>:
+            return [<span class="variable">...todos</span>, <span class="variable">createTask</span>(<span class="variable">action.payload.task</span>)];
+        ...
+    }
+}
+
+function <span class="variable">createTask</span>(<span class="variable">task</span>) {
+    return {
+        <span class="variable">id: Date.now(),
+        task: task,
+        complete: false</span>
+    }
+} 
+</pre>
+
+<h3>Display the todo list</h3>
+<p>In most simple way, we can display the list of task items.</p>
+<pre class="formula-thin">
+function <span class="variable">App</span>() {
+    ...
+    return (
+        &lt;div&gt;
+            ...
+            <b>&lt;ul&gt;
+                {<span class="variable">todos</span>.map(<span class="variable">e</span> =&gt; {
+                    return &lt;li&gt;{<span class="variable">e.task</span>}&lt;/li&gt;
+                })}
+            &lt;/ul&gt;</b>
+        &lt;/div&gt;
+    )
+}
+   
+</pre>
+        <a href="#top"><hr /></a>
+      </article>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto">Home</a>
+    </footer>
+    <script src="./navArticle.js"></script>
+  </body>
+</html>

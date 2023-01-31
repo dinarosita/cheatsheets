@@ -183,6 +183,12 @@ hr {
     max-width: 95%;
 }
 
+.hr-soft {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;    
+}
+
 table {
     margin: var(--bumper) 0;
     text-align: left;

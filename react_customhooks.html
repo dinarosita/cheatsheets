@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Custom Hooks</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>Create Custom React Hooks</h1></a>
+      <nav id="navMenu"></nav>
+    </header>
+
+    <main class="js_notes">
+      <article id="custom_hooks">
+        <h2>Creating Custom Hooks</h2>
+
+            <p>General convention</p>
+            <ul>
+                <li>Create custom hook with <code>use</code> prefix like other hooks. This prefix allows react to do extra ** and error checking to make sure the codes working as expected. Let's use <code>useCustom</code> as example.</li>
+                <li>Create file: <code>useCustom.js</code></li>
+                <li>Create function: <code>function useCustom() {...} </code></li>
+            </ul>
+
+            <a href="#top"><hr></a>
+        </article>
+
+        <article id="useLocalStorage">
+            <h2>Custom hook: useLocalStorage</h2>
+
+            <div>
+                <p>Imagine <code>useState</code> hook, but with ability to persist value between page refresh. This will involve data storage and there's no react built in hook for it. Coding in the app can be done, however since this is a common functionality, a more effective way is to create a custom hook, that in the main app can written as simple as using normal format for <code>useState</code>.</p>
+                <hr class="hr-soft">
+            </div>
+            
+
+            <div>
+                <h3>Set MainApp</h3>
+
+                <p>Set MainApp  similar to using <code>useState</code>, but use the custom hook <code>useLocalStorage</code> we are going to create instead.</p>
+                <p>Details</p>
+                <ul>
+                    <li>Hook name: <code>useLocalStorage</code></li>
+                    <li>Additional parameter <code>key</code>, set value to <code>"name</code>.</li>
+                </ul>
+
+                <p>Comparison with <code>useState</code></p>
+                <ul>
+                    <li><code>const [name, setName] = useState("")</code></li>
+                    <li><code>const [name, setName] = useLocalStorage("name", "")</code></li>
+                </ul>
+                
+<pre><code>MainApp.js</code></pre>
+<pre class="formula-thin">
+function <span class="variable">MainApp</span>() {
+    const [<span class="variable">name</span>, <span class="variable">setName</span>] = <span class="variable">useLocalStorage</span>(<span class="variable">"name"</span>, "")
+    return (
+        &lt;input
+            type="<span class="variable">text</span>"
+            value={<span class="variable">name</span>}
+            onChange={<span class="variable">e</span> => <span class="variable">setName</span>(<span class="variable">e.target.value</span>) 
+        /&gt;
+    )
+}
+</pre>
+    
+                <hr class="hr-soft">
+            </div>
+            <div>
+                <h3>Create useState mimic: useLocalStorage</h3>
+
+                <p>First, create custom hook in its own js file as a function with regular <code>useState functionality.</code> This hook is pretty much a wrapped <code>useState</code> function, and can be used in the place of <code>useState</code> in the MainApp.</p>
+    
+                <ul>
+                    <li>File: <code>useLocalStorage.js</code> file</li>
+                    <li>Function: <code>useLocalStorage</code></li>
+                    <li>Parameter: <code>initialValue</code></li>
+                    <li>Code within: the typical <code>useState</code> declaration, but taking in <code>initialValue</code></li>
+                    <li>Return mimicking <code>useState</code>'s: <code>[value, setValue]</code></li>
+                </ul>
+    
+                <pre><code>useLocalStorage.js</code></pre>
+                <pre class="formula-thin">
+function <span class="variable">useLocalStorage</span>(<span class="variable">initialValue</span>) {
+    const [<span class="variable">value</span>, <span class="variable">setValue</span>] = useState(<span class="variable">initialValue</span>);
+    return [<span class="variable">value</span>, <span class="variable">setValue</span>];
+}
+</pre>
+                <p>At this point, the custom hook only works like <code>useState</code>, doesn't have data persisting and taking data back from storage ability yet.</p>
+                
+                <hr class="hr-soft">
+            </div>
+
+            <div>
+           
+                <h3>Create getSavedValue function</h3>
+
+                <h4>Create the function and set the parameter</h4>
+                
+                <p>Create function <code>getSavedValue</code> for retrieving our saved value. This function uses parameter <code>key</code> to locate the stored data wanted.</p>
+
+                <ul>
+                    <li>Location: <code>useLocalStorage.jss</code></li>
+                    <li>Parameters: <code>key</code> and <code>initialValue</code>.</li>
+                </ul>
+            
+            <pre><code>useLocalStorage.js</code></pre>
+            <pre class="formula-thin">
+function <span class="variable"><b>getSavedValue</b></span>(<span class="variable"><b>key</b></span>, <span class="variable">initialValue</span>) {
+    ...
+}
+</pre>
+
+                <p>This <code>key</code> needs to be passed all the way from the <code>MainApp</code></p>
+                <ul>
+                    <li>Add parameter to <code>useLocalStorage</code> function: <code>key</code></li>
+                    <li>Add key value to the <code>useLocalStorage</code> declaration in the main app: <code>"name"</code> string.</li>
+                </ul>
+
+                <pre><code>useLocalStorage.js</code></pre>
+            <pre class="formula-thin">
+function <span class="variable">useLocalStorage</span>(<span class="variable"><b>key</b></span>, <span class="variable">initialValue</span>) {
+    ...
+}
+</pre>
+ 
+<pre><code>MainApp.js</code></pre>
+<pre class="formula-thin">
+function <span class="variable">MainApp</span>() {
+    const [<span class="variable">name</span>, <span class="variable">setName</span>] = <span class="variable">useLocalStorage</span>(<span class="variable"><b>"name"</b></span>, "")
+}</pre>
+
+                <h4>Code getting stored value functionality</h4>
+                <ul>
+                    <li>Get what was stored at key location: <code>localStorage.getItem(key)</code></li>
+                    <li>Convert above to JSON: </code><code>JSON.parse(...)</code></li>
+                    <li>Keep as a constant: <code>const savedValue = ...</code></li>
+                    <li>If there's a previously saved value, return that saved value: <code>if (savedValue) return savedValue</code></li>
+                    <li>Otherwise: <code>return initialValue</code></li>
+                </ul>
+
+                <h4>Make it able to take function as initial state</h4>
+                <p>To mimic <code>useState</code> functionality fully, remember that <code>useState</code> can take not only value, but also function:</p>
+                <ul>
+                    <li><code>const [value, setValue] = useState(() => {...}))</code></li>
+                </ul>
+                
+                <p>So we need to check whether the <code>initialValue</code> is a function. If so, we want to call it as return:</p>
+                <ul>
+                    <li><code>if (initialValue instanceof Function) return initialValue()</code></li>
+                </ul>
+
+            <pre class="formula-thin">
+function <span class="variable">getSavedValue</span>(<span class="variable">key</span>, <span class="variable">initialValue</span>) {
+    const <span class="variable">savedValue</span> = JSON.parse(localStorage.getItem(<span class="variable">key</span>))
+    if (savedValue) return savedValue;
+    if (initialValue instanceof Function) return initialValue();
+    return initialValue;
+}
+</pre>
+
+                <h4>Set it renders only at the beginning</h4>
+
+                <p>JSON parse of local storage is quite a slow action. And we don't need this to run in every single rerendering. We only need to check for persistence value upon page refresh. For that, <code>useState</code> is modified as follow.</p>
+<pre class="formula-thin">  
+function <span class="variable">useLocalStorage</span>(<span class="variable">key</span>, <span class="variable">initialValue</span>) {
+    const [<span class="variable">value</span>, <span class="variable">setValue</span>] = useState(() => {
+        return <span class="variable">getSavedValue</span>(<span class="variable">key</span>, <span class="variable">initialValue</span>)
+    })
+  return [<span class="variable">value</span>, <span class="variable">setValue</span>]
+}
+</pre>
+                <hr class="hr-soft">
+            </div>
+
+            <div>
+                <h3>Update and save value with useEffect</h3>
+                <p>Easiest way is to use <code>useEffect</code></p>
+                <pre class="formula-thin">useEffect(() => {code}, [dependencies])</pre>
+                <p>Coding</p>
+                <ul>
+                    <li>We want useEffect to save the value to local storage: <code>localStorage.setItem()</code></li>
+                    <li>Pass the key and value as parameters: <code>...setItem(key, value)</code></li>
+                    <li>We want to do this only when value changes. Set value as dependency: <code>useEffect(() => {...}, [value])</code></li>
+                    <li>We need to stringify the value because we can only keep string value in local storage: <code>...setItem(key, JSON.stringify(value))</code></li>
+                </ul>
+                <pre class="formula-thin">
+useEffect(() => {
+    localStorage.setItem(<span class="variable">key</span>, JSON.stringify(<span class="variable">value</span>))
+}, [<span class="variable">value</span>])</pre>
+                <hr class="hr-soft">
+            </div>
+
+            <div>
+                <h3>Final codes</h3>
+                <h4>Regular useState</h4>
+
+                <pre><code>MainApp.js</code></pre>
+                <pre class="formula-thin">
+import React, { useState } from "react";
+
+export default function InputRegular() {
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  return (
+    &lt;div&gt;
+      &lt;input
+        type="text"
+        value={name}
+        placeholder="Type name"
+        onChange={(e) =&gt; setName(e.target.value)}
+      /&gt;
+      &lt;p&gt;Name: {name}&lt;/p&gt;
+      &lt;input
+        type="text"
+        value={address}
+        placeholder="Type name"
+        onChange={(e) =&gt; setAddress(e.target.value)}
+      /&gt;
+      &lt;p&gt;Address: {address}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+
+                <h4>Custom useLocalStorage</h4>
+                <pre><code>MainApp.js</code></pre>
+                <pre class="formula-thin">
+import React from "react";
+import useLocalStorage from "./useLocalStorage";
+
+export default function InputPersistance() {
+  const [name, setName] = useLocalStorage("name", () => "");
+  const [address, setAddress] = useLocalStorage("address", () => "");
+  return (
+    &lt;div&gt;
+      &lt;input
+        type="text"
+        value={name}
+        placeholder="Type name"
+        onChange={(e) =&gt; setName(e.target.value)}
+      /&gt;
+      &lt;p&gt;Name: {name}&lt;/p&gt;
+      &lt;input
+        type="text"
+        value={address}
+        placeholder="Type address"
+        onChange={(e) =&gt; setAddress(e.target.value)}
+      /&gt;
+      &lt;p&gt;Address: {address}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+                <pre><code>useLocalStorage.js</code></pre>
+                <pre class="formula-thin">
+import React, { useEffect, useState } from 'react'
+
+function getSavedValue(key, initialValue) {
+    const savedValue = JSON.parse(localStorage.getItem(key))
+    if (savedValue) return savedValue;
+    if (initialValue instanceof Function) return initialValue();
+    return initialValue; 
+}
+
+export default function useLocalStorage(key, initialValue) {
+    const [value, setValue] = useState(() => {
+        return getSavedValue(key,initialValue)
+    })
+    useEffect(() => {
+        localStorage.setItem(key, JSON.stringify(value))
+    }, [value])
+  return [value, setValue]
+}</pre>
+
+                <hr class="hr-soft">
+            </div>
+
+            <div>
+                <h3>Usage</h3>
+                
+                <p>Open local storage in <code>Application</code> tab</p>
+                <ul>
+                    <li>Application > Storage > Local Storage > http://localhost:3000</li>
+                    <li>Key: name, Value: ""</li>
+                </ul>
+
+                <p>Upon changing value in input box, the value is local storage is updated (by that, kept). When refreshing the page, this value is retained and therefore value is applied when the page load again.</p>
+                <ul>
+                    <li>Key: name, Value: "Dina"</li>
+                    <li>Key: address, Value: "Picton St."</li>
+                </ul>
+
+                <p>The hook code might be a bit complicated, but it's all wrapped inside the custom hook that can be used in a very simple manner just like the regular <code>useState</code> hook. The only thing different is the additional key parameter, and this is a very minor addition. Just like the hook <code>useState</code>, this hook can be used multiple times in the MainApp.</p>
+            </div>
+                
+
+
+            </div>
+            <a href="#top"><hr></a>
+        </article>
+
+
+
+      <article id="resources">
+        <h2>Resources</h2>
+        <ul>
+          <li>
+            <a
+              href="https://youtu.be/6ThXsUwLWvc?list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h"
+              target="_blank"
+              >Web Dev: Learn Custom Hooks In 10 Minutes</a
+            >
+          </li>
+          <li>
+            <a href="https://dinarosita.github.io/react-hooks" target="_blank"
+              >Example page</a
+            >
+          </li>
+        </ul>
+      </article>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+    <script src="./navArticle.js"></script>
+  </body>
+</html>
