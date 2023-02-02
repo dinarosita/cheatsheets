@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React useLayoutEffect</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React useLayoutEffect</h1></a>
+      <nav id="navMenu"></nav>
+    </header>
+
+    <main class="js_notes">
+      <article id="useLayoutEffect">
+        <h2>useLayoutEffect</h2>
+
+        <p>
+            <code>useLayoutEffect</code> is similar to <code>useEffect</code>, except it happens
+            synchronously, between DOM calculation and screen painting, so the layout effects it creates will be taken into account into the painting of the screen. <code>useEffect</code> happens asynchronously and get incorporated anytime handy. Therefore if the side effect is on the layout, it might cause a layout jump especially when it's slow.
+          </p>
+          <p>
+            This hook can be useful for when the side effect matters for the layout, but could be slow. So only use when it's needed.
+          </p>
+
+        <p>Further note is in the <a href="https://dinarosita.github.io/react-hooks" target="_blank">example page</a>.</p>
+
+        <p>Syntax is similar to <code>useEffect</code>.</p>
+
+      <article id="resources">
+        <h2>Resources</h2>
+        <ul>
+          <li>
+            <a
+              href="https://youtu.be/wU57kvYOxT4?list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h"
+              target="_blank"
+              >Web Dev: Learn useLayoutEffect In 5 Minutes</a
+            >
+          </li>
+          <li>
+            <a href="https://dinarosita.github.io/react-hooks" target="_blank"
+              >Example page</a
+            >
+          </li>
+        </ul>
+      </article>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+    <script src="./navArticle.js"></script>
+  </body>
+</html>
