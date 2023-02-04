@@ -23,7 +23,6 @@
     <main class="js_notes">
       <article id="usememo">
         <h2>useMemo</h2>
-
         <p>
           In component function, everything got rerendered when there's a
           change. Including those which are not affected. This can create
@@ -31,6 +30,21 @@
           with memo is a short of memoization, can cache values (for example
           computed value and reference) from the last rendering. When there's no
           change, the stored value will be used.
+        </p>
+
+        <pre class="formula">
+const <span class="variable">lastReturn</span> = useMemo(() => {
+    <span class="variable">...</span>
+    return <span class="variable">theReturn</span>
+}, [dependencies])</pre>
+
+        <p>
+          How it works: the codes inside <code>useMemo</code> is only run when
+          there is change in <code>dependencies</code>. In this case,
+          <code>theReturn</code> value will be memoized as
+          <code>lastReturn</code>. In the case there's no change in the
+          <code>dependencies</code>, the memoized<code>lastReturn</code> value
+          will be used.
         </p>
 
         <p>This can be useful in 2 cases:</p>
@@ -134,10 +148,13 @@ const doubleNumber = useMemo(() => {
 
         <p>
           An object/array variable which contain a reference instead of the
-          value itself. It is regarded as changing each rendering because a new reference is created each time even though the value within is
+          value itself. It is regarded as changing each rendering because a new
+          reference is created each time even though the value within is
           identical. Hook <code>useMemo</code> can be used to avoid this. Wrap
           the whole object in useMemo's return, use the affecting variable as
-          dependency. As long as the depended variable hold the same value, the object/array variable will not be updated and creating different reference.
+          dependency. As long as the depended variable hold the same value, the
+          object/array variable will not be updated and creating different
+          reference.
         </p>
 
         <a href="#top"><hr /></a>

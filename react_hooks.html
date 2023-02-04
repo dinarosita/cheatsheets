@@ -21,30 +21,26 @@
     </header>
 
     <main class="react_notes">
-      <article id="types">
-        <h2>Types of React Hooks</h2>
+      <article id="useState">
+        <h2>
+          <a href="./react_usestate.html">useState</a>
+        </h2>
 
-        By React version 18, there are 15 hooks. With these 15 hooks we can
-        achieve similar functionality to a class-based component.
-
-        <h3>
-          <a href="./react_usestate.html">useState</a>: create and update states
-        </h3>
+        <p class="tagline">Create and update states</p>
 
         <pre
           class="formula"
         >const [<span class="variable">state</span>, <span class="variable">setState</span>] = useState(<span class="variable">initialValue</span>)</pre>
+
+        <p><code>useState</code> is a hook that create states and manage updates to it. <code>useState</code> always returns 2 values: the new <code>state</code> and function <code>setState</code> that update the state. An <code>initialValue</code> can be added as a parameter. This value will be used upon page refresh. While for the subsequent rendering, latest <code>state</code> value will be used. Until <code>setState</code> set a new <code>state</code> value. And so on.</p>
+
+        <p>T</p>
 
         <p>
           How it works: Constant state is created with an initial value, and
           setState is a function that will update state everytime it is called.
         </p>
 
-        <pre class="formula-thin">
-function <span class="variable">Zero</span>() {<span class="variable">setNumber</span>(<span class="variable">0</span>)}
-function <span class="variable">increment</span>() {<span class="variable">setCount</span>(<span class="variable">preCount</span> => <span class="variable">prevCount + 1</span>)}
-&lt;button onClick={() => <span class="variable">setCount</span>((<span class="variable">c</span>) => <span class="variable">c + 1</span>)}&gt<span class="variable">Increment</span>&lt;/button&gt;
-</pre>
 
         <p>
           When there's certain state that applies within a rendered page, and
@@ -55,30 +51,66 @@ function <span class="variable">increment</span>() {<span class="variable">setCo
           be a value or a function call.
         </p>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useEffect">
+        <h2>
           <a href="./react_useeffect.html">useEffect</a>: perform side effects
           based on changing dependencies
-        </h3>
+        </h2>
 
         <pre
           class="formula"
         >useEffect(() => {<span class="variable">...codes...</span>}, [<span class="variable">dependencies</span>])</pre>
 
         <p>
-          How it works: The codes run only when any of the dependencies changes.
+          This hook is for triggering side effect to happen in respond to
+          changes in its dependencies.
         </p>
 
         <p>
-          When something is changed and that triggers something else to happen
-          in respond of that, it's called side effect. Something that happen in
-          respond of something. Hook <code>useEffect</code> function is used to
-          handle this.
+          The codes run asynchronously to the rendering, allowing the main
+          rendering to be done without waiting side effect to finish.
         </p>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useLayoutEffect">
+        <h2>
+          <a href="./react_uselayouteffect.html">useLayoutEffect</a>: Similar to
+          useEffect but for layout that must execute before the painting of the
+          screen
+        </h2>
+        <p>
+          <code>useLayoutEffect</code> is similar to <code>useEffect</code>,
+          except it happens synchronously, between DOM calculation and screen
+          painting, so the layout effects it creates will be taken into account
+          into the painting of the screen. <code>useEffect</code> happens
+          asynchronously and get incorporated anytime handy. Therefore if the
+          side effect is on the layout, it might cause a layout jump especially
+          when it's slow.
+        </p>
+        <p>
+          This hook can be useful for when the side effect matters for the
+          layout, but could be slow. So only use when it's needed.
+        </p>
+
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useMemo">
+        <h2>
           <a href="./react_usememo.html">useMemo</a>: memoize last values for
           next rendering
-        </h3>
+        </h2>
+
+        <pre class="formula">
+const <span class="variable">lastReturn</span> = useMemo(() => {
+    <span class="variable">...</span>
+    return <span class="variable">theReturn</span>
+}, [dependencies])</pre>
 
         <p>
           In a function component, everything gets rerendered including those
@@ -91,20 +123,32 @@ function <span class="variable">increment</span>() {<span class="variable">setCo
           will use the memoized value.
         </p>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useRef">
+        <h2>
           <a href="./react_useref.html">useRef</a>: Persist values between
           renders
-        </h3>
+        </h2>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useContext">
+        <h2>
           <a href="./react_usecontext.html">useContext</a>: Pass data and states
           through component tree
-        </h3>
+        </h2>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useReducer">
+        <h2>
           <a href="./react_usereducer.html">useReducer</a>: Store and update
           states
-        </h3>
+        </h2>
         <p>
           <code>useReducer</code> is like <code>useState</code>, that it manages
           states and rerender component whenever the state changes.
@@ -114,133 +158,94 @@ function <span class="variable">increment</span>() {<span class="variable">setCo
           <code>redux</code>.
         </p>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useCallback">
+        <h2>
           <a href="./react_usecallback.html">useCallback</a>: Cache function
           between rerendering. Like <code>useMemo</code>, but for functions.
-        </h3>
+        </h2>
 
-        <h3>
-          <a href="./react_uselayouteffect.html">useLayoutEffect</a>: Similar to useEffect but happen before the painting of the screen
-        </h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useTransition">
+        <h2>
+          <a href="./react_usetransition.html">useTransition</a>: Hook to make
+          react app faster and more responsive to improve user experience
+        </h2>
+
         <p>
-            <code>useLayoutEffect</code> is similar to <code>useEffect</code>, except it happens
-            synchronously, between DOM calculation and screen painting, so the layout effects it creates will be taken into account into the painting of the screen. <code>useEffect</code> happens asynchronously and get incorporated anytime handy. Therefore if the side effect is on the layout, it might cause a layout jump especially when it's slow.
-          </p>
-          <p>
-            This hook can be useful for when the side effect matters for the layout, but could be slow. So only use when it's needed.
-          </p>
+          It works by giving priority to tasks within the function, so the
+          higher priority one doesn't need to wait the lower priority one. It
+          will render them separately.
+        </p>
 
-        <h3><a href="./react_usetransition.html">useTransition</a>:</h3>
+        <p>
+          Only use this hook when it's absolutely needed, because this hook
+          cause much more rendering than normal. Can unnecesarrily burdening if
+          not actually needed. Only use it when running into performance issue.
+        </p>
 
-        <h3><a href="./react_usedeferredvalue.html">useDeferredValue</a>:</h3>
+        <pre class="formula">
+const [isPending, startTransition] = useTransition()</pre
+        >
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useReferredValue">
+        <h2><a href="./react_usedeferredvalue.html">useDeferredValue</a>:</h2>
+        <p>
+          This hook improve sluggishness and responsiveness by bunching up state
+          changes together. Say we have input box that capture change every key
+          stroke and every change trigger response. This can be unnecessarily
+          too frequent. Using <code>useDeferredValue</code>, state changes can
+          be collected until it's handy for react to render together. For using,
+          just wrap the wanted state like this:
+        </p>
+
+        <pre
+          class="formula"
+        >const <span class="variable">deferredState</span> = useDeferredValue(<span class="variable">state</span>)</pre>
+
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useImperativeHandle">
+        <h2>
           <a href="./react_useimperativehandle.html">useImperativeHandle</a>:
-        </h3>
+        </h2>
 
-        <h3><a href="./react_usedebugvalue.html">useDebugValue</a>:</h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useDebugValue">
+        <h2><a href="./react_usedebugvalue.html">useDebugValue</a>:</h2>
 
-        <h3><a href="./react_useid.html">useId</a>:</h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useId">
+        <h2><a href="./react_useid.html">useId</a>:</h2>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useInsertionEffect">
+        <h2>
           <a href="./react_useinsertioneffect.html">useInsertionEffect</a>:
-        </h3>
+        </h2>
 
-        <h3>
+        <a href="#top"><hr /></a>
+      </article>
+      
+      <article id="useSyncExternalStore">
+        <h2>
           <a href="./react_usesyncexternalstore.html">useSyncExternalStore</a>:
-        </h3>
+        </h2>
 
-        <a href="#top"><hr /></a>
-      </article>
-      <article id="basics">
-        <h2>Basics</h2>
-        <h3>Only call hooks from react function</h3>
-
-        <p>
-          React hooks can only be used inside a
-          <strong>function component</strong>.
-        </p>
-
-        <p>
-          It can't be used in a class component. Class component already has
-          their own thing to do what hooks do in function component.
-        </p>
-        <p>Function vs class component:</p>
-        <ul>
-          <li>
-            Function component:<br />
-            <pre class="formula-thin">
-function <span class="variable">functionName ()</span> { ... }
-</pre>
-          </li>
-          <li>
-            Class component:<br />
-            <pre class="formula-thin">
-class <span class="variable">className</span> extends <span class="variable">React.component</span> { ... }
-</pre>
-          </li>
-        </ul>
-
-        <h3>Only call hooks at the top level</h3>
-
-        <p>
-          Read:
-          <a href="https://reactjs.org/docs/hooks-rules.html" target="_blank"
-            >Hooks rules</a
-          >
-        </p>
-
-        <p>
-          Everytime function runs, the hooks must be executed exactly the same
-          order. Only call hooks at <strong>top level</strong> Meaning they
-          can't be inside loops, conditions, or nested functions.
-        </p>
-
-        <ul>
-          <li>
-            Correct:<br />
-            <pre class="formula-thin">
-function <span class="variable">functionName ()</span> { 
-    useState()
-    useState()
-    useState()
-}
-</pre>
-          </li>
-          <li>
-            Wrong:<br />
-            <pre class="formula-thin">
-function <span class="variable">functionName ()</span> { 
-    if (this == something) {
-        useState()
-    }    
-    useState()
-    useState()
-}
-
-// React hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render.
-</pre>
-          </li>
-        </ul>
-        <a href="#top"><hr /></a>
-      </article>
-
-      <article id="project">
-        <h2>My Learning Project</h2>
-        <ul>
-          <li>
-            <a
-              href="https://www.youtube.com/watch?v=O6P86uwfdR0"
-              target="_blank"
-              >Web Dev: Learn useState In 15 Minutes</a
-            >
-          </li>
-          <li>
-            <a href="https://dinarosita.github.io/react-hooks" target="_blank"
-              >My learning</a
-            >
-          </li>
-        </ul>
         <a href="#top"><hr /></a>
       </article>
     </main>

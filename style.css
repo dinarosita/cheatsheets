@@ -1518,3 +1518,9 @@ a[href^="tel"]::before {
 .git_notes h3 {
     text-align: left;
 }
+
+.tagline {
+    color: cadetblue;
+    font-weight: bold;
+    font-size: larger;
+}

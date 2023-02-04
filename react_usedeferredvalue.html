@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>React useTransition</title>
+    <title>React useDeferredValue</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
@@ -16,27 +16,17 @@
   <body>
     <!--Clickable Page Title-->
     <header>
-      <a href="./index.html"><h1>React useTransition</h1></a>
+      <a href="./index.html"><h1>React useDeferredValue</h1></a>
       <nav id="navMenu"></nav>
     </header>
 
     <main class="js_notes">
-      <article id="useTransition">
-        <h2>useTransition</h2>
+      <article id="useDeferredValue">
+        <h2>useDeferredValue</h2>
 
-        <p>Hook to make react app faster and more responsive to improve user experience.</p>
+        <p>This hook improve sluggishness and responsiveness by bunching up state changes together. Say we have input box that capture change every key stroke and every change trigger response. This can be unnecessarily too frequent. Using <code>useDeferredValue</code>, state changes can be collected until it's handy for react to render together. For using, just wrap the wanted state like this:</p>
 
-        <p>It works by giving priority to tasks within the function, so the higher priority one doesn't need to wait the lower priority one. It will render them separately.</p>
-
-        <p>Only use this hook when it's absolutely needed, because this hook cause much more rendering than normal. Can unnecesarrily burdening if not actually needed. Only use it when running into performance issue.</p>
-
-        <pre class="formula">const [<span class="variable">isPending</span>, <span class="variable">startTransition</span>] = useTransition()</pre>
-
-        <p>Returns 2 values:</p>
-        <ul>
-            <li>1st value <code>isPending</code>: What to do/display instead in the case of calculation not ready yet</li>
-            <li>2nd value <code>startTransition</code>: To wrap the low priority procedure.</li>
-        </ul>
+        <pre class="formula">const <span class="variable">deferredState</span> = useDeferredValue(<span class="variable">state</span>)</pre>
 
         <p>Further note is in the <a href="https://dinarosita.github.io/react-hooks" target="_blank">example page</a>.</p>
 
@@ -45,9 +35,9 @@
         <ul>
           <li>
             <a
-              href="https://youtu.be/N5R6NL3UE7I?list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h"
+              href="https://youtu.be/jCGMedd6IWA?list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h"
               target="_blank"
-              >Web Dev: React 18 useTransition Hook Crash Course</a
+              >Web Dev: React 18 useDeferredValue Hook Crash Course</a
             >
           </li>
           <li>
