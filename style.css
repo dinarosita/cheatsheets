@@ -1524,3 +1524,9 @@ a[href^="tel"]::before {
     font-weight: bold;
     font-size: larger;
 }
+
+.paratitle {
+    color: cadetblue;
+    font-weight: bold;
+    margin-bottom: 0;
+}

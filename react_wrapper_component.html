@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React Wrapper Component</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./img/keyboard-5-16.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Clickable Page Title-->
+    <header>
+      <a href="./index.html"><h1>React: Wrapper Component</h1></a>
+    </header>
+
+    <main class="wrapper">
+      <section>
+        <h2>Wrapper Component</h2>
+        <p>Wrapper component is a component that we can use to wrap around another component to give them certain feature. It's very handy to apply a style that is used frequently accross the website. For example, styling content box and border, and cards.</p>
+
+        <h3>Children</h3>
+        <p>To pass all the components wrapped within the wrapper, use <code>children</code> prop. It's a build in prop by react which mean to pass all the content that is wrapper with the wrapper.</p>
+        
+        <p class="paratitle">Card.js</p>
+        <pre class="formula-thin">import classes from "./Card.module.css"
+
+function Card(props) {
+  return (
+    &lt;div className={classes.card}&gt;
+      {props.children}
+    &lt;/div&gt;
+  )
+}</pre>
+<br />
+        <p class="paratitle">MainApp.js</p>
+        <pre class="formula-thin">import Card from "../ui/Card"
+
+function MainApp() {
+  return (    
+    &lt;Card>
+      &lt;h1>Title&lt;/h1>
+      &lt;p>First paragraph&lt;/p>
+      &lt;p>Second paragraph&lt;/p>
+    &lt;/Card>
+  );
+}</pre>
+      </section>
+    </main>
+    <footer>
+      <a href="#top" class="nav-button-rev" style="margin: auto">Top</a>
+      <a href="./index.html" class="nav-button-rev" style="margin: auto"
+        >Home</a
+      >
+    </footer>
+  </body>
+</html>
